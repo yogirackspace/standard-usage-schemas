@@ -4,11 +4,11 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:usage="http://docs.rackspace.com/usage/v1"
+    xmlns:usage="http://docs.rackspace.com/usage/core"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/usage/v1">
+    targetNamespace="http://docs.rackspace.com/usage/core">
 
     <element name="usage" type="usage:Usage"/>
 
