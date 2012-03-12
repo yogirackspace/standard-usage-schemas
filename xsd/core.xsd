@@ -10,7 +10,7 @@
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://docs.rackspace.com/usage/v1">
 
-    <element name="usage" type="Usage"/>
+    <element name="usage" type="usage:Usage"/>
 
     <complexType name="Usage">
         <annotation>
