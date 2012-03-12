@@ -23,17 +23,109 @@
         <sequence>
             <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
         </sequence>
-        <attribute name="ver" type="xsd:string" fixed="1" use="required"/>
-        <attribute name="tenantId" type="xsd:string" use="required"/>
-        <attribute name="serviceName" type="xsd:string" use="required"/>
-        <attribute name="resourceId" type="xsd:string" use="required"/>
-        <attribute name="usageId"    type="usage:UUID" use="required"/>
-        <attribute name="eventType" type="xsd:string" use="required"/>
-        <attribute name="dataCenter" type="xsd:string" use="required"/>
-        <attribute name="region" type="xsd:string" use="required"/>
-        <attribute name="startTime" type="usage:UTCTime" use="required"/>
-        <attribute name="endTime" type="usage:UTCTime" use="optional"/>
-        <attribute name="resourceName" type="xsd:string" use="optional"/>
+        <attribute name="ver" type="xsd:string" fixed="1" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The format version.  This schema validates with version = 1.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="tenantId" type="xsd:string" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies the tenant ID.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="serviceName" type="xsd:string" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies the product.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="resourceId" type="xsd:string" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies an instance of the product.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="usageId"    type="usage:UUID" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        A GUID identifying the usage record.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="eventType" type="usage:EventType" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies the type of event. For example
+                        Create, Exists, Update, Delete.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="dataCenter" type="xsd:string" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies the datacenter of the resource.
+                        For example DFW3.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="region" type="xsd:string" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Identifies the region.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="startTime" type="usage:UTCTime" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        UTC, ISO Format start time.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="endTime" type="usage:UTCTime" use="optional">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        UTC, ISO Format end time.  For an EXISTs
+                        event, the startTime and endTime reflect the
+                        usage duriation for the resource instance.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="resourceName" type="xsd:string" use="optional">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Customer defined name for the resource.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
     </complexType>
 
     <simpleType name="UUID">
@@ -67,6 +159,23 @@
         <restriction base="xsd:dateTime" vc:minVersion="1.0" vc:maxVersion="1.1"/>
         <restriction base="xsd:dateTimeStamp" vc:minVersion="1.1">
             <assertion test="ends-with($value,'Z') or ends-with($value,'+00:00') or ends-with($value,'-00:00')"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="EventType">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The type of usage event.  Possible values are
+                    CREATE, EXISTS, UPDATE, DELETE.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="CREATE"/>
+            <enumeration value="EXISTS"/>
+            <enumeration value="UPDATE"/>
+            <enumeration value="DELETE"/>
         </restriction>
     </simpleType>
 </schema>
