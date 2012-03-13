@@ -13,7 +13,9 @@
     <monitor:usage version="1">
         <monitor:label>TestLabel</monitor:label>
         <monitor:type>TestType</monitor:type>
-        <monitor:monitoring_zones_poll>z1</monitor:monitoring_zones_poll>
+        <monitor:monitoring_zones_poll>a</monitor:monitoring_zones_poll>
+        <monitor:monitoring_zones_poll>b</monitor:monitoring_zones_poll>
+        <monitor:monitoring_zones_poll>c</monitor:monitoring_zones_poll>
         <monitor:number_checks>23</monitor:number_checks>
         <monitor:disabled>false</monitor:disabled>
     </monitor:usage>
