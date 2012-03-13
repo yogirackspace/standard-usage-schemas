@@ -23,6 +23,9 @@
     <import namespace="http://docs.rackspace.com/usage/nova"
             schemaLocation="nova.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/monitoring"
+            schemaLocation="monitoring.xsd"/>
+
     <!--
         The right type is selected based on the version.
     -->
