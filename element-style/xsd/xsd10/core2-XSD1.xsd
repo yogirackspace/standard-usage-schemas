@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://docs.rackspace.com/usage/core">
+
+    <include schemaLocation="../core2.xsd"/>
+
+    <!-- Define the element for XSD 1.0 clients -->
+    <element name="usage" vc:minVersion="1.0" vc:maxVersion="1.1">
+        <complexType>
+            <complexContent>
+                <restriction base="usage:UsageV2">
+                    <sequence>
+                        <element name="tenantId" type="xsd:string" minOccurs="1"/>
+                        <element name="serviceName" type="xsd:string" minOccurs="1"/>
+                        <element name="resourceId" type="xsd:string" minOccurs="1"/>
+                        <element name="usageId" type="usage:UUID" minOccurs="1"/>
+                        <element name="eventType" type="usage:EventType" minOccurs="1"/>
+                        <element name="dataCenter" type="xsd:string" minOccurs="1"/>
+                        <element name="region" type="xsd:string" minOccurs="1"/>
+                        <element name="startTime" type="usage:UTCTime" minOccurs="1"/>
+                        <element name="endTime" type="usage:UTCTime" minOccurs="0"/>
+                        <element name="resourceName" type="xsd:string" minOccurs="0"/>
+                        <element name="foo" type="xsd:string" minOccurs="1"/>
+                        <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                    </sequence>
+                    <attribute name="version" type="xsd:string" use="required" fixed="2"/>
+                </restriction>
+            </complexContent>
+        </complexType>
+    </element>
+</schema>

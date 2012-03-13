@@ -1,0 +1,17 @@
+<usage xmlns="http://docs.rackspace.com/usage/core"
+       xmlns:nova="http://docs.rackspace.com/usage/nova"
+       version="1">
+    <tenantId>12334</tenantId>
+    <serviceName>Compute</serviceName>
+    <resourceId>4a2b42f4-6c63-11e1-815b-7fcbcf67f549</resourceId>
+    <usageId>560490c6-6c63-11e1-adfe-27851d5aed13</usageId>
+    <eventType>CREATE</eventType>
+    <dataCenter>DFW</dataCenter>
+    <region>Dallas</region>
+    <startTime>2012-03-12T11:51:11Z</startTime>
+    <endTime>2012-03-12T11:52:00Z</endTime>
+    <resourceName>MyServer</resourceName>
+    <nova:usage version="1">
+        <nova:memory>256</nova:memory>
+    </nova:usage>
+</usage>
