@@ -21,7 +21,7 @@
                 </html:p>
             </documentation>
         </annotation>
-        <attribute name="ver" type="xsd:string" fixed="1" use="required"/>
+        <attribute name="version" type="xsd:string" fixed="1" use="required"/>
         <attribute name="memory" type="xsd:int" use="required">
             <annotation>
                 <documentation>

@@ -23,11 +23,12 @@
         <sequence>
             <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
         </sequence>
-        <attribute name="ver" type="xsd:string" fixed="1" use="required">
+        <attribute name="version" type="xsd:string" fixed="1" use="required">
             <annotation>
                 <documentation>
                     <html:p>
-                        The format version.  This schema validates with version = 1.
+                        The format version.  This particular schema
+                        only validates with version = 1.
                     </html:p>
                 </documentation>
             </annotation>
