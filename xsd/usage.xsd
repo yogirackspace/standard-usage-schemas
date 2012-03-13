@@ -12,12 +12,24 @@
         This schema provides a place to include/import relevant XSDs
         and defines the current usage element.
     -->
+    <include schemaLocation="core.xsd"/>  <!-- Loads Usage Version 1 -->
+    <include schemaLocation="core2.xsd"/> <!-- Loads Usage Version 2 -->
 
-    <include schemaLocation="core.xsd"/>
+    <!-- Core annotations declared here -->
     <include schemaLocation="core-annotations.xsd"/>
+
+
+    <!-- Load Product Schema -->
     <import namespace="http://docs.rackspace.com/usage/nova"
             schemaLocation="nova.xsd"/>
 
-    <element name="usage" type="usage:UsageV1"/>
+    <!--
+        The right type is selected based on the version.
+    -->
+    <element name="usage" type="usage:UsageBase">
+        <alternative test="xsd:integer(@version) = 1" type="usage:UsageV1"/>
+        <alternative test="xsd:integer(@version) = 2" type="usage:UsageV2"/>
+        <alternative type="xsd:error"/>
+    </element>
 
 </schema>
