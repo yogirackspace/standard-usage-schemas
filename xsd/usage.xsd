@@ -16,14 +16,14 @@
     <include schemaLocation="core2.xsd"/> <!-- Loads Usage Version 2 -->
 
     <!-- Core annotations declared here -->
-    <include schemaLocation="core-annotations.xsd"/>
+    <include schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
     <import namespace="http://docs.rackspace.com/usage/nova"
-            schemaLocation="nova.xsd"/>
+            schemaLocation="ProductExtensionExample-Nova.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/monitoring"
-            schemaLocation="monitoring.xsd"/>
+            schemaLocation="ProductExtensionExample-MaaS.xsd"/>
 
     <!--
         The right type is selected based on the version.

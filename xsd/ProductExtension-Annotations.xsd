@@ -15,7 +15,7 @@
             <documentation>
                 <html:p>
                     Annotations associated with product schema
-                    attributes and elements.
+                    attributes.
                 </html:p>
             </documentation>
         </annotation>
@@ -36,6 +36,7 @@
             <enumeration value="NONE"/>
             <enumeration value="SUM"/>
             <enumeration value="AVG"/>
+            <enumeration value="MAX"/>
         </restriction>
     </simpleType>
 </schema>

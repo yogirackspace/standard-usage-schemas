@@ -14,7 +14,7 @@
         <annotation>
             <documentation>
                 <html:p>
-                    Nova specific user fields.
+                    MaaS specific user fields.
                 </html:p>
             </documentation>
         </annotation>
