@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  This is an example product schema.
+
+  You can use this as a template when desinging your own schema.
+
+  SOME XML BASICS 
+
+  (skip to defining namespace if you're not new to XML):
+
+  When I say element, I mean an XML element like this:   <element />
+  If I say that the element has an attribute  named a with a value 10: I mean this:  <element a="10"/>
+  
+  The XML schema is just an XML document.  It must be well formed which means that all elements must be correctly closed...
+
+  <element> </element>
+
+  or if the element is empty:
+
+  <element />
+
+  Attribute values must be enclosed in either single or double quotes
+
+  <element a='value'/>  CORRECT
+  <element a="value"/>  CORRECT
+  <elemest a=value />   BAD.
+
+  Elements can live in a namespace. The namespace is used to prevent elements from clashing with one another.
+  You specify a namesapce with the xmlns attribute.
+
+  <element xmlns="http://rackspace.com/myElement"/>
+
+  You typically use a hostname that you own in a URI to prevent clashes.  Since multiple namespaces may
+  be used in a single XML elements, these namespaces can be assciated with a prefix, this prefix must be 
+  used in the element for that namespace:
+
+  <my:element xmlns:my="http://rackspace.com/myElement"/>
+
+  or 
+
+  <the:element xmlns:the="http://rackspace.com/myElement"/>
+
+  Note that, <element /> and <my:element />  and <the:element /> are exactly the same because they are bound to the same prefix.
+
+
+  XML schema can be used to define an element and its related attributes.  The first step is to define a namespace for that element.
+
+
+  DEFINING A NAMESPACE:
+
+  You must define a namespace for your product, which is a URI, you should also assign that URI to a prefix.
+  We assume this is a Widget as a service product:
+
+  namespace:  http://docs.rackspace.com/usage/widget
+  prefix: widget
+
+  The namespace needs to be unique accorss all products.  THe prefix doesn't.
+
+  In the schema element below you introduce your prefix with an xmlns attribute
+
+  xmlns:widget="http://docs.rackspace.com/usage/widget"
+
+  You introduce your namespace with the targetNamespace attribute
+  
+  targetNamespace="http://docs.rackspace.com/usage/widget"
+
+  Notice both point to the same URI, it's the URI itself that defines the namespace.
+-->
+
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:widget="http://docs.rackspace.com/usage/widget"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://docs.rackspace.com/usage/widget">
+
+
+    <!--
+        Now you define an element.  You may define the element as simply usage as below.
+        The element type must be something you define, the type must be in your namespace
+        hence the prefix
+    -->
+    <element name="usage" type="widget:WidgetUsage"/>
+
+
+    <!--
+        Here you define the actual usage complex type is simply a collection of attributes.
+    -->
+    <complexType name="WidgetUsage">
+        <annotation>
+            <documentation>
+                <!-- A description of the usage type.-->
+                <html:p>
+                    Nova specific user fields.
+                </html:p>
+            </documentation>
+        </annotation>
+        <!--
+            There must be a required version attribute.  The attribute
+            should have a fixed value, indicating the version of the
+            schema.
+
+            You can submit differnent schema versions.
+        -->
+        <attribute name="version" type="xsd:string" fixed="1" use="required"/>
+        <!--
+            From this point formart you can have as many custom attributes as you need.
+            The attributes must have a unique name.
+
+            The type may be any XML schema types: xsd:int, xsd:string,
+            xsd:boolean, xsd:double, xsd:dateTime, etc.
+
+            There's a full list of supported types here:
+            http://www.w3.org/TR/xmlschema-2/#built-in-datatypes
+
+            The use attribute can be optional or required.
+        -->
+        <attribute name="memory" type="xsd:int" use="required">
+            <annotation>
+                <documentation>
+                    <!--
+                        The following is a description of the
+                        attribute. This is required.
+                    -->
+                    <html:p>
+                        The amount of memory for the current usage.
+                    </html:p>
+                </documentation>
+                <appinfo>
+                    <!--
+                        Finally, you need to describe how the
+                        attribute is processed.  All of these
+                        attributes are optional.
+
+                        aggregate-function: can be one of: NONE, SUM, AVG, MAX
+                        if you leave out NONE is assumed.
+
+                        display-name: is a human readable name, if you leave it out the name of the attribute is used.
+
+                        unit-of-measure:  can be one of BYTES, MEGABYTES, GIGABYTES, SECONDS, MINUTES, HOURS, COUNT
+
+                        group:  can be true of false.  If true this attribute is grouped with other attributes that contain a value of true.
+                    -->
+                    <usage:attributes aggregate-function="SUM" display-name="memory" unit-of-measure="MEGABYTES"/>
+                </appinfo>
+            </annotation>
+        </attribute>
+    </complexType>
+</schema>
