@@ -5,6 +5,8 @@
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
@@ -153,6 +155,21 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <assert vc:minVersion="1.1" test="if (@eventType eq 'EXTENDED') then child::*/@eventType else true()"
+                        xerces:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product data."
+                        saxon:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product date.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the eventType is equal to
+                                'EXTENDED' then the product attributes
+                                should contain an eventType element,
+                                which will contain the actual
+                                eventType.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>
@@ -208,6 +225,7 @@
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>
             <enumeration value="UNSUSPEND"/>
+            <enumeration value="EXTENDED"/>
         </restriction>
     </simpleType>
 </schema>
