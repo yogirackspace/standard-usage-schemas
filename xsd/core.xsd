@@ -80,31 +80,46 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="eventType" type="usage:EventType" use="required">
+                <attribute name="eventType" type="usage:EventType" use="optional" default="EXISTS">
                     <annotation>
                         <documentation>
                             <html:p>
                                 Identifies the type of event. For example
-                                Create, Exists, Update, Delete.
+                                CREATE, EXISTS, UPDATE, DELETE, SUSPEND, UNSUSPEND.
+                            </html:p>
+                            <html:p>
+                                The use of the attribute is optional,
+                                however, if the attribute is not
+                                specified "EXISTS" will be assumed.
                             </html:p>
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="dataCenter" type="xsd:string" use="required">
+                <attribute name="dataCenter" type="xsd:string" use="optional" default="global">
                     <annotation>
                         <documentation>
                             <html:p>
                                 Identifies the datacenter of the resource.
                                 For example DFW3.
                             </html:p>
+                            <html:p>
+                                The use of the attribute is optional,
+                                however, if the attribute is not
+                                specified "global" will be assumed.
+                            </html:p>
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="region" type="xsd:string" use="required">
+                <attribute name="region" type="xsd:string" use="optional" default="global">
                     <annotation>
                         <documentation>
                             <html:p>
                                 Identifies the region.
+                            </html:p>
+                            <html:p>
+                                The use of the attribute is optional,
+                                however, if the attribute is not
+                                specified "global" will be assumed.
                             </html:p>
                         </documentation>
                     </annotation>
