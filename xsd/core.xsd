@@ -53,7 +53,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="serviceName" type="xsd:string" use="required">
+                <attribute name="serviceCode" type="xsd:string" use="required">
                     <annotation>
                         <documentation>
                             <html:p>

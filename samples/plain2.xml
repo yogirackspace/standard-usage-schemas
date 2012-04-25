@@ -1,5 +1,5 @@
 <usage xmlns="http://docs.rackspace.com/usage/core"
-       version="2" tenantId="12334" serviceName="Compute"
+       version="2" tenantId="12334" serviceCode="Compute"
        resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
        usageId="560490c6-6c63-11e1-adfe-27851d5aed13"
        eventType="CREATE" dataCenter="DFW1" region="Dallas"
