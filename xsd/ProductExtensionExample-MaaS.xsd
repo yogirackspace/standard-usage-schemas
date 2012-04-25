@@ -46,7 +46,7 @@
         <attribute name="number_checks" type="xsd:int" use="required">
             <annotation>
                 <appinfo>
-                    <usage:attributes aggragate-function="SUM"/>
+                    <usage:attributes aggregate-function="SUM"/>
                 </appinfo>
             </annotation>
         </attribute>

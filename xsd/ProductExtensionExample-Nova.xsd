@@ -30,7 +30,7 @@
                     </html:p>
                 </documentation>
                 <appinfo>
-                    <usage:attributes aggregate-function="SUM" unit-of-measure="MB"/>
+                    <usage:attributes aggregate-function="SUM" unit-of-measure="MEGABYTES"/>
                 </appinfo>
             </annotation>
         </attribute>
