@@ -1,0 +1,15 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>PlainEvent</atom:title>
+    <atom:id>urn:uuid:a74cfcdc-8ea7-11e1-ba47-633dba60e153</atom:id>
+    <atom:updated>2012-03-12T18:30:02Z</atom:updated>
+    <atom:category term="plain"/>
+    <atom:content type="application/xml">
+        <usage xmlns="http://docs.rackspace.com/usage/core"
+               version="1" tenantId="12334" serviceCode="Compute"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               usageId="560490c6-6c63-11e1-adfe-27851d5aed13"
+               eventType="CREATE" dataCenter="DFW1" region="Dallas"
+               startTime="2012-03-12T11:51:11Z" endTime="2012-03-12T11:52:00Z"
+               resourceName="MyServer"/>
+    </atom:content>
+</atom:entry>
