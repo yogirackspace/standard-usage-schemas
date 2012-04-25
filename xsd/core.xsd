@@ -181,7 +181,8 @@
             <documentation>
                 <html:p>
                     The type of usage event.  Possible values are
-                    CREATE, EXISTS, UPDATE, DELETE.
+                    CREATE, EXISTS, UPDATE, DELETE, SUSPEND,
+                    UNSUSPEND.
                 </html:p>
             </documentation>
         </annotation>
@@ -190,6 +191,8 @@
             <enumeration value="EXISTS"/>
             <enumeration value="UPDATE"/>
             <enumeration value="DELETE"/>
+            <enumeration value="SUSPEND"/>
+            <enumeration value="UNSUSPEND"/>
         </restriction>
     </simpleType>
 </schema>
