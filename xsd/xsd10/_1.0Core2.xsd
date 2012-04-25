@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+   This is a 1.0 XML Schema, generated from a 1.1 schema.
+   The purpose of the schema is to enable support for XSD 1.0 processors.
+   The official schema is the 1.1 version from which this schema was defined.
+   This schema misses some critical checks that are only performed in the 1.1 version.
+   Validation at the usage layer will always use the 1.1 schema.
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:usage="http://docs.rackspace.com/usage/core" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://docs.rackspace.com/usage/core">
+
+    <include schemaLocation="_1.0Core.xsd"/>
+
+    <complexType name="UsageV2">
+        <annotation>
+            <documentation>
+                <html:p>
+                    This is a container for all usage information.
+                </html:p>
+            </documentation>
+        </annotation>
+        <complexContent>
+            <extension base="usage:UsageV1">
+                <attribute name="foo" type="xsd:string" use="required">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A new attribute foo, that's available
+                                only in version2.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>
+
