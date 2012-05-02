@@ -9,8 +9,11 @@
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://www.w3.org/2005/Atom">
 
-    <import namespace="http://docs.rackspace.com/usage/core"
+    <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/usage/core"
             schemaLocation="usage.xsd"/>
+
+    <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/usage/core"
+            schemaLocation="core.xsd"/>
 
     <element name="entry" type="atom:UsageEntry"/>
 
@@ -23,7 +26,7 @@
                 </html:p>
             </documentation>
         </annotation>
-        <all>
+        <all vc:minVersion="1.1">
             <!--
                 The following elements are required...
             -->
@@ -44,8 +47,20 @@
                 the atom entry is in fact correct according to the
                 atom RFC.
             -->
-            <any vc:minVersion="1.1" maxOccurs="20" minOccurs="0" processContents="skip"/>
+            <any maxOccurs="20" minOccurs="0" processContents="skip"/>
         </all>
+        <!--
+            Order matters in 1.0 land :-(
+        -->
+        <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
+            <element name="title" type="xsd:string" />
+            <element name="id" type="xsd:anyURI"/>
+            <element name="updated" type="xsd:dateTime"/>
+            <element name="category" type="atom:UsageCategory" 
+                     minOccurs="0" maxOccurs="20"/>
+            <element name="content" type="atom:UsageContent"/>
+            <any maxOccurs="20" minOccurs="0" processContents="skip"/>
+        </sequence>
     </complexType>
 
     <complexType name="UsageContent">
