@@ -1,0 +1,63 @@
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://www.w3.org/2005/Atom">
+
+    <import namespace="http://docs.rackspace.com/usage/core"
+            schemaLocation="usage.xsd"/>
+
+    <element name="entry" type="atom:UsageEntry"/>
+
+    <complexType name="UsageEntry">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The following is a usage entry as expected by
+                    AtomHopper when collecting usage.
+                </html:p>
+            </documentation>
+        </annotation>
+        <all>
+            <!--
+                The following elements are required...
+            -->
+            <element name="title" type="xsd:string" />
+            <element name="id" type="xsd:anyURI"/>
+            <element name="updated" type="xsd:dateTime"/>
+            <element name="content" type="atom:UsageContent"/>
+            <!--
+                One or more categories are optional...
+            -->
+            <element name="category" type="atom:UsageCategory" 
+                     minOccurs="0" maxOccurs="20"/> <!-- Setting a maximun of 20 categories to prevent abuse -->
+            <!--
+                We are pretty lax in what else we allow in the
+                entry. We ignore anything else that's in here, but
+                limit to 20 elements to prevent abuse.  Note that
+                AtomHopper will do a second validation to ensure that
+                the atom entry is in fact correct according to the
+                atom RFC.
+            -->
+            <any vc:minVersion="1.1" maxOccurs="20" minOccurs="0" processContents="skip"/>
+        </all>
+    </complexType>
+
+    <complexType name="UsageContent">
+        <sequence>
+            <element ref="usage:usage"/>
+        </sequence>
+        <attribute name="type" type="xsd:string" fixed="application/xml" use="required"/>
+    </complexType>
+
+    <complexType name="UsageCategory">
+        <attribute name="term" type="xsd:string" use="required"/>
+        <attribute name="scheme" type="xsd:anyURI" use="optional"/>
+        <attribute name="label" type="xsd:string" use="optional"/>
+    </complexType>
+</schema>
