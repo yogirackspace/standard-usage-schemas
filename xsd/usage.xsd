@@ -13,7 +13,7 @@
         and defines the current usage element.
     -->
     <include schemaLocation="core.xsd"/>  <!-- Loads Usage Version 1 -->
-    <include schemaLocation="core2.xsd"/> <!-- Loads Usage Version 2 -->
+                                          <!-- Other versions may be loaded here -->
 
     <!-- Core annotations declared here -->
     <include schemaLocation="ProductExtension-Annotations.xsd"/>
@@ -30,7 +30,9 @@
     -->
     <element name="usage" type="usage:UsageBase">
         <alternative test="xsd:integer(@version) = 1" type="usage:UsageV1"/>
-        <alternative test="xsd:integer(@version) = 2" type="usage:UsageV2"/>
+        <!--
+            Other alternates based on version attribute here...
+        -->
         <alternative type="xsd:error"/>
     </element>
 
