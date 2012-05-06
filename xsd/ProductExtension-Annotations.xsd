@@ -45,17 +45,41 @@
         <annotation>
             <documentation>
                 <html:p>
-                    Aggregate Functions.
+                    Unit of mesure.
                 </html:p>
             </documentation>
         </annotation>
-        <restriction base="xsd:string">
-            <enumeration value="BYTES"/>
-            <enumeration value="MEGABYTES"/>
-            <enumeration value="GIGABYTES"/>
-            <enumeration value="SECONDS"/>
-            <enumeration value="MINUTES"/>
-            <enumeration value="HOURS"/>
+        <restriction base="xsd:token">
+            <!--
+                Storage Units
+            -->
+            <enumeration value="b"/>
+            <enumeration value="B"/>
+            <enumeration value="KB"/>
+            <enumeration value="MB"/>
+            <enumeration value="GB"/>
+            <enumeration value="TB"/>
+            <enumeration value="PB"/>
+            <enumeration value="EB"/>
+            <enumeration value="Kb"/>
+            <enumeration value="Mb"/>
+            <enumeration value="Gb"/>
+            <enumeration value="Tb"/>
+            <enumeration value="Pb"/>
+            <enumeration value="Eb"/>
+            <!--
+                Time Units
+            -->
+            <enumeration value="MS"/> <!-- milliseconds -->
+            <enumeration value="S"/>  <!-- seconds -->
+            <enumeration value="M"/>  <!-- mins -->
+            <enumeration value="H"/>  <!-- hours -->
+            <enumeration value="Mo"/> <!-- months -->
+            <enumeration value="D"/>  <!-- days -->
+            <enumeration value="Y"/>  <!-- years -->
+            <!--
+                Anything else is labeled as a COUNT.
+            -->
             <enumeration value="COUNT"/>
         </restriction>
     </simpleType>

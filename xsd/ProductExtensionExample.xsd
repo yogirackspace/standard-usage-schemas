@@ -142,11 +142,11 @@
 
                         display-name: is a human readable name, if you leave it out the name of the attribute is used.
 
-                        unit-of-measure:  can be one of BYTES, MEGABYTES, GIGABYTES, SECONDS, MINUTES, HOURS, COUNT
+                        unit-of-measure:  can be one of b, B, KB, MB, GB, TB, PB, EB, Kb, Mb, Gb, Tb, Pb, Eb, MS, S, M, H, Mo, D, Y
 
                         group:  can be true of false.  If true this attribute is grouped with other attributes that contain a value of true.
                     -->
-                    <usage:attributes aggregate-function="SUM" display-name="memory" unit-of-measure="MEGABYTES"/>
+                    <usage:attributes aggregate-function="SUM" display-name="memory" unit-of-measure="MB"/>
                 </appinfo>
             </annotation>
         </attribute>
