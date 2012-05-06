@@ -44,7 +44,7 @@
         <complexContent>
             <extension base="usage:UsageBase">
                 <sequence>
-                    <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                    <any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
                 <attribute name="tenantId" type="xsd:string" use="required">
                     <annotation>
