@@ -135,7 +135,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="endTime" type="usage:UTCTime" use="optional">
+                <attribute name="endTime" type="usage:UTCTime" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
