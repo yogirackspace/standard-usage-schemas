@@ -19,4 +19,6 @@
                display-name="Disabled"/>
     <attribute name="eventType" type="string" 
                allowedValues="BEST BETTER WORST" use="required"/>
+    <attribute name="eventTypeList" type="string*"
+               allowedValues="BEST BETTER WORST" use="required"/>
 </schema>
