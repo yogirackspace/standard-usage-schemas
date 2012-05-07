@@ -27,6 +27,7 @@
         <attribute name="schemaVersion" type="xsd:string" use="required"/>
         <attribute name="targetNamespace" type="xsd:anyURI" use="required"/>
         <attribute name="resourceTypes" type="schema:TokenList" use="required"/>
+        <attribute name="serviceName" type="xsd:token" use="required"/>
     </complexType>
 
     <complexType name="Attribute">

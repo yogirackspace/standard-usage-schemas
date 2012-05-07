@@ -1,5 +1,6 @@
 <schema xmlns="http://docs.rackspace.com/usage/core/schema"
         targetNamespace="http://docs.rackspace.com/usage/nova"
+        serviceName="Nova"
         schemaVersion="1"
         resourceTypes="INSTANCE IMAGE">
     <description>
