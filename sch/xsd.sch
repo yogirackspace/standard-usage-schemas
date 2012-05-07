@@ -25,6 +25,13 @@
             </assert>
         </rule>
     </pattern>
+    <pattern id="documentation">
+        <rule context="xsd:attribute/xsd:annotation">
+            <assert test="normalize-space(string(xsd:documentation)) != '' and normalize-space(string(xsd:documentation)) != ' '">
+                Each attribute must have a human readable description.
+            </assert>
+        </rule>
+    </pattern>
     <pattern id="unit-of-measure">
         <p>
             Make sure that the unit of measure is applied to a number of some kind.

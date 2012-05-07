@@ -24,6 +24,11 @@
         <attribute name="version" type="xsd:string" fixed="1" use="required"/>
         <attribute name="label" type="xsd:string" use="required">
             <annotation>
+                <documentation>
+                    <html:p>
+                        A lebel.
+                    </html:p>
+                </documentation>
                 <appinfo>
                     <usage:attributes/>
                 </appinfo>
@@ -31,6 +36,11 @@
         </attribute>
         <attribute name="type" type="xsd:string" use="optional">
             <annotation>
+                <documentation>
+                    <html:p>
+                        A type.
+                    </html:p>
+                </documentation>
                 <appinfo>
                     <usage:attributes/>
                 </appinfo>
@@ -38,6 +48,11 @@
         </attribute>
         <attribute name="monitoring_zones_poll" type="monitor:MonitoringZonesPollList" use="optional">
             <annotation>
+                <documentation>
+                    <html:p>
+                        A list of monitoring zones.
+                    </html:p>
+                </documentation>
                 <appinfo>
                     <usage:attributes/>
                 </appinfo>
@@ -45,13 +60,23 @@
         </attribute>
         <attribute name="number_checks" type="xsd:int" use="required">
             <annotation>
+                <documentation>
+                    <html:p>
+                        The number of checks.
+                    </html:p>
+                </documentation>
                 <appinfo>
-                    <usage:attributes aggregate-function="SUM"/>
+                    <usage:attributes aggregate-function="SUM" unit-of-measure="COUNT"/>
                 </appinfo>
             </annotation>
         </attribute>
         <attribute name="disabled" type="xsd:boolean" use="required">
             <annotation>
+                <documentation>
+                    <html:p>
+                        Is the resources enabled
+                    </html:p>
+                </documentation>
                 <appinfo>
                     <usage:attributes display-name="Disabled"/>
                 </appinfo>

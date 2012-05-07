@@ -66,6 +66,17 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="normalize-space(string(.)) != '' and normalize-space(string(.)) != ' '"
+                        xerces:message="Each attribute must contain a human readable description within the &lt;attribute/&gt; element."
+                        saxon:message="Each attribute must contain a human readable description within the &lt;attribute/&gt; element.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Documentation must not be empty for an attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </simpleContent>
     </complexType>
