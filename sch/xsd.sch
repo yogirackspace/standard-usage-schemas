@@ -20,6 +20,9 @@
                 The Product XSD must contain an attribute named resourceType. The attribute should
                 be required.
             </assert>
+            <assert test="count(xsd:attribute) &lt; 50">
+                A Product XSD may not define more than 50 attributes.
+            </assert>
         </rule>
     </pattern>
     <pattern id="unit-of-measure">
