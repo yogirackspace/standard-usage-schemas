@@ -12,7 +12,7 @@
     </attribute>
     <attribute name="mid" type="UUID" use="required"/>
     <attribute name="type" type="string" use="optional"/>
-    <attribute name="monitoring_zones_pole" type="string*" use="optional" 
+    <attribute name="monitoring_zones_pole" type="int*" use="optional" 
                aggregate-function="SUM" unit-of-measure="COUNT"/>
     <attribute name="num_checks" type="int" use="required"/>
     <attribute name="disabled" type="boolean" use="optional" default="false"

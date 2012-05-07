@@ -91,7 +91,7 @@
             <xsl:attribute name="type">
                 <xsl:choose>
                     <xsl:when test="ends-with(@type, '*')">
-                        <xsl:value-of select="concat(@name,'List')"/>
+                        <xsl:value-of select="usage:listNameType(.,true())"/>
                     </xsl:when>
                     <xsl:when test="@allowedValues">
                         <xsl:value-of select="concat(@name,'Enum')"/>
@@ -129,5 +129,47 @@
             </annotation>
         </attribute>
     </xsl:template>
+    <xsl:template match="schema:attribute" mode="AddTypes">
+        <xsl:if test="ends-with(@type, '*')">
+            <xsl:call-template name="addListType"/>
+        </xsl:if>
+        <xsl:if test="@allowedValues">
+            <!-- <xsl:call-template name="addEnumType"/> -->
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="addListType">
+        <simpleType>
+            <xsl:attribute name="name" select="usage:listNameType(.,false())"/>
+            <list>
+                <xsl:attribute name="itemType">
+                    <xsl:value-of select="usage:listItemType(.)"/>
+                </xsl:attribute>
+            </list>
+        </simpleType>
+    </xsl:template>
+    <xsl:function name="usage:listNameType">
+        <xsl:param name="attrib" as="node()"/>
+        <xsl:param name="qualified" as="xsd:boolean"/>
+        <xsl:choose>
+            <xsl:when test="$qualified">
+                <xsl:value-of select="concat('p:',$attrib/@name, 'List')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat($attrib/@name, 'List')"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+    <xsl:function name="usage:listItemType">
+        <xsl:param name="attrib" as="node()"/>
+        <xsl:variable name="type" select="substring-before($attrib/@type,'*')" as="xsd:string"/>
+        <xsl:choose>
+            <xsl:when test="$type='UUID' or ends-with($type,'Enum')">
+                <xsl:value-of select="concat('p:',$type)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat('xsd:',$type)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
     <xsl:template mode="#all" match="text()"/>
 </xsl:stylesheet>
