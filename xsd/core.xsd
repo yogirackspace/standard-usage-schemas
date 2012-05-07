@@ -182,6 +182,18 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (child::*) then child::*/@version else true()"
+                        xerces:message="The product element should contain an attribute called version."
+                        saxon:message="The product element should contain an attribute called version.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If there is a product element, it
+                                should contian a version attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>
