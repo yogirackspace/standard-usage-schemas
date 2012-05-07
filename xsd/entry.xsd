@@ -31,12 +31,12 @@
                 The following elements are required...
             -->
             <element name="title" type="xsd:string" />
-            <element name="id" type="xsd:anyURI"/>
-            <element name="updated" type="xsd:dateTime"/>
             <element name="content" type="atom:UsageContent"/>
             <!--
                 One or more categories are optional...
             -->
+            <element name="id" type="xsd:anyURI" minOccurs="0"/>
+            <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
                      minOccurs="0" maxOccurs="20"/> <!-- Setting a maximun of 20 categories to prevent abuse -->
             <!--
@@ -54,8 +54,8 @@
         -->
         <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
             <element name="title" type="xsd:string" />
-            <element name="id" type="xsd:anyURI"/>
-            <element name="updated" type="xsd:dateTime"/>
+            <element name="id" type="xsd:anyURI" minOccurs="0"/>
+            <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
                      minOccurs="0" maxOccurs="20"/>
             <element name="content" type="atom:UsageContent"/>

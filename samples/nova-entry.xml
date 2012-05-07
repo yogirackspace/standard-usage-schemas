@@ -11,7 +11,7 @@
                eventType="CREATE" dataCenter="DFW1" region="Dallas"
                startTime="2012-03-12T11:51:11Z" endTime="2012-03-12T11:52:00Z"
                resourceName="MyServer">
-            <nova:usage version="1" memory="256"/>
+            <nova:usage version="1" memory="256" resourceType="INSTANCE"/>
         </usage>
     </atom:content>
 </atom:entry>

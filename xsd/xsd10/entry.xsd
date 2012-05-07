@@ -23,8 +23,8 @@
         -->
         <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
             <element name="title" type="xsd:string"/>
-            <element name="id" type="xsd:anyURI"/>
-            <element name="updated" type="xsd:dateTime"/>
+            <element name="id" type="xsd:anyURI" minOccurs="0"/>
+            <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" minOccurs="0" maxOccurs="20"/>
             <element name="content" type="atom:UsageContent"/>
             <any maxOccurs="20" minOccurs="0" processContents="skip"/>
