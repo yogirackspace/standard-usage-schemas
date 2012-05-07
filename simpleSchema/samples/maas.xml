@@ -1,6 +1,7 @@
 <schema xmlns="http://docs.rackspace.com/usage/core/schema"
         targetNamespace="http://docs.rackspace.com/usage/monitoring"
         schemaVersion="1"
+        serviceName="MaaS"
         resourceTypes="MONITOR"
         >
     <description>
