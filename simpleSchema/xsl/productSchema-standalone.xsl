@@ -65,6 +65,15 @@
                     </xsl:for-each>
                 </restriction>
             </simpleType>
+            <xsl:if test="schema:attribute[@type='UUID']">
+                <simpleType name="UUID">
+                    <restriction base="xsd:string">
+                        <length value="36" fixed="true"/>
+                        <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+                    </restriction>
+                </simpleType>
+            </xsl:if>
+            <xsl:apply-templates mode="AddTypes"/>
         </schema>
     </xsl:template>
     <xsl:template match="schema:attribute">
@@ -88,7 +97,7 @@
                         <xsl:value-of select="concat(@name,'Enum')"/>
                     </xsl:when>
                     <xsl:when test="@type='UUID'">
-                        <xsl:value-of select="'pc:UUID'"/>
+                        <xsl:value-of select="'p:UUID'"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="concat('xsd:',@type)"/>
@@ -120,5 +129,5 @@
             </annotation>
         </attribute>
     </xsl:template>
-    <xsl:template match="text()"/>
+    <xsl:template mode="#all" match="text()"/>
 </xsl:stylesheet>
