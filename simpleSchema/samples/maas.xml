@@ -1,0 +1,20 @@
+<schema xmlns="http://docs.rackspace.com/usage/core/schema"
+        targetNamespace="http://docs.rackspace.com/usage/monitoring"
+        schemaVersion="1"
+        resourceTypes="MONITOR"
+        >
+    <description>
+        MaaS specific user fields
+    </description>
+    <attribute name="label" type="string" use="required">
+        Human readable name.
+    </attribute>
+    <attribute name="type" type="string" use="optional"/>
+    <attribute name="monitoring_zones_pole" type="string*" use="optional" 
+               aggragate-function="SUM"/>
+    <attribute name="num_checks" type="int" use="required"/>
+    <attribute name="disabled" type="boolean" use="optional" default="false"
+               display-name="Disabled"/>
+    <attribute name="eventType" type="string" 
+               allowedValues="BEST BETTER WORST" use="requried"/>
+</schema>

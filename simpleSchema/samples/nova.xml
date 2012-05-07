@@ -1,0 +1,14 @@
+<schema xmlns="http://docs.rackspace.com/usage/core/schema"
+        targetNamespace="http://docs.rackspace.com/usage/nova"
+        schemaVersion="1"
+        resourceTypes="INSTANCE IMAGE">
+    <description>
+        Nova specific user fields.
+    </description>
+    <attribute name="memory" type="int" use="required"
+               display-name="memory"
+               aggregate-function="SUM"
+               unit-of-measure="MEGABYTES">
+        The amount of memory for the current usage.
+    </attribute>
+</schema>
