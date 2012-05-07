@@ -10,5 +10,6 @@
     <monitor:usage version="1" label="Test Label" type="Test Type"
                    monitoring_zones_poll="a b c"
                    number_checks="22"
+                   resourceType="MONITOR"
                    disabled="false"/>
 </usage>

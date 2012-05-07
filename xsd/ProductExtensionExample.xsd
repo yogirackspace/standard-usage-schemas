@@ -109,6 +109,10 @@
         -->
         <attribute name="version" type="xsd:string" fixed="1" use="required"/>
         <!--
+            There must be a definition of resource types and a resourceType attribute.
+        -->
+        <attribute name="resourceType" type="widget:ResourceTypes" use="required"/>
+        <!--
             From this point formart you can have as many custom attributes as you need.
             The attributes must have a unique name.
 
@@ -151,4 +155,16 @@
             </annotation>
         </attribute>
     </complexType>
+    <simpleType name="ResourceTypes">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The resource types for the resources.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="WIDGET"/>
+        </restriction>
+    </simpleType>
 </schema>

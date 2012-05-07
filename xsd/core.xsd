@@ -170,6 +170,18 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (child::*) then child::*/@resourceType else true()"
+                        xerces:message="The product element should contain an attribute called resourceType."
+                        saxon:message="The product element should contain an attribute called resourceType.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If there is a product element, it
+                                should identify a resource type.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>

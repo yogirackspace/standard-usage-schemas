@@ -34,6 +34,30 @@
                 </appinfo>
             </annotation>
         </attribute>
-        <anyAttribute processContents="lax"/>
+        <attribute name="resourceType" type="nova:ResourceTypes" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The types of resources for nava.
+                    </html:p>
+                </documentation>
+                <appinfo>
+                    <usage:attributes />
+                </appinfo>
+            </annotation>
+        </attribute>
     </complexType>
+    <simpleType name="ResourceTypes">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The resource types for the resources.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="INSTANCE"/>
+            <enumeration value="IMAGE"/>
+        </restriction>
+    </simpleType>
 </schema>

@@ -57,10 +57,32 @@
                 </appinfo>
             </annotation>
         </attribute>
-        <anyAttribute processContents="lax"/>
+        <attribute name="resourceType" type="monitor:ResourceTypes" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The types of resources for MaaS.
+                    </html:p>
+                </documentation>
+                <appinfo>
+                    <usage:attributes />
+                </appinfo>
+            </annotation>
+        </attribute>
     </complexType>
-
     <simpleType name="MonitoringZonesPollList">
         <list itemType="xsd:string"/>
+    </simpleType>
+    <simpleType name="ResourceTypes">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The resource types for the resources.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="MONITOR"/>
+        </restriction>
     </simpleType>
 </schema>
