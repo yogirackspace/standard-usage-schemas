@@ -11,10 +11,10 @@
     </attribute>
     <attribute name="type" type="string" use="optional"/>
     <attribute name="monitoring_zones_pole" type="string*" use="optional" 
-               aggragate-function="SUM"/>
+               aggregate-function="SUM" unit-of-measure="COUNT"/>
     <attribute name="num_checks" type="int" use="required"/>
     <attribute name="disabled" type="boolean" use="optional" default="false"
                display-name="Disabled"/>
     <attribute name="eventType" type="string" 
-               allowedValues="BEST BETTER WORST" use="requried"/>
+               allowedValues="BEST BETTER WORST" use="required"/>
 </schema>

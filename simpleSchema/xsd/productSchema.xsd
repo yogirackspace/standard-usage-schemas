@@ -1,0 +1,191 @@
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:schema="http://docs.rackspace.com/usage/core/schema"
+    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://docs.rackspace.com/usage/core/schema">
+
+    <import namespace="http://docs.rackspace.com/usage/core"
+            schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>
+
+    <element name="schema" type="schema:ProductSimpleSchema"/>
+
+    <!--
+        Complex Types
+    -->
+    <complexType name="ProductSimpleSchema">
+        <sequence>
+            <element name="description" type="xsd:string" />
+            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50"/>
+        </sequence>
+        <attribute name="schemaVersion" type="xsd:string" use="required"/>
+        <attribute name="targetNamespace" type="xsd:anyURI" use="required"/>
+        <attribute name="resourceTypes" type="schema:TokenList" use="required"/>
+    </complexType>
+
+    <complexType name="Attribute">
+        <simpleContent>
+            <extension base="xsd:string">
+                <attribute name="name" type="xsd:Name" use="required"/>
+                <attribute name="type" type="schema:Type" use="required"/>
+                <attribute name="use"  type="schema:Use" use="optional" default="optional"/>
+                <attribute name="fixed" type="xsd:string" use="optional"/>
+                <attribute name="default" type="xsd:string" use="optional"/>
+                <attribute name="display-name" type="xsd:string" use="optional"/>
+                <attribute name="allowedValues" type="schema:TokenList" use="optional"/>
+                <attribute name="aggregate-function" type="usage:AggregateFunction" use="optional" default="NONE"/>
+                <attribute name="unit-of-measure" type="usage:UnitOfMeasure" use="optional"/>
+                <attribute name="group" type="xsd:boolean" use="optional" default="false" />
+                <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
+                        xerces:message="The attribute has a default value so 'use' must be 'optional'"
+                        saxon:message="The attribute has a default value so 'use' must be 'optional'">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the property has a default value then use must be optional.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@aggregate-function!='NONE') then @unit-of-measure else true()"
+                        xerces:message="If a aggregate-function is supplied then there should also be a unit-of-measure."
+                        saxon:message="If a aggregate-function is supplied then there should also be a unit-of-measure.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If an aggregate-function is supplied then so
+                                should the unit of measure.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@unit-of-measure) then @aggregate-function!='NONE' else true()"
+                        xerces:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE."
+                        saxon:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If a unit of measure is supplied then there
+                                should be an aggregate-function that's not
+                                NONE.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <!--
+        Simple Types
+    -->
+    <simpleType name="TokenList">
+        <list itemType="xsd:token"/>
+    </simpleType>
+
+    <simpleType name="Use">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Describes how an attribute should be used
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:token">
+            <enumeration value="optional"/>
+            <enumeration value="required"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Type">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Allowed types
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:token">
+            <!--
+               Allowed String Types
+            -->
+            <enumeration value="string"/>
+            <enumeration value="token"/>
+            <enumeration value="Name"/>
+            <enumeration value="string*"/>
+            <enumeration value="token*"/>
+            <enumeration value="Name*"/>
+            <!--
+              Numeric Types
+            -->
+            <enumeration value="decimal"/>
+            <enumeration value="integer"/>
+            <enumeration value="long"/>
+            <enumeration value="int"/>
+            <enumeration value="short"/>
+            <enumeration value="byte"/>
+            <enumeration value="unsignedLong"/>
+            <enumeration value="unsignedInt"/>
+            <enumeration value="unsignedShort"/>
+            <enumeration value="unsignedByte"/>
+            <enumeration value="double"/>
+            <enumeration value="float"/>
+            <enumeration value="decimal*"/>
+            <enumeration value="integer*"/>
+            <enumeration value="long*"/>
+            <enumeration value="int*"/>
+            <enumeration value="short*"/>
+            <enumeration value="byte*"/>
+            <enumeration value="unsignedLong*"/>
+            <enumeration value="unsignedInt*"/>
+            <enumeration value="unsignedShort*"/>
+            <enumeration value="unsignedByte*"/>
+            <enumeration value="double*"/>
+            <enumeration value="float*"/>
+
+            <!--
+                Booleans
+            -->
+            <enumeration value="boolean"/>
+            <enumeration value="boolean*"/>
+
+
+            <!--
+               ISO 8601 date and time
+            -->
+            <enumeration value="duration"/>
+            <enumeration value="date"/>
+            <enumeration value="datetime"/>
+            <enumeration value="time"/>
+            <enumeration value="gDay"/>
+            <enumeration value="gMonth"/>
+            <enumeration value="gYear"/>
+            <enumeration value="gMonthDay"/>
+            <enumeration value="gMonthYear"/>
+            <enumeration value="duration*"/>
+            <enumeration value="date*"/>
+            <enumeration value="datetime*"/>
+            <enumeration value="time*"/>
+            <enumeration value="gDay*"/>
+            <enumeration value="gMonth*"/>
+            <enumeration value="gYear*"/>
+            <enumeration value="gMonthDay*"/>
+            <enumeration value="gMonthYear*"/>
+
+            <!--
+                Others
+            -->
+            <enumeration value="base64Binary"/>
+            <enumeration value="anyURI"/>
+            <enumeration value="UUID"/>
+            <enumeration value="anyURI*"/>
+            <enumeration value="UUID*"/>
+        </restriction>
+    </simpleType>
+</schema>

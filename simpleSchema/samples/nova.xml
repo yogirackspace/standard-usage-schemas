@@ -8,7 +8,7 @@
     <attribute name="memory" type="int" use="required"
                display-name="memory"
                aggregate-function="SUM"
-               unit-of-measure="MEGABYTES">
+               unit-of-measure="MB">
         The amount of memory for the current usage.
     </attribute>
 </schema>
