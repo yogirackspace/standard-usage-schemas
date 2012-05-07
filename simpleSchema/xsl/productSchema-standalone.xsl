@@ -138,10 +138,16 @@
         </xsl:if>
     </xsl:template>
     <xsl:template name="addEnumType">
+        <xsl:variable name="enumValues" as="xsd:string*" select="tokenize(@allowedValues, ' ')"/>
         <simpleType>
             <xsl:attribute name="name" select="usage:enumNameType(., false())"/>
             <restriction>
                 <xsl:attribute name="base" select="usage:enumBaseType(.)"/>
+                <xsl:for-each select="$enumValues">
+                    <enumeration>
+                        <xsl:attribute name="value" select="normalize-space(.)"/>
+                    </enumeration>
+                </xsl:for-each>
             </restriction>
         </simpleType>
     </xsl:template>
@@ -169,7 +175,16 @@
     </xsl:function>
     <xsl:function name="usage:enumBaseType">
         <xsl:param name="attrib" as="node()"/>
-        <xsl:variable name="type" as="xsd:string" select="substring-before($attrib/@type,'*')"/>
+        <xsl:variable name="type" as="xsd:string">
+            <xsl:choose>
+                <xsl:when test="contains($attrib/@type,'*')">
+                   <xsl:value-of select="substring-before($attrib/@type,'*')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$attrib/@type"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:choose>
             <xsl:when test="$type='UUID'">
                 <xsl:value-of select="'p:UUID'"/>
