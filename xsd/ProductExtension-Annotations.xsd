@@ -5,6 +5,8 @@
     xmlns:usage="http://docs.rackspace.com/usage/core"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://docs.rackspace.com/usage/core">
 
@@ -23,6 +25,31 @@
         <attribute name="display-name" type="xsd:string" use="optional" />
         <attribute name="unit-of-measure" type="usage:UnitOfMeasure" use="optional"/>
         <attribute name="group" type="xsd:boolean" use="optional" default="false" />
+        <assert vc:minVersion="1.1" test="if (@aggregate-function!='NONE') then @unit-of-measure else true()"
+                xerces:message="If a aggregate-function is supplied then there should also be a unit-of-measure."
+                saxon:message="If a aggregate-function is supplied then there should also be a unit-of-measure.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        If an aggregate-function is supplied then so
+                        should the unit of measure.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
+        <assert vc:minVersion="1.1" test="if (@unit-of-measure) then @aggregate-function!='NONE' else true()"
+                xerces:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE."
+                saxon:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        If a unit of measure is supplied then there
+                        should be an aggregate-function that's not
+                        NONE.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
     </complexType>
 
     <simpleType name="AggregateFunction">
