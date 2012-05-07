@@ -32,7 +32,7 @@
             </element>
             
             <complexType>
-                <xsl:attribute name="type">
+                <xsl:attribute name="name">
                     <xsl:value-of select="concat($serviceName,'Type')"/>
                 </xsl:attribute>
                 <annotation>
