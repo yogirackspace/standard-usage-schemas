@@ -37,19 +37,6 @@
                 </documentation>
             </annotation>
         </assert>
-        <assert vc:minVersion="1.1" test="if (@unit-of-measure) then @aggregate-function!='NONE' else true()"
-                xerces:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE."
-                saxon:message="If a unit-of-measure is supplied then there should also be an aggregate-function that's != NONE.">
-            <annotation>
-                <documentation>
-                    <html:p>
-                        If a unit of measure is supplied then there
-                        should be an aggregate-function that's not
-                        NONE.
-                    </html:p>
-                </documentation>
-            </annotation>
-        </assert>
     </complexType>
 
     <simpleType name="AggregateFunction">
