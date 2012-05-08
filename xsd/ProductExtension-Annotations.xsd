@@ -84,6 +84,7 @@
             <!--
                 Time Units
             -->
+            <enumeration value="mS"/> <!-- microseconds -->
             <enumeration value="MS"/> <!-- milliseconds -->
             <enumeration value="S"/>  <!-- seconds -->
             <enumeration value="M"/>  <!-- mins -->
