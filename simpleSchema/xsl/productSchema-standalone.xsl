@@ -10,9 +10,9 @@
     
     <xsl:output method="xml" indent="yes"/>
     
-    <xsl:variable name="serviceName" select="/schema:schema/@serviceName" as="xsd:string"/>
+    <xsl:variable name="serviceName" select="/schema:productSchema/@name" as="xsd:string"/>
     
-    <xsl:template match="schema:schema">
+    <xsl:template match="schema:productSchema">
         <xsl:variable name="resourceTypes" as="xsd:string*" select="tokenize(@resourceTypes, ' ')"></xsl:variable>
         <schema
               elementFormDefault="qualified"
@@ -20,9 +20,9 @@
               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
               xmlns:html="http://www.w3.org/1999/xhtml"
               xmlns="http://www.w3.org/2001/XMLSchema">
-            <xsl:namespace name="p" select="@targetNamespace"/>
+            <xsl:namespace name="p" select="@namespace"/>
             <xsl:attribute name="targetNamespace">
-                <xsl:value-of select="@targetNamespace"/>
+                <xsl:value-of select="@namespace"/>
             </xsl:attribute>
             
             <element name="usage">
@@ -43,7 +43,7 @@
                     </documentation>
                 </annotation>
                 <attribute name="version" type="xsd:string" use="required">
-                    <xsl:attribute name="fixed" select="@schemaVersion"/>
+                    <xsl:attribute name="fixed" select="@version"/>
                 </attribute>
                 <attribute name="resourceType"  use="required" type="p:ResourceTypes"/>
                 <xsl:apply-templates/>
@@ -111,17 +111,17 @@
                     </html:p>
                     <appinfo>
                         <usage:attributes>
-                            <xsl:if test="@display-name">
-                                <xsl:attribute name="display-name" select="@display-name"/>
+                            <xsl:if test="@displayName">
+                                <xsl:attribute name="display-name" select="@displayName"/>
                             </xsl:if>
-                            <xsl:if test="@aggregate-function">
-                                <xsl:attribute name="aggregate-function" select="@aggregate-function"/>
+                            <xsl:if test="@aggregateFunction">
+                                <xsl:attribute name="aggregate-function" select="@aggregateFunction"/>
                             </xsl:if>
-                            <xsl:if test="@unit-of-measure">
-                                <xsl:attribute name="unit-of-measure" select="@unit-of-measure"/>
+                            <xsl:if test="@unitOfMeasure">
+                                <xsl:attribute name="unit-of-measure" select="@unitOfMeasure"/>
                             </xsl:if>
-                            <xsl:if test="@group">
-                                <xsl:attribute name="group" select="@group"/>
+                            <xsl:if test="@groupBy">
+                                <xsl:attribute name="groupBy" select="@groupBy"/>
                             </xsl:if>
                         </usage:attributes>
                     </appinfo>

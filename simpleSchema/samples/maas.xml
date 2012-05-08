@@ -1,9 +1,8 @@
-<schema xmlns="http://docs.rackspace.com/usage/core/schema"
-        targetNamespace="http://docs.rackspace.com/usage/monitoring"
-        schemaVersion="1"
-        serviceName="MaaS"
-        resourceTypes="MONITOR"
-        >
+<productSchema xmlns="http://docs.rackspace.com/usage/core/schema"
+        namespace="http://docs.rackspace.com/usage/monitoring"
+        version="1"
+        name="MaaS"
+        resourceTypes="MONITOR">
     <description>
         MaaS specific user fields
     </description>
@@ -17,14 +16,14 @@
         An optional type.
     </attribute>
     <attribute name="monitoring_zones_pole" type="int*" use="optional" 
-               aggregate-function="SUM" unit-of-measure="COUNT">
+               aggregateFunction="SUM" unitOfMeasure="COUNT">
         A list of integers.
     </attribute>
     <attribute name="num_checks" type="int" use="required">
         A single integer.
     </attribute>
     <attribute name="disabled" type="boolean" use="optional" default="false"
-               display-name="Disabled">
+               displayName="Disabled">
         A boolean.
     </attribute>
     <attribute name="eventType" type="string" 
@@ -35,4 +34,4 @@
                allowedValues="BEST BETTER WORST" use="required">
         A list of enumertation strings.
     </attribute>
-</schema>
+</productSchema>

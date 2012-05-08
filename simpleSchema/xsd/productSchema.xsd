@@ -14,7 +14,7 @@
     <import namespace="http://docs.rackspace.com/usage/core"
             schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>
 
-    <element name="schema" type="schema:ProductSimpleSchema"/>
+    <element name="productSchema" type="schema:ProductSimpleSchema"/>
 
     <!--
         Complex Types
@@ -24,10 +24,10 @@
             <element name="description" type="xsd:string" />
             <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50"/>
         </sequence>
-        <attribute name="schemaVersion" type="xsd:string" use="required"/>
-        <attribute name="targetNamespace" type="xsd:anyURI" use="required"/>
+        <attribute name="version" type="xsd:string" use="required"/>
+        <attribute name="namespace" type="xsd:anyURI" use="required"/>
         <attribute name="resourceTypes" type="schema:TokenList" use="required"/>
-        <attribute name="serviceName" type="xsd:token" use="required"/>
+        <attribute name="name" type="xsd:token" use="required"/>
     </complexType>
 
     <complexType name="Attribute">
@@ -38,10 +38,10 @@
                 <attribute name="use"  type="schema:Use" use="optional" default="optional"/>
                 <attribute name="fixed" type="xsd:string" use="optional"/>
                 <attribute name="default" type="xsd:string" use="optional"/>
-                <attribute name="display-name" type="xsd:string" use="optional"/>
+                <attribute name="displayName" type="xsd:string" use="optional"/>
                 <attribute name="allowedValues" type="schema:TokenList" use="optional"/>
-                <attribute name="aggregate-function" type="usage:AggregateFunction" use="optional" default="NONE"/>
-                <attribute name="unit-of-measure" type="usage:UnitOfMeasure" use="optional"/>
+                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
+                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
                 <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
@@ -54,9 +54,9 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@aggregate-function!='NONE') then @unit-of-measure else true()"
-                        xerces:message="If a aggregate-function is supplied then there should also be a unit-of-measure."
-                        saxon:message="If a aggregate-function is supplied then there should also be a unit-of-measure.">
+                <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
+                        xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
+                        saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
                     <annotation>
                         <documentation>
                             <html:p>
