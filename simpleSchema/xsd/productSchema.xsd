@@ -42,7 +42,7 @@
                 <attribute name="allowedValues" type="schema:TokenList" use="optional"/>
                 <attribute name="aggregate-function" type="usage:AggregateFunction" use="optional" default="NONE"/>
                 <attribute name="unit-of-measure" type="usage:UnitOfMeasure" use="optional"/>
-                <attribute name="group" type="xsd:boolean" use="optional" default="false" />
+                <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">
