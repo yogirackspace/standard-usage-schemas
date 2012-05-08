@@ -4,7 +4,6 @@
        resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
        usageId="560490c6-6c63-11e1-adfe-27851d5aed13"
        eventType="CREATE" dataCenter="DFW1" region="Dallas"
-       startTime="2012-03-12T11:51:11Z" endTime="2012-03-12T11:52:00Z"
-       resourceName="MyServer">
+       eventTime="2012-03-12T11:51:11Z" resourceName="MyServer">
     <nova:usage version="1" resourceType="INSTANCE" memory="256"/>
 </usage>

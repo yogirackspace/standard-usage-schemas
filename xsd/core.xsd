@@ -126,7 +126,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="startTime" type="usage:UTCTime" use="required">
+                <attribute name="startTime" type="usage:UTCTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -135,13 +135,25 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="endTime" type="usage:UTCTime" use="required">
+                <attribute name="endTime" type="usage:UTCTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
                                 UTC, ISO Format end time.  For an EXISTs
                                 event, the startTime and endTime reflect the
                                 usage duriation for the resource instance.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="eventTime" type="usage:UTCTime" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                UTC, ISO Format event time. The time
+                                when an event occured. Use instead of
+                                startTime and endTime in cases where
+                                the event does not have a range.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -166,6 +178,57 @@
                                 should contain an eventType element,
                                 which will contain the actual
                                 eventType.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (not(@eventTime) and not(@startTime) and not(@endTime)) then false() else true()"
+                        xerces:message="The usage event must have a startTime and endTime or it must have an eventTime."
+                        saxon:message="The usage event must have a startTime and endTime or it must have an eventTime.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The event must have a start time and
+                                end time or it must have an eventTime.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@eventTime) then (not(@startTime) and not(@endTime)) else true()"
+                        xerces:message="If the usage event has an eventTime then it cannot have a startTime or an endTime."
+                        saxon:message="If the usage event has an eventTime then it cannot have a startTime or an endTime.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the event has an eventTime then it
+                                must not have a startTime or an
+                                endTime.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@startTime) then (not(@eventTime) and @endTime) else true()"
+                        xerces:message="If the usage event has a startTime then it cannot have an eventTime and it must have an endTime."
+                        saxon:message="If the usage event has a startTime then it cannot have an eventTime and it must have an endTime.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the event has a startTime then it
+                                must not have an eventTime and it must
+                                have an endTime.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@endTime) then (not(@eventTime) and @startTime) else true()"
+                        xerces:message="If the usage event has a endTime then it cannot have an eventTime and it must have a startTime."
+                        saxon:message="If the usage event has a endTime then it cannot have an eventTime and it must have a startTime.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the event has a endTime then it
+                                must not have an eventTime and it must
+                                have a startTime.
                             </html:p>
                         </documentation>
                     </annotation>
