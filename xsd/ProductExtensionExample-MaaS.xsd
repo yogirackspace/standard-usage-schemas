@@ -66,7 +66,7 @@
                     </html:p>
                 </documentation>
                 <appinfo>
-                    <usage:attributes aggregate-function="SUM" unit-of-measure="COUNT"/>
+                    <usage:attributes aggregateFunction="SUM" unitOfMeasure="COUNT"/>
                 </appinfo>
             </annotation>
         </attribute>
@@ -78,7 +78,7 @@
                     </html:p>
                 </documentation>
                 <appinfo>
-                    <usage:attributes display-name="Disabled"/>
+                    <usage:attributes displayName="Disabled"/>
                 </appinfo>
             </annotation>
         </attribute>

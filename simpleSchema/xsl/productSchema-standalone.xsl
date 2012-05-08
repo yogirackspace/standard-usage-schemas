@@ -112,13 +112,13 @@
                     <appinfo>
                         <usage:attributes>
                             <xsl:if test="@displayName">
-                                <xsl:attribute name="display-name" select="@displayName"/>
+                                <xsl:attribute name="displayName" select="@displayName"/>
                             </xsl:if>
                             <xsl:if test="@aggregateFunction">
-                                <xsl:attribute name="aggregate-function" select="@aggregateFunction"/>
+                                <xsl:attribute name="aggregateFunction" select="@aggregateFunction"/>
                             </xsl:if>
                             <xsl:if test="@unitOfMeasure">
-                                <xsl:attribute name="unit-of-measure" select="@unitOfMeasure"/>
+                                <xsl:attribute name="unitOfMeasure" select="@unitOfMeasure"/>
                             </xsl:if>
                             <xsl:if test="@groupBy">
                                 <xsl:attribute name="groupBy" select="@groupBy"/>

@@ -150,7 +150,7 @@
 
                         group:  can be true of false.  If true this attribute is grouped with other attributes that contain a value of true.
                     -->
-                    <usage:attributes aggregate-function="SUM" display-name="memory" unit-of-measure="MB"/>
+                    <usage:attributes aggregateFunction="SUM" displayName="memory" unitOfMeasure="MB"/>
                 </appinfo>
             </annotation>
         </attribute>
