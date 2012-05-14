@@ -13,7 +13,7 @@
     </attribute>
     <attribute name="storage" type="int" use="optional"
                aggregateFunction="SUM"
-               unitOfMeasure="MB">
+               unitOfMeasure="GB">
         The size of the storage volume for the current usage.
     </attribute>
 </productSchema>
