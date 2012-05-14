@@ -2,17 +2,17 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:event="http://docs.rackspace.com/event/core"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://www.w3.org/2005/Atom">
 
-    <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/usage/core"
+    <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/event/core"
             schemaLocation="usage.xsd"/>
 
-    <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/usage/core"
+    <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/event/core"
             schemaLocation="core.xsd"/>
 
     <element name="entry" type="atom:UsageEntry"/>
@@ -65,7 +65,7 @@
 
     <complexType name="UsageContent">
         <sequence>
-            <element ref="usage:event"/>
+            <element ref="event:event"/>
         </sequence>
         <attribute name="type" type="xsd:string" fixed="application/xml" use="required"/>
     </complexType>

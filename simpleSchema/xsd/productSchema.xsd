@@ -3,7 +3,7 @@
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:schema="http://docs.rackspace.com/usage/core/schema"
-    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:event="http://docs.rackspace.com/event/core"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xerces="http://xerces.apache.org"
@@ -11,7 +11,7 @@
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://docs.rackspace.com/usage/core/schema">
 
-    <import namespace="http://docs.rackspace.com/usage/core"
+    <import namespace="http://docs.rackspace.com/event/core"
             schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>
 
     <element name="productSchema" type="schema:ProductSimpleSchema"/>
@@ -40,8 +40,8 @@
                 <attribute name="default" type="xsd:string" use="optional"/>
                 <attribute name="displayName" type="xsd:string" use="optional"/>
                 <attribute name="allowedValues" type="schema:TokenList" use="optional"/>
-                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
-                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
+                <attribute name="aggregateFunction" type="event:AggregateFunction" use="optional" default="NONE"/>
+                <attribute name="unitOfMeasure" type="event:UnitOfMeasure" use="optional"/>
                 <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"

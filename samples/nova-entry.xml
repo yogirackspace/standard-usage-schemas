@@ -3,7 +3,7 @@
     <atom:id>urn:uuid:a74cfcdc-8ea7-11e1-ba47-633dba60e153</atom:id>
     <atom:updated>2012-03-12T18:30:02Z</atom:updated>
     <atom:content type="application/xml">
-        <event xmlns="http://docs.rackspace.com/usage/core"
+        <event xmlns="http://docs.rackspace.com/event/core"
                xmlns:nova="http://docs.rackspace.com/usage/nova"
                version="1" tenantId="12334" serviceCode="Compute"
                resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"

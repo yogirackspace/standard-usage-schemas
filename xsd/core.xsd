@@ -4,15 +4,15 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:event="http://docs.rackspace.com/event/core"
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/usage/core">
+    targetNamespace="http://docs.rackspace.com/event/core">
 
-    <complexType name="UsageBase" abstract="true">
+    <complexType name="EventBase" abstract="true">
         <annotation>
             <documentation>
                 <html:p>
@@ -26,23 +26,23 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        Usage record version.
+                        Event record version.
                     </html:p>
                 </documentation>
             </annotation>
         </attribute>
     </complexType>
 
-    <complexType name="UsageV1">
+    <complexType name="EventV1">
         <annotation>
             <documentation>
                 <html:p>
-                    Usage information version 1.
+                    Event information version 1.
                 </html:p>
             </documentation>
         </annotation>
         <complexContent>
-            <extension base="usage:UsageBase">
+            <extension base="event:EventBase">
                 <sequence>
                     <any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
@@ -73,7 +73,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="id" type="usage:UUID" use="required">
+                <attribute name="id" type="event:UUID" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -82,7 +82,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="type" type="usage:EventType" use="optional" default="USAGE">
+                <attribute name="type" type="event:EventType" use="optional" default="USAGE">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -125,7 +125,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="startTime" type="usage:UTCTime" use="optional">
+                <attribute name="startTime" type="event:UTCTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -134,7 +134,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="endTime" type="usage:UTCTime" use="optional">
+                <attribute name="endTime" type="event:UTCTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -145,7 +145,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="eventTime" type="usage:UTCTime" use="optional">
+                <attribute name="eventTime" type="event:UTCTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
