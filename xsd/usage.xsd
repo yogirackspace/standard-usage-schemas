@@ -28,7 +28,7 @@
     <!--
         The right type is selected based on the version.
     -->
-    <element name="usage" type="usage:UsageBase">
+    <element name="event" type="usage:UsageBase">
         <alternative test="xsd:integer(@version) = 1" type="usage:UsageV1"/>
         <!--
             Other alternates based on version attribute here...

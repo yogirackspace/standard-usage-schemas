@@ -65,7 +65,7 @@
 
     <complexType name="UsageContent">
         <sequence>
-            <element ref="usage:usage"/>
+            <element ref="usage:event"/>
         </sequence>
         <attribute name="type" type="xsd:string" fixed="application/xml" use="required"/>
     </complexType>

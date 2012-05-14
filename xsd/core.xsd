@@ -73,26 +73,25 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="usageId"    type="usage:UUID" use="required">
+                <attribute name="id" type="usage:UUID" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
-                                A GUID identifying the usage record.
+                                A GUID identifying the event record.
                             </html:p>
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="eventType" type="usage:EventType" use="optional" default="EXISTS">
+                <attribute name="type" type="usage:EventType" use="optional" default="USAGE">
                     <annotation>
                         <documentation>
                             <html:p>
-                                Identifies the type of event. For example
-                                CREATE, EXISTS, UPDATE, DELETE, SUSPEND, UNSUSPEND.
+                                Identifies the type of event.
                             </html:p>
                             <html:p>
                                 The use of the attribute is optional,
                                 however, if the attribute is not
-                                specified "EXISTS" will be assumed.
+                                specified "USEAGE" will be assumed.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -167,17 +166,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <assert vc:minVersion="1.1" test="if (@eventType eq 'EXTENDED') then child::*/@eventType else true()"
+                <assert vc:minVersion="1.1" test="if (@type eq 'EXTENDED') then child::*/@eventType else true()"
                         xerces:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product data."
                         saxon:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product date.">
                     <annotation>
                         <documentation>
                             <html:p>
-                                If the eventType is equal to
-                                'EXTENDED' then the product attributes
-                                should contain an eventType element,
-                                which will contain the actual
-                                eventType.
+                                If the type is equal to 'EXTENDED'
+                                then the product attributes should
+                                contain an eventType element, which
+                                will contain the actual EventType.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -278,15 +276,13 @@
         <annotation>
             <documentation>
                 <html:p>
-                    The type of usage event.  Possible values are
-                    CREATE, EXISTS, UPDATE, DELETE, SUSPEND,
-                    UNSUSPEND.
+                    The type of event.
                 </html:p>
             </documentation>
         </annotation>
         <restriction base="xsd:string">
             <enumeration value="CREATE"/>
-            <enumeration value="EXISTS"/>
+            <enumeration value="USAGE"/>
             <enumeration value="UPDATE"/>
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>
