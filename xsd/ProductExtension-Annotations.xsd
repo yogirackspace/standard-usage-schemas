@@ -2,15 +2,15 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:event="http://docs.rackspace.com/event/core"
+    xmlns:usage="http://docs.rackspace.com/core/usage"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/event/core">
+    targetNamespace="http://docs.rackspace.com/core/usage">
 
-    <element name="attributes" type="event:AttributeAnnotation"/>
+    <element name="attributes" type="usage:AttributeAnnotation"/>
 
     <complexType name="AttributeAnnotation">
         <annotation>
@@ -21,9 +21,9 @@
                 </html:p>
             </documentation>
         </annotation>
-        <attribute name="aggregateFunction" type="event:AggregateFunction" use="optional" default="NONE"/>
+        <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
         <attribute name="displayName" type="xsd:string" use="optional" />
-        <attribute name="unitOfMeasure" type="event:UnitOfMeasure" use="optional"/>
+        <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
         <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
         <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                 xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."

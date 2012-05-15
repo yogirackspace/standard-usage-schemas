@@ -3,7 +3,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:schema="http://docs.rackspace.com/usage/core/schema"
-    xmlns:event="http://docs.rackspace.com/event/core"
+    xmlns:usage="http://docs.rackspace.com/core/usage"
     xmlns="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="schema"
     version="2.0">
@@ -98,10 +98,10 @@
             <xsl:attribute name="type">
                 <xsl:choose>
                     <xsl:when test="ends-with(@type, '*')">
-                        <xsl:value-of select="event:listNameType(.,true())"/>
+                        <xsl:value-of select="usage:listNameType(.,true())"/>
                     </xsl:when>
                     <xsl:when test="@allowedValues">
-                        <xsl:value-of select="event:enumNameType(., true())"/>
+                        <xsl:value-of select="usage:enumNameType(., true())"/>
                     </xsl:when>
                     <xsl:when test="@type='UUID'">
                         <xsl:value-of select="'p:UUID'"/>
@@ -117,7 +117,7 @@
                         <xsl:value-of select="normalize-space(.)"/>
                     </html:p>
                     <appinfo>
-                        <event:attributes>
+                        <usage:attributes>
                             <xsl:if test="@displayName">
                                 <xsl:attribute name="displayName" select="@displayName"/>
                             </xsl:if>
@@ -130,7 +130,7 @@
                             <xsl:if test="@groupBy">
                                 <xsl:attribute name="groupBy" select="@groupBy"/>
                             </xsl:if>
-                        </event:attributes>
+                        </usage:attributes>
                     </appinfo>
                 </documentation>
             </annotation>
@@ -147,9 +147,9 @@
     <xsl:template name="addEnumType">
         <xsl:variable name="enumValues" as="xsd:string*" select="tokenize(@allowedValues, ' ')"/>
         <simpleType>
-            <xsl:attribute name="name" select="event:enumNameType(., false())"/>
+            <xsl:attribute name="name" select="usage:enumNameType(., false())"/>
             <restriction>
-                <xsl:attribute name="base" select="event:enumBaseType(.)"/>
+                <xsl:attribute name="base" select="usage:enumBaseType(.)"/>
                 <xsl:for-each select="$enumValues">
                     <enumeration>
                         <xsl:attribute name="value" select="normalize-space(.)"/>
@@ -160,15 +160,15 @@
     </xsl:template>
     <xsl:template name="addListType">
         <simpleType>
-            <xsl:attribute name="name" select="event:listNameType(.,false())"/>
+            <xsl:attribute name="name" select="usage:listNameType(.,false())"/>
             <list>
                 <xsl:attribute name="itemType">
-                    <xsl:value-of select="event:listItemType(.)"/>
+                    <xsl:value-of select="usage:listItemType(.)"/>
                 </xsl:attribute>
             </list>
         </simpleType>
     </xsl:template>
-    <xsl:function name="event:enumNameType">
+    <xsl:function name="usage:enumNameType">
         <xsl:param name="attrib" as="node()"/>
         <xsl:param name="qualified" as="xsd:boolean"/>
         <xsl:choose>
@@ -180,7 +180,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    <xsl:function name="event:enumBaseType">
+    <xsl:function name="usage:enumBaseType">
         <xsl:param name="attrib" as="node()"/>
         <xsl:variable name="type" as="xsd:string">
             <xsl:choose>
@@ -201,7 +201,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    <xsl:function name="event:listNameType">
+    <xsl:function name="usage:listNameType">
         <xsl:param name="attrib" as="node()"/>
         <xsl:param name="qualified" as="xsd:boolean"/>
         <xsl:choose>
@@ -213,7 +213,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    <xsl:function name="event:listItemType">
+    <xsl:function name="usage:listItemType">
         <xsl:param name="attrib" as="node()"/>
         <xsl:variable name="type" select="substring-before($attrib/@type,'*')" as="xsd:string"/>
         <xsl:choose>
@@ -221,7 +221,7 @@
                 <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$attrib/@allowedValues">
-                <xsl:value-of select="event:enumNameType($attrib,true())"/>
+                <xsl:value-of select="usage:enumNameType($attrib,true())"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat('xsd:',$type)"/>

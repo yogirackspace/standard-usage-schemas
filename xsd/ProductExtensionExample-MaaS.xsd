@@ -3,7 +3,7 @@
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:usage="http://docs.rackspace.com/core/usage"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:monitor="http://docs.rackspace.com/usage/monitoring"
     targetNamespace="http://docs.rackspace.com/usage/monitoring">
