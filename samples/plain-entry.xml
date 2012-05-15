@@ -4,7 +4,7 @@
     <atom:updated>2012-03-12T18:30:02Z</atom:updated>
     <atom:category term="plain"/>
     <atom:content type="application/xml">
-        <event xmlns="http://docs.rackspace.com/event/core"
+        <event xmlns="http://docs.rackspace.com/core/event"
                version="1" tenantId="12334" serviceCode="Compute"
                id="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
                resourceId="560490c6-6c63-11e1-adfe-27851d5aed13"

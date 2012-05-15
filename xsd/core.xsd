@@ -4,13 +4,13 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:event="http://docs.rackspace.com/event/core"
+    xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/event/core">
+    targetNamespace="http://docs.rackspace.com/core/event">
 
     <complexType name="EventBase" abstract="true">
         <annotation>
