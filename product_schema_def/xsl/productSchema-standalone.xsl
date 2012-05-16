@@ -79,7 +79,9 @@
                 <simpleType name="UUID">
                     <restriction base="xsd:string">
                         <length value="36" fixed="true"/>
-                        <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+                        <pattern>
+                            <xsl:attribute name="value">[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</xsl:attribute>
+                        </pattern>
                     </restriction>
                 </simpleType>
             </xsl:if>
