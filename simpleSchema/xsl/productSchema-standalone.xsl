@@ -24,8 +24,11 @@
         <schema
               elementFormDefault="qualified"
               attributeFormDefault="unqualified"
+              xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
               xmlns:html="http://www.w3.org/1999/xhtml"
+              xmlns:xerces="http://xerces.apache.org"
+              xmlns:saxon="http://saxon.sf.net/"
               xmlns="http://www.w3.org/2001/XMLSchema">
             <xsl:namespace name="p" select="@namespace"/>
             <xsl:attribute name="targetNamespace">
@@ -80,6 +83,28 @@
                     </restriction>
                 </simpleType>
             </xsl:if>
+            <xsl:if test="schema:attribute[@type='utcDateTime']">
+                <simpleType name="UTCDateTime">
+                    <restriction base="xsd:dateTime" vc:minVersion="1.0" vc:maxVersion="1.1"/>
+                    <restriction base="xsd:dateTimeStamp" vc:minVersion="1.1">
+                        <assertion
+                            test="ends-with(string($value),'Z') or ends-with(string($value),'+00:00') or ends-with(string($value),'-00:00')"
+                            xerces:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."
+                            saxon:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."/>
+                    </restriction>
+                </simpleType>
+            </xsl:if>
+            <xsl:if test="schema:attribute[@type='utcTime']">
+                <simpleType name="UTCTime">
+                    <restriction base="xsd:time">
+                        <assertion
+                            vc:minVersion="1.1"
+                            test="ends-with(string($value),'Z') or ends-with(string($value),'+00:00') or ends-with(string($value),'-00:00')"
+                            xerces:message="The time should be in the UTC timezone, it is expect to end in +00:00 or Z."
+                            saxon:message="The time should be in the UTC timezone, it is expect to end in +00:00 or Z."/>
+                    </restriction>
+                </simpleType>
+            </xsl:if>
             <xsl:apply-templates mode="AddTypes"/>
         </schema>
     </xsl:template>
@@ -105,6 +130,12 @@
                     </xsl:when>
                     <xsl:when test="@type='UUID'">
                         <xsl:value-of select="'p:UUID'"/>
+                    </xsl:when>
+                    <xsl:when test="@type='utcDateTime'">
+                        <xsl:value-of select="'p:UTCDateTime'"/>
+                    </xsl:when>
+                    <xsl:when test="@type='utcTime'">
+                        <xsl:value-of select="'p:UTCTime'"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="concat('xsd:',@type)"/>

@@ -30,6 +30,12 @@
                allowedValues="BEST BETTER WORST" use="required">
         An enumeration.
     </attribute>
+    <attribute name="time" type="utcTime" use="required">
+        A time in UTC.
+    </attribute>
+    <attribute name="dateTime" type="utcDateTime" use="required">
+        A datetime in UTC.
+    </attribute>
     <attribute name="eventTypeList" type="Name*"
                allowedValues="BEST BETTER WORST" use="required">
         A list of enumertation strings.
