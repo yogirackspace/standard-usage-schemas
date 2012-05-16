@@ -21,28 +21,199 @@
     -->
     <complexType name="ProductSimpleSchema">
         <sequence>
-            <element name="description" type="xsd:string" />
-            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50"/>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A description for the schema.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A set of custom attributes. Currently,
+                            only 50 custom attributes are allowed for
+                            a product schema.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </element>
         </sequence>
-        <attribute name="version" type="xsd:string" use="required"/>
-        <attribute name="namespace" type="xsd:anyURI" use="required"/>
-        <attribute name="resourceTypes" type="schema:TokenList" use="required"/>
-        <attribute name="name" type="xsd:token" use="required"/>
+        <attribute name="version" type="xsd:string" use="required">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            The version of this perticular product
+                            schema.  Any sort of version string is
+                            allowed. Each product schema must have a
+                            unique version.
+                        </html:p>
+                    </documentation>
+                </annotation>
+        </attribute>
+        <attribute name="namespace" type="xsd:anyURI" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The namespace for the schema.  The namespace
+                        must be unique for each product.  The same
+                        namespace may be used between product schema
+                        versions.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="resourceTypes" type="schema:NameList" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        A whitespace seperated list of resource types.
+                        A product schema
+                        <html:strong>must</html:strong> specify at
+                        least one resource type.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="name" type="xsd:Name" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The name of the product or service. Sholud be
+                        a single word, no whitespaces are
+                        allowed. Example names "nova", "MaaS", etc.
+                        The name is used to construct atom categories
+                        for events of this type.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
     </complexType>
 
     <complexType name="Attribute">
         <simpleContent>
             <extension base="xsd:string">
-                <attribute name="name" type="xsd:Name" use="required"/>
-                <attribute name="type" type="schema:Type" use="required"/>
-                <attribute name="use"  type="schema:Use" use="optional" default="optional"/>
-                <attribute name="fixed" type="xsd:string" use="optional"/>
-                <attribute name="default" type="xsd:string" use="optional"/>
-                <attribute name="displayName" type="xsd:string" use="optional"/>
-                <attribute name="allowedValues" type="schema:TokenList" use="optional"/>
-                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
-                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
-                <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
+                <attribute name="name" type="xsd:Name" use="required">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The name of the attribute. The name
+                                must be a single word.  It cannot
+                                contain namespaces, it must not start
+                                with a number.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="type" type="schema:Type" use="required">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The type of the attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="use"  type="schema:Use" use="optional" default="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Is the attribute optional or
+                                required. The use attribute is
+                                optional, if not specified the
+                                attribute will be labled as optional.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="fixed" type="xsd:string" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the attribute always has a fixed
+                                value, the value should be specified
+                                here.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="default" type="xsd:string" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the attribute has a default value,
+                                then the default value shold be
+                                specified here.  Note that only
+                                optional attributes can have default
+                                values.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="displayName" type="xsd:string" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A haman readable name for the
+                                attribute that can be used for
+                                reports, invoices, etc.  The display
+                                name does not have the same constaints
+                                as the name attribute..it can contain
+                                spaces.  "displayName" is an optional
+                                attribute. If it is not specified the
+                                "name" attribute will be used in
+                                reports, invoices, etc.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="allowedValues" type="schema:NameList" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                An optional whitespace seperated list
+                                of allowed values.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                For usage.  A discription of how
+                                values for this attribute should be
+                                aggregated.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The unit of measure for the attribute.
+                                Note that if an aggregate function is
+                                specifeied, then a unit of measure
+                                should also be specified.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="groupBy" type="xsd:boolean" use="optional" default="false">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                All attributes with a groupBy value of
+                                true will be grouped for the purpose
+                                of aggregation.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">
@@ -84,8 +255,8 @@
     <!--
         Simple Types
     -->
-    <simpleType name="TokenList">
-        <list itemType="xsd:token"/>
+    <simpleType name="NameList">
+        <list itemType="xsd:Name"/>
     </simpleType>
 
     <simpleType name="Use">
@@ -114,77 +285,602 @@
             <!--
                Allowed String Types
             -->
-            <enumeration value="string"/>
-            <enumeration value="token"/>
-            <enumeration value="Name"/>
-            <enumeration value="string*"/>
-            <enumeration value="token*"/>
-            <enumeration value="Name*"/>
+            <enumeration value="string">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            Any sequence of characters.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="Name">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A valid name. That is a string that
+                            consist exclusively of letters, digits,
+                            ideographs, and the underscore, hyphen,
+                            period, and colon. Digits, the hyphen, and
+                            the period may not be used to start a
+                            name, although they may be used inside the
+                            name.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="Name*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A list of names.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
             <!--
               Numeric Types
             -->
-            <enumeration value="decimal"/>
-            <enumeration value="integer"/>
-            <enumeration value="long"/>
-            <enumeration value="int"/>
-            <enumeration value="short"/>
-            <enumeration value="byte"/>
-            <enumeration value="unsignedLong"/>
-            <enumeration value="unsignedInt"/>
-            <enumeration value="unsignedShort"/>
-            <enumeration value="unsignedByte"/>
-            <enumeration value="double"/>
-            <enumeration value="float"/>
-            <enumeration value="decimal*"/>
-            <enumeration value="integer*"/>
-            <enumeration value="long*"/>
-            <enumeration value="int*"/>
-            <enumeration value="short*"/>
-            <enumeration value="byte*"/>
-            <enumeration value="unsignedLong*"/>
-            <enumeration value="unsignedInt*"/>
-            <enumeration value="unsignedShort*"/>
-            <enumeration value="unsignedByte*"/>
-            <enumeration value="double*"/>
-            <enumeration value="float*"/>
+            <enumeration value="integer">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            An integer value of arbritrary size.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="long">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A signed integer that can be represented
+                            by eight bytes. The minimum value of a
+                            long is 9223372036854775807, the maximum
+                            value is -9223372036854775808.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="int">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A signed integer that can be represented
+                            by four bytes. The minimum value of an int
+                            is -2147483648, the maximum value is
+                            2147483647.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="short">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A signed integer that can be represented
+                            by two bytes. The minimum value of a short
+                            is -32768, the maximum value is 32767.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="byte">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A signed integer that can be represented
+                            by a single byte. The minimum value of a byte
+                            is -128, the maximum value is 127.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedLong">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            An unsigned integer that can be
+                            represented by eight bytes. The minimum
+                            value of a unsignedLong is 0, the maximum
+                            value is 18446744073709551615.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedInt">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            An unsigned integer that can be
+                            represented by four bytes. The minimum
+                            value of an unsignedInt is 0, the maximum
+                            value is 4294967295.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedShort">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            An unsigned integer that can be
+                            represented by two bytes. The minimum
+                            value of an unsignedShort is 0, the
+                            maximum value is 65535.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedByte">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            An unsigned integer that can be represented
+                            by a single byte. The minimum value of a byte
+                            is 0, the maximum value is 255.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="double">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A decimal value that can be represented by
+                            an eight byte floating-point number in
+                            IEEE 754 format. Values such as INF
+                            (infinity) and NaN (not a number) are
+                            allowed.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="float">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A decimal value that can be represented by
+                            a four byte floating-point number in
+                            IEEE 754 format. Values such as INF
+                            (infinity) and NaN (not a number) are
+                            allowed.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="integer*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of integer
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="long*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of long
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="int*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of int
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="short*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of short
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="byte*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of byte
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedLong*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of unsignedLong
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedInt*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of unsignedInt
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedShort*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of unsignedShort
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="unsignedByte*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of unsignedByte
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="double*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of double
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="float*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of float
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
 
             <!--
                 Booleans
             -->
-            <enumeration value="boolean"/>
-            <enumeration value="boolean*"/>
+            <enumeration value="boolean">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of long
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="boolean*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of boolean
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
 
 
             <!--
                ISO 8601 date and time
             -->
-            <enumeration value="duration"/>
-            <enumeration value="date"/>
-            <enumeration value="datetime"/>
-            <enumeration value="time"/>
-            <enumeration value="gDay"/>
-            <enumeration value="gMonth"/>
-            <enumeration value="gYear"/>
-            <enumeration value="gMonthDay"/>
-            <enumeration value="gMonthYear"/>
-            <enumeration value="duration*"/>
-            <enumeration value="date*"/>
-            <enumeration value="datetime*"/>
-            <enumeration value="time*"/>
-            <enumeration value="gDay*"/>
-            <enumeration value="gMonth*"/>
-            <enumeration value="gYear*"/>
-            <enumeration value="gMonthDay*"/>
-            <enumeration value="gMonthYear*"/>
+            <enumeration value="duration">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            The duration type represents a length
+                            of time such as 15 minutes; 2 hours; or 3
+                            years, 7 months, 2 days, 8 hours, 32
+                            minutes, and 12 seconds. It does not have
+                            a specific beginning or end, just a
+                            length. Durations are represented using
+                            the ISO-8601 standard format
+                            PnYnMnDTnHnMnS. nY gives the number of
+                            years, nM the number of months, nD the
+                            number of days, nH the number of hours, nM
+                            the number of minutes, and nS the number
+                            of seconds. The number of years, months,
+                            days, hours, minutes, and seconds are all
+                            given as nonnegative integers. The number
+                            of seconds is a decimal number with as
+                            many places after the decimal point as
+                            necessary. For example, in this format, 3
+                            years, 7 months, 2 days, 8 hours, 32
+                            minutes, and 12 seconds is written as
+                            P3Y7M2DT8H32M12S. Any values that are zero
+                            can be omitted. Thus, a duration of 2
+                            years and 2 minutes can be written as
+                            P2YT2M. If there are no hours, minutes, or
+                            seconds, then the T is omitted. Thus, a
+                            duration of two years is written as P2Y. A
+                            leading minus sign before the P indicates
+                            a negative duration.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="date">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                          The date type represents a specific day
+                          in history such as September 26, 2005. Dates
+                          are written in the form CCYY-MM-DD. For
+                          example, September 26, 2005 is written as
+                          2005-09-26.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="dateTime">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                          The dateTime type represents a specific
+                          moment in history, such as 3:32 P.M.,
+                          September 26, 2003. Date-times are written
+                          in the form CCYY-MM-DDThh:mm:ss. An optional
+                          time zone indicator in the form ±hh:mm may
+                          be suffixed to provide a time zone as an
+                          offset from Coordinated Universal Time
+                          (Greenwich Mean Time, UTC). For example,
+                          2003-09-26T15:32:00-05:00 is 3:32 P.M.,
+                          September 26, 2003 in the U.S. Eastern time
+                          zone. A Z can be used instead to indicate
+                          UTC: 1999-12-31T00:00:00Z.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="utcDateTime">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A dateTime constraint to be in the UTC
+                            timezone.  That is the timezone offset
+                            must be 0 OR the value must end with Z.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="time">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            The time type represents a specific time
+                            of day on no particular day, such as 3:32
+                            P.M. Times are written in the form
+                            ±hh:mm:ss.xxx using a 24-hour clock and as
+                            many fractions of a second as necessary.
+                            An optional time zone indicator in the
+                            form ±hh:mm may be suffixed to provide a
+                            time zone as an offset from Coordinated
+                            Universal Time (Greenwich Mean Time,
+                            UTC). For example, 15:32:00-05:00 is 3:32
+                            P.M., in the U.S. Eastern time zone. A Z
+                            can be used instead to indicate UTC:
+                            00:00:00Z.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="utcTime">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A time constraint to be in the UTC
+                            timezone.  That is the timezone offset
+                            must be 0 OR the value must end with Z.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="duration*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of duration
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="date*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of date
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="dateTime*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of dateTime
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="utcDateTime*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of utcDateTime
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="time*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of time
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="utcTime*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of utcTime
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="gDay*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of gDay
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="gMonth*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of gMonth
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="gYear*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of gYear
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="gMonthDay*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of gMonthDay
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="gMonthYear*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of gMonthYear
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
 
             <!--
                 Others
             -->
-            <enumeration value="base64Binary"/>
-            <enumeration value="anyURI"/>
-            <enumeration value="UUID"/>
-            <enumeration value="anyURI*"/>
-            <enumeration value="UUID*"/>
+            <enumeration value="base64Binary">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                             An arbitrary sequence of bytes that has
+                             been encoded in ASCII characters using
+                             the Base-64 algorithm defined in RFC
+                             2045, <html:i>Multi-purpose Internet Mail
+                             Extensions (MIME) Part One: Format of
+                             Internet Message Bodies</html:i>. The
+                             letters A–Z and a–z, the digits 0–9, and
+                             the punctuation marks + and / are used to
+                             encode data according to an algorithm
+                             that maps four of these characters to
+                             three arbitrary bytes. The equals sign is
+                             used to pad data at the end if necessary.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="anyURI">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                          The anyURI type indicates a Uniform Resource
+                          Identifier. This includes not only Uniform
+                          Resource Locators (URLs), but also Uniform
+                          Resource Names (URNs). Both relative and
+                          absolute URLs are allowed.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="UUID">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A Universally unique identifier in its
+                            canonical form: 32 hexadecimal digits,
+                            displayed in five groups separated by
+                            hyphens, in the form 8-4-4-4-12 for a
+                            total of 36 characters (32 digits and four
+                            hyphens). For example:
+                            7eadda6a-9f3e-11e1-9ef4-77b6922f8866.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="anyURI*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of anyURI
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="UUID*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A whitespace seperated list of UUIDs
+                            values.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
         </restriction>
     </simpleType>
 </schema>

@@ -30,7 +30,7 @@
                allowedValues="BEST BETTER WORST" use="required">
         An enumeration.
     </attribute>
-    <attribute name="eventTypeList" type="string*"
+    <attribute name="eventTypeList" type="Name*"
                allowedValues="BEST BETTER WORST" use="required">
         A list of enumertation strings.
     </attribute>
