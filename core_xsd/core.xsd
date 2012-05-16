@@ -82,21 +82,20 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="type" type="event:EventType" use="optional" default="USAGE">
+                <attribute name="type" type="event:EventType" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
-                                Identifies the type of event.
-                            </html:p>
-                            <html:p>
-                                The use of the attribute is optional,
-                                however, if the attribute is not
-                                specified "USEAGE" will be assumed.
+                                Identifies the type of event.  If one
+                                of the existing event types don't feed
+                                set this type to EXTENDED and add an
+                                eventType attribute to your product
+                                schema.
                             </html:p>
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="dataCenter" type="xsd:string" use="optional" default="global">
+                <attribute name="dataCenter" type="xsd:string" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -111,7 +110,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="region" type="xsd:string" use="optional" default="global">
+                <attribute name="region" type="xsd:string" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
