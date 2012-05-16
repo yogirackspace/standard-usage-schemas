@@ -125,7 +125,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="startTime" type="event:UTCTime" use="optional">
+                <attribute name="startTime" type="event:UTCDateTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -134,7 +134,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="endTime" type="event:UTCTime" use="optional">
+                <attribute name="endTime" type="event:UTCDateTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -145,7 +145,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="eventTime" type="event:UTCTime" use="optional">
+                <attribute name="eventTime" type="event:UTCDateTime" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -249,7 +249,7 @@
         </restriction>
     </simpleType>
 
-    <simpleType name="UTCTime">
+    <simpleType name="UTCDateTime">
         <annotation>
             <documentation>
                 <html:p>
