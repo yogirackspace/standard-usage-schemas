@@ -35,7 +35,7 @@
                 <xsl:value-of select="@namespace"/>
             </xsl:attribute>
             
-            <element name="usage">
+            <element name="product">
                 <xsl:attribute name="type">
                     <xsl:value-of select="concat('p:',$serviceName,'Type')"/>
                 </xsl:attribute>

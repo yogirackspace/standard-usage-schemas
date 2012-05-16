@@ -20,11 +20,11 @@
             schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
-    <import namespace="http://docs.rackspace.com/usage/nova"
-            schemaLocation="ProductExtensionExample-Nova.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/dbaas"
+            schemaLocation="../generated_product_xsds/dbaas.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/monitoring"
-            schemaLocation="ProductExtensionExample-MaaS.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/widget"
+            schemaLocation="../generated_product_xsds/widget.xsd"/>
 
     <!--
         The right type is selected based on the version.

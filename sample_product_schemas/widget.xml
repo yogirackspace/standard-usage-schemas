@@ -2,7 +2,7 @@
         namespace="http://docs.rackspace.com/usage/widget"
         version="1"
         name="Widget"
-        resourceTypes="WIDGET">
+        resourceTypes="WIDGET GADGET">
     <description>
         Widget specific user fields
     </description>
@@ -25,10 +25,6 @@
     <attribute name="disabled" type="boolean" use="optional" default="false"
                displayName="Disabled">
         A boolean.
-    </attribute>
-    <attribute name="eventType" type="string" 
-               allowedValues="ADDED REMOVED EXPLOTED" use="required">
-        An enumeration of extended event types.
     </attribute>
     <attribute name="time" type="utcTime" use="required">
         A time in UTC.

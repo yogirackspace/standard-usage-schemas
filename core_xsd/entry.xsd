@@ -30,11 +30,11 @@
             <!--
                 The following elements are required...
             -->
-            <element name="title" type="xsd:string" />
             <element name="content" type="atom:UsageContent"/>
             <!--
                 One or more categories are optional...
             -->
+            <element name="title" type="xsd:string" minOccurs="0"/>
             <element name="id" type="xsd:anyURI" minOccurs="0"/>
             <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
