@@ -1,4 +1,4 @@
-<productSchema xmlns="http://docs.rackspace.com/usage/core/schema"
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
         namespace="http://docs.rackspace.com/usage/monitoring"
         version="1"
         name="MaaS"

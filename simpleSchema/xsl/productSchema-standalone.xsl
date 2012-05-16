@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:schema="http://docs.rackspace.com/usage/core/schema"
+    xmlns:schema="http://docs.rackspace.com/core/usage/schema"
     xmlns:usage="http://docs.rackspace.com/core/usage"
     xmlns="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="schema"

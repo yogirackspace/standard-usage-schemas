@@ -2,14 +2,14 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:schema="http://docs.rackspace.com/usage/core/schema"
+    xmlns:schema="http://docs.rackspace.com/core/usage/schema"
     xmlns:usage="http://docs.rackspace.com/core/usage"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/usage/core/schema">
+    targetNamespace="http://docs.rackspace.com/core/usage/schema">
 
     <import namespace="http://docs.rackspace.com/core/usage"
             schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>

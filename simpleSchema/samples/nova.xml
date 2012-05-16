@@ -1,4 +1,4 @@
-<productSchema xmlns="http://docs.rackspace.com/usage/core/schema"
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/usage/nova"
                name="Nova"
                version="1"
