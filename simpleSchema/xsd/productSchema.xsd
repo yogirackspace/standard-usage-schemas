@@ -9,7 +9,8 @@
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://docs.rackspace.com/core/usage/schema">
+    targetNamespace="http://docs.rackspace.com/core/usage/schema"
+    version="1.0">
 
     <import namespace="http://docs.rackspace.com/core/usage"
             schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>
