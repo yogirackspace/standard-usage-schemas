@@ -16,7 +16,7 @@
         <annotation>
             <documentation>
                 <html:p>
-                    This is the base type for all usage records.  The
+                    This is the base type for all event records.  The
                     only thing that is required is a version
                     attribute.
                 </html:p>
@@ -139,7 +139,7 @@
                             <html:p>
                                 UTC, ISO Format end time.  For an EXISTs
                                 event, the startTime and endTime reflect the
-                                usage duriation for the resource instance.
+                                event duriation for the resource instance.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -180,8 +180,8 @@
                     </annotation>
                 </assert>
                 <assert vc:minVersion="1.1" test="if (not(@eventTime) and not(@startTime) and not(@endTime)) then false() else true()"
-                        xerces:message="The usage event must have a startTime and endTime or it must have an eventTime."
-                        saxon:message="The usage event must have a startTime and endTime or it must have an eventTime.">
+                        xerces:message="The event must have a startTime and endTime or it must have an eventTime."
+                        saxon:message="The event must have a startTime and endTime or it must have an eventTime.">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -192,8 +192,8 @@
                     </annotation>
                 </assert>
                 <assert vc:minVersion="1.1" test="if (@eventTime) then (not(@startTime) and not(@endTime)) else true()"
-                        xerces:message="If the usage event has an eventTime then it cannot have a startTime or an endTime."
-                        saxon:message="If the usage event has an eventTime then it cannot have a startTime or an endTime.">
+                        xerces:message="If the event has an eventTime then it cannot have a startTime or an endTime."
+                        saxon:message="If the event has an eventTime then it cannot have a startTime or an endTime.">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -205,8 +205,8 @@
                     </annotation>
                 </assert>
                 <assert vc:minVersion="1.1" test="if (@startTime) then (not(@eventTime) and @endTime) else true()"
-                        xerces:message="If the usage event has a startTime then it cannot have an eventTime and it must have an endTime."
-                        saxon:message="If the usage event has a startTime then it cannot have an eventTime and it must have an endTime.">
+                        xerces:message="If the event has a startTime then it cannot have an eventTime and it must have an endTime."
+                        saxon:message="If the event has a startTime then it cannot have an eventTime and it must have an endTime.">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -218,8 +218,8 @@
                     </annotation>
                 </assert>
                 <assert vc:minVersion="1.1" test="if (@endTime) then (not(@eventTime) and @startTime) else true()"
-                        xerces:message="If the usage event has a endTime then it cannot have an eventTime and it must have a startTime."
-                        saxon:message="If the usage event has a endTime then it cannot have an eventTime and it must have a startTime.">
+                        xerces:message="If the event has a endTime then it cannot have an eventTime and it must have a startTime."
+                        saxon:message="If the event has a endTime then it cannot have an eventTime and it must have a startTime.">
                     <annotation>
                         <documentation>
                             <html:p>
