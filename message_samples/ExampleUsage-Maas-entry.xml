@@ -4,8 +4,7 @@
     <atom:title>DBaas Usage</atom:title>
     <atom:content type="application/xml">
         <event version="1" tenantId="7777" serviceCode="MaaS"
-               resourceId="93c591a8-a020-11e1-a225-a3b838b7d8b4"
-               resourceName="MyCheck"
+               resourceId="chAAAA" resourceName="MyCheck"
                id="a2869958-a020-11e1-b15c-a38f4c3d83a9"
                type="USAGE" startTime="2012-04-30T03:27:36Z"
                endTime="2012-04-30T03:27:35Z">
