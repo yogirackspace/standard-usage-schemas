@@ -1,0 +1,17 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/maas"
+               name="MaaS"
+               version="1"
+               resourceTypes="CHECK">
+    <description>
+        MaaS specific usage fields.
+    </description>
+    <attribute name="monitoringZones" type="int"
+               use="required" unitOfMeasure="COUNT">
+        The number of monitoring zones.
+    </attribute>
+    <attribute name="checkType" type="string"
+               use="optional">
+        The type of check being performed.
+    </attribute>
+</productSchema>

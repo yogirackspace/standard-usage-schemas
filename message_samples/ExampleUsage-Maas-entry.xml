@@ -1,0 +1,16 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:maas="http://docs.rackspace.com/usage/maas"
+            xmlns="http://docs.rackspace.com/core/event">
+    <atom:title>DBaas Usage</atom:title>
+    <atom:content type="application/xml">
+        <event version="1" tenantId="7777" serviceCode="MaaS"
+               resourceId="93c591a8-a020-11e1-a225-a3b838b7d8b4"
+               resourceName="MyCheck"
+               id="a2869958-a020-11e1-b15c-a38f4c3d83a9"
+               type="USAGE" startTime="2012-04-30T03:27:36Z"
+               endTime="2012-04-30T03:27:35Z">
+            <maas:product version="1" resourceType="CHECK"
+                          monitoringZones="3" checkType="remote.http"/>
+        </event>
+    </atom:content>
+</atom:entry>

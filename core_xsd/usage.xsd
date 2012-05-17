@@ -23,6 +23,9 @@
     <import namespace="http://docs.rackspace.com/usage/dbaas"
             schemaLocation="../generated_product_xsds/dbaas.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/maas"
+            schemaLocation="../generated_product_xsds/maas.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 
