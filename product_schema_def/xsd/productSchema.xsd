@@ -13,7 +13,7 @@
     version="1.0">
 
     <import namespace="http://docs.rackspace.com/core/usage"
-            schemaLocation="../../xsd/ProductExtension-Annotations.xsd"/>
+            schemaLocation="../../core_xsd/ProductExtension-Annotations.xsd"/>
 
     <element name="productSchema" type="schema:ProductSimpleSchema"/>
 
