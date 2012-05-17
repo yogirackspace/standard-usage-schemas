@@ -7,12 +7,10 @@
         Dbaas specific user fields.
     </description>
     <attribute name="memory" type="int" use="optional"
-               aggregateFunction="SUM"
                unitOfMeasure="MB">
         The amount of memory for the current usage.
     </attribute>
     <attribute name="storage" type="int" use="optional"
-               aggregateFunction="SUM"
                unitOfMeasure="GB">
         The size of the storage volume for the current usage.
     </attribute>
