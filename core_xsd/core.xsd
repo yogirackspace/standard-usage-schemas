@@ -253,6 +253,17 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@startTime and @endTime) then xsd:dateTime(@startTime) lt xsd:dateTime(@endTime) else true()"
+                        xerces:message="The startTime should come before the endTime."
+                        saxon:message="The startTime should come before the endTime.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The startTime should always come before the endTime.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>
