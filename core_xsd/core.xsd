@@ -190,6 +190,18 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE') then xsd:dateTime(@endTime) le (xsd:dateTime(@startTime) + xsd:dayTimeDuration('P1D')) else true()"
+                        xerces:message="Usage events must not span more than 1 Day."
+                        saxon:message="Usage events must not span more than 1 Day.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the type is equal to 'USAGE'
+                                then the event should not span more than 1 Day.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
                 <assert vc:minVersion="1.1" test="if (not(@eventTime) and not(@startTime) and not(@endTime)) then false() else true()"
                         xerces:message="The event must have a startTime and endTime or it must have an eventTime."
                         saxon:message="The event must have a startTime and endTime or it must have an eventTime.">
