@@ -86,31 +86,26 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="dataCenter" type="xsd:string" use="optional">
+                <attribute name="dataCenter" type="event:DC" use="optional" default="GLOBAL">
                     <annotation>
                         <documentation>
                             <html:p>
-                                Identifies the datacenter of the resource.
-                                For example DFW3.
-                            </html:p>
-                            <html:p>
-                                The use of the attribute is optional,
-                                however, if the attribute is not
-                                specified "global" will be assumed.
+                                Identifies the datacenter of the
+                                event, for example, DFW3.  The
+                                attribute is optional, if it is not
+                                specified GLOBAL will be assumed.
                             </html:p>
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="region" type="xsd:string" use="optional">
+                <attribute name="region" type="event:Region" use="optional" default="GLOBAL">
                     <annotation>
                         <documentation>
                             <html:p>
-                                Identifies the region.
-                            </html:p>
-                            <html:p>
-                                The use of the attribute is optional,
-                                however, if the attribute is not
-                                specified "global" will be assumed.
+                                Identifies the region, for example,
+                                DFW.  The attribute is optional, if it
+                                is not specified GLOBAL will be
+                                assumed.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -303,6 +298,63 @@
             <enumeration value="SUSPEND"/>
             <enumeration value="UNSUSPEND"/>
             <enumeration value="EXTENDED"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Region">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The region in which the event is
+                    located. GLOBAL implies that the resoure is
+                    regionless.
+                </html:p>
+                <html:p>
+                    Note that the source of truth for this is in the
+                    <html:a
+                    href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
+                    Portal</html:a>.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="GLOBAL"/>
+            <enumeration value="DFW"/>
+            <enumeration value="HKG"/>
+            <enumeration value="IAD"/>
+            <enumeration value="LON"/>
+            <enumeration value="ORD"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="DC">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The datacenter in which the event is
+                    located. GLOBAL implies that the resoure is
+                    regionless.
+                </html:p>
+                <html:p>
+                    Note that the source of truth for this is in the
+                    <html:a
+                    href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
+                    Portal</html:a>.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="GLOBAL"/>
+            <enumeration value="DFW1"/>
+            <enumeration value="DFW2"/>
+            <enumeration value="DFW3"/>
+            <enumeration value="HKG1"/>
+            <enumeration value="IAD1"/>
+            <enumeration value="IAD2"/>
+            <enumeration value="IAD3"/>
+            <enumeration value="LON1"/>
+            <enumeration value="LON3"/>
+            <enumeration value="ORD1"/>
         </restriction>
     </simpleType>
 </schema>
