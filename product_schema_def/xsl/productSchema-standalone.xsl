@@ -162,6 +162,9 @@
                             <xsl:if test="@groupBy">
                                 <xsl:attribute name="groupBy" select="@groupBy"/>
                             </xsl:if>
+                            <xsl:if test="@billable">
+                                <xsl:attribute name="billable" select="@billable"/>
+                            </xsl:if>
                         </usage:attributes>
                     </appinfo>
                 </documentation>

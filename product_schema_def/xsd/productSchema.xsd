@@ -217,6 +217,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="billable" type="xsd:boolean" use="optional" default="true">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                This is an attribute that is used for
+                                billing purposes.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">

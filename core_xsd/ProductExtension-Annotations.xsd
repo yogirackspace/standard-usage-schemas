@@ -24,7 +24,8 @@
         <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
         <attribute name="displayName" type="xsd:string" use="optional" />
         <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
-        <attribute name="groupBy" type="xsd:boolean" use="optional" default="false" />
+        <attribute name="groupBy" type="xsd:boolean" use="optional" default="false"/>
+        <attribute name="billable" type="xsd:boolean" use="optional" default="true"/>
         <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                 xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                 saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
