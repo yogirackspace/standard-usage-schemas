@@ -10,7 +10,9 @@
                type="USAGE" dataCenter="DFW1" region="DFW"
                startTime="2012-03-12T11:51:11Z"
                endTime="2012-03-12T15:51:11Z">
-            <dbaas:product version="1" serviceCode="CloudDatabase" resourceType="INSTANCE" memory="16"/>
+            <dbaas:product version="1" serviceCode="CloudDatabase"
+                           resourceType="MYSQL"
+                           memory="16" storage="64"/>
         </event>
     </atom:content>
 </atom:entry>
