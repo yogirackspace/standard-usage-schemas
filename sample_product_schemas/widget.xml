@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
         namespace="http://docs.rackspace.com/usage/widget"
         version="1"
-        name="Widget"
+        serviceCode="Widget"
         resourceTypes="WIDGET GADGET">
     <description>
         Widget specific user fields

@@ -10,8 +10,6 @@
     
     <xsl:output method="xml" indent="yes"/>
     
-    <xsl:variable name="serviceName" select="/schema:productSchema/@name" as="xsd:string"/>
-    
     <xsl:template match="schema:productSchema">
         <xsl:variable name="resourceTypes" as="xsd:string*" select="tokenize(@resourceTypes, ' ')"></xsl:variable>
         <xsl:comment>
@@ -37,13 +35,13 @@
             
             <element name="product">
                 <xsl:attribute name="type">
-                    <xsl:value-of select="concat('p:',$serviceName,'Type')"/>
+                    <xsl:value-of select="concat('p:',@serviceCode,'Type')"/>
                 </xsl:attribute>
             </element>
             
             <complexType>
                 <xsl:attribute name="name">
-                    <xsl:value-of select="concat($serviceName,'Type')"/>
+                    <xsl:value-of select="concat(@serviceCode,'Type')"/>
                 </xsl:attribute>
                 <annotation>
                     <documentation>
@@ -56,6 +54,7 @@
                     <xsl:attribute name="fixed" select="@version"/>
                 </attribute>
                 <attribute name="resourceType"  use="required" type="p:ResourceTypes"/>
+                <attribute name="serviceCode" use="required" type="xsd:Name" fixed="{@serviceCode}"/>
                 <xsl:apply-templates/>
             </complexType>
             

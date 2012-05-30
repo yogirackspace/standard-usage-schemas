@@ -79,15 +79,17 @@
                 </documentation>
             </annotation>
         </attribute>
-        <attribute name="name" type="xsd:Name" use="required">
+        <attribute name="serviceCode" type="xsd:Name" use="required">
             <annotation>
                 <documentation>
                     <html:p>
                         The name of the product or service. Sholud be
                         a single word, no whitespaces are
-                        allowed. Example names "nova", "MaaS", etc.
-                        The name is used to construct atom categories
-                        for events of this type.
+                        allowed. Example names "nova", "MaaS",
+                        etc. The name should uniquely identify the
+                        product or service.  The name is used to
+                        construct atom categories for events of this
+                        type.
                     </html:p>
                 </documentation>
             </annotation>

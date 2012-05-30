@@ -1,6 +1,6 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/usage/maas"
-               name="MaaS"
+               serviceCode="MaaS"
                version="1"
                resourceTypes="CHECK">
     <description>

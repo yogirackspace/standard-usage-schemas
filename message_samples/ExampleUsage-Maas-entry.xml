@@ -3,12 +3,12 @@
             xmlns="http://docs.rackspace.com/core/event">
     <atom:title>MaaSEvent</atom:title>
     <atom:content type="application/xml">
-        <event version="1" tenantId="7777" serviceCode="MaaS"
+        <event version="1" tenantId="7777"
                resourceId="chAAAA" resourceName="MyCheck"
                id="a2869958-a020-11e1-b15c-a38f4c3d83a9"
                type="USAGE" startTime="2012-04-30T03:27:35Z"
                endTime="2012-04-30T03:27:36Z">
-            <maas:product version="1" resourceType="CHECK"
+            <maas:product version="1" serviceCode="MaaS" resourceType="CHECK"
                           monitoringZones="3" checkType="remote.http"/>
         </event>
     </atom:content>

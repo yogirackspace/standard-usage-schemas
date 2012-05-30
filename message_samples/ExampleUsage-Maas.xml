@@ -1,10 +1,10 @@
 <event xmlns="http://docs.rackspace.com/core/event"
        xmlns:maas="http://docs.rackspace.com/usage/maas"
-       version="1" tenantId="7777" serviceCode="MaaS"
+       version="1" tenantId="7777"
        resourceId="chAAAA" resourceName="MyCheck"
        id="a2869958-a020-11e1-b15c-a38f4c3d83a9"
        type="USAGE" startTime="2012-04-30T03:27:35Z"
        endTime="2012-04-30T03:27:36Z">
-    <maas:product version="1" resourceType="CHECK"
+    <maas:product version="1" resourceType="CHECK" serviceCode="MaaS"
                   monitoringZones="3" checkType="remote.http"/>
 </event>
