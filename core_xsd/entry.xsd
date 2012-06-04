@@ -53,7 +53,7 @@
             Order matters in 1.0 land :-(
         -->
         <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
-            <element name="title" type="atom:Title" />
+            <element name="title" type="atom:Title" minOccurs="0"/>
             <element name="id" type="xsd:anyURI" minOccurs="0"/>
             <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 

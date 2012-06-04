@@ -10,19 +10,19 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:usage="http://docs.rackspace.com/usage/core"
+    xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    targetNamespace="http://docs.rackspace.com/usage/core">
+    targetNamespace="http://docs.rackspace.com/core/event">
 
     <include schemaLocation="_1.0Core.xsd"/>
 
     <!-- Define the element for XSD 1.0 clients -->
-    <element name="usage" type="usage:V1Element"/>
+    <element name="event" type="event:V1Element"/>
 
     <complexType name="V1Element">
         <complexContent>
-            <restriction base="usage:UsageV1">
+            <restriction base="event:EventV1">
                 <sequence>
                     <any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
