@@ -148,26 +148,26 @@
                     <html:p>
                         <xsl:value-of select="normalize-space(.)"/>
                     </html:p>
-                    <appinfo>
-                        <usage:attributes>
-                            <xsl:if test="@displayName">
-                                <xsl:attribute name="displayName" select="@displayName"/>
-                            </xsl:if>
-                            <xsl:if test="@aggregateFunction">
-                                <xsl:attribute name="aggregateFunction" select="@aggregateFunction"/>
-                            </xsl:if>
-                            <xsl:if test="@unitOfMeasure">
-                                <xsl:attribute name="unitOfMeasure" select="@unitOfMeasure"/>
-                            </xsl:if>
-                            <xsl:if test="@groupBy">
-                                <xsl:attribute name="groupBy" select="@groupBy"/>
-                            </xsl:if>
-                            <xsl:if test="@billable">
-                                <xsl:attribute name="billable" select="@billable"/>
-                            </xsl:if>
-                        </usage:attributes>
-                    </appinfo>
                 </documentation>
+                <appinfo>
+                    <usage:attributes>
+                        <xsl:if test="@displayName">
+                            <xsl:attribute name="displayName" select="@displayName"/>
+                        </xsl:if>
+                        <xsl:if test="@aggregateFunction">
+                            <xsl:attribute name="aggregateFunction" select="@aggregateFunction"/>
+                        </xsl:if>
+                        <xsl:if test="@unitOfMeasure">
+                            <xsl:attribute name="unitOfMeasure" select="@unitOfMeasure"/>
+                        </xsl:if>
+                        <xsl:if test="@groupBy">
+                            <xsl:attribute name="groupBy" select="@groupBy"/>
+                        </xsl:if>
+                        <xsl:if test="@billable">
+                            <xsl:attribute name="billable" select="@billable"/>
+                        </xsl:if>
+                    </usage:attributes>
+                </appinfo>
             </annotation>
         </attribute>
     </xsl:template>
