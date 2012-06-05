@@ -94,6 +94,21 @@
                 </documentation>
             </annotation>
         </attribute>
+        <attribute name="groupByResource" type="xsd:boolean"
+                   use="optional" default="true">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        If groupByResource is true then attributes are
+                        grouped by the resourceID.  In other words,
+                        the product is being charged per resource.  If
+                        not, that attributes are grouped at the
+                        account/tenant level.  The default is true
+                        which should apply to most products.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
     </complexType>
 
     <complexType name="Attribute">

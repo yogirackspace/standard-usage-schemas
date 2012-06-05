@@ -2,6 +2,7 @@
                namespace="http://docs.rackspace.com/usage/maas"
                serviceCode="CloudMonitoring"
                version="1"
+               groupByResource="false"
                resourceTypes="CHECK">
     <description>
         MaaS specific usage fields.

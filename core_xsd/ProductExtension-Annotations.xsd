@@ -11,6 +11,21 @@
     targetNamespace="http://docs.rackspace.com/core/usage">
 
     <element name="attributes" type="usage:AttributeAnnotation"/>
+    <element name="core" type="usage:CoreAttributeAnnotation"/>
+
+    <complexType name="CoreAttributeAnnotation">
+        <annotation>
+            <documentation>
+                <html:p>
+                    These annotations modify how the core attributes
+                    are interpreted. They are placed on the main
+                    complexType for the product schema.
+                </html:p>
+            </documentation>
+        </annotation>
+        <attribute name="groupByResource" type="xsd:boolean"
+                   default="true" use="optional"/>
+    </complexType>
 
     <complexType name="AttributeAnnotation">
         <annotation>

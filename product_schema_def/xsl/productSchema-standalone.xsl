@@ -49,6 +49,13 @@
                             <xsl:value-of select="normalize-space(schema:description)"/>
                         </html:p>
                     </documentation>
+                    <appinfo>
+                        <usage:core>
+                            <xsl:if test="@groupByResource">
+                                <xsl:attribute name="groupByResource" select="@groupByResource"/>
+                            </xsl:if>
+                        </usage:core>
+                    </appinfo>
                 </annotation>
                 <attribute name="version" type="xsd:string" use="required">
                     <xsl:attribute name="fixed" select="@version"/>
