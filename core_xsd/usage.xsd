@@ -26,6 +26,9 @@
     <import namespace="http://docs.rackspace.com/usage/maas"
             schemaLocation="../generated_product_xsds/maas.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/cbs"
+            schemaLocation="../generated_product_xsds/cbs.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 
