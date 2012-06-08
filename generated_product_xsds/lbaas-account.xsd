@@ -51,7 +51,7 @@
       <attribute name="numPublicVips" use="required" type="xsd:int">
          <annotation>
             <documentation>
-               <html:p>The number of public virtual ips associated with the tenant. record.</html:p>
+               <html:p>The number of public virtual ips associated with the tenant.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes unitOfMeasure="COUNT" groupBy="true"/>
@@ -61,7 +61,7 @@
       <attribute name="numServicenetVips" use="required" type="xsd:int">
          <annotation>
             <documentation>
-               <html:p>The amount of ssl bandwidth in, in bytes.</html:p>
+               <html:p>The number of service net virtual ips associated with the tenant.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes unitOfMeasure="COUNT" groupBy="true"/>

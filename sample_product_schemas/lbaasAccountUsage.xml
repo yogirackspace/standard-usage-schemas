@@ -22,6 +22,6 @@
     </attribute>
     <attribute name="numServicenetVips" type="int" use="required"
                unitOfMeasure="COUNT" groupBy="true">
-        The amount of ssl bandwidth in, in bytes.
+        The number of service net virtual ips associated with the tenant.
     </attribute>
 </productSchema>
