@@ -38,8 +38,12 @@
                unitOfMeasure="COUNT" groupBy="true">
         The number of vips per load balancer.
     </attribute>
-    <attribute name="tagsBitmask" type="int" use="required"
-               unitOfMeasure="int" groupBy="true">
-        the BitMask tags.
+    <attribute name="vipType" type="string" use="required"
+               groupBy="true">
+        The vip type associated with the load balancer.
+    </attribute>
+    <attribute name="sslMode" type="string" use="required"
+               groupBy="true">
+        The mode determining SSL status on the load balancer.
     </attribute>
 </productSchema>
