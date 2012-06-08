@@ -5,11 +5,11 @@
                groupByResource="false"
                resourceTypes="TENANT">
     <description>
-        Lbaas load balancer tenant  usage fields.
+        Lbaas load balancer tenant usage fields.
     </description>
     <attribute name="id" type="int" use="required"
                billable="false">
-        The internal id associated with the tenant.
+        The internal id associated with the tenant record.
     </attribute>
     <attribute name="numLoadbalancers" type="int" use="required"
                unitOfMeasure="COUNT" groupBy="true">
