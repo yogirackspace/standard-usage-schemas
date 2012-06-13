@@ -15,7 +15,7 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/usage/lbaas">
-   <element name="lbaasUsage" type="p:CloudLoadBalancersType"/>
+   <element name="product" type="p:CloudLoadBalancersType"/>
    <complexType name="CloudLoadBalancersType">
       <annotation>
          <documentation>
