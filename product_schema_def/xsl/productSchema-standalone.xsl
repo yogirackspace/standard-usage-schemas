@@ -19,7 +19,7 @@
             <xsl:text>&#x0a;</xsl:text>
         </xsl:comment>
         <xsl:text>&#x0a;</xsl:text>
-        <schema
+        <xsd:schema
               elementFormDefault="qualified"
               attributeFormDefault="unqualified"
               xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
@@ -114,7 +114,7 @@
                 </simpleType>
             </xsl:if>
             <xsl:apply-templates mode="AddTypes"/>
-        </schema>
+        </xsd:schema>
     </xsl:template>
     <xsl:template match="schema:attribute">
         <attribute>
