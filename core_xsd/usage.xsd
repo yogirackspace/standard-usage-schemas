@@ -29,6 +29,12 @@
     <import namespace="http://docs.rackspace.com/usage/cbs"
             schemaLocation="../generated_product_xsds/cbs.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/lbaas"
+            schemaLocation="../generated_product_xsds/lbaas.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/lbaas/account"
+            schemaLoctaion="../generated_product_xsds/lbaas-account.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 
