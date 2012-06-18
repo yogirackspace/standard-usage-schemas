@@ -15,9 +15,14 @@
     <attribute name="str" type="string" use="optional">
         An optional string.
     </attribute>
-    <attribute name="widget_id_list" type="int*" use="optional" 
+    <attribute name="widget_id_list" type="int*" use="optional"
                aggregateFunction="SUM" unitOfMeasure="COUNT">
         A list of integers.
+    </attribute>
+    <attribute name="same_int" type="int" use="optional"
+               aggregateFunction="LAST" unitOfMeasure="COUNT">
+        An integer of some kind.  Only the last value is taken into
+        account.
     </attribute>
     <attribute name="num_checks" type="int" use="required">
         A single integer.

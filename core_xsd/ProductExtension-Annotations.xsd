@@ -68,6 +68,8 @@
             <enumeration value="SUM"/>
             <enumeration value="AVG"/>
             <enumeration value="MAX"/>
+            <enumeration value="MIN"/>
+            <enumeration value="LAST"/>
         </restriction>
     </simpleType>
 
