@@ -173,6 +173,12 @@
                         <xsl:if test="@billable">
                             <xsl:attribute name="billable" select="@billable"/>
                         </xsl:if>
+                        <xsl:if test="@frequency">
+                            <xsl:attribute name="frequency" select="@frequency"/>
+                        </xsl:if>
+                        <xsl:if test="@frequencyAttribute">
+                            <xsl:attribute name="frequencyAttribute" select="@frequencyAttribute"/>
+                        </xsl:if>
                     </usage:attributes>
                 </appinfo>
             </annotation>
