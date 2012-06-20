@@ -1,5 +1,5 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/cloudfiles/disk"
+               namespace="http://docs.rackspace.com/usage/cloudfiles/storage"
                serviceCode="CloudFiles"
                version="1"
                groupByResource="false"
@@ -7,7 +7,7 @@
     <description>
       CloudFiles account storage information.
     <attribute name="disk" type="int" use="required"
-               unitOfMeasure="B" groupBy="true">
+               unitOfMeasure="B">
         The amount of disk usage in bytes.
     </attribute>
     <attribute name="freeops" type="int" use="required">
