@@ -1,0 +1,18 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
+               serviceCode="CloudFiles"
+               version="1"
+               groupByResource="false"
+               resourceTypes="TENANT">
+    <description>
+        CloudFiles account bandwidth usage information.
+    </description>
+    <attribute name="bandwidthIn" type="long" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM">
+        The amount of bandwidth in, in bytes.
+    </attribute>
+    <attribute name="bandwidthOut" type="long" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM">
+        The amount of bandwidth out in bytes.
+    </attribute>
+</productSchema>
