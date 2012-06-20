@@ -4,7 +4,7 @@
                version="1"
                resourceTypes="VOLUME">
     <description>
-        CBS specific usage fields.
+        CBS specific usage fields related to the volume.
     </description>
     <attribute name="type" type="string" use="required"
                allowedValues="HIGH STANDARD">
@@ -12,11 +12,7 @@
         based on SSD.  STANDARD in based on SATA.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
-               unitOfMeasure="GB" groupBy="true">
+               unitOfMeasure="GB">
         The amount of storage provisioned for the volume.
-    </attribute>
-    <attribute name="snapshot" type="int" use="required"
-               unitOfMeasure="GB" groupBy="true">
-        The amount of backup (snapshot) storage used for the volume.
     </attribute>
 </productSchema>

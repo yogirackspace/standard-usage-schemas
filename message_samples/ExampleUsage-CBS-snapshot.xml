@@ -1,5 +1,5 @@
 <event xmlns="http://docs.rackspace.com/core/event"
-       xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+       xmlns:cbs="http://docs.rackspace.com/usage/cbs/snapshot"
        version="1" tenantId="12334"
        resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
        resourceName="MyVolume"
@@ -8,7 +8,5 @@
        startTime="2012-03-12T11:51:11Z"
        endTime="2012-03-12T15:51:11Z">
     <cbs:product version="1" serviceCode="CloudBlockStorage"
-                 resourceType="VOLUME"
-                 type="STANDARD"
-                 provisioned="120"/>
+                 resourceType="VOLUME" snapshot="120"/>
 </event>
