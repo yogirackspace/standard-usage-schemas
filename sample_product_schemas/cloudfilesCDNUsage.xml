@@ -1,0 +1,14 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/cloudfiles/cdnbandwidth"
+               serviceCode="CloudFiles"
+               version="1"
+               groupByResource="false"
+               resourceTypes="TENANT">
+    <description>
+        CloudFiles account CDN usage information.
+    </description>
+    <attribute name="cdnBandwidthOut" type="long" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM">
+        The amount of bandwidth out in bytes.
+    </attribute>
+</productSchema>
