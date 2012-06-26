@@ -6,6 +6,7 @@
                resourceTypes="TENANT">
     <description>
       CloudFiles account storage information.
+    </description>
     <attribute name="disk" type="int" use="required"
                unitOfMeasure="B">
         The amount of disk usage in bytes.
