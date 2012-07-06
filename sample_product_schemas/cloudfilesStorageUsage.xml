@@ -2,8 +2,7 @@
                namespace="http://docs.rackspace.com/usage/cloudfiles/storage"
                serviceCode="CloudFiles"
                version="1"
-               groupByResource="false"
-               resourceTypes="TENANT">
+               groupByResource="false">
     <description>
       CloudFiles account storage information.
     </description>

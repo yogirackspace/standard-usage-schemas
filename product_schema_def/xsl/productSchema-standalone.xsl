@@ -60,27 +60,30 @@
                 <attribute name="version" type="xsd:string" use="required">
                     <xsl:attribute name="fixed" select="@version"/>
                 </attribute>
-                <attribute name="resourceType"  use="required" type="p:ResourceTypes"/>
+                <xsl:if test="@resourceTypes">
+                    <attribute name="resourceType"  use="required" type="p:ResourceTypes"/>
+                </xsl:if>
                 <attribute name="serviceCode" use="required" type="xsd:Name" fixed="{@serviceCode}"/>
                 <xsl:apply-templates/>
             </complexType>
-            
-            <simpleType name="ResourceTypes">
-                <annotation>
-                    <documentation>
-                        <html:p>Resource Types for this product.</html:p>
-                    </documentation>
-                </annotation>
-                <restriction base="xsd:token">
-                    <xsl:for-each select="$resourceTypes">
-                        <enumeration>
-                            <xsl:attribute name="value">
-                                <xsl:value-of select="."/>
-                            </xsl:attribute>
-                        </enumeration>
-                    </xsl:for-each>
-                </restriction>
-            </simpleType>
+            <xsl:if test="@resourceTypes">
+                <simpleType name="ResourceTypes">
+                    <annotation>
+                        <documentation>
+                            <html:p>Resource Types for this product.</html:p>
+                        </documentation>
+                    </annotation>
+                    <restriction base="xsd:token">
+                        <xsl:for-each select="$resourceTypes">
+                            <enumeration>
+                                <xsl:attribute name="value">
+                                    <xsl:value-of select="."/>
+                                </xsl:attribute>
+                            </enumeration>
+                        </xsl:for-each>
+                    </restriction>
+                </simpleType>
+            </xsl:if>
             <xsl:if test="schema:attribute[@type='UUID']">
                 <simpleType name="UUID">
                     <restriction base="xsd:string">

@@ -55,7 +55,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="resourceId" type="xsd:string" use="required">
+                <attribute name="resourceId" type="xsd:string" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -151,6 +151,19 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <assert vc:minVersion="1.1" test="if (child::*/@resourceType) then @resourceId else true()"
+                        xerces:message="If a resource type is specified then so should a resourceId"
+                        saxon:message="If a resource type is specified then so should a resourceId"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If a resource type is specified then
+                                so should a resourceId.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
                 <assert vc:minVersion="1.1" test="child::*/@serviceCode"
                         xerces:message="The product element is missing the serviceCode attribute."
                         saxon:message="The product element is missing the serviceCode attribute.">

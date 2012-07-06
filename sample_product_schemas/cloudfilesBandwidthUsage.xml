@@ -2,8 +2,7 @@
                namespace="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
                serviceCode="CloudFiles"
                version="1"
-               groupByResource="false"
-               resourceTypes="TENANT">
+               groupByResource="false">
     <description>
         CloudFiles account bandwidth usage information.
     </description>

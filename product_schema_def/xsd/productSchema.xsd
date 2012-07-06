@@ -67,14 +67,15 @@
                 </documentation>
             </annotation>
         </attribute>
-        <attribute name="resourceTypes" type="schema:NameList" use="required">
+        <attribute name="resourceTypes" type="schema:NameList" use="optional">
             <annotation>
                 <documentation>
                     <html:p>
                         A whitespace seperated list of resource types.
                         A product schema
                         <html:strong>must</html:strong> specify at
-                        least one resource type.
+                        least one resource type if the groupByResource
+                        attribute is true.
                     </html:p>
                 </documentation>
             </annotation>
@@ -141,8 +142,20 @@
                 </documentation>
             </annotation>
         </assert>
+        <assert vc:minVersion="1.1"
+                test="if ((@groupByResource = true()) and (not(@resourceTypes))) then false() else true()"
+                xerces:message="If groupByResource=true (or not specified), then the resourceTypes attribute must be supplied."
+                saxon:message="If groupByResource=true (or not specified), then the resourceType attribute must be supplied.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        If groupByResource is true then the
+                        resourceTypes attribute must be specified.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
     </complexType>
-
     <complexType name="Attribute">
         <simpleContent>
             <extension base="xsd:string">
