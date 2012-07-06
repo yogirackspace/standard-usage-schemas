@@ -11,7 +11,7 @@
                startTime="2012-03-12T11:51:11Z"
                endTime="2012-03-12T15:51:11Z">
             <cbs:product version="1" serviceCode="CloudBlockStorage"
-                         resourceType="VOLUME" snapshot="120"/>
+                         resourceType="VOLUME" snapshot="120.345"/>
         </event>
     </atom:content>
 </atom:entry>

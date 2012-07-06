@@ -6,7 +6,7 @@
     <description>
         CBS specific usage fields related to the snapshot.
     </description>
-    <attribute name="snapshot" type="int" use="required"
+    <attribute name="snapshot" type="double" use="required"
                unitOfMeasure="GB">
         The amount of backup (snapshot) storage used for the volume.
     </attribute>
