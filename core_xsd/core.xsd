@@ -277,6 +277,23 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@region = 'GLOBAL') then (@dataCenter = 'GLOBAL') else
+                                                  if (@region = 'DFW') then (@dataCenter = ('DFW1','DFW2','DFW3')) else
+                                                  if (@region = 'HKG') then (@dataCenter = 'HKG1') else
+                                                  if (@region = 'IAD') then (@dataCenter = ('IAD1','IAD2','IAD3')) else
+                                                  if (@region = 'LON') then (@dataCenter = ('LON1','LON3')) else
+                                                  if (@region = 'ORD') then (@dataCenter = 'ORD1') else false()
+                                                  "
+                        xerces:message="There is a mismatch between the region and the dataCenter."
+                        saxon:message="There is a mismatch between the region and the dataCenter.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The region and datacenter must match!
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>

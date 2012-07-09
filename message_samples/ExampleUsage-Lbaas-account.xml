@@ -1,8 +1,8 @@
 <event xmlns="http://docs.rackspace.com/core/event"
        xmlns:lbaas="http://docs.rackspace.com/usage/lbaas/account" resourceName="LoadBalancer"
        endTime="2012-06-15T10:19:52Z"
-       startTime="2012-06-14T10:19:52Z" dataCenter="DFW1" type="USAGE"
-       id="b79cc3de-b399-3883-b555-61829bb7f966" tenantId="1"
+       startTime="2012-06-14T10:19:52Z" type="USAGE"
+       id="b79cc3de-b399-3883-b555-61829bb7f966" region="DFW" dataCenter="DFW1" tenantId="1"
        version="1">
     <lbaas:product numPublicVips="323" numServicenetVips="234" numLoadbalancers="44"
                    version="1" serviceCode="CloudLoadBalancers"/>
