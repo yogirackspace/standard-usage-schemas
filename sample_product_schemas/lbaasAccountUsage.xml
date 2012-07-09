@@ -2,8 +2,7 @@
                namespace="http://docs.rackspace.com/usage/lbaas/account"
                serviceCode="CloudLoadBalancers"
                version="1"
-               groupByResource="false"
-               resourceTypes="TENANT">
+               groupByResource="false">
     <description>
         Lbaas load balancer tenant usage fields.
     </description>
