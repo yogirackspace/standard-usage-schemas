@@ -13,6 +13,7 @@
              xmlns:cf-b="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
              xmlns:cf-cdn="http://docs.rackspace.com/usage/cloudfiles/cdnbandwidth"
              xmlns:cf-str="http://docs.rackspace.com/usage/cloudfiles/storage"
+             xmlns:rax="http://docs.rackspace.com/api"
              xmlns:atom="http://www.w3.org/2005/Atom"
     >
     <grammars>
@@ -61,6 +62,7 @@
             <request>
                <representation mediaType="application/atom+xml" element="atom:entry">
                    <param name="maas" style="plain" path="/atom:entry/atom:content/event:event/maas:product" required="true"/>
+                   <rax:preprocess href="atom_hopper_pre.xsl"/>
                </representation>
             </request>
             <!-- Okay -->
@@ -79,6 +81,7 @@
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="dbaas" style="plain" path="/atom:entry/atom:content/event:event/dbaas:product" required="true"/>
+                   <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -97,9 +100,11 @@
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="lb" style="plain" path="/atom:entry/atom:content/event:event/lbaas:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="lba" style="plain" path="/atom:entry/atom:content/event:event/lbaas-account:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -118,9 +123,11 @@
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="cbs" style="plain" path="/atom:entry/atom:content/event:event/cbs:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="cbss" style="plain" path="/atom:entry/atom:content/event:event/cbs-snap:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -139,12 +146,15 @@
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="cfb" style="plain" path="/atom:entry/atom:content/event:event/cf-b:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="cfcdn" style="plain" path="/atom:entry/atom:content/event:event/cf-cdn:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
                     <param name="cfstr" style="plain" path="/atom:entry/atom:content/event:event/cf-str:product" required="true"/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
             <!-- Okay -->
