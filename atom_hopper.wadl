@@ -60,7 +60,7 @@
         <method id="addMonitoringEntry" name="POST">
             <request>
                <representation mediaType="application/atom+xml" element="atom:entry">
-                   <param name="maas" style="plain" path="/atom:entry/event:event/maas:product" required="true"/>
+                   <param name="maas" style="plain" path="/atom:entry/atom:content/event:event/maas:product" required="true"/>
                </representation>
             </request>
             <!-- Okay -->
@@ -78,7 +78,7 @@
         <method id="addDBaaSEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="dbaas" style="plain" path="/atom:entry/event:event/dbaas:product" required="true"/>
+                    <param name="dbaas" style="plain" path="/atom:entry/atom:content/event:event/dbaas:product" required="true"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -96,10 +96,10 @@
         <method id="addLbaaSEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="lb" style="plain" path="/atom:entry/event:event/lbaas:product" required="true"/>
+                    <param name="lb" style="plain" path="/atom:entry/atom:content/event:event/lbaas:product" required="true"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="lba" style="plain" path="/atom:entry/event:event/lbaas-account:product" required="true"/>
+                    <param name="lba" style="plain" path="/atom:entry/atom:content/event:event/lbaas-account:product" required="true"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -117,10 +117,10 @@
         <method id="addCbsEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cbs" style="plain" path="/atom:entry/event:event/cbs:product" required="true"/>
+                    <param name="cbs" style="plain" path="/atom:entry/atom:content/event:event/cbs:product" required="true"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cbss" style="plain" path="/atom:entry/event:event/cbs-snap:product" required="true"/>
+                    <param name="cbss" style="plain" path="/atom:entry/atom:content/event:event/cbs-snap:product" required="true"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -138,13 +138,13 @@
         <method id="addFilesEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfb" style="plain" path="/atom:entry/event:event/cf-b:product" required="true"/>
+                    <param name="cfb" style="plain" path="/atom:entry/atom:content/event:event/cf-b:product" required="true"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfcdn" style="plain" path="/atom:entry/event:event/cf-cdn:product" required="true"/>
+                    <param name="cfcdn" style="plain" path="/atom:entry/atom:content/event:event/cf-cdn:product" required="true"/>
                 </representation>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfstr" style="plain" path="/atom:entry/event:event/cf-str:product" required="true"/>
+                    <param name="cfstr" style="plain" path="/atom:entry/atom:content/event:event/cf-str:product" required="true"/>
                 </representation>
             </request>
             <!-- Okay -->
@@ -162,9 +162,9 @@
 
     <method id="getFeed" name="GET">
         <request>
-            <param name="marker" type="xs:anyURI" required="false"/>
-            <param name="limit" type="xs:int" required="false"/>
-            <param name="direction" type="xs:string" required="false"/>
+            <param name="marker" style="query" type="xs:anyURI" required="false"/>
+            <param name="limit"  style="query" type="xs:int" required="false"/>
+            <param name="direction" style="query" type="xs:string" required="false"/>
         </request>
         <response status="200">
             <representation mediaType="application/atom+xml"/>
