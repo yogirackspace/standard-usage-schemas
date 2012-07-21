@@ -50,15 +50,5 @@
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 
-    <!--
-        The right type is selected based on the version.
-    -->
-    <element name="event" type="event:EventBase">
-        <alternative test="xsd:integer(@version) = 1" type="event:EventV1"/>
-        <!--
-            Other alternates based on version attribute here...
-        -->
-        <alternative type="xsd:error"/>
-    </element>
-
+    <element name="event" type="event:EventV1"/>
 </schema>

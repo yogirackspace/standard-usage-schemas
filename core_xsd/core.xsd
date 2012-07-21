@@ -151,7 +151,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <assert vc:minVersion="1.1" test="if (child::*/@resourceType) then @resourceId else true()"
+                <assert vc:minVersion="1.1" test="if (*:product/@resourceType) then @resourceId else true()"
                         xerces:message="If a resource type is specified then so should a resourceId"
                         saxon:message="If a resource type is specified then so should a resourceId"
                         >
@@ -164,7 +164,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="child::*/@serviceCode"
+                <assert vc:minVersion="1.1" test="*:product/@serviceCode"
                         xerces:message="The product element is missing the serviceCode attribute."
                         saxon:message="The product element is missing the serviceCode attribute.">
                     <annotation>
@@ -177,7 +177,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type eq 'EXTENDED') then child::*/@eventType else true()"
+                <assert vc:minVersion="1.1" test="if (@type eq 'EXTENDED') then *:product/@eventType else true()"
                         xerces:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product data."
                         saxon:message="The event type is set to EXTENDED, but couldn't find eventType attribute in the product date.">
                     <annotation>
