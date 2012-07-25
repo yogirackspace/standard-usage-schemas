@@ -73,6 +73,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="rootAction" type="event:NonEmptyString" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Identifies the action that caused the
+                                event.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="type" type="event:EventType" use="required">
                     <annotation>
                         <documentation>
