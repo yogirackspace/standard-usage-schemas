@@ -452,6 +452,8 @@
             <enumeration value="STAGE"/>
             <enumeration value="QA"/>
             <enumeration value="DEV"/>
+            <enumeration value="UAT"/>
+            <enumeration value="LOCAL"/>
         </restriction>
     </simpleType>
 </schema>
