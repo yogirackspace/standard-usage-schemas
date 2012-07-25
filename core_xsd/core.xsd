@@ -22,7 +22,7 @@
                 </html:p>
             </documentation>
         </annotation>
-        <attribute name="version" type="xsd:string" use="required">
+        <attribute name="version" type="event:NonEmptyString" use="required">
             <annotation>
                 <documentation>
                     <html:p>
@@ -46,7 +46,7 @@
                 <sequence>
                     <any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
-                <attribute name="tenantId" type="xsd:string" use="required">
+                <attribute name="tenantId" type="event:NonEmptyString" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -55,7 +55,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="resourceId" type="xsd:string" use="optional">
+                <attribute name="resourceId" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -142,7 +142,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="resourceName" type="xsd:string" use="optional">
+                <attribute name="resourceName" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -351,6 +351,20 @@
             <enumeration value="SUSPEND"/>
             <enumeration value="UNSUSPEND"/>
             <enumeration value="EXTENDED"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="NonEmptyString">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Any non-empty string.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <whiteSpace value="collapse"/>
+            <minLength value="1"/>
         </restriction>
     </simpleType>
 
