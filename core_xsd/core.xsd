@@ -86,6 +86,19 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="environment" type="event:ENVIRONMENT"
+                           use="optional" default="PROD">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The environment where the message
+                                originated from.  The optional is
+                                optional, if it is not specified PROD
+                                will be assumed.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="dataCenter" type="event:DC" use="optional" default="GLOBAL">
                     <annotation>
                         <documentation>
@@ -422,6 +435,25 @@
             <enumeration value="LON1"/>
             <enumeration value="LON3"/>
             <enumeration value="ORD1"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="ENVIRONMENT">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The environment where the message originated.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="PROD"/>
+            <enumeration value="PREPROD"/>
+            <enumeration value="STAGE"/>
+            <enumeration value="QA"/>
+            <enumeration value="DEV"/>
+            <enumeration value="UAT"/>
+            <enumeration value="LOCAL"/>
         </restriction>
     </simpleType>
 </schema>
