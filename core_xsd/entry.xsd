@@ -30,7 +30,11 @@
             <!--
                 The following elements are required...
             -->
-            <element name="content" type="atom:UsageContent"/>
+            <element name="content" type="atom:BaseContent">
+                <alternative test="@type='application/xml'" type="atom:UsageContent"/>
+                <alternative test="not(@type='application/xml')" type="atom:LooseContent"/>
+            </element>
+
             <!--
                 One or more categories are optional...
             -->
@@ -58,16 +62,39 @@
             <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
                      minOccurs="0" maxOccurs="20"/>
-            <element name="content" type="atom:UsageContent"/>
+            <element name="content" type="atom:UsageContent">
+            </element>
             <any maxOccurs="20" minOccurs="0" processContents="skip"/>
         </sequence>
+        <anyAttribute processContents="skip"/>
+    </complexType>
+
+    <complexType name="BaseContent" abstract="true"/>
+
+    <complexType name="LooseContent" mixed="true">
+        <complexContent>
+            <extension base="atom:BaseContent">
+                <sequence>
+                    <any minOccurs="0" processContents="skip"/>
+                </sequence>
+                <attribute name="type" type="xsd:string" use="required" />
+                <anyAttribute processContents="skip"/>
+            </extension>
+        </complexContent>
     </complexType>
 
     <complexType name="UsageContent">
-        <sequence>
-            <element ref="event:event"/>
-        </sequence>
-        <attribute name="type" type="xsd:string" fixed="application/xml" use="required"/>
+        <complexContent>
+            <extension base="atom:BaseContent">
+                <sequence>
+                    <choice>
+                        <element ref="event:event"/>
+                        <any vc:minVersion="1.1" minOccurs="1" processContents="skip"/>
+                    </choice>
+                </sequence>
+                <attribute name="type" type="xsd:string" fixed="application/xml" use="required"/>
+            </extension>
+        </complexContent>
     </complexType>
 
     <complexType name="UsageCategory">
