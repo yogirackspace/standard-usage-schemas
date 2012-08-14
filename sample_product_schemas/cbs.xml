@@ -7,9 +7,9 @@
         CBS specific usage fields related to the volume.
     </description>
     <attribute name="type" type="string" use="required"
-               allowedValues="HIGH STANDARD">
-        Describes the type of volume used.  HIGH is high performance
-        based on SSD.  STANDARD in based on SATA.
+               allowedValues="SATA SSD">
+        Describes the type of volume used.  SSD is high performance
+        based.  SATA is standard.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
                unitOfMeasure="GB">
