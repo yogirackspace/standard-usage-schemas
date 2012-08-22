@@ -1,0 +1,16 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/cloudbackup/storage"
+               serviceCode="CloudBackup"
+               version="1"
+               resourceTypes="AGENT">
+    <description>
+        Cloud Backup cloud files storage.
+    </description>
+    <attribute name="storage" type="long" use="required"
+               unitOfMeasure="B">
+        The amount of storage consumed by the cloud files container.
+    </attribute>
+    <attribute name="serverID" type="UUID" use="required">
+        Server ID, where the agent in installed.
+    </attribute>
+</productSchema>

@@ -1,0 +1,16 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
+               serviceCode="CloudBackup"
+               version="1"
+               resourceTypes="AGENT">
+    <description>
+        Cloud Backup bandwith in usage information.
+    </description>
+    <attribute name="bandwidthIn" type="long" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM">
+        The amount of bandwidth in, in bytes.
+    </attribute>
+    <attribute name="serverID" type="UUID" use="required">
+        Server ID, where the agent in installed.
+    </attribute>
+</productSchema>

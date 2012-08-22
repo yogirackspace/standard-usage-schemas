@@ -1,0 +1,12 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/cloudbackup/license"
+               serviceCode="CloudBackup"
+               version="1"
+               resourceTypes="AGENT">
+    <description>
+        Cloud Backup periodic license event.
+    </description>
+    <attribute name="serverID" type="UUID" use="required">
+        Server ID, where the agent in installed.
+    </attribute>
+</productSchema>

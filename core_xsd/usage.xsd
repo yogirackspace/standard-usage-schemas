@@ -47,6 +47,18 @@
     <import namespace="http://docs.rackspace.com/usage/cloudfiles/storage"
             schemaLocation="../generated_product_xsds/cloudfilesStorageUsage.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/cloudbackup/license"
+            schemaLocation="../generated_product_xsds/cloudbackupLicense.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/cloudbackup/storage"
+            schemaLocation="../generated_product_xsds/cloudbackupStorage.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
+            schemaLocation="../generated_product_xsds/cloudbackupBandwidthIn.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/cloudbackup/bandwidthOut"
+            schemaLocation="../generated_product_xsds/cloudbackupBandwidthOut.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 
