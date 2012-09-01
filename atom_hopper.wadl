@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application[
+    <!ENTITY IS_EVENT "/atom:entry/atom:content/event:event">
+]>
 
 <application xmlns="http://wadl.dev.java.net/2009/02"
              xmlns:db="http://docbook.org/ns/docbook"
@@ -72,7 +75,7 @@
         <method id="addMonitoringEntry" name="POST">
             <request>
                <representation mediaType="application/atom+xml" element="atom:entry">
-                   <param name="maas" style="plain" path="/atom:entry/atom:content/event:event/maas:product" required="false"/>
+                   <param name="maas" style="plain" path="if (&IS_EVENT;) then &IS_EVENT;/maas:product else true()" required="true"/>
                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                </representation>
             </request>
@@ -91,7 +94,7 @@
         <method id="addDBaaSEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="dbaas" style="plain" path="/atom:entry/atom:content/event:event/dbaas:product" required="false"/>
+                    <param name="dbaas" style="plain" path="if (&IS_EVENT;) then &IS_EVENT;/dbaas:product else true()" required="true"/>
                    <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
@@ -110,11 +113,7 @@
         <method id="addLbaaSEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="lb" style="plain" path="/atom:entry/atom:content/event:event/lbaas:product" required="false"/>
-                    <rax:preprocess href="atom_hopper_pre.xsl"/>
-                </representation>
-                <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="lba" style="plain" path="/atom:entry/atom:content/event:event/lbaas-account:product" required="false"/>
+                    <param name="lb" style="plain" path="if (&IS_EVENT;) then (&IS_EVENT;/lbaas:product, &IS_EVENT;/lbaas-account:product) else true()" required="true"/>
                     <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
@@ -133,11 +132,7 @@
         <method id="addCbsEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cbs" style="plain" path="/atom:entry/atom:content/event:event/cbs:product" required="false"/>
-                    <rax:preprocess href="atom_hopper_pre.xsl"/>
-                </representation>
-                <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cbss" style="plain" path="/atom:entry/atom:content/event:event/cbs-snap:product" required="false"/>
+                    <param name="cbs" style="plain" path="if (&IS_EVENT;) then (&IS_EVENT;/cbs:product, &IS_EVENT;/cbs-snap:product) else true()" required="true"/>
                     <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
@@ -156,15 +151,7 @@
         <method id="addFilesEntry" name="POST">
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfb" style="plain" path="/atom:entry/atom:content/event:event/cf-b:product" required="false"/>
-                    <rax:preprocess href="atom_hopper_pre.xsl"/>
-                </representation>
-                <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfcdn" style="plain" path="/atom:entry/atom:content/event:event/cf-cdn:product" required="false"/>
-                    <rax:preprocess href="atom_hopper_pre.xsl"/>
-                </representation>
-                <representation mediaType="application/atom+xml" element="atom:entry">
-                    <param name="cfstr" style="plain" path="/atom:entry/atom:content/event:event/cf-str:product" required="false"/>
+                    <param name="cfb" style="plain" path="if (&IS_EVENT;) then (&IS_EVENT;/cf-b:product, &IS_EVENT;/cf-cdn:product, &IS_EVENT;/cf-str:product) else true()" required="true"/>
                     <rax:preprocess href="atom_hopper_pre.xsl"/>
                 </representation>
             </request>
