@@ -388,6 +388,7 @@
         <restriction base="xsd:string">
             <whiteSpace value="collapse"/>
             <minLength value="1"/>
+            <maxLength value="255"/>
         </restriction>
     </simpleType>
 
