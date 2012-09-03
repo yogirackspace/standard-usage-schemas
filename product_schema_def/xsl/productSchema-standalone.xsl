@@ -291,11 +291,14 @@
         <xsl:param name="attrib" as="node()"/>
         <xsl:variable name="type" select="substring-before($attrib/@type,'*')" as="xsd:string"/>
         <xsl:choose>
-            <xsl:when test="$type=('UUID','Name')">
+            <xsl:when test="$type='UUID'">
                 <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$attrib/@allowedValues">
                 <xsl:value-of select="usage:enumNameType($attrib,true())"/>
+            </xsl:when>
+            <xsl:when test="$type='Name'">
+                <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat('xsd:',$type)"/>
