@@ -14,7 +14,7 @@
                     <p:document href="../xsd/productSchema.xsd"></p:document>
                 </p:input>
             </p:validate-with-xml-schema>
-            <p:xslt name="productTransform">
+            <p:xslt name="productTransform" version="2.0">
                 <p:input port="source">
                     <p:pipe port="result" step="validate"/>
                 </p:input>
