@@ -118,14 +118,14 @@
                     </restriction>
                 </simpleType>
             </xsl:if>
-            <xsl:if test="schema:attribute[@type='string']">
+            <xsl:if test="schema:attribute[@type='string' and not(@allowedValues)]">
                 <simpleType name="string">
                     <restriction base="xsd:string">
                         <maxLength value="{$MAX_STRING}"/>
                     </restriction>
                 </simpleType>
             </xsl:if>
-            <xsl:if test="schema:attribute[@type=('Name','Name*')]">
+            <xsl:if test="schema:attribute[@type=('Name','Name*') and not(@allowedValues)]">
                 <simpleType name="Name">
                     <restriction base="xsd:Name">
                         <maxLength value="{$MAX_STRING}"/>
