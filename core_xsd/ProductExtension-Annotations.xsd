@@ -25,6 +25,8 @@
         </annotation>
         <attribute name="groupByResource" type="xsd:boolean"
                    default="true" use="optional"/>
+        <attribute name="isSnapshot" type="xsd:boolean"
+                   default="false" use="optional"/>
     </complexType>
 
     <complexType name="AttributeAnnotation">

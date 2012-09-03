@@ -56,6 +56,9 @@
                             <xsl:if test="@groupByResource">
                                 <xsl:attribute name="groupByResource" select="@groupByResource"/>
                             </xsl:if>
+                            <xsl:if test="@isSnapshot">
+                                <xsl:attribute name="isSnapshot" select="@isSnapshot"/>
+                            </xsl:if>
                         </usage:core>
                     </appinfo>
                 </annotation>
