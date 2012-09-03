@@ -10,15 +10,22 @@
     exclude-result-prefixes="sch c"
     version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
+    <xsl:variable name="NS_PREFIX" select="'w_ns'"/>
     <xsl:template match="c:directory">
         <xsl:variable name="productSchemas" as="node()">
             <sch:productSchemas>
                 <xsl:for-each select="c:file">
-                    <xsl:copy-of select="document(concat(base-uri(),'/',@name))/sch:productSchema"/>
+                    <sch:productSchema>
+                       <xsl:attribute name="pos" select="position()"/>
+                      <xsl:copy-of select="document(concat(base-uri(),'/',@name))/sch:productSchema/(* | @*)"/>
+                    </sch:productSchema>
                 </xsl:for-each>
             </sch:productSchemas>
         </xsl:variable>
         <application>
+            <xsl:for-each select="$productSchemas//sch:productSchema">
+                <xsl:namespace name="{sch:ns(@pos)}" select="@namespace"/>
+            </xsl:for-each>
             <xsl:for-each-group select="$productSchemas//sch:productSchema" group-by="@serviceCode">
                 <xsl:variable name="id" select="current-group()[1]/@serviceCode"/>
                 <xsl:variable name="isUsageEvent">/atom:entry/atom:content/event:event[@type='USAGE']</xsl:variable>
@@ -32,12 +39,9 @@
                                 <xsl:if test="$usageSchema">
                                     <xsl:variable name="events" as="xs:string*">
                                         <xsl:for-each select="$usageSchema">
-                                            <xsl:value-of select="concat($isUsageEvent,'/ns',position(),':product')"/>
+                                            <xsl:value-of select="concat($isUsageEvent,'/',sch:ns(@pos),':product')"/>
                                         </xsl:for-each>
                                     </xsl:variable>
-                                    <xsl:for-each select="$usageSchema">
-                                        <xsl:namespace name="ns{position()}" select="@namespace"/>
-                                    </xsl:for-each>
                                     <param name="usage" style="plain" required="true">
                                         <xsl:attribute name="path">
                                             <xsl:text>if (</xsl:text><xsl:value-of select="$isUsageEvent"/>
@@ -63,5 +67,9 @@
             </xsl:for-each-group>
         </application>
     </xsl:template>
+    <xsl:function name="sch:ns" as="xs:string">
+        <xsl:param name="pos" as="xs:integer"/>
+        <xsl:value-of select="concat($NS_PREFIX,$pos)"/>
+    </xsl:function>
     <xsl:template match="text()" mode="#all"/>
 </xsl:stylesheet>
