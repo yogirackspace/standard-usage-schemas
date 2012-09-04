@@ -14,7 +14,7 @@
     <xsl:variable name="NS_PREFIX" select="'w_ns'"/>
     <!-- Event types, excepts for USAGE, which is a special case -->
     <xsl:variable name="EVENT_TYPES" as="xs:string*"
-        select="('CREATE','USAGE_SNAPSHOT','UPDATE', 'DELETE', 'SUSPEND', 'UNSUSPEND', 'EXTENDED')"/>
+        select="('CREATE','USAGE_SNAPSHOT','UPDATE', 'DELETE', 'SUSPEND', 'UNSUSPEND', 'EXTENDED','UP','DOWN')"/>
     <xsl:template match="c:directory">
         <xsl:variable name="productSchemas" as="node()">
             <sch:productSchemas>

@@ -386,6 +386,8 @@
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>
             <enumeration value="UNSUSPEND"/>
+            <enumeration value="UP"/>
+            <enumeration value="DOWN"/>
             <enumeration value="EXTENDED"/>
         </restriction>
     </simpleType>
