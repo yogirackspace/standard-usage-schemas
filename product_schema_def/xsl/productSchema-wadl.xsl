@@ -12,6 +12,9 @@
     version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
     <xsl:variable name="NS_PREFIX" select="'w_ns'"/>
+    <!-- Event types, excepts for USAGE, which is a special case -->
+    <xsl:variable name="EVENT_TYPES" as="xs:string*"
+        select="('CREATE','USAGE_SNAPSHOT','UPDATE', 'DELETE', 'SUSPEND', 'UNSUSPEND', 'EXTENDED')"/>
     <xsl:template match="c:directory">
         <xsl:variable name="productSchemas" as="node()">
             <sch:productSchemas>
@@ -45,20 +48,15 @@
                             <representation mediaType="application/atom+xml" element="atom:entry">
                                 <xsl:call-template name="sch:param">
                                     <xsl:with-param name="type" select="'USAGE'"/>
-                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or @type='USAGE']"/>
+                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or ('USAGE' = tokenize(@type,' '))]"/>
                                 </xsl:call-template>
-                                <xsl:for-each-group select="current-group()" group-by="@type">
-                                    <xsl:choose>
-                                        <xsl:when test="current-group()[1]/@type='USAGE'"/>
-                                        <xsl:when test="not(current-group()[1]/@type)"/>
-                                        <xsl:otherwise>
-                                            <xsl:call-template name="sch:param">
-                                                <xsl:with-param name="type" select="current-group()[1]/@type"/>
-                                                <xsl:with-param name="schemas" select="current-group()"/>
-                                            </xsl:call-template>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:for-each-group>
+                                <xsl:for-each select="$EVENT_TYPES">
+                                    <xsl:variable name="type" select="."/>
+                                    <xsl:call-template name="sch:param">
+                                        <xsl:with-param name="type" select="."/>
+                                        <xsl:with-param name="schemas" select="current-group()[$type = tokenize(@type,' ')]"/>
+                                    </xsl:call-template>
+                                </xsl:for-each>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>
