@@ -56,6 +56,9 @@
                             <xsl:if test="@groupByResource">
                                 <xsl:attribute name="groupByResource" select="@groupByResource"/>
                             </xsl:if>
+                            <xsl:if test="@type">
+                                <xsl:attribute name="type" select="@type"/>
+                            </xsl:if>
                         </usage:core>
                     </appinfo>
                 </annotation>

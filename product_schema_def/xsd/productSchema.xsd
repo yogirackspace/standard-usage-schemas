@@ -15,29 +15,21 @@
     <import namespace="http://docs.rackspace.com/core/usage"
             schemaLocation="../../core_xsd/ProductExtension-Annotations.xsd"/>
 
-    <element name="productSchema" type="schema:ProductSimpleSchema"/>
+    <element name="productSchema" type="schema:ProductSimpleSchemaBase">
+        <alternative test="contains(@type,'USAGE') or not(@type)" type="schema:ProductSimpleUsageSchema"/>
+        <alternative test="not(contains(@type,'USAGE'))" type="schema:ProductSimpleSchema"/>
+    </element>
 
     <!--
         Complex Types
     -->
-    <complexType name="ProductSimpleSchema">
+    <complexType name="ProductSimpleSchemaBase">
         <sequence>
             <element name="description" type="xsd:string">
                 <annotation>
                     <documentation>
                         <html:p>
                             A description for the schema.
-                        </html:p>
-                    </documentation>
-                </annotation>
-            </element>
-            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
-                <annotation>
-                    <documentation>
-                        <html:p>
-                            A set of custom attributes. Currently,
-                            only 50 custom attributes are allowed for
-                            a product schema.
                         </html:p>
                     </documentation>
                 </annotation>
@@ -54,6 +46,16 @@
                         </html:p>
                     </documentation>
                 </annotation>
+        </attribute>
+        <attribute name="type" type="usage:TypeList" use="optional" default="USAGE">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The types of messages that are applicable to
+                        this schema.
+                    </html:p>
+                </documentation>
+            </annotation>
         </attribute>
         <attribute name="namespace" type="xsd:anyURI" use="required">
             <annotation>
@@ -95,67 +97,238 @@
                 </documentation>
             </annotation>
         </attribute>
-        <attribute name="groupByResource" type="xsd:boolean"
-                   use="optional" default="true">
-            <annotation>
-                <documentation>
-                    <html:p>
-                        If groupByResource is true then attributes are
-                        grouped by the resourceID.  In other words,
-                        the product is being charged per resource.  If
-                        not, that attributes are grouped at the
-                        account/tenant level.  The default is true
-                        which should apply to most products.
-                    </html:p>
-                </documentation>
-            </annotation>
-        </attribute>
-        <assert vc:minVersion="1.1"
-                test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies schema:attribute[@name = $frequencyAttribute]"
-                xerces:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema."
-                saxon:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema.">
-            <annotation>
-                <documentation>
-                    <html:p>
-                        If frequencyAttribute is set then it must
-                        point to an attribute defined in this schema.
-                    </html:p>
-                </documentation>
-            </annotation>
-        </assert>
-        <assert vc:minVersion="1.1"
-                test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies
-                      schema:attribute[@name = $frequencyAttribute]/@type =
-                      ('integer', 'long', 'int', 'short',
-                       'byte', 'unsignedLong', 'unsignedInt',
-                       'unsignedShort', 'unsignedByte', 'double',
-                       'float')"
-                xerces:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
-                saxon:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
-                >
-            <annotation>
-                <documentation>
-                    <html:p>
-                        The frequencyAttribute should point to an
-                        attribute whose type is numeric.
-                    </html:p>
-                </documentation>
-            </annotation>
-        </assert>
-        <assert vc:minVersion="1.1"
-                test="if ((@groupByResource = true()) and (not(@resourceTypes))) then false() else true()"
-                xerces:message="If groupByResource=true (or not specified), then the resourceTypes attribute must be supplied."
-                saxon:message="If groupByResource=true (or not specified), then the resourceType attribute must be supplied.">
-            <annotation>
-                <documentation>
-                    <html:p>
-                        If groupByResource is true then the
-                        resourceTypes attribute must be specified.
-                    </html:p>
-                </documentation>
-            </annotation>
-        </assert>
     </complexType>
+
+    <complexType name="ProductSimpleSchema">
+        <complexContent>
+            <extension base="schema:ProductSimpleSchemaBase">
+                <sequence>
+                    <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom attributes. Currently,
+                                    only 50 custom attributes are allowed for
+                                    a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="ProductSimpleUsageSchema">
+        <complexContent>
+            <extension base="schema:ProductSimpleSchemaBase">
+                <sequence>
+                    <element name="attribute" type="schema:UsageAttribute" minOccurs="0" maxOccurs="50">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom usage
+                                    attributes. Currently, only 50
+                                    custom attributes are allowed for
+                                    a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                </sequence>
+                <attribute name="groupByResource" type="xsd:boolean"
+                           use="optional" default="true">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If groupByResource is true then attributes are
+                                grouped by the resourceID.  In other words,
+                                the product is being charged per resource.  If
+                                not, that attributes are grouped at the
+                                account/tenant level.  The default is true
+                                which should apply to most products.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <assert vc:minVersion="1.1"
+                        test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies schema:attribute[@name = $frequencyAttribute]"
+                        xerces:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema."
+                        saxon:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If frequencyAttribute is set then it must
+                                point to an attribute defined in this schema.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1"
+                        test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies
+                              schema:attribute[@name = $frequencyAttribute]/@type =
+                              ('integer', 'long', 'int', 'short',
+                              'byte', 'unsignedLong', 'unsignedInt',
+                              'unsignedShort', 'unsignedByte', 'double',
+                              'float')"
+                        xerces:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
+                        saxon:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The frequencyAttribute should point to an
+                                attribute whose type is numeric.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1"
+                        test="if ((@groupByResource = true()) and (not(@resourceTypes))) then false() else true()"
+                        xerces:message="If groupByResource=true (or not specified), then the resourceTypes attribute must be supplied."
+                        saxon:message="If groupByResource=true (or not specified), then the resourceType attribute must be supplied.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If groupByResource is true then the
+                                resourceTypes attribute must be specified.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="UsageAttribute">
+        <simpleContent>
+            <extension base="schema:Attribute">
+                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                For usage.  A discription of how
+                                values for this attribute should be
+                                aggregated.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The unit of measure for the attribute.
+                                Note that if an aggregate function is
+                                specifeied, then a unit of measure
+                                should also be specified.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="groupBy" type="xsd:boolean" use="optional" default="false">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                All attributes with a groupBy value of
+                                true will be grouped for the purpose
+                                of aggregation.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="billable" type="xsd:boolean" use="optional" default="true">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                This is an attribute that is used for
+                                billing purposes.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="frequency" type="xsd:long" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the aggegateFunction is
+                                CUMULATIVE_AVG, then this frequency
+                                value is used to compute the
+                                cumulative avg.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="frequencyAttribute" type="xsd:string" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the aggegateFunction is
+                                CUMULATIVE_AVG, then
+                                frequencyAttribute points to the
+                                attribute that contains the frequency
+                                value.  The attribute should be an
+                                attribute of type integer, long,
+                                int, short, byte, unsignedLong,
+                                unsignedInt, unsignedShort,
+                                unsignedByte, double or float.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
+                        xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
+                        saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If an aggregate-function is supplied then so
+                                should the unit of measure.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@aggregateFunction = 'CUMULATIVE_AVG') then @frequency or @frequencyAttribute else true()"
+                        xerces:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set."
+                        saxon:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If an aggregateFunction is set to
+                                'CUMULATIVE_AVG' then frequency or
+                                frequencyAttribute should be set.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@frequency) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequencyAttribute) else true()"
+                        xerces:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set."
+                        saxon:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Frequency requires CUMULATIVE_AVG and no
+                                frequencyAttribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@frequencyAttribute) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequency) else true()"
+                        xerces:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set."
+                        saxon:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                FrequencyAttribute requires CUMULATIVE_AVG and
+                                no frequency.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+            </extension>
+        </simpleContent>
+    </complexType>
+
     <complexType name="Attribute">
         <simpleContent>
             <extension base="xsd:string">
@@ -243,79 +416,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                For usage.  A discription of how
-                                values for this attribute should be
-                                aggregated.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                The unit of measure for the attribute.
-                                Note that if an aggregate function is
-                                specifeied, then a unit of measure
-                                should also be specified.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="groupBy" type="xsd:boolean" use="optional" default="false">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                All attributes with a groupBy value of
-                                true will be grouped for the purpose
-                                of aggregation.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="billable" type="xsd:boolean" use="optional" default="true">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                This is an attribute that is used for
-                                billing purposes.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="frequency" type="xsd:long" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If the aggegateFunction is
-                                CUMULATIVE_AVG, then this frequency
-                                value is used to compute the
-                                cumulative avg.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="frequencyAttribute" type="xsd:string" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If the aggegateFunction is
-                                CUMULATIVE_AVG, then
-                                frequencyAttribute points to the
-                                attribute that contains the frequency
-                                value.  The attribute should be an
-                                attribute of type integer, long,
-                                int, short, byte, unsignedLong,
-                                unsignedInt, unsignedShort,
-                                unsignedByte, double or float.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">
@@ -323,55 +423,6 @@
                         <documentation>
                             <html:p>
                                 If the property has a default value then use must be optional.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
-                        xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
-                        saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If an aggregate-function is supplied then so
-                                should the unit of measure.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@aggregateFunction = 'CUMULATIVE_AVG') then @frequency or @frequencyAttribute else true()"
-                        xerces:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set."
-                        saxon:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If an aggregateFunction is set to
-                                'CUMULATIVE_AVG' then frequency or
-                                frequencyAttribute should be set.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@frequency) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequencyAttribute) else true()"
-                        xerces:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set."
-                        saxon:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Frequency requires CUMULATIVE_AVG and no
-                                frequencyAttribute.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@frequencyAttribute) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequency) else true()"
-                        xerces:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set."
-                        saxon:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                FrequencyAttribute requires CUMULATIVE_AVG and
-                                no frequency.
                             </html:p>
                         </documentation>
                     </annotation>

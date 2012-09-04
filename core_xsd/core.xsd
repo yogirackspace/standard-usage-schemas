@@ -238,6 +238,18 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE_SNAPSHOT') then @eventTime else true()"
+                        xerces:message="Usage snapshots must set eventTime attribute."
+                        saxon:message="Usage snapshots must set eventTime attribute.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If the type is equal to 'USAGE_SNAPSHOT'
+                                then the eventTime attribute must be set.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
                 <assert vc:minVersion="1.1" test="if (not(@eventTime) and not(@startTime) and not(@endTime)) then false() else true()"
                         xerces:message="The event must have a startTime and endTime or it must have an eventTime."
                         saxon:message="The event must have a startTime and endTime or it must have an eventTime.">
@@ -369,6 +381,7 @@
         <restriction base="xsd:string">
             <enumeration value="CREATE"/>
             <enumeration value="USAGE"/>
+            <enumeration value="USAGE_SNAPSHOT"/>
             <enumeration value="UPDATE"/>
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>

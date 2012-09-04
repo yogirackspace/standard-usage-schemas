@@ -7,8 +7,12 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:xerces="http://xerces.apache.org"
     xmlns:saxon="http://saxon.sf.net/"
+    xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     targetNamespace="http://docs.rackspace.com/core/usage">
+
+    <import namespace="http://docs.rackspace.com/core/event"
+            schemaLocation="core.xsd"/>
 
     <element name="attributes" type="usage:AttributeAnnotation"/>
     <element name="core" type="usage:CoreAttributeAnnotation"/>
@@ -25,6 +29,8 @@
         </annotation>
         <attribute name="groupByResource" type="xsd:boolean"
                    default="true" use="optional"/>
+        <attribute name="type" type="usage:TypeList"
+                   default="USAGE" use="optional"/>
     </complexType>
 
     <complexType name="AttributeAnnotation">
@@ -155,5 +161,9 @@
             -->
             <enumeration value="COUNT"/>
         </restriction>
+    </simpleType>
+
+    <simpleType name="TypeList">
+        <list itemType="event:EventType"/>
     </simpleType>
 </schema>
