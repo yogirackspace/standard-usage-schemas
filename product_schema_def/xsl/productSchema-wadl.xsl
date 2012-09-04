@@ -28,29 +28,18 @@
             </xsl:for-each>
             <xsl:for-each-group select="$productSchemas//sch:productSchema" group-by="@serviceCode">
                 <xsl:variable name="id" select="current-group()[1]/@serviceCode"/>
-                <xsl:variable name="isUsageEvent">/atom:entry/atom:content/event:event[@type='USAGE']</xsl:variable>
-                <xsl:variable name="isSnapshotEvent">/atom:entry/atom:content/event:event[@type='USAGE_SNAPSHOT']</xsl:variable>
-                <xsl:variable name="usageSchema" select="current-group()[not(@isSnapshot)]" as="node()*"/>
-                <xsl:variable name="snapShotSchema" select="current-group()[@isSnapshot]" as="node()*"/>
                 <resource_type id="{$id}">
                     <method id="add{$id}Entry" name="POST">
                         <request>
                             <representation mediaType="application/atom+xml" element="atom:entry">
-                                <xsl:if test="$usageSchema">
-                                    <xsl:variable name="events" as="xs:string*">
-                                        <xsl:for-each select="$usageSchema">
-                                            <xsl:value-of select="concat($isUsageEvent,'/',sch:ns(@pos),':product')"/>
-                                        </xsl:for-each>
-                                    </xsl:variable>
-                                    <param name="usage" style="plain" required="true">
-                                        <xsl:attribute name="path">
-                                            <xsl:text>if (</xsl:text><xsl:value-of select="$isUsageEvent"/>
-                                            <xsl:text>) then (</xsl:text>
-                                            <xsl:value-of select='$events' separator=","/>
-                                            <xsl:text>) else true()</xsl:text>
-                                        </xsl:attribute>
-                                    </param>
-                                </xsl:if>
+                                <xsl:call-template name="sch:param">
+                                    <xsl:with-param name="type" select="'USAGE'"/>
+                                    <xsl:with-param name="schemas" select="current-group()[not(@isSnapshot)]"/>
+                                </xsl:call-template>
+                                <xsl:call-template name="sch:param">
+                                    <xsl:with-param name="type" select="'USAGE_SNAPSHOT'"/>
+                                    <xsl:with-param name="schemas" select="current-group()[@isSnapshot]"/>
+                                </xsl:call-template>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>
@@ -66,6 +55,31 @@
                 </resource_type>
             </xsl:for-each-group>
         </application>
+    </xsl:template>
+    <xsl:template name="sch:param">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:variable name="isUsageEvent">/atom:entry/atom:content/event:event[@type='<xsl:value-of select="$type"/>']</xsl:variable>
+        <xsl:if test="$schemas">
+            <xsl:variable name="events" as="xs:string*">
+                <xsl:for-each select="$schemas">
+                    <xsl:value-of select="concat($isUsageEvent,'/',sch:ns(@pos),':product')"/>
+                </xsl:for-each>
+            </xsl:variable>
+            <param name="{lower-case($type)}" style="plain" required="true">
+                <xsl:attribute name="path">
+                    <xsl:text>if (</xsl:text><xsl:value-of select="$isUsageEvent"/>
+                    <xsl:text>) then (</xsl:text>
+                    <xsl:value-of select='$events' separator=","/>
+                    <xsl:text>) else true()</xsl:text>
+                </xsl:attribute>
+                <xsl:attribute name="rax:message">
+                    <xsl:text>Only </xsl:text><xsl:value-of select="lower-case($type)"/>
+                    <xsl:text> messages with product attributes in the following namespaces are allowed in this feed: </xsl:text>
+                    <xsl:value-of select="$schemas/@namespace" separator=", "/>
+                </xsl:attribute>
+            </param>
+        </xsl:if>
     </xsl:template>
     <xsl:function name="sch:ns" as="xs:string">
         <xsl:param name="pos" as="xs:integer"/>
