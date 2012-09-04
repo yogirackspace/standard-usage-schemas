@@ -45,12 +45,20 @@
                             <representation mediaType="application/atom+xml" element="atom:entry">
                                 <xsl:call-template name="sch:param">
                                     <xsl:with-param name="type" select="'USAGE'"/>
-                                    <xsl:with-param name="schemas" select="current-group()[not(@isSnapshot)]"/>
+                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or @type='USAGE']"/>
                                 </xsl:call-template>
-                                <xsl:call-template name="sch:param">
-                                    <xsl:with-param name="type" select="'USAGE_SNAPSHOT'"/>
-                                    <xsl:with-param name="schemas" select="current-group()[@isSnapshot]"/>
-                                </xsl:call-template>
+                                <xsl:for-each-group select="current-group()" group-by="@type">
+                                    <xsl:choose>
+                                        <xsl:when test="current-group()[1]/@type='USAGE'"/>
+                                        <xsl:when test="not(current-group()[1]/@type)"/>
+                                        <xsl:otherwise>
+                                            <xsl:call-template name="sch:param">
+                                                <xsl:with-param name="type" select="current-group()[1]/@type"/>
+                                                <xsl:with-param name="schemas" select="current-group()"/>
+                                            </xsl:call-template>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:for-each-group>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>
