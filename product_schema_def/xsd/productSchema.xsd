@@ -24,7 +24,7 @@
         Complex Types
     -->
     <complexType name="ProductSimpleSchemaBase">
-        <sequence>
+        <all>
             <element name="description" type="xsd:string">
                 <annotation>
                     <documentation>
@@ -34,7 +34,7 @@
                     </documentation>
                 </annotation>
             </element>
-        </sequence>
+        </all>
         <attribute name="version" type="xsd:string" use="required">
                 <annotation>
                     <documentation>
@@ -102,7 +102,7 @@
     <complexType name="ProductSimpleSchema">
         <complexContent>
             <extension base="schema:ProductSimpleSchemaBase">
-                <sequence>
+                <all>
                     <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
                         <annotation>
                             <documentation>
@@ -114,15 +114,78 @@
                             </documentation>
                         </annotation>
                     </element>
-                </sequence>
+                    <element name="attributeGroup" type="schema:AttributeGroup" minOccurs="0" maxOccurs="20">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom attributes groups.
+                                    Currently only 20 groups are
+                                    allowed for a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                </all>
             </extension>
         </complexContent>
+    </complexType>
+
+    <complexType name="AttributeGroup">
+        <sequence>
+            <element name="description" type="xsd:string">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A description of the attribute group.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A set of custom attributes. Currently,
+                            only 50 custom attributes are allowed for
+                            a product schema.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+        <attribute name="name" type="xsd:Name" use="required">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The name of the attribute group.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="minOccurs" type="schema:MinOccurs" use="optional" default="1">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Minimun occurance of the attribute group.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
+        <attribute name="maxOccurs" type="schema:MaxOccurs" use="optional" default="1">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Minimun occurance of the attribute group.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
     </complexType>
 
     <complexType name="ProductSimpleUsageSchema">
         <complexContent>
             <extension base="schema:ProductSimpleSchemaBase">
-                <sequence>
+                <all>
                     <element name="attribute" type="schema:UsageAttribute" minOccurs="0" maxOccurs="50">
                         <annotation>
                             <documentation>
@@ -135,7 +198,7 @@
                             </documentation>
                         </annotation>
                     </element>
-                </sequence>
+                </all>
                 <attribute name="groupByResource" type="xsd:boolean"
                            use="optional" default="true">
                     <annotation>
@@ -447,6 +510,22 @@
     -->
     <simpleType name="NameList">
         <list itemType="xsd:Name"/>
+    </simpleType>
+
+    <simpleType name="MaxOccurs">
+        <union memberTypes="schema:MinOccurs">
+            <simpleType>
+                <restriction base="xsd:string">
+                    <enumeration value="unbounded"/>
+                </restriction>
+            </simpleType>
+        </union>
+    </simpleType>
+
+    <simpleType name="MinOccurs">
+        <restriction base="xsd:unsignedInt">
+            <maxInclusive value="5000"/>
+        </restriction>
     </simpleType>
 
     <simpleType name="Use">
