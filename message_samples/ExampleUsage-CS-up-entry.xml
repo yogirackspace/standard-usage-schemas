@@ -1,0 +1,19 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Host Server Down</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:csd="http://docs.rackspace.com/event/servers/hostserver"
+               version="1"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               resourceId="16"
+               type="DOWN" dataCenter="DFW1" region="DFW"
+               eventTime="2012-09-15T11:51:11Z">
+            <csd:product version="1" serviceCode="CloudServers"
+                         resourceType="HOST" huddleID="202"
+                         backstageURL="http://backstage.com/huddles/41/servers/16"
+                         hostIP="10.7.44.90" eventType="ping_event">
+                <csd:slice name="slice75" id="75" ip="10.176.64.5"/>
+            </csd:product>
+        </event>
+    </atom:content>
+</atom:entry>

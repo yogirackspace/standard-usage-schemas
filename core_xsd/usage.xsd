@@ -59,6 +59,9 @@
     <import namespace="http://docs.rackspace.com/usage/cloudbackup/bandwidthOut"
             schemaLocation="../generated_product_xsds/cloudbackupBandwidthOut.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/event/servers/hostserver"
+            schemaLocation="../generated_product_xsds/servers.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 

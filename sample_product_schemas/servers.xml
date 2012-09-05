@@ -1,0 +1,35 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/servers/hostserver"
+               serviceCode="CloudServers"
+               version="1"
+               resourceTypes="HOST" type="UP DOWN">
+    <description>
+        Server up/down events.
+    </description>
+    <attribute name="huddleID" type="int" use="required">
+        The huddle ID.
+    </attribute>
+    <attribute name="backstageURL" type="string" use="required">
+        The backstage URL to access the server.
+    </attribute>
+    <attribute name="hostIP" type="string" use="required">
+        The ip of the server.
+    </attribute>
+    <attribute name="eventType" type="string" use="required">
+        The type of monitoring event.
+    </attribute>
+    <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
+        <description>
+            A list of slices.
+        </description>
+        <attribute name="name" type="string" use="required">
+            The name of the slice.
+        </attribute>
+        <attribute name="id" type="int" use="required">
+            The id of the slice.
+        </attribute>
+        <attribute name="ip" type="string" use="required">
+            The IP of the slice.
+        </attribute>
+    </attributeGroup>
+</productSchema>
