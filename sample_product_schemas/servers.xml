@@ -4,16 +4,16 @@
                version="1"
                resourceTypes="HOST" type="DOWN">
     <description>
-        Server up/down events.
+        Server down event.
     </description>
     <attribute name="huddleID" type="int" use="required">
         The huddle ID.
     </attribute>
     <attribute name="backstageURL" type="string" use="required">
-        The backstage URL to access the server.
+        The backstage URL to access the host.
     </attribute>
     <attribute name="hostIP" type="string" use="required">
-        The ip of the server.
+        The ip of the host.
     </attribute>
     <attribute name="eventType" type="string" use="required">
         The type of monitoring event.
