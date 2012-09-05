@@ -46,7 +46,7 @@
                 <sequence>
                     <any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
                 </sequence>
-                <attribute name="tenantId" type="event:NonEmptyString" use="required">
+                <attribute name="tenantId" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -183,6 +183,18 @@
                             <html:p>
                                 If a resource type is specified then
                                 so should a resourceId.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT')) then @tenantId else true()"
+                        xerces:message="Usage messages must contain a tenantId"
+                        saxon:message="Usage messages must contain a tenantId"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A usage message must always contain a tenant id.
                             </html:p>
                         </documentation>
                     </annotation>
