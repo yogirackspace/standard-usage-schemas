@@ -19,5 +19,5 @@
         </p:input>
     </p:xslt>
     <p:store method="xml" indent="true" encoding="UTF-8"
-        omit-xml-declaration="false" href="product.wadl"/>
+        omit-xml-declaration="false" href="wadl/product.wadl"/>
 </p:declare-step>
