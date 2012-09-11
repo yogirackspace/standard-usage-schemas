@@ -62,6 +62,9 @@
     <import namespace="http://docs.rackspace.com/event/servers/hostserver"
             schemaLocation="../generated_product_xsds/servers.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/event/servers"
+            schemaLocation="../generated_product_xsds/servers-slice.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 

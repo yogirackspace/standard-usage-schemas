@@ -1,0 +1,61 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/servers"
+               serviceCode="CloudServers"
+               version="1" resourceTypes="SLICE">
+    <description>
+        Usage message for a slice.
+    </description>
+    <attribute name="flavor" type="int"
+               use="required" unitOfMeasure="COUNT">
+        The flavor id of the slice.
+    </attribute>
+    <attribute name="extraPublicIPs" type="int"
+               use="optional" unitOfMeasure="COUNT"
+               default="0">
+        The number of extra public IPs.  Defaults to zero.
+    </attribute>
+    <attribute name="extraPrivateIPs" type="int"
+               use="optional" unitOfMeasure="COUNT"
+               default="0">
+        The number of extra private IPs.  Defaults to zero.
+    </attribute>
+    <attribute name="isRedHat" type="boolean"
+               use="optional" default="false">
+        Does the slice use a RedHat license.
+    </attribute>
+    <attribute name="isMSSQL" type="boolean"
+               use="optional" default="false">
+        Does the slice use an MSSQL license.
+    </attribute>
+    <attribute name="isMSSQLWeb" type="boolean"
+               use="optional" default="false">
+        Does the slice use an MSSQL Web license.
+    </attribute>
+    <attribute name="isWindows" type="boolean"
+               use="optional" default="false">
+        Does the slice use a Windows license.
+    </attribute>
+    <attribute name="isSELinux" type="boolean"
+               use="optional" default="false">
+        Does the slice use an SELinux license.
+    </attribute>
+    <attribute name="isManaged" type="boolean"
+               use="optional" default="false">
+        Is this a managed slice.
+    </attribute>
+    <!--
+        There is still an open question as to whether this should be
+        in this message or in a different message.
+
+        Also there's a question as to wheather these should be summed
+        of averaged.
+    -->
+    <attribute name="bandwidthIn" type="long" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM">
+        The amount of bandwidth in, in kilobytes.
+    </attribute>
+    <attribute name="bandwidthOut" type="long" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM">
+        The amount of bandwidth out, in kilobytes.
+    </attribute>
+</productSchema>
