@@ -19,7 +19,7 @@
         <resource path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers"/>
         <resource path="melange/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
-        <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack"/>
         <resource path="quantum/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>

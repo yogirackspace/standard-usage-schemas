@@ -1,0 +1,17 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/nova/host"
+               serviceCode="CloudServersOpenStack"
+               version="1" resourceTypes="HOST"
+               type="UP DOWN">
+    <description>
+        UP / DOWN messages for Nova.
+    </description>
+    <attribute name="status" type="string"
+               use="required">
+        The status of the event.
+    </attribute>
+    <attribute name="collector" type="string"
+               use="required">
+        The hostname of the collector.
+    </attribute>
+</productSchema>
