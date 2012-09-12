@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/identity/user"
+               serviceCode="CloudIdentity"
+               version="1" resourceTypes="USER"
+               type="CREATE SUSPEND UNSUSPEND DELETE">
+    <description>
+        Identity user messages.
+    </description>
+    <attribute name="displayName" type="string"
+               use="required">
+        The display name of the user.
+    </attribute>
+</productSchema>
