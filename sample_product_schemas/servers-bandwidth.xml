@@ -1,0 +1,16 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/servers/bandwidth"
+               serviceCode="CloudServers"
+               version="1" resourceTypes="SLICE">
+    <description>
+        Usage message for slice bandwidth.
+    </description>
+    <attribute name="bandwidthIn" type="long" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM">
+        The amount of bandwidth in, in kilobytes.
+    </attribute>
+    <attribute name="bandwidthOut" type="long" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM">
+        The amount of bandwidth out, in kilobytes.
+    </attribute>
+</productSchema>

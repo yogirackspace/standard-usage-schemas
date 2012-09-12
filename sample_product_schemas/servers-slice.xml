@@ -43,19 +43,4 @@
                use="optional" default="false">
         Is this a managed slice.
     </attribute>
-    <!--
-        There is still an open question as to whether this should be
-        in this message or in a different message.
-
-        Also there's a question as to wheather these should be summed
-        of averaged.
-    -->
-    <attribute name="bandwidthIn" type="long" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM">
-        The amount of bandwidth in, in kilobytes.
-    </attribute>
-    <attribute name="bandwidthOut" type="long" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM">
-        The amount of bandwidth out, in kilobytes.
-    </attribute>
 </productSchema>

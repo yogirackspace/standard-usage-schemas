@@ -1,5 +1,5 @@
 <event xmlns="http://docs.rackspace.com/core/event"
-       xmlns:cs="http://docs.rackspace.com/event/servers"
+       xmlns:cs="http://docs.rackspace.com/event/servers/bandwidth"
        version="1" tenantId="2882"
        id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
        resourceId="56"
@@ -7,9 +7,7 @@
        startTime="2012-09-15T11:51:11Z"
        endTime="2012-09-16T11:51:11Z">
     <cs:product version="1" serviceCode="CloudServers"
-                resourceType="SLICE" flavor="10"
-                extraPublicIPs="0" extraPrivateIPs="0"
-                isRedHat="false" isMSSQL="false"
-                isMSSQLWeb="false" isWindows="false"
-                isSELinux="false" isManaged="false"/>
+                resourceType="SLICE"
+                bandwidthIn="1001"
+                bandwidthOut="19992"/>
 </event>
