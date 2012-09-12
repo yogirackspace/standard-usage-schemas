@@ -6,7 +6,7 @@
         Usage message for a slice.
     </description>
     <attribute name="flavor" type="int"
-               use="required" unitOfMeasure="COUNT">
+               use="required">
         The flavor id of the slice.
     </attribute>
     <attribute name="extraPublicIPs" type="int"
