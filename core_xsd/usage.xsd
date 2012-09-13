@@ -35,9 +35,6 @@
     <import namespace="http://docs.rackspace.com/usage/lbaas"
             schemaLocation="../generated_product_xsds/lbaas.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/lbaas/account"
-            schemaLocation="../generated_product_xsds/lbaas-account.xsd"/>
-
     <import namespace="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
             schemaLocation="../generated_product_xsds/cloudfilesBandwidthUsage.xsd"/>
 
