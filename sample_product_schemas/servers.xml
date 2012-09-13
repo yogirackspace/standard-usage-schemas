@@ -6,6 +6,12 @@
     <description>
         Server down event.
     </description>
+    <attribute name="coreID" type="int" use="required">
+        The CORE ID for the HOST.
+    </attribute>
+    <attribute name="serverID" type="int" use="required">
+        The Server ID  for the HOST.
+    </attribute>
     <attribute name="huddleID" type="int" use="required">
         The huddle ID.
     </attribute>
