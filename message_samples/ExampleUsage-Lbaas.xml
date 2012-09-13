@@ -6,6 +6,6 @@
     <lbaas:product sslMode="MIXED" vipType="PUBLIC" numVips="44" numPolls="100000" bandWidthOutSsl="345345346"
                    bandWidthInSsl="364646770" bandWidthOut="3460346" bandWidthIn="43456346"
                    avgConcurrentConnectionsSsl="4566.0"
-                   avgConcurrentConnections="30000.0" serviceCode="CloudLoadBalancers" resourceType="LOADBALANCER"
-                   version="1"/>
+                   avgConcurrentConnections="30000.0" serviceCode="CloudLoadBalancers"
+                   resourceType="LOADBALANCER" status="ACTIVE" version="1"/>
 </event>

@@ -11,7 +11,7 @@
                            bandWidthInSsl="364646770" bandWidthOut="3460346" bandWidthIn="43456346"
                            avgConcurrentConnectionsSsl="4566.0"
                            avgConcurrentConnections="30000.0" serviceCode="CloudLoadBalancers"
-                           resourceType="LOADBALANCER"
+                           resourceType="LOADBALANCER" status="ACTIVE"
                            version="1"/>
         </event>
     </atom:content>
