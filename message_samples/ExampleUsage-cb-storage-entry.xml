@@ -8,7 +8,7 @@
                resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
                tenantId="1234" version="1">
             <cb-store:product version="1" serviceCode="CloudBackup"
-                              serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
+                              serverID="9445"
                               storage="99992827882" resourceType="AGENT"/>
         </event>
     </atom:content>

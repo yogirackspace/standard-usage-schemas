@@ -10,7 +10,7 @@
                unitOfMeasure="B" aggregateFunction="SUM">
         The amount of bandwidth out, in bytes.
     </attribute>
-    <attribute name="serverID" type="UUID" use="required">
+    <attribute name="serverID" type="int UUID" use="required">
         Server ID, where the agent in installed.
     </attribute>
 </productSchema>

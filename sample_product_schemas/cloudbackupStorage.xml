@@ -10,7 +10,7 @@
                unitOfMeasure="B">
         The amount of storage consumed by the cloud files container.
     </attribute>
-    <attribute name="serverID" type="UUID" use="required">
+    <attribute name="serverID" type="int UUID" use="required">
         Server ID, where the agent in installed.
     </attribute>
 </productSchema>

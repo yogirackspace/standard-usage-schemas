@@ -407,11 +407,11 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="type" type="schema:Type" use="required">
+                <attribute name="type" type="schema:TypeList" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
-                                The type of the attribute.
+                                The types applicable to this attribute.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -1151,5 +1151,8 @@
                 </annotation>
             </enumeration>
         </restriction>
+    </simpleType>
+    <simpleType name="TypeList">
+        <list itemType="schema:Type"/>
     </simpleType>
 </schema>

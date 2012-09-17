@@ -160,7 +160,40 @@
             </complexType>
         </element>
     </xsl:template>
+    <xsl:function name="schema:getSchemaType" as="xsd:string">
+        <xsl:param name="type" as="xsd:string" />
+        <xsl:param name="attribute" as="node()"/>
+        <xsl:choose>
+            <xsl:when test="ends-with($type, '*')">
+                <xsl:value-of select="usage:listNameType($attribute/@name,true())"/>
+            </xsl:when>
+            <xsl:when test="$attribute/@allowedValues">
+                <xsl:value-of select="usage:enumNameType($attribute/@name, true())"/>
+            </xsl:when>
+            <xsl:when test="$type='UUID'">
+                <xsl:value-of select="'p:UUID'"/>
+            </xsl:when>
+            <xsl:when test="$type='utcDateTime'">
+                <xsl:value-of select="'p:UTCDateTime'"/>
+            </xsl:when>
+            <xsl:when test="$type='utcTime'">
+                <xsl:value-of select="'p:UTCTime'"/>
+            </xsl:when>
+            <xsl:when test="$type='string'">
+                <xsl:value-of select="'p:string'"/>
+            </xsl:when>
+            <xsl:when test="$type='Name'">
+                <xsl:value-of select="'p:Name'"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat('xsd:',$type)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
     <xsl:template match="schema:attribute" mode="#default AddAttributeGroups">
+        <xsl:variable name="types" as="xsd:string*" select="tokenize(@type, ' ')" use-when="not(system-property('xsl:is-schema-aware'))"/>
+        <xsl:variable name="types" as="xsd:string*" select="@type" use-when="system-property('xsl:is-schema-aware')"/>
+        <xsl:variable name="rtypes" as="xsd:string*" select="for $rt in $types return schema:getSchemaType($rt, .)"/>
         <attribute>
             <xsl:attribute name="name" select="@name"/>
             <xsl:if test="@use">
@@ -172,34 +205,9 @@
             <xsl:if test="@default">
                 <xsl:attribute name="default" select="@default"/>
             </xsl:if>
-            <xsl:attribute name="type">
-                <xsl:choose>
-                    <xsl:when test="ends-with(@type, '*')">
-                        <xsl:value-of select="usage:listNameType(.,true())"/>
-                    </xsl:when>
-                    <xsl:when test="@allowedValues">
-                        <xsl:value-of select="usage:enumNameType(., true())"/>
-                    </xsl:when>
-                    <xsl:when test="@type='UUID'">
-                        <xsl:value-of select="'p:UUID'"/>
-                    </xsl:when>
-                    <xsl:when test="@type='utcDateTime'">
-                        <xsl:value-of select="'p:UTCDateTime'"/>
-                    </xsl:when>
-                    <xsl:when test="@type='utcTime'">
-                        <xsl:value-of select="'p:UTCTime'"/>
-                    </xsl:when>
-                    <xsl:when test="@type='string'">
-                        <xsl:value-of select="'p:string'"/>
-                    </xsl:when>
-                    <xsl:when test="@type='Name'">
-                        <xsl:value-of select="'p:Name'"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="concat('xsd:',@type)"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:attribute>
+            <xsl:if test="count($types) = 1">
+                <xsl:attribute name="type" select="$rtypes[1]" />
+            </xsl:if>
             <annotation>
                 <documentation>
                     <html:p>
@@ -232,14 +240,34 @@
                     </usage:attributes>
                 </appinfo>
             </annotation>
+            <xsl:if test="count($types) &gt; 1">
+                <simpleType>
+                    <union>
+                        <xsl:attribute name="memberTypes">
+                            <xsl:value-of select="$rtypes" separator=" "/>
+                        </xsl:attribute>
+                    </union>
+                </simpleType>
+            </xsl:if>
         </attribute>
     </xsl:template>
     <xsl:template match="schema:attribute" mode="AddTypes">
-        <xsl:if test="ends-with(@type, '*')">
-            <xsl:call-template name="addListType"/>
-        </xsl:if>
-        <xsl:if test="@allowedValues">
-            <xsl:call-template name="addEnumType"/>
+        <xsl:variable name="attrib" as="node()" select="."/>
+        <xsl:variable name="types" as="xsd:string*" select="tokenize(@type, ' ')" use-when="not(system-property('xsl:is-schema-aware'))"/>
+        <xsl:variable name="types" as="xsd:string*" select="@type" use-when="system-property('xsl:is-schema-aware')"/>
+        <xsl:for-each select="$types">
+            <xsl:if test="ends-with(., '*')">
+                <xsl:call-template name="addListType">
+                    <xsl:with-param name="type" select="."/>
+                    <xsl:with-param name="attrib" select="$attrib"/>
+                </xsl:call-template>
+            </xsl:if>
+        </xsl:for-each>
+        <xsl:if test="(count($types) = 1) and (@allowedValues)">
+            <xsl:call-template name="addEnumType">
+                <xsl:with-param name="type" select="$types[1]"/>
+                <xsl:with-param name="attrib" select="$attrib"/>
+            </xsl:call-template>
         </xsl:if>
     </xsl:template>
     <xsl:template name="addAttributeGroups">
@@ -250,12 +278,14 @@
         </xsl:if>
     </xsl:template>
     <xsl:template name="addEnumType">
+        <xsl:param name="type" as="xsd:string" />
+        <xsl:param name="attrib" as="node()"/>
         <xsl:variable name="enumValues" as="xsd:string*" select="tokenize(@allowedValues, ' ')" use-when="not(system-property('xsl:is-schema-aware'))"/>
         <xsl:variable name="enumValues" as="xsd:string*" select="@allowedValues" use-when="system-property('xsl:is-schema-aware')"/>
         <simpleType>
-            <xsl:attribute name="name" select="usage:enumNameType(., false())"/>
+            <xsl:attribute name="name" select="usage:enumNameType($attrib/@name, false())"/>
             <restriction>
-                <xsl:attribute name="base" select="usage:enumBaseType(.)"/>
+                <xsl:attribute name="base" select="usage:enumBaseType($type)"/>
                 <xsl:for-each select="$enumValues">
                     <enumeration>
                         <xsl:attribute name="value" select="normalize-space(.)"/>
@@ -265,36 +295,38 @@
         </simpleType>
     </xsl:template>
     <xsl:template name="addListType">
+        <xsl:param name="type" as="xsd:string"/>
+        <xsl:param name="attrib" as="node()"/>
         <simpleType>
-            <xsl:attribute name="name" select="usage:listNameType(.,false())"/>
+            <xsl:attribute name="name" select="usage:listNameType($attrib/@name,false())"/>
             <list>
                 <xsl:attribute name="itemType">
-                    <xsl:value-of select="usage:listItemType(.)"/>
+                    <xsl:value-of select="usage:listItemType($type, $attrib)"/>
                 </xsl:attribute>
             </list>
         </simpleType>
     </xsl:template>
     <xsl:function name="usage:enumNameType">
-        <xsl:param name="attrib" as="node()"/>
+        <xsl:param name="name" as="xsd:string"/>
         <xsl:param name="qualified" as="xsd:boolean"/>
         <xsl:choose>
             <xsl:when test="$qualified">
-                <xsl:value-of select="concat('p:',$attrib/@name, 'Enum')"/>
+                <xsl:value-of select="concat('p:',$name, 'Enum')"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($attrib/@name, 'Enum')"/>
+                <xsl:value-of select="concat($name, 'Enum')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
     <xsl:function name="usage:enumBaseType">
-        <xsl:param name="attrib" as="node()"/>
+        <xsl:param name="itype" as="xsd:string"/>
         <xsl:variable name="type" as="xsd:string">
             <xsl:choose>
-                <xsl:when test="contains($attrib/@type,'*')">
-                   <xsl:value-of select="substring-before($attrib/@type,'*')"/>
+                <xsl:when test="contains($itype,'*')">
+                   <xsl:value-of select="substring-before($itype,'*')"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$attrib/@type"/>
+                    <xsl:value-of select="$itype"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -308,26 +340,27 @@
         </xsl:choose>
     </xsl:function>
     <xsl:function name="usage:listNameType">
-        <xsl:param name="attrib" as="node()"/>
+        <xsl:param name="name" as="xsd:string"/>
         <xsl:param name="qualified" as="xsd:boolean"/>
         <xsl:choose>
             <xsl:when test="$qualified">
-                <xsl:value-of select="concat('p:',$attrib/@name, 'List')"/>
+                <xsl:value-of select="concat('p:',$name, 'List')"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat($attrib/@name, 'List')"/>
+                <xsl:value-of select="concat($name, 'List')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
     <xsl:function name="usage:listItemType">
+        <xsl:param name="itype" as="xsd:string" />
         <xsl:param name="attrib" as="node()"/>
-        <xsl:variable name="type" select="substring-before($attrib/@type,'*')" as="xsd:string"/>
+        <xsl:variable name="type" select="substring-before($itype,'*')" as="xsd:string"/>
         <xsl:choose>
             <xsl:when test="$type='UUID'">
                 <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$attrib/@allowedValues">
-                <xsl:value-of select="usage:enumNameType($attrib,true())"/>
+                <xsl:value-of select="usage:enumNameType($attrib/@name,true())"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="concat('p:',$type)"/>
