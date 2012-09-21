@@ -9,6 +9,8 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:date="http://exslt.org/dates-and-times"
+    extension-element-prefixes="date"
     exclude-result-prefixes="event"
     version="1.0">
 
@@ -16,6 +18,13 @@
 
     <xsl:template match="node() | @*">
         <xsl:copy>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="atom:entry">
+        <xsl:copy>
+            <xsl:call-template name="addPublishDate"/>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
     </xsl:template>
@@ -31,6 +40,7 @@
             </xsl:if>
         </xsl:variable>
         <xsl:copy>
+            <xsl:call-template name="addPublishDate"/>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
             </xsl:call-template>
@@ -80,6 +90,23 @@
             </xsl:choose>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
+    </xsl:template>
+
+    <xsl:template name="addPublishDate">
+        <xsl:variable name="currentDate" select="date:date-time()"/>
+        <xsl:if test="not(atom:updated)">
+            <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
+        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="not(atom:published) and atom:updated">
+                <atom:published><xsl:value-of select="atom:updated"/></atom:published>
+            </xsl:when>
+            <xsl:when test="not(atom:published) and not(atom:updated)">
+                <atom:published><xsl:value-of select="$currentDate"/></atom:published>
+            </xsl:when>
+        </xsl:choose>
+        <xsl:if test="not(atom:published) and atom:updated">
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="addCategory">
