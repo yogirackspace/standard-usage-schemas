@@ -3,8 +3,10 @@
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2012-06-14T09:46:31.867-05:00</atom:updated>
     <atom:content type="application/xml">
-        <event startTime="2012-06-14T10:19:52Z" endTime="2012-06-15T10:19:52Z"
-               region="DFW" dataCenter="DFW1" type="USAGE" resourceId="db:mysqldb"
+        <event eventTime="2012-06-14T10:19:52Z"
+               region="DFW" dataCenter="DFW1"
+               type="USAGE_SNAPSHOT"
+               resourceId="db:mysqldb"
                id="47b574c4-0400-11e2-b19d-7b8e208cade0"
                tenantId="12882" version="1">
             <db:product serviceCode="CloudSites" version="1"

@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/usage/sites/netapp"
                serviceCode="CloudSites"
-               version="1"
+               version="1" type="USAGE_SNAPSHOT"
                groupByResource="false">
     <description>
         Total netapp for a particular tenant.
