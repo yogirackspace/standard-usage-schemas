@@ -71,6 +71,12 @@
     <import namespace="http://docs.rackspace.com/event/identity/user"
             schemaLocation="../generated_product_xsds/identity.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/sites/netapp"
+            schemaLocation="../generated_product_xsds/sites-netapp.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/sites/db"
+            schemaLocation="../generated_product_xsds/sites-db.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
 

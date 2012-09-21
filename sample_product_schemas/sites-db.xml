@@ -1,0 +1,16 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/sites/db"
+               serviceCode="CloudSites"
+               version="1"
+               resourceTypes="MYSQL MSSQL">
+    <description>
+        Total usage for sites db.
+    </description>
+    <attribute name="name" type="string" use="required">
+        The database name.
+    </attribute>
+    <attribute name="storage" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="AVG">
+        The amount of disk storage.
+    </attribute>
+</productSchema>

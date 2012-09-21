@@ -1,0 +1,26 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/sites/netapp"
+               serviceCode="CloudSites"
+               version="1"
+               groupByResource="false">
+    <description>
+        Total netapp for a particular tenant.
+    </description>
+    <attribute name="groupName" type="string" use="required"
+               billable="false">
+        The group name.
+    </attribute>
+    <attribute name="storage" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="AVG">
+        The amount of storage bytes.
+    </attribute>
+    <attribute name="numFiles" type="unsignedLong" use="required"
+               unitOfMeasure="COUNT" aggregateFunction="AVG"
+               billable="false">
+        The number of files.
+    </attribute>
+    <attribute name="volume" type="string" use="required"
+               billable="false">
+       The volume.
+    </attribute>
+</productSchema>
