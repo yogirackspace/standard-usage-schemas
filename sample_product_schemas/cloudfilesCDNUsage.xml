@@ -6,7 +6,7 @@
     <description>
         CloudFiles account CDN usage information.
     </description>
-    <attribute name="cdnBandwidthOut" type="long" use="required"
+    <attribute name="cdnBandwidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM">
         The amount of bandwidth out in bytes.
     </attribute>

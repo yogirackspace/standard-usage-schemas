@@ -6,14 +6,14 @@
     <description>
       CloudFiles account storage information.
     </description>
-    <attribute name="disk" type="int" use="required"
+    <attribute name="disk" type="unsignedInt" use="required"
                unitOfMeasure="B">
         The amount of disk usage in bytes.
     </attribute>
-    <attribute name="freeops" type="int" use="required">
+    <attribute name="freeops" type="unsignedInt" use="required">
         The number of free operations.
     </attribute>
-    <attribute name="costops" type="int" use="required">
+    <attribute name="costops" type="unsignedInt" use="required">
         The number of cost operations
     </attribute>
 </productSchema>
