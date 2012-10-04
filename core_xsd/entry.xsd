@@ -7,6 +7,8 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
     targetNamespace="http://www.w3.org/2005/Atom">
 
     <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
@@ -67,6 +69,17 @@
             <any maxOccurs="20" minOccurs="0" processContents="skip"/>
         </sequence>
         <anyAttribute processContents="skip"/>
+        <assert vc:minVersion="1.1" test="not(count(atom:content) &gt; 1)"
+                xerces:message="An atom entry can only contain a single content element."
+                saxon:message="An atom entry can only contain a single content element.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        An atom entry can only contain a single content element.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
     </complexType>
 
     <complexType name="BaseContent" abstract="true"/>
