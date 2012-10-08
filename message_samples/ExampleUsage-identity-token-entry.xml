@@ -1,0 +1,17 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns="http://docs.rackspace.com/core/event"
+            xmlns:id="http://docs.rackspace.com/event/identity/token">
+    <atom:title>Identity Token Event</atom:title>
+    <atom:content type="application/xml">
+        <event version="1" id="6ac9b5d6-1177-11e2-aeab-b34041df5a7c"
+               resourceId="6c385562-1177-11e2-8a1b-13b3684938eb"
+               dataCenter="DFW1" region="DFW"
+               eventTime="2012-09-19T11:11:11Z"
+               type="DELETE">
+            <id:product version="1"
+                        resourceType="TOKEN"
+                        serviceCode="CloudIdentity"
+                        tenants="1234 tenant2 3882"/>
+        </event>
+    </atom:content>
+</atom:entry>

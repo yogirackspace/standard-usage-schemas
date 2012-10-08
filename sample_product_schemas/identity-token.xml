@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/identity/token"
+               serviceCode="CloudIdentity"
+               version="1" resourceTypes="TOKEN"
+               type="DELETE">
+    <description>
+        Token invalidation event.
+    </description>
+    <attribute name="tenants" type="string*"
+               use="optional">
+        The IDs of the tenant associated with this token, if any.
+    </attribute>
+</productSchema>
