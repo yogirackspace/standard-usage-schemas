@@ -124,7 +124,7 @@
                     </restriction>
                 </simpleType>
             </xsl:if>
-            <xsl:if test="schema:attribute[@type='string' and not(@allowedValues)]">
+            <xsl:if test="schema:attribute[@type=('string', 'string*') and not(@allowedValues)]">
                 <simpleType name="string">
                     <restriction base="xsd:string">
                         <maxLength value="{$MAX_STRING}"/>
@@ -361,6 +361,9 @@
             </xsl:when>
             <xsl:when test="$attrib/@allowedValues">
                 <xsl:value-of select="usage:enumNameType($attrib/@name,true())"/>
+            </xsl:when>
+            <xsl:when test="$type='string'">
+                <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="concat('p:',$type)"/>

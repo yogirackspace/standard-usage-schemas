@@ -587,6 +587,15 @@
                     </documentation>
                 </annotation>
             </enumeration>
+            <enumeration value="string*">
+                <annotation>
+                    <documentation>
+                        <html:p>
+                            A list of strings.
+                        </html:p>
+                    </documentation>
+                </annotation>
+            </enumeration>
             <!--
               Numeric Types
             -->
