@@ -52,8 +52,12 @@
 
     <method id="addPlainEntry" name="POST">
         <request>
-            <representation mediaType="application/xml"/>
-            <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/xml">
+                <rax:preprocess href="fn-single-quote.xsl"/>
+            </representation>
+            <representation mediaType="application/atom+xml">
+                <rax:preprocess href="fn-single-quote.xsl"/>
+            </representation>
         </request>
         <!-- Okay -->
         <response status="201">
