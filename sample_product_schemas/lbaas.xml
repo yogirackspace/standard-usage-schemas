@@ -7,12 +7,12 @@
         Lbaas load balancer usage fields.
     </description>
     <attribute name="avgConcurrentConnections" type="double" use="required"
-               aggregateFunction="CUMULATIVE_AVG" frequencyAttribute='numPolls'
+               aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
                unitOfMeasure="COUNT">
         The amount of conncurrent connections.
     </attribute>
     <attribute name="avgConcurrentConnectionsSsl" type="double" use="required"
-               aggregateFunction="CUMULATIVE_AVG" frequencyAttribute='numPolls'
+               aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
                unitOfMeasure="COUNT">
         The amount of conncurrent ssl connections.
     </attribute>
@@ -33,7 +33,7 @@
         The amount of ssl bandwidth out in bytes.
     </attribute>
     <attribute name="numPolls" type="int" use="required"
-               unitOfMeasure="COUNT">
+               billable="false" unitOfMeasure="COUNT">
         The number of polls per load balancer.
     </attribute>
     <attribute name="numVips" type="int" use="required"
