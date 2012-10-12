@@ -44,7 +44,7 @@
         </annotation>
         <attribute name="aggregateFunction" type="usage:AggregateFunction" use="optional" default="NONE"/>
         <attribute name="displayName" type="xsd:string" use="optional" />
-        <attribute name="frequency" type="xsd:long" use="optional"/>
+        <attribute name="frequency" type="usage:Frequency" use="optional"/>
         <attribute name="frequencyAttribute" type="xsd:string" use="optional"/>
         <attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional"/>
         <attribute name="groupBy" type="xsd:boolean" use="optional" default="false"/>
@@ -165,5 +165,26 @@
 
     <simpleType name="TypeList">
         <list itemType="event:EventType"/>
+    </simpleType>
+    <simpleType name="Frequency">
+        <annotation>
+            <documentation>
+                <html:p>
+                   Describes the frequency used in a
+                   CUMMULATIVE_AVG. The value can be a long constant
+                   or the value 'DURATION' which signifies that the
+                   frequency should be derived from the duration
+                   (startTime, endTime) of the message.
+                </html:p>
+            </documentation>
+        </annotation>
+        <union memberTypes="xsd:long">
+            <simpleType>
+                <restriction base="xsd:token">
+                    <enumeration value="DURATION">
+                    </enumeration>
+                </restriction>
+            </simpleType>
+        </union>
     </simpleType>
 </schema>

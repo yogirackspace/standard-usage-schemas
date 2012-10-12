@@ -259,6 +259,20 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1"
+                        test="if (schema:attribute[string(@frequency) = 'DURATION']) then string(@type)='USAGE' else true()"
+                        xerces:message="If there is an attribute with a frequency of DURATION, then the message type should be USAGE"
+                        saxon:message="If there is an attribute with a frequency of DURATION, then the message type should be USAGE">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Only USAGE messages should have a
+                                frequency of DURATION.
+                                (USAGE_SNAPSHOT messages shouldn't).
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>
@@ -310,7 +324,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="frequency" type="xsd:long" use="optional">
+                <attribute name="frequency" type="usage:Frequency" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
