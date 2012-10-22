@@ -73,6 +73,19 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="referenceId" type="event:UUID" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A GUID identifying the event record,
+                                that this record is updating. This is
+                                optional, and this should be used if
+                                this event is correcting another
+                                event.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="rootAction" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
