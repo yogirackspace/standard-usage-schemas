@@ -52,6 +52,11 @@
                 <xsl:with-param name="term" select="$event/@dataCenter"/>
                 <xsl:with-param name="default" select="'GLOBAL'"/>
             </xsl:call-template>
+            <xsl:if test="$event/@resourceId">
+                <xsl:call-template name="addCategory">
+                    <xsl:with-param name="term" select="concat('rid:',$event/@resourceId)"/>
+                </xsl:call-template>
+            </xsl:if>
             <xsl:choose>
                 <!--
                     If there is a resourceType then create a catagory from
