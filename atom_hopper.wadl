@@ -27,6 +27,10 @@
         <resource path="usagetest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest3/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest4/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
+        <resource path="usagetest5/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="usagetest7/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="usagetest8/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="identity/users/deleted" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
         <resource path="identity/users/disabled" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
         <resource path="identity/users/migrated/CloudAuth" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
