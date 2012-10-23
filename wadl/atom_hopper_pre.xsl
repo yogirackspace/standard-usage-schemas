@@ -58,6 +58,23 @@
         </xsl:copy>
     </xsl:template>
 
+    <!--
+        STOP GAP: If the category is 'monitoring.check.usage' and the
+        tenantId starts with hybrid: , then remove the category.
+        Otherwise copy it.
+    -->
+    <xsl:template match="atom:category[@term='monitoring.check.usage']">
+        <xsl:variable name="event" select="../atom:content/event:event"/>
+        <xsl:choose>
+            <xsl:when test="starts-with($event/@tenantId,'hybrid:')"/>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <xsl:template name="addIdCategory">
         <xsl:param name="event"/>
         <xsl:variable name="prod" select="$event/child::*[1]"/>
