@@ -31,24 +31,47 @@
 
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
+
         <xsl:copy>
             <xsl:call-template name="addPublishDate"/>
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="$event/@tenantId"/>
-            </xsl:call-template>
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="$event/@region"/>
-                <xsl:with-param name="default" select="'GLOBAL'"/>
-            </xsl:call-template>
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="$event/@dataCenter"/>
-                <xsl:with-param name="default" select="'GLOBAL'"/>
-            </xsl:call-template>
+            <xsl:if test="$event/@tenantId">
+                <xsl:call-template name="addCategory">
+                    <xsl:with-param name="term" select="concat('tid:',$event/@tenantId)"/>
+                </xsl:call-template>
+            </xsl:if>
+
+            <xsl:choose>
+                <xsl:when test="$event/@region">
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="concat('rgn:',$event/@region)"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="'rgn:GLOBAL'"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <xsl:choose>
+                <xsl:when test="$event/@dataCenter">
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="concat('dc:',$event/@dataCenter)"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="'dc:GLOBAL'"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+
             <xsl:if test="$event/@resourceId">
                 <xsl:call-template name="addCategory">
                     <xsl:with-param name="term" select="concat('rid:',$event/@resourceId)"/>
                 </xsl:call-template>
             </xsl:if>
+
             <xsl:if test="$event">
                 <xsl:call-template name="addIdCategory">
                     <xsl:with-param name="event" select="$event"/>
