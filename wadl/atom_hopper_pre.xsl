@@ -31,47 +31,26 @@
 
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
-
         <xsl:copy>
             <xsl:call-template name="addPublishDate"/>
-            <xsl:if test="$event/@tenantId">
-                <xsl:call-template name="addCategory">
-                    <xsl:with-param name="term" select="concat('tid:',$event/@tenantId)"/>
-                </xsl:call-template>
-            </xsl:if>
-
-            <xsl:choose>
-                <xsl:when test="$event/@region">
-                    <xsl:call-template name="addCategory">
-                        <xsl:with-param name="term" select="concat('rgn:',$event/@region)"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="addCategory">
-                        <xsl:with-param name="term" select="'rgn:GLOBAL'"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-
-            <xsl:choose>
-                <xsl:when test="$event/@dataCenter">
-                    <xsl:call-template name="addCategory">
-                        <xsl:with-param name="term" select="concat('dc:',$event/@dataCenter)"/>
-                    </xsl:call-template>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:call-template name="addCategory">
-                        <xsl:with-param name="term" select="'dc:GLOBAL'"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-
-            <xsl:if test="$event/@resourceId">
-                <xsl:call-template name="addCategory">
-                    <xsl:with-param name="term" select="concat('rid:',$event/@resourceId)"/>
-                </xsl:call-template>
-            </xsl:if>
-
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$event/@tenantId"/>
+                <xsl:with-param name="prefix" select="'tid:'"/>
+            </xsl:call-template>
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$event/@region"/>
+                <xsl:with-param name="prefix" select="'rgn:'"/>
+                <xsl:with-param name="default" select="'GLOBAL'"/>
+            </xsl:call-template>
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$event/@dataCenter"/>
+                <xsl:with-param name="prefix" select="'dc:'"/>
+                <xsl:with-param name="default" select="'GLOBAL'"/>
+            </xsl:call-template>
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$event/@resourceId"/>
+                <xsl:with-param name="prefix" select="'rid:'"/>
+            </xsl:call-template>
             <xsl:if test="$event">
                 <xsl:call-template name="addIdCategory">
                     <xsl:with-param name="event" select="$event"/>
@@ -181,13 +160,16 @@
     <xsl:template name="addCategory">
         <xsl:param name="term"/>
         <xsl:param name="default" select="''"/>
+        <xsl:param name="prefix" select="''" />
         <xsl:variable name="actualTerm">
             <xsl:choose>
                 <xsl:when test="boolean($term)">
-                    <xsl:value-of select="$term"/>
+                    <xsl:value-of select="concat($prefix, $term)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="$default"/>
+                    <xsl:if test="boolean($default)">
+                        <xsl:value-of select="concat($prefix, $default)"/>
+                    </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -195,7 +177,7 @@
             If the category term is not empty and a category for that
             term does not already exist, add it.
         -->
-        <xsl:if test="boolean($actualTerm) and not(atom:category[@term = $actualTerm])">
+        <xsl:if test="$actualTerm != '' and not(atom:category[@term = $actualTerm])">
             <atom:category term="{$actualTerm}"/>
         </xsl:if>
     </xsl:template>
