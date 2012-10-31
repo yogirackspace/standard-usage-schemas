@@ -163,11 +163,11 @@
         <xsl:param name="prefix" select="''" />
         <xsl:variable name="actualTerm">
             <xsl:choose>
-                <xsl:when test="boolean($term)">
+                <xsl:when test="$term != ''">
                     <xsl:value-of select="concat($prefix, $term)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:if test="boolean($default)">
+                    <xsl:if test="$default != ''">
                         <xsl:value-of select="concat($prefix, $default)"/>
                     </xsl:if>
                 </xsl:otherwise>
