@@ -185,6 +185,9 @@
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="'p:Name'"/>
             </xsl:when>
+            <xsl:when test="$attribute/@min or $attribute/@max">
+                <xsl:value-of select="usage:minMaxType($attribute/@name,true())"/>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="concat('xsd:',$type)"/>
             </xsl:otherwise>
@@ -263,12 +266,17 @@
                 </xsl:call-template>
             </xsl:if>
         </xsl:for-each>
-        <xsl:if test="(count($types) = 1) and (@allowedValues)">
-            <xsl:call-template name="addEnumType">
-                <xsl:with-param name="type" select="$types[1]"/>
-                <xsl:with-param name="attrib" select="$attrib"/>
-            </xsl:call-template>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="(count($types) = 1) and (@allowedValues)">
+                <xsl:call-template name="addEnumType">
+                    <xsl:with-param name="type" select="$types[1]"/>
+                    <xsl:with-param name="attrib" select="$attrib"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="@min or @max">
+                <xsl:call-template name="addMinMaxType"/>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
     <xsl:template name="addAttributeGroups">
         <xsl:if test="schema:attributeGroup">
@@ -306,6 +314,36 @@
             </list>
         </simpleType>
     </xsl:template>
+    <xsl:template name="addMinMaxType">
+        <simpleType>
+            <xsl:attribute name="name" select="usage:minMaxType(@name, false())"/>
+            <restriction base="xsd:unsignedInt">
+                <xsl:attribute name="base" select="concat('xsd:',@type)"/>
+                <xsl:if test="@min">
+                    <minInclusive>
+                        <xsl:attribute name="value" select="@min"/>
+                    </minInclusive>
+                </xsl:if>
+                <xsl:if test="@max">
+                    <maxInclusive>
+                        <xsl:attribute name="value" select="@max"/>
+                    </maxInclusive>
+                </xsl:if>
+            </restriction>
+        </simpleType>
+    </xsl:template>
+    <xsl:function name="usage:minMaxType" as="xsd:string">
+        <xsl:param name="name" as="xsd:string"/>
+        <xsl:param name="qualified" as="xsd:boolean"/>
+        <xsl:choose>
+            <xsl:when test="$qualified">
+                <xsl:value-of select="concat('p:',$name,'Type')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat($name,'Type')"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
     <xsl:function name="usage:enumNameType">
         <xsl:param name="name" as="xsd:string"/>
         <xsl:param name="qualified" as="xsd:boolean"/>
