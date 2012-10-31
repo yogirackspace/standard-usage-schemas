@@ -561,6 +561,19 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@max or @min) then count(tokenize(string(@type),' ')) = 1 else true()"
+                        xerces:message="Using multiple types on an attribute is not allowed when min or max is set."
+                        saxon:message="Using multiple types on an attribute is not allowed when min or max is set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Min and max can't be set on an
+                                attribute that is the union of
+                                multiple types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </simpleContent>
     </complexType>
