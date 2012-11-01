@@ -7,7 +7,7 @@
         CloudFiles account CDN usage information.
     </description>
     <attribute name="cdnBandwidthOut" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM">
+               unitOfMeasure="B" aggregateFunction="SUM" max="109951162777600">
         The amount of bandwidth out in bytes.
     </attribute>
 </productSchema>
