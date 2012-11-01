@@ -453,6 +453,26 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="min" type="schema:MinMaxType" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minimum value allowed in the
+                                numeric type.  The value is inclusive.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="max" type="schema:MinMaxType" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minimum value allowed in the
+                                numeric type.  The value is inclusive.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="default" type="xsd:string" use="optional">
                     <annotation>
                         <documentation>
@@ -515,6 +535,45 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@min) then @type=('integer','long','int', 'short', 'byte',
+                                                  'unsignedLong','unsignedInt','unsignedShort','unsignedByte','double',
+                                                  'float') else true()"
+                        xerces:message="You can only set minimum value in numeric types."
+                        saxon:message="You can only set minimum value in numeric types.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minimum value is only allowed with numeric types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@max) then @type=('integer','long','int', 'short', 'byte',
+                                                  'unsignedLong','unsignedInt','unsignedShort','unsignedByte','double',
+                                                  'float') else true()"
+                        xerces:message="You can only set maximum value in numeric types."
+                        saxon:message="You can only set maximum value in numeric types.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The maximum value is only allowed with numeric types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@max or @min) then count(tokenize(string(@type),' ')) = 1 else true()"
+                        xerces:message="Using multiple types on an attribute is not allowed when min or max is set."
+                        saxon:message="Using multiple types on an attribute is not allowed when min or max is set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Min and max can't be set on an
+                                attribute that is the union of
+                                multiple types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </simpleContent>
     </complexType>
@@ -540,6 +599,10 @@
         <restriction base="xsd:unsignedInt">
             <maxInclusive value="5000"/>
         </restriction>
+    </simpleType>
+
+    <simpleType name="MinMaxType">
+        <union memberTypes="xsd:double xsd:decimal"/>
     </simpleType>
 
     <simpleType name="Use">

@@ -3,7 +3,7 @@
        endTime="2012-06-15T10:19:52Z"
        startTime="2012-06-14T10:19:52Z" region="DFW" dataCenter="DFW1" type="USAGE"
        id="b79cc3de-b399-3883-b555-61829bb7f966" resourceId="b79cc3de-b399-3883-b555-61829bbccd38" tenantId="1" version="1">
-    <lbaas:product sslMode="MIXED" vipType="PUBLIC" numVips="44" numPolls="100000" bandWidthOutSsl="345345346"
+    <lbaas:product sslMode="MIXED" vipType="PUBLIC" numVips="44" numPolls="10" bandWidthOutSsl="345345346"
                    bandWidthInSsl="364646770" bandWidthOut="3460346" bandWidthIn="43456346"
                    avgConcurrentConnectionsSsl="4566.0"
                    avgConcurrentConnections="30000.0" serviceCode="CloudLoadBalancers"
