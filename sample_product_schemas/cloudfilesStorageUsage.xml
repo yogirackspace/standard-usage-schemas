@@ -6,8 +6,8 @@
     <description>
       CloudFiles account storage information.
     </description>
-    <attribute name="disk" type="unsignedInt" use="required"
-               unitOfMeasure="B">
+    <attribute name="disk" type="unsignedLong" use="required"
+               unitOfMeasure="B" max="112589990684262400">
         The amount of disk usage in bytes.
     </attribute>
     <attribute name="freeops" type="unsignedInt" use="required">
