@@ -17,19 +17,23 @@
         The amount of conncurrent ssl connections.
     </attribute>
     <attribute name="bandWidthIn" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="10995116277760">
         The amount of bandwidth in, in bytes.
     </attribute>
     <attribute name="bandWidthOut" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="10995116277760">
         The amount of bandwidth out in bytes.
     </attribute>
     <attribute name="bandWidthInSsl" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="10995116277760">
         The amount of ssl bandwidth in, in bytes.
     </attribute>
     <attribute name="bandWidthOutSsl" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="10995116277760">
         The amount of ssl bandwidth out in bytes.
     </attribute>
     <attribute name="numPolls" type="int" use="required"
