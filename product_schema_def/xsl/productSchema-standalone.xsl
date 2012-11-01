@@ -321,12 +321,12 @@
                 <xsl:attribute name="base" select="concat('xsd:',@type)"/>
                 <xsl:if test="@min">
                     <minInclusive>
-                        <xsl:attribute name="value" select="@min"/>
+                        <xsl:attribute name="value" select="string(@min)"/>
                     </minInclusive>
                 </xsl:if>
                 <xsl:if test="@max">
                     <maxInclusive>
-                        <xsl:attribute name="value" select="@max"/>
+                        <xsl:attribute name="value" select="string(@max)"/>
                     </maxInclusive>
                 </xsl:if>
             </restriction>
