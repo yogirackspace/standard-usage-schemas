@@ -8,12 +8,12 @@
     </description>
     <attribute name="avgConcurrentConnections" type="double" use="required"
                aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
-               unitOfMeasure="COUNT" min="0" max="30000">
+               unitOfMeasure="COUNT" min="0" max="1000000">
         The amount of conncurrent connections.
     </attribute>
     <attribute name="avgConcurrentConnectionsSsl" type="double" use="required"
                aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
-               unitOfMeasure="COUNT" min="0" max="30000">
+               unitOfMeasure="COUNT" min="0" max="1000000">
         The amount of conncurrent ssl connections.
     </attribute>
     <attribute name="bandWidthIn" type="unsignedLong" use="required"
