@@ -57,7 +57,6 @@
                                         <xsl:with-param name="schemas" select="current-group()[$type = tokenize(@type,' ')]"/>
                                     </xsl:call-template>
                                 </xsl:for-each>
-                                <rax:preprocess href="fn-single-quote.xsl"/>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>

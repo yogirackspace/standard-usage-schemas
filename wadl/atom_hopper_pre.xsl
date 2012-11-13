@@ -24,7 +24,6 @@
 
     <xsl:template match="atom:entry">
         <xsl:copy>
-            <xsl:call-template name="addPublishDate"/>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
     </xsl:template>
@@ -32,7 +31,6 @@
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:copy>
-            <xsl:call-template name="addPublishDate"/>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>
@@ -138,23 +136,6 @@
         <xsl:call-template name="addCategory">
             <xsl:with-param name="term" select="$Id_2"/>
         </xsl:call-template>
-    </xsl:template>
-
-    <xsl:template name="addPublishDate">
-        <xsl:variable name="currentDate" select="date:date-time()"/>
-        <xsl:if test="not(atom:updated)">
-            <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
-        </xsl:if>
-        <xsl:choose>
-            <xsl:when test="not(atom:published) and atom:updated">
-                <atom:published><xsl:value-of select="atom:updated"/></atom:published>
-            </xsl:when>
-            <xsl:when test="not(atom:published) and not(atom:updated)">
-                <atom:published><xsl:value-of select="$currentDate"/></atom:published>
-            </xsl:when>
-        </xsl:choose>
-        <xsl:if test="not(atom:published) and atom:updated">
-        </xsl:if>
     </xsl:template>
 
     <xsl:template name="addCategory">
