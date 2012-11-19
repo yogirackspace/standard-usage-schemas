@@ -12,7 +12,7 @@
         based.  SATA is standard.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
-               unitOfMeasure="GB">
+               unitOfMeasure="GB" min="0" max="1024">
         The amount of storage provisioned for the volume.
     </attribute>
 </productSchema>
