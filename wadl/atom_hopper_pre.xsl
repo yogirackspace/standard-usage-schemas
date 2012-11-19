@@ -9,8 +9,6 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
-    xmlns:date="http://exslt.org/dates-and-times"
-    extension-element-prefixes="date"
     exclude-result-prefixes="event"
     version="1.0">
 
