@@ -58,4 +58,25 @@
                allowedValues="ACTIVE SUSPENDED">
         Is the load balancer currently active?
     </attribute>
+    <xpathAssertion test="if (@status = 'SUSPENDED') then
+                          ((@bandWidthIn = 0) and (@bandWidthOut = 0) and
+                          (@bandWidthInSsl = 0) and (@bandWidthOutSsl = 0) and
+                          (@avgConcurrentConnections = 0) and
+                          (@avgConcurrentConnectionsSsl = 0)) else true()">
+        If the status is SUSPENDED then bandWidthIn, bandWidthOut,
+        bandWidthInSsl, bandWidthOutSsl, avgConcurrentConnections, and
+        avgConcurrentConnectinsSsl should all be 0.
+    </xpathAssertion>
+    <xpathAssertion test="if (@sslMode = 'OFF') then
+                          ((@bandWidthInSsl = 0) and (@bandWidthOutSsl = 0) and
+                          (@avgConcurrentConnectionsSsl = 0)) else true()">
+        If SslMode is OFF then bandWidthInSsl, bandWidthOutSsl, and
+        avgConcurrentConnectionsSsl should all be 0.
+    </xpathAssertion>
+    <xpathAssertion test="if (@sslMode = 'ON') then
+                          ((@bandWidthIn = 0) and (@bandWidthOut = 0) and
+                          (@avgConcurrentConnections = 0)) else true()">
+        If SslMode in ON then bandWidthIn, bandWidthOut, and
+        avgConcurrentConnections should all be 0.
+    </xpathAssertion>
 </productSchema>
