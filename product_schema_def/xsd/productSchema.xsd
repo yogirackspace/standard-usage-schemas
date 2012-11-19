@@ -125,6 +125,15 @@
                             </documentation>
                         </annotation>
                     </element>
+                    <element name="xpathAssertion" type="schema:XPathAssertion" minOccurs="0" maxOccurs="unbounded">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of xpath assertions.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
                 </all>
             </extension>
         </complexContent>
@@ -194,6 +203,15 @@
                                     attributes. Currently, only 50
                                     custom attributes are allowed for
                                     a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                    <element name="xpathAssertion" type="schema:XPathAssertion" minOccurs="0" maxOccurs="unbounded">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of xpath assertions.
                                 </html:p>
                             </documentation>
                         </annotation>
@@ -570,6 +588,47 @@
                                 Min and max can't be set on an
                                 attribute that is the union of
                                 multiple types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <complexType name="XPathAssertion">
+        <simpleContent>
+            <extension base="xsd:string">
+                <attribute name="test" type="xsd:string" use="required">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                An XPath test, should evaluate to
+                                true() or false(). If false(), then
+                                the content of the element is returned
+                                in an error message.
+                            </html:p>
+                            <html:p>
+                                The context is always the root product
+                                element. The prefix 'p' is
+                                <html:strong>always</html:strong>
+                                bound to the product
+                                schema. Currently, there is no way to
+                                bound other namespaces, though
+                                strictly speaking, since these are
+                                product assertions, this shouldn't be
+                                nessesary.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <assert vc:minVersion="1.1" test="normalize-space(string(.)) != '' and normalize-space(string(.)) != ' '"
+                        xerces:message="Each xpathAssertion must contain a human readable error message within the &lt;xpathAssertion/&gt; element."
+                        saxon:message="Each xpathAssertion must contain a human readable error message within the &lt;xpathAssertion/&gt; element.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Error message must not be empty for the xpathAssertion.
                             </html:p>
                         </documentation>
                     </annotation>

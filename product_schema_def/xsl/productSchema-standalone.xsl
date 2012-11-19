@@ -4,6 +4,9 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:schema="http://docs.rackspace.com/core/usage/schema"
     xmlns:usage="http://docs.rackspace.com/core/usage"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     xmlns="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="schema"
     version="2.0">
@@ -73,6 +76,7 @@
                 </xsl:if>
                 <attribute name="serviceCode" use="required" type="xsd:Name" fixed="{@serviceCode}"/>
                 <xsl:apply-templates/>
+                <xsl:apply-templates mode="assertions"/>
             </complexType>
             <xsl:if test="@resourceTypes">
                 <simpleType name="ResourceTypes">
@@ -277,6 +281,17 @@
                 <xsl:call-template name="addMinMaxType"/>
             </xsl:when>
         </xsl:choose>
+    </xsl:template>
+    <xsl:template match="schema:xpathAssertion" mode="assertions">
+        <xsl:variable name="message" select="normalize-space(.)"/>
+        <assert vc:minVersion="1.1" test="{normalize-space(@test)}"
+                xerces:message="{$message}" saxon:message="{$message}">
+            <annotation>
+                <documentation>
+                    <html:p>Assertion: <xsl:value-of select="$message"/></html:p>
+                </documentation>
+            </annotation>
+        </assert>
     </xsl:template>
     <xsl:template name="addAttributeGroups">
         <xsl:if test="schema:attributeGroup">
