@@ -1,0 +1,25 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/sites/metered"
+               serviceCode="CloudSites"
+               version="1" type="USAGE"
+               resourceTypes="SITE">
+    <description>
+        Metered usage for a site.
+    </description>
+    <attribute name="bandWidthOut" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM"
+               min="0" max="2199023255552">
+        The amount of bandwidth out in bytes.
+    </attribute>
+    <attribute name="requestCount" type="unsignedInt" use="required"
+               unitOfMeasure="COUNT" billable="false"
+               min="0" max="600000">
+        The request count for the site.
+    </attribute>
+    <attribute name="computeCycles" type="double"
+               unitOfMeasure="COUNT"
+               aggregateFunction="SUM"
+               min="0" max="12500">
+        The compute cycles for the site.
+    </attribute>
+</productSchema>

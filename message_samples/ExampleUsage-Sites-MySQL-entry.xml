@@ -4,14 +4,12 @@
     <atom:updated>2012-06-14T09:46:31.867-05:00</atom:updated>
     <atom:content type="application/xml">
         <event eventTime="2012-06-14T10:19:52Z"
-               region="DFW" dataCenter="DFW1"
-               type="USAGE_SNAPSHOT"
-               resourceId="db:mysqldb"
+               region="DFW" dataCenter="DFW1" type="USAGE_SNAPSHOT"
+               resourceId="12882:mysqldb"
                id="47b574c4-0400-11e2-b19d-7b8e208cade0"
-               tenantId="12882" version="1">
+               tenantId="12882" resourceName="mysqldb" version="1">
             <db:product serviceCode="CloudSites" version="1"
-                        resourceType="MYSQL" name="mysql_db"
-                        storage="393993883"/>
+                        resourceType="MYSQL" storage="393993883"/>
         </event>
     </atom:content>
 </atom:entry>
