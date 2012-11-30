@@ -51,7 +51,7 @@
     </method>
 
     <method id="addPlainEntry" name="POST">
-        <request>
+        <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
             <representation mediaType="application/atom+xml"/>
         </request>
