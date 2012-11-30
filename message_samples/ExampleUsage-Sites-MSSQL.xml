@@ -3,10 +3,10 @@
        eventTime="2012-06-14T10:19:52Z"
        region="DFW" dataCenter="DFW1"
        type="USAGE_SNAPSHOT"
-       resourceId="db:mssqldb"
+       resourceId="12882:mssqldb"
        id="47b574c4-0400-11e2-b19d-7b8e208cade0"
-       tenantId="12882" version="1">
+       resourceName="mssqldb" tenantId="12882"
+       version="1">
     <db:product serviceCode="CloudSites" version="1"
-                resourceType="MSSQL" name="mysql_db"
-                storage="3939"/>
+                resourceType="MSSQL" storage="3939"/>
 </event>
