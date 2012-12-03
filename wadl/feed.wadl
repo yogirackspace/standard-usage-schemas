@@ -21,6 +21,16 @@
                 feeds are currently not validated against.
             </db:para>
         </doc>
+        <method href="#addPlainUnvalidatedEntry"/>
+    </resource_type>
+
+    <resource_type id="Validated">
+        <doc title="Validated">
+            <db:para>
+                Check against XSDs but don't check against cross
+                posts.
+            </db:para>
+        </doc>
         <method href="#addPlainEntry"/>
     </resource_type>
 
@@ -50,10 +60,26 @@
         </response>
     </method>
 
-    <method id="addPlainEntry" name="POST">
+    <method id="addPlainUnvalidatedEntry" name="POST">
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
             <representation mediaType="application/atom+xml"/>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+
+    <method id="addPlainEntry" name="POST">
+        <request>
+            <representation mediaType="application/atom+xml" element="atom:entry">
+               <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
         </request>
         <!-- Okay -->
         <response status="201">
