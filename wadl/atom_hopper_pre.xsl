@@ -29,6 +29,7 @@
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:copy>
+            <atom:id><xsl:value-of select="concat('urn:uuid:',$event/@id)"/></atom:id>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>
@@ -54,6 +55,10 @@
             </xsl:if>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="atom:entry[atom:content/event:event]/atom:id">
+        <!-- Ignore passed in ID -->
     </xsl:template>
 
     <!--
