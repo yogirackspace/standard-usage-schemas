@@ -6,11 +6,13 @@
         Usage message for slice bandwidth.
     </description>
     <attribute name="bandwidthIn" type="long" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM">
+               unitOfMeasure="KB" aggregateFunction="SUM" min="0" 
+               max="6480000000">
         The amount of bandwidth in, in kilobytes.
     </attribute>
     <attribute name="bandwidthOut" type="long" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM">
+               unitOfMeasure="KB" aggregateFunction="SUM" min="0" 
+               max="6480000000">
         The amount of bandwidth out, in kilobytes.
     </attribute>
 </productSchema>
