@@ -5,6 +5,7 @@
        dataCenter="DFW1" region="DFW" eventTime="2012-09-15T11:51:11Z"
        type="SUSPEND">
     <id:product version="1"
+                migrated="true"
                 resourceType="USER"
                 serviceCode="CloudIdentity"
                 displayName="testUser"/>

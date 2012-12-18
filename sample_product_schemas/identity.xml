@@ -18,4 +18,9 @@
                use="optional">
         The list of roles currently associated with a user.
     </attribute>
+    <attribute name="migrated" type="boolean"
+               use="optional" default="false">
+        True if the user has been migrated to global auth, false
+        otherwise.  The default is false.
+    </attribute>
 </productSchema>
