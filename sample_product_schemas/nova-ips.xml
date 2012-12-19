@@ -1,0 +1,14 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/nova/ips"
+               serviceCode="CloudServersOpenStack"
+               version="1" resourceTypes="INSTANCE"
+               type="USAGE">
+    <description>
+        Additional IP information.
+    </description>
+    <attribute name="ips" type="unsignedByte" use="required"
+               unitOfMeasure="COUNT"
+               min="0" max="40">
+        The number of additional IPs for an instance.
+    </attribute>
+</productSchema>
