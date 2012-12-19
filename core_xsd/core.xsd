@@ -337,6 +337,32 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@endTime) then xsd:dateTime(@endTime) le (current-dateTime() + xsd:dayTimeDuration('PT10M')) else true()"
+                        xerces:message="The endTime of an event must not be more than 10 mins in the future."
+                        saxon:message="The endTime of an event must not be more than 10 mins in the future.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If there is an endTime, then the
+                                endTime must not be more than 10 mins
+                                in the future.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@eventTime) then xsd:dateTime(@eventTime) le (current-dateTime() + xsd:dayTimeDuration('PT10M')) else true()"
+                        xerces:message="The eventTime of an event must not be more than 10 mins in the future."
+                        saxon:message="The eventTime of an event must not be more than 10 mins in the future.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If there is an eventTime, then the
+                                eventTime must not be more than 10
+                                mins in the future.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
                 <assert vc:minVersion="1.1" test="if (@region = 'GLOBAL') then (@dataCenter = 'GLOBAL') else
                                                   if (@region = 'DFW') then (@dataCenter = ('DFW1','DFW2','DFW3')) else
                                                   if (@region = 'HKG') then (@dataCenter = 'HKG1') else
