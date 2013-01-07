@@ -116,6 +116,7 @@
             <enumeration value="MAX"/>
             <enumeration value="MIN"/>
             <enumeration value="LAST"/>
+            <enumeration value="MAX_CONCURRENT"/>
         </restriction>
     </simpleType>
 
