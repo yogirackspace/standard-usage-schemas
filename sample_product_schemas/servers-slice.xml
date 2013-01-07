@@ -20,7 +20,7 @@
         The number of extra private IPs.  Defaults to zero.
     </attribute>
     <attribute name="isRedHat" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false" aggregateFunction="MAX_CONCURRENT">
         Does the slice use a RedHat license.
     </attribute>
     <attribute name="isMSSQL" type="boolean"
