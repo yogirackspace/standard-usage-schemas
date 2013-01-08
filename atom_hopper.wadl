@@ -39,5 +39,6 @@
         <resource path="identity/users/revoked" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
+        <resource path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
     </resources>
 </application>
