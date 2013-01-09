@@ -57,6 +57,9 @@
                                         <xsl:with-param name="schemas" select="current-group()[$type = tokenize(@type,' ')]"/>
                                     </xsl:call-template>
                                 </xsl:for-each>
+                                <xsl:call-template name="sch:cross-check-params">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                </xsl:call-template>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>
@@ -72,6 +75,22 @@
                 </resource_type>
             </xsl:for-each-group>
         </application>
+    </xsl:template>
+    <xsl:template name="sch:cross-check-params">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:variable name="usedTypes" select="if ($schemas[not(@type)]) then
+                                               distinct-values((sch:getTypes($schemas),'USAGE'))
+                                               else sch:getTypes($schemas)"
+                      as="xs:string*"/>
+        <xsl:variable name="allTypes"  select="('USAGE', $EVENT_TYPES)" as="xs:string*"/>
+        <xsl:variable name="notUsed" select="for $t in $allTypes return if ($t = $usedTypes) then () else sch:quoted($t)" as="xs:string*"/>
+        <param name="cross_check" style="plain" required="true" rax:message="Events of this type not allowed in the feed.">
+            <xsl:attribute name="path">
+                <xsl:text>not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
+                <xsl:value-of select="$notUsed" separator=","/>
+                <xsl:text>))</xsl:text>
+            </xsl:attribute>
+        </param>
     </xsl:template>
     <xsl:template name="sch:param">
         <xsl:param name="schemas" as="node()*"/>
@@ -101,6 +120,15 @@
     <xsl:function name="sch:ns" as="xs:string">
         <xsl:param name="pos" as="xs:integer"/>
         <xsl:value-of select="concat($NS_PREFIX,$pos)"/>
+    </xsl:function>
+    <xsl:function name="sch:quoted" as="xs:string">
+        <xsl:param name="in" as="xs:string"/>
+        <xsl:variable name="q" select="''''"/>
+        <xsl:value-of select="concat($q,$in,$q)"/>
+    </xsl:function>
+    <xsl:function name="sch:getTypes" as="xs:string*">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:copy-of select="distinct-values(for $s in $schemas return tokenize($s/@type,' '))"/>
     </xsl:function>
     <xsl:template match="text()" mode="#all"/>
 </xsl:stylesheet>
