@@ -150,7 +150,9 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                UTC, ISO Format start time.
+                                UTC, ISO Format start time. startTime is 
+                                inclusive (i.e. the event occurred starting 
+                                at the startTime, not after).
                             </html:p>
                         </documentation>
                     </annotation>
@@ -161,7 +163,10 @@
                             <html:p>
                                 UTC, ISO Format end time.  For an EXISTs
                                 event, the startTime and endTime reflect the
-                                event duriation for the resource instance.
+                                event duriation for the resource instance. 
+                                endTime is exclusive (i.e. the event occurred
+                                up to, but not during the endTime).
+                                endTime must come after startTime.
                             </html:p>
                         </documentation>
                     </annotation>
