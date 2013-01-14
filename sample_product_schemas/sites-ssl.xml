@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/sites/ssl"
+               serviceCode="CloudSites"
+               version="1" type="USAGE_SNAPSHOT"
+               resourceTypes="SITE">
+    <description>
+        SSL usage for a site.
+    </description>
+    <attribute name="SSLenabled" type="boolean" use="required"
+               unitOfMeasure="COUNT" aggregateFunction="MAX">
+        Whas SSL usage enabled.
+    </attribute>
+</productSchema>

@@ -86,6 +86,9 @@
     <import namespace="http://docs.rackspace.com/usage/sites/metered"
             schemaLocation="../generated_product_xsds/sites-meter.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/sites/ssl"
+            schemaLocation="../generated_product_xsds/sites-ssl.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/atom-hopper/feedcount"
             schemaLocation="../generated_product_xsds/ahop-count.xsd"/>
 

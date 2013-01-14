@@ -4,7 +4,7 @@
     startTime="2012-06-14T10:19:52Z"
     endTime="2012-06-14T11:19:52Z"
     type="USAGE"
-    resourceId="1234" resourceName="my.site.com"
+    resourceId="my.site.com" resourceName="my.site.com"
     id="47b574c4-0400-11e2-b19d-7b8e208cade0"
     tenantId="12882" version="1">
     <m:product serviceCode="CloudSites" version="1"
