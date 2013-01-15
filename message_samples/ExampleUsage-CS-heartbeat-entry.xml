@@ -2,14 +2,14 @@
     <atom:title>QB Heartbeat</atom:title>
     <atom:content type="application/xml">
 		<event xmlns="http://docs.rackspace.com/core/event"
-			xmlns:cs="http://docs.rackspace.com/event/servers/heartbeat"
-			version="1"
-			id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-			resourceId="56"
-			type="UP" dataCenter="DFW1" region="DFW"
-			eventTime="2012-09-15T11:51:11Z">
-			<cs:product version="1" serviceCode="CloudServers"
-				resourceType="QB"/>
-</event>
+       		xmlns:cs="http://docs.rackspace.com/event/servers/heartbeat"
+       		version="1"
+       		id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+       		resourceId="56"
+       		type="UPDATE" dataCenter="DFW1" region="DFW"
+       		eventTime="2012-09-15T11:51:11Z">
+    		<cs:product version="1" serviceCode="CloudServers"
+                resourceType="QB"/>
+		</event>
     </atom:content>
 </atom:entry>
