@@ -22,7 +22,7 @@
             <html:p>Heartbeat message for hypervisor QBs</html:p>
          </documentation>
          <appinfo>
-            <usage:core type="UPDATE"/>
+            <usage:core type="UP"/>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>
