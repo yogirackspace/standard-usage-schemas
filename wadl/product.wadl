@@ -326,11 +326,11 @@
                       required="true"
                       path="if (/atom:entry/atom:content/event:event[@type='USAGE']) then (/atom:entry/atom:content/event:event[@type='USAGE']/w_ns18:product,/atom:entry/atom:content/event:event[@type='USAGE']/w_ns20:product) else true()"
                       rax:message="Only usage messages with product attributes in the following namespaces are allowed in this feed: http://docs.rackspace.com/event/servers/bandwidth, http://docs.rackspace.com/event/servers"/>
-               <param name="update"
+               <param name="up"
                       style="plain"
                       required="true"
-                      path="if (/atom:entry/atom:content/event:event[@type='UPDATE']) then (/atom:entry/atom:content/event:event[@type='UPDATE']/w_ns19:product) else true()"
-                      rax:message="Only update messages with product attributes in the following namespaces are allowed in this feed: http://docs.rackspace.com/event/servers/heartbeat"/>
+                      path="if (/atom:entry/atom:content/event:event[@type='UP']) then (/atom:entry/atom:content/event:event[@type='UP']/w_ns19:product) else true()"
+                      rax:message="Only up messages with product attributes in the following namespaces are allowed in this feed: http://docs.rackspace.com/event/servers/heartbeat"/>
                <param name="down"
                       style="plain"
                       required="true"
@@ -340,7 +340,7 @@
                       style="plain"
                       required="true"
                       rax:message="Events of this type not allowed in the feed."
-                      path="not(/atom:entry/atom:content/event:event/@type = ('CREATE','USAGE_SNAPSHOT','DELETE','SUSPEND','UNSUSPEND','EXTENDED','UP'))"/>
+                      path="not(/atom:entry/atom:content/event:event/@type = ('CREATE','USAGE_SNAPSHOT','UPDATE','DELETE','SUSPEND','UNSUSPEND','EXTENDED'))"/>
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>
          </request>
