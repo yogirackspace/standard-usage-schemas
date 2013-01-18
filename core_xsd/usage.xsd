@@ -62,6 +62,9 @@
     <import namespace="http://docs.rackspace.com/event/servers"
             schemaLocation="../generated_product_xsds/servers-slice.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/event/servers/heartbeat"
+            schemaLocation="../generated_product_xsds/servers-heartbeart.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/servers/bandwidth"
             schemaLocation="../generated_product_xsds/servers-bandwidth.xsd"/>
 

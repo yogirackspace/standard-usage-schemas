@@ -1,0 +1,9 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/servers/heartbeat"
+               serviceCode="CloudServers"
+               version="1" resourceTypes="QB"
+               type="UP">
+    <description>
+        Heartbeat message for hypervisor QBs
+    </description>
+</productSchema>
