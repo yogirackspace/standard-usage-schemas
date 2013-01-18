@@ -61,6 +61,12 @@
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
+                                <!--
+                                    Hack, add a preprocess step for LBAAS.
+                                -->
+                                <xsl:if test="$id = 'CloudLoadBalancers'">
+                                    <rax:preprocess href="lbaas.xsl"/>
+                                </xsl:if>
                             </representation>
                         </request>
                         <!-- Okay -->
