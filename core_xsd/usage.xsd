@@ -65,6 +65,9 @@
     <import namespace="http://docs.rackspace.com/event/servers/heartbeat"
             schemaLocation="../generated_product_xsds/servers-heartbeart.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/event/RHEL"
+            schemaLocation="../generated_product_xsds/redhat.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/servers/bandwidth"
             schemaLocation="../generated_product_xsds/servers-bandwidth.xsd"/>
 
