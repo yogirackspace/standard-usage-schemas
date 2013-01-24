@@ -1,0 +1,19 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/servers/image"
+               serviceCode="CloudServers"
+               version="1"
+               resourceTypes="IMAGE" type="INFO">
+    <description>
+        Image Action Event.
+    </description>
+    <attribute name="sliceId" type="int" use="required">
+        The slice ID.
+    </attribute>
+    <attribute name="action" type="string" use="required"
+    	allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
+        The action name
+    </attribute>
+    <attribute name="image_name" type="string" use="required">
+        The name of the image
+    </attribute>
+</productSchema>
