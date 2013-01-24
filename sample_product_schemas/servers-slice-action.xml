@@ -2,11 +2,11 @@
                namespace="http://docs.rackspace.com/event/servers/slice"
                serviceCode="CloudServers"
                version="1"
-               resourceTypes="SLICE" type="INFO">
+               resourceTypes="SLICE" type="UP">
     <description>
         Slice Action Event.
     </description>
-    <attribute name="managed" type="boolean" use="required" default="false">
+    <attribute name="managed" type="boolean" use="required">
         Is slice Managed.
     </attribute>
     <attribute name="imageId" type="int" use="required">
@@ -22,8 +22,8 @@
         The Server ID for the Slice.
     </attribute>
     <attribute name="action" type="string" use="required"
-    	allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
-        The action name
+               allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
+        The vip type associated with the load balancer.
     </attribute>
     <attribute name="image_name" type="string" use="required">
         The name of the image
@@ -35,12 +35,12 @@
         The Flavor ID for the Slice.
     </attribute>
     <attribute name="status" type="string" use="required"
-    	allowedValues="BUILD ACTIVE DELETED QUEUE_RESIZE PREP_RESIZE RESIZE VERIFY_RESIZE QUEUE_MOVE PREP_MOVE MOVE VERIFY_MOVE ERROR ERROR_ASYNC RESCUE SUSPENDED PENDING MAINTENANCE CLONE">
-        The status of the image
+               allowedValues="BUILD ACTIVE DELETED QUEUE_RESIZE PREP_RESIZE RESIZE VERIFY_RESIZE QUEUE_MOVE PREP_MOVE MOVE VERIFY_MOVE ERROR ERROR_ASYNC RESCUE SUSPENDED PENDING MAINTENANCE CLONE">
+        The vip type associated with the load balancer.
     </attribute>
     <attribute name="slice_type" type="string" use="required"
-    	allowedValue="CLOUD SLICE">
-        The type of the slice
+               allowedValues="CLOUD SLICE">
+        The vip type associated with the load balancer.
     </attribute>
     <attribute name="private_ip" type="string" use="required">
         The private ip of the slice

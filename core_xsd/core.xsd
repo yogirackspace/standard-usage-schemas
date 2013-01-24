@@ -444,6 +444,7 @@
             <enumeration value="UNSUSPEND"/>
             <enumeration value="UP"/>
             <enumeration value="DOWN"/>
+            <enumeration value="INFO"/>
             <enumeration value="EXTENDED"/>
         </restriction>
     </simpleType>
