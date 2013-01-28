@@ -1,8 +1,20 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/event/RHEL"
                serviceCode="RHEL"
                version="1" resourceTypes="INSTANCE">
     <description>
         Usage message for RedHat License
     </description>
+    <attribute name="used" type="boolean"
+               use="optional" default="true"
+               unitOfMeasure="COUNT"
+               aggregateFunction="MAX_CONCURRENT">
+        The attribute is used to hold metadata about the message.  In
+        this case it is used to count a single RHEL license.
+    </attribute>
+    <xpathAssertion test="xsd:boolean(@used)">
+        The used attribute in a RHEL message should always evaluate to
+        true.
+    </xpathAssertion>
 </productSchema>
