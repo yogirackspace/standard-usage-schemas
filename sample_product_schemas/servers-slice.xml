@@ -6,17 +6,20 @@
         Usage message for a slice.
     </description>
     <attribute name="flavor" type="unsignedInt"
-               use="required" min="0" max="25">
+               use="required" min="0" max="25"
+               groupBy="true">
         The flavor id of the slice.
     </attribute>
     <attribute name="extraPublicIPs" type="unsignedInt"
                use="optional" unitOfMeasure="COUNT"
-               default="0" min="0" max="150">
+               default="0" min="0" max="150"
+               groupBy="true">
         The number of extra public IPs.  Defaults to zero.
     </attribute>
     <attribute name="extraPrivateIPs" type="unsignedInt"
                use="optional" unitOfMeasure="COUNT"
-               default="0" min="0" max="150">
+               default="0" min="0" max="150"
+               groupBy="true">
         The number of extra private IPs.  Defaults to zero.
     </attribute>
     <attribute name="isRedHat" type="boolean"
