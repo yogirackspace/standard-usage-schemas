@@ -18,10 +18,10 @@
         <resource path="dbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase"/>
         <resource path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="lbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers"/>
-        <resource path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers"/>
+        <resource path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers wadl/product.wadl#RHEL"/>
         <resource path="melange/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
-        <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack"/>
+        <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
         <resource path="quantum/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
