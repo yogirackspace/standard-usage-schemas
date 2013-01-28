@@ -10,6 +10,6 @@
 			eventTime="2012-09-15T11:51:11Z">
 			<cs:product version="1" serviceCode="CloudServers"
 				resourceType="QB"/>
-</event>
+      </event>
     </atom:content>
 </atom:entry>

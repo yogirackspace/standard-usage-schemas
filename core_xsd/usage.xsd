@@ -20,6 +20,12 @@
             schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
+    <import namespace="http://docs.rackspace.com/event/servers/slice"
+            schemaLocation="../generated_product_xsds/servers-slice-action.xsd"/>
+            
+    <import namespace="http://docs.rackspace.com/event/servers/image"
+            schemaLocation="../generated_product_xsds/servers-image-action.xsd"/> 
+    
     <import namespace="http://docs.rackspace.com/usage/dbaas"
             schemaLocation="../generated_product_xsds/dbaas.xsd"/>
 
