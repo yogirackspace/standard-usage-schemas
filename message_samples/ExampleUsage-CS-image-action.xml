@@ -1,23 +1,11 @@
 <event xmlns="http://docs.rackspace.com/core/event"
-		xmlns:csd="http://docs.rackspace.com/event/servers/image"
-		version="1" tenantId="555"
-		id="560490c6-6c63-11e1-adfe-27851d5aed13"
-		resourceId="4116"
-		type="INFO" dataCenter="DFW1" region="DFW"
-		eventTime="2012-09-15T11:51:11Z">
-	<csd:product version="1" serviceCode="CloudServers"
-			resourceType="SLICE" managed="false" imageId="101" 
-			options="5" huddleId="202" serverId="10"
-			action="RESIZE" image_name="Name" customerId="100"
-			flavorId="101" status="" slice_type=""
-			private_ip="1.1.1.1" public_ip="1.1.1.1"
-			dns1="1.1.1.1" dns2="1.1.1.1"
-			created_at="2011-05-15T11:51:11Z">
-		<csd:slice_meta_data key="key1" value="value1"/>
-		<csd:slice_meta_data key="key2" value="value2"/>
-		<csd:additional_public_address ip="1.1.1.1" 
-			dns1="1.1.1.1" dns2="1.1.1.1"/>
-		<csd:additional_public_address ip="1.1.1.2" 
-			dns1="1.1.1.2" dns2="1.1.1.2"/>
-	</csd:product>
+       xmlns:csd="http://docs.rackspace.com/event/servers/image"
+       version="1" tenantId="555"
+       id="560490c6-6c63-11e1-adfe-27851d5aed13"
+       resourceId="4116"
+       type="INFO" dataCenter="DFW1" region="DFW"
+       eventTime="2012-09-15T11:51:11Z">
+    <csd:product version="1" serviceCode="CloudServers"
+                 resourceType="IMAGE" image_name="Name" 
+                 action="RESIZE" sliceId="578"/>
 </event>
