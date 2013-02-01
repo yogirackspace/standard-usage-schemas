@@ -53,4 +53,26 @@
                groupBy="true">
         Is this a managed slice.
     </attribute>
+    <xpathAssertion test="if (@isRedHat = 1) then
+                          ((@isSELinux = 0) and (@isWindows = 0) and
+                          (@isMSSQL = 0) and (@isMSSQLWeb = 0)) else true()">
+        If slice isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
+    </xpathAssertion>
+    <xpathAssertion test="if (@isSELinux = 1) then
+                          ((@isRedHat = 0) and (@isWindows = 0) and
+                          (@isMSSQL = 0) and (@isMSSQLWeb = 0)) else true()">
+        If slice isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
+    </xpathAssertion>
+    <xpathAssertion test="if (@isWindows = 1) then
+                          ((@isRedHat = 0) and (@isSELinux = 0)) else true()">
+        If slice isWindows then it cannot be RedHat or SELinux.
+    </xpathAssertion>
+    <xpathAssertion test="if (@isMSSQL = 1) then
+                          ((@isWindows = 1) and (@isMSSQLWeb = 0) and (@isRedHat = 0) and (@isSELinux = 0)) else true()">
+        If slice isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
+    </xpathAssertion>
+    <xpathAssertion test="if (@isMSSQLWeb = 1) then
+                          ((@isWindows = 1) and (@isMSSQL = 0) and (@isRedHat = 0) and (@isSELinux = 0)) else true()">
+        If slice isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.
+    </xpathAssertion>
 </productSchema>
