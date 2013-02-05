@@ -21,7 +21,7 @@
     <attribute name="serverId" type="int" use="required">
         The Server ID for the Slice.
     </attribute>
-    <attribute name="action" type="string" use="required"
+    <attribute name="action" type="string" use="required" searchable="true"
                allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
         The action that caused this event to be created.
     </attribute>
@@ -34,7 +34,7 @@
     <attribute name="flavorId" type="int" use="required">
         The Flavor ID for the Slice.
     </attribute>
-    <attribute name="status" type="string" use="required"
+    <attribute name="status" type="string" use="required" searchable="true"
                allowedValues="BUILD ACTIVE DELETED QUEUE_RESIZE PREP_RESIZE RESIZE VERIFY_RESIZE QUEUE_MOVE PREP_MOVE MOVE VERIFY_MOVE ERROR ERROR_ASYNC RESCUE SUSPENDED PENDING MAINTENANCE CLONE">
         The status.
     </attribute>

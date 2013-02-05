@@ -147,7 +147,7 @@
                <html:p>The action that caused this event to be created.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes/>
+               <usage:attributes searchable="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -187,7 +187,7 @@
                <html:p>The status.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes/>
+               <usage:attributes searchable="true"/>
             </appinfo>
          </annotation>
       </attribute>
