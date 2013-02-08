@@ -9,7 +9,7 @@
     <cs:product version="1" serviceCode="CloudServers"
                 resourceType="SLICE" flavor="10"
                 extraPublicIPs="0" extraPrivateIPs="0"
-                isRedHat="false" isMSSQL="false"
+                isRedHat="true" isMSSQL="false"
                 isMSSQLWeb="false" isWindows="false"
                 isSELinux="false" isManaged="false"/>
 </event>
