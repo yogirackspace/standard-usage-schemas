@@ -24,27 +24,33 @@
     </attribute>
     <attribute name="isRedHat" type="boolean"
                use="optional" default="false" 
-               unitOfMeasure="COUNT" aggregateFunction="MAX_CONCURRENT">
+               unitOfMeasure="COUNT" aggregateFunction="MAX_CONCURRENT"
+               groupBy="true">
         Does the slice use a RedHat license.
     </attribute>
     <attribute name="isMSSQL" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false"
+               groupBy="true">
         Does the slice use an MSSQL license.
     </attribute>
     <attribute name="isMSSQLWeb" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false"
+               groupBy="true">
         Does the slice use an MSSQL Web license.
     </attribute>
     <attribute name="isWindows" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false"
+               groupBy="true">
         Does the slice use a Windows license.
     </attribute>
     <attribute name="isSELinux" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false"
+               groupBy="true">
         Does the slice use an SELinux license.
     </attribute>
     <attribute name="isManaged" type="boolean"
-               use="optional" default="false">
+               use="optional" default="false"
+               groupBy="true">
         Is this a managed slice.
     </attribute>
 </productSchema>
