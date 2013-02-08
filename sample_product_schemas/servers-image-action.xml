@@ -10,8 +10,8 @@
         The slice ID.
     </attribute>
     <attribute name="action" type="string" use="required"
-               allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
-        The vip type associated with the load balancer.
+               allowedValues="SERVICE_LEVEL_CHANGE_SNAP_KILLED SNAPSHOT SERVICE_LEVEL_CHANGE_SNAP_SUCCESSFUL">
+        The action.
     </attribute>
     <attribute name="image_name" type="string" use="required">
         The name of the image
