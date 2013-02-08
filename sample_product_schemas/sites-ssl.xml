@@ -8,6 +8,6 @@
     </description>
     <attribute name="SSLenabled" type="boolean" use="required"
                unitOfMeasure="COUNT" aggregateFunction="MAX">
-        Whas SSL usage enabled.
+        Was SSL usage enabled.
     </attribute>
 </productSchema>
