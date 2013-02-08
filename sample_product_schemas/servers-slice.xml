@@ -1,4 +1,5 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/event/servers"
                serviceCode="CloudServers"
                version="1" resourceTypes="SLICE">
@@ -53,26 +54,37 @@
                groupBy="true">
         Is this a managed slice.
     </attribute>
-    <xpathAssertion test="if (@isRedHat = 1) then
-                          ((@isSELinux = 0) and (@isWindows = 0) and
-                          (@isMSSQL = 0) and (@isMSSQLWeb = 0)) else true()">
+    <xpathAssertion test="if (xsd:boolean(@isRedHat)) then
+                          not(xsd:boolean(@isSELinux) or
+                              xsd:boolean(@isWindows) or
+                              xsd:boolean(@isMSSQL) or
+                              xsd:boolean(@isMSSQLWeb)) else true()">
         If slice isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (@isSELinux = 1) then
-                          ((@isRedHat = 0) and (@isWindows = 0) and
-                          (@isMSSQL = 0) and (@isMSSQLWeb = 0)) else true()">
+    <xpathAssertion test="if (xsd:boolean(@isSELinux)) then
+                          not(xsd:boolean(@isRedHat) or
+                              xsd:boolean(@isWindows) or
+                              xsd:boolean(@isMSSQL) or
+                              xsd:boolean(@isMSSQLWeb)) else true()">
         If slice isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (@isWindows = 1) then
-                          ((@isRedHat = 0) and (@isSELinux = 0)) else true()">
+    <xpathAssertion test="if (xsd:boolean(@isWindows)) then
+                          not(xsd:boolean(@isRedHat) or
+                              xsd:boolean(@isSELinux)) else true()">
         If slice isWindows then it cannot be RedHat or SELinux.
     </xpathAssertion>
-    <xpathAssertion test="if (@isMSSQL = 1) then
-                          ((@isWindows = 1) and (@isMSSQLWeb = 0) and (@isRedHat = 0) and (@isSELinux = 0)) else true()">
+    <xpathAssertion test="if (xsd:boolean(@isMSSQL)) then
+                          xsd:boolean(@isWindows) and
+                          not(xsd:boolean(@isMSSQLWeb) or
+                              xsd:boolean(@isRedHat) or
+                              xsd:boolean(@isSELinux)) else true()">
         If slice isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (@isMSSQLWeb = 1) then
-                          ((@isWindows = 1) and (@isMSSQL = 0) and (@isRedHat = 0) and (@isSELinux = 0)) else true()">
+    <xpathAssertion test="if (xsd:boolean(@isMSSQLWeb)) then
+                          xsd:boolean(@isWindows) and
+                          not(xsd:boolean(@isMSSQL) or
+                              xsd:boolean(@isRedHat) or
+                              xsd:boolean(@isSELinux)) else true()">
         If slice isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.
     </xpathAssertion>
 </productSchema>
