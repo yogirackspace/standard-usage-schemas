@@ -2,7 +2,8 @@
                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/event/RHEL"
                serviceCode="RHEL"
-               version="1" resourceTypes="INSTANCE">
+               version="1" resourceTypes="INSTANCE" 
+               groupByResource="false">
     <description>
         Usage message for RedHat License
     </description>
