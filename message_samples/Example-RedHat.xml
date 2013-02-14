@@ -6,6 +6,5 @@
        type="USAGE" dataCenter="DFW1" region="DFW"
        startTime="2012-09-15T11:51:11Z"
        endTime="2012-09-16T11:51:11Z">
-    <rh:product version="1" serviceCode="RHEL"
-                resourceType="INSTANCE"/>
+    <rh:product version="1" serviceCode="RHEL" />
 </event>
