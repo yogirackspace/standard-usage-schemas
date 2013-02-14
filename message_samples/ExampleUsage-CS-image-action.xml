@@ -6,6 +6,6 @@
        type="INFO" dataCenter="DFW1" region="DFW"
        eventTime="2012-09-15T11:51:11Z">
     <csd:product version="1" serviceCode="CloudServers"
-                 resourceType="IMAGE" image_name="Name" 
+                 resourceType="IMAGE" imageName="Name" 
                  action="SNAPSHOT" sliceId="578"/>
 </event>
