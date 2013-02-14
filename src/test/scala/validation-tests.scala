@@ -121,4 +121,72 @@ class ValidatorSuite extends BaseUsageSuite {
                                          </atom:content>
                                     </atom:entry>), response, chain)
   }
+
+  val validCBSMessage = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+                                   <atom:title>CBS Usage</atom:title>
+                                   <atom:content type="application/xml">
+                                     <event xmlns="http://docs.rackspace.com/core/event"
+                                             xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+                                             version="1" tenantId="12334"
+                                             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+                                             resourceName="MyVolume"
+                                             id="560490c6-6c63-11e1-adfe-27851d5aed13"
+                                             type="USAGE" dataCenter="DFW1" region="DFW"
+                                             startTime="2012-03-12T11:51:11Z"
+                                             endTime="2012-03-12T15:51:11Z">
+                                       <cbs:product version="1" serviceCode="CloudBlockStorage"
+                                                    resourceType="VOLUME"
+                                                    type="SATA"
+                                                    provisioned="120"/>
+                                     </event>
+                                     </atom:content>
+                                   </atom:entry>
+
+  val invalidCBSMessage = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+                                   <atom:title>CBS Usage</atom:title>
+                                   <atom:content type="application/xml">
+                                     <event xmlns="http://docs.rackspace.com/core/event"
+                                             xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+                                             version="1" tenantId="12334"
+                                             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+                                             resourceName="MyVolume"
+                                             id="560490c6-6c63-11e1-adfe-27851d5aed13"
+                                             type="USAGE" dataCenter="DFW1" region="DFW"
+                                             startTime="2012-03-12T11:51:11Z"
+                                             endTime="2012-03-12T15:51:11Z">
+                                       <cbs:product version="1" serviceCode="CloudBlockStorage"
+                                                    resourceType="VOLUME"
+                                                    type="fooooo"
+                                                    provisioned="120"/>
+                                     </event>
+                                     </atom:content>
+                                   </atom:entry>
+
+  test("Posting valid usage entry should succeed on a validated feed (usagetest1/events)") {
+    atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage), response, chain)
+  }
+
+  test("Posting valid usage entry should succeed on an unvalidated feed (usagetest7/events)") {
+    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage), response, chain)
+  }
+
+  test("Posting valid usage entry should succeed on correct product feed (cbs/events)") {
+    atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", validCBSMessage), response, chain)
+  }
+
+  test("Posting an invalid usage entry should fail on a validated feed (usagetest1/events) with a 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+  }
+
+  test("Posting invalid usage entry should succeed on an unvalidated feed (usagetest7/events)") {
+    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage), response, chain)
+  }
+
+  test("Posting an invalid usage entry should fail on correct product feed (cbs/events) with a 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+  }
+
+  test("Posting an valid usage entry should fail on incorrect product feed (files/events) with a 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/files/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+  }
 }
