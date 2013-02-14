@@ -25,7 +25,6 @@
     </attribute>
     <attribute name="isRedHat" type="boolean"
                use="optional" default="false" 
-               unitOfMeasure="COUNT" aggregateFunction="MAX_CONCURRENT"
                groupBy="true">
         Does the slice use a RedHat license.
     </attribute>
