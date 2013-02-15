@@ -59,6 +59,8 @@ object BaseUsageSuite {
 
   lazy val usageMsg = new SchemaAsserter(new URL((new File("core_xsd/entry.xsd")).toURI.toString))
 
+  lazy val productSchema = new SchemaAsserter(new URL((new File("product_schema_def/xsd/productSchema.xsd")).toURI.toString))
+
   //
   //  Convinece function to get to the XML of a request
   //
