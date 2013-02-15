@@ -16,10 +16,11 @@
         <scala.version>2.9.1</scala.version>
         <scala.test.version>1.6.1</scala.test.version>
         <junit.version>4.10</junit.version>
-        <api-checker.version>1.0.5-SNAPSHOT</api-checker.version>
         <saxon-ee.version>9.4.0.4</saxon-ee.version>
         <xerces.version>2.12.0-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
+        <wadl-tools.version>1.0.11-SNAPSHOT</wadl-tools.version>
+        <api-checker.version>1.0.5-SNAPSHOT</api-checker.version>
     </properties>
     <dependencies>
         <dependency>
@@ -53,6 +54,13 @@
             <groupId>com.rackspace.papi.components.api-checker</groupId>
             <artifactId>checker-core</artifactId>
             <version>${api-checker.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.rackspace.cloud.api</groupId>
+            <artifactId>wadl-tools</artifactId>
+            <version>${wadl-tools.version}</version>
+            <type>test-jar</type>
             <scope>test</scope>
         </dependency>
         <dependency>

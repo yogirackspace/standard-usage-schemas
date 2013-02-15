@@ -3,12 +3,20 @@ package com.rackspace.usage
 import java.io.File
 import javax.xml.transform.stream.StreamSource
 
+import javax.servlet.http.HttpServletRequest
+
 import com.rackspace.com.papi.components.checker.BaseValidatorSuite
 import com.rackspace.com.papi.components.checker.AssertResultHandler
 import com.rackspace.com.papi.components.checker.handler._
 
 import com.rackspace.com.papi.components.checker.Validator
 import com.rackspace.com.papi.components.checker.Config
+
+import com.rackspace.com.papi.components.checker.servlet.RequestAttributes.PARSED_XML
+
+import com.rackspace.cloud.api.wadl.test.XPathAssertions
+
+import org.w3c.dom.Document
 
 
 object BaseUsageSuite {
@@ -41,9 +49,21 @@ object BaseUsageSuite {
   usageConfig.checkHeaders = false
   usageConfig.resultHandler = assertHandler
 
+  //
+  //  The atom hopper validator
+  //
   val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl").toURI.toString), usageConfig)
+
+  //
+  //  Convinece function to get to the XML of a request
+  //
+  def getProcessedXML(req : HttpServletRequest) : Document = req.getAttribute(PARSED_XML).asInstanceOf[Document]
 }
 
-class BaseUsageSuite extends BaseValidatorSuite {
-
+class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
+  //
+  //  Default namespaces for atom assertions
+  //
+  register ("atom", "http://www.w3.org/2005/Atom")
+  register ("event", "http://docs.rackspace.com/core/event")
 }
