@@ -19,6 +19,7 @@
         <saxon-ee.version>9.4.0.4</saxon-ee.version>
         <xerces.version>2.12.0-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
+        <xmlsec.version>1.4.6</xmlsec.version>
         <wadl-tools.version>1.0.11-SNAPSHOT</wadl-tools.version>
         <api-checker.version>1.0.5-SNAPSHOT</api-checker.version>
     </properties>
@@ -42,6 +43,12 @@
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.9.0</artifactId>
             <version>${scala.test.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>${xmlsec.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.rackspace.papi.components.api-checker</groupId>
