@@ -39,6 +39,9 @@ import com.saxonica.config.EnterpriseTransformerFactory
 
 @RunWith(classOf[JUnitRunner])
 class ProductSchemaSuite extends BaseUsageSuite {
+  //
+  //  Resources
+  //
   val productSchemaDir = new File("sample_product_schemas")
   val productSchemas = productSchemaDir.listFiles().filter(_.getName.endsWith(".xml"))
 
@@ -47,7 +50,15 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   val productSchemaSchema = new File("product_schema_def/xsd/productSchema.xsd")
   val productSchemaXSDXSL = new File("product_schema_def/xsl/productSchema-standalone.xsl")
+  val productSchemaWADLXSL = new File("product_schema_def/xsl/productSchema-wadl.xsl")
 
+  val generatedWADL = new File("wadl/product.wadl")
+
+  val xprocDirSchema = new File("src/test/resources/directory.xsd")
+
+  //
+  //  Tests
+  //
   test("All product schemas should be valid") {
     productSchemas.foreach ( f => {
       printf("Checking %s/%s\n",productSchemaDir.getName(),f.getName())
@@ -67,6 +78,13 @@ class ProductSchemaSuite extends BaseUsageSuite {
     })
   }
 
+  test("Product schema and generated product WADL should match") {
+    printf("Checking %s\n", generatedWADL)
+    val w = toConGenWADL(productSchemaDir)
+    if (w._1 != w._2) { printf("(%s)\n[%s]\n", w._1, w._2) }
+    assert (w._1 == w._2)
+  }
+
   //
   //  Init xml security lib
   //
@@ -80,8 +98,17 @@ class ProductSchemaSuite extends BaseUsageSuite {
   transFactory.setAttribute(FeatureKeys.EXPAND_ATTRIBUTE_DEFAULTS, true)
   transFactory.setAttribute(FeatureKeys.XSD_VERSION, "1.1")
   transFactory.asInstanceOf[EnterpriseTransformerFactory].addSchema(new StreamSource(productSchemaSchema))
+  transFactory.asInstanceOf[EnterpriseTransformerFactory].addSchema(new StreamSource(xprocDirSchema))
 
-  private val xsdTemplate = transFactory.newTemplates(new StreamSource(productSchemaXSDXSL))
+  //
+  //  We have to use a different transfactory here because of what I
+  //  think in a bug in SAXON -- when fix, use transFactory instead of
+  //  transFactoryWADL.
+  //
+  private val transFactoryWADL = TransformerFactory.newInstance("com.saxonica.config.EnterpriseTransformerFactory", null)
+
+  private val xsdTemplate  = transFactory.newTemplates(new StreamSource(productSchemaXSDXSL))
+  private val wadlTemplate = transFactoryWADL.newTemplates(new StreamSource(productSchemaWADLXSL))
 
   private val defTransFactory = TransformerFactory.newInstance()
 
@@ -91,7 +118,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //  Given a product schema, get cananicalized genereated XSDs
   //  (newGenerated, fileSystem, XSDFile) both as strings.
   //
-  def toConGenXSD (f : File) : (String, String, File) = {
+  private def toConGenXSD (f : File) : (String, String, File) = {
     val trans = xsdTemplate.newTransformer()
     val idTrans = defTransFactory.newTransformer()
     val genWriter = new StringWriter()
@@ -105,5 +132,36 @@ class ProductSchemaSuite extends BaseUsageSuite {
     (new String(canonicalizer.canonicalize(genWriter.toString.getBytes),"UTF-8"),
      new String(canonicalizer.canonicalize(fileWriter.toString.getBytes), "UTF-8"),
      xsdFile)
+  }
+
+  //
+  //  Given product schema directory, get cananicalized generaded WADs
+  //  (newGenerated, fileSystem) both as strings.
+  //
+  private def toConGenWADL (f : File) : (String, String) = {
+    val trans = wadlTemplate.newTransformer()
+    val idTrans = defTransFactory.newTransformer()
+
+    val genWriter = new StringWriter()
+    val fileWriter = new StringWriter()
+
+    trans.transform(new StreamSource(toProcStepList(f)), new StreamResult(genWriter))
+    idTrans.transform(new StreamSource(generatedWADL), new StreamResult(fileWriter))
+
+    (new String(canonicalizer.canonicalize(genWriter.toString.getBytes),"UTF-8"),
+     new String(canonicalizer.canonicalize(fileWriter.toString.getBytes), "UTF-8"))
+  }
+
+  //
+  //  Converts a file / directory to a ProcStepList
+  //
+  private def toProcStepList(f : File) : NodeSeq = {
+    if (!f.isDirectory) {
+      <file name={f.getAbsolutePath.substring(1)} />
+    } else {
+      <directory xmlns="http://www.w3.org/ns/xproc-step" name={f.getName}>
+          {f.listFiles.filter(_.getName.endsWith(".xml")).map(toProcStepList)}
+      </directory>
+    }
   }
 }

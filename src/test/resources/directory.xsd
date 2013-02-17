@@ -1,0 +1,23 @@
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c="http://www.w3.org/ns/xproc-step"
+    targetNamespace="http://www.w3.org/ns/xproc-step">
+    <element name="directory" type="c:Directory"/>
+    <element name="file" type="c:File"/>
+    <complexType name="Directory">
+        <complexContent>
+            <extension base="c:File">
+                <all>
+                    <element minOccurs="0" maxOccurs="unbounded" ref="c:file"/>
+                    <element minOccurs="0" maxOccurs="unbounded" ref="c:directory"/>
+                </all>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="File">
+        <attribute name="name" type="xsd:string" use="required"/>
+    </complexType>
+</schema>
