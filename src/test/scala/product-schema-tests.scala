@@ -4,6 +4,8 @@ import java.io.File
 import java.io.StringReader
 import java.io.StringWriter
 
+import java.net.URL
+
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -16,20 +18,19 @@ import com.rackspace.cloud.api.wadl.Converters._
 import com.rackspace.com.papi.components.checker.Converters._
 import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
 
+import com.rackspace.cloud.api.wadl.test.SchemaAsserter
+
 import BaseUsageSuite._
 
 import javax.xml.transform._
 import javax.xml.transform.stream.StreamSource
 import javax.xml.transform.stream.StreamResult
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.dom.DOMResult
 
 import org.apache.xml.security.c14n.Canonicalizer
 
 import net.sf.saxon.lib.FeatureKeys
 import net.sf.saxon.lib.Validation
 import com.saxonica.config.EnterpriseTransformerFactory
-
 
 //
 //  Test to make sure that all product schemas and the artifacts that
@@ -43,6 +44,9 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   val generatedXSDsDir = new File("generated_product_xsds")
   val generatedXSDs = generatedXSDsDir.listFiles().filter(_.getName.endsWith("xsd"))
+
+  val productSchemaSchema = new File("product_schema_def/xsd/productSchema.xsd")
+  val productSchemaXSDXSL = new File("product_schema_def/xsl/productSchema-standalone.xsl")
 
   test("All product schemas should be valid") {
     productSchemas.foreach ( f => {
@@ -75,12 +79,13 @@ class ProductSchemaSuite extends BaseUsageSuite {
   transFactory.setAttribute(FeatureKeys.XSLT_SCHEMA_AWARE, true)
   transFactory.setAttribute(FeatureKeys.EXPAND_ATTRIBUTE_DEFAULTS, true)
   transFactory.setAttribute(FeatureKeys.XSD_VERSION, "1.1")
-  transFactory.asInstanceOf[EnterpriseTransformerFactory].addSchema(new StreamSource(new File("product_schema_def/xsd/productSchema.xsd")))
+  transFactory.asInstanceOf[EnterpriseTransformerFactory].addSchema(new StreamSource(productSchemaSchema))
 
-  private val xsdTemplate = transFactory.newTemplates(new StreamSource(new File("product_schema_def/xsl/productSchema-standalone.xsl").toURI.toString))
+  private val xsdTemplate = transFactory.newTemplates(new StreamSource(productSchemaXSDXSL))
 
   private val defTransFactory = TransformerFactory.newInstance()
 
+  private val productSchema = new SchemaAsserter(new URL(productSchemaSchema.toURI.toString))
 
   //
   //  Given a product schema, get cananicalized genereated XSDs

@@ -1,7 +1,6 @@
 package com.rackspace.usage
 
 import java.io.File
-import java.net.URL
 
 import javax.xml.transform.stream.StreamSource
 
@@ -17,7 +16,6 @@ import com.rackspace.com.papi.components.checker.Config
 import com.rackspace.com.papi.components.checker.servlet.RequestAttributes.PARSED_XML
 
 import com.rackspace.cloud.api.wadl.test.XPathAssertions
-import com.rackspace.cloud.api.wadl.test.SchemaAsserter
 
 import org.w3c.dom.Document
 
@@ -29,7 +27,6 @@ object BaseUsageSuite {
   val assertHandler = new DispatchResultHandler(List[ResultHandler](new ConsoleResultHandler(), 
                                                                     new AssertResultHandler(),
                                                                     new ServletResultHandler()))
-
   //
   //  Default validator configuration
   //
@@ -56,10 +53,6 @@ object BaseUsageSuite {
   //  The atom hopper validator
   //
   lazy val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl").toURI.toString), usageConfig)
-
-  lazy val usageMsg = new SchemaAsserter(new URL((new File("core_xsd/entry.xsd")).toURI.toString))
-
-  lazy val productSchema = new SchemaAsserter(new URL((new File("product_schema_def/xsd/productSchema.xsd")).toURI.toString))
 
   //
   //  Convinece function to get to the XML of a request

@@ -3,6 +3,8 @@ package com.rackspace.usage
 import java.io.File
 import java.io.StringWriter
 
+import java.net.URL
+
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -14,6 +16,7 @@ import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
 import com.rackspace.cloud.api.wadl.Converters._
 import com.rackspace.com.papi.components.checker.Converters._
 import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
+import com.rackspace.cloud.api.wadl.test.SchemaAsserter
 
 import BaseUsageSuite._
 
@@ -32,6 +35,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleDir   = new File("message_samples")
   val sampleFiles = sampleDir.listFiles.filter(_.getName().endsWith(".xml"))
+  val sampleXSD = new File("core_xsd/entry.xsd")
 
   test("All sample files should be valid according to the product schema") {
     sampleFiles.foreach ( f => {
@@ -47,7 +51,9 @@ class SampleMessagesSuite extends BaseUsageSuite {
     })
   }
 
-  val templates = TransformerFactory.newInstance().newTemplates(new StreamSource(new File("src/test/resources/get-feed.xsl").toURI.toString))
+  private val getFeedXSD = new File("src/test/resources/get-feed.xsl")
+  private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
+  private val templates = TransformerFactory.newInstance().newTemplates(new StreamSource(getFeedXSD))
 
   //
   //  Converts a sample file to an optional (feed/path, file)
