@@ -19,6 +19,7 @@
         <xsl:variable name="productSchemas" as="node()">
             <sch:productSchemas>
                 <xsl:for-each select="c:file">
+                    <xsl:sort select="@name"/>
                     <sch:productSchema>
                        <xsl:attribute name="pos" select="position()"/>
                       <xsl:copy-of select="document(concat(base-uri(),'/',@name))/sch:productSchema/(* | @*)"/>
