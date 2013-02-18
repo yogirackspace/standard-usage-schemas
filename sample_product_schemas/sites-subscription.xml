@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/usage/sites/subscription"
+        version="1"
+        serviceCode="CloudSites" type="USAGE_SNAPSHOT"
+        resourceTypes="SITES_SUBSCRIPTION">
+    <description>
+        Subscription to Cloud Sites.
+    </description>
+    <attribute name="isNewAccount" type="boolean" use="optional" default="false"
+               displayName="Is new account">
+        A boolean.
+    </attribute>
+</productSchema>
