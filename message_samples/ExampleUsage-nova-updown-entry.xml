@@ -11,7 +11,9 @@
                type="DOWN">
             <nhost:product version="1" serviceCode="CloudServersOpenStack"
                            resourceType="HOST" collector="nagios01.c0001.dfw.ohthree.com"
-                           status="PING CRITICAL - Packet loss = 100%"/>
+                           status="PING CRITICAL - Packet loss = 100%"
+                           checkType="PING" checkStatus="CRITICAL"
+                           description="Some description here"/>/>
         </event>
     </atom:content>
 </atom:entry>
