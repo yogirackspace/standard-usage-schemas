@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?feed sites/events?> <!-- ignore <?feed..?>, used for testing -->
+<?atom feed="sites/events"?> <!-- ignore <?atom..?>, used for testing -->
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:db="http://docs.rackspace.com/usage/sites/db">
     <atom:title type="text">Sites</atom:title>

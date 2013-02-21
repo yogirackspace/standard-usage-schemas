@@ -51,22 +51,28 @@ class SampleMessagesSuite extends BaseUsageSuite {
     })
   }
 
-  private val getFeedXSD = new File("src/test/resources/get-feed.xsl")
+  private val prepocExtract = new File("src/test/resources/preproc-extract.xslt")
   private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
-  private val templates = TransformerFactory.newInstance().newTemplates(new StreamSource(getFeedXSD))
+  private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
 
   //
   //  Converts a sample file to an optional (feed/path, file)
   //
   def toFeedFile (f : File) : Option[(String, File)] = {
+    val feed = (getPreProcs(f, "atom") \\ "atom" \\ "@feed").text
+    if (feed.isEmpty()) {
+      None
+    } else {
+      Some((feed, f))
+    }
+  }
+
+  def getPreProcs (f : File, ps : String) : NodeSeq = {
     val trans = templates.newTransformer()
     val writer = new StringWriter()
 
+    trans.setParameter("preProcList", ps)
     trans.transform(new StreamSource(f), new StreamResult(writer))
-    if (writer.toString().isEmpty()) {
-      None
-    } else {
-      Some((writer.toString, f))
-    }
+    XML.loadString(writer.toString)
   }
 }
