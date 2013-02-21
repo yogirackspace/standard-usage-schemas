@@ -5,8 +5,8 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xsd"
     version="2.0">
-    <xsl:param name="preProcList" as="xsd:string"/>
-    <xsl:variable name="preprocs" as="xsd:string*" select="tokenize($preProcList,' ')"/>
+    <xsl:param name="procList" as="xsd:string"/>
+    <xsl:variable name="procs" as="xsd:string*" select="tokenize($procList,' ')"/>
 
     <xsl:output method="xml" indent="yes" use-character-maps="x"/>
 
@@ -24,7 +24,7 @@
     </xsl:template>
 
     <xsl:template match="processing-instruction()">
-        <xsl:if test="name() = $preprocs">
+        <xsl:if test="name() = $procs">
             <xsl:text>&#x2780;</xsl:text>
             <xsl:value-of select="name()"/>
             <xsl:text> </xsl:text>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="servers/events"?>
+<?expect code="400" message="FOO DFW"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>AHop Count</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:rh="http://docs.rackspace.com/event/RHEL"
+               version="1" tenantId="2882"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               type="USAGE" dataCenter="DFW1" region="FOO"
+               startTime="2012-09-15T11:51:11Z"
+               endTime="2012-09-16T11:51:11Z">
+            <rh:product version="1" serviceCode="RHEL"/>
+        </event>
+    </atom:content>
+</atom:entry>
