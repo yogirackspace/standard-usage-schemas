@@ -23,6 +23,9 @@
     <import namespace="http://docs.rackspace.com/event/servers/slice"
             schemaLocation="../generated_product_xsds/servers-slice-action.xsd"/>
             
+    <import namespace="http://docs.rackspace.com/event/domain"
+            schemaLocation="../generated_product_xsds/domain-registration.xsd"/>
+            
     <import namespace="http://docs.rackspace.com/event/servers/image"
             schemaLocation="../generated_product_xsds/servers-image-action.xsd"/> 
     
