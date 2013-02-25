@@ -55,15 +55,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="rackspaceAccountNumber" type="event:NonEmptyString" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Identifies the Rackspace Account Number (RAN).
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <attribute name="resourceId" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
