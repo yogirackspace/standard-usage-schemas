@@ -16,15 +16,15 @@
     </attribute>
     <attribute name="checkType" type="string"
                use="required" allowedValues="PING">
-        The hostname of the collector.
+        The check type.
     </attribute>
     <attribute name="checkStatus" type="string"
                use="required" allowedValues="CRITICAL OK">
-        The hostname of the collector.
+        The check status.
     </attribute>
     <attribute name="description" type="string"
                use="required">
-        The hostname of the collector.
+        The description
     </attribute>
     <xpathAssertion test="if (@type = 'DOWN') then
                            not(checkStatus = 'OK') else true()">
