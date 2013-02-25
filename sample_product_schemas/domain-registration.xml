@@ -1,24 +1,27 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/event/domain"
                serviceCode="DomainRegistration"
-               version="1" types="USAGE_SNAPSHOT"
+               version="1" type="USAGE_SNAPSHOT"
                resourceTypes="DOMAIN_SUBSCRIPTION">
     <description>
-        Domain registration events.
+        Subscription event for Domain Registration.
     </description>
-    <attribute name="purchaseTenure" type="string"
-               use="required">
-        The purchase tenure.
+    <attribute name="action" type="Name"
+        allowedValues="REGISTRATION RENEWAL TRANSFER" use="required">
+        The action being taken with this domain registration.   
     </attribute>
-    <attribute name="domainTenure" type="int"
-               use="required" min="1" max="9">
-        The domain tenure.
+    <attribute name="purchaseTenure" type="int" use="required"
+        unitOfMeasure="COUNT" min="1" max="10">
+        Purchase tenure in years.
+    </attribute>
+    <attribute name="domainLiveDate" type="utcDateTime" use="required">
+        Domain go live date.
     </attribute>
     <attribute name="expirationDate" type="utcDateTime" use="required">
         The date the domain registration expires.
     </attribute>
-    <attribute name="renew" type="boolean"
-               use="required">
-        Is the subscription a renewal.
+    <attribute name="isAutoRenew" type="boolean" use="optional" default="false"
+        displayName="Auto-renew">
+        A boolean indicating that a user has selected to auto-renew this site.
     </attribute>
 </productSchema>
