@@ -14,7 +14,7 @@
         unitOfMeasure="COUNT" min="1" max="10">
         Purchase tenure in years.
     </attribute>
-    <attribute name="domainLiveDate" type="utcDateTime" use="required">
+    <attribute name="domainGoLiveDate" type="utcDateTime" use="required">
         Domain go live date.
     </attribute>
     <attribute name="expirationDate" type="utcDateTime" use="required">
