@@ -27,11 +27,11 @@
         The description
     </attribute>
     <xpathAssertion test="if (@type = 'DOWN') then
-                           not(checkStatus = 'OK') else true()">
+                           not(@checkStatus = 'OK') else true()">
         If message is DOWN type then checkStatus cannot be OK.
     </xpathAssertion>
     <xpathAssertion test="if (@type = 'UP) then
-                          not(checkStatus = 'CRITICAL') else true()">
+                          not(@checkStatus = 'CRITICAL') else true()">
         If message is UP type then checkStatus cannot be CRITICAL.
     </xpathAssertion>
 </productSchema>
