@@ -124,7 +124,7 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        A whitespace seperated list of resource types.
+                        A whitespace separated list of resource types.
                         A product schema
                         <html:strong>must</html:strong> specify at
                         least one resource type if the groupByResource
@@ -137,8 +137,8 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        The name of the product or service. Sholud be
-                        a single word, no whitespaces are
+                        The name of the product or service. Should be
+                        a single word, no white-spaces are
                         allowed. Example names "nova", "MaaS",
                         etc. The name should uniquely identify the
                         product or service.  The name is used to
@@ -226,7 +226,7 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        Minimun occurance of the attribute group.
+                        Minimum occurrence of the attribute group.
                     </html:p>
                 </documentation>
             </annotation>
@@ -235,7 +235,7 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        Minimun occurance of the attribute group.
+                        Maximum occurrence of the attribute group.
                     </html:p>
                 </documentation>
             </annotation>
@@ -277,8 +277,8 @@
                                 grouped by the resourceID.  In other words,
                                 the product is being charged per resource.  If
                                 not, that attributes are grouped at the
-                                account/tenant level.  The default is true
-                                which should apply to most products.
+                                tenant level.  The default is true which 
+                                should apply to most products.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -353,7 +353,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                For usage.  A discription of how
+                                For usage.  A description of how
                                 values for this attribute should be
                                 aggregated.
                             </html:p>
@@ -366,7 +366,7 @@
                             <html:p>
                                 The unit of measure for the attribute.
                                 Note that if an aggregate function is
-                                specifeied, then a unit of measure
+                                specified, then a unit of measure
                                 should also be specified.
                             </html:p>
                         </documentation>
@@ -397,7 +397,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                If the aggegateFunction is
+                                If the aggregateFunction is
                                 CUMULATIVE_AVG, then this frequency
                                 value is used to compute the
                                 cumulative avg.
@@ -409,7 +409,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                If the aggegateFunction is
+                                If the aggregateFunction is
                                 CUMULATIVE_AVG, then
                                 frequencyAttribute points to the
                                 attribute that contains the frequency
@@ -506,7 +506,7 @@
                                 Is the attribute optional or
                                 required. The use attribute is
                                 optional, if not specified the
-                                attribute will be labled as optional.
+                                attribute will be labeled as optional.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -547,7 +547,7 @@
                         <documentation>
                             <html:p>
                                 If the attribute has a default value,
-                                then the default value shold be
+                                then the default value should be
                                 specified here.  Note that only
                                 optional attributes can have default
                                 values.
@@ -559,10 +559,10 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                A haman readable name for the
+                                A human readable name for the
                                 attribute that can be used for
                                 reports, invoices, etc.  The display
-                                name does not have the same constaints
+                                name does not have the same constraints
                                 as the name attribute..it can contain
                                 spaces.  "displayName" is an optional
                                 attribute. If it is not specified the
@@ -576,7 +576,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                An optional whitespace seperated list
+                                An optional whitespace separated list
                                 of allowed values.
                             </html:p>
                         </documentation>
@@ -696,7 +696,7 @@
                                 bound other namespaces, though
                                 strictly speaking, since these are
                                 product assertions, this shouldn't be
-                                nessesary.
+                                necessary.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -818,7 +818,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            An integer value of arbritrary size.
+                            An integer value of arbitrary size.
                         </html:p>
                     </documentation>
                 </annotation>
@@ -946,7 +946,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of integer
+                            A whitespace separated list of integer
                             values.
                         </html:p>
                     </documentation>
@@ -956,7 +956,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of long
+                            A whitespace separated list of long
                             values.
                         </html:p>
                     </documentation>
@@ -966,7 +966,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of int
+                            A whitespace separated list of int
                             values.
                         </html:p>
                     </documentation>
@@ -976,7 +976,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of short
+                            A whitespace separated list of short
                             values.
                         </html:p>
                     </documentation>
@@ -986,7 +986,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of byte
+                            A whitespace separated list of byte
                             values.
                         </html:p>
                     </documentation>
@@ -996,7 +996,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of unsignedLong
+                            A whitespace separated list of unsignedLong
                             values.
                         </html:p>
                     </documentation>
@@ -1006,7 +1006,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of unsignedInt
+                            A whitespace separated list of unsignedInt
                             values.
                         </html:p>
                     </documentation>
@@ -1016,7 +1016,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of unsignedShort
+                            A whitespace separated list of unsignedShort
                             values.
                         </html:p>
                     </documentation>
@@ -1026,7 +1026,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of unsignedByte
+                            A whitespace separated list of unsignedByte
                             values.
                         </html:p>
                     </documentation>
@@ -1036,7 +1036,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of double
+                            A whitespace separated list of double
                             values.
                         </html:p>
                     </documentation>
@@ -1046,7 +1046,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of float
+                            A whitespace separated list of float
                             values.
                         </html:p>
                     </documentation>
@@ -1060,7 +1060,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of long
+                            A whitespace separated list of long
                             values.
                         </html:p>
                     </documentation>
@@ -1070,7 +1070,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of boolean
+                            A whitespace separated list of boolean
                             values.
                         </html:p>
                     </documentation>
@@ -1196,7 +1196,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of duration
+                            A whitespace separated list of duration
                             values.
                         </html:p>
                     </documentation>
@@ -1206,7 +1206,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of date
+                            A whitespace separated list of date
                             values.
                         </html:p>
                     </documentation>
@@ -1216,7 +1216,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of dateTime
+                            A whitespace separated list of dateTime
                             values.
                         </html:p>
                     </documentation>
@@ -1226,7 +1226,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of utcDateTime
+                            A whitespace separated list of utcDateTime
                             values.
                         </html:p>
                     </documentation>
@@ -1236,7 +1236,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of time
+                            A whitespace separated list of time
                             values.
                         </html:p>
                     </documentation>
@@ -1246,7 +1246,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of utcTime
+                            A whitespace separated list of utcTime
                             values.
                         </html:p>
                     </documentation>
@@ -1256,7 +1256,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of gDay
+                            A whitespace separated list of gDay
                             values.
                         </html:p>
                     </documentation>
@@ -1266,7 +1266,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of gMonth
+                            A whitespace separated list of gMonth
                             values.
                         </html:p>
                     </documentation>
@@ -1276,7 +1276,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of gYear
+                            A whitespace separated list of gYear
                             values.
                         </html:p>
                     </documentation>
@@ -1286,7 +1286,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of gMonthDay
+                            A whitespace separated list of gMonthDay
                             values.
                         </html:p>
                     </documentation>
@@ -1296,7 +1296,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of gMonthYear
+                            A whitespace separated list of gMonthYear
                             values.
                         </html:p>
                     </documentation>
@@ -1358,7 +1358,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of anyURI
+                            A whitespace separated list of anyURI
                             values.
                         </html:p>
                     </documentation>
@@ -1368,7 +1368,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            A whitespace seperated list of UUIDs
+                            A whitespace separated list of UUIDs
                             values.
                         </html:p>
                     </documentation>
