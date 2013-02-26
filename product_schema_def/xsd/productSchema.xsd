@@ -90,7 +90,7 @@
                 <annotation>
                     <documentation>
                         <html:p>
-                            The version of this perticular product
+                            The version of this particular product
                             schema.  Any sort of version string is
                             allowed. Each product schema must have a
                             unique version.
