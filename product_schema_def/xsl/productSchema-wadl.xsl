@@ -55,14 +55,12 @@
                                     <param name="checkUp"
                                            style="plain"
                                            required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'UP') then
-                                                 not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'UP') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()"
                                            rax:message="If message is UP type then checkStatus cannot be CRITICAL."/>
                                     <param name="checkDown"
                                            style="plain"
                                            required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then
-                                                 not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
                                            rax:message="If message is DOWN type then checkStatus cannot be OK."/>
                                 </xsl:if>
                                 <xsl:call-template name="sch:param">
