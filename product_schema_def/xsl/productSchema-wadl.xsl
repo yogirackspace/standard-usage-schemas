@@ -8,6 +8,7 @@
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
     exclude-result-prefixes="sch c"
     version="2.0">
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
@@ -47,6 +48,23 @@
                     <method id="add{$id}Entry" name="POST">
                         <request>
                             <representation mediaType="application/atom+xml" element="atom:entry">
+                                <!--
+                                    Hack, add nova updown check.
+                                -->
+                                <xsl:if test="$id = 'CloudServersOpenStack'">
+                                    <param name="checkUp"
+                                           style="plain"
+                                           required="true"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'UP') then
+                                                 not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()"
+                                           rax:message="If message is UP type then checkStatus cannot be CRITICAL."/>
+                                    <param name="checkDown"
+                                           style="plain"
+                                           required="true"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then
+                                                 not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
+                                           rax:message="If message is DOWN type then checkStatus cannot be OK."/>
+                                </xsl:if>
                                 <xsl:call-template name="sch:param">
                                     <xsl:with-param name="type" select="'USAGE'"/>
                                     <xsl:with-param name="schemas" select="current-group()[not(@type) or ('USAGE' = tokenize(@type,' '))]"/>
