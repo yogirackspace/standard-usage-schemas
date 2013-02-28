@@ -13,7 +13,7 @@
     </description>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com:rackspace/standard-usage-schemas.git</connection>
+        <connection>scm:git:ssh://git@github.com/rackspace/standard-usage-schemas.git</connection>
     </scm>
 
     <repositories>
