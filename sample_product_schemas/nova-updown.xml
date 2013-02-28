@@ -14,4 +14,16 @@
                use="required">
         The hostname of the collector.
     </attribute>
+    <attribute name="checkType" type="string"
+               use="required" allowedValues="PING">
+        The check type.
+    </attribute>
+    <attribute name="checkStatus" type="string"
+               use="required" allowedValues="CRITICAL OK">
+        The check status.
+    </attribute>
+    <attribute name="description" type="string"
+               use="required">
+        The description
+    </attribute>
 </productSchema>

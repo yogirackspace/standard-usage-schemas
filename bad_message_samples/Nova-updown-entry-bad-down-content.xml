@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="nova/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?atom feed="nova/events"?>
+<?expect code="400" message="DOWN OK"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Nagios Event</atom:title>
     <atom:content type="application/xml">
@@ -12,7 +13,7 @@
             <nhost:product version="1" serviceCode="CloudServersOpenStack"
                            resourceType="HOST" collector="nagios01.c0001.dfw.ohthree.com"
                            status="PING CRITICAL - Packet loss = 100%"
-                           checkType="PING" checkStatus="CRITICAL"
+                           checkType="PING" checkStatus="OK"
                            description="Some description here"/>
         </event>
     </atom:content>

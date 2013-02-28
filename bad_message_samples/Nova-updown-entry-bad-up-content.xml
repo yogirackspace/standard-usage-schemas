@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="nova/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?atom feed="nova/events"?>
+<?expect code="400" message="UP CRITICAL"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Nagios Event</atom:title>
     <atom:content type="application/xml">
@@ -8,7 +9,7 @@
                version="1" id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
                resourceId="10.24.25.92" resourceName="compute-10-24-25-92"
                dataCenter="DFW1" region="DFW" eventTime="2012-09-15T11:51:11Z"
-               type="DOWN">
+               type="UP">
             <nhost:product version="1" serviceCode="CloudServersOpenStack"
                            resourceType="HOST" collector="nagios01.c0001.dfw.ohthree.com"
                            status="PING CRITICAL - Packet loss = 100%"
