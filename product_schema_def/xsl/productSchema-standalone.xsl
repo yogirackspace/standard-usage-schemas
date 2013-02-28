@@ -206,6 +206,7 @@
                             <xsl:attribute name="type" select="@type"/>
                         </xsl:if>
                     </usage:core>
+                    <xsl:call-template name="addAggregationDurations"/>
                 </appinfo>
             </annotation>
             <xsl:choose>
@@ -281,6 +282,22 @@
                 <xsl:apply-templates mode="AddAttributeGroups"/>
             </complexType>
         </element>
+    </xsl:template>
+    <xsl:template match="schema:aggregationDurations">
+        <!-- Ignore aggregationDurations in this mode -->
+    </xsl:template>
+    <xsl:template match="schema:aggregationDurations" mode="AddAggregationDurations">
+        <usage:aggregationDurations>
+            <xsl:for-each select=".">
+                <xsl:apply-templates mode="AddAggregationDuration"/>
+            </xsl:for-each>
+        </usage:aggregationDurations>
+    </xsl:template>
+    <xsl:template match="schema:aggregationDuration">
+        <!-- Ignore aggregationDuration in this mode -->
+    </xsl:template>
+    <xsl:template match="schema:aggregationDuration" mode="AddAggregationDuration">
+        <usage:aggregationDuration><xsl:value-of select="."/></usage:aggregationDuration>
     </xsl:template>
     <xsl:function name="schema:getSchemaType" as="xsd:string">
         <xsl:param name="type" as="xsd:string" />
@@ -433,6 +450,11 @@
             <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
                 <xsl:apply-templates select="schema:attributeGroup" mode="AddAttributeGroups"/>
             </sequence>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="addAggregationDurations">
+        <xsl:if test="schema:aggregationDurations">
+            <xsl:apply-templates select="schema:aggregationDurations" mode="AddAggregationDurations"/>
         </xsl:if>
     </xsl:template>
     <xsl:template name="addEnumType">
