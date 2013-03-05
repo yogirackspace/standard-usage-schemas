@@ -392,7 +392,7 @@
             </element>
         </sequence>
         <assert vc:minVersion="1.1"
-            test="xsd:dayTimeDuration('PT24H') = sum(for $d in ./* return xsd:dayTimeDuration($d))"
+            test="xsd:dayTimeDuration('PT24H') = sum(for $d in element(schema:aggregationDuration)  return xsd:dayTimeDuration($d))"
             xerces:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours."
             saxon:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours.">
             <annotation>

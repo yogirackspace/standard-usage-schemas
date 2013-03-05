@@ -78,8 +78,12 @@
                 </annotation>
             </element>
         </sequence>
+        <!-- 
+            Note, the test in this assert uses a work-around for a bug in Xerces, described here
+            https://issues.apache.org/jira/browse/XERCESJ-1608?focusedCommentId=13593437#comment-13593437 
+        -->
         <assert vc:minVersion="1.1"
-            test="xsd:dayTimeDuration('PT24H') = sum(for $d in ./* return xsd:dayTimeDuration($d))"
+            test="xsd:dayTimeDuration('PT24H') = sum(for $d in element(usage:aggregationDuration) return xsd:dayTimeDuration(string($d)))"
             xerces:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours."
             saxon:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours.">
             <annotation>
