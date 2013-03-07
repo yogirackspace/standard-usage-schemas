@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:db="http://docs.rackspace.com/usage/sites/db">
+    <atom:id>urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0</atom:id>
+    <atom:category term="tid:12882" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:12882:mysqldb" />
+    <atom:category term="cloudsites.db.mysql.usage_snapshot" />
+    <atom:title type="text">Sites</atom:title>
+    <atom:updated>2013-02-28T19:12:19.271Z</atom:updated>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-06-14T10:19:52Z" id="47b574c4-0400-11e2-b19d-7b8e208cade0" region="DFW" resourceId="12882:mysqldb" resourceName="mysqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+            <db:product resourceType="MYSQL" serviceCode="CloudSites" storage="393993883" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0" rel="self" />
+    <atom:published>2013-02-28T19:12:19.271Z</atom:published>
+</atom:entry>

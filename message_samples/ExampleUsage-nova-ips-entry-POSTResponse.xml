@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:id>urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db</atom:id>
+    <atom:category term="tid:27726" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:6acb5696-4a31-11e2-9c2e-db3bb6302f8d" />
+    <atom:category term="cloudserversopenstack.ips.instance.usage" />
+    <atom:title type="text">Additonal IPs</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event" xmlns:ips="http://docs.rackspace.com/usage/nova/ips" dataCenter="DFW1" endTime="2012-09-16T11:51:11Z" environment="PROD" id="5da1c590-4a31-11e2-ba50-67eebdd137db" region="DFW" resourceId="6acb5696-4a31-11e2-9c2e-db3bb6302f8d" startTime="2012-09-15T11:51:11Z" tenantId="27726" type="USAGE" version="1">
+            <ips:product ips="5" resourceType="INSTANCE" serviceCode="CloudServersOpenStack" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db" rel="self" />
+    <atom:updated>2013-02-28T19:57:55.723Z</atom:updated>
+    <atom:published>2013-02-28T19:57:55.723Z</atom:published>
+</atom:entry>
