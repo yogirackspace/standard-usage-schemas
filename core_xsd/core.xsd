@@ -373,7 +373,8 @@
                                                   if (@region = 'HKG') then (@dataCenter = 'HKG1') else
                                                   if (@region = 'IAD') then (@dataCenter = ('IAD1','IAD2','IAD3')) else
                                                   if (@region = 'LON') then (@dataCenter = ('LON1','LON3')) else
-                                                  if (@region = 'ORD') then (@dataCenter = 'ORD1') else false()
+                                                  if (@region = 'ORD') then (@dataCenter = 'ORD1') else
+                                                  if (@region = 'SYD') then (@dataCenter = 'SYD2') else false()
                                                   "
                         xerces:message="There is a mismatch between the region and the dataCenter."
                         saxon:message="There is a mismatch between the region and the dataCenter.">
@@ -487,6 +488,7 @@
             <enumeration value="IAD"/>
             <enumeration value="LON"/>
             <enumeration value="ORD"/>
+            <enumeration value="SYD"/>
         </restriction>
     </simpleType>
 
@@ -518,6 +520,7 @@
             <enumeration value="LON1"/>
             <enumeration value="LON3"/>
             <enumeration value="ORD1"/>
+            <enumeration value="SYD2"/>
         </restriction>
     </simpleType>
 

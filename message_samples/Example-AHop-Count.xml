@@ -4,7 +4,7 @@
        version="1"
        resourceId="backup/events"
        type="UPDATE"
-       dataCenter="DFW1" region="DFW"
+       dataCenter="SYD2" region="SYD"
        eventTime="2012-09-15T11:51:11Z">
     <ahopc:product version="1" serviceCode="AtomHopper"
                    resourceType="FEED" count="388377"/>
