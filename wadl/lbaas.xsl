@@ -24,4 +24,16 @@
                            (local-name() != 'avgConcurrentConnectionsSsl')] | node()"/>
         </xsl:copy>
     </xsl:template>
+    
+    <xsl:template match="lbaas:product[@sslMode='ON']">
+        <xsl:copy>
+            <xsl:attribute name="bandWidthIn">0</xsl:attribute>
+            <xsl:attribute name="bandWidthOut">0</xsl:attribute>
+            <xsl:attribute name="avgConcurrentConnections">0</xsl:attribute>
+            <xsl:apply-templates
+                select="@*[(local-name() != 'bandWidthIn') and
+                           (local-name() != 'bandWidthOut') and
+                           (local-name() != 'avgConcurrentConnections')] | node()"/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>
