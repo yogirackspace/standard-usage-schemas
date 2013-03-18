@@ -112,7 +112,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   private val defTransFactory = TransformerFactory.newInstance()
 
-  private val productSchema = new SchemaAsserter(new URL(productSchemaSchema.toURI.toString), true)
+  private val productSchema = new SchemaAsserter(new URL(productSchemaSchema.toURI.toString))
 
   //
   //  Given a product schema, get cananicalized genereated XSDs

@@ -46,6 +46,8 @@
         <xmlsec.version>1.4.6</xmlsec.version>
         <wadl-tools.version>1.0.12</wadl-tools.version>
         <api-checker.version>1.0.6</api-checker.version>
+        <wadl-tools.version>1.0.11</wadl-tools.version>
+        <api-checker.version>1.0.6</api-checker.version>
     </properties>
     <dependencies>
         <dependency>
