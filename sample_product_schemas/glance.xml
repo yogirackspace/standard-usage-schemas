@@ -1,0 +1,16 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/glance"
+               serviceCode="CloudBackup"
+               version="1"
+               resourceTypes="BACKUP">
+    <description>
+        Server backup storage.
+    </description>
+    <attribute name="storage" type="unsignedLong" use="required"
+               unitOfMeasure="B" max="10995116277760" aggregateFunction="AVERAGE">
+        The amount of storage consumed by this backup. 
+    </attribute>
+    <attribute name="serverId" type="int UUID" use="required">
+        Server ID, where the backup was taken from.
+    </attribute>
+</productSchema>
