@@ -16,8 +16,8 @@
 	   			action="REGISTRATION"
 	   			purchaseTenure="2"
 	   			expirationDate="2014-03-12T11:51:11Z" 
-	   			isAutoRenew="false"
-	   			domainGoLiveDate="2012-03-12T11:51:11Z"/>
+                                endUserTenantId="9876543210"
+	   			isAutoRenew="false"/>
 		</event>
 	</atom:content>
 </atom:entry>
