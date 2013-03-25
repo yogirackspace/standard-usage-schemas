@@ -6,6 +6,9 @@
     <description>
         Subscription to Cloud Sites.
     </description>
+    <attribute name="action" type="string" use="required" allowedValues="SUBSCRIBE CANCEL">
+               The action that caused this event to be created.
+    </attribute>
     <attribute name="isNewAccount" type="boolean" use="optional" default="false"
                displayName="Is new account">
         A boolean.
