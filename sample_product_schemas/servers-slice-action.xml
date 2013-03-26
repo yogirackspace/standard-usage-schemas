@@ -22,7 +22,7 @@
         The Server ID for the Slice.
     </attribute>
     <attribute name="action" type="string" use="required" searchable="true"
-               allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY">
+               allowedValues="RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY ADD_IP_NO_CONFIG DELETE_IP_NO_CONFIG KERNEL_UPDATE_FAILED UPGRADE_DEVICE_SERVICE_LEVEL DOWNGRADE_DEVICE_SERVICE_LEVEL">
         The action that caused this event to be created.
     </attribute>
     <attribute name="imageName" type="string" use="required">
