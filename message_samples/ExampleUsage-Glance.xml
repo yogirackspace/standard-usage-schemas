@@ -1,4 +1,6 @@
-<event endTime="2012-06-15T10:19:52Z"
+<event xmlns="http://docs.rackspace.com/core/event"
+       xmlns:glance="http://docs.rackspace.com/usage/glance"
+       endTime="2012-06-15T10:19:52Z"
        startTime="2012-06-14T10:19:52Z" 
        region="DFW" dataCenter="DFW1" type="USAGE"
        id="b79cc3de-b399-3883-b555-61829bb7f966" 

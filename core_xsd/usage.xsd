@@ -20,6 +20,9 @@
             schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
+    <import namespace="http://docs.rackspace.com/usage/glance"
+            schemaLocation="../generated_product_xsds/glance.xsd"/>
+    
     <import namespace="http://docs.rackspace.com/event/servers/slice"
             schemaLocation="../generated_product_xsds/servers-slice-action.xsd"/>
             
