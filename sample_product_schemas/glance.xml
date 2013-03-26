@@ -7,7 +7,7 @@
         Server backup storage.
     </description>
     <attribute name="storage" type="unsignedLong" use="required"
-               unitOfMeasure="B" max="10995116277760" aggregateFunction="AVG">
+               unitOfMeasure="B" max="2199023255552" aggregateFunction="AVG">
         The amount of storage consumed by this backup. 
     </attribute>
     <attribute name="serverId" type="int UUID" use="required">
