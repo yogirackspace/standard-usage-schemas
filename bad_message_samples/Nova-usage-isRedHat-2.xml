@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="nova/events"?>
+<?expect code="400"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Slice</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:nova="http://docs.rackspace.com/event/nova"
+               version="1" tenantId="2882"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-09-15T11:51:11Z"
+               endTime="2012-09-16T11:51:11Z">
+            <nova:product version="1" serviceCode="CloudServersOpenStack"
+                        resourceType="SLICE" flavor="10"
+                        isRedHat="true" isMSSQL="false"
+                        isMSSQLWeb="true" isWindows="false"
+                        isSELinux="false" isManaged="false"
+                        bandwidthIn="1001" bandwidthOut="19992"/>
+        </event>
+    </atom:content>
+</atom:entry>
