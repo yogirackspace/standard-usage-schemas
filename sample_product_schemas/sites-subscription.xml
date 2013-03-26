@@ -6,8 +6,13 @@
     <description>
         Subscription to Cloud Sites.
     </description>
+    <attribute name="action" type="string" use="required" allowedValues="SUBSCRIBE CANCEL">
+               The action that caused this event to be created.
+    </attribute>
     <attribute name="isNewAccount" type="boolean" use="optional" default="false"
                displayName="Is new account">
-        A boolean.
+        A boolean. Should be true if the date the plan is added is the same UTC date the account was created. 
+        For events originating from Sign Up Facade, this is always true.
+        For events originating from Cloud Control, this may be true or false.
     </attribute>
 </productSchema>

@@ -23,6 +23,9 @@
     <import namespace="http://docs.rackspace.com/usage/glance"
             schemaLocation="../generated_product_xsds/glance.xsd"/>
     
+    <import namespace="http://docs.rackspace.com/event/nova"
+            schemaLocation="../generated_product_xsds/nova.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/servers/slice"
             schemaLocation="../generated_product_xsds/servers-slice-action.xsd"/>
             

@@ -14,7 +14,8 @@
                type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
             <sites:product version="1" serviceCode="CloudSites"
-                           resourceType="SITES_SUBSCRIPTION" isNewAccount="true"/>
+                           resourceType="SITES_SUBSCRIPTION" 
+                           action="SUBSCRIBE" isNewAccount="true"/>
         </event>
     </atom:content>
 </atom:entry>

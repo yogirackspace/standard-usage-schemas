@@ -14,7 +14,8 @@
         <resource path="cbs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage"/>
         <resource path="dns/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="files/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles"/>
-        <resource path="sites/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites wadl/product.wadl#DomainRegistration"/>
+        <resource path="sites/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites"/>
+        <resource path="domain/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DomainRegistration"/>
         <resource path="dbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase"/>
         <resource path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource path="lbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers"/>
