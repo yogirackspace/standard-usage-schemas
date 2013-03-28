@@ -1,15 +1,14 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-        namespace="http://docs.rackspace.com/usage/widget/multiple"
+        namespace="http://docs.rackspace.com/usage/widget/explicit"
         version="1"
         serviceCode="Widget"
         resourceTypes="WIDGET GADGET">
     <description>
         Widget specific user fields
     </description>
-    <aggregationDurations>
-        <aggregationDuration>PT5H</aggregationDuration>
-        <aggregationDuration>PT19H</aggregationDuration>
-    </aggregationDurations>
+    <aggregationPeriods>
+        <aggregationPeriod>PT24H</aggregationPeriod>
+    </aggregationPeriods>
     <attribute name="label" type="string" use="required">
         Human readable name.
     </attribute>

@@ -65,7 +65,7 @@
                                 <xsl:attribute name="type" select="@type"/>
                             </xsl:if>
                         </usage:core>
-                        <xsl:call-template name="addAggregationDurations"/>
+                        <xsl:call-template name="addAggregationPeriods"/>
                     </appinfo>
                 </annotation>
                 <xsl:call-template name="addAttributeGroups"/>
@@ -165,21 +165,21 @@
             </complexType>
         </element>
     </xsl:template>
-    <xsl:template match="schema:aggregationDurations">
-        <!-- Ignore aggregationDurations in this mode -->
+    <xsl:template match="schema:aggregationPeriods">
+        <!-- Ignore aggregationPeriods in this mode -->
     </xsl:template>
-    <xsl:template match="schema:aggregationDurations" mode="AddAggregationDurations">
-        <usage:aggregationDurations>
+    <xsl:template match="schema:aggregationPeriods" mode="AddAggregationPeriods">
+        <usage:aggregationPeriods>
             <xsl:for-each select=".">
-                <xsl:apply-templates mode="AddAggregationDuration"/>
+                <xsl:apply-templates mode="AddAggregationPeriod"/>
             </xsl:for-each>
-        </usage:aggregationDurations>
+        </usage:aggregationPeriods>
     </xsl:template>
-    <xsl:template match="schema:aggregationDuration">
-        <!-- Ignore aggregationDuration in this mode -->
+    <xsl:template match="schema:aggregationPeriod">
+        <!-- Ignore aggregationPeriod in this mode -->
     </xsl:template>
-    <xsl:template match="schema:aggregationDuration" mode="AddAggregationDuration">
-        <usage:aggregationDuration><xsl:value-of select="."/></usage:aggregationDuration>
+    <xsl:template match="schema:aggregationPeriod" mode="AddAggregationPeriod">
+        <usage:aggregationPeriod><xsl:value-of select="."/></usage:aggregationPeriod>
     </xsl:template>
     <xsl:function name="schema:getSchemaType" as="xsd:string">
         <xsl:param name="type" as="xsd:string" />
@@ -317,9 +317,9 @@
             </all>
         </xsl:if>
     </xsl:template>
-    <xsl:template name="addAggregationDurations">
-        <xsl:if test="schema:aggregationDurations">
-            <xsl:apply-templates select="schema:aggregationDurations" mode="AddAggregationDurations"/>
+    <xsl:template name="addAggregationPeriods">
+        <xsl:if test="schema:aggregationPeriods">
+            <xsl:apply-templates select="schema:aggregationPeriods" mode="AddAggregationPeriods"/>
         </xsl:if>
     </xsl:template>
     <xsl:template name="addEnumType">
