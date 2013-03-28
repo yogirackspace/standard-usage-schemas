@@ -246,34 +246,38 @@
         <complexContent>
             <extension base="schema:ProductSimpleSchemaBase">
                 <all>
-                    <element name="aggregationDurations" type="schema:AggregationDurations" minOccurs="0">
+                    <element name="aggregationPeriods" type="schema:AggregationPeriods" minOccurs="0">
                         <annotation>
                             <documentation>
                                 <html:p>
-                                    An optional list of durations specifying aggregation 
-                                    intervals. Usage events will be aggregated together when 
-                                    their startTime or eventTime (whichever is present) 
-                                    falls into the same aggregation interval.
+                                    An optional list of periods specifying aggregation
+                                    periods. Usage events will be aggregated together when
+                                    their startTime or eventTime (whichever is present)
+                                    falls into the same aggregation period. Note we use
+                                    the word Period to match the JodaTime sense of the
+                                    word, which is distinguished from a Duration in that
+                                    it takes into consideration leap years / seconds, etc.
                                 </html:p>
                                 <html:p>
-                                    The first aggregation interval begins at midnight, UTC. 
-                                    The duration of the first interval is the first element 
-                                    in this list. Each subsequent element in this list 
-                                    defines the duration of subsequent aggregation intervals, 
+                                    The first aggregation period begins at midnight, UTC.
+                                    The time period of the first period is the first element
+                                    in this list. Each subsequent element in this list
+                                    defines the time period of subsequent aggregation periods,
                                     in order.
                                 </html:p>
                                 <html:p>
-                                    The interval is inclusive of the start time, and 
-                                    exclusive of the end time (calculated as start time + 
-                                    duration). Each subsequent aggregation interval begins at
-                                    the end time of the previous aggregation interval.
+                                    The period is inclusive of the start time, and
+                                    exclusive of the end time (calculated as start time +
+                                    time period, taking into account leap years / leap seconds,
+                                    etc.)). Each subsequent aggregation period begins at
+                                    the end time of the previous aggregation period.
                                 </html:p>
                                 <html:p>
-                                    The durations in this list must sum to 24 hours exactly.
-                                    When not specified, a single aggregation interval with a 
-                                    duration of 24 hours is used. This default value of 24 
-                                    hours should apply in most cases. However, during the 
-                                    "soak period" used for product on-boarding, it may be 
+                                    The time periods in this list must sum to 24 hours exactly.
+                                    When not specified, a single aggregation period with a
+                                    duration of 24 hours is used. This default value of 24
+                                    hours should apply in most cases. However, during the
+                                    "soak period" used for product on-boarding, it may be
                                     important to aggregate multiple times per day.
                                 </html:p>
                             </documentation>
@@ -379,27 +383,27 @@
         </complexContent>
     </complexType>
 
-    <complexType name="AggregationDurations">
+    <complexType name="AggregationPeriods">
         <sequence>
-            <element name="aggregationDuration" type="xsd:dayTimeDuration" maxOccurs="unbounded">
+            <element name="aggregationPeriod" type="xsd:dayTimeDuration" maxOccurs="unbounded">
                 <annotation>
                     <documentation>
                         <html:p>
-                            A duration of one of the aggregation intervals.
+                            A duration of one of the aggregation periods.
                         </html:p>
                     </documentation>
                 </annotation>
             </element>
         </sequence>
         <assert vc:minVersion="1.1"
-            test="xsd:dayTimeDuration('PT24H') = sum(for $d in element(schema:aggregationDuration)  return xsd:dayTimeDuration($d))"
-            xerces:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours."
-            saxon:message="The list of durations specified in aggregationDurations must sum to exactly 24 hours.">
+            test="xsd:dayTimeDuration('PT24H') = sum(for $d in element(schema:aggregationPeriod) return xsd:dayTimeDuration($d))"
+            xerces:message="The list of time periods specified in aggregationPeriods must sum to exactly 24 hours."
+            saxon:message="The list of time periods specified in aggregationPeriods must sum to exactly 24 hours.">
             <annotation>
                 <documentation>
                     <html:p>
-                        The list of durations specified in 
-                        aggregationDurations must sum to 
+                        The list of time periods specified in 
+                        aggregationPeriods must sum to 
                         exactly 24 hours.
                     </html:p>
                 </documentation>
