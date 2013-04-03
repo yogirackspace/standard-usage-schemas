@@ -8,7 +8,7 @@
     </description>
     <attribute name="groupName" type="string" use="required"
                billable="false">
-        The group name.
+        The group name that corresponds to what Netapp uses to identify user accounts.
     </attribute>
     <attribute name="storage" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="AVG"
@@ -16,12 +16,12 @@
         The amount of storage bytes.
     </attribute>
     <attribute name="numFiles" type="unsignedLong" use="required"
-               unitOfMeasure="COUNT" aggregateFunction="AVG"
+               unitOfMeasure="COUNT" 
                billable="false" min="0" max="300000000">
         The number of files.
     </attribute>
     <attribute name="volume" type="string" use="required"
                billable="false">
-       The volume.
+       The volume that corresponds to the location in Netapp where the usage originates.
     </attribute>
 </productSchema>
