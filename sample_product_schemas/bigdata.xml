@@ -1,0 +1,34 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               namespace="http://docs.rackspace.com/usage/bigdata"
+               serviceCode="BigData"
+               version="1" resourceTypes="HDP1.1 HDP1.3 HBASE_HDP1.1 HBASE_HDP1.3">
+    <description> 
+        Usage message for a slice.
+    </description>
+
+    <attribute name="flavor" type="unsignedInt" 
+               use="required" min="0" max="25"
+               groupBy="true">
+        The flavor id of the cluster.
+    </attribute>
+
+    <attribute name="numberServersInCluster" type="unsignedInt"
+               use="required" min="0" max="3000"
+               groupBy="true">
+        This is the number of servers in cluster.
+    </attribute>
+
+    <attribute name="bandwidthIn" type="unsignedLong" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM" min="0" 
+               max="16000000000">
+        The amount of bandwidth in, in kilobytes.
+    </attribute>
+
+    <attribute name="bandwidthOut" type="unsignedLong" use="required"
+               unitOfMeasure="KB" aggregateFunction="SUM" min="0" 
+               max="16000000000">
+        The amount of bandwidth out, in kilobytes.
+    </attribute>
+</productSchema>
+
