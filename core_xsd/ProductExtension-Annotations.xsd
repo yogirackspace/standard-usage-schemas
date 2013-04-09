@@ -50,6 +50,7 @@
         <attribute name="groupBy" type="xsd:boolean" use="optional" default="false"/>
         <attribute name="billable" type="xsd:boolean" use="optional" default="true"/>
         <attribute name="searchable" type="xsd:boolean" use="optional" default="false"/>
+        <attribute name="public" type="xsd:boolean" use="optional" default="false"/>
         <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                 xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                 saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
