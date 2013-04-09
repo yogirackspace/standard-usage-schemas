@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns:id="http://docs.rackspace.com/event/identity/token" xmlns="http://docs.rackspace.com/core/event">
+    <atom:id>urn:uuid:6ac9b5d6-1177-11e2-aeab-b34041df5a7c</atom:id>
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:6c385562-1177-11e2-8a1b-13b3684938eb" />
+    <atom:category term="cloudidentity.token.token.delete" />
+    <atom:title type="text">Identity Token Event</atom:title>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-09-19T11:11:11Z" id="6ac9b5d6-1177-11e2-aeab-b34041df5a7c" region="DFW" resourceId="6c385562-1177-11e2-8a1b-13b3684938eb" type="DELETE" version="1">
+            <id:product resourceType="TOKEN" serviceCode="CloudIdentity" tenants="1234 tenant2 3882" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:6ac9b5d6-1177-11e2-aeab-b34041df5a7c" rel="self" />
+    <atom:updated>2013-02-28T19:49:49.845Z</atom:updated>
+    <atom:published>2013-02-28T19:49:49.845Z</atom:published>
+</atom:entry>
