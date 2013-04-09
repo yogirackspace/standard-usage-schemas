@@ -104,6 +104,9 @@
     <import namespace="http://docs.rackspace.com/usage/sites/db"
             schemaLocation="../generated_product_xsds/sites-db.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/sites/email"
+            schemaLocation="../generated_product_xsds/sites-email.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/sites/metered"
             schemaLocation="../generated_product_xsds/sites-meter.xsd"/>
 
