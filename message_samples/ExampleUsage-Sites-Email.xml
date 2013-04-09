@@ -1,0 +1,11 @@
+<event xmlns="http://docs.rackspace.com/core/event"
+       xmlns:email="http://docs.rackspace.com/usage/sites/email"
+           type="USAGE_SNAPSHOT"
+           resourceId="my.site.com" resourceName="my.site.com"
+           eventTime="2012-06-14T10:19:52Z"
+           id="47b574c4-0400-11e2-b19d-7b8e208cade1"
+           tenantId="12883" version="1">
+    <email:product serviceCode="CloudSites" version="1"
+               resourceType="SITES_EMAIL" 
+               numberOfMailboxes="20"/>
+</event>
