@@ -531,6 +531,34 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="searchable" type="xsd:boolean" use="optional" default="false">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If this is set to true then there
+                                should be an index set so that you can
+                                search by this attribute.
+                            </html:p>
+                            <html:p>
+                                From a practical perspective this
+                                means that an atom hopper category
+                                will be set automatically with this
+                                attribute value.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="public" type="xsd:boolean" use="optional" default="false">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If this is set to true then the
+                                attribute value is allowed to be displayed
+                                to the public.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">

@@ -17,6 +17,7 @@
         The request count for the site.
     </attribute>
     <attribute name="computeCycles" type="double"
+               default="0"
                unitOfMeasure="COUNT"
                aggregateFunction="SUM"
                min="0" max="12500">

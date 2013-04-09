@@ -8,8 +8,12 @@
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
+    xmlns:xslout="http://www.rackspace.com/repose/wadl/checker/Transform"
     exclude-result-prefixes="sch c"
     version="2.0">
+
+    <xsl:namespace-alias stylesheet-prefix="xslout" result-prefix="xsl"/>
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
     <xsl:variable name="NS_PREFIX" select="'w_ns'"/>
     <!-- Event types, excepts for USAGE, which is a special case -->
@@ -68,6 +72,25 @@
                                 <xsl:if test="$id = 'CloudLoadBalancers'">
                                     <rax:preprocess href="lbaas.xsl"/>
                                 </xsl:if>
+                                <!--
+                                    Hack, add nova updown check.
+                                -->
+                                <xsl:if test="$id = 'CloudServersOpenStack'">
+                                    <param name="checkUp"
+                                           style="plain"
+                                           required="true"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'UP') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()"
+                                           rax:message="If message is UP type then checkStatus cannot be CRITICAL."/>
+                                    <param name="checkDown"
+                                           style="plain"
+                                           required="true"
+                                           path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
+                                           rax:message="If message is DOWN type then checkStatus cannot be OK."/>
+                                </xsl:if>
+                                <xsl:call-template name="sch:searchable">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                    <xsl:with-param name="nscount" select="count($productSchemas//sch:productSchema)"/>
+                                </xsl:call-template>
                             </representation>
                         </request>
                         <!-- Okay -->
@@ -123,6 +146,78 @@
                 </xsl:attribute>
             </param>
         </xsl:if>
+    </xsl:template>
+    <xsl:template name="sch:searchable">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="nscount" as="xs:integer"/>
+        <xsl:variable name="excludePrefixes" as="xs:string*"
+                      select="('event', 'rax', 'util', 'xs',
+                               for $i in 1 to $nscount return concat($NS_PREFIX,xs:string($i)))"/>
+        <!--
+            If we have at least one searchable attribute, then
+            we need to add a preproc to handle it.
+        -->
+        <xsl:if test="$schemas//sch:attribute/@searchable">
+            <rax:preprocess>
+                <xslout:stylesheet
+                    xmlns:event="http://docs.rackspace.com/core/event"
+                    xmlns:atom="http://www.w3.org/2005/Atom"
+                    version="1.0">
+                    <xsl:attribute name="exclude-result-prefixes">
+                        <xsl:value-of select="$excludePrefixes" separator=" "/>
+                    </xsl:attribute>
+                        <xslout:output method="xml" encoding="UTF-8"/>
+                        <xslout:import href="util.xsl"/>
+                        <xslout:template match="text()" mode="category"/>
+                        <xslout:template match="node() | @*" mode="category">
+                            <xslout:apply-templates select="@* | node()" mode="category"/>
+                        </xslout:template>
+                        <xsl:apply-templates select="$schemas" mode="addCategory"/>
+                </xslout:stylesheet>
+            </rax:preprocess>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="sch:productSchema[sch:attribute/@searchable | sch:attributeGroup/sch:attribute/@searchable]"
+                  mode="addCategory">
+        <xsl:variable name="namespace" as="xs:anyURI" select="@namespace"/>
+        <xslout:template match="atom:entry[atom:content/event:event/pf:product]">
+            <xsl:namespace name="pf" select="$namespace"/>
+            <atom:entry>
+                <xslout:apply-templates select="@*"/>
+                <atom:id><xslout:value-of select="atom:id"/></atom:id>
+                <xslout:apply-templates mode="category" select="@* | node()"/>
+                <xslout:apply-templates select="node()"/>
+            </atom:entry>
+        </xslout:template>
+        <xslout:template match="atom:entry[atom:content/event:event/pf:product]/atom:id">
+            <xsl:namespace name="pf" select="$namespace"/>
+        </xslout:template>
+        <xsl:if test="sch:attribute/@searchable">
+            <xslout:template match="pf:product" mode="category">
+                <xsl:namespace name="pf" select="$namespace"/>
+                <xsl:apply-templates mode="addCategory" select="sch:attribute"/>
+                <xslout:apply-templates mode="category" select="@* | node()"/>
+            </xslout:template>
+        </xsl:if>
+        <xsl:for-each select="sch:attributeGroup[sch:attribute/@searchable]">
+            <xslout:template match="pf:{@name}" mode="category">
+                <xsl:namespace name="pf" select="$namespace"/>
+                <xsl:apply-templates mode="addCategory" select="sch:attribute"/>
+                <xslout:apply-templates mode="category" select="@* | node()"/>
+            </xslout:template>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template match="sch:attribute[@searchable]" mode="addCategory">
+        <xsl:variable name="inAttribute" as="xs:boolean"
+                      select="name(..) = 'attributeGroup'"/>
+        <xslout:call-template name="addCategory">
+            <xslout:with-param name="term" select="@{@name}"/>
+            <xslout:with-param name="prefix"
+                               select="'{if ($inAttribute) then concat(../@name,'.',@name) else @name}:'"/>
+            <xsl:if test="@default">
+                <xslout:with-param name="default" select="'{@default}'"/>
+            </xsl:if>
+        </xslout:call-template>
     </xsl:template>
     <xsl:function name="sch:ns" as="xs:string">
         <xsl:param name="pos" as="xs:integer"/>

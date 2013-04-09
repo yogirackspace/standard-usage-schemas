@@ -212,6 +212,9 @@
             <xsl:if test="@default">
                 <xsl:attribute name="default" select="@default"/>
             </xsl:if>
+            <xsl:if test="xsd:boolean(@public)">
+                <xsl:attribute name="public" select="@public"/>
+            </xsl:if>
             <xsl:if test="count($types) = 1">
                 <xsl:attribute name="type" select="$rtypes[1]" />
             </xsl:if>
@@ -243,6 +246,9 @@
                         </xsl:if>
                         <xsl:if test="@frequencyAttribute">
                             <xsl:attribute name="frequencyAttribute" select="@frequencyAttribute"/>
+                        </xsl:if>
+                        <xsl:if test="xsd:boolean(@searchable)">
+                            <xsl:attribute name="searchable" select="@searchable"/>
                         </xsl:if>
                     </usage:attributes>
                 </appinfo>

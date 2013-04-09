@@ -14,14 +14,14 @@
         unitOfMeasure="COUNT" min="1" max="10">
         Purchase tenure in years.
     </attribute>
-    <attribute name="domainGoLiveDate" type="utcDateTime" use="required">
-        Domain go live date.
-    </attribute>
     <attribute name="expirationDate" type="utcDateTime" use="required">
         The date the domain registration expires.
     </attribute>
     <attribute name="isAutoRenew" type="boolean" use="optional" default="false"
         displayName="Auto-renew">
         A boolean indicating that a user has selected to auto-renew this site.
+    </attribute>
+    <attribute name="endUserTenantId" type="string" use="optional">
+        The endUser tenantId associated with this domain registration.
     </attribute>
 </productSchema>
