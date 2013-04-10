@@ -104,6 +104,9 @@
     <import namespace="http://docs.rackspace.com/usage/sites/db"
             schemaLocation="../generated_product_xsds/sites-db.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/sites/email"
+            schemaLocation="../generated_product_xsds/sites-email.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/sites/metered"
             schemaLocation="../generated_product_xsds/sites-meter.xsd"/>
 
@@ -112,6 +115,9 @@
 
     <import namespace="http://docs.rackspace.com/usage/sites/subscription"
             schemaLocation="../generated_product_xsds/sites-subscription.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/bigdata"
+            schemaLocation="../generated_product_xsds/bigdata.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/atom-hopper/feedcount"
             schemaLocation="../generated_product_xsds/ahop-count.xsd"/>

@@ -6,7 +6,8 @@
 		type="INFO" dataCenter="DFW1" region="DFW"
 		eventTime="2012-09-15T11:51:11Z">
 	<csd:product version="1" serviceCode="CloudServers"
-			resourceType="SLICE" managed="false" imageId="101" 
+			resourceType="SLICE" managed="false" 
+			rootPassword="xy9gh2z" imageId="101" 
 			options="5" huddleId="202" serverId="10"
 			action="RESIZE" imageName="Name" customerId="100"
 			flavorId="101" status="BUILD" sliceType="CLOUD"

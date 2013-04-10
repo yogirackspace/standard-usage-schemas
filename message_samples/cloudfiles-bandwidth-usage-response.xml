@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:cf-b="http://docs.rackspace.com/usage/cloudfiles/bandwidth">
+    <atom:id>urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89</atom:id>
+    <atom:category term="tid:1234" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="cloudfiles.bandwidth.usage" />
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" endTime="2012-06-15T10:19:52Z" environment="PROD" id="8d89673c-c989-11e1-895a-0b3d632a8a89" region="DFW" startTime="2012-06-14T10:19:52Z" tenantId="1234" type="USAGE" version="1">
+            <cf-b:product bandwidthIn="192998" bandwidthOut="39993882" serviceCode="CloudFiles" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89" rel="self" />
+    <atom:updated>2013-02-28T19:40:39.120Z</atom:updated>
+    <atom:published>2013-02-28T19:40:39.120Z</atom:published>
+</atom:entry>

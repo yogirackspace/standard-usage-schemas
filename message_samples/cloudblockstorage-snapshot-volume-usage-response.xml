@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13</atom:id>
+    <atom:category term="tid:12334" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549" />
+    <atom:category term="cloudblockstorage.snapshot.volume.usage" />
+    <atom:title type="text">CBS Usage</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event" xmlns:cbs="http://docs.rackspace.com/usage/cbs/snapshot" dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" resourceName="MyVolume" startTime="2012-03-12T11:51:11Z" tenantId="12334" type="USAGE" version="1">
+            <cbs:product resourceType="VOLUME" serviceCode="CloudBlockStorage" snapshot="120.345" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:updated>2013-03-07T14:36:08.856Z</atom:updated>
+    <atom:published>2013-03-07T14:36:08.856Z</atom:published>
+</atom:entry>
