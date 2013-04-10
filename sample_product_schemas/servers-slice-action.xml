@@ -6,6 +6,9 @@
     <description>
         Slice Action Event.
     </description>
+    <attribute name="rootPassword" type="string" use="optional">
+    	The encrypted root password for a slice.
+    </attribute>
     <attribute name="managed" type="boolean" use="required">
         Is slice Managed.
     </attribute>
