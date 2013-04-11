@@ -10,11 +10,11 @@
                use="required">
         The display name of the user.
     </attribute>
-    <attribute name="groups" type="Name*"
+    <attribute name="groups" type="string*"
                use="optional">
         The list of groups currently associated with a user.
     </attribute>
-    <attribute name="roles" type="Name*"
+    <attribute name="roles" type="string*"
                use="optional">
         The list of roles currently associated with a user.
     </attribute>
