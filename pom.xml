@@ -214,11 +214,20 @@
                             <release>1</release>
 		            <mappings>
 			        <mapping>
+			            <directory>/etc/repose/usage-schema</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>555</filemode>
+			            <configuration>noreplace</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			        </mapping>
+			        <mapping>
 			            <directory>/etc/repose/usage-schema/wadl</directory>
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>655</filemode>
+			            <filemode>555</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
@@ -232,7 +241,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>655</filemode>
+			            <filemode>555</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
@@ -246,7 +255,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>644</filemode>
+			            <filemode>444</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
@@ -260,7 +269,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>644</filemode>
+			            <filemode>555</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
