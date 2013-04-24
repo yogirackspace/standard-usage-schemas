@@ -284,6 +284,7 @@
             <enumeration value="IAD"/>
             <enumeration value="LON"/>
             <enumeration value="ORD"/>
+            <enumeration value="SYD"/>
         </restriction>
     </simpleType>
 
@@ -314,6 +315,7 @@
             <enumeration value="LON1"/>
             <enumeration value="LON3"/>
             <enumeration value="ORD1"/>
+            <enumeration value="SYD2"/>
         </restriction>
     </simpleType>
 
