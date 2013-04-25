@@ -4,11 +4,19 @@
                version="1" resourceTypes="INSTANCE"
                type="USAGE">
     <description>
-        Additional IP information.
+        Cloud Server OpenStack IP Event.
     </description>
-    <attribute name="ips" type="unsignedByte" use="required"
-               unitOfMeasure="COUNT"
-               min="0" max="40">
-        The number of additional IPs for an instance.
+
+    <attribute name="ip" type="string" use="required">
+        IP address of the Cloud Server.
     </attribute>
+
+    <attribute name="serverId" type="int UUID" use="required">
+        The serverId that this IP is associated to.
+    </attribute>
+    
+    <attribute name="reserved" type="boolean" default="false">
+        A flag to indicate whether the IP is reserved or not. 
+    </attribute>
+         
 </productSchema>
