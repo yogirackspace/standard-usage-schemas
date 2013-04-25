@@ -6,7 +6,16 @@
     <description>
         Cloud Backup periodic license event.
     </description>
-    <attribute name="serverID" type="int UUID" use="required">
+    <attribute name="serverID" type="int UUID" use="optional">
         Server ID, where the agent in installed.
     </attribute>
+    <attribute name="serverName" type="string" use="required">
+        Server Name, where the agent is installed
+    </attribute>
+    <attribute name="external" type="boolean" default="false">
+        True if the server where the agent is installed is external to Rackspace
+    </attribute>
+    <xpathAssertion test="if (not(xsd:boolean(@external))) then @serverID else true()">
+        If the server is NOT external, then Server ID is required.
+    </xpathAssertion>
 </productSchema>
