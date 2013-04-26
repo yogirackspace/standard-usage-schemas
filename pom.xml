@@ -218,7 +218,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>555</filemode>
+			            <filemode>755</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			        </mapping>
@@ -227,7 +227,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>555</filemode>
+			            <filemode>755</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
@@ -241,7 +241,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>555</filemode>
+			            <filemode>755</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
@@ -257,7 +257,6 @@
 			            <!-- Modify file permissions as needed -->
 			            <filemode>444</filemode>
 			            <configuration>noreplace</configuration>
-			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
 				        <source>
 				            <location>atom_hopper.wadl</location>
@@ -269,7 +268,7 @@
 			            <username>repose</username>
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
-			            <filemode>555</filemode>
+			            <filemode>755</filemode>
 			            <configuration>noreplace</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
