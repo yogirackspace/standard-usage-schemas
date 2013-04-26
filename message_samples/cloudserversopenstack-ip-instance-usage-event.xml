@@ -1,12 +1,12 @@
 <event xmlns="http://docs.rackspace.com/core/event"
-       xmlns:ips="http://docs.rackspace.com/usage/nova/ips"
+       xmlns:ip="http://docs.rackspace.com/usage/nova/ip"
        version="1" id="5da1c590-4a31-11e2-ba50-67eebdd137db"
        resourceId="6acb5696-4a31-11e2-9c2e-db3bb6302f8d"
        dataCenter="DFW1" region="DFW" tenantId="27726"
        startTime="2012-09-15T11:51:11Z"
        endTime="2012-09-16T11:51:11Z"
        type="USAGE">
-    <ips:product version="1" serviceCode="CloudServersOpenStack"
+    <ip:product version="1" serviceCode="CloudServersOpenStack"
                          resourceType="INSTANCE" ip="10.20.30.40" 
                          serverId="7acb5696-6666-11e2-9c2e-db3bb6302f1f"/>
 </event>

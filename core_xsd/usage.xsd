@@ -89,8 +89,8 @@
     <import namespace="http://docs.rackspace.com/event/nova/host"
             schemaLocation="../generated_product_xsds/nova-updown.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/nova/ips"
-            schemaLocation="../generated_product_xsds/nova-ips.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/nova/ip"
+            schemaLocation="../generated_product_xsds/nova-ip.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/identity/user"
             schemaLocation="../generated_product_xsds/identity.xsd"/>

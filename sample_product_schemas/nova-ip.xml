@@ -1,10 +1,10 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/nova/ips"
+               namespace="http://docs.rackspace.com/usage/nova/ip"
                serviceCode="CloudServersOpenStack"
                version="1" resourceTypes="INSTANCE"
                type="USAGE">
     <description>
-        Cloud Server OpenStack IP Event.
+        Cloud Server OpenStack Additional IP Usage Event.
     </description>
 
     <attribute name="ip" type="string" use="required">
