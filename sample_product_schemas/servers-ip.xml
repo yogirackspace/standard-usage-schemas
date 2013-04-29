@@ -1,0 +1,22 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/servers/ip"
+               serviceCode="CloudServers"
+               version="1" resourceTypes="INSTANCE"
+               type="USAGE">
+    <description>
+        First Gen Cloud Server Additional IP Usage Event.
+    </description>
+
+    <attribute name="ip" type="string" use="required">
+        The IP address.
+    </attribute>
+
+    <attribute name="serverId" type="int UUID" use="required">
+        The serverId that this IP is associated to.
+    </attribute>
+    
+    <attribute name="reserved" type="boolean" default="false">
+        A flag to indicate whether the IP is reserved or not. 
+    </attribute>
+         
+</productSchema>
