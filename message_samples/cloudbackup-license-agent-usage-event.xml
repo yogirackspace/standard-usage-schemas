@@ -7,5 +7,7 @@
        tenantId="1234" version="1">
     <cb-lic:product version="1" serviceCode="CloudBackup"
                     serverID="9445"
+                    serverName="SomeServerName"
+                    external="false"
                     resourceType="AGENT"/>
 </event>
