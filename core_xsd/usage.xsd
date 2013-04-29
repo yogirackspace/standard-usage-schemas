@@ -86,6 +86,9 @@
     <import namespace="http://docs.rackspace.com/event/servers/bandwidth"
             schemaLocation="../generated_product_xsds/servers-bandwidth.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/servers/ip"
+            schemaLocation="../generated_product_xsds/servers-ip.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/nova/host"
             schemaLocation="../generated_product_xsds/nova-updown.xsd"/>
 
