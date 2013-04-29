@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.1.16-SNAPSHOT</version>
+    <version>1.0.17-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -188,6 +188,106 @@
                     <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
                 </pluginRepository>
             </pluginRepositories>
+        </profile>
+        <profile>
+            <id>build-rpm</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>rpm-maven-plugin</artifactId>
+                        <version>2.1-alpha-1</version>
+                        <executions>
+                            <execution>
+                                <id>Build RPM</id>
+                                <goals>
+                                    <goal>attached-rpm</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <copyright>Apache License, Version 2.0</copyright>
+                            <group>Applications/Communications</group>
+                            <packager>Rackspace - Cloud Integration Team</packager>
+                            <description>Standard Usage Schema</description>
+                            <prefix>/etc/repose</prefix>
+                            <release>1</release>
+		            <mappings>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>noreplace</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/wadl</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>noreplace</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+			               <source>
+				            <location>wadl</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/core_xsd</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>noreplace</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+				        <source>
+				            <location>core_xsd</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>444</filemode>
+			            <configuration>noreplace</configuration>
+			            <sources>
+				        <source>
+				            <location>atom_hopper.wadl</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>noreplace</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+				        <source>
+				            <location>generated_product_xsds</location>
+				        </source>
+			            </sources>
+			        </mapping>
+                            </mappings>
+                            <postremoveScriptlet>
+                                <script>rm -rf "/etc/repose/usage-schema"</script>
+                            </postremoveScriptlet>
+                            <requires>
+                                <require>repose</require>
+                            </requires>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>transform-xsd</id>
