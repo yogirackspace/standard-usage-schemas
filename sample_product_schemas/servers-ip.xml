@@ -1,22 +1,18 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/nova/ip"
-               serviceCode="CloudServersOpenStack"
+               namespace="http://docs.rackspace.com/usage/servers/ip"
+               serviceCode="CloudServers"
                version="1" resourceTypes="INSTANCE"
                type="USAGE">
     <description>
-        Cloud Server OpenStack Additional IP Usage Event.
+        First Gen Cloud Server Additional IP Usage Event.
     </description>
 
     <attribute name="ip" type="string" use="required">
-        IP address of the Cloud Server.
+        The IP address.
     </attribute>
 
-    <attribute name="serverId" type="int UUID">
+    <attribute name="serverId" type="int UUID" use="required">
         The serverId that this IP is associated to.
-    </attribute>
-    
-    <attribute name="serverName" type="string">
-        The name of the server that this IP is associated to.
     </attribute>
     
     <attribute name="reserved" type="boolean" default="false">
