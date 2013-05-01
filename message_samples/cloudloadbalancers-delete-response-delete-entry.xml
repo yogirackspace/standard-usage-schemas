@@ -1,0 +1,22 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:lb-delete="http://docs.rackspace.com/event/lbaas/delete">
+    <atom:id>urn:uuid:b79cc3de-b399-3883-b555-61829bb7f966</atom:id>
+    <atom:category term="tid:1" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:b79cc3de-b399-3883-b555-61829bbccd38" />
+    <atom:category term="cloudloadbalancers.delete.loadbalancer.delete" />
+    <atom:title type="text">LBAAS</atom:title>
+    <atom:category label="loadBalancerUsage" scheme="PLAIN" term="term" />
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" endTime="2012-06-15T10:19:52Z" environment="PROD" 
+            id="b79cc3de-b399-3883-b555-61829bb7f966" region="DFW" 
+            resourceId="b79cc3de-b399-3883-b555-61829bbccd38" resourceName="LoadBalancer" 
+            startTime="2012-06-14T10:19:52Z" tenantId="1" type="DELETE" version="1">
+            <lb-delete:product resourceType="LOADBALANCER" 
+                serviceCode="CloudLoadBalancers" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bb7f966" rel="self" />
+    <atom:updated>2013-05-01T17:16:12.090Z</atom:updated>
+    <atom:published>2013-05-01T17:16:12.090Z</atom:published>
+</atom:entry>
