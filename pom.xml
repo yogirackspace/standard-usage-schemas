@@ -219,7 +219,7 @@
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
 			            <filemode>755</filemode>
-			            <configuration>noreplace</configuration>
+			            <configuration>true</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			        </mapping>
 			        <mapping>
@@ -228,7 +228,7 @@
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
 			            <filemode>755</filemode>
-			            <configuration>noreplace</configuration>
+			            <configuration>true</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
 			               <source>
@@ -242,7 +242,7 @@
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
 			            <filemode>755</filemode>
-			            <configuration>noreplace</configuration>
+			            <configuration>true</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
 				        <source>
@@ -256,7 +256,7 @@
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
 			            <filemode>444</filemode>
-			            <configuration>noreplace</configuration>
+			            <configuration>true</configuration>
 			            <sources>
 				        <source>
 				            <location>atom_hopper.wadl</location>
@@ -269,7 +269,7 @@
 			            <groupname>repose</groupname>
 			            <!-- Modify file permissions as needed -->
 			            <filemode>755</filemode>
-			            <configuration>noreplace</configuration>
+			            <configuration>true</configuration>
 			            <directoryIncluded>true</directoryIncluded>
 			            <sources>
 				        <source>
@@ -278,9 +278,11 @@
 			            </sources>
 			        </mapping>
                             </mappings>
+                            <!-- Not sure we want to blow away this dir everytime
                             <postremoveScriptlet>
                                 <script>rm -rf "/etc/repose/usage-schema"</script>
                             </postremoveScriptlet>
+                            -->
                             <requires>
                                 <require>repose</require>
                             </requires>
