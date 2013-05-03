@@ -24,7 +24,7 @@ class ServersActionSuite extends BaseUsageSuite {
 
   val sliceAction = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Slice Action</atom:title>
-    <atom:content type="application/xml">
+      <atom:content type="application/xml">
                 <event xmlns="http://docs.rackspace.com/core/event"
                                 xmlns:csd="http://docs.rackspace.com/event/servers/slice"
                                 version="1" tenantId="555"
@@ -83,6 +83,35 @@ class ServersActionSuite extends BaseUsageSuite {
     </atom:content>
   </atom:entry>
 
+  val sliceActionMissingAction = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Slice Action</atom:title>
+      <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:csd="http://docs.rackspace.com/event/servers/slice"
+               version="1" tenantId="555"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               resourceId="4116"
+               type="INFO" dataCenter="DFW1" region="DFW"
+               eventTime="2012-09-15T11:51:11Z">
+          <csd:product version="1" serviceCode="CloudServers"
+                       resourceType="SLICE" managed="false" imageId="101"
+                       options="5" huddleId="202" serverId="10"
+                       imageName="Name" customerId="100"
+                       flavorId="101" status="BUILD" sliceType="CLOUD"
+                       privateIp="1.1.1.1" publicIp="1.1.1.1"
+                       dns1="1.1.1.1" dns2="1.1.1.1"
+                       createdAt="2011-05-15T11:51:11Z">
+            <csd:sliceMetaData key="key1" value="value1"/>
+            <csd:sliceMetaData key="key2" value="value2"/>
+            <csd:additionalPublicAddress ip="1.1.1.1"
+                                         dns1="1.1.1.1" dns2="1.1.1.1"/>
+            <csd:additionalPublicAddress ip="1.1.1.2"
+                                         dns1="1.1.1.2" dns2="1.1.1.2"/>
+          </csd:product>
+        </event>
+      </atom:content>
+    </atom:entry>
+
   var sliceActionWithoutServiceCode = <atom:entry xmlns="http://docs.rackspace.com/core/event"
                                                   xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Slice</atom:title>
@@ -118,9 +147,14 @@ class ServersActionSuite extends BaseUsageSuite {
     assertResultFailed(atomValidator.validate(req, response, chain), 400, "Bad Content: Required attribute @serviceCode is missing")
   }
 
-//  this is currently broken, see defect D-12072, D-12007
-//  test ("Slice Action without resourceType") {
-//    val req = request("POST", "/servers/events", "application/atom+xml", sliceActionMissingResourceType)
-//    assertResultFailed(atomValidator.validate(req, response, chain), 400, "Bad Content: Required attribute @resourceType is missing")
-//  }
+  // D-12072
+  test ("Slice Action without resourceType") {
+    val req = request("POST", "/servers/events", "application/atom+xml", sliceActionMissingResourceType)
+    assertResultFailed(atomValidator.validate(req, response, chain), 400, "Bad Content: Required attribute @resourceType is missing")
+  }
+
+  test ("Slice Action without action") {
+    val req = request("POST", "/servers/events", "application/atom+xml", sliceActionMissingAction)
+    assertResultFailed(atomValidator.validate(req, response, chain), 400, "Bad Content: Required attribute @action is missing")
+  }
 }
