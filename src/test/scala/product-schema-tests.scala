@@ -50,7 +50,10 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   val productSchemaSchema = new File("product_schema_def/xsd/productSchema.xsd")
   val productSchemaXSDXSL = new File("product_schema_def/xsl/productSchema-standalone.xsl")
+  val productAlternativesXSL = new File("product_schema_def/xsl/productSchema-alternatives.xsl")
   val productSchemaWADLXSL = new File("product_schema_def/xsl/productSchema-wadl.xsl")
+
+  val alternatesSchemaDir = new File(new File("target"), "gen_schemas")
 
   val generatedWADL = new File("wadl/product.wadl")
 
@@ -66,12 +69,12 @@ class ProductSchemaSuite extends BaseUsageSuite {
     })
   }
 
-  test("The number of generated XSDs and product schemas should match") {
-    assert(productSchemas.length == generatedXSDs.length)
+  test("The number of generated XSDs and product schemas should match generated schemas") {
+    assert(alternatesSchemaDir.listFiles().length == generatedXSDs.length)
   }
 
   test("Each product should have a generated product XSD that matches it") {
-    productSchemas.map(toConGenXSD).foreach(f => {
+    alternatesSchemaDir.listFiles().map(toConGenXSD).foreach(f => {
       printf("Checking %s/%s\n",generatedXSDsDir, f._3)
       if (f._1 != f._2) { printf("(%s)\n[%s]\n", f._1, f._2)}
       assert(f._1 == f._2)
@@ -109,10 +112,27 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   private val xsdTemplate  = transFactory.newTemplates(new StreamSource(productSchemaXSDXSL))
   private val wadlTemplate = transFactoryWADL.newTemplates(new StreamSource(productSchemaWADLXSL))
+  private val altsTemplate = transFactoryWADL.newTemplates(new StreamSource(productAlternativesXSL))
 
   private val defTransFactory = TransformerFactory.newInstance()
 
   private val productSchema = new SchemaAsserter(new URL(productSchemaSchema.toURI.toString))
+
+
+  //
+  // Init by generating alternate schemas
+  //
+  genAltSchemas
+
+  //
+  //  Generate alternate schemas.
+  //
+  private def genAltSchemas : Unit = {
+    val trans = altsTemplate.newTransformer()
+
+    trans.setParameter("outputBaseURI",alternatesSchemaDir.toURI().toString())
+    trans.transform(new StreamSource(toProcStepList(productSchemaDir)), new StreamResult(new StringWriter()))
+  }
 
   //
   //  Given a product schema, get cananicalized genereated XSDs
