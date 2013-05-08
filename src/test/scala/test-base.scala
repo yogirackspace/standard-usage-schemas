@@ -52,7 +52,7 @@ object BaseUsageSuite {
   //
   //  The atom hopper validator
   //
-  lazy val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
+  val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
 
   //
   //  Convinece function to get to the XML of a request
