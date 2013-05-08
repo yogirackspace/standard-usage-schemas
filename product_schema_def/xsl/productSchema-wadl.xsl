@@ -166,8 +166,8 @@
                     <xsl:attribute name="exclude-result-prefixes">
                         <xsl:value-of select="$excludePrefixes" separator=" "/>
                     </xsl:attribute>
-                        <xslout:output method="xml" encoding="UTF-8"/>
                         <xslout:import href="util.xsl"/>
+                        <xslout:output method="xml" encoding="UTF-8"/>
                         <xslout:template match="text()" mode="category"/>
                         <xslout:template match="node() | @*" mode="category">
                             <xslout:apply-templates select="@* | node()" mode="category"/>
