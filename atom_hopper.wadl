@@ -31,7 +31,7 @@
         <resource path="usagetest3/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource path="usagetest4/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource path="usagetest5/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Widget"/>
         <resource path="usagetest7/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest8/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="identity/users/deleted" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>

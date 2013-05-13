@@ -1,0 +1,27 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+    namespace="http://docs.rackspace.com/usage/widget"
+    version="3"
+    serviceCode="Widget"
+    type="UPDATE"
+    resourceTypes="WIDGET GADGET THINGY">
+    <description>
+        Test changing the message type.
+    </description>
+    <attribute name="label" type="string" use="required" searchable="true">
+        Human readable name.
+    </attribute>
+    <attribute name="mid" type="UUID" use="required">
+        An example of an UUID.
+    </attribute>
+    <attributeGroup name="metaData" minOccurs="0" maxOccurs="unbounded">
+        <description>
+            A list key/value meta data.
+        </description>
+        <attribute name="key" type="string" use="required" searchable="true">
+            The key
+        </attribute>
+        <attribute name="value" type="string" use="required">
+            The value
+        </attribute>
+    </attributeGroup>
+</productSchema>

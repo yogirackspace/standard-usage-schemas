@@ -15,6 +15,8 @@
     <import namespace="http://docs.rackspace.com/core/usage"
             schemaLocation="../../core_xsd/ProductExtension-Annotations.xsd"/>
 
+    <element name="alternatives" type="schema:ProductSimpleSchemaAlternatives"/>
+
     <element name="productSchema" type="schema:ProductSimpleSchemaBase">
         <alternative test="contains(@type,'USAGE') or not(@type)" type="schema:ProductSimpleUsageSchema"/>
         <alternative test="not(contains(@type,'USAGE'))" type="schema:ProductSimpleSchema"/>
@@ -23,6 +25,55 @@
     <!--
         Complex Types
     -->
+    <complexType name="ProductSimpleSchemaAlternatives">
+        <annotation>
+            <documentation>
+                <html:p>
+                    A list of alternative versions of a simple product schemas.
+                </html:p>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element ref="schema:productSchema" minOccurs="1" maxOccurs="unbounded"/>
+        </sequence>
+        <assert vc:minVersion="1.1"
+                test="every $pd in schema:productSchema satisfies $pd/@serviceCode = schema:productSchema[1]/@serviceCode"
+                xerces:message="All alternative schemas should share the same service code."
+                saxon:message="All alternative schemas should share the same service code.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        All alternative schemas should share the same service code.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
+        <assert vc:minVersion="1.1"
+                test="every $pd in schema:productSchema satisfies $pd/@namespace = schema:productSchema[1]/@namespace"
+                xerces:message="All alternative schemas should share the same namespace."
+                saxon:message="All alternative schemas should share the same namespace.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        All alternative schemas should share the same namespace.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
+        <assert vc:minVersion="1.1"
+                test="count(distinct-values(schema:productSchema/@version)) = count(schema:productSchema)"
+                xerces:message="Alternate message versions should each have a unique version identifier."
+                saxon:message="Alternate message versions should each have a unique version identifier.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Alternate message versions should each have a unique version identifier.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
+    </complexType>
+
     <complexType name="ProductSimpleSchemaBase">
         <all>
             <element name="description" type="xsd:string">
