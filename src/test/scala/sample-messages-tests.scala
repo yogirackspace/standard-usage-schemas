@@ -34,29 +34,45 @@ import javax.xml.transform.stream.StreamResult
 class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleDir   = new File("message_samples")
-  val sampleFiles = sampleDir.listFiles.filter(_.getName().endsWith(".xml"))
+  val sampleFiles = getSampleXMLFiles(sampleDir)
   val badSampleDir = new File("bad_message_samples")
-  val badSampleFiles = badSampleDir.listFiles.filter(_.getName().endsWith(".xml"))
+  val badSampleFiles = getSampleXMLFiles(badSampleDir)
 
   val sampleXSD = new File("core_xsd/entry.xsd")
 
+  def getSampleXMLFiles(dir: File) : List[File] = {
+
+    def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
+      case List() => List()
+      case fi :: rest => if (!fi.isDirectory() && fi.getName().endsWith(".xml")) {
+        fi :: getSampleXMLFiles(rest)
+      } else if (fi.isDirectory()) {
+        getSampleXMLFiles(rest ++ fi.listFiles().toList)
+      } else {
+        getSampleXMLFiles(rest)
+      }
+    }
+
+    getSampleXMLFiles(dir.listFiles().toList)
+  }
+
   test("All sample files in the samples directory should be valid according to the product schema") {
     sampleFiles.foreach ( f => {
-      printf("Checking %s/%s\n",sampleDir.getName,f.getName)
+      printf("Checking %s\n",f.getAbsolutePath)
       usageMsg.assert(XML.loadFile(f))
     })
   }
 
   test("All sample files annotated with <?atom feed=... ..> in the sample directory should pass validation on that feed") {
     sampleFiles.map(toFeedFile).filter(_ != None).map(_.get).foreach (f => {
-      printf("Checking %s/%s against feed %s\n",sampleDir.getName, f._2.getName, f._1)
+      printf("Checking %s against feed %s\n", f._2.getAbsolutePath, f._1)
       atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
     })
   }
 
   test("All sample files in the bad samples directly and annotated with <?atom...> and <?expect..> should fail in the expected way") {
     badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
-      printf("Checking %s/%s against feed %s\n",badSampleDir.getName, f._4.getName, f._1)
+      printf("Checking %s against feed %s\n",  f._4.getAbsolutePath, f._1)
       val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
     })
   }
