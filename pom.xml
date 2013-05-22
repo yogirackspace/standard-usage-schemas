@@ -41,7 +41,7 @@
         <scala.test.version>1.9.1</scala.test.version>
         <junit.version>4.10</junit.version>
         <saxon-ee.version>9.4.0.6</saxon-ee.version>
-        <xerces.version>2.12.0-rax</xerces.version>
+        <xerces.version>2.12.1-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
         <xmlsec.version>1.4.6</xmlsec.version>
         <wadl-tools.version>1.0.13</wadl-tools.version>

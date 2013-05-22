@@ -1,0 +1,48 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/usage/widget/multiple"
+        version="1"
+        serviceCode="Widget"
+        resourceTypes="WIDGET GADGET">
+    <description>
+        Widget specific user fields
+    </description>
+    <aggregationPeriods>
+        <aggregationPeriod>PT5H</aggregationPeriod>
+        <aggregationPeriod>PT19H</aggregationPeriod>
+    </aggregationPeriods>
+    <attribute name="label" type="string" use="required">
+        Human readable name.
+    </attribute>
+    <attribute name="mid" type="UUID" use="required">
+        An example of an UUID.
+    </attribute>
+    <attribute name="str" type="string" use="optional">
+        An optional string.
+    </attribute>
+    <attribute name="widget_id_list" type="int*" use="optional"
+               aggregateFunction="SUM" unitOfMeasure="COUNT">
+        A list of integers.
+    </attribute>
+    <attribute name="same_int" type="int" use="optional"
+               aggregateFunction="LAST" unitOfMeasure="COUNT">
+        An integer of some kind.  Only the last value is taken into
+        account.
+    </attribute>
+    <attribute name="num_checks" type="int" use="required">
+        A single integer.
+    </attribute>
+    <attribute name="disabled" type="boolean" use="optional" default="false"
+               displayName="Disabled">
+        A boolean.
+    </attribute>
+    <attribute name="time" type="utcTime" use="required">
+        A time in UTC.
+    </attribute>
+    <attribute name="dateTime" type="utcDateTime" use="required">
+        A datetime in UTC.
+    </attribute>
+    <attribute name="enumList" type="Name*"
+               allowedValues="BEST BETTER WORST" use="required">
+        A list of enumertation strings.
+    </attribute>
+</productSchema>

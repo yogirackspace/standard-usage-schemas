@@ -206,6 +206,7 @@
                             <xsl:attribute name="type" select="@type"/>
                         </xsl:if>
                     </usage:core>
+                    <xsl:apply-templates mode="AddAggregationPeriods"/>
                 </appinfo>
             </annotation>
             <xsl:choose>
@@ -281,6 +282,20 @@
                 <xsl:apply-templates mode="AddAttributeGroups"/>
             </complexType>
         </element>
+    </xsl:template>
+    <xsl:template match="schema:aggregationPeriods">
+        <!-- Ignore aggregationPeriods in this mode -->
+    </xsl:template>
+    <xsl:template match="schema:aggregationPeriods" mode="AddAggregationPeriods">
+        <usage:aggregationPeriods>
+            <xsl:apply-templates mode="AddAggregationPeriod"/>
+        </usage:aggregationPeriods>
+    </xsl:template>
+    <xsl:template match="schema:aggregationPeriod">
+        <!-- Ignore aggregationPeriod in this mode -->
+    </xsl:template>
+    <xsl:template match="schema:aggregationPeriod" mode="AddAggregationPeriod">
+        <usage:aggregationPeriod><xsl:value-of select="."/></usage:aggregationPeriod>
     </xsl:template>
     <xsl:function name="schema:getSchemaType" as="xsd:string">
         <xsl:param name="type" as="xsd:string" />
