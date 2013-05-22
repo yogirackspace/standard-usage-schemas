@@ -206,7 +206,7 @@
                             <xsl:attribute name="type" select="@type"/>
                         </xsl:if>
                     </usage:core>
-                    <xsl:call-template name="addAggregationPeriods"/>
+                    <xsl:apply-templates mode="AddAggregationPeriods"/>
                 </appinfo>
             </annotation>
             <xsl:choose>
@@ -288,9 +288,7 @@
     </xsl:template>
     <xsl:template match="schema:aggregationPeriods" mode="AddAggregationPeriods">
         <usage:aggregationPeriods>
-            <xsl:for-each select=".">
-                <xsl:apply-templates mode="AddAggregationPeriod"/>
-            </xsl:for-each>
+            <xsl:apply-templates mode="AddAggregationPeriod"/>
         </usage:aggregationPeriods>
     </xsl:template>
     <xsl:template match="schema:aggregationPeriod">
@@ -450,11 +448,6 @@
             <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
                 <xsl:apply-templates select="schema:attributeGroup" mode="AddAttributeGroups"/>
             </sequence>
-        </xsl:if>
-    </xsl:template>
-    <xsl:template name="addAggregationPeriods">
-        <xsl:if test="schema:aggregationPeriods">
-            <xsl:apply-templates select="schema:aggregationPeriods" mode="AddAggregationPeriods"/>
         </xsl:if>
     </xsl:template>
     <xsl:template name="addEnumType">
