@@ -34,9 +34,6 @@
         <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Widget"/>
         <resource path="usagetest7/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest8/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource path="identity/users/migrated/CloudAuth" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
-        <resource path="identity/users/migrated/CloudSitesLDAP" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
-        <resource path="identity/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
