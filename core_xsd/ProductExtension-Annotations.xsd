@@ -20,34 +20,34 @@
         <annotation>
             <documentation>
                 <html:p>
-                    An optional list of periods specifying aggregation 
-                    periods. Usage events will be aggregated together when 
-                    their startTime or eventTime (whichever is present) 
-                    falls into the same aggregation period. Note we use 
-                    the word Period to match the JodaTime sense of the 
+                    An optional list of periods specifying aggregation
+                    periods. Usage events will be aggregated together when
+                    their startTime or eventTime (whichever is present)
+                    falls into the same aggregation period. Note we use
+                    the word Period to match the JodaTime sense of the
                     word, which is distinguished from a Duration in that
                     it takes into consideration leap years / seconds, etc.
                 </html:p>
                 <html:p>
-                    The first aggregation period begins at midnight, UTC. 
-                    The time period of the first period is the first element 
-                    in this list. Each subsequent element in this list 
-                    defines the time period of subsequent aggregation periods, 
+                    The first aggregation period begins at midnight, UTC.
+                    The time period of the first period is the first element
+                    in this list. Each subsequent element in this list
+                    defines the time period of subsequent aggregation periods,
                     in order.
                 </html:p>
                 <html:p>
-                    The period is inclusive of the start time, and 
-                    exclusive of the end time (calculated as start time + 
-                    time period, taking into account leap years / leap seconds, 
+                    The period is inclusive of the start time, and
+                    exclusive of the end time (calculated as start time +
+                    time period, taking into account leap years / leap seconds,
                     etc.)). Each subsequent aggregation period begins at
                     the end time of the previous aggregation period.
                 </html:p>
                 <html:p>
                     The time periods in this list must sum to 24 hours exactly.
-                    When not specified, a single aggregation period with a 
-                    duration of 24 hours is used. This default value of 24 
-                    hours should apply in most cases. However, during the 
-                    "soak period" used for product on-boarding, it may be 
+                    When not specified, a single aggregation period with a
+                    duration of 24 hours is used. This default value of 24
+                    hours should apply in most cases. However, during the
+                    "soak period" used for product on-boarding, it may be
                     important to aggregate multiple times per day.
                 </html:p>
             </documentation>
@@ -82,9 +82,9 @@
                 </annotation>
             </element>
         </sequence>
-        <!-- 
+        <!--
             Note, the test in this assert uses a work-around for a bug in Xerces, described here
-            https://issues.apache.org/jira/browse/XERCESJ-1608?focusedCommentId=13593437#comment-13593437 
+            https://issues.apache.org/jira/browse/XERCESJ-1608?focusedCommentId=13593437#comment-13593437
         -->
         <assert vc:minVersion="1.1"
             test="xsd:dayTimeDuration('PT24H') = sum(for $d in element(usage:aggregationPeriod) return xsd:dayTimeDuration(string($d)))"
@@ -93,8 +93,8 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        The list of time periods specified in 
-                        aggregationPeriods must sum to 
+                        The list of time periods specified in
+                        aggregationPeriods must sum to
                         exactly 24 hours.
                     </html:p>
                 </documentation>

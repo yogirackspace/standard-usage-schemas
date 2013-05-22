@@ -314,7 +314,7 @@
                                 grouped by the resourceID.  In other words,
                                 the product is being charged per resource.  If
                                 not, that attributes are grouped at the
-                                tenant level.  The default is true which 
+                                tenant level.  The default is true which
                                 should apply to most products.
                             </html:p>
                         </documentation>
@@ -402,15 +402,15 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        The list of time periods specified in 
-                        aggregationPeriods must sum to 
+                        The list of time periods specified in
+                        aggregationPeriods must sum to
                         exactly 24 hours.
                     </html:p>
                 </documentation>
             </annotation>
         </assert>
     </complexType>
-    
+
     <complexType name="UsageAttribute">
         <simpleContent>
             <extension base="schema:Attribute">
