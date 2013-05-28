@@ -12,7 +12,7 @@
         <event dataCenter="GLOBAL" environment="PROD" eventTime="2012-06-14T10:19:52Z"
             id="47b574c4-0400-11e2-b19d-7b8e208cade1" region="GLOBAL" resourceId="my.site.com"
             resourceName="my.site.com" tenantId="12883" type="USAGE_SNAPSHOT" version="1">
-            <email:product numberOfMailboxes="20" resourceType="SITES_EMAIL"
+            <email:product numberOfMailboxes="20" resourceType="SITES_EMAIL" boxSize="512"
                 serviceCode="CloudSites" version="1"/>
         </event>
     </atom:content>
