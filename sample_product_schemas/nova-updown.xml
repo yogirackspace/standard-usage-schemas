@@ -6,10 +6,6 @@
     <description>
         UP / DOWN messages for Nova.
     </description>
-    <attribute name="status" type="string"
-               use="required">
-        The status of the event.
-    </attribute>
     <attribute name="collector" type="string"
                use="required">
         The hostname of the collector.

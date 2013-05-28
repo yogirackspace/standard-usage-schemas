@@ -27,16 +27,6 @@
                  type="xsd:Name"
                  fixed="CloudServersOpenStack"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="status" use="required" type="p:string">
-         <annotation>
-            <documentation>
-               <html:p>The status of the event.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes/>
-            </appinfo>
-         </annotation>
-      </attribute>
       <attribute name="collector" use="required" type="p:string">
          <annotation>
             <documentation>
