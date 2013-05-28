@@ -66,7 +66,11 @@ class SampleMessagesSuite extends BaseUsageSuite {
   test("All sample files annotated with <?atom feed=... ..> in the sample directory should pass validation on that feed") {
     sampleFiles.map(toFeedFile).filter(_ != None).map(_.get).foreach (f => {
       printf("Checking %s against feed %s\n", f._2.getAbsolutePath, f._1)
-      atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
+      if ( f._2.getAbsolutePath().indexOf("/identity/") != -1 ) {
+        atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
+      } else {
+        atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
+      }
     })
   }
 
