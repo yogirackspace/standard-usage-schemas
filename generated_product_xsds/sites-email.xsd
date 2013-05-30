@@ -15,7 +15,7 @@
    <complexType name="CloudSitesType">
       <annotation>
          <documentation>
-            <html:p>Cloud Sites number of email boxes per account ID (not aggregated).</html:p>
+            <html:p>Cloud Sites number of email boxes per account ID.</html:p>
          </documentation>
          <appinfo>
             <usage:core groupByResource="true" type="USAGE_SNAPSHOT"/>
@@ -36,7 +36,21 @@
             </documentation>
             <appinfo>
                <usage:attributes displayName="Number of Email Boxes"
-                                 aggregateFunction="NONE"
+                                 aggregateFunction="AVG"
+                                 unitOfMeasure="COUNT"
+                                 groupBy="false"
+                                 billable="true"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="boxSize" use="required" type="p:boxSizeType">
+         <annotation>
+            <documentation>
+               <html:p>The size of the email box in MB</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE"
+                                 unitOfMeasure="MB"
                                  groupBy="false"
                                  billable="true"/>
             </appinfo>
@@ -57,6 +71,12 @@
       <restriction base="xsd:int">
          <minInclusive value="0"/>
          <maxInclusive value="1000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="boxSizeType">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="2048"/>
       </restriction>
    </simpleType>
 </xsd:schema>

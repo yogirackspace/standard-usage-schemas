@@ -11,7 +11,8 @@
                tenantId="12883" version="1">
             <email:product serviceCode="CloudSites" version="1"
                        resourceType="SITES_EMAIL" 
-                       numberOfMailboxes="20"/>
+                       numberOfMailboxes="20"
+                       boxSize="512" />
         </event>
     </atom:content>
 </atom:entry>
