@@ -131,5 +131,8 @@
     <import namespace="http://docs.rackspace.com/event/lbaas/delete"
             schemaLocation="../generated_product_xsds/lbaas-delete.xsd"/> 
 
+    <import namespace="http://docs.rackspace.com/event/clouddns"
+            schemaLocation="../generated_product_xsds/clouddns.xsd"/> 
+
     <element name="event" type="event:EventV1"/>
 </schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="dns/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns="http://docs.rackspace.com/core/event"
+            xmlns:clouddns="http://docs.rackspace.com/event/clouddns">
+    <atom:title>Cloud DNS System Events</atom:title>
+    <atom:content type="application/xml">
+        <event version="1" 
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               resourceName="mydomain.mycompany.com"
+               dataCenter="DFW1" region="DFW"
+               eventTime="2013-05-12T11:51:11Z"
+               type="DELETE">
+            <clouddns:product version="1" serviceCode="CloudDNS"
+                         resourceType="DOMAIN"/>
+        </event>
+    </atom:content>
+</atom:entry>
