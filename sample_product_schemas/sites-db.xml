@@ -6,6 +6,10 @@
     <description>
         Total usage for sites db.
     </description>
+    <aggregationPeriods>
+        <aggregationPeriod>PT5H</aggregationPeriod>
+        <aggregationPeriod>PT19H</aggregationPeriod>
+    </aggregationPeriods>
     <attribute name="storage" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="AVG"
                min="0" max="644245094400">

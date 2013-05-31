@@ -6,7 +6,6 @@
     <description>
         Cloud Sites number of email boxes per account ID.
     </description>
-
     <attribute name="numberOfMailboxes" type="int" use="required" 
         min="0" max="1000" unitOfMeasure="COUNT" aggregateFunction="AVG"
         displayName="Number of Email Boxes">
