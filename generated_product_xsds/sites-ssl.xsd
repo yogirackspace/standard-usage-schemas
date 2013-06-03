@@ -19,6 +19,10 @@
          </documentation>
          <appinfo>
             <usage:core groupByResource="true" type="USAGE_SNAPSHOT"/>
+            <usage:aggregationPeriods>
+               <usage:aggregationPeriod>PT5H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>PT19H</usage:aggregationPeriod>
+            </usage:aggregationPeriods>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>

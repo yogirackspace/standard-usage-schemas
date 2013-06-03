@@ -6,6 +6,10 @@
     <description>
         SSL usage for a site.
     </description>
+    <aggregationPeriods>
+        <aggregationPeriod>PT5H</aggregationPeriod>
+        <aggregationPeriod>PT19H</aggregationPeriod>
+    </aggregationPeriods>
     <attribute name="SSLenabled" type="boolean" use="required"
                unitOfMeasure="COUNT" aggregateFunction="MAX">
         Was SSL usage enabled.
