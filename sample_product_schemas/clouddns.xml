@@ -1,0 +1,10 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/clouddns"
+               serviceCode="CloudDNS"
+               version="1"
+               resourceTypes="DOMAIN"
+               type="CREATE DELETE">
+    <description>
+        Cloud DNS system events 
+    </description>
+</productSchema>
