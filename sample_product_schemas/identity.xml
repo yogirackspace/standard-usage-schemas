@@ -1,26 +1,64 @@
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/event/identity/user"
-               serviceCode="CloudIdentity"
-               version="1" resourceTypes="USER"
-               type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
-    <description>
-        Identity user messages.
-    </description>
-    <attribute name="displayName" type="string"
-               use="required">
-        The display name of the user.
-    </attribute>
-    <attribute name="groups" type="string*"
-               use="optional">
-        The list of groups currently associated with a user.
-    </attribute>
-    <attribute name="roles" type="string*"
-               use="optional">
-        The list of roles currently associated with a user.
-    </attribute>
-    <attribute name="migrated" type="boolean"
-               use="optional" default="false">
-        True if the user has been migrated to global auth, false
-        otherwise.  The default is false.
-    </attribute>
-</productSchema>
+<alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/event/identity/user"
+                   serviceCode="CloudIdentity"
+                   version="1" resourceTypes="USER"
+                   type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
+        <description>
+            Identity user messages.
+        </description>
+        <attribute name="displayName" type="string"
+                   use="required">
+            The display name of the user.
+        </attribute>
+        <attribute name="groups" type="string*"
+                   use="optional">
+            The list of groups currently associated with a user.
+        </attribute>
+        <attribute name="roles" type="string*"
+                   use="optional">
+            The list of roles currently associated with a user.
+        </attribute>
+        <attribute name="migrated" type="boolean"
+                   use="optional" default="false">
+            True if the user has been migrated to global auth, false
+            otherwise.  The default is false.
+        </attribute>
+    </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/event/identity/user"
+                   serviceCode="CloudIdentity"
+                   version="2" resourceTypes="USER"
+                   type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
+        <description>
+            Identity user messages.
+        </description>
+        <attribute name="displayName" type="string"
+                   use="required">
+            The display name of the user.
+        </attribute>
+        <attribute name="groups" type="string*"
+                   use="optional">
+            The list of groups currently associated with a user.
+        </attribute>
+        <attribute name="roles" type="string*"
+                   use="optional">
+            The list of roles currently associated with a user.
+        </attribute>
+        <attribute name="migrated" type="boolean"
+                   use="optional" default="false">
+            True if the user has been migrated to global auth, false
+            otherwise.  The default is false.
+        </attribute>
+        <attribute name="updatedAttributes" type="Name*"
+                   use="optional" allowedValues="PASSWORD ROLES GROUPS FIRSTNAME"
+                   searchable="true">
+            The attributes that have been updated.
+        </attribute>
+        <!--
+        <xpathAssertion test="if (../@type = 'UPDATE') then @updatedAttributes else true()">
+            For version 2 and type is UPDATE, the updatedAttributes attribute is required
+        </xpathAssertion>
+        -->
+    </productSchema>
+</alternatives>
