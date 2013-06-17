@@ -11,8 +11,54 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/usage/maas">
-   <element name="product" type="p:CloudMonitoringType"/>
-   <complexType name="CloudMonitoringType">
+   <element name="product"
+            type="p:CloudMonitoring2Type"
+            vc:minVersion="1.0"
+            vc:maxVersion="1.1">
+      <annotation>
+         <documentation>
+            <html:p>
+                        Alternates are not supported by XSD 1.0.  So
+                        in XSD 1.0 we are only supporting a single
+                        version (in this case version 2).
+                    </html:p>
+            <html:p>
+                        To support other versions you may redefine the
+                        product element to any of the following types:
+                    </html:p>
+            <html:ol>
+               <html:li>p:CloudMonitoring1Type</html:li>
+               <html:li>p:CloudMonitoring2Type</html:li>
+            </html:ol>
+         </documentation>
+      </annotation>
+   </element>
+   <element name="product" vc:minVersion="1.1" type="p:BaseCloudMonitoringType">
+      <alternative test="@version eq '1'" type="p:CloudMonitoring1Type"/>
+      <alternative test="@version eq '2'" type="p:CloudMonitoring2Type"/>
+      <alternative type="p:BaseCloudMonitoringTypeError"/>
+   </element>
+   <complexType name="BaseCloudMonitoringType">
+      <attribute name="version" type="xsd:string" use="required"/>
+      <attribute name="serviceCode"
+                 use="required"
+                 type="xsd:Name"
+                 fixed="CloudMonitoring"/>
+   </complexType>
+   <complexType name="BaseCloudMonitoringTypeError" vc:minVersion="1.1">
+      <complexContent>
+         <extension base="p:BaseCloudMonitoringType">
+            <openContent mode="interleave">
+               <any processContents="skip"/>
+            </openContent>
+            <anyAttribute processContents="skip"/>
+            <assert test="false()"
+                    xerces:message="For this type of message, only  versions ( 1, 2 ) are supported."
+                    saxon:message="For this type of message, only  versions ( 1, 2 ) are supported."/>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="CloudMonitoring1Type">
       <annotation>
          <documentation>
             <html:p>MaaS specific usage fields.</html:p>
@@ -21,37 +67,36 @@
             <usage:core groupByResource="true" type="USAGE"/>
          </appinfo>
       </annotation>
-      <attribute name="version" type="xsd:string" use="required" fixed="1"/>
-      <attribute name="serviceCode"
-                 use="required"
-                 type="xsd:Name"
-                 fixed="CloudMonitoring"/>
-      <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="monitoringZones" use="required" type="xsd:int">
-         <annotation>
-            <documentation>
-               <html:p>The number of monitoring zones.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="true"
-                                 billable="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="checkType" use="optional" type="p:string">
-         <annotation>
-            <documentation>
-               <html:p>The type of check being performed.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
+      <complexContent>
+         <extension base="p:BaseCloudMonitoringType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes1"/>
+            <attribute name="monitoringZones" use="required" type="xsd:int">
+               <annotation>
+                  <documentation>
+                     <html:p>The number of monitoring zones.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE"
+                                       unitOfMeasure="COUNT"
+                                       groupBy="true"
+                                       billable="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="checkType" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>The type of check being performed.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
    </complexType>
-   <simpleType name="ResourceTypes">
+   <simpleType name="ResourceTypes1">
       <annotation>
          <documentation>
             <html:p>Resource Types for this product.</html:p>
@@ -59,6 +104,86 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="CHECK"/>
+      </restriction>
+   </simpleType>
+   <complexType name="CloudMonitoring2Type">
+      <annotation>
+         <documentation>
+            <html:p>MaaS specific usage fields.</html:p>
+         </documentation>
+         <appinfo>
+            <usage:core groupByResource="true" type="USAGE"/>
+         </appinfo>
+      </annotation>
+      <complexContent>
+         <extension base="p:BaseCloudMonitoringType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes2"/>
+            <attribute name="monitoringZones" use="required" type="xsd:int">
+               <annotation>
+                  <documentation>
+                     <html:p>The number of monitoring zones.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE"
+                                       unitOfMeasure="COUNT"
+                                       groupBy="true"
+                                       billable="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="checkType" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>The type of check being performed.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="product" use="required" type="p:product2Enum">
+               <annotation>
+                  <documentation>
+                     <html:p>The product that the check is intended to be used for.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="productInstanceId" use="required" type="p:UUID">
+               <annotation>
+                  <documentation>
+                     <html:p>The instanceId of the product that the check is intended to be used for.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+   </complexType>
+   <simpleType name="ResourceTypes2">
+      <annotation>
+         <documentation>
+            <html:p>Resource Types for this product.</html:p>
+         </documentation>
+      </annotation>
+      <restriction base="xsd:token">
+         <enumeration value="CHECK"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="product2Enum">
+      <restriction base="xsd:Name">
+         <enumeration value="CLOUD_DATABASE"/>
+         <enumeration value="CLOUD_SERVER"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="UUID">
+      <restriction base="xsd:string">
+         <length value="36" fixed="true"/>
+         <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
       </restriction>
    </simpleType>
    <simpleType name="string">

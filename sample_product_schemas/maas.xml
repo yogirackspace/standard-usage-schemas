@@ -1,18 +1,46 @@
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/maas"
-               serviceCode="CloudMonitoring"
-               version="1"
-               resourceTypes="CHECK">
-    <description>
-        MaaS specific usage fields.
-    </description>
-    <attribute name="monitoringZones" type="int"
-               use="required" unitOfMeasure="COUNT"
-               groupBy="true">
-        The number of monitoring zones.
-    </attribute>
-    <attribute name="checkType" type="string"
-               billable="false" use="optional">
-        The type of check being performed.
-    </attribute>
-</productSchema>
+<alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/maas"
+                   serviceCode="CloudMonitoring"
+                   version="1"
+                   resourceTypes="CHECK">
+        <description>
+            MaaS specific usage fields.
+        </description>
+        <attribute name="monitoringZones" type="int"
+                   use="required" unitOfMeasure="COUNT"
+                   groupBy="true">
+            The number of monitoring zones.
+        </attribute>
+        <attribute name="checkType" type="string"
+                   billable="false" use="optional">
+            The type of check being performed.
+        </attribute>
+    </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/maas"
+                   serviceCode="CloudMonitoring"
+                   version="2"
+                   resourceTypes="CHECK">
+        <description>
+            MaaS specific usage fields.
+        </description>
+        <attribute name="monitoringZones" type="int"
+                   use="required" unitOfMeasure="COUNT"
+                   groupBy="true">
+            The number of monitoring zones.
+        </attribute>
+        <attribute name="checkType" type="string"
+                   billable="false" use="optional">
+            The type of check being performed.
+        </attribute>
+        <attribute name="product" type="Name"
+                   allowedValues="CLOUD_DATABASE CLOUD_SERVER"
+                   use="required">
+            The product that the check is intended to be used for.
+        </attribute>
+        <attribute name="productInstanceId" type="UUID" use="required">
+            The instanceId of the product that the check is intended to be used for.
+        </attribute>
+    </productSchema>
+</alternatives>
