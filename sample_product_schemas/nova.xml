@@ -2,7 +2,7 @@
                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/event/nova"
                serviceCode="CloudServersOpenStack"
-               version="1" resourceTypes="SLICE"
+               version="1" resourceTypes="SERVER"
                type="USAGE">
     <description>
         Usage message for a Next Generation (Nova) slice.
