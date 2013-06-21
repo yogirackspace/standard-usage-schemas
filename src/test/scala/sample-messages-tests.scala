@@ -77,7 +77,11 @@ class SampleMessagesSuite extends BaseUsageSuite {
   test("All sample files in the bad samples directly and annotated with <?atom...> and <?expect..> should fail in the expected way") {
     badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
       printf("Checking %s against feed %s\n",  f._4.getAbsolutePath, f._1)
-      val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
+      if ( f._4.getAbsolutePath().indexOf("/identity/") != -1 ) {
+        val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
+      } else {
+        val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
+      }
     })
   }
 

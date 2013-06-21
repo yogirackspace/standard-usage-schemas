@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="identity/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Identity Event</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:id="http://docs.rackspace.com/event/identity/user"
+               version="1" id="e29ac1ca-fd06-11e1-a80c-bb58fc4a6929"
+               resourceId="10031728" resourceName="testuser"
+               dataCenter="DFW1" region="DFW" eventTime="2012-09-19T11:11:11Z"
+               type="UPDATE">
+            <id:product version="2"
+                        resourceType="USER"
+                        serviceCode="CloudIdentity"
+                        displayName="testUser"
+                        groups="group1 group2 group3"
+                        roles="admin RAX:admin role3"
+                        updatedAttributes="GROUPS"/>
+        </event>
+    </atom:content>
+</atom:entry>
