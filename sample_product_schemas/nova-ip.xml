@@ -11,15 +11,15 @@
         IP address of the Cloud Server.
     </attribute>
 
-    <attribute name="serverId" type="int UUID">
+    <attribute name="serverId" type="int UUID" use="optional">
         The serverId that this IP is associated to.
     </attribute>
     
-    <attribute name="serverName" type="string">
+    <attribute name="serverName" type="string" use="optional">
         The name of the server that this IP is associated to.
     </attribute>
     
-    <attribute name="reserved" type="boolean" default="false">
+    <attribute name="reserved" type="boolean" use="optional" default="false">
         A flag to indicate whether the IP is reserved or not. 
     </attribute>
          
