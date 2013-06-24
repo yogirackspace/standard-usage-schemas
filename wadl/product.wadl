@@ -449,8 +449,8 @@
                <param name="usage"
                       style="plain"
                       required="true"
-                      path="if (/atom:entry/atom:content/event:event[@type='USAGE']) then (/atom:entry/atom:content/event:event[@type='USAGE']/w_ns20:product[@version = '1']) else true()"
-                      rax:message="Only usage messages with product attributes in the following namespaces are allowed on this feed: http://docs.rackspace.com/usage/maas version(s) ('1')"/>
+                      path="if (/atom:entry/atom:content/event:event[@type='USAGE']) then (/atom:entry/atom:content/event:event[@type='USAGE']/w_ns20:product[@version = ('1','2')]) else true()"
+                      rax:message="Only usage messages with product attributes in the following namespaces are allowed on this feed: http://docs.rackspace.com/usage/maas version(s) ('1','2')"/>
                <param name="cross_check"
                       style="plain"
                       required="true"

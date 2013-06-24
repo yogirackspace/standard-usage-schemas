@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815</atom:id>
+  <atom:category term="rgn:DFW"/>
+  <atom:category term="dc:DFW1"/>
+  <atom:category term="rid:10.24.25.92"/>
+  <atom:category term="cloudserversopenstack.host.host.down"/>
+  <atom:title type="text">Nagios Event</atom:title>
+  <atom:content type="application/xml">
+    <event xmlns="http://docs.rackspace.com/core/event" xmlns:nhost="http://docs.rackspace.com/event/nova/host" dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z" id="e53d007a-fc23-11e1-975c-cfa6b29bb815" region="DFW" resourceId="10.24.25.92" resourceName="compute-10-24-25-92" type="DOWN" version="1">
+      <nhost:product checkStatus="CRITICAL" checkType="PING" collector="nagios01.c0001.dfw.ohthree.com" description="Some description here" resourceType="HOST" serviceCode="CloudServersOpenStack" version="1"/>
+    </event>
+  </atom:content>
+  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/nova/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815" rel="self"/>
+  <atom:updated>2013-06-18T15:38:35.900Z</atom:updated>
+  <atom:published>2013-06-18T15:38:35.900Z</atom:published>
+</atom:entry>

@@ -15,7 +15,7 @@
         The serverId that this IP is associated to.
     </attribute>
     
-    <attribute name="reserved" type="boolean" default="false">
+    <attribute name="reserved" type="boolean" use="optional" default="false">
         A flag to indicate whether the IP is reserved or not. 
     </attribute>
          
