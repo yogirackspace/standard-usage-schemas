@@ -91,6 +91,11 @@
                                            required="true"
                                            path="if (/atom:entry/atom:content/event:event/@type = 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then /atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes else true()"
                                            rax:message="For version 2 and type is UPDATE, the updatedAttributes attribute is required."/>
+                                    <param name="checkNonUpdate"
+                                           style="plain"
+                                           required="true"
+                                           path="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()"
+                                           rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
                                 </xsl:if>
                             </representation>
                         </request>
