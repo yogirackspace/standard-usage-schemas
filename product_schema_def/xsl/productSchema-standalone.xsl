@@ -85,7 +85,15 @@
                     </restriction>
                 </simpleType>
             </xsl:if>
-            <xsl:if test="$schemas//schema:attribute[@type=('string', 'string*') and not(@allowedValues)]">
+            <xsl:for-each-group select="$schemas//schema:attribute[@type=('string', 'string*') and @maxLength and not(@allowedValues)]" group-by="@maxLength">
+                <xsl:variable name="maxLengthValue" as="xsd:integer" select="./@maxLength" />
+                <simpleType name="string{$maxLengthValue}">
+                    <restriction base="xsd:string">
+                        <maxLength value="{$maxLengthValue}"/>
+                    </restriction>
+                </simpleType>
+            </xsl:for-each-group>
+            <xsl:if test="$schemas//schema:attribute[@type=('string', 'string*') and not(@maxLength) and not(@allowedValues)]">
                 <simpleType name="string">
                     <restriction base="xsd:string">
                         <maxLength value="{$MAX_STRING}"/>
@@ -321,7 +329,7 @@
                 <xsl:value-of select="'p:UTCTime'"/>
             </xsl:when>
             <xsl:when test="$type='string'">
-                <xsl:value-of select="'p:string'"/>
+                <xsl:value-of select="concat('p:string',$attribute/@maxLength)"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="'p:Name'"/>
@@ -574,7 +582,7 @@
                 <xsl:value-of select="usage:enumNameType(usage:versionName($attrib/@name, $use-version, $version),true())"/>
             </xsl:when>
             <xsl:when test="$type='string'">
-                <xsl:value-of select="concat('p:',$type)"/>
+                <xsl:value-of select="concat('p:',$type,$attrib/@maxLength)"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="concat('p:',$type)"/>
