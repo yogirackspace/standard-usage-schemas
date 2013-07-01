@@ -6,8 +6,6 @@
         <include href="core_xsd/entry.xsd"/>
     </grammars>
     <resources base="http://localhost/">
-        <resource path="identity/users/migrated/CloudAuth" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
-        <resource path="identity/users/migrated/CloudSitesLDAP" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
         <resource path="identity/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
     </resources>
 </application>
