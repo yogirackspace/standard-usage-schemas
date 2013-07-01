@@ -159,6 +159,9 @@
             <id>Rackspace Research Repositories</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
+		<property>
+		  <name>generate.docs</name>
+		</property>
             </activation>
             <repositories>
                 <repository>
@@ -340,5 +343,66 @@
                 </plugins>
             </build>
         </profile>
+	<profile>
+	  <id>generate-docs</id>
+          <activation>
+	    <property>
+	      <name>generate.docs</name>
+	    </property>
+          </activation>
+	  <build>
+	    <plugins>
+	      <plugin>
+                <groupId>com.rackspace.cloud.api</groupId>
+                <artifactId>clouddocs-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <executions>
+                  <execution>
+                    <id>devguide</id>
+                    <goals>
+                      <goal>generate-webhelp</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                      <includes>feeds-devguide.xml</includes>
+                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
+                    </configuration>			
+                  </execution>
+                  <execution>
+                    <id>releasenotes</id>
+                    <goals>
+                      <goal>generate-webhelp</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                      <includes>feeds-releasenotes.xml</includes>
+                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content</canonicalUrlBase>
+                    </configuration>			
+                  </execution>
+                  <execution>
+                    <id>gettingstarted</id>
+                    <goals>
+                      <goal>generate-webhelp</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                      <includes>feeds-getting-started.xml</includes>
+                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
+                    </configuration>			
+                  </execution>
+                </executions>
+                <configuration>
+                  <branding>rackspace</branding>
+                  <feedbackEmail>michael.mcgrail@rackspace.com</feedbackEmail>
+		  <socialIcons>1</socialIcons>
+		  <enableDisqus>intranet</enableDisqus>
+		  <enableGoogleAnalytics>1</enableGoogleAnalytics>
+		  <showXslMessages>true</showXslMessages>
+		  <security>internal</security>
+                </configuration>
+	      </plugin>
+	    </plugins>
+	  </build>
+	</profile>
     </profiles>
 </project>
