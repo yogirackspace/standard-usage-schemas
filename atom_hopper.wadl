@@ -38,5 +38,6 @@
         <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
         <resource path="autoscale/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="dedicated/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
     </resources>
 </application>
