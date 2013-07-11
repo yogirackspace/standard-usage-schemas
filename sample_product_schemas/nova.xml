@@ -5,42 +5,52 @@
                version="1" resourceTypes="SERVER"
                type="USAGE">
     <description>
-        Usage message for a Next Generation (Nova) slice.
+        Usage message for a Next Generation (Nova) server.
     </description>
-    <attribute name="flavor" type="unsignedInt"
-               use="required" min="0" max="25"
+    <attribute name="flavorId" type="string" maxLength="50"
+               use="required" 
                groupBy="true">
-        The flavor id of the slice.
+        The flavor id of the server.
+    </attribute>
+    <attribute name="flavorName" type="string" maxLength="300"
+               use="required"
+               groupBy="true">
+        The flavor name of the server.
+    </attribute>
+    <attribute name="status" type="Name"
+               use="required" allowedValues="ACTIVE BUILD DELETED ERROR HARD_REBOOT MIGRATING PASSWORD REBOOT REBUILD RESCUE RESIZE REVERT_RESIZE SUSPENDED UNKNOWN VERIFY_RESIZE SHELVED"
+               groupBy="true">
+        The status of the server.
     </attribute>
     <attribute name="isRedHat" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Does the slice use a RedHat license.
+        Does the server use a RedHat license.
     </attribute>
     <attribute name="isMSSQL" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Does the slice use an MSSQL license.
+        Does the server use an MSSQL license.
     </attribute>
     <attribute name="isMSSQLWeb" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Does the slice use an MSSQL Web license.
+        Does the server use an MSSQL Web license.
     </attribute>
     <attribute name="isWindows" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Does the slice use a Windows license.
+        Does the server use a Windows license.
     </attribute>
     <attribute name="isSELinux" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Does the slice use an SELinux license.
+        Does the server use an SELinux license.
     </attribute>
     <attribute name="isManaged" type="boolean"
                use="optional" default="false"
                groupBy="true">
-        Is this a managed slice.
+        Is this a managed server.
     </attribute>    
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                unitOfMeasure="KB" aggregateFunction="SUM" min="0"
@@ -57,32 +67,32 @@
                xsd:boolean(@isWindows) or
                xsd:boolean(@isMSSQL) or
                xsd:boolean(@isMSSQLWeb)) else true()">
-        If slice isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
+        If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
     <xpathAssertion test="if (xsd:boolean(@isSELinux)) then
                not(xsd:boolean(@isRedHat) or
                xsd:boolean(@isWindows) or
                xsd:boolean(@isMSSQL) or
                xsd:boolean(@isMSSQLWeb)) else true()">
-        If slice isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
+        If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
     <xpathAssertion test="if (xsd:boolean(@isWindows)) then
                not(xsd:boolean(@isRedHat) or
                xsd:boolean(@isSELinux)) else true()">
-        If slice isWindows then it cannot be RedHat or SELinux.
+        If server isWindows then it cannot be RedHat or SELinux.
     </xpathAssertion>
     <xpathAssertion test="if (xsd:boolean(@isMSSQL)) then
                xsd:boolean(@isWindows) and
                not(xsd:boolean(@isMSSQLWeb) or
                xsd:boolean(@isRedHat) or
                xsd:boolean(@isSELinux)) else true()">
-        If slice isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
+        If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
     </xpathAssertion>
     <xpathAssertion test="if (xsd:boolean(@isMSSQLWeb)) then
                xsd:boolean(@isWindows) and
                not(xsd:boolean(@isMSSQL) or
                xsd:boolean(@isRedHat) or
                xsd:boolean(@isSELinux)) else true()">
-        If slice isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.
+        If server isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.
     </xpathAssertion>
 </productSchema>

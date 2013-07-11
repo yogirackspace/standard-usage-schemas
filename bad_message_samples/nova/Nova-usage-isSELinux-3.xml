@@ -13,7 +13,7 @@
                startTime="2012-09-15T11:51:11Z"
                endTime="2012-09-16T11:51:11Z">
             <nova:product version="1" serviceCode="CloudServersOpenStack"
-                        resourceType="SLICE" flavor="10"
+                        resourceType="SERVER" flavorId="10" flavorName="bogus flavor" status="BUILD"
                         isRedHat="false" isMSSQL="false"
                         isMSSQLWeb="false" isWindows="true"
                         isSELinux="true" isManaged="false"
