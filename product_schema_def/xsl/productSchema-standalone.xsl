@@ -428,7 +428,7 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="schema:xpathAssertion" mode="assertions">
+    <xsl:template match="schema:xpathAssertion[@scope='product']" mode="assertions">
         <xsl:variable name="message" select="normalize-space(.)"/>
         <assert vc:minVersion="1.1" test="{normalize-space(@test)}"
                 xerces:message="{$message}" saxon:message="{$message}">

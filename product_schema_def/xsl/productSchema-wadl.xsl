@@ -9,7 +9,6 @@
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
-    xmlns:identityUser="http://docs.rackspace.com/event/identity/user"
     xmlns:xslout="http://www.rackspace.com/repose/wadl/checker/Transform"
     exclude-result-prefixes="sch c"
     version="2.0">
@@ -56,6 +55,9 @@
                                 <xsl:call-template name="sch:cross-check-params">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
+                                <xsl:call-template name="sch:xpath-assertion">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                </xsl:call-template>
                                 <!--
                                     Hack, add nova updown check.
                                 -->
@@ -82,21 +84,6 @@
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
                                 </xsl:call-template>
-                                <!--
-                                    Workaround, add a param for CloudIdentity
-                                -->
-                                <xsl:if test="$id = 'CloudIdentity'">
-                                    <param name="checkUpdate"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then /atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes else true()"
-                                           rax:message="For version 2 and type is UPDATE, the updatedAttributes attribute is required."/>
-                                    <param name="checkNonUpdate"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()"
-                                           rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
-                                </xsl:if>
                             </representation>
                         </request>
                         <!-- Okay -->
@@ -111,6 +98,23 @@
                 </resource_type>
             </xsl:for-each-group>
         </application>
+    </xsl:template>
+    <xsl:template name="sch:xpath-assertion">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:if test="$schemas//sch:xpathAssertion[@scope='entry']">
+            <xsl:for-each select="$schemas//sch:xpathAssertion[@scope='entry']">
+                <xsl:variable name="message" select="normalize-space(text())"/>
+                <xsl:variable name="nameAttr" select="normalize-space(@name)"/>
+                <xsl:variable name="testAttr" select="normalize-space(@test)"/>
+                <param name="{$nameAttr}"
+                       style="plain"
+                       required="true"
+                       path="{$testAttr}"
+                       rax:message="{$message}"> 
+                    <xsl:copy-of select="namespace::*[name()!='sch' and name()!='']"/>
+                </param>
+            </xsl:for-each>
+        </xsl:if>
     </xsl:template>
     <xsl:template name="sch:cross-check-params">
         <xsl:param name="schemas" as="node()*"/>
