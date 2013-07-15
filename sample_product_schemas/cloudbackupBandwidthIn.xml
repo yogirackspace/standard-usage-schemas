@@ -6,7 +6,8 @@
     <description>
         Cloud Backup bandwith in usage information.
     </description>
-    <attribute name="bandwidthIn" type="long" use="required"
+    <attribute name="bandwidthIn" type="unsignedLong" use="required"
+               min="0" max="18446744073709551615"
                unitOfMeasure="B" aggregateFunction="SUM">
         The amount of bandwidth in, in bytes.
     </attribute>

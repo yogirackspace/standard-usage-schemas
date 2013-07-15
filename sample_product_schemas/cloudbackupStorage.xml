@@ -6,7 +6,8 @@
     <description>
         Cloud Backup cloud files storage.
     </description>
-    <attribute name="storage" type="long" use="required"
+    <attribute name="storage" type="unsignedLong" use="required"
+               min="0" max="18446744073709551615"
                unitOfMeasure="B">
         The amount of storage consumed by the cloud files container.
     </attribute>
