@@ -675,6 +675,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="maxLength" type="xsd:integer" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Denotes a maximum length of a string. It can be used only
+                                for string types. 
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">
@@ -732,6 +742,17 @@
                                 Min and max can't be set on an
                                 attribute that is the union of
                                 multiple types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@maxLength) then @type=('string', 'string*') else true()"
+                        xerces:message="You can only set maxLength in string types."
+                        saxon:message="You can only set maxLength value in string types.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The maxLength is only allowed with string types.
                             </html:p>
                         </documentation>
                     </annotation>
