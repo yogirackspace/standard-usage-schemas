@@ -7,10 +7,12 @@
         Dbaas specific user fields.
     </description>
     <attribute name="memory" type="int" use="required"
+               min="0" max="65536"
                unitOfMeasure="MB" groupBy="true">
         The amount of memory for the current usage.
     </attribute>
     <attribute name="storage" type="int" use="required"
+               min="0" max="3072"
                unitOfMeasure="GB" groupBy="true">
         The size of the storage volume for the current usage.
     </attribute>
