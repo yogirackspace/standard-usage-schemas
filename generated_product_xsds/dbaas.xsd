@@ -27,7 +27,7 @@
                  type="xsd:Name"
                  fixed="CloudDatabase"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="memory" use="required" type="xsd:int">
+      <attribute name="memory" use="required" type="p:memoryType">
          <annotation>
             <documentation>
                <html:p>The amount of memory for the current usage.</html:p>
@@ -40,7 +40,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="storage" use="required" type="xsd:int">
+      <attribute name="storage" use="required" type="p:storageType">
          <annotation>
             <documentation>
                <html:p>The size of the storage volume for the current usage.</html:p>
@@ -62,6 +62,18 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="MYSQL"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="memoryType">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="65536"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="storageType">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="3072"/>
       </restriction>
    </simpleType>
 </xsd:schema>
