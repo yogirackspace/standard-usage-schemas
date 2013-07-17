@@ -27,7 +27,7 @@
                  type="xsd:Name"
                  fixed="CloudBackup"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="bandwidthIn" use="required" type="xsd:long">
+      <attribute name="bandwidthIn" use="required" type="p:bandwidthInType">
          <annotation>
             <documentation>
                <html:p>The amount of bandwidth in, in bytes.</html:p>
@@ -62,6 +62,12 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="AGENT"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthInType">
+      <restriction base="xsd:unsignedLong">
+         <minInclusive value="0"/>
+         <maxInclusive value="18446744073709551615"/>
       </restriction>
    </simpleType>
    <simpleType name="UUID">
