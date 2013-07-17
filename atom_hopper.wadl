@@ -21,11 +21,15 @@
         <resource path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource path="lbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers"/>
         <resource path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers wadl/product.wadl#RHEL"/>
-        <resource path="perftest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
         <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
         <resource path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
+        <!-- Test related feeds -->
         <resource path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="functest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="perftest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource path="usagetest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource path="usagetest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource path="usagetest3/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
@@ -34,6 +38,11 @@
         <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Widget"/>
         <resource path="usagetest7/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="usagetest8/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="usagetest9/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="usagetest10/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="usagetest11/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="usagetest12/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <!-- end of Test related feeds -->
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
