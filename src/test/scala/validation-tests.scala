@@ -53,6 +53,7 @@ class ValidatorSuite extends BaseUsageSuite {
     assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />), response, chain), 400)
   }
 
+
   test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest1/events)") {
     atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml",
                                    <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
@@ -148,6 +149,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                      <event xmlns="http://docs.rackspace.com/core/event"
                                              xmlns:cbs="http://docs.rackspace.com/usage/cbs"
                                              version="1" tenantId="12334"
+                                             username="a1@_-."
                                              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
                                              resourceName="MyVolume"
                                              id="560490c6-6c63-11e1-adfe-27851d5aed13"
@@ -188,5 +190,74 @@ class ValidatorSuite extends BaseUsageSuite {
 
   test("Posting an valid usage entry should fail on incorrect product feed (files/events) with a 400") {
     assertResultFailed(atomValidator.validate(request("POST", "/files/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+  }
+
+  test( "Posting username with bad character on feed fails with 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml",  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+      <atom:title>CBS Usage</atom:title>
+      <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+               version="1" tenantId="12334"
+               username="a!"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               resourceName="MyVolume"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-03-12T11:51:11Z"
+               endTime="2012-03-12T15:51:11Z">
+          <cbs:product version="1" serviceCode="CloudBlockStorage"
+                       resourceType="VOLUME"
+                       type="fooooo"
+                       provisioned="120"/>
+        </event>
+      </atom:content>
+    </atom:entry>), response, chain), 400)
+  }
+
+  test( "Posting username which starts with a non-letter on feed fails with 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml",   <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+      <atom:title>CBS Usage</atom:title>
+      <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+               version="1" tenantId="12334"
+               username="1a"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               resourceName="MyVolume"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-03-12T11:51:11Z"
+               endTime="2012-03-12T15:51:11Z">
+          <cbs:product version="1" serviceCode="CloudBlockStorage"
+                       resourceType="VOLUME"
+                       type="fooooo"
+                       provisioned="120"/>
+        </event>
+      </atom:content>
+    </atom:entry>), response, chain), 400)
+  }
+
+  test( "Posting username of length 0 on feed fails with 400") {
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml",  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+      <atom:title>CBS Usage</atom:title>
+      <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+               version="1" tenantId="12334"
+               username=""
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               resourceName="MyVolume"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-03-12T11:51:11Z"
+               endTime="2012-03-12T15:51:11Z">
+          <cbs:product version="1" serviceCode="CloudBlockStorage"
+                       resourceType="VOLUME"
+                       type="fooooo"
+                       provisioned="120"/>
+        </event>
+      </atom:content>
+    </atom:entry>), response, chain), 400)
   }
 }
