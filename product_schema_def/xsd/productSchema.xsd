@@ -564,7 +564,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="use"  type="schema:Use" use="optional" default="optional">
+                <attribute name="use"  type="schema:Use" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
