@@ -465,6 +465,7 @@
         </annotation>
         <restriction base="xsd:string">
             <minLength value="1"/>
+            <maxLength value="255"/>
             <!--
               - must start with a letter
               - can contain letters, digits, -, _ & @
