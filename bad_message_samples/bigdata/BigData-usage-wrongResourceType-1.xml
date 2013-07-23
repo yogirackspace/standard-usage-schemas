@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="bigdata/events"?>
-<?expect code="400"?>
+<?expect code="400" message="SLICE"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Cloud Big Data</atom:title>
     <atom:content type="application/xml">
@@ -14,7 +14,7 @@
                endTime="2012-09-16T11:51:11Z">
             <bigdata:product version="1" serviceCode="BigData"
                         resourceType="SLICE" flavor="10"
-                        numberServersInSlice="200"
+                        numberServersInCluster="200"
                         bandwidthIn="1001" bandwidthOut="19992"/>
         </event>
     </atom:content>
