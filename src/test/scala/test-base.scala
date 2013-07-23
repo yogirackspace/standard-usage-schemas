@@ -34,7 +34,7 @@ object BaseUsageSuite {
 
   usageConfig.removeDups = true
   usageConfig.validateChecker = true
-  usageConfig.useSaxonEEValidation = (System.getProperty("usage.tests.xsd.impl","SaxonEE") == "SaxonEE")
+  usageConfig.xsdEngine = if (System.getProperty("usage.tests.xsd.impl","SaxonEE") == "SaxonEE") "SaxonEE" else "Xerces"
   usageConfig.checkWellFormed = true
   usageConfig.checkXSDGrammar = true
   usageConfig.doXSDGrammarTransform = true
