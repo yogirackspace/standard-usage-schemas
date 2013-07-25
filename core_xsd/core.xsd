@@ -55,6 +55,15 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="username" type="event:Username" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The sub-account's user name, when applicable.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="resourceId" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
@@ -450,6 +459,20 @@
         </restriction>
     </simpleType>
 
+    <simpleType name="Username">
+        <annotation>
+
+        </annotation>
+        <restriction base="xsd:string">
+            <minLength value="1"/>
+            <maxLength value="255"/>
+            <!--
+              - must start with a letter
+              - can contain letters, digits, -, _ & @
+              -->
+            <pattern value="[a-zA-z][a-zA-z0-9.\-_@]*"/>
+        </restriction>
+    </simpleType>
     <simpleType name="NonEmptyString">
         <annotation>
             <documentation>
