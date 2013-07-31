@@ -13,7 +13,8 @@
                startTime="2012-09-15T11:51:11Z"
                endTime="2012-09-16T11:51:11Z">
             <bigdata:product version="1" serviceCode="BigData"
-                        resourceType="SLICE" flavor="10"
+                        resourceType="SLICE" flavorId="10"
+                        flavorName="some flavor"
                         numberServersInCluster="200"
                         bandwidthIn="1001" bandwidthOut="19992"/>
         </event>

@@ -15,7 +15,7 @@
    <complexType name="BigDataType">
       <annotation>
          <documentation>
-            <html:p>Usage message for a slice.</html:p>
+            <html:p>Usage message for a big data cluster.</html:p>
          </documentation>
          <appinfo>
             <usage:core groupByResource="true" type="USAGE"/>
@@ -27,10 +27,20 @@
                  type="xsd:Name"
                  fixed="BigData"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="flavor" use="required" type="p:flavorType">
+      <attribute name="flavorId" use="required" type="p:string50">
          <annotation>
             <documentation>
                <html:p>The flavor id of the cluster.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="flavorName" use="required" type="p:string300">
+         <annotation>
+            <documentation>
+               <html:p>The flavor name of the cluster.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
@@ -42,7 +52,7 @@
                  type="p:numberServersInClusterType">
          <annotation>
             <documentation>
-               <html:p>This is the number of servers in cluster.</html:p>
+               <html:p>This is the number of data nodes in cluster.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
@@ -89,15 +99,9 @@
          <enumeration value="HBASE_HDP1.3"/>
       </restriction>
    </simpleType>
-   <simpleType name="flavorType">
-      <restriction base="xsd:unsignedInt">
-         <minInclusive value="0"/>
-         <maxInclusive value="25"/>
-      </restriction>
-   </simpleType>
    <simpleType name="numberServersInClusterType">
       <restriction base="xsd:unsignedInt">
-         <minInclusive value="0"/>
+         <minInclusive value="1"/>
          <maxInclusive value="3000"/>
       </restriction>
    </simpleType>
@@ -111,6 +115,16 @@
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="16000000000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string50">
+      <restriction base="xsd:string">
+         <maxLength value="50"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string300">
+      <restriction base="xsd:string">
+         <maxLength value="300"/>
       </restriction>
    </simpleType>
 </xsd:schema>
