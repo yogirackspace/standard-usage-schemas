@@ -24,6 +24,7 @@
         <resource path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
         <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
         <resource path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
+        <resource path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
         <!-- Test related feeds -->
         <resource path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="functest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>

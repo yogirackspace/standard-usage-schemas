@@ -1,0 +1,18 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/queues/bandwidth"
+               serviceCode="CloudQueues"
+               version="1" resourceTypes="QUEUE">
+    <description>
+        Usage message for queue bandwidth.
+    </description>
+    <attribute name="bandwidthIn" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="6597069766656">
+        The amount of bandwidth in, in bytes. Max is 6TB.
+    </attribute>
+    <attribute name="bandwidthOut" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="6597069766656">
+        The amount of bandwidth out, in bytes. Max is 6TB.
+    </attribute>
+</productSchema>
