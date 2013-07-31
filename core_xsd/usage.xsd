@@ -71,6 +71,9 @@
     <import namespace="http://docs.rackspace.com/usage/cloudbackup/bandwidthOut"
             schemaLocation="../generated_product_xsds/cloudbackupBandwidthOut.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/queues/bandwidth"
+            schemaLocation="../generated_product_xsds/cloudQueuesBandwidth.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/servers/hostserver"
             schemaLocation="../generated_product_xsds/servers.xsd"/>
 
