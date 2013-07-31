@@ -62,33 +62,33 @@
                max="6480000000">
         The amount of bandwidth out, in kilobytes.
     </attribute>
-    <xpathAssertion test="if (xsd:boolean(@isRedHat)) then
+    <xpathAssertion scope="product" test="if (xsd:boolean(@isRedHat)) then
                not(xsd:boolean(@isSELinux) or
                xsd:boolean(@isWindows) or
                xsd:boolean(@isMSSQL) or
                xsd:boolean(@isMSSQLWeb)) else true()">
         If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isSELinux)) then
+    <xpathAssertion scope="product" test="if (xsd:boolean(@isSELinux)) then
                not(xsd:boolean(@isRedHat) or
                xsd:boolean(@isWindows) or
                xsd:boolean(@isMSSQL) or
                xsd:boolean(@isMSSQLWeb)) else true()">
         If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isWindows)) then
+    <xpathAssertion scope="product" test="if (xsd:boolean(@isWindows)) then
                not(xsd:boolean(@isRedHat) or
                xsd:boolean(@isSELinux)) else true()">
         If server isWindows then it cannot be RedHat or SELinux.
     </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isMSSQL)) then
+    <xpathAssertion scope="product" test="if (xsd:boolean(@isMSSQL)) then
                xsd:boolean(@isWindows) and
                not(xsd:boolean(@isMSSQLWeb) or
                xsd:boolean(@isRedHat) or
                xsd:boolean(@isSELinux)) else true()">
         If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
     </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isMSSQLWeb)) then
+    <xpathAssertion scope="product" test="if (xsd:boolean(@isMSSQLWeb)) then
                xsd:boolean(@isWindows) and
                not(xsd:boolean(@isMSSQL) or
                xsd:boolean(@isRedHat) or

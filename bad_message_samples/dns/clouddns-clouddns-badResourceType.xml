@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="dns/events"?> <!-- ignore <?atom..?>, used for testing -->
-<?expect code="400" message="Validating product/@resourceType"?>
+<?expect code="400" message="DNS"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns="http://docs.rackspace.com/core/event"
             xmlns:clouddns="http://docs.rackspace.com/event/clouddns">

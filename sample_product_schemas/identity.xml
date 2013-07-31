@@ -55,10 +55,15 @@
                    searchable="true">
             The attributes that have been updated.
         </attribute>
-        <!--
-        <xpathAssertion test="if (../@type = 'UPDATE') then @updatedAttributes else true()">
-            For version 2 and type is UPDATE, the updatedAttributes attribute is required
+        <xpathAssertion xmlns:identityUser="http://docs.rackspace.com/event/identity/user"
+                        scope="entry" name="checkUpdateV2"
+                        test="if (/atom:entry/atom:content/event:event/@type = 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then /atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes else true()">
+            For version 2 and type is UPDATE, the updatedAttributes attribute is required.
         </xpathAssertion>
-        -->
+        <xpathAssertion xmlns:identityUser="http://docs.rackspace.com/event/identity/user"
+                        scope="entry" name="checkNonUpdateV2"
+                        test="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()">
+            For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used.
+        </xpathAssertion>
     </productSchema>
 </alternatives>

@@ -19,7 +19,7 @@
         Since we can only have a single MAX value, we set the MSSQL
         value as an assertion.
     -->
-    <xpathAssertion test="if (@resourceType = 'MYSQL') then (@storage &lt;= 483183820800)
+    <xpathAssertion scope="product" test="if (@resourceType = 'MYSQL') then (@storage &lt;= 483183820800)
                           else true()">
         The storage cannot exceed 483183820800 bytes if the
         resourceType is MYSQL.

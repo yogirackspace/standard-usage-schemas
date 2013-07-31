@@ -16,7 +16,7 @@
                         displayName="testUser"
                         groups="group1 group2 group3"
                         roles="admin RAX:admin role3"
-                        updatedAttributes="SOME_BOGUS_ATTR"/>
+                        updatedAttributes="FIRSTNAME"/>
         </event>
     </atom:content>
 </atom:entry>

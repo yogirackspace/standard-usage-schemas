@@ -22,4 +22,14 @@
                use="required">
         The description
     </attribute>
+    <xpathAssertion xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
+               scope="entry" name="checkUp"
+               test="if (/atom:entry/atom:content/event:event/@type = 'UP') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()">
+        For event type UP, checkStatus can not be CRITICAL.
+    </xpathAssertion>
+    <xpathAssertion xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
+               scope="entry" name="checkDown"
+               test="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()">
+        For event type DOWN, checkStatus can not be OK. 
+    </xpathAssertion>
 </productSchema>
