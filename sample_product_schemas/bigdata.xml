@@ -4,19 +4,25 @@
                serviceCode="BigData"
                version="1" resourceTypes="HDP1.1 HDP1.3 HBASE_HDP1.1 HBASE_HDP1.3">
     <description> 
-        Usage message for a slice.
+        Usage message for a big data cluster.
     </description>
 
-    <attribute name="flavor" type="unsignedInt" 
-               use="required" min="0" max="25"
+    <attribute name="flavorId" type="string" 
+               use="required" maxLength="50"
                groupBy="true">
         The flavor id of the cluster.
     </attribute>
 
-    <attribute name="numberServersInCluster" type="unsignedInt"
-               use="required" min="0" max="3000"
+    <attribute name="flavorName" type="string" maxLength="300"
+               use="required"
                groupBy="true">
-        This is the number of servers in cluster.
+        The flavor name of the cluster.
+    </attribute>
+
+    <attribute name="numberServersInCluster" type="unsignedInt"
+               use="required" min="1" max="3000"
+               groupBy="true">
+        This is the number of data nodes in cluster.
     </attribute>
 
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
