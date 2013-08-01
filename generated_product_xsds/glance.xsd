@@ -53,6 +53,16 @@
             <union memberTypes="xsd:int p:UUID"/>
          </simpleType>
       </attribute>
+      <attribute name="serverName" use="required" type="p:string">
+         <annotation>
+            <documentation>
+               <html:p>The Server name, where the backup was taken from.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+            </appinfo>
+         </annotation>
+      </attribute>
    </complexType>
    <simpleType name="ResourceTypes">
       <annotation>
@@ -73,6 +83,11 @@
       <restriction base="xsd:string">
          <length value="36" fixed="true"/>
          <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string">
+      <restriction base="xsd:string">
+         <maxLength value="255"/>
       </restriction>
    </simpleType>
 </xsd:schema>

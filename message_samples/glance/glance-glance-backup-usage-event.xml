@@ -6,6 +6,7 @@
        id="b79cc3de-b399-3883-b555-61829bb7f966" 
        resourceId="b79cc3de-b399-3883-b555-61829bbccd38" 
        tenantId="1" version="1">
-	<glance:product storage="1200" serverId="12309477" serviceCode="Glance"
-       resourceType="BACKUP" version="1"/>
+    <glance:product storage="1200" serverId="12309477" serviceCode="Glance"
+            serverName="myServer"       
+            resourceType="BACKUP" version="1"/>
 </event>
