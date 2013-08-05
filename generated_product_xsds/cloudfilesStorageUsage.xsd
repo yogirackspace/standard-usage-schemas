@@ -39,7 +39,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="freeops" use="required" type="xsd:unsignedInt">
+      <attribute name="freeops" use="required" type="p:freeopsType">
          <annotation>
             <documentation>
                <html:p>The number of free operations.</html:p>
@@ -49,7 +49,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="costops" use="required" type="xsd:unsignedInt">
+      <attribute name="costops" use="required" type="p:costopsType">
          <annotation>
             <documentation>
                <html:p>The number of cost operations</html:p>
@@ -63,6 +63,18 @@
    <simpleType name="diskType">
       <restriction base="xsd:unsignedLong">
          <maxInclusive value="112589990684262400"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="freeopsType">
+      <restriction base="xsd:unsignedInt">
+         <minInclusive value="0"/>
+         <maxInclusive value="2000000000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="costopsType">
+      <restriction base="xsd:unsignedInt">
+         <minInclusive value="0"/>
+         <maxInclusive value="2000000000"/>
       </restriction>
    </simpleType>
 </xsd:schema>
