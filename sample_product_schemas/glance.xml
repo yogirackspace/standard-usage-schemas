@@ -13,4 +13,7 @@
     <attribute name="serverId" type="int UUID" use="required">
         Server ID, where the backup was taken from.
     </attribute>
+    <attribute name="serverName" type="string" use="required">
+        The Server name, where the backup was taken from.
+    </attribute>
 </productSchema>
