@@ -24,6 +24,9 @@
         <resource path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
         <resource path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
         <resource path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
+        <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
+        <resource path="autoscale/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="dedicated/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
         <!-- Test related feeds -->
         <resource path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
@@ -45,9 +48,8 @@
         <resource path="usagetest12/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <!-- end of Test related feeds -->
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
-        <resource path="autoscale/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource path="dedicated/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource path="usageerror/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
     </resources>
 </application>
