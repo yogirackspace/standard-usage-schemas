@@ -124,7 +124,7 @@
       <complexContent>
          <extension base="p:BaseCloudMonitoringType">
             <attribute name="resourceType" use="required" type="p:ResourceTypes2"/>
-            <attribute name="monitoringZones" use="required" type="xsd:int">
+            <attribute name="monitoringZones" use="required" type="p:monitoringZones2Type">
                <annotation>
                   <documentation>
                      <html:p>The number of monitoring zones.</html:p>
@@ -178,6 +178,12 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="CHECK"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="monitoringZones2Type">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="8"/>
       </restriction>
    </simpleType>
    <simpleType name="product2Enum">

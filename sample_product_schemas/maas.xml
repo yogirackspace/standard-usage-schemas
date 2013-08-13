@@ -28,6 +28,7 @@
         </description>
         <attribute name="monitoringZones" type="int"
                    use="required" unitOfMeasure="COUNT"
+                   min="0" max="8"
                    groupBy="true">
             The number of monitoring zones.
         </attribute>
