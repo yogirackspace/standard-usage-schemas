@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="files/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event"
             xmlns:cf-str="http://docs.rackspace.com/usage/cloudfiles/storage"
             xmlns:atom="http://www.w3.org/2005/Atom">
