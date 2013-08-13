@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="dbaas/events"?>
+<?expect code="400"?>
+<entry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.w3.org/2005/Atom ../../core_xsd/entry.xsd"
+ xmlns="http://www.w3.org/2005/Atom"
+ xml:lang="en">
+  <title type="text">reddwarf.instance.exists</title>
+  <summary type="html">reddwarf.instance.exists</summary>
+  <category term="reddwarf.instance.exists"/>
+  <content type="application/xml">
+    <event xmlns:dbaas="http://docs.rackspace.com/usage/dbaas" dataCenter="DFW2" endTime="2013-06-12T16:39:17Z" environment="PROD" id="d8d9bd38-a72b-db72-3f2c-73c4d28a66a4" region="DFW" resourceId="0606ea96-71c9-4b22-9d45-771f27c7527c" resourceName="thesoccerspotdb" rootAction="reddwarf.instance.exists" startTime="2013-06-11T16:39:17Z" tenantId="835211" type="USAGE" version="1">
+      <dbaas:product memory="512" resourceType="MYSQL" serviceCode="CloudDatabase" storage="1" version="1"/>
+    </event>
+  </content>
+</entry>
