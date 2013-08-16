@@ -30,10 +30,10 @@
       <attribute name="memory" use="required" type="p:memoryType">
          <annotation>
             <documentation>
-               <html:p>The amount of memory for the current usage.</html:p>
+               <html:p>Memory provisioned for this database.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
+               <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="MB"
                                  groupBy="true"
                                  billable="true"/>
@@ -43,10 +43,10 @@
       <attribute name="storage" use="required" type="p:storageType">
          <annotation>
             <documentation>
-               <html:p>The size of the storage volume for the current usage.</html:p>
+               <html:p>The provisioned size of the storage volume for this database.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
+               <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="GB"
                                  groupBy="true"
                                  billable="true"/>
