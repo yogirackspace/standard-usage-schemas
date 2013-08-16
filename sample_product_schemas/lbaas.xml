@@ -7,12 +7,12 @@
         Lbaas load balancer usage fields.
     </description>
     <attribute name="avgConcurrentConnections" type="double" use="required"
-               aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
+               aggregateFunction="WEIGHTED_AVG"
                unitOfMeasure="COUNT" min="0" max="1000000">
         The amount of conncurrent connections.
     </attribute>
     <attribute name="avgConcurrentConnectionsSsl" type="double" use="required"
-               aggregateFunction="CUMULATIVE_AVG" frequency='DURATION'
+               aggregateFunction="WEIGHTED_AVG"
                unitOfMeasure="COUNT" min="0" max="1000000">
         The amount of conncurrent ssl connections.
     </attribute>

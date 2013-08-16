@@ -35,11 +35,10 @@
                <html:p>The amount of conncurrent connections.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="CUMULATIVE_AVG"
+               <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="COUNT"
                                  groupBy="false"
-                                 billable="true"
-                                 frequency="DURATION"/>
+                                 billable="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -51,11 +50,10 @@
                <html:p>The amount of conncurrent ssl connections.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="CUMULATIVE_AVG"
+               <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="COUNT"
                                  groupBy="false"
-                                 billable="true"
-                                 frequency="DURATION"/>
+                                 billable="true"/>
             </appinfo>
          </annotation>
       </attribute>
