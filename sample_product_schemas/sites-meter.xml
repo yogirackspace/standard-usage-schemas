@@ -17,7 +17,7 @@
     </attribute>
     <attribute name="requestCount" type="unsignedInt" use="required"
                unitOfMeasure="COUNT" billable="false"
-               min="0" max="600000">
+               min="0" max="50000000">
         The request count for the site.
     </attribute>
     <attribute name="computeCycles" type="double"
