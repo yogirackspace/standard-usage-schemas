@@ -320,38 +320,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <assert vc:minVersion="1.1"
-                        test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies schema:attribute[@name = $frequencyAttribute]"
-                        xerces:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema."
-                        saxon:message="If frequencyAttribute is set then it must match the name of an attribute defined in this schema.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If frequencyAttribute is set then it must
-                                point to an attribute defined in this schema.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1"
-                        test="every $frequencyAttribute in schema:attribute/@frequencyAttribute satisfies
-                              schema:attribute[@name = $frequencyAttribute]/@type =
-                              ('integer', 'long', 'int', 'short',
-                              'byte', 'unsignedLong', 'unsignedInt',
-                              'unsignedShort', 'unsignedByte', 'double',
-                              'float')"
-                        xerces:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
-                        saxon:message="If frequencyAttribute is set then it must point to an attribute of a numeric type."
-                        >
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                The frequencyAttribute should point to an
-                                attribute whose type is numeric.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
+
                 <assert vc:minVersion="1.1"
                         test="if ((@groupByResource = true()) and (not(@resourceTypes))) then false() else true()"
                         xerces:message="If groupByResource=true (or not specified), then the resourceTypes attribute must be supplied."
@@ -361,20 +330,6 @@
                             <html:p>
                                 If groupByResource is true then the
                                 resourceTypes attribute must be specified.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1"
-                        test="if (schema:attribute[string(@frequency) = 'DURATION']) then string(@type)='USAGE' else true()"
-                        xerces:message="If there is an attribute with a frequency of DURATION, then the message type should be USAGE"
-                        saxon:message="If there is an attribute with a frequency of DURATION, then the message type should be USAGE">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Only USAGE messages should have a
-                                frequency of DURATION.
-                                (USAGE_SNAPSHOT messages shouldn't).
                             </html:p>
                         </documentation>
                     </annotation>
@@ -458,35 +413,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="frequency" type="usage:Frequency" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If the aggregateFunction is
-                                CUMULATIVE_AVG, then this frequency
-                                value is used to compute the
-                                cumulative avg.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="frequencyAttribute" type="xsd:string" use="optional">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If the aggregateFunction is
-                                CUMULATIVE_AVG, then
-                                frequencyAttribute points to the
-                                attribute that contains the frequency
-                                value.  The attribute should be an
-                                attribute of type integer, long,
-                                int, short, byte, unsignedLong,
-                                unsignedInt, unsignedShort,
-                                unsignedByte, double or float.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                         xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                         saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
@@ -495,43 +421,6 @@
                             <html:p>
                                 If an aggregate-function is supplied then so
                                 should the unit of measure.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@aggregateFunction = 'CUMULATIVE_AVG') then @frequency or @frequencyAttribute else true()"
-                        xerces:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set."
-                        saxon:message="If a aggregateFunction is 'CUMULATIVE_AVG' then frequency or frequencyAttribute should be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                If an aggregateFunction is set to
-                                'CUMULATIVE_AVG' then frequency or
-                                frequencyAttribute should be set.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@frequency) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequencyAttribute) else true()"
-                        xerces:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set."
-                        saxon:message="If the frequency attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequencyAttribute should not be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Frequency requires CUMULATIVE_AVG and no
-                                frequencyAttribute.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
-                <assert vc:minVersion="1.1" test="if (@frequencyAttribute) then (@aggregateFunction='CUMULATIVE_AVG') and not(@frequency) else true()"
-                        xerces:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set."
-                        saxon:message="If the frequencyAttribute attribute is set then the aggregateFunction should be 'CUMLATIVE_AVG' and frequency should not be set.">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                FrequencyAttribute requires CUMULATIVE_AVG and
-                                no frequency.
                             </html:p>
                         </documentation>
                     </annotation>

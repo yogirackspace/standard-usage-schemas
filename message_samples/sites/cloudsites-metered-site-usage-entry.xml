@@ -13,7 +13,7 @@
                tenantId="12882" version="1">
             <m:product serviceCode="CloudSites" version="1"
                        resourceType="SITE" bandWidthOut="998798976"
-                       requestCount="1000" computeCycles="299"/>
+                       requestCount="40000000" computeCycles="299"/>
         </event>
     </atom:content>
 </atom:entry>

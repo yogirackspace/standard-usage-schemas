@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="monitoring/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:maas="http://docs.rackspace.com/usage/maas"
             xmlns="http://docs.rackspace.com/core/event">
