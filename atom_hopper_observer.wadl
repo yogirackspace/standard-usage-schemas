@@ -33,25 +33,5 @@
         <resource path="usageerror/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed"/>
-
-        <!-- Test related feeds -->
-        <resource path="demo/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="functest1/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="functest2/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="perftest1/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="perftest2/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest1/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest2/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest3/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest4/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest5/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest6/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest7/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest8/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest9/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest10/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest11/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagetest12/events" type="wadl/feed.wadl#AtomFeed"/>
-        <!-- end of Test related feeds -->
     </resources>
 </application>
