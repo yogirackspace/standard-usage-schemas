@@ -93,7 +93,7 @@
    <simpleType name="requestCountType">
       <restriction base="xsd:unsignedInt">
          <minInclusive value="0"/>
-         <maxInclusive value="600000"/>
+         <maxInclusive value="50000000"/>
       </restriction>
    </simpleType>
    <simpleType name="computeCyclesType">
