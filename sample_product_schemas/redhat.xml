@@ -14,7 +14,7 @@
         The attribute is used to hold metadata about the message.  In
         this case it is used to count a single RHEL license.
     </attribute>
-    <xpathAssertion scope="product" test="xsd:boolean(@used)">
+    <xpathAssertion test="xsd:boolean(@used)">
         The used attribute in a RHEL message should always evaluate to
         true.
     </xpathAssertion>
