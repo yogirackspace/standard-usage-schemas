@@ -53,33 +53,33 @@
                groupBy="true">
         Is this a managed slice.
     </attribute>
-    <xpathAssertion scope="product" test="if (xsd:boolean(@isRedHat)) then
+    <xpathAssertion test="if (xsd:boolean(@isRedHat)) then
                           not(xsd:boolean(@isSELinux) or
                               xsd:boolean(@isWindows) or
                               xsd:boolean(@isMSSQL) or
                               xsd:boolean(@isMSSQLWeb)) else true()">
         If slice isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion scope="product" test="if (xsd:boolean(@isSELinux)) then
+    <xpathAssertion test="if (xsd:boolean(@isSELinux)) then
                           not(xsd:boolean(@isRedHat) or
                               xsd:boolean(@isWindows) or
                               xsd:boolean(@isMSSQL) or
                               xsd:boolean(@isMSSQLWeb)) else true()">
         If slice isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
     </xpathAssertion>
-    <xpathAssertion scope="product" test="if (xsd:boolean(@isWindows)) then
+    <xpathAssertion test="if (xsd:boolean(@isWindows)) then
                           not(xsd:boolean(@isRedHat) or
                               xsd:boolean(@isSELinux)) else true()">
         If slice isWindows then it cannot be RedHat or SELinux.
     </xpathAssertion>
-    <xpathAssertion scope="product" test="if (xsd:boolean(@isMSSQL)) then
+    <xpathAssertion test="if (xsd:boolean(@isMSSQL)) then
                           xsd:boolean(@isWindows) and
                           not(xsd:boolean(@isMSSQLWeb) or
                               xsd:boolean(@isRedHat) or
                               xsd:boolean(@isSELinux)) else true()">
         If slice isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
     </xpathAssertion>
-    <xpathAssertion scope="product" test="if (xsd:boolean(@isMSSQLWeb)) then
+    <xpathAssertion test="if (xsd:boolean(@isMSSQLWeb)) then
                           xsd:boolean(@isWindows) and
                           not(xsd:boolean(@isMSSQL) or
                               xsd:boolean(@isRedHat) or

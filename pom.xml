@@ -44,16 +44,10 @@
         <xerces.version>2.12.1-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
         <xmlsec.version>1.4.6</xmlsec.version>
-        <wadl-tools.version>1.0.15</wadl-tools.version>
-        <api-checker.version>1.0.9</api-checker.version>
+        <wadl-tools.version>1.0.13</wadl-tools.version>
+        <api-checker.version>1.0.8</api-checker.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -86,38 +80,18 @@
             <version>${api-checker.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
-            <!-- only until api-checker 1.0.10 is released -->
-            <exclusions>
-                <exclusion>
-                    <groupId>com.rackspace.cloud.api</groupId>
-                    <artifactId>wadl-tools</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rackspace.papi.components.api-checker</groupId>
             <artifactId>checker-core</artifactId>
             <version>${api-checker.version}</version>
             <scope>test</scope>
-            <!-- only until api-checker 1.0.10 is released -->
-            <exclusions>
-                <exclusion>
-                    <groupId>com.rackspace.cloud.api</groupId>
-                    <artifactId>wadl-tools</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.rackspace.cloud.api</groupId>
             <artifactId>wadl-tools</artifactId>
             <version>${wadl-tools.version}</version>
             <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.rackspace.cloud.api</groupId>
-            <artifactId>wadl-tools</artifactId>
-            <version>${wadl-tools.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

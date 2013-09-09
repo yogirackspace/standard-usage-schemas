@@ -676,37 +676,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="scope" type="schema:XPathAssertionScopeType" use="required">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                The scope attribute can be either 'product' or 'entry'. This
-                                determines whether the assert is at the &lt;product&gt;
-                                element level or at the &lt;entry&gt; element level.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <attribute name="name" type="xsd:string">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                The name of this xpath assertion. This is required for type 'entry'. 
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
-                <assert vc:minVersion="1.1" test="if (string(@scope) = 'entry') then @name else true()"
-                        xerces:message="The name attribute is required for xpath assertion of type='entry'"
-                        saxon:message="The name attribute is required for xpath assertion of type='entry'">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Xpath assertion with type='entry' must have a name attribute.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </assert>
                 <assert vc:minVersion="1.1" test="normalize-space(string(.)) != '' and normalize-space(string(.)) != ' '"
                         xerces:message="Each xpathAssertion must contain a human readable error message within the &lt;xpathAssertion/&gt; element."
                         saxon:message="Each xpathAssertion must contain a human readable error message within the &lt;xpathAssertion/&gt; element.">
@@ -725,13 +694,6 @@
     <!--
         Simple Types
     -->
-    <simpleType name="XPathAssertionScopeType">
-        <restriction base="xsd:string">
-            <enumeration value="product"/>
-            <enumeration value="entry"/>
-        </restriction>
-    </simpleType>
-
     <simpleType name="NameList">
         <list itemType="xsd:Name"/>
     </simpleType>
