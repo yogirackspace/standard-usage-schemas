@@ -33,7 +33,7 @@
                <html:p>Memory provisioned for this database.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="WEIGHTED_AVG"
+               <usage:attributes aggregateFunction="NONE"
                                  unitOfMeasure="MB"
                                  groupBy="true"
                                  billable="true"/>
@@ -46,7 +46,7 @@
                <html:p>The provisioned size of the storage volume for this database.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="WEIGHTED_AVG"
+               <usage:attributes aggregateFunction="NONE"
                                  unitOfMeasure="GB"
                                  groupBy="true"
                                  billable="true"/>
