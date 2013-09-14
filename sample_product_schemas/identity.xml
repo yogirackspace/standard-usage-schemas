@@ -13,7 +13,7 @@
         </attribute>
         <attribute name="groups" type="string*"
                    use="optional">
-            The list of groups currently associated with a user.
+            The list of group IDs currently associated with a user.
         </attribute>
         <attribute name="roles" type="string*"
                    use="optional">
@@ -39,7 +39,7 @@
         </attribute>
         <attribute name="groups" type="string*"
                    use="optional">
-            The list of groups currently associated with a user.
+            The list of group IDs currently associated with a user.
         </attribute>
         <attribute name="roles" type="string*"
                    use="optional">
