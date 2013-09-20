@@ -4,7 +4,7 @@
                version="1" resourceTypes="HOST"
                type="UP DOWN">
     <description>
-        UP / DOWN messages for Nova.
+        UP / DOWN messages for Nova. The HOST resourceTypes is a physical machine upon which live multiple virtual servers.
     </description>
     <attribute name="collector" type="string"
                use="required">

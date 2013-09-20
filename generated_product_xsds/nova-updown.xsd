@@ -15,7 +15,7 @@
    <complexType name="CloudServersOpenStackType">
       <annotation>
          <documentation>
-            <html:p>UP / DOWN messages for Nova.</html:p>
+            <html:p>UP / DOWN messages for Nova. The HOST resourceTypes is a physical machine upon which live multiple virtual servers.</html:p>
          </documentation>
          <appinfo>
             <usage:core type="UP DOWN"/>
