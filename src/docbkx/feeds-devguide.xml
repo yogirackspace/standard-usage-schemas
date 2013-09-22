@@ -1118,7 +1118,11 @@
             </section>
         </section>
     </chapter>
-    
+    <xi:include href="../../target/generated-resources/xml/xslt/product_schemas_appendix.xml">
+      <xi:fallback>
+	<?rax fail?>
+      </xi:fallback>
+    </xi:include>
     <glossary>
         <title>Glossary</title>
         <glossentry xml:id="Database-d1e017">
