@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products xmlns="http://docs.rackspace.com/core/usage/schema">
+	<appendix 
+		xmlns="http://docbook.org/ns/docbook"
+		xml:id="product-schema-reference">
+		<title>Product Schemas</title>
+		<para>Ipsum Lorem. This is intro text for the whole appendix.</para>
+	</appendix>
+		<product schemaFile="../../sample_product_schemas/ahop-count.xml"
+			sampleFile="../../message_samples/meta/atomhopper-feedcount-feed-update-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="ahop-count">
+				<title>Ahop count</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/bigdata.xml"
+			sampleFile="../../message_samples/bigdata/bigdata-bigdata-usage-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="bigdata">
+				<title>Big data</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cbs-snapshot.xml"
+			sampleFile="../../message_samples/cbs/cloudblockstorage-snapshot-volume-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cbs-snapshot">
+				<title>Cloud Block Storage snapshot</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cbs.xml"
+			sampleFile="../../message_samples/cbs/cloudblockstorage-cbs-volume-usage-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cbs">
+				<title>Cloud Block Storage</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudbackupBandwidthIn.xml"
+			sampleFile="../../message_samples/backup/cloudbackup-bandwidthIn-agent-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudbackupBandwidthIn">
+				<title>Cloud Backup bandwidth in</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudbackupBandwidthOut.xml"
+			sampleFile="../../message_samples/backup/cloudbackup-bandwidthOut-agent-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudbackupBandwidthOut">
+				<title>cloudbackupBandwidthOut</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudbackupLicense.xml"
+			sampleFile="../../message_samples/backup/cloudbackup-license-agent-usage-v2-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudbackupLicense">
+				<title>cloudbackupLicense</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudbackupStorage.xml"
+			sampleFile="../../message_samples/backup/cloudbackup-storage-agent-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudbackupStorage">
+				<title>cloudbackupStorage</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/clouddns.xml"
+			sampleFile="../../message_samples/dns/clouddns-clouddns-domain-create-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="clouddns">
+				<title>clouddns</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudfilesBandwidthUsage.xml"
+			sampleFile="../../message_samples/files/cloudfiles-bandwidth-usage-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudfilesBandwidthUsage">
+				<title>cloudfilesBandwidthUsage</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudfilesCDNUsage.xml"
+			sampleFile="../../message_samples/files/cloudfiles-cdnbandwidth-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudfilesCDNUsage">
+				<title>cloudfilesCDNUsage</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/cloudfilesStorageUsage.xml"
+			sampleFile="../../message_samples/files/cloudfiles-storage-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="cloudfilesStorageUsage">
+				<title>cloudfilesStorageUsage</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/dbaas.xml"
+			sampleFile="../../message_samples/dbaas/clouddatabase-dbaas-mysql-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="dbaas">
+				<title>dbaas</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/domain-registration.xml"
+			sampleFile="../../message_samples/domain/domainregistration-domain-domain_subscription-usage_snapshot-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="domain-registration">
+				<title>domain-registration</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/glance.xml"
+			sampleFile="../../message_samples/glance/glance-glance-backup-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="glance">
+				<title>glance</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/identity-token.xml"
+			sampleFile="../../message_samples/identity/cloudidentity-token-token-delete-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="identity-token">
+				<title>identity-token</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+	<product 
+		schemaFile="../../sample_product_schemas/identity.xml" 
+		sampleFile="../../message_samples/identity/cloudidentity-token-token-delete-entry.xml">
+		<section
+			xmlns="http://docbook.org/ns/docbook"
+			xml:id="identity-ref">
+			<title>Identity</title>
+			<para>Ipsum Lorem. This text describes an individual product schema.</para>
+		</section>
+	</product>
+		<product schemaFile="../../sample_product_schemas/lbaas-delete.xml"
+			sampleFile="../../message_samples/lbaas/cloudloadbalancers-delete-loadbalancer-delete-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="lbaas-delete">
+				<title>lbaas-delete</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/lbaas.xml"
+			sampleFile="../../message_samples/lbaas/cloudloadbalancers-lbaas-loadbalancer-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="lbaas">
+				<title>lbaas</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/maas.xml"
+			sampleFile="../../message_samples/monitoring/cloudmonitoring-maas-check-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="maas">
+				<title>maas</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/nova-ip.xml"
+			sampleFile="../../message_samples/nova/cloudserversopenstack-ip-instance-usage-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="nova-ip">
+				<title>nova-ip</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/nova-updown.xml"
+			sampleFile="../../message_samples/nova/cloudserversopenstack-host-host-down-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="nova-updown">
+				<title>nova-updown</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/nova.xml"
+			sampleFile="../../message_samples/nova/cloudserversopenstack-nova-server-usage-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="nova">
+				<title>nova</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/redhat.xml"
+			sampleFile="../../message_samples/nova/rhel-rhel-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="redhat">
+				<title>redhat</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-bandwidth.xml"
+			sampleFile="../../message_samples/servers/cloudservers-bandwidth-slice-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-bandwidth">
+				<title>servers-bandwidth</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-heartbeart.xml"
+			sampleFile="../../message_samples/servers/cloudservers-heartbeat-qb-up-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-heartbeart">
+				<title>servers-heartbeart</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-image-action.xml"
+			sampleFile="../../message_samples/servers/cloudservers-image-image-info-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-image-action">
+				<title>servers-image-action</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-ip.xml"
+			sampleFile="../../message_samples/servers/cloudservers-ip-instance-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-ip">
+				<title>servers-ip</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-slice-action.xml"
+			sampleFile="../../message_samples/servers/cloudservers-servers-slice-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-slice-action">
+				<title>servers-slice-action</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers-slice.xml"
+			sampleFile="../../message_samples/servers/cloudservers-slice-slice-info-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers-slice">
+				<title>servers-slice</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/servers.xml"
+			sampleFile="../../message_samples/servers/cloudservers-bandwidth-slice-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="servers">
+				<title>servers</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-db.xml"
+			sampleFile="../../message_samples/sites/cloudsites-db-mssql-usage_snapshot-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-db">
+				<title>sites-db</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-email.xml"
+			sampleFile="../../message_samples/sites/cloudsites-email-sites_email-usage_snapshot-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-email">
+				<title>sites-email</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-meter.xml"
+			sampleFile="../../message_samples/sites/cloudsites-metered-site-usage-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-meter">
+				<title>sites-meter</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-netapp.xml"
+			sampleFile="../../message_samples/sites/cloudsites-netapp-usage_snapshot-entry.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-netapp">
+				<title>sites-netapp</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-ssl.xml"
+			sampleFile="../../message_samples/sites/cloudsites-ssl-site-usage_snapshot-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-ssl">
+				<title>sites-ssl</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+		<product schemaFile="../../sample_product_schemas/sites-subscription.xml"
+			sampleFile="../../message_samples/sites/cloudsites-subscription-sites_subscription-usage_snapshot-event.xml">
+			<section xmlns="http://docbook.org/ns/docbook" xml:id="sites-subscription">
+				<title>sites-subscription</title>
+				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+			</section>
+		</product>
+</products>
