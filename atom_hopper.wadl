@@ -36,6 +36,7 @@
         
         <!-- Test related feeds -->
         <resource id="demo_events" path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource id="experiments_events" path="experiments/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest1_events" path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
