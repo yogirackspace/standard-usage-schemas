@@ -93,10 +93,10 @@
          </documentation>
       </annotation>
       <restriction base="xsd:token">
-         <enumeration value="HDP1.1"/>
-         <enumeration value="HDP1.3"/>
-         <enumeration value="HBASE_HDP1.1"/>
-         <enumeration value="HBASE_HDP1.3"/>
+         <enumeration value="HADOOP_HDP1_1"/>
+         <enumeration value="HADOOP_HDP1_3"/>
+         <enumeration value="HBASE_HDP1_1"/>
+         <enumeration value="HBASE_HDP1_3"/>
       </restriction>
    </simpleType>
    <simpleType name="numberServersInClusterType">

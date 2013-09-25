@@ -16,7 +16,7 @@
             version="1">
             <bigdata:product bandwidthIn="1024" bandwidthOut="19992" flavorId="10" 
                 flavorName="some flavor"
-                numberServersInCluster="500" resourceType="HDP1.1" serviceCode="BigData" 
+                numberServersInCluster="500" resourceType="HADOOP_HDP1_1" serviceCode="BigData" 
                 version="1" />
         </event>
     </atom:content>
