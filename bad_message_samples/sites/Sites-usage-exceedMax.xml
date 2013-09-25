@@ -4,7 +4,6 @@
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:email="http://docs.rackspace.com/usage/sites/email">
     <atom:title type="text">Sites</atom:title>
-    <atom:updated>2012-06-14T09:46:31.867-05:00</atom:updated>
     <atom:content type="application/xml">
         <event type="USAGE_SNAPSHOT"
                resourceId="my.site.com" resourceName="my.site.com"
