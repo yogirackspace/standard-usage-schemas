@@ -83,7 +83,7 @@
             <attribute name="groups" use="optional" type="p:groups1List">
                <annotation>
                   <documentation>
-                     <html:p>The list of groups currently associated with a user.</html:p>
+                     <html:p>The list of group IDs currently associated with a user.</html:p>
                   </documentation>
                   <appinfo>
                      <usage:attributes/>
@@ -157,7 +157,7 @@
             <attribute name="groups" use="optional" type="p:groups2List">
                <annotation>
                   <documentation>
-                     <html:p>The list of groups currently associated with a user.</html:p>
+                     <html:p>The list of group IDs currently associated with a user.</html:p>
                   </documentation>
                   <appinfo>
                      <usage:attributes/>

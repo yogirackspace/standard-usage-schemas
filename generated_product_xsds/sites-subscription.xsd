@@ -68,6 +68,7 @@
       <restriction base="xsd:string">
          <enumeration value="SUBSCRIBE"/>
          <enumeration value="CANCEL"/>
+         <enumeration value="UPDATE"/>
       </restriction>
    </simpleType>
 </xsd:schema>

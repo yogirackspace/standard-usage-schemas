@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:db="http://docs.rackspace.com/usage/sites/db">
+    <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13</atom:id>
+    <atom:category term="tid:12334"/>
+    <atom:category term="rgn:DFW"/>
+    <atom:category term="dc:DFW1"/>
+    <atom:category term="rid:256638"/>
+    <atom:category term="cloudsites.subscription.sites_subscription.usage_snapshot"/>
+    <atom:title type="text">Sites</atom:title>
+    <atom:updated>2013-04-08T18:34:39.834Z</atom:updated>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-03-12T11:51:11Z" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="256638" resourceName="Mosso Standard Offering" tenantId="12334" type="USAGE_SNAPSHOT" version="1" xmlns:sites="http://docs.rackspace.com/usage/sites/subscription">
+            <sites:product action="UPDATE" isNewAccount="false" resourceType="SITES_SUBSCRIPTION" serviceCode="CloudSites" version="1"/>
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self"/>
+    <atom:published>2013-04-08T18:34:39.834Z</atom:published>
+</atom:entry>
+
