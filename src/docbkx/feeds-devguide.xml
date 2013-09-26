@@ -1912,36 +1912,7 @@
                 reference</remark></para>
         </section>
     </chapter>
-    <chapter xml:id="wadl_example_wadl_1" role="api-reference"
-        xmlns:wadl="http://wadl.dev.java.net/2009/02">
-        <title>Operations </title>
-        <section xml:id="foo">
-            <title>TITLEME</title>
-            <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource
-                    href="../../atom_hopper.wadl#accountstatus_events"/>
-                <resource href="../../atom_hopper.wadl#cbs_events"/>
-                <resource href="../../atom_hopper.wadl#dns_events"/>
-                <resource href="../../atom_hopper.wadl#files_events"/>
-            </resources>
-        </section>
-        <section xml:id="secondrefseciton">
-            <title>Another dumb name</title>
-            <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../atom_hopper.wadl#sites_events"/>
-                <resource href="../../atom_hopper.wadl#domain_events"/>
-                <resource href="../../atom_hopper.wadl#dbaas_events"/>
-                <resource href="../../atom_hopper.wadl#glance_events"/>
-                <resource href="../../atom_hopper.wadl#lbaas_events"/>
-                <resource href="../../atom_hopper.wadl#servers_events"/>
-                <resource
-                    href="../../atom_hopper.wadl#monitoring_events"/>
-                <resource href="../../atom_hopper.wadl#nova_events"/>
-                <resource href="../../atom_hopper.wadl#bigdata_events"
-                />
-            </resources>
-        </section>
-    </chapter>
+    <xi:include href="api-operations.xml"/>
     <xi:include
         href="../../target/generated-resources/xml/xslt/product_schemas_appendix.xml">
         <xi:fallback>
