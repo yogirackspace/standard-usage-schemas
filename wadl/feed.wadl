@@ -3,7 +3,8 @@
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:db="http://docbook.org/ns/docbook"
              xmlns:rax="http://docs.rackspace.com/api"
-             xmlns:atom="http://www.w3.org/2005/Atom">
+             xmlns:atom="http://www.w3.org/2005/Atom"
+             xmlns:wadl="http://wadl.dev.java.net/2009/02">
 
     <!-- Resource Types -->
     <resource_type id="AtomFeed">
@@ -15,27 +16,31 @@
     </resource_type>
 
     <resource_type id="Unvalidated">
-        <doc title="Unvalidated">
-            <db:para>
+        <wadl:doc title="Unvalidated" xmlns="http//docbook.org/ns/dockbook">
+            <para>
                 Leaving these descriptions fairly loose as these
                 feeds are currently not validated against.
-            </db:para>
-        </doc>
+            </para>
+        </wadl:doc>
         <method href="#addPlainUnvalidatedEntry"/>
     </resource_type>
 
     <resource_type id="Validated">
-        <doc title="Validated">
-            <db:para>
+        <wadl:doc title="Validated" xmlns="http//docbook.org/ns/dockbook">
+            <para>
                 Check against XSDs but don't check against cross
                 posts.
-            </db:para>
-        </doc>
+            </para>
+        </wadl:doc>
         <method href="#addPlainEntry"/>
     </resource_type>
 
     <!-- METHODS -->
     <method id="getFeed" name="GET">
+        <wadl:doc xml:lang="EN" title="Details" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc">Gets events for this product's feed</para>
+            
+        </wadl:doc>
         <request>
             <param name="marker" style="query" type="xs:anyURI" required="false"/>
             <param name="limit"  style="query" type="xs:int" required="false"/>
