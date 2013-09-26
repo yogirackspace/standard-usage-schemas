@@ -19,9 +19,8 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xml:id="feeds-devguide"
-    version="5.0-extension RaxBook-2.0">    
+    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
+    version="5.0-extension RaxBook-2.0">
     <title>Rackspace Cloud Feeds Developer Guide</title>
     <info>
         <author>
@@ -42,7 +41,8 @@
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
-                <remark>Copyright details are filled in by the template.</remark>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
             </annotation>
         </legalnotice>
         <abstract>
@@ -51,203 +51,857 @@
                 Rackspace Cloud Feeds Application Programming
                 Interface (<abbrev>API</abbrev>). </para>
         </abstract>
-        
         <revhistory>
             <revision>
-                <date>2013-07-01</date>
+                <date>2013-08-01</date>
                 <revdescription>
                     <itemizedlist spacing="compact">
                         <listitem>
-                            <para>Put change history stuff here</para>
+                            <para>Sent first draft of chapters 1, 2,
+                                and 3 for review </para>
                         </listitem>
                     </itemizedlist>
                 </revdescription>
             </revision>
- 
+            <revision>
+                <date>2012-08-16</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Entered revisions from first review.
+                                Added a new chapter.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+            <revision>
+                <date>2012-09-18</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Entered revisions from review by
+                                Kelly H. and sent to CF team for
+                                review.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+            <revision>
+                <date>2012-09-19</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Set-up first version of
+                                WADLs.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+            <revision>
+                <date>2012-09-24</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Entered edits from Shinta received
+                                from second review part 1</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
         </revhistory>
-    <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-      <raxm:displayname>API Developer Guide</raxm:displayname>
-      <raxm:product version="v1.0">feeds</raxm:product>
-      <raxm:priority>20</raxm:priority>
-    </raxm:metadata> 
+        <raxm:metadata
+            xmlns:raxm="http://docs.rackspace.com/api/metadata">
+            <raxm:displayname>API Developer Guide</raxm:displayname>
+            <raxm:product version="v1.0">feeds</raxm:product>
+            <raxm:priority>20</raxm:priority>
+        </raxm:metadata>
     </info>
     <chapter xml:id="overview">
         <title>Overview</title>
-        <para>Rackspace Cloud Databases is an OpenStack-based MySQL
-            relational database service that allows Rackspace
-            customers to easily provision database instances of
-            varying virtual resource sizes without the need to
-            maintain and/or update MySQL. Interactions with Cloud
-            Databases occur programmatically via the Cloud Databases
-            API as described in this developer guide.</para>
+        <para>Rackspace Cloud Feeds enables customers and Rackspace
+            apps running on the public cloud to access near real-time
+            usage and system events that can be used for analysis,
+            monitoring, and automation. This purpose of this document
+            is explain how to access feeds by using the Cloud Feeds
+            API. </para>
         <note>
-            <para>Rackspace recommends that Cloud Databases users back
-                up their data using <emphasis role="bold"
-                    >mysqldump</emphasis> until backups are supported
-                in Cloud Databases.</para>
+            <para> Atom Hopper (based on Apache Abdera) is the
+                technology used for implementation. It is equivalent
+                to using Apache to serve up web contents or using
+                Tomcat to host a web application. </para>
         </note>
-        <para security="writeronly">We welcome feedback, comments, and bug reports at <link
+        <para security="writeronly">We welcome feedback, comments, and
+            bug reports at <link
                 xlink:href="http://feedback.rackspacecloud.com"
                 >http://feedback.rackspacecloud.com</link>.</para>
-        <remark>Writer: check whether following statement should be
-            added back in for public (not private) beta: Issues and
-            bug reports can be directed to your support team via
-            ticket, chat, email, or phone.</remark>
-        <section xml:id="Intended_Audience-d1e122">
-            <title>Intended Audience</title>
-            <para> This Guide is intended to assist software
-                developers who want to develop applications using the
-                Cloud Databases API. It assumes the reader has a
-                general understanding of databases and is familiar
-                with: </para>
-            <itemizedlist spacing="compact">
-                <listitem>
-                    <para>ReSTful web services</para>
-                </listitem>
-                <listitem>
-                    <para>HTTP/1.1 conventions</para>
-                </listitem>
-                <listitem>
-                    <para>JSON and/or XML data serialization
-                        formats</para>
-                </listitem>
-                <listitem>
-                    <para>ATOM Syndication Format</para>
-                </listitem>
-            </itemizedlist>
-        </section>
-        <section xml:id="Document_Change_History-d1e166">
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>RESTful web services</para>
+            </listitem>
+            <listitem>
+                <para>HTTP/1.1 protocol</para>
+            </listitem>
+            <listitem>
+                <para>JSON and XML data serialization formats</para>
+            </listitem>
+            <listitem>
+                <para>ATOM Syndication Format RFC 4287</para>
+            </listitem>
+        </itemizedlist>
+        <para xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns:m="http://www.w3.org/1998/Math/MathML"
+            xmlns:html="http://www.w3.org/1999/xhtml">The following
+            figure shows an overview of Cloud Databases
+            Infrastructure: <remark>Insert place holder for overview
+                diagram when received from marketing/</remark>
+        </para>
+        <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
                 obsoletes all previous versions. The most recent
                 changes are described in the table below:</para>
             <?rax revhistory?>
         </section>
-        <section xml:id="Additional_Resources-d1e532">
+        <section xml:id="Additional_Resources">
             <title>Additional Resources</title>
-            <para>Descriptive information about Cloud Databases is
-                also published in its Web Application Description
-                Language (WADL) and XML Schema Definition (XSD). You
-                are welcome to read this information here:</para>
+            <para>Descriptive information about Cloud Feeds is also
+                published in its Web Application Description Language
+                (WADL) and XML Schema Definition (XSD). This
+                information is available at the following
+                locations:</para>
             <itemizedlist>
                 <listitem>
-                    <para>The WADL is <link
+                    <para>There are multiple WADLs and XSDs for each
+                        product event (<emphasis role="italic">see,
+                            section ? in chapter
+                            4</emphasis>).<remark>Needs to be replaced
+                            when WADL is available</remark>
+                        <link
                             xlink:href="http://docs.rackspace.com/cdb/api/v1.0/cdb.wadl"
                         />.</para>
                 </listitem>
                 <listitem>
-                    <para>The XSD is <link
-                        xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"/>. </para>
+                    <para>The XSD is at <remark>Needs to be replaced
+                            when XSD is available.</remark>
+                        <link
+                            xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"
+                        />. </para>
                 </listitem>
             </itemizedlist>
             <para>You can download the most current versions of other
                 API-related documents from <link
                     xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link>. </para>
-            <para>For more details about Rackspace Cloud Databases,
-                refer to <link
+            <para> For more details about Cloud Feeds, see<link
                     xlink:href="http://www.rackspace.com/cloud/cloud_hosting_products/databases/"
-                    >http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>.
-                This site also offers links to Rackspace's official
+                        ><remark>Is there a link for Cloud Feeds for
+                        more information? This will be developeld
+                        later
+                    correct?</remark>http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>This
+                site also provides links to the official Rackspace
                 support channels, including knowledge center articles,
                 forums, phone, chat, and email. </para>
-            <para>Using this API document, your Rackspace Cloud
-                account, and at least one Cloud Server, you can get
-                started whenever you'd like. See the
-                    <citetitle>Getting Started with Rackspace Cloud
-                    Databases and Servers</citetitle> at <link
+            <para>For detailed information about getting started with
+                the API, see the <citetitle>Cloud Feeds Getting
+                    Started Guide</citetitle> at <link
                     xlink:href="http://docs.rackspace.com/"
-                    >http://docs.rackspace.com/</link> for information
-                about getting started using the API.</para>
-            <para>Please visit our <link
+                    >http://docs.rackspace.com/</link> All you need to
+                start using Cloud Feeds is the getting started guide,
+                the developer guide, your Rackspace Cloud account, and
+                at least one cloud server.</para>
+            <para>Visit the <link
                     xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                    >Product Feedback Forum</link> and let us know
-                what you think about Cloud Databases!</para>
+                    >Product Feedback Forum</link> to let us know what
+                you think about Cloud Feeds.</para>
             <para>You can also follow Rackspace updates and
-                announcements via twitter at: <link
+                announcements via Twitter at: <link
                     xlink:href="http://www.twitter.com/rackspace"
                     >http://www.twitter.com/rackspace</link>. </para>
-            <para>This API uses standard HTTP 1.1 response codes as
+            <para>This API uses standard HTTP/1.1 response codes as
                 documented at: <link
                     xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
-                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
+                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>.
+            </para>
         </section>
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and Service Level</title>
-            <para>Cloud Databases is part of the Rackspace Cloud and
-                your use through the API will be billed as per the
-                pricing schedule at <link
-                    xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
-                    >http://www.rackspace.com/cloud/public/databases/pricing</link>.</para>
-            <para>The Service Level Agreement (SLA) for Cloud
-                Databases is available at <link
-                    xlink:href="http://www.rackspace.com/cloud/legal/sla/#cloud_databases"
-                    >http://www.rackspace.com/cloud/legal/sla/#cloud_databases</link>.</para>
+            <para>Pricing and service level agreement (SLA)
+                information for Cloud Feeds is as follows:</para>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Pricing</emphasis>:
+                        Currently, Cloud feeds is available at no cost
+                        for Rackspace service admins who are using the
+                        public cloud. </para>
+                </listitem>
+            </itemizedlist>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">SLA</emphasis>: The
+                        Cloud Feeds (Atom Hopper) SLA is for
+                        publishers and subscribers. The SLA provides a
+                        support model. For more detailed information,
+                        see <link
+                            xlink:href="http://https://one.rackspace.com/display/CIT/Atom+Hopper+FAQ+-+Internal+Only#AtomHopperFAQ-InternalOnly-SupportandOperationsManagement/rackspace"
+                            >Support and Operations
+                            Management.</link><remark>Provide Support
+                            information for external version. Get
+                            information from this URL:
+                            https://one.rackspace.com/display/CIT/Atom+Hopper+FAQ+-+Internal+Only</remark></para>
+                </listitem>
+            </itemizedlist>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Uptime</emphasis>: The
+                        uptime goal for Cloud Feeds (Atom Hopper) is
+                        99.999 percent. If Atom Hopper is down, all
+                        publishers must continue to hold their events
+                        until Cloud Feeds (Atom Hopper) is back up.
+                        Publishers must queue events for a minimum of
+                        two days.</para>
+                </listitem>
+            </itemizedlist>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Performance
+                            Requirements (Projected
+                        Volume)</emphasis>: For projected estimates,
+                        see <link
+                            xlink:href="https://docs.google.com/spreadsheet/ccc?key=0AovJFX0OgO9cdGJwUlNNbzhvcmhhSFgxUjcyX21qanc#gid=3"
+                            >projected and actual values</link>in
+                        September 2013 Cloud Feeds (Atom Hopper) needs
+                        to handle POSTs and GETs at 500 entries per
+                        second. The goal for 2013 is two million
+                        entries per hour. </para>
+                </listitem>
+            </itemizedlist>
+            <itemizedlist>
+                <listitem>
+                    <para><emphasis role="bold">Performance
+                            SLAs</emphasis>: For Cloud Feeds (Atom
+                        Hopper) performance SLAs,<link
+                            xlink:href="https://one.rackspace.com/display/CIT/Atom+Hopper+Testing+and+Performance+Metrics"
+                            >Testing and performance metrics</link>
+                        for Cloud Feeds (Atom Hopper) performance
+                        SLAs. The SLAs are based on the XX,XX,XXXX
+                            <remark>Will need the correct
+                            date.</remark>performance test results for
+                        a feed with five million entries.</para>
+                </listitem>
+            </itemizedlist>
+            <remark>The amounts listed in the following table will
+                change , since performance numbers are changing as of
+                9-24-13.</remark>
+            <table rules="all">
+                <caption>Performance SLAs</caption>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <col width="25%"/>
+                <thead>
+                    <tr>
+                        <th>Request</th>
+                        <th>Payload</th>
+                        <th>Response Times in Seconds</th>
+                        <th>Entries per Second</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>POST with a random number categories that
+                            contain 50 threads</td>
+                        <td>One entry size at 2.5 KB</td>
+                        <td>0.15</td>
+                        <td>329.71</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>First GET request for a page with a size
+                            of 1,000 pages with category</td>
+                        <td>26.24</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>First GET request for a page with a page
+                            size of 1,000 pages, without category</td>
+                        <td>11.45</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>Feed head (25) <remark>Is 25 the length of
+                                the head?</remark>with search
+                            category</td>
+                        <td>21.70</td>
+                        <td>65.76</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>Paging through a feed, with a search
+                            category and a limit of 1,000 <remark>Is
+                                1,000 the number of
+                            feeds?</remark></td>
+                        <td>6.37</td>
+                        <td>157.74</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>Paging through feed, without a search
+                            category and limit of 1,000</td>
+                        <td>5.91</td>
+                        <td>166.67</td>
+                    </tr>
+                    <tr>
+                        <td>GET</td>
+                        <td>Paging through feed, feed head (25)
+                                <remark>Is 25 the length of the
+                                head?</remark>with search
+                            category</td>
+                        <td>0.36</td>
+                        <td>None</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table rules="all">
+                <caption>Combined Traffic Performance with 5M entries
+                    and a random number of categories:</caption>
+                <col width="33%"/>
+                <col width="33%"/>
+                <col width="33%"/>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Average Responses (per second)</th>
+                        <th>Throughput (number of entries per
+                            second)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>POST five million entries</td>
+                        <td>0.09</td>
+                        <td>543.18</td>
+                    </tr>
+                    <tr>
+                        <td>GET (1,000) <remark>Is 1,000 the number of
+                                entries?</remark>with category</td>
+                        <td>22.42</td>
+                        <td>4.95</td>
+                    </tr>
+                    <tr>
+                        <td>Paging through</td>
+                        <td>8.29</td>
+                        <td>104.40</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </chapter>
-    
-    <chapter xml:id="Concepts-d1e563">
+    <chapter xml:id="Concepts-d1e111">
         <title>Concepts</title>
-        <?dbhtml stop-chunking?>
-        <para> To use the Cloud Databases API effectively, you should
-            understand several key concepts: </para>
-        <section xml:id="DatabaseInstance-d1e588">
-            <title>Database Instance</title>
-            <para>A database instance is an isolated MySQL instance in
-                a single tenant environment on a shared physical host
-                machine.</para>
-            <remark security="writeronly">Writer: once we support
-                MSSQL, we need to describe here what is used for MSSQL
-                in place of database instance.</remark>
+        <para>To use the Cloud Feeds API effectively, you should
+            understand understand the following concepts:</para>
+        <section xml:id="Atom_Feed_Document-d1e115">
+            <title>Atom Feed Document</title>
+            <para>An Atom Feed Document is a representation of an Atom
+                feed, including metadata about the feed, and some or
+                all of the entries associated with it. It's root is
+                the atom:feed element.</para>
         </section>
-        <section xml:id="Database">
-            <title>Database</title>
-            <para>A MySQL database within a database instance.</para>
-            <remark security="writeronly">Writer: once we support
-                MSSQL, we need to modify the wording here, such as:
-                The actual database, whether it is in MySQL or
-                MSSQL.</remark>
+        <section xml:id="Atom_Entry_Document-d1e1115">
+            <title>Atom Entry Document</title>
+            <para>An Atom Entry Document represents exactly one Atom
+                entry, outside of the context of an Atom feed. Its
+                root is the atom:entry element.</para>
         </section>
-        <section xml:id="Flavor">
-            <title>Flavor</title>
-            <para>A flavor is an available hardware configuration for
-                a database instance. Each flavor has a unique
-                combination of memory capacity and priority for CPU
-                time.</para>
+        <section xml:id="Usage_and_System_Event_Messages-d1e1362">
+            <title>Cloud Backup Event Information </title>
+            <para>For Rackspace products, usage and system events
+                (messages) belong to the Atom Content section of the
+                Atom Entry. The following are message examples:</para>
+            <example>
+                <title>Cloud Event Information</title>
+                <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
+&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
+            xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
+            xmlns:atom="http://www.w3.org/2005/Atom">
+    &lt;atom:content type="application/xml">
+        &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+               region="DFW" dataCenter="DFW1" type="USAGE"
+               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+               tenantId="1234" version="1">
+            &lt;cb-bin:product version="1" serviceCode="CloudBackup"
+                            serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
+                            bandwidthIn="192998" resourceType="AGENT"/>
+        &lt;/event>
+    &lt;/atom:content>
+&lt;/atom:entry></programlisting>
+            </example>
+            <example>
+                <title>Cloud Big Data Event Information</title>
+                <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?atom feed="bigdata/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
+&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    &lt;atom:title>Cloud Big Data&lt;/atom:title>
+    &lt;atom:content type="application/xml">
+        &lt;event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:bigdata="http://docs.rackspace.com/usage/bigdata"
+               version="1" tenantId="2888"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               resourceName="My Big Data Cluster"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2013-03-15T11:51:11Z"
+               endTime="2013-03-16T11:51:11Z">
+            &lt;bigdata:product version="1" serviceCode="BigData"
+                        resourceType="HDP1.1" flavorId="10"
+                        flavorName="some flavor"
+                        numberServersInCluster="500"
+                        bandwidthIn="1024" bandwidthOut="19992"/>
+        &lt;/event>
+    &lt;/atom:content>
+&lt;/atom:entry></programlisting>
+            </example>
         </section>
-        <section xml:id="Volume">
-            <title>Volume</title>
-            <para>A volume is user-specified storage that contains the
-                MySQL data directory. Volumes are automatically
-                provisioned on shared Internet Small Computer System
-                Interface (iSCSI) storage area networks (SAN) that
-                provide for increased performance, scalability,
-                availability and manageability. Applications with high
-                I/O demands are performance optimized and data is
-                protected through both local and network RAID-10.
-                Additionally, network RAID provides synchronous
-                replication of volumes with automatic failover and
-                load balancing across available storage
-                clusters.</para>
+        <section xml:id="XML_Schemas-d1e120">
+            <title>XML Schemas</title>
+            <para>All product events are validated against their XML
+                schemas. For details, see the reference table</para>
+            <remark>Dave will provide a reference table that contains
+                tables of valid attributes for each product.</remark>
+        </section>
+        <section xml:id="Versioned-d1e125">
+            <title>Versioned</title>
+            <para>Each product event is versioned. For examples, see,
+                Example 2.1 and Example 2.2 listed above.</para>
+        </section>
+    </chapter>
+    <chapter xml:id="General_API_Information-d1e333">
+        <title>Using Cloud Feeds</title>
+        <para>To use Cloud Feeds an understanding of REST API is
+            needed, since Cloud Feeds implements REST API.</para>
+        <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
+            <title>Adding a New Atom Entry</title>
+            <para>An atom entry is the location of an actual product
+                event.</para>
+            <para>The following is an example of a simple Atom entry
+                (with three categories):</para>
+            <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
+  &lt;title type="text">This is the title&lt;/title>
+  &lt;author>
+    &lt;name>John Doe&lt;/name>
+  &lt;/author>
+  &lt;content type="text">Hello World&lt;/content>
+  &lt;category term="MyCategory 1" />
+  &lt;category term="MyCategory 2" />
+  &lt;category term="MyCategory 3" />
+&lt;/entry></programlisting>
+            <para>The ATOM XML cited above can be sent to Atom Hopper
+                via an <emphasis role="bold">HTTP POST</emphasis>
+                along with the HTTP Header <emphasis role="bold"
+                    >Content-Type:
+                application/atom+xml.</emphasis></para>
+        </section>
+        <section xml:id="Adding_one-or-more-categories-d1e1305">
+            <title>Adding One or More Categories</title>
+            <para>To add categories to an ATOM entry you must include
+                the category element along with a term
+                attribute:</para>
+            <para><emphasis role="bold"> Single Category
+                </emphasis></para>
+            <programlisting>&lt;category term="mycategory1" /></programlisting>
+            <para><emphasis role="bold">Multiple
+                Categories</emphasis></para>
+            <programlisting>&lt;category term="mycategory1" />
+&lt;category term="mycategory2" /></programlisting>
+            <note>
+                <para> Category tags are case sensitive.</para>
+            </note>
+        </section>
+        <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
+            <title>Getting the Feed</title>
+            <para>An HTTP GET is used to retrieve the Atom feed (or a
+                single entry) from Atom Hopper. The HTTP GET request
+                supports asking for a specific entry, forward and
+                backward paging, category searches, and JSON feed
+                returns that are experimental.</para>
+            <note>
+                <para>Control and illegal characters must be escaped
+                    in the URL.</para>
+            </note>
+            <para
+                xlink:href="https://atom.myserver.com/namespace/feed "
+                >To get the feed on a default installation perform an
+                HTTP GET request against the following URL: </para>
+            <programlisting>https://atom.myserver.com/namespace/feed. </programlisting>
+            <para>The response of the above HTTP GET would contain
+                several links as follows:</para>
+            <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
+&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
+&lt;link href="http://localhost:8080/namespace/feed/" rel="current" />
+&lt;link href="http://localhost:8080/namespace/feed/" rel="self" /></programlisting>
+            <para>For version 1.1.0 and above the following links
+                which fetch the oldest atom entries in the database
+                will be used: </para>
+            <itemizedlist>
+                <listitem>
+                    <para>The <emphasis role="bold">current</emphasis>
+                        links to the feed.</para>
+                </listitem>
+                <listitem>
+                    <para>Use the <emphasis role="bold"
+                            >last</emphasis> links to go to the last
+                        page of atom entries in the database for the
+                        specified feed. This can be useful for finding
+                        the first Atom entry ever inserted for a given
+                        feed. Note that Cloud Feeds uses a mock last
+                        link marker. This helps move some of the
+                        heavier queries off the feed head call.</para>
+                </listitem>
+                <listitem>
+                    <para>Use the <emphasis role="bold"
+                            >self</emphasis> link to bring back the
+                        entry that you are currently viewing. Note
+                        that in the example above, the feeds are being
+                        hit with no options; as a result, if any new
+                        Atom entries have been entered, then those
+                        will appear as well.</para>
+                </listitem>
+                <listitem>
+                    <para>Use the <emphasis role="bold"
+                            >next</emphasis> link to navigate by page
+                        to the next page of Atom entries. When you get
+                        to the end of the feed, this link will not be
+                        present.</para>
+                </listitem>
+                <listitem>
+                    <para>Use the <emphasis role="bold"
+                            >previous</emphasis> link to navigate by
+                        page to the previous page of Atom entries. The
+                        link is always present in the feed header. If
+                        you are at the top of the feed and you follow
+                        this link an empty feed is returned unless new
+                        entries have occurred since you last polled.
+                        In a feed, the entries are shown in order from
+                        newest to oldest. </para>
+                </listitem>
+            </itemizedlist>
+            <para>Use the <emphasis role="bold">previous</emphasis>
+                link to navigate by page to the previous page of Atom
+                entries. The link is always present in the feed
+                header. If you are at the top of the feed and you
+                follow this link an empty feed is returned unless new
+                entries have occurred since you last polled. In a
+                feed, the entries are shown in order from newest to
+                oldest. </para>
+            <important xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:m="http://www.w3.org/1998/Math/MathML"
+                xmlns:html="http://www.w3.org/1999/xhtml">
+                <para>When viewed in a web browser or web tool such as
+                    Poster, each <emphasis role="bold"
+                        >&amp;</emphasis> characters in a link returns
+                    as an HTML ampersand character code. To follow the
+                    link in a web browser or web tool such as Poster,
+                    you must change each HTML ampersand character
+                    (&amp;amp:) to <emphasis role="bold"
+                        >&amp;</emphasis>. For example, when viewed in
+                    a web browser, the feed returns the following
+                    link: </para>
+            </important>
+            <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+</programlisting>
+            <para>To follow the link from a web browser, you must
+                change each instance of &amp;amp; to &amp;, as
+                follows: </para>
+            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
+</programlisting>
+            <para>It must be changed to: </para>
+            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+</programlisting>
+            <para>This issue should not be a concern when using an XML
+                Parser. </para>
+            <section xml:id="Cloud_Query_Pardle0001">
+
+                <title>Cloud Feeds Query Parameters</title>
+                <para>The following Table lists Cloud Feeds query
+                    parameters:</para>
+                <table rules="all" width="920">
+                    <caption>Cloud Feeds Query Parameters</caption>
+                    <col width="9%"/>
+                    <col width="30%"/>
+                    <col width="140t"/>
+                    <col width="10%"/>
+                    <thead>
+                        <tr>
+                            <th>Parameter Name</th>
+                            <th>Description</th>
+                            <th>Data Types/Acceptable Values</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>marker</td>
+                            <td>The unique id of an ATOM entry.</td>
+                            <td>Valid ID</td>
+                            <td>(none)</td>
+                        </tr>
+                        <tr>
+                            <td>direction</td>
+                            <td>The direction from the current marker
+                                (or entry) to begin getting more
+                                entries.</td>
+                            <td>Forward | Backward</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>limit</td>
+                            <td>The number of entries returned. If the
+                                entered limit is greater than the
+                                actual number of entries, the actual
+                                number of entries will be used.</td>
+                            <td>1 to 1,000</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>format</td>
+                            <td>Returns the feed in JSON format
+                                (Experimental).</td>
+                            <td>JSON</td>
+                            <td>(none)</td>
+                        </tr>
+                        <tr>
+                            <td>Search</td>
+                            <td>Allows filtering of feed for only
+                                events of specified category.</td>
+                            <td>String</td>
+                            <td>(none)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+        <section
+            xml:id="Self-referencing-Links-with-HTTP-HTTPS-d1e1309">
+            <title>Links with HTTPS</title>
+            <para>You will notice when the ATOM feed is returned that
+                each ATOM entry has a self-referencing link. The
+                appearance of your self-referencing ATOM entry links
+                depend upon whether you use an HTTPS POST.</para>
+            <para>With HTTPS POST, the link looks as
+                follows:<programlisting>&lt;link href="https://domain.com/namespace/feed/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
+</programlisting></para>
+        </section>
+        <section
+            xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
+            <title>Select Entries by Marker</title>
+            <para>If you specify a marker in the GET request, you can
+                also specify a value for the direction parameter. The
+                value is either forward or backward. If you do not
+                specify a value for the direction parameter, the
+                default value of forward is used. </para>
+            <para><emphasis role="bold"
+                >Forward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
+            <para><emphasis role="bold"
+                >Backward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward 
+</programlisting></para>
+            <para>You can use the limit parameter to specify the
+                number of entries to return. By default the limit is
+                set to 25. The minimum limit is one and the maximum is
+                1,000.</para>
+            <para>The following example shows a marker specified and
+                the limit set to 50, paging forward.</para>
+            <programlisting> http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+</programlisting>
+            <para>The following example shows a marker set and the
+                limit set to 50, paging backward </para>
+            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+</programlisting>
+        </section>
+        <section xml:id="Getting-a-Single-Entry-d1e1313">
+            <title>Getting a Single Entry </title>
+            <para>Entries return one ATOM XML entry which can be used
+                to return a specific entry by itself. </para>
+            <programlisting>http://localhost:8080/namespace/feed/entries/urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d 
+</programlisting>
+            <note>
+                <para> The UUID keyword is the unique ID of the ATOM
+                    entry is entered by Cloud Feeds. </para>
+            </note>
+        </section>
+        <section xml:id="Filter_Entries_by_Category_d1e1315">
+            <title>Filtering Entries by Categories </title>
+            <para>Entries can be filtered by using the following
+                categories:</para>
+            <para><emphasis role="bold">Single
+                Category</emphasis></para>
+            <para>The entry category must be an exact match and is
+                (currently) case sensitive. No wild cards are
+                supported. </para>
+            <para>The following is an example of searching on a
+                category entered as <emphasis role="bold"
+                    >CAT1</emphasis>:</para>
+            <programlisting>http://localhost:8080/namespace/feed/?search=%2BCAT1 
+</programlisting>
+            <note>
+                <para>%2B is the URL-encoded value of the +
+                    operator.</para>
+            </note>
+            <para><emphasis role="bold">Multiple
+                categories</emphasis></para>
+            <para>To perform a search on multiple categories simply
+                append additional categories; as demonstrated in the
+                following example that searches for two categories
+                (**CAT1** and <emphasis role="bold"
+                >CAT5</emphasis>):</para>
+            <programlisting>http://localhost:8080/namespace/feed/?search=%2BCAT1%2BCAT5 
+</programlisting>
+            <note>
+                <para>Current searching with multiple categories is an
+                    "OR" search. Meaning any entry containing one or
+                    more of the categories specified will be returned.
+                    This may change in the future.</para>
+            </note>
+            <section xml:id="Filter_Entries_by_Category_d1e0003">
+                <title>Advanced Filtering by Category with Cloud Feeds </title>
+                <para>The advanced search capability for Cloud Feeds
+                    ships with Atom Hopper version 1.2.8 and above.
+                    Also, advanced filters (those requiring AND, OR
+                    and NOT and their combinations) by category are
+                    supported for LDAP style search parameters. </para>
+                <para><emphasis role="bold">Single category
+                        Filter</emphasis></para>
+                <para>Following is an example of searching on a
+                    category entered as
+                    CAT1:<programlisting>http://localhost:8080/namespace/feed/?search=(cat=CAT1)
+</programlisting></para>
+                <para><emphasis role="bold">Multiple Category AND
+                        Filter</emphasis></para>
+                <para>Following is an example of searching on a
+                    category entered as CAT1 and CAT2: </para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))
+</programlisting>
+                <para>%26 is the URL-encoded value of the &amp;
+                    operator, so the decoded search string noted above
+                    is (&amp;(cat=CAT1)(cat=CAT2)).</para>
+                <para>Additionally you can use the AND operator in
+                    place of the &amp; operator in the above call. For
+                    example: </para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))
+</programlisting>
+                <para><emphasis role="bold">Multiple Category OR
+                        Filter</emphasis></para>
+                <para>Following is an example of searching on a
+                    category entered as CAT1 or CAT2:</para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2))
+</programlisting>
+                <para>%7C is the URL-encoded value of the | operator.
+                    So the decoded search string above is
+                    (|(cat=CAT1)(cat=CAT2)).</para>
+                <para>Additionally you can use the word "OR" in place
+                    of the | operator in the above as follows:</para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))</programlisting>
+                <para><emphasis role="bold">Single Category NOT
+                        Filter</emphasis></para>
+                <para>Following is an example of searching on a
+                    category entered as NOT CAT1:</para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(!(cat=CAT1))
+</programlisting>
+                <para>Additionally you can use the word NOT operator
+                    in place of the ! operator in the above as
+                    follows: </para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(NOT(cat=CAT1))
+</programlisting>
+                <para><emphasis role="bold">Multiple Category COMBINED
+                        Filter</emphasis>
+                </para>
+                <para>Following is an example of searching on a
+                    category entered as CAT1 and (CAT2 or CAT3 ) but
+                    not CAT4:</para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
+</programlisting>
+                <para>%26 is the URL-encoded value of the &amp;
+                    operator and the %7C is the URL-encoded value of
+                    the | operator, so the decoded search string in
+                    the previous example is
+                    (&amp;(cat=CAT1)(|(cat=CAT2)(cat=CAT3))(!(cat=CAT4))).</para>
+                <para>Additionally you can use the AND operator in
+                    place of the &amp; operator and the word "OR" in
+                    place of the | operator noted in the above call as
+                    follows: </para>
+                <programlisting>http://localhost:8080/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
+</programlisting>
+            </section>
+        </section>
+        <section xml:id="JSON_Feed_Returns_d1e1319">
+            <title>JSON Feed Returns (Experimental) </title>
+            <para>You can receive a feed in <link
+                    xlink:href="http://json.org">JSON</link> using the
+                format parameter and specifying json as the value:: </para>
+            <programlisting>http://localhost:8080/namespace/feed/?format=json
+</programlisting>
+            <para>The <link
+                    xlink:href="https://cwiki.apache.org/confluence/display/ABDERA/JSON+Serialization"
+                    >Abdera JSON Writer</link> is used to translate
+                simple ATOM entries to JSON. Be sure to complete a
+                full test with your ATOM entries to ensure that the
+                JSON is properly matched.</para>
+            <note>
+                <para> If you need to embed JSON into an ATOM XML
+                    entry, then make sure to wrap the JSON content in
+                    an XML CDATA section.</para>
+            </note>
+        </section>
+        <section xml:id="Weak_ETag_Support_d1e1321">
+            <title>Support for Weak ETag </title>
+            <para>Atom Hopper supports weak entity tags (ETags). An
+                ETag identifies a specific feed version. When the
+                content of the feed changes, a different ETag is
+                assigned. It's an efficient way of checking whether a
+                previously processed feed has changed. Weak ETags are
+                sent back in the HTTP header with a name of
+                ETag.</para>
+            <para>Following is an example of weak ETag for a feed
+                containing more than one ATOM entry:</para>
+            <programlisting>W/"urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76:urn:uuid:def3ba91-799f-4347-833e-d9a97d3359dc"</programlisting>
+            <para>The following is an example of a weak ETag for a
+                feed with only one ATOM entry :</para>
+            <programlisting>W/"urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76:urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76"
+</programlisting>
+            <para>ETags are not returned in the following situations::<orderedlist>
+                    <listitem>
+                        <para>The feed is empty</para>
+                    </listitem>
+                    <listitem>
+                        <para>You use a marker, specify the direction
+                            as forward, and no entries exist after
+                            that marker.</para>
+                    </listitem>
+                </orderedlist></para>
         </section>
     </chapter>
     <chapter xml:id="General_API_Information-d1e633">
         <title>General API Information</title>
-        <para> The Cloud Databases API is implemented using a ReSTful
-            web service interface. Like other products in the
-            Rackspace Cloud suite, the Database Service shares a
-            common token-based authentication system that allows
-            seamless access between products and services. </para>
+        <para> The Cloud Feeds API is implemented using a RESTful web
+            service interface. Like other products in the Rackspace
+            Cloud suite, the Cloud Feeds service shares a common
+            token-based authentication system that allows seamless
+            access between products and services. </para>
         <note>
-            <para> All requests to authenticate against and operate the service are performed using
-                SSL over HTTP (HTTPS) on TCP port 443. </para>
+            <para> All requests to authenticate against and operate
+                the service are performed by using SSL over HTTP
+                (HTTPS) on TCP port 443. </para>
         </note>
         <section xml:id="Authentication-d1e647">
             <title>Authentication</title>
-            <para> Every ReST request against the Database Service
+            <para>Every ReST request against the Cloud Feeds Service
                 requires the inclusion of a specific authorization
                 token, supplied by the <code>X-Auth-Token</code> HTTP
-                header. Customers obtain this token by first using the
+                header. Users obtain this token by first using the
                 Rackspace Cloud Authentication Service and supplying a
                 valid username and API access key. </para>
             <section xml:id="Geographic_Endpoints">
@@ -290,6 +944,8 @@
             </section>
             <section xml:id="Retrieving_Auth_Token">
                 <title>Retrieving the Authentication Token</title>
+                <remark>Need text to describe section, and need a
+                    title for the table.</remark>
                 <informaltable rules="all">
                     <tbody>
                         <tr>
@@ -308,13 +964,13 @@
                         (<errorcode>401</errorcode>), userDisabled
                         (<errorcode>403</errorcode>), badRequest
                         (<errorcode>400</errorcode>), authFault
-                        (<errorcode>500</errorcode>),
-                    serviceUnavailable (<errorcode>503</errorcode>) </simpara>
-                <para> The authenticate operation provides clients
-                    with an authentication token and a list of
-                    regional cloud endpoints. The sample requests and
-                    responses in this section illustrate a general
-                    case. In your authentication request, use your own
+                        (<errorcode>500</errorcode>), and
+                    serviceUnavailable (<errorcode>503</errorcode>). </simpara>
+                <para>The authenticate operation provides clients with
+                    an authentication token and a list of regional
+                    cloud endpoints. The sample requests and responses
+                    within this section illustrate a general case. In
+                    your authentication request, use your own
                     credentials rather than the sample values shown
                     here for <code>username</code> and
                         <code>apiKey</code>. When you authenticate
@@ -323,70 +979,72 @@
                     which you have subscribed rather than the sample
                     values shown here.</para>
                 <note>
-                    <para>The information shown in the Auth Response
-                        examples is for US-based accounts. If you
-                        authenticate against the UK-endpoint for auth,
-                        you will see the service catalog information
-                        for UK-based accounts.</para>
+                    <para>The information shown in the authentication
+                        response examples is for US-based accounts. If
+                        you authenticate against the UK endpoint, the
+                        response that you receive show the service
+                        catalog information for UK-based
+                        accounts.</para>
                 </note>
                 <para>Authentication tokens are typically valid for 24
                     hours. Applications should be designed to
-                    re-authenticate after receiving a 401
+                    reauthenticate after receiving a 401
                     (Unauthorized) response from a service endpoint. </para>
                 <important>
                     <para>If you are programmatically parsing an
-                        authentication response, please be aware that
-                        service names are stable for the life of the
+                        authentication response, be aware that service
+                        names are stable for the life of the
                         particular service and can be used as keys.
-                        You should also be aware that a user's service
-                        catalog can include multiple uniquely-named
-                        services which perform similar functions. For
-                        example, cloudServersOpenStack is the
-                        OpenStack version of compute whereas
-                        cloudServers is the legacy version of compute;
-                        the same user can have access to both
-                        services. In Auth 2.0, the service type
-                        attribute can be used as a key by which to
-                        recognize similar services; see the tip
-                        below.</para>
+                        Also be aware that a user's service catalog
+                        can include multiple uniquely-named services
+                        which perform similar functions. For example,
+                        cloudServersOpenStack is the OpenStack version
+                        of compute, whereas cloudServers is the
+                        earlier version of compute; the same user can
+                        have access to both services. In version 2.0
+                        of the Authentication service, the service
+                        type attribute can be used as a key by which
+                        to recognize similar services. See the
+                        following tip</para>
                 </important>
                 <tip>
-                    <para>Beginning with Auth 2.0, the service catalog
-                        includes a service type attribute to identify
-                        services that perform similar functions but
-                        have different names; for example,
+                    <para>Beginning with version two of the
+                        Authentication service catalog includes a
+                        service type attribute to identify services
+                        that perform similar functions but have
+                        different names. For example,
                             <code>type="compute"</code> identifies
                         compute services such as cloudServers and
                         cloudServersOpenStack. Some developers have
                         found the service type attribute to be useful
                         in parsing the service catalog. For additional
                         information on Auth 2.0 (also known as the
-                        Cloud Identity Service), refer to the
+                        Cloud Identity service), see the
                             <citetitle>Cloud Identity Client Developer
                             Guide</citetitle> at <link
-                                xlink:href="http://docs.rackspace.com"
+                            xlink:href="http://docs.rackspace.com"
                             >http://docs.rackspace.com/</link>.</para>
                 </tip>
-                <para>Databases service endpoints are published in the
-                    service catalog in the Auth response with the
-                    account number, which is a required element of the
-                    service endpoints. The examples shown here are for
-                    authentication for US customers. Customers with
-                    UK-based accounts will see different values in the
-                    service catalog. Refer to the next section for
+                <para>Cloud Feeds service endpoints are published in
+                    the service catalog in the authentication response
+                    with the account number, which is a required
+                    element of the service endpoints. The examples
+                    shown <remark>Need to list examples following this
+                        paragraph.</remark>are for authentication for
+                    US customers. Customers with UK-based accounts
+                    will see different values in the service catalog.
+                    See Section 4.2 Service Access/Endpoints
+                        <remark>Need to apply a nX-Ref.</remark>for
                     more information about service endpoints. </para>
             </section>
         </section>
         <section xml:id="Service_Access_Endpoints-d1e753">
             <title>Service Access/Endpoints</title>
-            <para>The Database Service is a regionalized service. The
-                user of the service is therefore responsible for
+            <para>Cloud Feeds service is a regionalized service.
+                Therefore, the user of the service is responsible for
                 appropriate replication, caching, and overall
-                maintenance of Cloud Databases data across regional
-                boundaries to other Cloud Databases servers.</para>
-            <para>You can find the available service access/endpoints
-                for Cloud Databases summarized in the table
-                below.</para>
+                maintenance of Cloud Feeds data across regional
+                boundaries to other Cloud Feeds servers.</para>
             <?rax-fo keep-with-next?>
             <para>
                 <table rules="all">
@@ -400,274 +1058,636 @@
                     <tbody>
                         <tr align="left">
                             <td colspan="2">Chicago (ORD)</td>
-                            <td colspan="5"
-                                ><code>https://ord.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/ </td>
+                            <td colspan="5"><code>
+                                   <link
+                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
+                                   >https://atom.prod.ord1.us.ci.rackspace.net</link>
+                                </code></td>
                         </tr>
                         <tr align="left">
-                            <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                            <td colspan="5"
-                                ><code>https://dfw.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/ </td>
+                            <td colspan="2">Dallas/Ft. Worth
+                                (DFW)</td>
+                            <td colspan="5"><code>
+                                   <link
+                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
+                                   >https://atom.prod.dfw1.us.ci.rackspace.net</link>
+                                </code></td>
                         </tr>
-                        <tr align="left" >
+                        <tr align="left">
                             <td colspan="2">London (LON)</td>
                             <td colspan="5">
-                                <code>https://lon.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/ </td>
+                                <code><link
+                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
+                                   >https://atom.prod.lon3.us.ci.rackspace.net</link></code>
+                            </td>
                         </tr>
-                        <tr align="left" >
+                        <tr align="left">
                             <td colspan="2">Sydney (SYD)</td>
                             <td colspan="5">
-                                <code>https://syd.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/ </td>
+                                <code><link
+                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
+                                   >https://atom.prod.syd2.us.ci.rackspace.net</link></code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Northern Virgina
+                                (IAD)</td>
+                            <td colspan="5"><code><link
+                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
+                                   >https://atom.prod.iad3.us.ci.rackspace.net</link></code>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </para>
-            
-            <para>Replace the sample account ID number,
-                    <parameter>1234</parameter>, with your actual
-                account number returned as part of the authentication
-                service response.</para>
-            <para>You will find the actual account number after the
-                final '/' in the <code>publicURL</code> field returned
-                by the authentication response. For example, in  you
-                can see from the <code>publicURL</code> field for
-                    <code>cloudServers</code>
-                    ("https://servers.api.rackspacecloud.com/v1.0/<emphasis
-                    role="bold">1100111</emphasis>") that the account
-                number is 1100111.</para>
         </section>
-        <section xml:id="DB_service_versions">
-            <title>Cloud Databases Service Versions</title>
-            <para> The Cloud Databases version defines the contract
-                and build information for the API. </para>
-            <section xml:id="Contract_Version-d1e825">
-                <title>Contract Version</title>
-                <para> The contract version denotes the data model and
-                    behavior that the API supports. The requested
-                    contract version is included in all request URLs.
-                    Different contract versions of the API may be
-                    available at any given time and are not guaranteed
-                    to be compatible with one another. 
-                </para>
+        <section xml:id="CloudFeedsEventsVersions-d1e757">
+            <title>Cloud Feeds Events Versions</title>
+            <para security="reviewer"> </para>
+            <para>Core Event and Product Event are the two types of
+                event versions used by Cloud Feeds.</para>
+            <section xml:id="Product_Event-d1e825">
+                <title>Core Event</title>
+                <para> The Core Event version is shown in the version
+                    attribute of the <code>&lt;event></code> element
+                    as follows:
+                    <programlisting>&lt;event version="1" ...> &lt;/event><?sbr?> <?sbr?><?sbr?></programlisting>The
+                    Core Event never needs to be incremented.</para>
+            </section>
+            <section xml:id="CloudFeedsEventsVersions-d1e759">
+                <title>Product Event</title>
+                <para>The Product Event version is shown in the
+                    version attribute of the <code>&lt;product></code>
+                    as follows</para>
+                <programlisting>&lt;cb-lic:product version="1" serviceCode="CloudBackup"
+                    serverID="9445"
+                    resourceType="AGENT"/></programlisting>
+                <para>The Product Event version does evolve (e.g.,
+                    from version one to version two), since products
+                    might emit different types of events that make
+                    increasing the version necessary. An example of a
+                    Product Event version that evolves to version two
+                    is the Cloud Backup License. Following are
+                    examples of instances for Cloud Backup Product
+                    Event versions one and two:</para>
                 <example>
-                        <title>Example Request URL (contract version
-                            in <emphasis role="strong"
-                            >bold</emphasis>)</title>
-                        <programlisting>https://ord.databases.api.rackspacecloud.com/<emphasis role="strong">v1.0</emphasis>/1234</programlisting>
+                    <title>Version 1 Cloud Backup Product Event </title>
+                    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
+&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
+    xmlns:cb-lic="http://docs.rackspace.com/usage/cloudbackup/license"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+    &lt;atom:content type="application/xml">
+        &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+            region="DFW" dataCenter="DFW1" type="USAGE"
+            id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+            resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+            tenantId="1234" version="1">
+            &lt;cb-lic:product version="1" serviceCode="CloudBackup"
+                serverID="9445"
+                resourceType="AGENT"/>
+        &lt;/event>
+    &lt;/atom:content>
+&lt;/atom:entry></programlisting>
                 </example>
-                    <note>
-                        <para>This document pertains to contract
-                            version 1.0.</para>
-                    </note>
-                
+                <example>
+                    <title>Version 2 Cloud Backup Product Event
+                        Example</title>
+                    <programlisting>&lt;event xmlns="http://docs.rackspace.com/core/event"
+       xmlns:cb-lic="http://docs.rackspace.com/usage/cloudbackup/license"
+       endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+       region="DFW" dataCenter="DFW1" type="USAGE"
+       id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+       resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+       tenantId="1234" version="1">
+    &lt;cb-lic:product version="2" serviceCode="CloudBackup"
+                    serverID="9445"
+                    serverName="SomeServerName"
+                    external="false"
+                    resourceType="AGENT"/>
+&lt;/event></programlisting>
+                </example>
+                <example>
+                    <title>Sample Request URL for Contract Version
+                        1.0</title>
+                    <programlisting><remark>Need to update this link for Cloud Feeds.</remark>https://ord.databases.api.rackspacecloud.com/<emphasis role="strong">v1.0</emphasis>/1234</programlisting>
+                </example>
+                <note>
+                    <para>This document pertains to contract version
+                        1.0.</para>
+                </note>
             </section>
             <section xml:id="API_Version_Headers-d1e855">
                 <title>API Version</title>
-                <para>The API List Versions call is available to show
-                    the current API version as well as information
-                    about all versions of the API. Refer to  for
-                    details.</para>
+                <para>The API List Versions requests shows the current
+                    version of the Cloud Feeds API and information
+                    about all versions of the API.</para>
             </section>
         </section>
         <section xml:id="Request_Response_Types-d1e903">
-            <title>Request/Response Types</title>
-            <para> The Cloud Databases API supports both the JSON and
-                XML data serialization formats. The request format is
-                specified using the <code>Content-Type</code> header
-                and is <emphasis>required</emphasis> for calls that
-                have a request body. The response format can be
-                specified in requests either by using the
-                    <code>Accept</code> header or by adding an
-                    <code>.xml</code> or <code>.json</code> extension
-                to the request URI. Note that it is possible for a
-                response to be serialized using a format different
-                from the request. If no response format is specified,
-                JSON is the default. If conflicting formats are
-                specified using both an <code>Accept</code> header and
-                a query extension, the query extension takes
-                precedence.</para>
-            <para security="writeronly">Some operations support an Atom representation that
-                can be used to efficiently determine when the state of
-                services has changed. </para>
-            <remark>Reviewer:  the previous sentence will be hidden
-                for the Private Beta, since it does not appear that
-                Atom will be supported yet. Correct?</remark>
-            <table rules="all">
-                <caption>Response Formats</caption>
-                <?dbfo keep-together="always"?>
-                <thead>
-                    <tr align="center">
-                        <td>Format</td>
-                        <td>Accept Header</td>
-                        <td>Query Extension</td>
-                        <td>Default</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>JSON</td>
-                        <td>application/json</td>
-                        <td>.json</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>XML</td>
-                        <td>application/xml</td>
-                        <td>.xml</td>
-                        <td>No</td>
-                    </tr>
-                    <tr security="writeronly">
-                        <td>ATOM</td>
-                        <td>application/atom+xml</td>
-                        <td>.atom</td>
-                        <td>No</td>
-                    </tr>
-                </tbody>
-            </table>
-            <remark>Reviewer:  the ATOM row in the table above will be
-                hidden for the Private Beta, since it does not appear
-                that Atom will be supported yet. Correct?</remark>
-            <para>In the request example below, notice that
-                    <parameter>Content-Type</parameter> is set to
-                    <parameter>application/json</parameter>, but
-                    <parameter>application/xml</parameter> is
-                requested via the <parameter>Accept</parameter>
-                header:</para>
-            <para><?rax-fo keep-with-next?>Therefore an XML response format is returned:</para>
+            <title>Request and Response Types</title>
+            <para>For the initial release of Cloud Feeds, it must
+                account for both GET and POST. Cloud Feeds must
+                retrieve GET data for all tenants and post data for
+                their own feed. They have either one user with two
+                roles, cloudfeeds:service-admin role to retrieve data
+                for all tenants and cloudfeeds:admin to post their own
+                data or they will have two users, one for the
+                cloudfeeds:admin role and the second with a
+                cloudfeeds:service-admin role.</para>
+            <section xml:id="roles-dle905">
+                <title>Roles</title>
+                <remark>Include a couple of sentences explaining
+                    roles.</remark>
+                <para>
+                    <table frame="all">
+                        <title>Roles</title>
+                        <tgroup cols="2">
+                            <colspec colname="c1" colnum="1"
+                                colwidth="1*"/>
+                            <colspec colname="c2" colnum="2"
+                                colwidth="2.57*"/>
+                            <thead>
+                                <row>
+                                   <entry>Role Name</entry>
+                                   <entry>Access</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                   <entry>cloudfeeds:admin </entry>
+                                   <entry>An administrative user,
+                                   granted full access to the
+                                   capabilities of the API for a
+                                   single tenant (POST and
+                                   GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>cloudfeeds:observer </entry>
+                                   <entry>Able to observe Cloud Feeds
+                                   data for a single tenant
+                                   (GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>cloudfeeds:service-admin</entry>
+                                   <entry>Able to observe Cloud Feeds
+                                   data for all tenants (GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>identity:user-admin </entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:admin.</entry>
+                                </row>
+                                <row>
+                                   <entry>admin</entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:admin.</entry>
+                                </row>
+                                <row>
+                                   <entry>observer</entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:observer.</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+            </section>
+            <section xml:id="response-dle910">
+                <title>Response </title>
+                <remark>Explain response and state that XML is the
+                    default format. </remark>
+                <para>
+                    <table frame="all">
+                        <title>Response Formats</title>
+                        <tgroup cols="4">
+                            <colspec colname="c1" colnum="1"
+                                colwidth="1.0*"/>
+                            <colspec colname="c2" colnum="2"
+                                colwidth="1.0*"/>
+                            <colspec colname="c3" colnum="3"
+                                colwidth="1.0*"/>
+                            <colspec colname="c4" colnum="4"
+                                colwidth="1.0*"/>
+                            <thead>
+                                <row>
+                                   <entry>Format</entry>
+                                   <entry>Accept Header</entry>
+                                   <entry>Query Extension</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                   <entry>JSON</entry>
+                                   <entry>application/json</entry>
+                                   <entry>.json</entry>
+                                </row>
+                                <row>
+                                   <entry>XML</entry>
+                                   <entry>application/xml</entry>
+                                   <entry>.xml</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+                <example>
+                    <title>JASON Response Format for Cloud
+                        Sites</title>
+                    <para>Format:
+                        https://atom.prod.ord1.us.ci.rackspace.net/sites/events</para>
+                    <programlisting>{
+ "feed":{
+  "id":"urn:uuid:325a400c-88a9-4e8e-8e04-7c5034d5067f",
+  "title":"sites/events",
+  "updated":"2013-09-23T18:49:38.693Z",
+  "links":[{
+    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/",
+    "rel":"current"
+   },{
+    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/",
+    "rel":"self"
+   },{
+    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906&amp;limit=25&amp;search=&amp;direction=forward",
+    "rel":"previous"
+   },{
+    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:dcca5481-70a6-3958-9bd5-97e3089e0d10&amp;limit=25&amp;search=&amp;direction=backward",
+    "rel":"next"
+   },{
+    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward",
+    "rel":"last"
+   }
+  ],
+  "entries":[{
+    "id":"urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906",
+    "title":"Sites",
+    "content":{
+     "attributes":{
+      "type":"application/xml"
+     },
+     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-23T07:24:03Z\" id=\"d59f982f-bdba-326b-b09c-64ae87e3f906\" region=\"ORD\" resourceId=\"758393:636371_wp\" resourceName=\"636371_wp\" tenantId=\"636371\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"4161\" version=\"1\" />&lt;\/ns2:event>"
+     ]
+    },
+    "updated":"2013-09-23T18:49:38.480Z",
+    "published":"2013-09-23T18:49:38.480Z",
+    "links":[{
+      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906",
+      "rel":"self"
+     }
+    ],
+    "categories":[{
+      "term":"tid:636371"
+     },{
+      "term":"rgn:ORD"
+     },{
+      "term":"dc:ORD1"
+     },{
+      "term":"rid:758393:636371_wp"
+     },{
+      "term":"cloudsites.db.mysql.usage_snapshot"
+     },{
+      "term":"636371:mysql"
+     }
+    ]
+   },{
+    "id":"urn:uuid:4d9c3969-de20-3fa9-8229-921f89728454",
+    "title":"Sites",
+    "content":{
+     "attributes":{
+      "type":"application/xml"
+     },
+     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-22T05:16:30Z\" id=\"4d9c3969-de20-3fa9-8229-921f89728454\" region=\"ORD\" resourceId=\"329665:448445_wpblog\" resourceName=\"448445_wpblog\" tenantId=\"448445\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"22014577\" version=\"1\" />&lt;\/ns2:event>"
+     ]
+    },
+    "updated":"2013-09-23T18:49:38.474Z",
+    "published":"2013-09-23T18:49:38.474Z",
+    "links":[{
+      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:4d9c3969-de20-3fa9-8229-921f89728454",
+      "rel":"self"
+     }
+    ],
+    "categories":[{
+      "term":"tid:448445"
+     },{
+      "term":"rgn:ORD"
+     },{
+      "term":"dc:ORD1"
+     },{
+      "term":"rid:329665:448445_wpblog"
+     },{
+      "term":"cloudsites.db.mysql.usage_snapshot"
+     },{
+      "term":"448445:mysql"
+     }
+    ]
+   },{
+    "id":"urn:uuid:d9663241-9d58-30ca-a094-69d23c322a4b",
+    "title":"Sites",
+    "content":{
+     "attributes":{
+      "type":"application/xml"
+     },
+     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-22T07:16:05Z\" id=\"d9663241-9d58-30ca-a094-69d23c322a4b\" region=\"ORD\" resourceId=\"340866:432449_pligg\" resourceName=\"432449_pligg\" tenantId=\"432449\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"677908\" version=\"1\" />&lt;\/ns2:event>"
+     ]
+    },
+    "updated":"2013-09-23T18:49:38.471Z",
+    "published":"2013-09-23T18:49:38.471Z",
+    "links":[{
+      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:d9663241-9d58-30ca-a094-69d23c322a4b",
+      "rel":"self"
+     }
+    ],</programlisting>
+                </example>
+                <example>
+                    <title>XML Response Format for Dbaas
+                        Events</title>
+                    <para>Format for:
+                        https://atom.staging.ord1.us.ci.rackspace.net/dbase/events</para>
+                    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;feed xmlns="http://www.w3.org/2005/Atom">
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/"
+        rel="current"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/"
+        rel="self"/>
+    &lt;id>urn:uuid:3c953af0-31c9-4d79-a54f-1276799ee866&lt;/id>
+    &lt;title type="text">dbaas/events&lt;/title>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward"
+        rel="previous"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=urn:uuid:866edc52-db14-4b1f-90b3-f2cd80266081&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
+        rel="next"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=last&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
+        rel="last"/>
+    &lt;updated>2013-08-21T15:49:38.082Z&lt;/updated>
+    &lt;entry>
+        &lt;atom:id xmlns:atom="http://www.w3.org/2005/Atom"
+            >urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710&lt;/atom:id>
+        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
+            term="tid:5863804"/>
+        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
+            term="rgn:ORD"/>
+        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
+            term="dc:ORD1"/>
+        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
+            term="rid:d952c563-2c2c-4e9d-8e63-0617ea91be35"/>
+        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
+            term="clouddatabase.dbaas.mysql.usage"/>
+        &lt;title type="text">trove.instance.modify_volume&lt;/title>
+        &lt;link
+            href="http://127.0.0.1:8000/trove.instance.modify_volume/ccbd108f-c727-41b4-9f39-c7af9b39c4b3"
+            rel="alternate"/>
+        &lt;summary type="html">trove.instance.modify_volume&lt;/summary>
+        &lt;category term="trove.instance.modify_volume"/>
+        &lt;category term="ORD1"/>
+        &lt;category term="ORD"/>
+        &lt;category term="5863804"/>
+        &lt;content type="application/xml">
+            &lt;event xmlns="http://docs.rackspace.com/core/event"
+                dataCenter="ORD1" endTime="2013-08-21T15:45:00Z"
+                environment="STAGE"
+                id="041a7788-3c8f-4fcb-97ea-00a89d53d710" region="ORD"
+                resourceId="d952c563-2c2c-4e9d-8e63-0617ea91be35"
+                resourceName="TEST_2013-08-21 10:42:42.541071"
+                rootAction="trove.instance.modify_volume"
+                startTime="2013-08-21T15:42:43Z" tenantId="5863804"
+                type="USAGE" version="1">
+                &lt;dbaas:product
+                    xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
+                    memory="2048" resourceType="MYSQL"
+                    serviceCode="CloudDatabase" storage="1"
+                    version="1"/>
+            &lt;/event>
+        &lt;/content>
+        &lt;link
+            href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/entries/urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710"
+            rel="self"/>
+        &lt;updated>2013-08-21T15:45:02.742Z&lt;/updated>
+        &lt;published>2013-08-21T15:45:02.742Z&lt;/published>
+    &lt;/entry></programlisting>
+                </example>
+                <example>
+                    <title>XML Response Format for Glance
+                        Events</title>
+                    <para>Format for:
+                        https://atom.staging.ord1.us.ci.rackspace.net/glance/events</para>
+                    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;feed xmlns="http://www.w3.org/2005/Atom">
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/"
+        rel="current"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/"
+        rel="self"/>
+    &lt;id>urn:uuid:da3e39b4-ef4e-4c70-b383-34566c4df08c&lt;/id>
+    &lt;title type="text">glance/events&lt;/title>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward"
+        rel="previous"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.delete/52fc853a-83c6-48a2-ac73-dcd59fe2aed9/&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
+        rel="next"/>
+    &lt;link
+        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=last&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
+        rel="last"/>
+    &lt;updated>2013-08-21T16:21:43.179Z&lt;/updated>
+    &lt;entry xml:lang="en">
+        &lt;title type="text">image.delete&lt;/title>
+        &lt;link
+            href="http://127.0.0.1:8080/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df"
+            rel="alternate"/>
+        &lt;id>tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/&lt;/id>
+        &lt;summary type="html">image.delete&lt;/summary>
+        &lt;category term="image.delete"/>
+        &lt;category term="DATACENTER=ORD1"/>
+        &lt;category term="REGION=PREPROD-ORD"/>
+        &lt;content type="application/json">{"event_type":
+            "image.delete", "timestamp": "2013-08-21 16:20:56.796173",
+            "message_id": "c68b6f7e-347e-4b94-8301-5559fc01c7df",
+            "priority": "INFO", "publisher_id":
+            "glance-api02-r2961.global.preprod-ord.ohthree.com",
+            "payload": {"status": "active", "created_at":
+            "2013-07-02T23:45:53", "name": "Daily-pt195-1372808752",
+            "deleted": true, "container_format": "ovf", "min_ram":
+            512, "disk_format": "vhd", "updated_at":
+            "2013-08-21T16:20:55.352220", "properties":
+            {"org.openstack__1__created_by":
+            "scheduled_images_service",
+            "com.rackspace__1__build_rackconnect": "1",
+            "com.rackspace__1__options": "0", "instance_type_id": "2",
+            "com.rackspace__1__release_version": "2",
+            "com.rackspace__1__release_id": "1004",
+            "com.rackspace__1__build_core": "1", "base_image_ref":
+            "88130782-11ec-4795-b85f-b55a297ba446",
+            "com.rackspace__1__kickstart_qc": "pass",
+            "org.openstack__1__os_distro": "com.ubuntu", "image_type":
+            "snapshot", "com.rackspace__1__source": "kickstart",
+            "instance_type_ephemeral_gb": "0",
+            "com.rackspace__1__release_state": "qe_passed",
+            "com.rackspace__1__build_managed": "1",
+            "org.openstack__1__architecture": "x64",
+            "com.rackspace__1__visible_core": "0",
+            "instance_type_vcpu_weight": "10",
+            "instance_type_root_gb": "20", "instance_type_name":
+            "512MB Standard Instance",
+            "com.rackspace__1__release_build_date":
+            "2013-03-06_18-27-47", "instance_type_rxtx_factor": "2",
+            "auto_disk_config": "True", "instance_type_vcpus": "1",
+            "com.rackspace__1__visible_managed": "0", "instance_uuid":
+            "40857b43-43c4-4c3b-95ea-aa59d15e6b45",
+            "instance_type_memory_mb": "512", "instance_type_swap":
+            "512", "user_id": "10035732", "instance_type_flavorid":
+            "2", "com.rackspace__1__visible_rackconnect": "0",
+            "os_type": "linux", "org.openstack__1__os_version":
+            "12.10"}, "min_disk": 20, "protected": false, "checksum":
+            "a95a15f76c4890ef45ac9ec90b364efa", "owner": "5837679",
+            "is_public": false, "deleted_at":
+            "2013-08-21T16:20:55.350976", "id":
+            "6956e8f9-ba04-4b12-a05d-6d57792ac311", "size":
+            355706880}}&lt;/content>
+        &lt;link
+            href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/entries/tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/"
+            rel="self"/>
+        &lt;updated>2013-08-21T16:21:27.508Z&lt;/updated>
+        &lt;published>2013-08-21T16:21:27.508Z&lt;/published>
+    &lt;/entry></programlisting>
+                </example>
+                <para>
+                    <remark>Do we need to provide an intro for the
+                        table to show how it relates to the rest of
+                        the information in the section?</remark>
+                    <table frame="all">
+                        <title>Common HTTP Responses</title>
+                        <tgroup cols="6">
+                            <colspec colname="c1" colnum="1"
+                                colwidth="1.79*"/>
+                            <colspec colname="c2" colnum="2"
+                                colwidth="1*"/>
+                            <colspec colname="c3" colnum="3"
+                                colwidth="1.96*"/>
+                            <colspec colname="c4" colnum="4"
+                                colwidth="2.42*"/>
+                            <colspec colname="c5" colnum="5"
+                                colwidth="1.79*"/>
+                            <colspec colname="c6" colnum="6"
+                                colwidth="1.79*"/>
+                            <thead>
+                                <row>
+                                   <entry>Code Category</entry>
+                                   <entry>Code</entry>
+                                   <entry>Code Description</entry>
+                                   <entry>Example Request</entry>
+                                   <entry>Example Response</entry>
+                                   <entry>Notes</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                   <entry>Successful</entry>
+                                   <entry>200</entry>
+                                   <entry>OK</entry>
+                                   <entry>Get to Collection
+                                   URI.</entry>
+                                   <entry>200 + Atom Feed
+                                   Document</entry>
+                                   <entry>None</entry>
+                                </row>
+                                <row>
+                                   <entry>Successful</entry>
+                                   <entry>200</entry>
+                                   <entry>OK</entry>
+                                   <entry>GET to Member URI.</entry>
+                                   <entry>200 + Member
+                                   Representation</entry>
+                                   <entry>None</entry>
+                                </row>
+                                <row>
+                                   <entry>Client Error</entry>
+                                   <entry>401</entry>
+                                   <entry>None</entry>
+                                   <entry>GET with missing, expired,
+                                   or invalid token.</entry>
+                                   <entry>None</entry>
+                                   <entry>Retry with valid
+                                   token.</entry>
+                                </row>
+                                <row>
+                                   <entry>Server Error</entry>
+                                   <entry>500</entry>
+                                   <entry>Internal Server
+                                   Error</entry>
+                                   <entry>GET while database is
+                                   offline or other network
+                                   failure.</entry>
+                                   <entry>None</entry>
+                                   <entry>Retry until network error is
+                                   resolved.</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+            </section>
         </section>
         <section xml:id="Limits-d1e1208">
             <title>Limits</title>
-            <para>
-                All accounts, by default, have a preconfigured set of
-                thresholds (or limits) to manage capacity and prevent
-                abuse of the system.  The system recognizes two kinds
-                of limits: <firstterm>rate limits</firstterm> and
-                <firstterm>absolute limits</firstterm>. Rate limits
-                are thresholds that are reset after a certain amount
-                of time passes. Absolute limits are fixed.
-            </para>
+            <para>All accounts, by default, have a preconfigured set
+                of thresholds (or limits) to manage capacity and
+                prevent abuse of the system. The system recognizes the
+                following kinds of limits: <firstterm>rate
+                    limits</firstterm> and <firstterm>absolute
+                    limits</firstterm>. Rate limits are thresholds
+                that are reset after a certain amount of time passes.
+                Absolute limits are fixed. </para>
             <section xml:id="Rate_Limits-d1e1222">
                 <title>Rate Limits</title>
-                <para> Rate limits are specified in terms of both a
-                    human-readable wild-card URI and a
-                    machine-processable regular expression. The
-                    regular expression boundary matcher '^' takes
-                    effect after the root URI path. For example, the
-                    regular expression ^/v1.0/instances would match
-                    the bolded portion of the following URI:
-                        https://ord.databases.api.rackspacecloud.com<emphasis
-                        role="bold">/v1.0/instances</emphasis>. </para>
-                <para>The following table specifies the default rate
-                    limits for all API operations for all &GET;,
-                    &POST;, &PUT;, and &DELETE; calls for databases
-                    and database instances: </para>
-                <table rules="all">
-                    <caption>Default Rate Limits</caption>
-                    <thead>
-                        <tr align="center">
-                            <td colspan="1">Verb</td>
-                            <td colspan="2">URI</td>
-                            <td colspan="2">RegEx</td>
-                            <td colspan="1">Default</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="1">&GET; changes-since</td>
-                            <td colspan="2">*/instances/*</td>
-                            <td colspan="2">^/vd+.d+/instances.*</td>
-                            <td colspan="1">3/minute</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">&POST;</td>
-                            <td colspan="2">*/instances/*</td>
-                            <td colspan="2">^/vd+.d+/instances.*</td>
-                            <td colspan="1">10/minute</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">&POST; instances</td>
-                            <td colspan="2">*/instances/*</td>
-                            <td colspan="2">^/vd+.d+/instances.*</td>
-                            <td colspan="1">50/day</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">&PUT;</td>
-                            <td colspan="2">*/instances/*</td>
-                            <td colspan="2">^/vd+.d+/instances.*</td>
-                            <td colspan="1">10/minute</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">&DELETE;</td>
-                            <td colspan="2">*/instances/*</td>
-                            <td colspan="2">^/vd+.d+/instances.*</td>
-                            <td colspan="1">100/minute</td>
-                        </tr>
-                    </tbody>
-                </table>
-               <para> Rate limits are applied in order relative to the
-                    verb, going from least to most specific. For
-                    example, although the threshold for &POST; to
-                    /v1.0/* is 10 per minute, one cannot &POST; to
-                    /v1.0/* more than 50 times within a single day. </para>
-                <para> If you exceed the thresholds established for
-                    your account, a <errorcode>413 (Rate
-                        Control)</errorcode> HTTP response will be
-                    returned with a <code>Retry-After</code> header to
-                    notify the client when it can attempt to try
-                    again. </para>
+                <para>
+                    <remark>Need to add content once there are rate
+                        limits for GET.</remark>
+                </para>
             </section>
             <section xml:id="Absolute_Limits-d1e1397">
-                <title>Absolute Limits</title>
-                <remark>Reviewer: Need to update this entire section.
-                    Please give me your updates.</remark>
-                <para>Refer to the following table for the absolute
-                    limits that are set.</para>
-                <table rules="all">
-                    <caption>Absolute Limits</caption>
-                    <thead>
-                        <tr>
-                            <td colspan="1">Name</td>
-                            <td colspan="3">Description</td>
-                            <td colspan="1">Limit</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="1">Instances</td>
-                            <td colspan="3">Maximum number of instances allowed
-                                for your account</td>
-                            <td colspan="1">25</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">Volume Size</td>
-                            <td colspan="3">Maximum volume size per
-                                instance in gigabytes (GB) for your
-                                account</td>
-                            <td colspan="1">150</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <title>Absolute Limit</title>
+                <para>One thousand is the maximum number of Atom
+                    entries that can be returned in a single
+                    page.</para>
+            </section>
+            <section xml:id="retention_limit">
+                <title>Retention Limit</title>
+                <para>Elements are retained for a maximum of seven
+                    days. Anything that exceeds that time limit is
+                    stored in archival links. </para>
             </section>
         </section>
         <section xml:id="datetimeformat">
-            <title>Date/Time Format</title>
-            <para> The Database Service uses an ISO-8601 compliant
-                date format for the display and consumption of
-                date/time values. </para>
-            <para>The system timezone is in UTC. MySQL converts TIMESTAMP values from
-                    the current time zone to UTC for storage, and back
-                    from UTC to the current time zone for retrieval.
-                    This does not occur for other types, such as DATETIME.
-            </para>
-                <example>
-                    <title>DB Service Date/Time Format</title>
-                    <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-                <para>See the table below for a description of the date/time format codes.</para>
-                    <para>May 19th, 2011 at 8:07:08 AM, GMT-5 would have the following
-                    format:</para>
-                    <programlisting>2011-05-19T08:07:08-05:00</programlisting>
-                </example>
+            <title>Date and Time Format</title>
+            <para> For the display and consumption of date and time
+                values, the Cloud Feeds service uses a date format
+                that complies with ISO 8601. </para>
+            <example>
+                <title>Cloud Feeds Date and Time Format
+                    Example</title>
+                <para>The following table lists the format of a Cloud
+                    Feeds Date/Time and an example:</para>
+                <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+                <para>
+                    <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="current" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="self" />
+    &lt;id>urn:uuid:28c08dce-f0d9-4710-9657-c5cd35b48018&lt;/id>
+    &lt;title type="text">glance/events&lt;/title>
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.send/fb5aa437-03fd-4a0a-80a5-668e34b8764d/&amp;limit=25&amp;search=&amp;direction=forward" rel="previous" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.activate/33bdaeca-94f9-4c47-ad1f-6ecce25bb773/&amp;limit=25&amp;search=&amp;direction=backward" rel="next" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
+    &lt;updated><emphasis role="bold">2013-09-05T14:50:46.904Z</emphasis>&lt;/updated></programlisting>
+                </para>
+            </example>
             <table rules="all">
-                <caption>Explanation of Date/Time Format Codes</caption>
+                <caption>Explanation of Date/Time Format
+                    Codes</caption>
                 <thead>
                     <tr>
                         <td>Code</td>
@@ -705,7 +1725,8 @@
                     </tr>
                     <tr>
                         <td>SSS</td>
-                        <td>Three digit milliseconds of the second</td>
+                        <td>Three digit milliseconds of the
+                            second</td>
                     </tr>
                     <tr>
                         <td>Z</td>
@@ -713,21 +1734,20 @@
                     </tr>
                 </tbody>
             </table>
-            
         </section>
         <section xml:id="pagination">
             <title>Pagination</title>
             <para>To reduce load on the service, list operations
-                return a maximum of 20 items at a time. This is
-                referred to as <emphasis>pagination</emphasis>. Cloud
-                Databases has separate paging limits for instances,
-                databases, and users, which are currently all set to
-                20. If a request supplies no limit or one that exceeds
-                the configured default limit, the default is used
-                instead.</para>
-            <para> Pagination provides the ability to limit the size
-                of the returned data as well as retrieve a specified
-                subset of a large data set. Pagination has two key
+                return a maximum of 25 entries at a time. However, you
+                can use the limit parameter in the GET request to
+                allow up to 1,000 entries per page. Specifying the
+                number of entries to return is referred to as
+                pagination. If a request supplies no limit or one that
+                exceeds the configured default limit, the default
+                value is used instead.</para>
+            <para>Pagination provides the ability to limit the size of
+                the returned data and retrieve a specified subset of a
+                large data set. Pagination has the following key
                 concepts: limit and marker. <emphasis>Limit</emphasis>
                 is the restriction on the maximum number of items for
                 that type that can be returned.
@@ -740,70 +1760,39 @@
                 10 instances after the instance "1234" as follows:
                     <code>?limit=10&amp;marker=1234</code>. Items are
                 displayed sorted by ID. </para>
-            <para>Pagination applies only to the calls listed in the
-                following table: </para>
-            <informaltable rules="all">
-                <thead>
-                    <tr align="center">
-                        <td colspan="1">Verb</td>
-                        <td colspan="2">URI</td>
-                        <td colspan="3">Description</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="1">&GET;</td>
-                        <td colspan="2">/instances/</td>
-                        <td colspan="3">Lists the status and
-                            information for all database
-                            instances.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="1">&GET;</td>
-                        <td colspan="2">
-                            /instances/{instanceId}/databases </td>
-                        <td colspan="3">Lists databases for the
-                            specified instance.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="1">&GET;</td>
-                        <td colspan="2"> /instances/{instanceId}/users </td>
-                        <td colspan="3">Lists the users in the
-                            specified database instance.</td>
-                    </tr>
-                </tbody>
-            </informaltable>
-            <para>If the content returned by a call is paginated, the
-                response includes a structured link much like an
-                instance item's links, with the basic structure
-                    <code>{"href": "&lt;url>", "rel": "next"}</code>.
-                Any response that is truncated by pagination will have
-                a <emphasis>next</emphasis> link, which points to the
-                next item in the collection. If there are no more
-                items, no <emphasis>next</emphasis> link is
-                returned.</para>
-            <para>See the examples of paged List Instances calls that
-                follow.</para>
-            <para>Notice that the paged request examples above set the
-                limit to 2 (<code>?limit=2</code>), so the responses
-                that follow each show 2 instances and return a
+            <para>If the content returned by a request is paginated,
+                the response includes a structured link that are
+                similar to instance item's links, with the basic
+                structure <code>{"href": "&lt;url>", "rel":
+                    "next"}</code>. Any response that is truncated by
+                pagination will have a <emphasis>next</emphasis> link,
+                which points to the next item in the collection. If
+                there are no more items, no <emphasis>next</emphasis>
+                link is returned.</para>
+            <para>The following examples show paginated
+                requests:</para>
+            <remark>Need examples</remark>
+            <para>In the example requests, the limit parameter is set
+                to 2 (<code>?limit=2</code>), so the responses that
+                follow each show 2 instances and return a
                     <emphasis>marker</emphasis> set to the UUID of the
                 last item in the returned list
-                    (<code>?marker=4137d6a4-03b7-4b66-b0ef-8c7c35c470d3</code>).
+                    (<code>?marker=urn:uuid:4137d6a4-03b7-4b66-b0ef-8c7c35c470d3</code>).
                 Also a link is provided to retrieve the next 2 results
                     (<code>limit=2</code>) in the link element
                 identified by the attribute <code>rel="next"</code>
-                (XML) or <code>"rel":"next"</code> (JSON):</para>
+                (XML) or <code>"rel":"next"</code> (JSON).</para>
         </section>
         <section xml:id="DB_faults">
             <title>Faults</title>
-            <para> When an error occurs, the Database Service returns
-                a fault object containing an HTTP error response code
-                that denotes the type of error. In the body of the
-                response, the system will return additional
+            <para> When an error occurs, the Cloud Feeds Service
+                returns a fault object that contains an HTTP error
+                response code. Denotes the type of error. In the body
+                of the response, the system returns additional
                 information about the fault. </para>
-            <para>The following table lists possible fault types with their associated error codes
-                and descriptions.</para>
+            <para><remark>Need title for the table.</remark>The
+                following table lists possible fault types with their
+                associated error codes and descriptions.</para>
             <informaltable rules="all">
                 <thead>
                     <tr align="center">
@@ -816,12 +1805,15 @@
                     <tr>
                         <td colspan="2"><code>badRequest</code></td>
                         <td colspan="1">400</td>
-                        <td colspan="3">There was one or more errors in the user request.</td>
+                        <td colspan="3">TThe user request contained
+                            one or more errors. </td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>unauthorized</code></td>
                         <td colspan="1">401</td>
-                        <td colspan="3">The supplied token is not authorized to access the resources, either it's expired or invalid.</td>
+                        <td colspan="3">The supplied token is not
+                            authorized to access the resources. It is
+                            either expired or invalid.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>forbidden</code></td>
@@ -833,26 +1825,31 @@
                         <td colspan="2"><code>itemNotFound</code></td>
                         <td colspan="1">404</td>
                         <td colspan="3">The back-end services did not
-                            find anything matching the
-                            Request-URI.</td>
+                            find a match for the request URI.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>badMethod</code></td>
                         <td colspan="1">405</td>
-                        <td colspan="3">The request method is not allowed for this resource.</td>
+                        <td colspan="3">The request method is not
+                            allowed for this resource.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>overLimit</code></td>
                         <td colspan="1">413</td>
-                        <td colspan="3">Either the number of entities in the request is larger than
-                            allowed limits, or the user has exceeded allowable request rate limits.
-                            See the <code>details</code> element for more specifics. Contact support
-                            if you think you need higher request rate limits.</td>
+                        <td colspan="3">Either the number of entities
+                            in the request is larger than allowed
+                            limits, or the user has exceeded allowable
+                            request rate limits. See the
+                                <code>details</code> element for
+                            specific information contact support if
+                            you think you need higher request rate
+                            limits.</td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>badMediaType</code></td>
                         <td colspan="1">415</td>
-                        <td colspan="3">The requested content type is not supported by this service.</td>
+                        <td colspan="3">The requested content type is
+                            not supported by this service.</td>
                     </tr>
                     <tr>
                         <td colspan="2"
@@ -865,295 +1862,90 @@
                         <td colspan="2"
                             ><code>instanceFault</code></td>
                         <td colspan="1">500</td>
-                        <td colspan="3">This is a generic server error and the message contains the reason for the error. This error could wrap several error messages and is a catch all.</td>
+                        <td colspan="3">This is a generic server error
+                            and the message contains the reason for
+                            the error. This error could include
+                            several error messages.</td>
                     </tr>
                     <tr>
                         <td colspan="2"
                             ><code>notImplemented</code></td>
                         <td colspan="1">501</td>
-                        <td colspan="3">The requested method or resource is not implemented.</td>
+                        <td colspan="3">The requested method or
+                            resource is not implemented.</td>
                     </tr>
                     <tr>
                         <td colspan="2"
                                 ><code>serviceUnavailable</code></td>
                         <td colspan="1">503</td>
-                        <td colspan="3">The Database Service is not
+                        <td colspan="3">The Database service is not
                             available.</td>
                     </tr>
                 </tbody>
             </informaltable>
-            <para>The following two  <code>instanceFault</code>
-                examples show errors when the server has erred or
-                cannot perform the requested operation:</para>
-            <para> The error code (<code>code</code>) is returned in the body of the response for
-                convenience. The <code>message</code> element returns a human-readable message that
-                is appropriate for display to the end user. The <code>details</code> element is
-                optional and may contain information that is useful for tracking down an error, such
-                as a stack trace. The <code>details</code> element may or may not be appropriate for
-                display to an end user, depending on the role and experience of the end user.</para>
+            <para>The following <code>instanceFault</code> examples
+                show errors that occurred when the server erred or
+                could not perform the requested operation:</para>
+            <remark>Need to provide examples:</remark>
+            <para> The error code (<code>code</code>) is returned in
+                the body of the response for convenience. The
+                    <code>message</code> element returns a
+                human-readable message that is appropriate for display
+                to the end user. The <code>details</code> element is
+                optional and might contain information that is useful
+                for tracking down an error, such as a stack trace. The
+                    <code>details</code> element might or might not be
+                appropriate for display to an end user, depending on
+                the role and experience of the end user.</para>
             <para>The fault's root element (for example,
-                    <code>instanceFault</code>) may change depending
+                    <code>instanceFault</code>) can change depending
                 on the type of error. </para>
-            <para><?rax-fo keep-with-next?>The following two <code>badRequest</code> examples
-                show errors when the volume size is invalid:</para>
-            <para> The next two examples show
-                    <code>itemNotFound</code> errors:</para>
-            <section xml:id="synchro_vs_async_faults">
-                <title>Synchronous Versus Asynchronous
-                    Faults<?sbr?></title>
-                <para><emphasis>Synchronous</emphasis> faults occur at
-                    request time. When a synchronous fault occurs, the
-                    fault contains an HTTP error response code, a
-                    human readable message, and optional details about
-                    the error. The following Database API calls are
-                    synchronous and may produce synchronous faults:<itemizedlist spacing="compact">
-                        <listitem>
-                            <para>List Users</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Instances</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Instance Details by ID</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Databases</para>
-                        </listitem>
-                        <listitem>
-                            <para>Enable Root User</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Root-Enabled Status</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Flavors</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Versions</para>
-                        </listitem>
-                        <listitem>
-                            <para>List Version Details</para>
-                        </listitem>
-                    </itemizedlist></para>
-                <para><emphasis>Asynchronous</emphasis> faults occur
-                    in the background while an instance, database, or
-                    user is being built or an instance is executing an
-                    action. When an asynchronous fault occurs, the
-                    system places the instance, database, or user in
-                    an ERROR state and embeds the fault in the
-                    offending instance, database, or user. When an
-                    asynchronous fault occurs, the fault contains an
-                    HTTP error response code, a human readable
-                    message, and optional details about the error. The
-                    following Database API calls are asynchronous and
-                    may produce asynchronous faults:<itemizedlist
-                        spacing="compact">
-                        <listitem>
-                            <para>Create Instance</para>
-                        </listitem>
-                        <listitem>
-                            <para>Delete Instance</para>
-                        </listitem>
-                        <listitem>
-                            <para>Create Database</para>
-                        </listitem>
-                        <listitem>
-                            <para>Delete Database</para>
-                        </listitem>
-                        <listitem>
-                            <para>Create User</para>
-                        </listitem>
-                        <listitem>
-                            <para>Delete User</para>
-                        </listitem>
-                        <listitem>
-                            <para>Resize Volume</para>
-                        </listitem>
-                        <listitem>
-                            <para>Resize Instance</para>
-                        </listitem>
-                        <listitem>
-                            <para>Restart Instance</para>
-                        </listitem>
-                    </itemizedlist><note>
-                        <para>Note that an asynchronous operation, if
-                            it fails, may not give the user an error,
-                            and the operation can error out without a
-                            failure notification.</para>
-                    </note></para>
-            </section>
-        </section>
-        <section xml:id="database_instance_status">
-            <title>Database Instance Status</title>
-            <para><?rax-fo keep-with-next?>When making an API call to create, list, or delete
-                database instance(s), the following database instance
-                status values are possible:</para>
-            <itemizedlist spacing="compact">
-                <listitem>
-                    <para>BUILD &ndash; The database instance is being provisioned.</para>
-                </listitem>
-                <listitem>
-                    <para>REBOOT &ndash; The database instance is
-                        rebooting.</para>
-                </listitem>
-                <listitem>
-                    <para>ACTIVE &ndash; The database instance is
-                        online and available to take requests.</para>     
-                </listitem>
-                <listitem>
-                    <para>BLOCKED &ndash; The database instance is
-                        unresponsive at the moment.</para>
-                </listitem>
-                <listitem>
-                    <para>RESIZE &ndash; The database instance is being
-                        resized at the moment.</para>
-                </listitem>
-                <listitem>
-                    <para>SHUTDOWN &ndash; The database instance is
-                        terminating services. Also, SHUTDOWN is
-                        returned if for any reason the MySQL instance
-                        is shut down but not the actual server. </para>
-                    <para>
-                        <note>
-                            <para>If MySQL has crashed (causing the
-                                SHUTDOWN status), please call support
-                                for assistance.</para>
-                        </note>
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>ERROR &ndash; The last operation for the
-                        database instance failed due to an
-                        error.</para>     
-                </listitem> 
-            </itemizedlist>
-        </section>
-        <section xml:id="Accessibility">
-            <title>Database Instance Accessibility</title>
-            <para>Database instances are directly accessible only on
-                the internal ServiceNet network and using a Cloud
-                resource within the same regional datacenter. For
-                example, a database instance in DFW can only be
-                accessed by a Cloud Server in DFW.</para>
-            
-            <para>Note that using a public Cloud Load Balancer allows
-                you to access your ServiceNet database instance from
-                the public network by performing the following steps:<orderedlist>
-                    <listitem>
-                        <para>Using the Cloud Databases API, create a
-                            database instance. For details see
-                            .</para>
-                    </listitem>
-                    <listitem>
-                        <para>Using the Cloud Load Balancers API,
-                            create a public load balancer and specify
-                            your database instance hostname as a node,
-                            or use the API to add your instance
-                            hostname as a node to an existing public
-                            load balancer. For details refer to the
-                                <citetitle>Cloud Load Balancers
-                                Developer Guide</citetitle> at <link
-                                xlink:href="http://docs.rackspace.com/api/"
-                                >http://docs.rackspace.com/api/</link>.</para>
-                    </listitem>
-                </orderedlist></para>
-        </section>
-        <section xml:id="security-dle214">
-            <title>Security</title>
-            <para>This section describes security features for Cloud
-                Databases.</para>
-            <section xml:id="user_access_restrict_by_host-dle387">
-                <title>User Access Restriction by Host</title>
-                <para>Cloud Databases supports the specification of a
-                        <code>host</code> parameter when creating and
-                    modifying users. This parameter adds the
-                    additional security measure of restricting the
-                    hosts from which a database user is allowed to
-                    connect to the database. The <code>host</code>
-                    parameter specifies the host a user must connect
-                    from in order for the username and password to be
-                    allowed to connect to the database on an
-                    instance.</para>
-                <para>The <code>host</code> parameter must be a string
-                    consisting of either a numeric IPv4 address such
-                    as "192.168.1.12", or the string "%". The string
-                    "%" serves as a wildcard to MySQL, and means "from
-                    anywhere". Users created without mention of the
-                        <code>host</code> parameter are given the
-                    default value of "%", which allows them to connect
-                    to the database from any host.</para>
-                <para>It is important to note that two database users
-                    with the same name but different hosts are treated
-                    as completely distinct from each other, especially
-                    when it comes to listing users and modifying their
-                    database access with the API. This means that the
-                    username alone is not sufficient to refer to a
-                    user in some cases. To remove ambiguity, every API
-                    response that names users now also includes the
-                        <code>host</code> field.</para>
-                <para>The <code>host</code> field may oalls. In the
-                    case of the List User, List User Access, Grant
-                    User Access, and Revoke User Access calls, the
-                    username is part of the request URL instead of a
-                    JSON or XML message body. In these cases, the host
-                    can be specified with the username using the
-                    format of username@host, for example
-                        <code>testuser@192.168.1.12</code>. Should a
-                    username contain the character '@', the hostname
-                    must be specified explicitly, as in
-                    user@name@%.</para>
-                <warning>
-                    <para>Due to a limitation of the routing
-                        middleware, databases and users with periods
-                        (.) in their name can be parsed incorrectly in
-                        GET, DELETE, and PUT calls, where such a name
-                        is the last section of the request URL. In
-                        these cases, the periods can be escaped by
-                        url-encoding them as "%2E", so "some.database"
-                        would become "some%2Edatabase". Note that
-                        CREATE calls are not affected as these names
-                        are in JSON or XML data, and not part of the
-                        request's URL.</para>
-                </warning>
-            </section>
+            <para><?rax-fo keep-with-next?>The following
+                    <code>badRequest</code> examples show errors that
+                occur when the volume size is invalid: <remark>Need
+                    examples</remark></para>
+            <para>The next examples show <code>itemNotFound</code>
+                errors:</para>
+            <remark>Need examples</remark>
+            <para>For more information, see Table 4.4 HTTP Responses.
+                    <remark>Need to make a cross
+                reference</remark></para>
         </section>
     </chapter>
-    <xi:include href="../../target/generated-resources/xml/xslt/product_schemas_appendix.xml">
-      <xi:fallback>
-	<?rax fail?>
-      </xi:fallback>
+    <chapter xml:id="wadl_example_wadl_1" role="api-reference"
+        xmlns:wadl="http://wadl.dev.java.net/2009/02">
+        <title>Operations </title>
+        <section xml:id="foo">
+            <title>TITLEME</title>
+            <resources xmlns="http://wadl.dev.java.net/2009/02">
+                <resource
+                    href="../../atom_hopper.wadl#accountstatus_events"/>
+                <resource href="../../atom_hopper.wadl#cbs_events"/>
+                <resource href="../../atom_hopper.wadl#dns_events"/>
+                <resource href="../../atom_hopper.wadl#files_events"/>
+            </resources>
+        </section>
+        <section xml:id="secondrefseciton">
+            <title>Another dumb name</title>
+            <resources xmlns="http://wadl.dev.java.net/2009/02">
+                <resource href="../../atom_hopper.wadl#sites_events"/>
+                <resource href="../../atom_hopper.wadl#domain_events"/>
+                <resource href="../../atom_hopper.wadl#dbaas_events"/>
+                <resource href="../../atom_hopper.wadl#glance_events"/>
+                <resource href="../../atom_hopper.wadl#lbaas_events"/>
+                <resource href="../../atom_hopper.wadl#servers_events"/>
+                <resource
+                    href="../../atom_hopper.wadl#monitoring_events"/>
+                <resource href="../../atom_hopper.wadl#nova_events"/>
+                <resource href="../../atom_hopper.wadl#bigdata_events"
+                />
+            </resources>
+        </section>
+    </chapter>
+    <xi:include
+        href="../../target/generated-resources/xml/xslt/product_schemas_appendix.xml">
+        <xi:fallback>
+            <?rax fail?>
+        </xi:fallback>
     </xi:include>
-    <glossary>
-        <title>Glossary</title>
-        <glossentry xml:id="Database-d1e017">
-            <glossterm>database</glossterm>
-            <glossdef>
-                <para>A MySQL database within a database instance.</para>
-            </glossdef>
-        </glossentry>
-        <glossentry xml:id="Database-Instance-d1e016">
-            <glossterm>database instance</glossterm>
-            <glossdef>
-                <para>A database instance is an isolated MySQL instance in a single tenant environment on a
-                    shared physical host machine. Also referred to as instance.</para>
-            </glossdef>
-        </glossentry>
-        <glossentry xml:id="Flavor-d1e018">
-            <glossterm>flavor</glossterm>
-            <glossdef>
-                <para>A flavor is an available hardware configuration for a database instance. Each flavor has a unique combination of memory capacity and priority for CPU time.</para>
-            </glossdef>
-        </glossentry>
-        <glossentry xml:id="Volume-d1e019">
-            <glossterm>volume</glossterm>
-            <glossdef>
-                <para>A volume is user-specified storage that contains the MySQL data directory. 
-                    Volumes are automatically provisioned on shared Internet Small Computer System Interface (iSCSI) 
-                    storage area networks (SAN) that provide for increased performance, scalability, availability 
-                    and manageability. Applications with high I/O demands are performance optimized and data is 
-                    protected through both local and network RAID-10. Additionally, network RAID provides synchronous 
-                    replication of volumes with automatic failover and load balancing across available storage clusters.</para>
-            </glossdef>
-        </glossentry>
-    </glossary>
 </book>
