@@ -48,6 +48,7 @@
 -->
 <application xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
              xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:wadl="http://wadl.dev.java.net/2009/02"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:rax="http://docs.rackspace.com/api"
              xmlns:event="http://docs.rackspace.com/core/event"
