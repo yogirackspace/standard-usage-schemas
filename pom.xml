@@ -397,7 +397,7 @@
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-                    <phase>generate-sources</phase>
+            <!--        <phase>generate-sources</phase>-->
                     <configuration>
                       <includes>feeds-releasenotes.xml</includes>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content</canonicalUrlBase>
@@ -408,7 +408,7 @@
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-                    <phase>generate-sources</phase>
+<!--                    <phase>generate-sources</phase>-->
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
