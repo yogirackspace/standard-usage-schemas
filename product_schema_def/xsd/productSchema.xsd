@@ -457,8 +457,8 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                Is the attribute optional or
-                                required. The use attribute is
+                                Is the attribute optional, required, or
+                                synthesized. The use attribute is
                                 optional, if not specified the
                                 attribute will be labeled as optional.
                             </html:p>
@@ -722,13 +722,14 @@
         <annotation>
             <documentation>
                 <html:p>
-                    Describes how an attribute should be used
+                    Constrains how and when the value of the attribute is supplied.
                 </html:p>
             </documentation>
         </annotation>
         <restriction base="xsd:token">
             <enumeration value="optional"/>
             <enumeration value="required"/>
+            <enumeration value="synthesized"/>
         </restriction>
     </simpleType>
 

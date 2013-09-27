@@ -352,7 +352,14 @@
         <attribute>
             <xsl:attribute name="name" select="@name"/>
             <xsl:if test="@use">
-                <xsl:attribute name="use" select="@use"/>
+                <xsl:choose>
+                    <xsl:when test="@use='synthesized'">
+                       <xsl:attribute name="use">optional</xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="use" select="@use"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
             <xsl:if test="@fixed">
                 <xsl:attribute name="fixed" select="@fixed"/>

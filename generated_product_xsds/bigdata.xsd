@@ -59,6 +59,21 @@
             </appinfo>
          </annotation>
       </attribute>
+      <attribute name="aggregatedClusterDuration"
+                 use="optional"
+                 type="xsd:unsignedLong">
+         <annotation>
+            <documentation>
+               <html:p>This is the sum of the durations in seconds of all nodes of the cluster.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="SUM"
+                                 unitOfMeasure="S"
+                                 groupBy="false"
+                                 billable="true"/>
+            </appinfo>
+         </annotation>
+      </attribute>
       <attribute name="bandwidthIn" use="required" type="p:bandwidthInType">
          <annotation>
             <documentation>
