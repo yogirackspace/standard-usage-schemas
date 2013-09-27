@@ -193,6 +193,7 @@
                 <listitem>
                     <para>The XSDs in the API Operations chapter, see,
                             <remark>Need to insert xref</remark>
+                            xref</remark>
                         <link
                             xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"
                         />. </para>
