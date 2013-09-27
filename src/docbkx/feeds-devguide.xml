@@ -103,7 +103,18 @@
                     <itemizedlist spacing="compact">
                         <listitem>
                             <para>Entered edits from Shinta received
-                                from second review part 1</para>
+                                from second review part 1.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+            <revision>
+                <date>2012-09-26</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Entered additional edits reccomended
+                                by Shinta. Also, updated WADLS.</para>
                         </listitem>
                     </itemizedlist>
                 </revdescription>
@@ -172,17 +183,16 @@
             <itemizedlist>
                 <listitem>
                     <para>There are multiple WADLs and XSDs for each
-                        product event (<emphasis role="italic">see,
-                            section ? in chapter
-                            4</emphasis>).<remark>Needs to be replaced
-                            when WADL is available</remark>
+                        product event. <remark>Need to insert
+                            xref</remark>
                         <link
                             xlink:href="http://docs.rackspace.com/cdb/api/v1.0/cdb.wadl"
                         />.</para>
                 </listitem>
                 <listitem>
-                    <para>The XSD is at <remark>Needs to be replaced
-                            when XSD is available.</remark>
+                    <para>The XSD in the API Operations
+                            chapter,<remark>Need to insert
+                            xref</remark>
                         <link
                             xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"
                         />. </para>
@@ -240,14 +250,9 @@
                     <para><emphasis role="bold">SLA</emphasis>: The
                         Cloud Feeds (Atom Hopper) SLA is for
                         publishers and subscribers. The SLA provides a
-                        support model. For more detailed information,
-                        see <link
-                            xlink:href="http://https://one.rackspace.com/display/CIT/Atom+Hopper+FAQ+-+Internal+Only#AtomHopperFAQ-InternalOnly-SupportandOperationsManagement/rackspace"
-                            >Support and Operations
-                            Management.</link><remark>Provide Support
-                            information for external version. Get
-                            information from this URL:
-                            https://one.rackspace.com/display/CIT/Atom+Hopper+FAQ+-+Internal+Only</remark></para>
+                        support model that uses Nova as the first
+                        product to send events through Cloud
+                        Feeds.</para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
@@ -468,10 +473,9 @@
         </section>
         <section xml:id="XML_Schemas-d1e120">
             <title>XML Schemas</title>
-            <para>All product events are validated against their XML
-                schemas. For details, see the reference table</para>
-            <remark>Dave will provide a reference table that contains
-                tables of valid attributes for each product.</remark>
+            <para xlink:href="#XML_Schemas-d1e120">All product events
+                are validated against their XML schemas. For details,
+                see Appendix A Product Schemas</para>
         </section>
         <section xml:id="Versioned-d1e125">
             <title>Versioned</title>
@@ -768,12 +772,12 @@
             </note>
             <section xml:id="Filter_Entries_by_Category_d1e0003">
                 <title>Advanced Filtering by Category with Cloud Feeds </title>
-                <para>The advanced search capability for Cloud Feeds
-                    ships with Atom Hopper version 1.2.8 and above.
-                    Also, advanced filters (those requiring AND, OR
-                    and NOT and their combinations) by category are
-                    supported for LDAP style search parameters. </para>
-                <para><emphasis role="bold">Single category
+                <para>Cloud Feeds ships with advanced search
+                    capability. Also, advanced filters (those
+                    requiring AND, OR and NOT and their combinations)
+                    by category are supported for LDAP style search
+                    parameters. </para>
+                <para><emphasis role="bold">Single Category
                         Filter</emphasis></para>
                 <para>Following is an example of searching on a
                     category entered as
@@ -904,6 +908,63 @@
                 header. Users obtain this token by first using the
                 Rackspace Cloud Authentication Service and supplying a
                 valid username and API access key. </para>
+            <section xml:id="AuthRoles-d1e699">
+                <title>Authorization Roles Required for Cloud Feeds
+                    Access</title>
+                <para>
+                    <table frame="all">
+                        <title>Roles</title>
+                        <tgroup cols="2">
+                            <colspec colname="c1" colnum="1"
+                                colwidth="1*"/>
+                            <colspec colname="c2" colnum="2"
+                                colwidth="2.57*"/>
+                            <thead>
+                                <row>
+                                   <entry>Role Name</entry>
+                                   <entry>Access</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                   <entry>cloudfeeds:admin </entry>
+                                   <entry>An administrative user,
+                                   granted full access to the
+                                   capabilities of the API for a
+                                   single tenant (POST and
+                                   GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>cloudfeeds:observer </entry>
+                                   <entry>Able to observe Cloud Feeds
+                                   data for a single tenant
+                                   (GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>cloudfeeds:service-admin</entry>
+                                   <entry>Able to observe Cloud Feeds
+                                   data for all tenants (GET).</entry>
+                                </row>
+                                <row>
+                                   <entry>identity:user-admin </entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:admin.</entry>
+                                </row>
+                                <row>
+                                   <entry>admin</entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:admin.</entry>
+                                </row>
+                                <row>
+                                   <entry>observer</entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:observer.</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
+                </para>
+            </section>
             <section xml:id="Geographic_Endpoints">
                 <title>Geographic Endpoints</title>
                 <para> The Rackspace Cloud Authentication Service
@@ -1078,7 +1139,7 @@
                             <td colspan="5">
                                 <code><link
                                    xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.lon3.us.ci.rackspace.net</link></code>
+                                   >https://atom.prod.uk1.us.ci.rackspace.net</link></code>
                             </td>
                         </tr>
                         <tr align="left">
@@ -1195,64 +1256,6 @@
                 data or they will have two users, one for the
                 cloudfeeds:admin role and the second with a
                 cloudfeeds:service-admin role.</para>
-            <section xml:id="roles-dle905">
-                <title>Roles</title>
-                <remark>Include a couple of sentences explaining
-                    roles.</remark>
-                <para>
-                    <table frame="all">
-                        <title>Roles</title>
-                        <tgroup cols="2">
-                            <colspec colname="c1" colnum="1"
-                                colwidth="1*"/>
-                            <colspec colname="c2" colnum="2"
-                                colwidth="2.57*"/>
-                            <thead>
-                                <row>
-                                   <entry>Role Name</entry>
-                                   <entry>Access</entry>
-                                </row>
-                            </thead>
-                            <tbody>
-                                <row>
-                                   <entry>cloudfeeds:admin </entry>
-                                   <entry>An administrative user,
-                                   granted full access to the
-                                   capabilities of the API for a
-                                   single tenant (POST and
-                                   GET).</entry>
-                                </row>
-                                <row>
-                                   <entry>cloudfeeds:observer </entry>
-                                   <entry>Able to observe Cloud Feeds
-                                   data for a single tenant
-                                   (GET).</entry>
-                                </row>
-                                <row>
-                                   <entry>cloudfeeds:service-admin</entry>
-                                   <entry>Able to observe Cloud Feeds
-                                   data for all tenants (GET).</entry>
-                                </row>
-                                <row>
-                                   <entry>identity:user-admin </entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:admin.</entry>
-                                </row>
-                                <row>
-                                   <entry>admin</entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:admin.</entry>
-                                </row>
-                                <row>
-                                   <entry>observer</entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:observer.</entry>
-                                </row>
-                            </tbody>
-                        </tgroup>
-                    </table>
-                </para>
-            </section>
             <section xml:id="response-dle910">
                 <title>Response </title>
                 <remark>Explain response and state that XML is the

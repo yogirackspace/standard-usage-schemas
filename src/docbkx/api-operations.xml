@@ -5,7 +5,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink" 
     xmlns:wadl="http://wadl.dev.java.net/2009/02"
     version="5.0-extension RaxBook-2.0">
-    <title>Operations </title>
+    <title>API Operations </title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource
         href="../../atom_hopper.wadl#accountstatus_events"/>
