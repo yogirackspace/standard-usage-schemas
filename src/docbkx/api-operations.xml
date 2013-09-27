@@ -1,78 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xml:id="wadl_example_wadl_1"
-    xmlns="http://docbook.org/ns/docbook"     
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xmlns:xlink="http://www.w3.org/1999/xlink" 
-    xmlns:wadl="http://wadl.dev.java.net/2009/02"
-    version="5.0-extension RaxBook-2.0">
-    <title>Operations </title>
+	 xmlns="http://docbook.org/ns/docbook"     
+	 xmlns:xi="http://www.w3.org/2001/XInclude"
+	 xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 xmlns:wadl="http://wadl.dev.java.net/2009/02"
+	 version="5.0-extension RaxBook-2.0"
+	 role="api-reference">
+  <title>Operations </title>
+  <section xml:id="accountstatus.product">
+    <title>Account Status</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource
-        href="../../atom_hopper.wadl#accountstatus_events"/>
+          href="../../atom_hopper.wadl#accountstatus_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-accountstatus-events-entries-_id_-3"/>
+          href="../../atom_hopper.wadl#rax-accountstatus-events-entries-_id_-3"/>
+    </resources>
+  </section>
+  <section xml:id="cbs.product">
+    <title>Cloud Block Storage</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#cbs_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-cbs-events-entries-_id_-5"/>
+          href="../../atom_hopper.wadl#rax-cbs-events-entries-_id_-5"/>
+    </resources>
+  </section>
+  <section xml:id="dns.product">
+    <title>Cloud DNS</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#dns_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-dns-events-entries-_id_-7"/>
+          href="../../atom_hopper.wadl#rax-dns-events-entries-_id_-7"/>
+    </resources>
+  </section>
+  <section xml:id="files.product">
+    <title>Cloud Files</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#files_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-files-events-entries-_id_-9"/>
+          href="../../atom_hopper.wadl#rax-files-events-entries-_id_-9"/>
+    </resources>
+  </section>
+  <section xml:id="sites.product">
+    <title>Cloud Sites</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#sites_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-sites-events-entries-_id_-11"/>
+          href="../../atom_hopper.wadl#rax-sites-events-entries-_id_-11"/>
+    </resources>
+  </section>
+  <section xml:id="domain.product">
+    <title>Domain</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#domain_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-domain-events-entries-_id_-13"/>
+          href="../../atom_hopper.wadl#rax-domain-events-entries-_id_-13"/>
+    </resources>
+  </section>
+  <section xml:id="dbaas.product">
+    <title>Cloud Databases</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#dbaas_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-dbaas-events-entries-_id_-15"/>
+          href="../../atom_hopper.wadl#rax-dbaas-events-entries-_id_-15"/>
+    </resources>
+  </section>
+  <section xml:id="glance.product">
+    <title>Glance</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#glance_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-glance-events-entries-_id_-17"/>
+          href="../../atom_hopper.wadl#rax-glance-events-entries-_id_-17"/>
+    </resources>
+  </section>
+  <section xml:id="lbaas.product">
+    <title>Cloud Load Balancers</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#lbaas_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-lbaas-events-entries-_id_-19"/>
+          href="../../atom_hopper.wadl#rax-lbaas-events-entries-_id_-19"/>
+    </resources>
+  </section>
+  <section xml:id="servers.product">
+    <title>Cloud Servers</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#servers_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-servers-events-entries-_id_-21"/>
+          href="../../atom_hopper.wadl#rax-servers-events-entries-_id_-21"/>
+    </resources>
+  </section>
+  <section xml:id="monitoring.product">
+    <title>Cloud Monitoring</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#monitoring_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-monitoring-events-entries-_id_-23"/>
+          href="../../atom_hopper.wadl#rax-monitoring-events-entries-_id_-23"/>
+    </resources>
+  </section>
+  <section xml:id="nova.product">
+    <title>Nova</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#nova_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-nova-events-entries-_id_-25"/>
+          href="../../atom_hopper.wadl#rax-nova-events-entries-_id_-25"/>
+    </resources>
+  </section>
+  <section xml:id="bigdata.product">
+    <title>Cloud Big Data</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#bigdata_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-bigdata-events-entries-_id_-27"/>
+          href="../../atom_hopper.wadl#rax-bigdata-events-entries-_id_-27"/>
+    </resources>
+  </section>
+  <section xml:id="backup.product">
+    <title>Cloud Backup</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#backup_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-backup-events-entries-_id_-29"/>
+          href="../../atom_hopper.wadl#rax-backup-events-entries-_id_-29"/>
+    </resources>
+  </section>
+  <section xml:id="autoscale.product">
+    <title>Cloud Auto Scale</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#autoscale_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-autoscale-events-entries-_id_-31"/>
+          href="../../atom_hopper.wadl#rax-autoscale-events-entries-_id_-31"/>
+    </resources>
+  </section>
+  <section xml:id="Dedicated">
+    <title>Dedicated</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#dedicated_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-dedicated-events-entries-_id_-33"/>
+          href="../../atom_hopper.wadl#rax-dedicated-events-entries-_id_-33"/>
+    </resources>
+  </section>
+  <section xml:id="queues.product">
+    <title>Cloud Queues</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#queues_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-queues-events-entries-_id_-35"/>
+          href="../../atom_hopper.wadl#rax-queues-events-entries-_id_-35"/>
+    </resources>
+  </section>
+  <section xml:id="nimbus.product">
+    <title>Nimbus Product</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#nimbus_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-nimbus-events-entries-_id_-37"/>
+          href="../../atom_hopper.wadl#rax-nimbus-events-entries-_id_-37"/>
+    </resources>
+  </section>
+  <section xml:id="meta.product">
+    <title>Meta</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#meta_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-meta-events-entries-_id_-39"/>
+          href="../../atom_hopper.wadl#rax-meta-events-entries-_id_-39"/>
+    </resources>
+  </section>
+  <section xml:id="usagerecovery.product">
+    <title>Usage Recovery</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource
-        href="../../atom_hopper.wadl#usagerecovery_events"/>
+          href="../../atom_hopper.wadl#usagerecovery_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-usagerecovery-events-entries-_id_-41"/>
+          href="../../atom_hopper.wadl#rax-usagerecovery-events-entries-_id_-41"/>
+    </resources>
+  </section>
+  <section xml:id="usageerror">
+    <title>Usage Error</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#usageerror_events"/>
       <resource
-        href="../../atom_hopper.wadl#rax-usageerror-events-entries-_id_-43"
-      />
+          href="../../atom_hopper.wadl#rax-usageerror-events-entries-_id_-43"
+	  />
     </resources>
-    
-  </chapter>
+  </section>
+</chapter>
