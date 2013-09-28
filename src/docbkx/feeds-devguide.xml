@@ -193,7 +193,7 @@
                 <listitem>
                     <para>The XSDs in the API Operations chapter, see,
                             <remark>Need to insert xref</remark>
-                            xref</remark>
+                        
                         <link
                             xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"
                         />. </para>
@@ -1776,9 +1776,11 @@
                 response code. Denotes the type of error. In the body
                 of the response, the system returns additional
                 information about the fault. </para>
-            <para><remark>Need title for the table.</remark>The
-                following table lists possible fault types with their
-                associated error codes and descriptions.</para>
+            <para><remark>Need title for the table. REPLACE THIS
+                    ENTIRE SECTION WITH WIKI LOCATION SENT  IN EMAIL
+                    BY SHINTA</remark>The following table lists
+                possible fault types with their associated error codes
+                and descriptions.</para>
             <informaltable rules="all">
                 <thead>
                     <tr align="center">
@@ -1791,8 +1793,8 @@
                     <tr>
                         <td colspan="2"><code>badRequest</code></td>
                         <td colspan="1">400</td>
-                        <td colspan="3">TThe user request contained
-                            one or more errors. </td>
+                        <td colspan="3">The user request contained one
+                            or more errors. </td>
                     </tr>
                     <tr>
                         <td colspan="2"><code>unauthorized</code></td>

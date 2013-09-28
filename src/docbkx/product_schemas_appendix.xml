@@ -4,13 +4,13 @@
 		xmlns="http://docbook.org/ns/docbook"
 		xml:id="product-schema-reference">
 		<title>Product Schemas</title>
-		<para>Ipsum Lorem. This is intro text for the whole appendix.</para>
+		<para>This appendix provides schemas for the various products.</para>
 	</appendix>
 		<product schemaFile="../../sample_product_schemas/ahop-count.xml"
 			sampleFile="../../message_samples/meta/atomhopper-feedcount-feed-update-event.xml">
 			<section xmlns="http://docbook.org/ns/docbook" xml:id="ahop-count">
 				<title>Ahop count</title>
-				<para>Ipsum Lorem. This text describes an individual product schema.</para>
+				<para>This is the schema for the Ahop content.</para>
 			</section>
 		</product>
 		<product schemaFile="../../sample_product_schemas/bigdata.xml"

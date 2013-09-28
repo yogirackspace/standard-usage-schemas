@@ -223,6 +223,9 @@
    </resource_type>
    <resource_type id="CloudDNS">
       <method id="addCloudDNSEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add cloud dns entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc">WRITEME</para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="create"
@@ -644,6 +647,9 @@
    </resource_type>
    <resource_type id="CloudSites">
       <method id="addCloudSitesEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Sites entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc">WRITEME</para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
