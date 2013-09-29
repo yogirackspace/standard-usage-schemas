@@ -98,6 +98,9 @@
              xmlns:w_ns41="http://docs.rackspace.com/usage/widget">
    <resource_type id="AtomHopper">
       <method id="addAtomHopperEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Atom Hopper Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="update"
@@ -123,6 +126,9 @@
    </resource_type>
    <resource_type id="BigData">
       <method id="addBigDataEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Big Data Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -148,6 +154,9 @@
    </resource_type>
    <resource_type id="CloudBlockStorage">
       <method id="addCloudBlockStorageEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Block Storage Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -173,6 +182,9 @@
    </resource_type>
    <resource_type id="CloudQueues">
       <method id="addCloudQueuesEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Queues Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -198,6 +210,9 @@
    </resource_type>
    <resource_type id="CloudBackup">
       <method id="addCloudBackupEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Backup Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -223,8 +238,8 @@
    </resource_type>
    <resource_type id="CloudDNS">
       <method id="addCloudDNSEntry" name="POST">
-         <wadl:doc xml:lang="EN" title="Add cloud dns entry" xmlns="http//docbook.org/ns/dockbook">
-            <para role="shortdesc">WRITEME</para>            
+         <wadl:doc xml:lang="EN" title="Add Cloud DNS Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
          </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
@@ -256,6 +271,9 @@
    </resource_type>
    <resource_type id="CloudFiles">
       <method id="addCloudFilesEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Files Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -281,6 +299,9 @@
    </resource_type>
    <resource_type id="CloudDatabase">
       <method id="addCloudDatabaseEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Database Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -306,6 +327,9 @@
    </resource_type>
    <resource_type id="DomainRegistration">
       <method id="addDomainRegistrationEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Domain Registration Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage_snapshot"
@@ -331,6 +355,9 @@
    </resource_type>
    <resource_type id="Glance">
       <method id="addGlanceEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Glance Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -356,6 +383,9 @@
    </resource_type>
    <resource_type id="CloudIdentity">
       <method id="addCloudIdentityEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Identity Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="create"
@@ -444,6 +474,9 @@
    </resource_type>
    <resource_type id="CloudLoadBalancers">
       <method id="addCloudLoadBalancersEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Load Balancers Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -475,6 +508,9 @@
    </resource_type>
    <resource_type id="CloudMonitoring">
       <method id="addCloudMonitoringEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Monitoring Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -500,6 +536,9 @@
    </resource_type>
    <resource_type id="CloudServersOpenStack">
       <method id="addCloudServersOpenStackEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Servers Open Stack Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -545,6 +584,9 @@
    </resource_type>
    <resource_type id="RHEL">
       <method id="addRHELEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add RHEL Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -570,6 +612,9 @@
    </resource_type>
    <resource_type id="CloudServers">
       <method id="addCloudServersEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Cloud Servers Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"
@@ -647,8 +692,8 @@
    </resource_type>
    <resource_type id="CloudSites">
       <method id="addCloudSitesEntry" name="POST">
-         <wadl:doc xml:lang="EN" title="Add Cloud Sites entry" xmlns="http//docbook.org/ns/dockbook">
-            <para role="shortdesc">WRITEME</para>            
+         <wadl:doc xml:lang="EN" title="Add Cloud Sites Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
          </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
@@ -680,6 +725,9 @@
    </resource_type>
    <resource_type id="Widget">
       <method id="addWidgetEntry" name="POST">
+         <wadl:doc xml:lang="EN" title="Add Widget Entry" xmlns="http//docbook.org/ns/dockbook">
+            <para role="shortdesc"></para>            
+         </wadl:doc>
          <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
                <param name="usage"

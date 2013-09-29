@@ -37,7 +37,7 @@
 
     <!-- METHODS -->
     <method id="getFeed" name="GET">
-        <wadl:doc xml:lang="EN" title="Get events" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Get Events for Products" xmlns="http//docbook.org/ns/dockbook">
             <para role="shortdesc">Gets events for this product's feed.</para>            
         </wadl:doc>
         <request>
@@ -55,7 +55,7 @@
     </method>
 
     <method id="getEntry" name="GET">
-        <wadl:doc xml:lang="EN" title="Get event" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Get Event ID" xmlns="http//docbook.org/ns/dockbook">
             <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
             
         </wadl:doc>
@@ -69,7 +69,7 @@
     </method>
 
     <method id="addPlainUnvalidatedEntry" name="POST">
-        <wadl:doc xml:lang="EN" title="Add plain unvalidated entry" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Add Plain Unvalidated Entry." xmlns="http//docbook.org/ns/dockbook">
             <para role="shortdesc"></para>            
         </wadl:doc>
         <request rax:ignoreXSD="true">
@@ -87,7 +87,7 @@
     </method>
 
     <method id="addPlainEntry" name="POST">
-        <wadl:doc xml:lang="EN" title="Add plain entry" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http//docbook.org/ns/dockbook">
             <para role="shortdesc"></para>            
         </wadl:doc>
         <request>
