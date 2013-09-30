@@ -98,7 +98,7 @@
              xmlns:w_ns41="http://docs.rackspace.com/usage/widget">
    <resource_type id="AtomHopper">
       <method id="addAtomHopperEntry" name="POST">
-         <wadl:doc xml:lang="EN" title="Atom Hopper Entry" xmlns="http//docbook.org/ns/dockbook">
+         <wadl:doc xml:lang="EN" title="Add Atom Hopper Entry" xmlns="http//docbook.org/ns/dockbook">
             <para role="shortdesc"></para>            
          </wadl:doc>
          <request>
