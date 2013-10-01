@@ -265,7 +265,7 @@
 				            <location>atom_hopper.wadl</location>
 				        </source>
 				        <source>
-				            <location>atom_hopper_identity.wadl</location>
+				            <location>atom_hopper_identity_admin.wadl</location>
 				        </source>
 				        <source>
 				            <location>atom_hopper_observer.wadl</location>
