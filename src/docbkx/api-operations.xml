@@ -6,7 +6,7 @@
 	 xmlns:wadl="http://wadl.dev.java.net/2009/02"
 	 version="5.0-extension RaxBook-2.0"
 	 role="api-reference">
-  <title>Operations </title>
+  <title>API Operations </title>
   <section xml:id="accountstatus.product">
     <title>Account Status</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
