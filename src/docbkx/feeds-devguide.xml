@@ -57,7 +57,9 @@
                 <revdescription>
                     <itemizedlist spacing="compact">
                         <listitem>
-                            <para>Enter text from Mike's email </para>
+                            <para>Published the initial internal
+                                release of the Cloud Feeds API
+                                Guide.</para>
                         </listitem>
                     </itemizedlist>
                 </revdescription>
@@ -105,10 +107,7 @@
         </itemizedlist>
         <para xmlns:svg="http://www.w3.org/2000/svg"
             xmlns:m="http://www.w3.org/1998/Math/MathML"
-            xmlns:html="http://www.w3.org/1999/xhtml"></para> <para security="writeronly">The following
-                figure shows an overview of Cloud Databases
-                Infrastructure:Insert place holder for overview
-                diagram when received from marketing/</para>
+            xmlns:html="http://www.w3.org/1999/xhtml"></para> <para security="writeronly">Writer: Insert the CF Overview Graphic when received from marketing; make sure to follow-up with Theresa H to remind her./</para>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
@@ -118,7 +117,7 @@
         </section>
         <section xml:id="Additional_Resources">
             <title>Additional Resources</title>
-            <para security="writeronly">Add the following information
+            <para security="writeronly">Writer: Add the following information
                 in red when available: Descriptive information about
                 Cloud Feeds is also published in its Web Application
                 Description Language (WADL) and XML Schema Definition
@@ -146,18 +145,23 @@
                 API-related documents from <link
                     xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link>. </para>
-            <para security="writeronly"> For more details about Cloud Feeds, see<link
+            <para security="writeronly"> Writer: When available replace the link (noted as Cloud Database) below with the Cloud Feeds version.
+                For more details about Cloud Feeds, see<link
                     xlink:href="http://www.rackspace.com/cloud/cloud_hosting_products/databases/"
-                        ><remark>Is there a link for Cloud Feeds for
-                        more information? This will be developeld
-                        later
-                    correct?</remark>http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>This
+                        > Writer: A link for Cloud Feeds for
+                        more information will be developed later
+                        before the public release; followup with CF
+                        Team (Shinta)
+                    http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>This
                 site also provides links to the official Rackspace
                 support channels, including knowledge center articles,
                 forums, phone, chat, and email. </para>
-            <para security="writeronly">For detailed information about getting started with
-                the API, see the <citetitle>Cloud Feeds Getting
-                    Started Guide</citetitle> at <link
+            <para security="writeronly">Writer: Update this
+                information when the Getting Started Guide and the
+                Product Feedback forum when it is available: For
+                detailed information about getting started with the
+                API, see the <citetitle>Cloud Feeds Getting Started
+                    Guide</citetitle> at <link
                     xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link> All you need to
                 start using Cloud Feeds is the getting started guide,
@@ -475,7 +479,7 @@
                 xlink:href="https://atom.myserver.com/namespace/feed "
                 >To get the feed on a default installation perform an
                 HTTP GET request against the following URL: </para>
-            <programlisting>https://atom.myserver.com/namespace/feed. </programlisting>
+            <programlisting>https://atom.myserver.com/namespace/feed </programlisting>
             <para>The response of the above HTTP GET would contain
                 several links as follows:</para>
             <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
@@ -546,7 +550,7 @@
                     as an HTML ampersand character code. To follow the
                     link in a web browser or web tool such as Poster,
                     you must change each HTML ampersand character
-                    (&amp;amp:) to <emphasis role="bold"
+                    (&amp;amp;) to <emphasis role="bold"
                         >&amp;</emphasis>. For example, when viewed in
                     a web browser, the feed returns the following
                     link: </para>
@@ -558,7 +562,7 @@
                 follows: </para>
             <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
 </programlisting>
-            <para>It must be changed to: </para>
+            <para>This must be changed to: </para>
             <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
             <para>This issue should not be a concern when using an XML
@@ -640,9 +644,11 @@
             <title>Select Entries by Marker</title>
             <para>If you specify a marker in the GET request, you can
                 also specify a value for the direction parameter. The
-                value is either forward or backward. If you do not
-                specify a value for the direction parameter, the
-                default value of forward is used. </para>
+                value is either <emphasis role="bold"
+                    >forward</emphasis> or <emphasis role="bold"
+                    >backward</emphasis>. If you do not specify a
+                value for the direction parameter, the default value
+                of forward is used. </para><para security="writeronly"> Writer: Make sure to bold values such as forward and backward thru the whole document.</para>
             <para><emphasis role="bold"
                 >Forward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
             <para><emphasis role="bold"
@@ -811,7 +817,7 @@
                 feed with only one ATOM entry :</para>
             <programlisting>W/"urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76:urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76"
 </programlisting>
-            <para>ETags are not returned in the following situations::<orderedlist>
+            <para>ETags are not returned in the following situations:<orderedlist>
                     <listitem>
                         <para>The feed is empty</para>
                     </listitem>
@@ -1574,7 +1580,7 @@
                     limits</firstterm>. Rate limits are thresholds
                 that are reset after a certain amount of time passes.
                 Absolute limits are fixed. </para> 
-            <para security="writeronly"> Add section titled Rate_Limits once there are rate limits for GET.
+            <para security="writeronly"> Writer: Add section titled Rate_Limits once there are rate limits for GET.
                    
                 </para>
             </section>
@@ -1596,11 +1602,12 @@
             <para> For the display and consumption of date and time
                 values, the Cloud Feeds service uses a date format
                 that complies with ISO 8601. </para>
+            <para>The following table lists the format of a Cloud
+                Feeds Date/Time and an example. An example of the
+                Date/Time follows:</para>
             <example>
                 <title>Cloud Feeds Date and Time Format
                     Example</title>
-                <para>The following table lists the format of a Cloud
-                    Feeds Date/Time and an example:</para>
                 <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
                 <para>
                     <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
@@ -1697,11 +1704,11 @@
                 pagination will have a <emphasis>next</emphasis> link,
                 which points to the next item in the collection. If
                 there are no more items, no <emphasis>next</emphasis>
-                link is returned.</para>
-            <para>The following examples show paginated
-                requests:</para>
-            <remark>Need examples</remark>
-            <para>In the example requests, the limit parameter is set
+                link is returned.</para> <para security="writeronly"> Writer: Must get the examples from Shinta.
+             The following examples show paginated
+                requests:
+            
+            In the example requests, the limit parameter is set
                 to 2 (<code>?limit=2</code>), so the responses that
                 follow each show 2 instances and return a
                     <emphasis>marker</emphasis> set to the UUID of the
@@ -1710,138 +1717,11 @@
                 Also a link is provided to retrieve the next 2 results
                     (<code>limit=2</code>) in the link element
                 identified by the attribute <code>rel="next"</code>
-                (XML) or <code>"rel":"next"</code> (JSON).</para>
-        </section>
-        <section xml:id="DB_faults">
-            <title>Faults</title>
-            <para> When an error occurs, the Cloud Feeds Service
-                returns a fault object that contains an HTTP error
-                response code. Denotes the type of error. In the body
-                of the response, the system returns additional
-                information about the fault. </para>
-            <para><remark>Need title for the table. REPLACE THIS
-                    ENTIRE SECTION WITH WIKI LOCATION SENT  IN EMAIL
-                    BY SHINTA</remark>The following table lists
-                possible fault types with their associated error codes
-                and descriptions.</para>
-            <informaltable rules="all">
-                <thead>
-                    <tr align="center">
-                        <td colspan="2">Fault Type</td>
-                        <td colspan="1">Associated Error Code</td>
-                        <td colspan="3">Description</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="2"><code>badRequest</code></td>
-                        <td colspan="1">400</td>
-                        <td colspan="3">The user request contained one
-                            or more errors. </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>unauthorized</code></td>
-                        <td colspan="1">401</td>
-                        <td colspan="3">The supplied token is not
-                            authorized to access the resources. It is
-                            either expired or invalid.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>forbidden</code></td>
-                        <td colspan="1">403</td>
-                        <td colspan="3">Access to the requested
-                            resource was denied.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>itemNotFound</code></td>
-                        <td colspan="1">404</td>
-                        <td colspan="3">The back-end services did not
-                            find a match for the request URI.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>badMethod</code></td>
-                        <td colspan="1">405</td>
-                        <td colspan="3">The request method is not
-                            allowed for this resource.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>overLimit</code></td>
-                        <td colspan="1">413</td>
-                        <td colspan="3">Either the number of entities
-                            in the request is larger than allowed
-                            limits, or the user has exceeded allowable
-                            request rate limits. See the
-                                <code>details</code> element for
-                            specific information contact support if
-                            you think you need higher request rate
-                            limits.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><code>badMediaType</code></td>
-                        <td colspan="1">415</td>
-                        <td colspan="3">The requested content type is
-                            not supported by this service.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"
-                                ><code>unprocessableEntity</code></td>
-                        <td colspan="1">422</td>
-                        <td colspan="3">The requested resource could
-                            not be processed on at the moment.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"
-                            ><code>instanceFault</code></td>
-                        <td colspan="1">500</td>
-                        <td colspan="3">This is a generic server error
-                            and the message contains the reason for
-                            the error. This error could include
-                            several error messages.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"
-                            ><code>notImplemented</code></td>
-                        <td colspan="1">501</td>
-                        <td colspan="3">The requested method or
-                            resource is not implemented.</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"
-                                ><code>serviceUnavailable</code></td>
-                        <td colspan="1">503</td>
-                        <td colspan="3">The Database service is not
-                            available.</td>
-                    </tr>
-                </tbody>
-            </informaltable>
-            <para>The following <code>instanceFault</code> examples
-                show errors that occurred when the server erred or
-                could not perform the requested operation:</para>
-            <remark>Need to provide examples:</remark>
-            <para> The error code (<code>code</code>) is returned in
-                the body of the response for convenience. The
-                    <code>message</code> element returns a
-                human-readable message that is appropriate for display
-                to the end user. The <code>details</code> element is
-                optional and might contain information that is useful
-                for tracking down an error, such as a stack trace. The
-                    <code>details</code> element might or might not be
-                appropriate for display to an end user, depending on
-                the role and experience of the end user.</para>
-            <para>The fault's root element (for example,
-                    <code>instanceFault</code>) can change depending
-                on the type of error. </para>
-            <para><?rax-fo keep-with-next?>The following
-                    <code>badRequest</code> examples show errors that
-                occur when the volume size is invalid: <remark>Need
-                    examples</remark></para>
-            <para>The next examples show <code>itemNotFound</code>
-                errors:</para>
-            <remark>Need examples</remark>
-            <para>For more information, see Table 4.4 HTTP Responses.
-                    <remark>Need to make a cross
-                reference</remark></para>
-        </section>
+                (XML) or <code>"rel":"next"</code> (JSON).</para> 
+            <para security="writeronly"> Writer: Must create a new section below. The title will be Rules for Publishers and Subscribers. 
+                The content is from this wiki:  https://one.rackspace.com/display/CIT/Rules+for+Atom+Hopper+Publishers+and+Subscribers Enter the entire content of this wiki.</para>
+        </section> 
+        
     </chapter>
     <xi:include href="api-operations.xml"/>
     <xi:include

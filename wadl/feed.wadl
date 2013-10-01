@@ -16,7 +16,7 @@
     </resource_type>
 
     <resource_type id="Unvalidated">
-        <wadl:doc title="Unvalidated" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc title="Unvalidated" xmlns="http://docbook.org/ns/docbook">
             <para>
                 Leaving these descriptions fairly loose as these
                 feeds are currently not validated against.
@@ -37,7 +37,7 @@
 
     <!-- METHODS -->
     <method id="getFeed" name="GET">
-        <wadl:doc xml:lang="EN" title="Get Events for Products" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Get Events for Products" xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Gets events for this product's feed.</para>            
         </wadl:doc>
         <request>
@@ -55,7 +55,7 @@
     </method>
 
     <method id="getEntry" name="GET">
-        <wadl:doc xml:lang="EN" title="Get Event ID" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc xml:lang="EN" title="Get Event ID" xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
             
         </wadl:doc>
@@ -69,8 +69,11 @@
     </method>
 
     <method id="addPlainUnvalidatedEntry" name="POST">
-        <wadl:doc xml:lang="EN" title="Add Plain Unvalidated Entry." xmlns="http//docbook.org/ns/dockbook">
-            <para role="shortdesc"></para>            
+        <wadl:doc xml:lang="EN" title="Add Plain Unvalidated Entry." xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adding an event for this particular product.</para> 
+            <para>See the Appendix for
+                details and message examples that can be sent with the
+                post request.</para>
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
@@ -87,8 +90,12 @@
     </method>
 
     <method id="addPlainEntry" name="POST">
-        <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http//docbook.org/ns/dockbook">
-            <para role="shortdesc"></para>            
+        <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adding an event for this particular product.</para>
+            <para>See the Appendix for
+                details and message examples that can be sent with the
+                post request.</para>
+            
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">

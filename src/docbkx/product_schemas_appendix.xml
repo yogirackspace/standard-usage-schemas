@@ -4,20 +4,20 @@
 		xmlns="http://docbook.org/ns/docbook"
 		xml:id="product-schema-reference">
 		<title>Product Schemas</title>
-		<para>This appendix provides schemas for the various products.</para>
+		<para>This appendix contains the various examples of message XML that can be sent in an HTTP POST request to Cloud Feeds.</para>
 	</appendix>
 		<product schemaFile="../../sample_product_schemas/ahop-count.xml"
 			sampleFile="../../message_samples/meta/atomhopper-feedcount-feed-update-event.xml">
 			<section xmlns="http://docbook.org/ns/docbook" xml:id="ahop-count">
 				<title>Ahop Count</title>
-				<para>This is the schema for the Ahop content.</para>
+				<para>This is the schema for the Ahop Count content.</para>
 			</section>
 		</product>
 		<product schemaFile="../../sample_product_schemas/bigdata.xml"
 			sampleFile="../../message_samples/bigdata/bigdata-bigdata-usage-entry.xml">
 			<section xmlns="http://docbook.org/ns/docbook" xml:id="bigdata">
 				<title>Big Data</title>
-				<para>This is the schema for Bid Data content.</para>
+				<para>This is the schema for Big Data content.</para>
 			</section>
 		</product>
 		<product schemaFile="../../sample_product_schemas/cbs-snapshot.xml"
