@@ -25,6 +25,12 @@
         This is the number of data nodes in cluster.
     </attribute>
 
+    <attribute name="aggregatedClusterDuration" type="unsignedLong"
+               use="synthesized" unitOfMeasure="S"
+               aggregateFunction="SUM">
+        This is the sum of the durations in seconds of all nodes of the cluster.
+    </attribute>
+
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                unitOfMeasure="KB" aggregateFunction="SUM" min="0" 
                max="16000000000">
