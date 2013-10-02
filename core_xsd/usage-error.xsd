@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+            targetNamespace="http://docs.rackspace.com/core/usage-error" 
+            xmlns:usage-error="http://docs.rackspace.com/core/usage-error" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:event="http://docs.rackspace.com/core/event">
+
+    <xsd:import namespace="http://www.w3.org/2005/Atom" 
+                schemaLocation="atom/atom-v1.1.xsd"/>
+               
+    <xsd:import namespace="http://docs.rackspace.com/core/event"
+                schemaLocation="usage.xsd"/>
+                
+    <!-- Complex Types -->
+    <xsd:element name="usageError" type="usage-error:UsageError" />
+
+    <!-- Enumerations -->
+    <xsd:simpleType name="ErrorType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    The type of error.
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="TENANT_NOT_FOUND"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Simple types definition starts here -->
+
+    <!-- Complex types definition starts here -->
+    <xsd:complexType name="UsageError">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    A Usage Error that provides error feedback for usage data from a raw usage event.  
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- TODO: add assertions about the relation type and the presence of the href attribute -->
+            <xsd:element ref="atom:link" minOccurs="0" maxOccurs="unbounded">
+	            <xsd:annotation>
+	                <xsd:documentation>
+	                    <html:p>
+	                        One or more links to related resources that provide details related to the UsageError.
+	                    </html:p>
+	                </xsd:documentation>
+	            </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="event:event" minOccurs="1" maxOccurs="1">
+	            <xsd:annotation>
+	                <xsd:documentation>
+	                    <html:p>
+	                        The original usage event that caused the error.
+	                    </html:p>
+	                </xsd:documentation>
+	            </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="errorType" type="usage-error:ErrorType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The type of error.  
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="errorDescription" type="event:NonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        A human-readable description of the error.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>
