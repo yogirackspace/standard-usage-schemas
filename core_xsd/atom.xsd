@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+           targetNamespace="http://www.w3.org/2005/Atom"
+           xmlns:html="http://www.w3.org/1999/xhtml"
+           xmlns:atom="http://www.w3.org/2005/Atom"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="link" type="atom:link" />
+
+    <xs:complexType name="link">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>See section 3.4 of the ATOM RFC <html:a href="http://tools.ietf.org/html/rfc4287">RFC4287</html:a></html:p>
+            </xs:documentation>
+        </xs:annotation>
+
+        <xs:attribute name="rel" use="required" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>TODO</html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="type" use="optional" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>TODO</html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        
+        <xs:attribute name="href" use="required" type="xs:anyURI">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>TODO</html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="hreflang" use="optional" type="xs:NMTOKEN">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>TODO</html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="title" use="optional" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>TODO</html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

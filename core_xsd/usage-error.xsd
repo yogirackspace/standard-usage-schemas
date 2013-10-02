@@ -10,7 +10,7 @@
             xmlns:event="http://docs.rackspace.com/core/event">
 
     <xsd:import namespace="http://www.w3.org/2005/Atom" 
-                schemaLocation="atom/atom-v1.1.xsd"/>
+                schemaLocation="atom.xsd"/>
                
     <xsd:import namespace="http://docs.rackspace.com/core/event"
                 schemaLocation="usage.xsd"/>
