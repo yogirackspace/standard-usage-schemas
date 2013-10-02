@@ -55,11 +55,20 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="username" type="event:Username" use="optional">
+                <attribute name="client_username" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
                                 The sub-account's user name, when applicable.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="agent_username" type="event:Username" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The rackspace agent who is taking action on account of the user.
                             </html:p>
                         </documentation>
                     </annotation>
