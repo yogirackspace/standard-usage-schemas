@@ -3,7 +3,6 @@
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:db="http://docs.rackspace.com/usage/sites/db">
     <atom:title type="text">Sites</atom:title>
-    <atom:updated>2013-03-14T09:46:31Z</atom:updated>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:sites="http://docs.rackspace.com/usage/sites/subscription"
