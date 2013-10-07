@@ -27,7 +27,7 @@
                  type="xsd:Name"
                  fixed="CloudServersOpenStack"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="flavorId" use="required" type="p:string50">
+      <attribute name="flavorId" use="required" type="p:string1_50">
          <annotation>
             <documentation>
                <html:p>The flavor id of the server.</html:p>
@@ -37,7 +37,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="flavorName" use="required" type="p:string300">
+      <attribute name="flavorName" use="required" type="p:string1_300">
          <annotation>
             <documentation>
                <html:p>The flavor name of the server.</html:p>

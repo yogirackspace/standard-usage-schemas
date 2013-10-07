@@ -101,8 +101,15 @@
                 </simpleType>
             </xsl:for-each-group>
             <xsl:if test="$schemas//schema:attribute[@type=('string', 'string*') and not(@maxLength) and not(@allowedValues)]">
+                <xsl:variable name="minLengthValue">
+                    <xsl:choose>
+                        <xsl:when test="./@minLength"><xsl:value-of select="./@minLength"/></xsl:when>
+                        <xsl:otherwise>0</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable> 
                 <simpleType name="string">
                     <restriction base="xsd:string">
+                        <minLength value="{$minLengthValue}"/>
                         <maxLength value="{$MAX_STRING}"/>
                     </restriction>
                 </simpleType>
@@ -319,6 +326,12 @@
         <xsl:param name="version" as="xsd:string"/>
 
         <xsl:variable name="vname" select="usage:versionName($attribute/@name, $use-version, $version)"/>
+        <xsl:variable name="minLengthValue">
+            <xsl:choose>
+                <xsl:when test="$attribute/@minLength"><xsl:value-of select="$attribute/@minLength"/></xsl:when>
+                <xsl:otherwise>0</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable> 
         <xsl:choose>
             <xsl:when test="ends-with($type, '*')">
                 <xsl:value-of select="usage:listNameType($vname,true())"/>
@@ -335,8 +348,11 @@
             <xsl:when test="$type='utcTime'">
                 <xsl:value-of select="'p:UTCTime'"/>
             </xsl:when>
-            <xsl:when test="$type='string'">
-                <xsl:value-of select="concat('p:string',$attribute/@maxLength)"/>
+            <xsl:when test="$type='string' and $attribute/@maxLength">
+                <xsl:value-of select="concat('p:',$type,$minLengthValue,'_',$attribute/@maxLength)"/>
+            </xsl:when>
+            <xsl:when test="$type='string' and not($attribute/@maxLength)">
+                <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="'p:Name'"/>
@@ -582,6 +598,12 @@
         <xsl:param name="use-version" as="xsd:boolean"/>
         <xsl:param name="version" as="xsd:string"/>
         <xsl:variable name="type" select="substring-before($itype,'*')" as="xsd:string"/>
+        <xsl:variable name="minLengthValue">
+            <xsl:choose>
+                <xsl:when test="$attrib/@minLength"><xsl:value-of select="$attrib/@minLength"/></xsl:when>
+                <xsl:otherwise>0</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable> 
         <xsl:choose>
             <xsl:when test="$type='UUID'">
                 <xsl:value-of select="concat('p:',$type)"/>
@@ -589,8 +611,11 @@
             <xsl:when test="$attrib/@allowedValues">
                 <xsl:value-of select="usage:enumNameType(usage:versionName($attrib/@name, $use-version, $version),true())"/>
             </xsl:when>
-            <xsl:when test="$type='string'">
-                <xsl:value-of select="concat('p:',$type,$attrib/@maxLength)"/>
+            <xsl:when test="$type='string' and $attrib/@maxLength">
+                <xsl:value-of select="concat('p:',$type,$minLengthValue,'_',$attrib/@maxLength)"/>
+            </xsl:when>
+            <xsl:when test="$type='string' and not($attrib/@maxLength)">
+                <xsl:value-of select="concat('p:',$type)"/>
             </xsl:when>
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="concat('p:',$type)"/>
