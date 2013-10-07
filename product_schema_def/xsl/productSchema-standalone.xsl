@@ -85,10 +85,17 @@
                     </restriction>
                 </simpleType>
             </xsl:if>
-            <xsl:for-each-group select="$schemas//schema:attribute[@type=('string', 'string*') and @maxLength and not(@allowedValues)]" group-by="@maxLength">
+            <xsl:for-each-group select="$schemas//schema:attribute[@type=('string', 'string*') and @maxLength and not(@allowedValues)]" group-by="concat(concat(@minLength, '_'), @maxLength)">
                 <xsl:variable name="maxLengthValue" as="xsd:integer" select="./@maxLength" />
-                <simpleType name="string{$maxLengthValue}">
+                <xsl:variable name="minLengthValue">
+                    <xsl:choose>
+                        <xsl:when test="./@minLength"><xsl:value-of select="./@minLength"/></xsl:when>
+                        <xsl:otherwise>0</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable> 
+                <simpleType name="string{$minLengthValue}_{$maxLengthValue}">
                     <restriction base="xsd:string">
+                        <minLength value="{$minLengthValue}"/>
                         <maxLength value="{$maxLengthValue}"/>
                     </restriction>
                 </simpleType>

@@ -132,13 +132,15 @@
          <maxInclusive value="16000000000"/>
       </restriction>
    </simpleType>
-   <simpleType name="string50">
+   <simpleType name="string0_50">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="50"/>
       </restriction>
    </simpleType>
-   <simpleType name="string300">
+   <simpleType name="string0_300">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="300"/>
       </restriction>
    </simpleType>

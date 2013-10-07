@@ -254,13 +254,15 @@
          <maxInclusive value="6480000000"/>
       </restriction>
    </simpleType>
-   <simpleType name="string50">
+   <simpleType name="string1_50">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="50"/>
       </restriction>
    </simpleType>
-   <simpleType name="string300">
+   <simpleType name="string1_300">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="300"/>
       </restriction>
    </simpleType>
