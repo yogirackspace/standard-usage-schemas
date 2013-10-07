@@ -127,20 +127,12 @@
                 locations:</para>
             <itemizedlist security="writeronly">
                 <listitem>
-                    <para>There are multiple
-                        WADLs . <remark>WADLs Need to insert
-                            xref</remark>
-                        <link
-                            xlink:href="http://docs.rackspace.com/cdb/api/v1.0/cdb.wadl"
-                        />.</para>
+                    <para>There are multiple WADLs , see Need to
+                        insert hyperlink when available</para>
                 </listitem>
                 <listitem>
-                    <para>The XSDs in the API Operations chapter, see,
-                            <remark>Need to insert xref</remark>
-                        
-                        <link
-                            xlink:href="http://docs.rackspace.com/cdb/api/v1.0/xsd/cdb.xsd"
-                        />. </para>
+                    <para>The XSDs in the API Operations chapter, see
+                        Need to insert hyperlink when available </para>
                 </listitem>
             </itemizedlist>
             <para security="writeronly">You can download the most current versions of other
@@ -362,7 +354,7 @@
                 root is the atom:entry element.</para>
         </section>
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
-            <title>Cloud Backup Event Information </title>
+            <title>Event Information </title>
             <para>For Rackspace products, usage and system events
                 (messages) belong to the ATOM Content section of the
                 ATOM Entry. The following are message examples:</para>
@@ -452,8 +444,9 @@
         </section>
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
-            <para>To add categories to an ATOM entry you must include
-                the category element along with a term
+            <para>The Category element provides category information
+                for a feed. To add categories to an ATOM entry you
+                must include the category element along with a term
                 attribute:</para>
             <para><emphasis role="bold"> Single Category
                 </emphasis></para>
@@ -481,6 +474,11 @@
                 xlink:href="https://atom.myserver.com/namespace/feed "
                 >To get the feed on a default installation perform an
                 HTTP GET request against the following URL: </para>
+            <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
+                link and the links that follow will need to be
+                replaced for the public version of the CF Dev Guide
+                (follow-up 2 weeks before the public release of the
+                guide). </para>
             <programlisting>https://atom.myserver.com/namespace/feed </programlisting>
             <para>The response of the above HTTP GET would contain
                 several links as follows:</para>
@@ -644,13 +642,16 @@
         <section
             xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
             <title>Select Entries by Marker</title>
-            <para>If you specify a marker in the GET request, you can
-                also specify a value for the direction parameter. The
-                value is either <emphasis role="bold"
-                    >forward</emphasis> or <emphasis role="bold"
-                    >backward</emphasis>. If you do not specify a
-                value for the direction parameter, the default value
-                of forward is used. </para><para security="writeronly"> Writer: Make sure to bold values such as forward and backward thru the whole document.</para>
+            <para>Use a marker to denote an entry that you have
+                previously used. If you specify a marker in the GET
+                request, you can also specify a value for the
+                direction parameter. The value is either <emphasis
+                    role="bold">forward</emphasis> or <emphasis
+                    role="bold">backward</emphasis>. If you do not
+                specify a value for the direction parameter, the
+                default value of forward is used. </para><para security="writeronly"> Writer: Make sure to bold values such as
+                forward and backward thru the whole document. Else tag
+                them as a code  (courier font).</para>
             <para><emphasis role="bold"
                 >Forward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
             <para><emphasis role="bold"
@@ -703,7 +704,7 @@
             <para>To perform a search on multiple categories simply
                 append additional categories; as demonstrated in the
                 following example that searches for two categories
-                (**CAT1** and <emphasis role="bold"
+                (CAT1 and <emphasis role="bold"
                 >CAT5</emphasis>):</para>
             <programlisting>http://localhost:8080/namespace/feed/?search=%2BCAT1%2BCAT5 
 </programlisting>
@@ -1177,12 +1178,6 @@
                         1.0.</para>
                 </note> </para>
             </section>
-            <section xml:id="API_Version_Headers-d1e855">
-                <title>API Version</title>
-                <para>The API List Versions requests shows the current
-                    version of the Cloud Feeds API and information
-                    about all versions of the API.</para>
-            </section>
         </section>
         <section xml:id="Request_Response_Types-d1e903">
             <title>Request and Response Types</title>
@@ -1594,9 +1589,9 @@
             </section>
             <section xml:id="retention_limit">
                 <title>Retention Limit</title>
-                <para>Elements are retained for a maximum of seven
-                    days. Anything that exceeds that time limit is
-                    stored in archival links. </para>
+                <para>Elements are retained for a maximum of three
+                days. Anything that exceeds that time limit is stored
+                in archival links. </para>
             </section>
  
         <section xml:id="datetimeformat">
@@ -1606,10 +1601,11 @@
                 that complies with ISO 8601. </para>
             <para>The following table lists the format of a Cloud
                 Feeds Date/Time and an example. An example of the
-                Date/Time follows:</para>
+                Date/Time follows: </para>  <para security="writeronly"> Writer: Need to add a new section after
+                this section called " Rules for Publishers and
+                Subscribers ." See checklist for URL.</para>
             <example>
-                <title>Cloud Feeds Date and Time Format
-                    Example</title>
+                <title>Cloud Feeds Date and Time Format Example </title>
                 <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
                 <para>
                     <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
@@ -1690,12 +1686,9 @@
                 is the restriction on the maximum number of items for
                 that type that can be returned.
                     <emphasis>Marker</emphasis> is the ID of the last
-                item in the previous list returned. The ID is the UUID
-                in the case of instances, the name in the case of
-                databases, and
-                    "<emphasis>name</emphasis>@<emphasis>host</emphasis>"
-                for users. For example, a query could request the next
-                10 instances after the instance "1234" as follows:
+                item in the previous list returned. For example, a
+                query could request the next 10 instances after the
+                instance "1234" as follows:
                     <code>?limit=10&amp;marker=1234</code>. Items are
                 displayed sorted by ID. </para>
             <para>If the content returned by a request is paginated,
