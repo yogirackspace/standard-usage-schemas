@@ -656,6 +656,17 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@minLength) then @type=('string', 'string*') else true()"
+                        xerces:message="You can only set minLength in string types."
+                        saxon:message="You can only set minLength value in string types.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minLength is only allowed with string types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </simpleContent>
     </complexType>
