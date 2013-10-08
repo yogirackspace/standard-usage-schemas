@@ -82,6 +82,7 @@
    </simpleType>
    <simpleType name="string">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="255"/>
       </restriction>
    </simpleType>

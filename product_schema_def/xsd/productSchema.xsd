@@ -564,6 +564,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="minLength" type="xsd:integer" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Denotes the minimum length of a string. It can be used only
+                                for string types. Default value, if not specified is 0.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="maxLength" type="xsd:integer" use="optional">
                     <annotation>
                         <documentation>

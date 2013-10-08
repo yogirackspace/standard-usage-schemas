@@ -27,7 +27,7 @@
                  type="xsd:Name"
                  fixed="CloudServersOpenStack"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="flavorId" use="required" type="p:string50">
+      <attribute name="flavorId" use="required" type="p:string1_50">
          <annotation>
             <documentation>
                <html:p>The flavor id of the server.</html:p>
@@ -37,7 +37,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="flavorName" use="required" type="p:string300">
+      <attribute name="flavorName" use="required" type="p:string1_300">
          <annotation>
             <documentation>
                <html:p>The flavor name of the server.</html:p>
@@ -254,13 +254,15 @@
          <maxInclusive value="6480000000"/>
       </restriction>
    </simpleType>
-   <simpleType name="string50">
+   <simpleType name="string1_50">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="50"/>
       </restriction>
    </simpleType>
-   <simpleType name="string300">
+   <simpleType name="string1_300">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="300"/>
       </restriction>
    </simpleType>
