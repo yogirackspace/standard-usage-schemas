@@ -12,7 +12,7 @@
                dataCenter="DFW1" region="DFW"
                eventTime="2013-05-12T11:51:11Z"
                type="CREATE"
-               ranEnrichmentStrategy="HACK">
+               ranEnrichmentStrategy="INTEGER_RANGE">
             <clouddns:product version="1" serviceCode="CloudDNS"
                          resourceType="DOMAIN"/>
         </event>

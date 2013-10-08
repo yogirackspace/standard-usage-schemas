@@ -596,7 +596,7 @@
         <restriction base="xsd:string">
             <enumeration value="NONE"/>
             <enumeration value="CI_SERVICE"/>
-            <enumeration value="HACK"/>
+            <enumeration value="INTEGER_RANGE"/>
         </restriction>
     </simpleType>
 </schema>
