@@ -33,9 +33,12 @@
                 </html:p>
             </documentation>
         </annotation>
-        <sequence>
-            <element ref="schema:productSchema" minOccurs="1" maxOccurs="unbounded"/>
-        </sequence>
+        <choice>
+            <any namespace="##other" processContents="skip" minOccurs="0"
+                 maxOccurs="unbounded"/>
+            <element ref="schema:productSchema" minOccurs="1"
+                 maxOccurs="unbounded"/>
+        </choice>
         <assert vc:minVersion="1.1"
                 test="every $pd in schema:productSchema satisfies $pd/@serviceCode = schema:productSchema[1]/@serviceCode"
                 xerces:message="All alternative schemas should share the same service code."
