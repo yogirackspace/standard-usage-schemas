@@ -6,12 +6,8 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:html="http://www.w3.org/1999/xhtml"
-            xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:event="http://docs.rackspace.com/core/event">
 
-    <xsd:import namespace="http://www.w3.org/2005/Atom" 
-                schemaLocation="atom.xsd"/>
-               
     <xsd:import namespace="http://docs.rackspace.com/core/event"
                 schemaLocation="usage.xsd"/>
                 
@@ -44,16 +40,6 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <!-- TODO: add assertions about the relation type and the presence of the href attribute -->
-            <xsd:element ref="atom:link" minOccurs="0" maxOccurs="unbounded">
-	            <xsd:annotation>
-	                <xsd:documentation>
-	                    <html:p>
-	                        One or more links to related resources that provide details related to the UsageError.
-	                    </html:p>
-	                </xsd:documentation>
-	            </xsd:annotation>
-            </xsd:element>
             <xsd:element ref="event:event" minOccurs="1" maxOccurs="1">
 	            <xsd:annotation>
 	                <xsd:documentation>
