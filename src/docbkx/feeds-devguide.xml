@@ -79,32 +79,61 @@
             usage and system events that can be used for analysis,
             monitoring, and automation. This purpose of this document
             is explain how to access feeds by using the Cloud Feeds
-            API. </para>
-        <note>
-            <para> Cloud Feeds (based on Apache Abdera) is the
-                technology used for implementation. It is equivalent
-                to using Apache to serve up web contents or using
-                Tomcat to host a web application. </para>
-        </note>
-        <para security="writeronly">We welcome feedback, comments, and
-            bug reports at (need to have a specific feedback area for
-            the Cloud Feeds product) <link
-                xlink:href="http://feedback.rackspacecloud.com"
-                >http://feedback.rackspacecloud.com</link>.</para>
+            API.  The following are technologies used by Cloud
+            Feeds:</para>
         <itemizedlist spacing="compact">
             <listitem>
-                <para>RESTful web services</para>
+                <para>Atom Hopper (for more information see, <link
+                    xlink:href="http://atomhopper.org">Atom Hopper
+                        </link></para>
             </listitem>
             <listitem>
-                <para>HTTP/1.1 protocol</para>
+                <para>Apache Abdera (for more information see, <link
+                    xlink:href="http://abdera.apache.org"
+                    >Apache Abdera</link>)</para>
             </listitem>
             <listitem>
-                <para>JSON and XML data serialization formats</para>
+                <para>RFC 5023 (for more information see, <link
+                        xlink:href="http://www.ietf.org/rfc/rfc5023.txt"
+                    >RFC 5023</link>)</para>
             </listitem>
             <listitem>
-                <para>Atom Syndication Format RFC 4287</para>
+                <para>RC 5005 (for more information see,<link
+                    xlink:href="http://www.ietf.org/rfc/rfc5005.txt"
+                    >RC 5005</link>
+                    )</para>
             </listitem>
-        </itemizedlist> <para security="writeronly">Writer: Insert the CF Overview Graphic
+            <listitem>
+                <para>RESTful web services (for more information see,
+                        <link
+                            xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
+                        >RESTful web services</link>)</para>
+            </listitem>
+            <listitem>
+                <para>HTTP/1.1 protocol (for more information see,
+                        <link
+                            xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html"
+                        >HTTP/1.1 protocol</link>)</para>
+            </listitem>
+            <listitem>
+                <para>JSON and XML data serialization formats (for
+                    more information see, <link
+                        xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html"
+                        >JSON and XML</link>)</para>
+            </listitem>
+            <listitem>
+                <para>Atom Syndication Format RFC 4287 (for more
+                    information see, <link
+                        xlink:href="http://www.rfc-base.org/rfc-4287.html"
+                        >JRFC 4287</link></para>
+            </listitem>
+        </itemizedlist>
+        <para security="writeronly">Writer (insert the link cited when
+            available): We welcome feedback, comments, and bug reports
+            at (need to have a specific feedback area for the Cloud
+            Feeds product) <link
+                xlink:href="http://feedback.rackspacecloud.com"
+                >http://feedback.rackspacecloud.com</link>.</para> <para security="writeronly">Writer: Insert the CF Overview Graphic
             when received from marketing; make sure to follow-up with
             Theresa H to remind her.</para>
         <section xml:id="Document_Change_History">
@@ -342,7 +371,60 @@
             <para>An Atom Feed Document is a representation of an Atom
                 feed, including metadata about the feed, and some or
                 all of the entries associated with it. It's root is
-                the atom:feed element.</para>
+                the atom:feed element. The following is an example of
+                an Atom Feed Document:</para>
+            <example>
+                <title>Atom Feed Document</title>
+                <programlisting>&lt;feed>
+    &lt;link href="https://localhost/demo/events/" rel="current" />
+    &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
+    &lt;id>urn:uuid:5f4e03b9-2bd1-48de-acd8-6ad9f667f22a&lt;/id>
+    &lt;title type="text">demo/events&lt;/title>
+    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
+    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:398fc859-7c3f-4434-8049-a507a6eb1954&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
+    &lt;link href="https://localhost/demo/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
+    &lt;updated>2013-10-10T20:15:21.649Z&lt;/updated>
+    &lt;atom:entry>
+        &lt;atom:title type="text">Sites&lt;/atom:title>
+        &lt;atom:author>
+            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
+        &lt;/atom:author>
+        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
+        &lt;atom:updated>2013-09-27T15:43:50.812Z&lt;/atom:updated>
+        &lt;atom:content type="application/xml">
+            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
+            &lt;/event>
+        &lt;/atom:content>
+        &lt;atom:id>urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&lt;/atom:id>
+        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:02d4d829-5bda-4626-a603-421df50544fc"; rel="self" />
+            &lt;atom:published>2013-09-27T15:43:50.812Z&lt;/atom:published>
+    &lt;/atom:entry>
+    &lt;atom:entry>
+        &lt;atom:title type="text">Sites&lt;/atom:title>
+        &lt;atom:author>
+            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
+        &lt;/atom:author>
+        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
+        &lt;atom:updated>2013-09-27T15:43:17.041Z&lt;/atom:updated>
+        &lt;atom:content type="application/xml">
+            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
+            &lt;/event>
+        &lt;/atom:content>
+        &lt;atom:id>urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506&lt;/atom:id>
+        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506"; rel="self" />
+            &lt;atom:published>2013-09-27T15:43:17.041Z&lt;/atom:published>
+    &lt;/atom:entry>
+&lt;/feed>
+</programlisting>
+            </example>
+        </section>
+        <section xml:id="Atom_Content-d1e1116">
+            <title>Atom:Content</title>
+            <para>Provides a short description of the entry or
+                contains a content link. It includes a type
+                attribute.</para>
         </section>
         <section xml:id="Atom_Entry_Document-d1e1115">
             <title>Atom Entry Document</title>
@@ -351,12 +433,12 @@
                 root is the atom:entry element.</para>
         </section>
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
-            <title>Event Information </title>
+            <title>Cloud Feeds Product Events</title>
             <para>For Rackspace products, usage and system events
                 (messages) belong to the Atom Content section of the
                 Atom Entry. The following are message examples:</para>
             <example>
-                <title>Cloud Event Information</title>
+                <title>Cloud  Backup Event Information</title>
                 <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
 &lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
