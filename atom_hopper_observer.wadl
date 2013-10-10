@@ -4,6 +4,7 @@
              xmlns:atom="http://www.w3.org/2005/Atom">
     <grammars>
         <include href="core_xsd/entry.xsd"/>
+        <include href="core_xsd/usage-error.xsd "/>
     </grammars>
     <resources base="http://localhost/">
         <!-- Static paths for administration -->
@@ -33,5 +34,6 @@
         <resource path="usageerror/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed"/>
     </resources>
 </application>

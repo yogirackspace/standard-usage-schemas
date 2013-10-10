@@ -34,6 +34,15 @@
         </wadl:doc>
         <method href="#addPlainEntry"/>
     </resource_type>
+    
+    <resource_type id="DeadLetter">
+        <wadl:doc title="DeadLetter" xmlns="http//docbook.org/ns/dockbook">
+            <para>
+                Allow DeadLetter events.
+            </para>
+        </wadl:doc>
+        <method href="#addDeadLetter"/>
+    </resource_type>
 
     <!-- METHODS -->
     <method id="getFeed" name="GET">
@@ -99,6 +108,38 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
+               <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    
+    <method id="addDeadLetter" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Dead Letter" xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adding a dead letter event.</para>
+            <para>When a messaging system determines that it cannot or should not deliver a message, it may elect to 
+                  move the message to a Dead Letter Channel.  This method allows errors to be posted to a dead letter
+                  atom feed.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/atom+xml" element="atom:entry">
+               <!-- 
+                   We add an assertion to state that only dead letters are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="usage"
+                      style="plain"
+                      required="true"
+                      path="/atom:entry/atom:content/event:usageError"
+                      rax:message="Only error events are allowed in this feed."/>
+               <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>
         </request>
