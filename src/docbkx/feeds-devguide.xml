@@ -489,20 +489,16 @@
                 are validated against their XML schemas. For details,
                 see Appendix A Product Schemas</para>
         </section>
-        <section xml:id="Versioned-d1e125">
-            <title>Versioning</title>
-            <para>Each product event is versioned. For examples, see,
-                Example 2.1 and Example 2.2 listed above.</para>
-        </section>
     </chapter>
     <chapter xml:id="General_API_Information-d1e333">
         <title>Using Cloud Feeds</title>
         <para>To use Cloud Feeds an understanding of REST API is
             needed, since Cloud Feeds implements REST API.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
-            <title>Adding a New Atom Entry</title>
-            <para>An Atom entry is the location of an actual product
-                event.</para>
+            <title>Adding a New Cloud Feed Event</title>
+            <para>An Atom content contains the actual Cloud Feeds
+                product event. The event consists of generic and
+                product specific information.</para>
             <para>The following is an example of a simple Atom entry
                 (with three categories):</para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
@@ -669,16 +665,16 @@
                         <tr>
                             <td>marker</td>
                             <td>The unique id of an Atom entry.</td>
-                            <td>Valid ID</td>
-                            <td>(none)</td>
+                            <td>valid ID</td>
+                            <td>none</td>
                         </tr>
                         <tr>
                             <td>direction</td>
                             <td>The direction from the current marker
                                 (or entry) to begin getting more
                                 entries.</td>
-                            <td>Forward | Backward</td>
-                            <td/>
+                            <td>forward | backward</td>
+                            <td>forward</td>
                         </tr>
                         <tr>
                             <td>limit</td>
@@ -693,15 +689,15 @@
                             <td>format</td>
                             <td>Returns the feed in JSON format
                                 (Experimental).</td>
-                            <td>JSON</td>
-                            <td>(none)</td>
+                            <td>json</td>
+                            <td>none</td>
                         </tr>
                         <tr>
                             <td>Search</td>
                             <td>Allows filtering of feed for only
                                 events of specified category.</td>
-                            <td>String</td>
-                            <td>(none)</td>
+                            <td>string</td>
+                            <td>none</td>
                         </tr>
                     </tbody>
                 </table>
@@ -929,7 +925,10 @@
                 requires the inclusion of a specific authorization
                 token, supplied by the <code>X-Auth-Token</code> HTTP
                 header. Users obtain this token by first using the
-                Rackspace Cloud Authentication Service and supplying a
+                Rackspace Cloud Identity Service (for more information
+                see, <link
+                    xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html"
+                    >Cloud Identity Service</link>) and supplying a
                 valid username and API access key. </para>
             <section xml:id="AuthRoles-d1e699">
                 <title>Authorization Roles Required for Cloud Feeds
@@ -990,12 +989,12 @@
             </section>
             <section xml:id="Geographic_Endpoints">
                 <title>Geographic Endpoints</title>
-                <para> The Rackspace Cloud Authentication Service
-                    serves as the entry point to all Rackspace Cloud
-                    APIs and is itself a ReSTful web service. </para>
+                <para> Rackspace Cloud Identity Service serves as the
+                    entry point to all Rackspace Cloud APIs and is
+                    itself a ReSTful web service. </para>
                 <para> You can use either of the following endpoints
-                    to access the Authentication Service, regardless
-                    of US or UK identities: </para>
+                    to access the Identity Service, regardless of US
+                    or UK identities: </para>
                 <itemizedlist spacing="compact">
                     <listitem>
                         <para><link xlink:href="&ENDPOINT-US-20;"
