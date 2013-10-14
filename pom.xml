@@ -379,7 +379,7 @@
 	      <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
                 <artifactId>clouddocs-maven-plugin</artifactId>
-                <version>1.11.0</version>
+                <version>1.11.1-SNAPSHOT</version>
                 <executions>
                   <execution>
                     <id>devguide</id>
@@ -423,6 +423,7 @@
 		  <enableGoogleAnalytics>1</enableGoogleAnalytics>
 		  <showXslMessages>true</showXslMessages>
 		  <security>internal</security>
+		  <useLatestSuffixInPdfUrl>0</useLatestSuffixInPdfUrl>
                 </configuration>
 	      </plugin>
 	        <plugin>
