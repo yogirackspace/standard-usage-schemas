@@ -495,8 +495,8 @@
         <para>To use Cloud Feeds an understanding of REST API is
             needed, since Cloud Feeds implements REST API.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
-            <title>Adding a New Cloud Feed Event</title>
-            <para>An Atom content contains the actual Cloud Feeds
+            <title>Adding a New Cloud Feeds Event</title>
+            <para>An Atom's content contains the actual Cloud Feeds
                 product event. The event consists of generic and
                 product specific information.</para>
             <para>The following is an example of a simple Atom entry
@@ -520,9 +520,11 @@
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
             <para>The Category element provides category information
-                for a feed. To add categories to an Atom entry you
-                must include the category element along with a term
-                attribute:</para>
+                for a feed and our case sensitive. Also note that the
+                category XML element can appear anywhere as children
+                of the atom:entry XML element. To add categories to an
+                Atom entry you must include the category element along
+                with a term attribute:</para>
             <para><emphasis role="bold"> Single Category
                 </emphasis></para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
@@ -535,28 +537,31 @@
             </note>
         </section>
         <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
-            <title>Getting the Feed</title>
-            <para>An HTTP GET is used to retrieve the Atom feed (or a
-                single entry) from Cloud Feeds. The HTTP GET request
-                supports asking for a specific entry, forward and
-                backward paging, category searches, and JSON feed
-                returns that are experimental.</para>
+            <title>Getting Events from Cloud Feeds</title>
+            <para>An HTTP GET request is used to retrieve product
+                event(s) from Cloud Feeds. The Cloud Feeds API
+                supports the use of a HTTP GET request when asking for
+                a specific entry, forward and backward paging,
+                category searches, and JSON feed returns that are
+                experimental.</para>
             <note>
                 <para>Control and illegal characters must be escaped
                     in the URL.</para>
             </note>
             <para
                 xlink:href="https://atom.myserver.com/namespace/feed "
-                >To get the feed on a default installation perform an
-                HTTP GET request against the following URL: </para>
+                >To fetch events from a feed in Cloud Feeds, perform
+                an HTTP GET request against the following URL: </para>
             <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
                 link and the links that follow will need to be
                 replaced for the public version of the CF Dev Guide
                 (follow-up 2 weeks before the public release of the
                 guide). </para>
-            <programlisting>https://atom.myserver.com/namespace/feed </programlisting>
-            <para>The response of the above HTTP GET would contain
-                several links as follows:</para>
+            <programlisting>https://atom.myserver.com/<emphasis role="bold">feedname</emphasis>/events </programlisting>
+            <para>The feed name component of the URL above needs to be
+                replaced with the actual feed name. The response of
+                the above HTTP GET would contain several links as
+                follows:</para>
             <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 &lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
 &lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
@@ -599,23 +604,19 @@
                 <listitem>
                     <para>Use the <emphasis role="bold"
                             >previous</emphasis> link to navigate by
-                        page to the previous page of Atom entries. The
-                        link is always present in the feed header. If
-                        you are at the top of the feed and you follow
-                        this link an empty feed is returned unless new
-                        entries have occurred since you last polled.
-                        In a feed, the entries are shown in order from
-                        newest to oldest. </para>
+                        page to the previous page of Atom entries.
+                        Sometimes the link is in the feed header;
+                        however, the link will not be in the feed
+                        header if the feed is empty or the number of
+                        entries in feed is less than the requested
+                        page size. If you are at the top of the feed
+                        and you follow this link an empty feed is
+                        returned unless new entries have occurred
+                        since you last polled. In a feed, the entries
+                        are shown in order from newest to oldest. </para>
                 </listitem>
             </itemizedlist>
-            <para>Use the <emphasis role="bold">previous</emphasis>
-                link to navigate by page to the previous page of Atom
-                entries. The link is always present in the feed
-                header. If you are at the top of the feed and you
-                follow this link an empty feed is returned unless new
-                entries have occurred since you last polled. In a
-                feed, the entries are shown in order from newest to
-                oldest. </para>
+            <para/>
             <important xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">
@@ -711,7 +712,7 @@
                 appearance of your self-referencing Atom entry links
                 depend upon whether you use an HTTPS POST.</para>
             <para>With HTTPS POST, the link looks as
-                follows:<programlisting>&lt;link href="https://domain.com/namespace/feed/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
+                follows:<programlisting>&lt;link href="https://atom.myserver.com/feedname/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
 </programlisting></para>
         </section>
         <section
@@ -728,9 +729,9 @@
                 forward and backward thru the whole document. Else tag
                 them as a code  (courier font).</para>
             <para><emphasis role="bold"
-                >Forward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
+                >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
             <para><emphasis role="bold"
-                >Backward</emphasis>:<programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward 
+                >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward 
 </programlisting></para>
             <para>You can use the limit parameter to specify the
                 number of entries to return. By default the limit is
@@ -738,11 +739,11 @@
                 1,000.</para>
             <para>The following example shows a marker specified and
                 the limit set to 50, paging forward.</para>
-            <programlisting> http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+            <programlisting> https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <para>The following example shows a marker set and the
                 limit set to 50, paging backward </para>
-            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
         </section>
         <section xml:id="Getting-a-Single-Entry-d1e1313">
