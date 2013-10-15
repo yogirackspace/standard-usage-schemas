@@ -37,8 +37,7 @@
             <appinfo>
                <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+                                 groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -52,8 +51,7 @@
             <appinfo>
                <usage:attributes aggregateFunction="WEIGHTED_AVG"
                                  unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+                                 groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -63,10 +61,7 @@
                <html:p>The amount of bandwidth in, in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -76,10 +71,7 @@
                <html:p>The amount of bandwidth out in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -89,10 +81,7 @@
                <html:p>The amount of ssl bandwidth in, in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -102,10 +91,7 @@
                <html:p>The amount of ssl bandwidth out in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -115,10 +101,7 @@
                <html:p>The number of polls per load balancer.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -128,10 +111,7 @@
                <html:p>The number of vips per load balancer.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -141,7 +121,7 @@
                <html:p>The vip type associated with the load balancer.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -151,7 +131,7 @@
                <html:p>The mode determining SSL status on the load balancer.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -161,7 +141,7 @@
                <html:p>Is the load balancer currently active?</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

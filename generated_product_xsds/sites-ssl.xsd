@@ -37,10 +37,7 @@
                <html:p>Was SSL usage enabled.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="MAX"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="MAX" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

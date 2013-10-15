@@ -416,9 +416,6 @@
                         <xsl:if test="@groupBy">
                             <xsl:attribute name="groupBy" select="@groupBy"/>
                         </xsl:if>
-                        <xsl:if test="@billable">
-                            <xsl:attribute name="billable" select="@billable"/>
-                        </xsl:if>
                         <xsl:if test="xsd:boolean(@searchable)">
                             <xsl:attribute name="searchable" select="@searchable"/>
                         </xsl:if>

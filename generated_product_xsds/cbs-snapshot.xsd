@@ -33,10 +33,7 @@
                <html:p>The amount of backup (snapshot) storage used for the volume.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="GB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

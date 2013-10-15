@@ -33,7 +33,7 @@
                <html:p>The flavor id of the server.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -43,7 +43,7 @@
                <html:p>The flavor name of the server.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -53,7 +53,7 @@
                <html:p>The status of the server.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -66,7 +66,7 @@
                <html:p>Does the server use a RedHat license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -79,7 +79,7 @@
                <html:p>Does the server use an MSSQL license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -92,7 +92,7 @@
                <html:p>Does the server use an MSSQL Web license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -105,7 +105,7 @@
                <html:p>Does the server use a Windows license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -118,7 +118,7 @@
                <html:p>Does the server use an SELinux license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -131,7 +131,7 @@
                <html:p>Is this a managed server.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -141,10 +141,7 @@
                <html:p>The amount of bandwidth in, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -154,10 +151,7 @@
                <html:p>The amount of bandwidth out, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

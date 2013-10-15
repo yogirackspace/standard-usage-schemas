@@ -37,10 +37,7 @@
                <html:p>The amount of disk storage.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="AVG"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="AVG" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

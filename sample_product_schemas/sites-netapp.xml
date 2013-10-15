@@ -10,8 +10,7 @@
         <aggregationPeriod>PT5H</aggregationPeriod>
         <aggregationPeriod>PT19H</aggregationPeriod>
     </aggregationPeriods>
-    <attribute name="groupName" type="string" use="required"
-               billable="false">
+    <attribute name="groupName" type="string" use="required">
         The group name that corresponds to what Netapp uses to identify user accounts.
     </attribute>
     <attribute name="storage" type="unsignedLong" use="required"
@@ -21,11 +20,10 @@
     </attribute>
     <attribute name="numFiles" type="unsignedLong" use="required"
                unitOfMeasure="COUNT" 
-               billable="false" min="0" max="300000000">
+               min="0" max="300000000">
         The number of files.
     </attribute>
-    <attribute name="volume" type="string" use="required"
-               billable="false">
+    <attribute name="volume" type="string" use="required">
        The volume that corresponds to the location in Netapp where the usage originates.
     </attribute>
 </productSchema>

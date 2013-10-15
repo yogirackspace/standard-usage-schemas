@@ -33,10 +33,7 @@
                <html:p>The amount of bandwidth out, in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -46,7 +43,7 @@
                <html:p>Server ID, where the agent in installed.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
          <simpleType>
