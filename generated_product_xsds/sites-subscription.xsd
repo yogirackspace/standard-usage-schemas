@@ -33,7 +33,7 @@
                <html:p>The action that caused this event to be created.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -48,8 +48,7 @@
             <appinfo>
                <usage:attributes displayName="Is new account"
                                  aggregateFunction="NONE"
-                                 groupBy="false"
-                                 billable="true"/>
+                                 groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

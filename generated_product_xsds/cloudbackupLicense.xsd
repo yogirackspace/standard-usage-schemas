@@ -76,7 +76,7 @@
                      <html:p>Server ID, where the agent in installed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
                <simpleType>
@@ -114,7 +114,7 @@
                      <html:p>Server ID, where the agent in installed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
                <simpleType>
@@ -127,7 +127,7 @@
                      <html:p>Server Name, where the agent is installed</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -140,7 +140,7 @@
                      <html:p>True if the server where the agent is installed is external to Rackspace</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>

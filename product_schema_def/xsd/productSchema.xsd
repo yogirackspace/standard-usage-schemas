@@ -406,16 +406,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="billable" type="xsd:boolean" use="optional" default="true">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                This is an attribute that is used for
-                                billing purposes.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                         xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                         saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">

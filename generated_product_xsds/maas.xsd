@@ -76,10 +76,7 @@
                      <html:p>The number of monitoring zones.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE"
-                                       unitOfMeasure="COUNT"
-                                       groupBy="true"
-                                       billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="true"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -89,7 +86,7 @@
                      <html:p>The type of check being performed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -130,10 +127,7 @@
                      <html:p>The number of monitoring zones.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE"
-                                       unitOfMeasure="COUNT"
-                                       groupBy="true"
-                                       billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="true"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -143,7 +137,7 @@
                      <html:p>The type of check being performed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -153,7 +147,7 @@
                      <html:p>The product that the check is intended to be used for.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -163,7 +157,7 @@
                      <html:p>The instanceId of the product that the check is intended to be used for.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>

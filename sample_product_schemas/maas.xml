@@ -14,7 +14,7 @@
             The number of monitoring zones.
         </attribute>
         <attribute name="checkType" type="string"
-                   billable="false" use="optional">
+                   use="optional">
             The type of check being performed.
         </attribute>
     </productSchema>
@@ -33,7 +33,7 @@
             The number of monitoring zones.
         </attribute>
         <attribute name="checkType" type="string"
-                   billable="false" use="optional">
+                   use="optional">
             The type of check being performed.
         </attribute>
         <attribute name="product" type="Name"

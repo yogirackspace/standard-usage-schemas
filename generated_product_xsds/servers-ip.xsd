@@ -33,7 +33,7 @@
                <html:p>The IP address.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -43,7 +43,7 @@
                <html:p>The serverId that this IP is associated to.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
          <simpleType>
@@ -59,7 +59,7 @@
                <html:p>A flag to indicate whether the IP is reserved or not.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

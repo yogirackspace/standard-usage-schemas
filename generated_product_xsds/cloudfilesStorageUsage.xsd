@@ -32,10 +32,7 @@
                <html:p>The amount of disk usage in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -45,7 +42,7 @@
                <html:p>The number of free operations.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -55,7 +52,7 @@
                <html:p>The number of cost operations</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

@@ -38,8 +38,7 @@
                <usage:attributes displayName="Number of Email Boxes"
                                  aggregateFunction="AVG"
                                  unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+                                 groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -49,10 +48,7 @@
                <html:p>The size of the email box in MB</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="MB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="MB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
