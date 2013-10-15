@@ -18,7 +18,7 @@ import BaseUsageSuite._
 //  Tests on lbaas stopgap transformations
 //
 
-@RunWith(classOf[JUnitRunner])
+//@RunWith(classOf[JUnitRunner])
 class LbaasStopGapSuite extends BaseUsageSuite {
 
   register ("lbaas","http://docs.rackspace.com/usage/lbaas")
