@@ -78,12 +78,6 @@
                                            rax:message="If message is DOWN type then checkStatus cannot be OK."/>
                                 </xsl:if>
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
-                                <!--
-                                    Hack, add a preprocess step for LBAAS.
-                                -->
-                                <xsl:if test="$id = 'CloudLoadBalancers'">
-                                    <rax:preprocess href="lbaas.xsl"/>
-                                </xsl:if>
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
