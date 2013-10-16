@@ -44,8 +44,6 @@
             </xsl:for-each-group>
             <xsl:for-each-group select="$productSchemas//sch:productSchema" group-by="@serviceCode">
                 <xsl:variable name="id" select="current-group()[1]/@serviceCode"/>
-                <xsl:variable name="resourceTypes" select="current-group()[1]/@resourceTypes"/>
-                <xsl:variable name="eventType" select="if (current-group()[1]/@type) then current-group()[1]/@type else 'USAGE'"/>
                 <resource_type id="{$id}">
                     <method id="add{$id}Entry" name="POST"><xsl:text>
 		    </xsl:text>
