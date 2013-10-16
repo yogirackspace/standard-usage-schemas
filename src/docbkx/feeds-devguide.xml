@@ -562,14 +562,13 @@
                 replaced with the actual feed name. The response of
                 the above HTTP GET would contain several links as
                 follows:</para>
-            <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
-&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
-&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
-&lt;link href="http://localhost:8080/namespace/feed/" rel="current" />
-&lt;link href="http://localhost:8080/namespace/feed/" rel="self" /></programlisting>
-            <para>For version 1.1.0 and above the following links
-                which fetch the oldest Atom entries in the database
-                will be used: </para>
+            <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
+&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
+&lt;link href="https://atom.myserver.com/feedname/events/" rel="current" />
+&lt;link href="https://atom.myserver.com/feedname/events/" rel="self" /></programlisting>
+            <para>For version 1.1.0 and above, the following are the
+                links returned in the Cloud Feeds responses:</para>
             <itemizedlist>
                 <listitem>
                     <para>The <emphasis role="bold">current</emphasis>
@@ -607,13 +606,12 @@
                         page to the previous page of Atom entries.
                         Sometimes the link is in the feed header;
                         however, the link will not be in the feed
-                        header if the feed is empty or the number of
-                        entries in feed is less than the requested
-                        page size. If you are at the top of the feed
-                        and you follow this link an empty feed is
-                        returned unless new entries have occurred
-                        since you last polled. In a feed, the entries
-                        are shown in order from newest to oldest. </para>
+                        header if the feed is empty. If you are at the
+                        top of the feed and you follow this link, an
+                        empty feed is returned unless new entries have
+                        occurred since you last polled. In a feed, the
+                        entries are shown in order from newest to
+                        oldest. </para>
                 </listitem>
             </itemizedlist>
             <para/>
@@ -631,15 +629,15 @@
                     a web browser, the feed returns the following
                     link: </para>
             </important>
-            <programlisting>&lt;link href="http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+            <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
             <para>To follow the link from a web browser, you must
                 change each instance of &amp;amp; to &amp;, as
                 follows: </para>
-            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
+            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
 </programlisting>
             <para>This must be changed to: </para>
-            <programlisting>http://localhost:8080/namespace/feed/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
             <para>This issue should not be a concern when using an XML
                 Parser. </para>
@@ -750,7 +748,7 @@
             <title>Getting a Single Entry </title>
             <para>Entries return one Atom XML entry which can be used
                 to return a specific entry by itself. </para>
-            <programlisting>http://localhost:8080/namespace/feed/entries/urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d 
+            <programlisting>https://atom.myserver.com/feedname/events/entries/urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d 
 </programlisting>
             <note>
                 <para> The UUID keyword is the unique ID of the Atom
@@ -769,7 +767,7 @@
             <para>The following is an example of searching on a
                 category entered as <emphasis role="bold"
                     >CAT1</emphasis>:</para>
-            <programlisting>http://localhost:8080/namespace/feed/?search=%2BCAT1 
+            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1 
 </programlisting>
             <note>
                 <para>%2B is the URL-encoded value of the +
@@ -782,7 +780,7 @@
                 following example that searches for two categories
                 (CAT1 and <emphasis role="bold"
                 >CAT5</emphasis>):</para>
-            <programlisting>http://localhost:8080/namespace/feed/?search=%2BCAT1%2BCAT5 
+            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5 
 </programlisting>
             <note>
                 <para>Current searching with multiple categories is an
@@ -801,13 +799,13 @@
                         Filter</emphasis></para>
                 <para>Following is an example of searching on a
                     category entered as
-                    CAT1:<programlisting>http://localhost:8080/namespace/feed/?search=(cat=CAT1)
+                    CAT1:<programlisting>https://atom.myserver.com/feedname/events/?search=(cat=CAT1)
 </programlisting></para>
                 <para><emphasis role="bold">Multiple Category AND
                         Filter</emphasis></para>
                 <para>Following is an example of searching on a
                     category entered as CAT1 and CAT2: </para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(cat=CAT2))
 </programlisting>
                 <para>%26 is the URL-encoded value of the &amp;
                     operator, so the decoded search string noted above
@@ -815,30 +813,30 @@
                 <para>Additionally you can use the AND operator in
                     place of the &amp; operator in the above call. For
                     example: </para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(cat=CAT2))
 </programlisting>
                 <para><emphasis role="bold">Multiple Category OR
                         Filter</emphasis></para>
                 <para>Following is an example of searching on a
                     category entered as CAT1 or CAT2:</para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(%7C(cat=CAT1)(cat=CAT2))
 </programlisting>
                 <para>%7C is the URL-encoded value of the | operator.
                     So the decoded search string above is
                     (|(cat=CAT1)(cat=CAT2)).</para>
                 <para>Additionally you can use the word "OR" in place
                     of the | operator in the above as follows:</para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))</programlisting>
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(OR(cat=CAT1)(cat=CAT2))</programlisting>
                 <para><emphasis role="bold">Single Category NOT
                         Filter</emphasis></para>
                 <para>Following is an example of searching on a
                     category entered as NOT CAT1:</para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(!(cat=CAT1))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(!(cat=CAT1))
 </programlisting>
                 <para>Additionally you can use the word NOT operator
                     in place of the ! operator in the above as
                     follows: </para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(NOT(cat=CAT1))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(NOT(cat=CAT1))
 </programlisting>
                 <para><emphasis role="bold">Multiple Category COMBINED
                         Filter</emphasis>
@@ -846,7 +844,7 @@
                 <para>Following is an example of searching on a
                     category entered as CAT1 and (CAT2 or CAT3 ) but
                     not CAT4:</para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
 </programlisting>
                 <para>%26 is the URL-encoded value of the &amp;
                     operator and the %7C is the URL-encoded value of
@@ -857,7 +855,7 @@
                     place of the &amp; operator and the word "OR" in
                     place of the | operator noted in the above call as
                     follows: </para>
-                <programlisting>http://localhost:8080/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
+                <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
 </programlisting>
             </section>
         </section>
@@ -866,7 +864,7 @@
             <para>You can receive a feed in <link
                     xlink:href="http://json.org">JSON</link> using the
                 format parameter and specifying json as the value:: </para>
-            <programlisting>http://localhost:8080/namespace/feed/?format=json
+            <programlisting>https://atom.myserver.com/feedname/events/?format=json
 </programlisting>
             <para>The <link
                     xlink:href="https://cwiki.apache.org/confluence/display/ABDERA/JSON+Serialization"
@@ -968,7 +966,11 @@
                                    <entry>Able to observe Cloud Feeds
                                    data for all tenants (GET).</entry>
                                 </row>
-                                <row>
+                                    <row>
+                                        <entry>identity:admin</entry>
+                                        <entry>The same capabilities as cloudfeeds:service-admin. </entry>
+                                    </row>
+                                    <row>
                                    <entry>identity:user-admin </entry>
                                    <entry>The same capabilities as
                                    cloudfeeds:admin.</entry>
@@ -983,6 +985,7 @@
                                    <entry>The same capabilities as
                                    cloudfeeds:observer.</entry>
                                 </row>
+                                
                             </tbody>
                         </tgroup>
                     </table>
@@ -1028,7 +1031,7 @@
             </section>
             <section xml:id="Retrieving_Auth_Token">
                 <title>Retrieving the Authentication Token</title>
-                <para security="writeronly"> Need text to describe section, and need a
+                <para security="writeronly"> Writer: Need text to describe section, and need a
                     title for the table. </para>
                 <informaltable rules="all">
                     <tbody>
@@ -1124,7 +1127,9 @@
                 Therefore, the user of the service is responsible for
                 appropriate replication, caching, and overall
                 maintenance of Cloud Feeds data across regional
-                boundaries to other Cloud Feeds servers.</para>
+                boundaries to other Cloud Feeds servers. </para>
+            <para security="writeronly"> Writer: All of these endpoints need to be updated to public endpoints, out in the internet.
+                They are still being built by Nick Silkey. Check the second week of November with Nick to see if they have been built. </para>
             <?rax-fo keep-with-next?>
             <para>
                 <table rules="all">
@@ -1192,7 +1197,7 @@
                     attribute of the <code>&lt;event></code> element
                     as follows:
                     <programlisting>&lt;event version="1" ...> &lt;/event><?sbr?> <?sbr?><?sbr?></programlisting>The
-                    Core Event never needs to be incremented.</para>
+                    Core Event rarely has to be incremented.</para>
             </section>
             <section xml:id="CloudFeedsEventsVersions-d1e759">
                 <title>Product Event</title>
@@ -1659,7 +1664,7 @@
             <para security="writeronly"> Writer: Add section titled Rate_Limits once there are rate limits for GET.
                    
                 </para>
-            </section>
+            
             <section xml:id="Absolute_Limits-d1e1397">
                 <title>Absolute Limit</title>
                 <para>One thousand is the maximum number of Atom
@@ -1670,6 +1675,11 @@
                 <para>Elements are retained for a maximum of three
                 days. Anything that exceeds that time limit is stored
                 in archival links. </para>
+            </section>
+            <section xml:id="httpPRL">
+                <title>HTTP POST Request Limit</title>
+                <para>Two hundred thousand is the maximum HTTP POST size limit. </para>
+           
             </section>
  
         <section xml:id="datetimeformat">
@@ -2027,6 +2037,7 @@
                 there are no more items, no <emphasis>next</emphasis>
                 link is returned.</para>
         </section> 
+        </section>
         
     </chapter>
     <xi:include href="api-operations.xml"/>
