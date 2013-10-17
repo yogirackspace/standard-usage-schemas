@@ -152,6 +152,23 @@
                     <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.github.danielflower.mavenplugins</groupId>
+                <artifactId>maven-gitlog-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <reportTitle>Changelog for ${project.name} version ${project.version}</reportTitle>
+                    <outputDirectory>target/releasenotes</outputDirectory>
+                    <generatePlainTextChangeLog>true</generatePlainTextChangeLog>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <profiles>
