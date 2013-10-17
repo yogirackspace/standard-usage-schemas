@@ -169,12 +169,12 @@
           href="../../atom_hopper.wadl#rax-usagerecovery-events-entries-_id_-41"/>
     </resources>
   </section>
-  <section xml:id="usageerror">
+  <section xml:id="usagedeadletter">
     <title>Usage Error</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../atom_hopper.wadl#usageerror_events"/>
+      <resource href="../../atom_hopper.wadl#usagedeadletter_events"/>
       <resource
-          href="../../atom_hopper.wadl#rax-usageerror-events-entries-_id_-43"
+          href="../../atom_hopper.wadl#rax-usagedeadletter-events-entries-_id_-43"
 	  />
     </resources>
   </section>
