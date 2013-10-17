@@ -29,9 +29,9 @@
         <resource path="autoscale/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="dedicated/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="queues/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="netdevice/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="usageerror/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed"/>
     </resources>
 </application>
