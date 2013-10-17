@@ -747,8 +747,18 @@
         <section xml:id="Getting-a-Single-Entry-d1e1313">
             <title>Getting a Single Entry </title>
             <para>Entries return one Atom XML entry which can be used
-                to return a specific entry by itself. </para>
-            <programlisting>https://atom.myserver.com/feedname/events/entries/urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d 
+                to return a specific entry by itself. The following is
+                a sample  response:</para>
+            <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
+    &lt;title type="text">This is the title&lt;/title>
+    &lt;author>
+        &lt;name>John Doe&lt;/name>
+    &lt;/author>
+    &lt;content type="text">Hello World&lt;/content>
+    &lt;category term="MyCategory 1" />
+    &lt;category term="MyCategory 2" />
+    &lt;category term="MyCategory 3" />
+&lt;/entry> 
 </programlisting>
             <note>
                 <para> The UUID keyword is the unique ID of the Atom
@@ -821,8 +831,8 @@
                     category entered as CAT1 or CAT2:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(%7C(cat=CAT1)(cat=CAT2))
 </programlisting>
-                <para>%7C is the URL-encoded value of the | operator.
-                    So the decoded search string above is
+                <para>The %7C is the URL-encoded value of the |
+                    operator. So the decoded search string above is
                     (|(cat=CAT1)(cat=CAT2)).</para>
                 <para>Additionally you can use the word "OR" in place
                     of the | operator in the above as follows:</para>
@@ -846,7 +856,7 @@
                     not CAT4:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
 </programlisting>
-                <para>%26 is the URL-encoded value of the &amp;
+                <para>The %26 is the URL-encoded value of the &amp;
                     operator and the %7C is the URL-encoded value of
                     the | operator, so the decoded search string in
                     the previous example is
