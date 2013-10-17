@@ -679,10 +679,6 @@
                       rax:message="Events of this type not allowed in the feed."
                       path="not(/atom:entry/atom:content/event:event/@type = ('CREATE','USAGE_SNAPSHOT','UPDATE','SUSPEND','UNSUSPEND','EXTENDED','UP','DOWN','INFO'))"/>
                <rax:preprocess href="atom_hopper_pre.xsl"/>
-<<<<<<< HEAD
-=======
-               <rax:preprocess href="lbaas.xsl"/>
->>>>>>> e630f31ca88fade3f48021bb673c4c7706458327
                <param name="checkDatacenter"
                       style="plain"
                       required="true"
