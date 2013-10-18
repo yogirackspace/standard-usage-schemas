@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema elementFormDefault="qualified" 
-            targetNamespace="http://docs.rackspace.com/core/usage-error" 
-            xmlns:usage-error="http://docs.rackspace.com/core/usage-error" 
+            targetNamespace="http://docs.rackspace.com/core/error" 
+            xmlns:error="http://docs.rackspace.com/core/error" 
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
@@ -12,14 +12,14 @@
                 schemaLocation="usage.xsd"/>
                 
     <!-- Complex Types -->
-    <xsd:element name="usageError" type="usage-error:UsageError" />
+    <xsd:element name="eventError" type="error:EventError" />
 
     <!-- Enumerations -->
-    <xsd:simpleType name="ErrorType">
+    <xsd:simpleType name="EventErrorType">
         <xsd:annotation>
             <xsd:documentation>
                 <html:p>
-                    The type of error.
+                    The type of event error.
                 </html:p>
             </xsd:documentation>
         </xsd:annotation>
@@ -31,11 +31,11 @@
     <!-- Simple types definition starts here -->
 
     <!-- Complex types definition starts here -->
-    <xsd:complexType name="UsageError">
+    <xsd:complexType name="EventError">
         <xsd:annotation>
             <xsd:documentation>
                 <html:p>
-                    A Usage Error that provides error feedback for usage data from a raw usage event.  
+                    An error that provides error feedback for data from an event.  
                 </html:p>
             </xsd:documentation>
         </xsd:annotation>
@@ -53,13 +53,13 @@
 	            <xsd:annotation>
 	                <xsd:documentation>
 	                    <html:p>
-	                        The original usage event that caused the error.
+	                        The original event that caused the error.
 	                    </html:p>
 	                </xsd:documentation>
 	            </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="type" type="usage-error:ErrorType" use="required">
+        <xsd:attribute name="type" type="error:EventErrorType" use="required">
             <xsd:annotation>
                 <xsd:documentation>
                     <html:p>

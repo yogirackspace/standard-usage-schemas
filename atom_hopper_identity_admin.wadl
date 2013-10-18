@@ -4,7 +4,7 @@
              xmlns:atom="http://www.w3.org/2005/Atom">
     <grammars>
         <include href="core_xsd/entry.xsd"/>
-        <include href="core_xsd/usage-error.xsd"/>
+        <include href="core_xsd/error.xsd"/>
     </grammars>
     <resources base="http://localhost/">
 

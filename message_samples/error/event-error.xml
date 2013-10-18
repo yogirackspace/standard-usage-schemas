@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="backup/events"?> <!-- ignore <?atom..?>, used for testing -->
-<atom:entry xmlns="http://docs.rackspace.com/core/usage-error"
+<atom:entry xmlns="http://docs.rackspace.com/core/error"
             xmlns:event="http://docs.rackspace.com/core/event"
             xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
             xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:content type="application/xml">
-        <usageError type="TENANT_NOT_FOUND">
+        <eventError type="TENANT_NOT_FOUND">
             <description>No corresponding Rackspace Account Number can be found for this tenant.</description>
             <event:event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
                          region="DFW" dataCenter="DFW1" type="USAGE"
@@ -16,6 +16,6 @@
                                 serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
                                 bandwidthIn="192998" resourceType="AGENT"/>
             </event:event>
-        </usageError>
+        </eventError>
     </atom:content>
 </atom:entry>
