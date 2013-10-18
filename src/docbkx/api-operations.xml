@@ -160,12 +160,12 @@
           href="../../atom_hopper.wadl#rax-queues-events-entries-_id_-35"/>
     </resources>
   </section>
-  <section xml:id="nimbus.product">
-    <title>Nimbus Product</title>
+  <section xml:id="netdevice.product">
+    <title>Net Device</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../atom_hopper.wadl#nimbus_events"/>
+      <resource href="../../atom_hopper.wadl#netdevice_events"/>
       <resource
-          href="../../atom_hopper.wadl#rax-nimbus-events-entries-_id_-37"/>
+          href="../../atom_hopper.wadl#rax-netdevice-events-entries-_id_-37"/>
     </resources>
   </section>
   <section xml:id="meta.product">
