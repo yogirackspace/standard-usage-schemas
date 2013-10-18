@@ -1724,10 +1724,4 @@
         
     </chapter>
     <xi:include href="api-operations.xml"/>
-    <xi:include
-        href="../../target/generated-resources/xml/xslt/product_schemas_appendix.xml">
-        <xi:fallback>
-            <?rax fail?>
-        </xi:fallback>
-    </xi:include>
 </book>
