@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="deadletter/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?atom feed="backup/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="Events of this type not allowed"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/error"
             xmlns:event="http://docs.rackspace.com/core/event"
             xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"

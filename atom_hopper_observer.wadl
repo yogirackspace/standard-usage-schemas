@@ -34,6 +34,6 @@
         <resource path="usageerror/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="nimbus/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="deadletter/events" type="wadl/feed.wadl#AtomFeed"/>
     </resources>
 </application>
