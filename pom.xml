@@ -160,6 +160,7 @@
                     <reportTitle>Changelog for ${project.name} version ${project.version}</reportTitle>
                     <outputDirectory>target/releasenotes</outputDirectory>
                     <generatePlainTextChangeLog>true</generatePlainTextChangeLog>
+                    <generateMarkdownChangeLog>true</generateMarkdownChangeLog>
                 </configuration>
                 <executions>
                     <execution>
