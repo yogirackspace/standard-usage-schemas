@@ -55,7 +55,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="client_username" type="event:Username" use="optional">
+                <attribute name="clientUsername" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -64,7 +64,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="agent_username" type="event:Username" use="optional">
+                <attribute name="agentUsername" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
