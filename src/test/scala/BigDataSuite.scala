@@ -36,7 +36,7 @@ class BigDataSuite extends BaseUsageSuite {
                                        startTime="2013-03-15T11:51:11Z"
                                        endTime="2013-03-16T11:51:11Z">
                                     <bigdata:product version="1" serviceCode="BigData"
-                                                resourceType="HDP1.1" flavorId="10"
+                                                resourceType="HADOOP_HDP1_1" flavorId="10"
                                                 flavorName="some flavor"
                                                 numberServersInCluster="500"
                                                 bandwidthIn="1024" bandwidthOut="19992"/>
@@ -57,7 +57,7 @@ class BigDataSuite extends BaseUsageSuite {
                                        startTime="2013-03-15T11:51:11Z"
                                        endTime="2013-03-16T11:51:11Z">
                                     <bigdata:product version="1" serviceCode="BigData"
-                                                resourceType="HDP1.1" flavorId="10"
+                                                resourceType="HADOOP_HDP1_1" flavorId="10"
                                                 aggregatedClusterDuration=""
                                                 flavorName="some flavor"
                                                 numberServersInCluster="500"

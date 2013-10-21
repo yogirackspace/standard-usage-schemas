@@ -105,11 +105,9 @@
                                 </xsl:if>
                                 
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
-                                
                                 <xsl:if test="$id = 'BigData'">
                                     <rax:preprocess href="bigdata.xsl"/>
                                 </xsl:if>
-
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
