@@ -12,6 +12,7 @@
 
     <scm>
         <connection>scm:git:ssh://git@github.com/rackerlabs/standard-usage-schemas.git</connection>
+        <developerConnection>scm:git:git@github.com:rackerlabs/standard-usage-schemas.git</developerConnection>
     </scm>
 
     <repositories>
@@ -249,7 +250,7 @@
                                     <goal>checkin</goal> 
                                 </goals>
                                 <configuration>
-                                    <connectionType>connection</connectionType>
+                                    <connectionType>developerConnection</connectionType>
                                     <message>update release notes</message> 
                                     <includes>${basedir}/releases.md</includes>
                                 </configuration>
