@@ -15,7 +15,6 @@
             <bigdata:product version="1" serviceCode="BigData"
                         resourceType="HADOOP_HDP1_1" flavorId="10"
                         flavorName="some flavor"
-                        aggregatedClusterDuration="43200000"
                         numberServersInCluster="500"
                         bandwidthIn="1024" bandwidthOut="19992"/>
         </event>

@@ -73,6 +73,13 @@
                                 <xsl:call-template name="sch:cross-check-params">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
+
+                                <rax:preprocess href="atom_hopper_pre.xsl"/>
+                                <xsl:call-template name="sch:searchable">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
+                                </xsl:call-template>
+
                                 <!--
                                     Hack, add nova updown check.
                                 -->
@@ -88,27 +95,7 @@
                                            path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
                                            rax:message="If message is DOWN type then checkStatus cannot be OK."/>
                                 </xsl:if>
-                                <!--
-                                    Workaround, add a param for CloudIdentity
-                                -->
-                                <xsl:if test="$id = 'CloudIdentity'">
-                                    <param name="checkUpdate"
-                                        style="plain"
-                                        required="true"
-                                        path="if (/atom:entry/atom:content/event:event/@type = 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then /atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes else true()"
-                                        rax:message="For version 2 and type is UPDATE, the updatedAttributes attribute is required."/>
-                                    <param name="checkNonUpdate"
-                                        style="plain"
-                                        required="true"
-                                        path="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()"
-                                        rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
-                                </xsl:if>
-                                
-                                <rax:preprocess href="atom_hopper_pre.xsl"/>
-                                <xsl:call-template name="sch:searchable">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
-                                </xsl:call-template>
+
                                 <!--
                                     Workaround, add a param for CloudIdentity
                                 -->
@@ -124,6 +111,12 @@
                                            path="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()"
                                            rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
                                 </xsl:if>
+
+                                <!-- B-57395: implementation of BigData synthesized attribute -->
+                                <xsl:if test="$id = 'BigData'">
+                                    <rax:preprocess href="bigdata.xsl"/>
+                                </xsl:if>
+
                                 <!--
                                     B-51154: restrict the use of GLOBAL DC/Region
                                     This can be implemented inside the product schema XMLs once B-50883, 
