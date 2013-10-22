@@ -9,8 +9,8 @@
 2013-10-21 | B-58641: rename client_username to clientUsername and agent_username to agentUsername (Shinta Smith)  
 2013-10-17 | B-58136: rename usageerror/events to usagedeadletter/events (Shinta Smith)  
 2013-10-17 | B-58429: add unvalidated /netdevice feed to wadl (Shinta Smith)  
-2013-10-17 | B-51154 (Greg Sharek)  
-2013-10-17 | B-51154 (Greg Sharek)  
+2013-10-17 | Fix merge B-51154 (Greg Sharek)  
+2013-10-17 | Merge B-51154 (Greg Sharek)  
 2013-10-16 | B-51154: got rid of extranous variables (Shinta Smith)  
 2013-10-16 | B-51154: add wadl asserts to restrict the use of GLOBAL dataCenter and region (Shinta Smith)  
 2013-10-15 | B-56175: remove billable attribute from product schemas (Shinta Smith)  
@@ -41,7 +41,7 @@
 2013-09-11 | B-53705: add atom_hopper_observer.wadl into rpm (Shinta Smith)  
 
 **usage-schema-1.24.0**  
-2013-09-09 | B-50883" (Greg Sharek)  
+2013-09-09 | Revert "Merge pull request #83 from shintasmith/B-50883" (Greg Sharek)  
 2013-08-30 | B-53705: remove test related feeds from the readonly wadl (Shinta Smith)  
 2013-08-30 | B-53705: add atom_hopper_observer.wadl that will be used by ahaas/Atom Hopper public/Cloud Feeds (Shinta Smith)  
 
@@ -102,7 +102,7 @@
 
 **usage-schema-1.19.0**  
 2013-05-22 | B-48307: Update Nova Host Server Down Event - Remove 'status' attribute (mattkovacs)  
-2013-05-16 | B-43160. (Benjamin Truitt)  
+2013-05-16 | Add aggregation durations to product metadata for B-43160. (Benjamin Truitt)  
 
 **usage-schema-1.18.1**  
 2013-05-13 | B-48551: combine several identity feeds into one as /identity/events (Shinta Smith)  
@@ -131,30 +131,30 @@
 
 
 2013-04-10 | B-46506: Update servers slice action Event - Add password attribute (mattkovacs)  
-2013-04-09 | B-44543: fix some of the malform response files (Shinta Smith)  
-2013-04-09 | B-44534 (Kari Davis)  
+2013-04-09 | B-37309, B-44543: fix some of the malform response files (Shinta Smith)  
+2013-04-09 | B-37309,B-44534 (Kari Davis)  
 2013-04-09 | B-40571: add new usage for Sites email (Shinta Smith)  
 2013-04-09 | B-41580: Adding public flag to all attributes, default is false. (mattkovacs)  
 2013-04-08 | B-41470: add more files to bigdata usage events (Shinta Smith)  
 2013-04-08 | B-41470: add bigdata usage events (Shinta Smith)  
-2013-04-03 | B-45250\] remove aggregateFunction for numFiles attribute, update descriptions of other attributes (Shinta Smith)  
-2013-04-02 | B-45726\] for Sites Metered usage, add default 0 for computeCyles if not specified (Shinta Smith)  
+2013-04-03 | \[B-45250\] remove aggregateFunction for numFiles attribute, update descriptions of other attributes (Shinta Smith)  
+2013-04-02 | \[B-45726\] for Sites Metered usage, add default 0 for computeCyles if not specified (Shinta Smith)  
 
-2013-03-26 | B-43299\] add new Legacy server slice actions (Shinta Smith)  
+2013-03-26 | \[B-43299\] add new Legacy server slice actions (Shinta Smith)  
 2013-03-25 | B-39660: Add Next Gen Servers Usage Event (mattkovacs)  
 2013-03-25 | B-43746: Add Next Gen Servers Usage Event (mattkovacs)  
-2013-03-22 | B-44637\] update domain event to add endUserTenantId and remove domainGoLiveDate (Shinta Smith)  
-2013-03-22 | B-43478\] fix unit test break caused by the move of domain events out of sites feed (Shinta Smith)  
-2013-03-20 | B-43478\] add new domain feed and remove it from sites (Shinta Smith)  
+2013-03-22 | \[B-44637\] update domain event to add endUserTenantId and remove domainGoLiveDate (Shinta Smith)  
+2013-03-22 | \[B-43478\] fix unit test break caused by the move of domain events out of sites feed (Shinta Smith)  
+2013-03-20 | \[B-43478\] add new domain feed and remove it from sites (Shinta Smith)  
 2013-03-19 | B-43746: Adding action attribute to sites subscription event (mattkovacs)  
 
-2013-03-18 | B-44127\]\[TK-77618\] added unit test for LBaaS SSL=ON rule (Shinta Smith)  
-2013-02-28 | B-43160. (Benjamin Truitt)  
+2013-03-18 | \[B-44127\]\[TK-77618\] added unit test for LBaaS SSL=ON rule (Shinta Smith)  
+2013-02-28 | Add aggregation durations to product metadata for B-43160. (Benjamin Truitt)  
 
 
 
-2013-01-28 | B-40007 by adding groupBy public IPs, private IPs and Flavor. (Jorge L. Williams)  
-2012-12-17 | B-36951). (Benjamin Truitt)  
+2013-01-28 | Address B-40007 by adding groupBy public IPs, private IPs and Flavor. (Jorge L. Williams)  
+2012-12-17 | Add min and max values for bandwidth, flavor, extra IPs (see B-36951). (Benjamin Truitt)  
 
 
 
