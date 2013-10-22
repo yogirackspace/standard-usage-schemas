@@ -129,7 +129,9 @@
 2013-04-24 | B-37262: correct permissions (Shinta Smith)  
 2013-04-22 | B-37262: rpm-ize usage-schema (Shinta Smith)  
 
+**R0016**  
 
+**R0015**  
 2013-04-10 | B-46506: Update servers slice action Event - Add password attribute (mattkovacs)  
 2013-04-09 | B-37309, B-44543: fix some of the malform response files (Shinta Smith)  
 2013-04-09 | B-37309,B-44534 (Kari Davis)  
@@ -140,6 +142,7 @@
 2013-04-03 | \[B-45250\] remove aggregateFunction for numFiles attribute, update descriptions of other attributes (Shinta Smith)  
 2013-04-02 | \[B-45726\] for Sites Metered usage, add default 0 for computeCyles if not specified (Shinta Smith)  
 
+**R0014**  
 2013-03-26 | \[B-43299\] add new Legacy server slice actions (Shinta Smith)  
 2013-03-25 | B-39660: Add Next Gen Servers Usage Event (mattkovacs)  
 2013-03-25 | B-43746: Add Next Gen Servers Usage Event (mattkovacs)  
@@ -148,17 +151,30 @@
 2013-03-20 | \[B-43478\] add new domain feed and remove it from sites (Shinta Smith)  
 2013-03-19 | B-43746: Adding action attribute to sites subscription event (mattkovacs)  
 
+**R0013**  
+2013-03-18 11:48:05 -0500    changed to 1.0.12 wadl tool release so we can release R0013 (Matt Kovacs)  
 2013-03-18 | \[B-44127\]\[TK-77618\] added unit test for LBaaS SSL=ON rule (Shinta Smith)  
+2013-03-18 09:50:23 -0500    changed to wadl tool release so we can release R0013 (Matt Kovacs)  
 2013-02-28 | Add aggregation durations to product metadata for B-43160. (Benjamin Truitt)  
 
+**R0012**  
 
+**R0011**  
 
+**R0010**  
 2013-01-28 | Address B-40007 by adding groupBy public IPs, private IPs and Flavor. (Jorge L. Williams)  
 2012-12-17 | Add min and max values for bandwidth, flavor, extra IPs (see B-36951). (Benjamin Truitt)  
 
+**R0007**  
 
+**R0006**  
 
+**R0005**  
 
+**R0004**  
 
+**R0003**  
 
+**R0002**  
 
+**R0001**  
