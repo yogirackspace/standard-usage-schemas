@@ -1,11 +1,13 @@
-# Changelog for Usage Schema version 1.27.1-SNAPSHOT
+# Changelog for Usage Schema 
 
-2013-10-21 09:10:39 -0500    B-58641: rename client_username to clientUsername and agent_username to agentUsername (Shinta Smith)  
-2013-10-17 15:27:17 -0500    B-58136: rename usageerror/events to usagedeadletter/events (Shinta Smith)  
-2013-10-17 14:55:30 -0500    B-58429: add unvalidated /netdevice feed to wadl (Shinta Smith)  
-2013-10-16 13:39:11 -0500    B-51154: add wadl asserts to restrict the use of GLOBAL dataCenter and region (Shinta Smith)  
-2013-10-15 14:17:47 -0500    B-56175: remove billable attribute from product schemas (Shinta Smith)  
-2013-10-15 12:00:12 -0500    B-40572: remove SSL transformation on LBaaS usage event (Shinta Smith)  
+**usage-schema-1.28.0**
+2013-10-21 13:43:17 -0500    B-57395 implement transormation to calculate big data aggregatedClusterDuration (Bryan Taylor)
+2013-10-21 09:10:39 -0500    B-58641: rename client_username to clientUsername and agent_username to agentUsername (Shinta Smith)
+2013-10-17 15:27:17 -0500    B-58136: rename usageerror/events to usagedeadletter/events (Shinta Smith)
+2013-10-17 14:55:30 -0500    B-58429: add unvalidated /netdevice feed to wadl (Shinta Smith)
+2013-10-16 13:39:11 -0500    B-51154: add wadl asserts to restrict the use of GLOBAL dataCenter and region (Shinta Smith)
+2013-10-15 14:17:47 -0500    B-56175: remove billable attribute from product schemas (Shinta Smith)
+2013-10-15 12:00:12 -0500    B-40572: remove SSL transformation on LBaaS usage event (Shinta Smith)
 
 **usage-schema-1.27.0**  
 2013-10-08 10:11:28 -0500    B-54028 - Update Big Data Usage Event - flavorName and flavorId cannot be empty String. (Greg Sharek)  
