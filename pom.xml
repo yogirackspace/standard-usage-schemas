@@ -253,6 +253,7 @@
                                     <connectionType>developerConnection</connectionType>
                                     <message>update release notes</message> 
                                     <includes>${basedir}/releases.md</includes>
+                                    <pushChanges>true</pushChanges>
                                 </configuration>
                             </execution>
                         </executions>
