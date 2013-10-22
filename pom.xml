@@ -239,26 +239,6 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId> 
-                        <artifactId>maven-scm-plugin</artifactId> 
-                        <version>1.8.1</version> 
-                        <executions>
-                            <execution>
-                                <id>checkin-release-notes</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>checkin</goal> 
-                                </goals>
-                                <configuration>
-                                    <connectionType>developerConnection</connectionType>
-                                    <message>update release notes</message> 
-                                    <includes>${basedir}/releases.md</includes>
-                                    <pushChanges>true</pushChanges>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>rpm-maven-plugin</artifactId>
                         <version>2.1-alpha-1</version>
@@ -358,6 +338,33 @@
                                 <require>repose</require>
                             </requires>
                         </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>checkin-release-notes</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId> 
+                        <artifactId>maven-scm-plugin</artifactId> 
+                        <version>1.8.1</version> 
+                        <executions>
+                            <execution>
+                                <id>checkin-release-notes</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>checkin</goal> 
+                                </goals>
+                                <configuration>
+                                    <connectionType>developerConnection</connectionType>
+                                    <message>update release notes</message> 
+                                    <includes>${basedir}/releases.md</includes>
+                                    <pushChanges>true</pushChanges>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
