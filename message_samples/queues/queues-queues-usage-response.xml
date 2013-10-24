@@ -17,7 +17,7 @@
                 startTime="2013-03-15T11:51:11Z"
                 endTime="2013-03-16T11:51:11Z">
         <queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
-                        bandwidthIn="1024" bandwidthOut="19992"/>
+                        bandwidthIn="1024" bandwidthOut="19992" bandwidthType="PUBLIC"/>
     </event>
     </atom:content>
     <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/usagetest5/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" />

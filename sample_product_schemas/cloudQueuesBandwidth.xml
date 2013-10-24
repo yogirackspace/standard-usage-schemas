@@ -5,6 +5,10 @@
     <description>
         Usage message for queue bandwidth.
     </description>
+    <attribute name="bandwidthType" type="string" use="required"
+               allowedValues="PUBLIC SERVICENET">
+        Type of bandwidth for this event.
+    </attribute>
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
                max="6597069766656">

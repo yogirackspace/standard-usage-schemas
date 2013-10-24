@@ -27,6 +27,16 @@
                  type="xsd:Name"
                  fixed="CloudQueues"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
+      <attribute name="bandwidthType" use="required" type="p:bandwidthTypeEnum">
+         <annotation>
+            <documentation>
+               <html:p>Type of bandwidth for this event.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
       <attribute name="bandwidthIn" use="required" type="p:bandwidthInType">
          <annotation>
             <documentation>
@@ -56,6 +66,12 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="QUEUE"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthTypeEnum">
+      <restriction base="xsd:string">
+         <enumeration value="PUBLIC"/>
+         <enumeration value="SERVICENET"/>
       </restriction>
    </simpleType>
    <simpleType name="bandwidthInType">
