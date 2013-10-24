@@ -75,9 +75,7 @@
     <method id="addPlainUnvalidatedEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Add Plain Unvalidated Entry." xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para> 
-            <para>See the Appendix for
-                details and message examples that can be sent with the
-                post request.</para>
+           
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
@@ -96,9 +94,7 @@
     <method id="addPlainEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para>
-            <para>See the Appendix for
-                details and message examples that can be sent with the
-                post request.</para>
+           
             
         </wadl:doc>
         <request>
