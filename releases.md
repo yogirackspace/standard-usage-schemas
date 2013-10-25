@@ -1,5 +1,7 @@
 # Changelog for Usage Schema
 
+2013-10-24 | B-58493 - Update Queues Usage Bandwidth Events (Greg Sharek)  
+2013-10-24 | B-58710 - Update CBS Usage Events (Greg Sharek)  
 
 **usage-schema-1.28.0**  
 2013-10-22 | B-57395: get rid of CloudIdentity dups in productSchema-wadl, more clean ups (Shinta Smith)  
