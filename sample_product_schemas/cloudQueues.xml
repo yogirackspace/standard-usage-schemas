@@ -1,5 +1,5 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/queues/requestCount"
+               namespace="http://docs.rackspace.com/usage/queues"
                serviceCode="CloudQueues"
                version="1"
                groupByResource="false">

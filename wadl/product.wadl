@@ -7,8 +7,8 @@
            bigdata.xml
            cbs-snapshot.xml
            cbs.xml
+           cloudQueues.xml
            cloudQueuesBandwidth.xml
-           cloudQueuesRequestCount.xml
            cloudbackupBandwidthIn.xml
            cloudbackupBandwidthOut.xml
            cloudbackupLicense.xml
@@ -63,8 +63,8 @@
              xmlns:w_ns2="http://docs.rackspace.com/usage/bigdata"
              xmlns:w_ns3="http://docs.rackspace.com/usage/cbs/snapshot"
              xmlns:w_ns4="http://docs.rackspace.com/usage/cbs"
-             xmlns:w_ns5="http://docs.rackspace.com/usage/queues/bandwidth"
-             xmlns:w_ns6="http://docs.rackspace.com/usage/queues/requestCount"
+             xmlns:w_ns5="http://docs.rackspace.com/usage/queues"
+             xmlns:w_ns6="http://docs.rackspace.com/usage/queues/bandwidth"
              xmlns:w_ns7="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
              xmlns:w_ns8="http://docs.rackspace.com/usage/cloudbackup/bandwidthOut"
              xmlns:w_ns9="http://docs.rackspace.com/usage/cloudbackup/license"
@@ -954,7 +954,7 @@
    <resource_type id="CloudQueues">
       <method id="addCloudQueuesEntry" name="POST"><!--GENERATED FILE! Do Not Hand Edit!--><wadl:doc xmlns="http://docbook.org/ns/docbook" title="Add Cloud Queueus Event"><!--GENERATED FILE! Do Not Hand Edit!--><para role="shortdesc">Add Cloud Queueus event.</para>
             <example>
-               <title>Usage message for queue bandwidth, version 1</title>
+               <title>Usage message for queue request count, version 1</title>
                <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
                      <colspec colname="c1" colnum="1" colwidth="3*"/>
                      <colspec colname="c2" colnum="2" colwidth="5.39*"/>
@@ -972,6 +972,7 @@
                         <row>
                            <entry>
                               <para>
+<<<<<<< HEAD
                                  <code>bandwidthType</code>
                               </para>
                            </entry>
@@ -993,6 +994,87 @@
                               <para>Required</para>
                            </entry>
                         </row>
+                        <row>
+                           <entry>
+                              <para>
+                                 <code>bandwidthIn</code>
+                              </para>
+                           </entry>
+                           <entry>
+                              <para>
+        The amount of bandwidth in, in bytes. Max is 6TB.
+    </para>
+                           </entry>
+                           <entry>
+                              <para>unsignedLong</para>
+                           </entry>
+                           <entry>
+                              <para>Required</para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para>
+                                 <code>bandwidthOut</code>
+=======
+                                 <code>requestCount</code>
+>>>>>>> updating namespace to http://docs.rackspace.com/usage/queues
+                              </para>
+                           </entry>
+                           <entry>
+                              <para>
+        The number of requests.  Max is 300,000.
+    </para>
+                           </entry>
+                           <entry>
+                              <para>unsignedLong</para>
+                           </entry>
+                           <entry>
+                              <para>Required</para>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </informaltable>
+               <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+    &lt;atom:title&gt;Cloud Queues&lt;/atom:title&gt;
+    &lt;atom:content type="application/xml"&gt;
+        &lt;event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:queues="http://docs.rackspace.com/usage/queues"
+               version="1" tenantId="2888"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2013-03-15T11:51:11Z"
+               endTime="2013-03-16T11:51:11Z"&gt;
+<<<<<<< HEAD
+            &lt;queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
+                            bandwidthIn="1024" bandwidthOut="19992" bandwidthType="PUBLIC"/&gt;
+=======
+            &lt;queues:product version="1" serviceCode="CloudQueues"
+                            requestCount="1000"/&gt;
+>>>>>>> updating namespace to http://docs.rackspace.com/usage/queues
+        &lt;/event&gt;
+    &lt;/atom:content&gt;
+&lt;/atom:entry&gt;</programlisting>
+            </example>
+            <example>
+               <title>Usage message for queue bandwidth, version 1</title>
+               <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
+                     <colspec colname="c1" colnum="1" colwidth="3*"/>
+                     <colspec colname="c2" colnum="2" colwidth="5.39*"/>
+                     <colspec colname="c3" colnum="3" colwidth="2*"/>
+                     <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+                     <thead>
+                        <row>
+                           <entry>Attribute Name</entry>
+                           <entry>Description</entry>
+                           <entry>Type</entry>
+                           <entry>Optionality</entry>
+                        </row>
+                     </thead>
+                     <tbody>
                         <row>
                            <entry>
                               <para>
@@ -1045,62 +1127,7 @@
                startTime="2013-03-15T11:51:11Z"
                endTime="2013-03-16T11:51:11Z"&gt;
             &lt;queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
-                            bandwidthIn="1024" bandwidthOut="19992" bandwidthType="PUBLIC"/&gt;
-        &lt;/event&gt;
-    &lt;/atom:content&gt;
-&lt;/atom:entry&gt;</programlisting>
-            </example>
-            <example>
-               <title>Usage message for queue request count, version 1</title>
-               <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
-                     <colspec colname="c1" colnum="1" colwidth="3*"/>
-                     <colspec colname="c2" colnum="2" colwidth="5.39*"/>
-                     <colspec colname="c3" colnum="3" colwidth="2*"/>
-                     <colspec colname="c4" colnum="4" colwidth="1.5*"/>
-                     <thead>
-                        <row>
-                           <entry>Attribute Name</entry>
-                           <entry>Description</entry>
-                           <entry>Type</entry>
-                           <entry>Optionality</entry>
-                        </row>
-                     </thead>
-                     <tbody>
-                        <row>
-                           <entry>
-                              <para>
-                                 <code>requestCount</code>
-                              </para>
-                           </entry>
-                           <entry>
-                              <para>
-        The number of requests.  Max is 300,000.
-    </para>
-                           </entry>
-                           <entry>
-                              <para>unsignedLong</para>
-                           </entry>
-                           <entry>
-                              <para>Required</para>
-                           </entry>
-                        </row>
-                     </tbody>
-                  </tgroup>
-               </informaltable>
-               <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom"&gt;
-    &lt;atom:title&gt;Cloud Queues&lt;/atom:title&gt;
-    &lt;atom:content type="application/xml"&gt;
-        &lt;event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:queues="http://docs.rackspace.com/usage/queues/requestCount"
-               version="1" tenantId="2888"
-               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-               resourceId="56"
-               type="USAGE" dataCenter="DFW1" region="DFW"
-               startTime="2013-03-15T11:51:11Z"
-               endTime="2013-03-16T11:51:11Z"&gt;
-            &lt;queues:product version="1" serviceCode="CloudQueues"
-                            requestCount="1000"/&gt;
+                            bandwidthIn="1024" bandwidthOut="19992"/&gt;
         &lt;/event&gt;
     &lt;/atom:content&gt;
 &lt;/atom:entry&gt;</programlisting>
@@ -1112,7 +1139,7 @@
                       style="plain"
                       required="true"
                       path="if (/atom:entry/atom:content/event:event[@type='USAGE']) then (/atom:entry/atom:content/event:event[@type='USAGE']/w_ns5:product[@version = '1'],/atom:entry/atom:content/event:event[@type='USAGE']/w_ns6:product[@version = '1']) else true()"
-                      rax:message="Only usage messages with product attributes in the following namespaces are allowed on this feed: http://docs.rackspace.com/usage/queues/bandwidth version(s) ('1'), http://docs.rackspace.com/usage/queues/requestCount version(s) ('1')"/>
+                      rax:message="Only usage messages with product attributes in the following namespaces are allowed on this feed: http://docs.rackspace.com/usage/queues version(s) ('1'), http://docs.rackspace.com/usage/queues/bandwidth version(s) ('1')"/>
                <param name="cross_check"
                       style="plain"
                       required="true"
@@ -1148,7 +1175,7 @@
                       title="Get Cloud Queueus Event">
                <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
                <example>
-                  <title>Usage message for queue bandwidth, version 1</title>
+                  <title>Usage message for queue request count, version 1</title>
                   <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
                         <colspec colname="c1" colnum="1" colwidth="3*"/>
                         <colspec colname="c2" colnum="2" colwidth="5.39*"/>
@@ -1166,6 +1193,7 @@
                            <row>
                               <entry>
                                  <para>
+<<<<<<< HEAD
                                     <code>bandwidthType</code>
                                  </para>
                               </entry>
@@ -1187,6 +1215,104 @@
                                  <para>Required</para>
                               </entry>
                            </row>
+                           <row>
+                              <entry>
+                                 <para>
+                                    <code>bandwidthIn</code>
+                                 </para>
+                              </entry>
+                              <entry>
+                                 <para>
+        The amount of bandwidth in, in bytes. Max is 6TB.
+    </para>
+                              </entry>
+                              <entry>
+                                 <para>unsignedLong</para>
+                              </entry>
+                              <entry>
+                                 <para>Required</para>
+                              </entry>
+                           </row>
+                           <row>
+                              <entry>
+                                 <para>
+                                    <code>bandwidthOut</code>
+=======
+                                    <code>requestCount</code>
+>>>>>>> updating namespace to http://docs.rackspace.com/usage/queues
+                                 </para>
+                              </entry>
+                              <entry>
+                                 <para>
+        The number of requests.  Max is 300,000.
+    </para>
+                              </entry>
+                              <entry>
+                                 <para>unsignedLong</para>
+                              </entry>
+                              <entry>
+                                 <para>Required</para>
+                              </entry>
+                           </row>
+                        </tbody>
+                     </tgroup>
+                  </informaltable>
+                  <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+    &lt;atom:id&gt;urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814&lt;/atom:id&gt;
+    &lt;atom:category term="tid:2888" /&gt;
+    &lt;atom:category term="rgn:DFW" /&gt;
+    &lt;atom:category term="dc:DFW1" /&gt;
+    &lt;atom:category term="rid:56" /&gt;
+    &lt;atom:category term="cloudqueues.queue.queue.usage" /&gt;
+    &lt;atom:title type="text"&gt;Cloud Big Data&lt;/atom:title&gt;
+    &lt;atom:content type="application/xml"&gt;
+        &lt;event xmlns="http://docs.rackspace.com/core/event"
+<<<<<<< HEAD
+                xmlns:queues="http://docs.rackspace.com/usage/queues/bandwidth"
+                version="1" tenantId="2888"
+                id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+                resourceId="56"
+                type="USAGE" dataCenter="DFW1" region="DFW"
+                startTime="2013-03-15T11:51:11Z"
+                endTime="2013-03-16T11:51:11Z"&gt;
+        &lt;queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
+                        bandwidthIn="1024" bandwidthOut="19992" bandwidthType="PUBLIC"/&gt;
+    &lt;/event&gt;
+=======
+               xmlns:queues="http://docs.rackspace.com/usage/queues"
+               version="1" tenantId="2888"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2013-03-15T11:51:11Z"
+               endTime="2013-03-16T11:51:11Z"&gt;
+            &lt;queues:product version="1" serviceCode="CloudQueues"
+                            requestCount="1000"/&gt;
+        &lt;/event&gt;
+>>>>>>> updating namespace to http://docs.rackspace.com/usage/queues
+    &lt;/atom:content&gt;
+    &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/usagetest5/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" /&gt;
+    &lt;atom:updated&gt;2013-05-23T14:16:11.420Z&lt;/atom:updated&gt;
+    &lt;atom:published&gt;2013-05-23T14:16:11.420Z&lt;/atom:published&gt;
+&lt;/atom:entry&gt;</programlisting>
+               </example>
+               <example>
+                  <title>Usage message for queue bandwidth, version 1</title>
+                  <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
+                        <colspec colname="c1" colnum="1" colwidth="3*"/>
+                        <colspec colname="c2" colnum="2" colwidth="5.39*"/>
+                        <colspec colname="c3" colnum="3" colwidth="2*"/>
+                        <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+                        <thead>
+                           <row>
+                              <entry>Attribute Name</entry>
+                              <entry>Description</entry>
+                              <entry>Type</entry>
+                              <entry>Optionality</entry>
+                           </row>
+                        </thead>
+                        <tbody>
                            <row>
                               <entry>
                                  <para>
@@ -1245,72 +1371,8 @@
                 startTime="2013-03-15T11:51:11Z"
                 endTime="2013-03-16T11:51:11Z"&gt;
         &lt;queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
-                        bandwidthIn="1024" bandwidthOut="19992" bandwidthType="PUBLIC"/&gt;
+                        bandwidthIn="1024" bandwidthOut="19992"/&gt;
     &lt;/event&gt;
-    &lt;/atom:content&gt;
-    &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/usagetest5/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" /&gt;
-    &lt;atom:updated&gt;2013-05-23T14:16:11.420Z&lt;/atom:updated&gt;
-    &lt;atom:published&gt;2013-05-23T14:16:11.420Z&lt;/atom:published&gt;
-&lt;/atom:entry&gt;</programlisting>
-               </example>
-               <example>
-                  <title>Usage message for queue request count, version 1</title>
-                  <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
-                        <colspec colname="c1" colnum="1" colwidth="3*"/>
-                        <colspec colname="c2" colnum="2" colwidth="5.39*"/>
-                        <colspec colname="c3" colnum="3" colwidth="2*"/>
-                        <colspec colname="c4" colnum="4" colwidth="1.5*"/>
-                        <thead>
-                           <row>
-                              <entry>Attribute Name</entry>
-                              <entry>Description</entry>
-                              <entry>Type</entry>
-                              <entry>Optionality</entry>
-                           </row>
-                        </thead>
-                        <tbody>
-                           <row>
-                              <entry>
-                                 <para>
-                                    <code>requestCount</code>
-                                 </para>
-                              </entry>
-                              <entry>
-                                 <para>
-        The number of requests.  Max is 300,000.
-    </para>
-                              </entry>
-                              <entry>
-                                 <para>unsignedLong</para>
-                              </entry>
-                              <entry>
-                                 <para>Required</para>
-                              </entry>
-                           </row>
-                        </tbody>
-                     </tgroup>
-                  </informaltable>
-                  <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom"&gt;
-    &lt;atom:id&gt;urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814&lt;/atom:id&gt;
-    &lt;atom:category term="tid:2888" /&gt;
-    &lt;atom:category term="rgn:DFW" /&gt;
-    &lt;atom:category term="dc:DFW1" /&gt;
-    &lt;atom:category term="rid:56" /&gt;
-    &lt;atom:category term="cloudqueues.queue.queue.usage" /&gt;
-    &lt;atom:title type="text"&gt;Cloud Big Data&lt;/atom:title&gt;
-    &lt;atom:content type="application/xml"&gt;
-        &lt;event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:queues="http://docs.rackspace.com/usage/queues/requestCount"
-               version="1" tenantId="2888"
-               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-               resourceId="56"
-               type="USAGE" dataCenter="DFW1" region="DFW"
-               startTime="2013-03-15T11:51:11Z"
-               endTime="2013-03-16T11:51:11Z"&gt;
-            &lt;queues:product version="1" serviceCode="CloudQueues"
-                            requestCount="1000"/&gt;
-        &lt;/event&gt;
     &lt;/atom:content&gt;
     &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/usagetest5/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" /&gt;
     &lt;atom:updated&gt;2013-05-23T14:16:11.420Z&lt;/atom:updated&gt;

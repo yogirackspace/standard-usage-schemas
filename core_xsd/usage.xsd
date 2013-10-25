@@ -74,8 +74,8 @@
     <import namespace="http://docs.rackspace.com/usage/queues/bandwidth"
             schemaLocation="../generated_product_xsds/cloudQueuesBandwidth.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/queues/requestCount"
-            schemaLocation="../generated_product_xsds/cloudQueuesRequestCount.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/queues"
+            schemaLocation="../generated_product_xsds/cloudQueues.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/servers/hostserver"
             schemaLocation="../generated_product_xsds/servers.xsd"/>
