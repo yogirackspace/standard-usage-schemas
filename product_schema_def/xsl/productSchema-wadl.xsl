@@ -362,7 +362,7 @@
     <xsl:function name="sch:getSchemas" as="node()">
         <xsl:param name="dir" as="node()"/>
         <sch:productSchemas>
-            <xsl:for-each select="$dir//c:directory[@name = 'sample_product_schemas' and not(ancestor::c:directory/@name = 'target')]/c:file">
+            <xsl:for-each select="$dir//c:directory[@name = 'sample_product_schemas' and not(ancestor::c:directory/@name = 'target')]/c:file[ends-with(lower-case(@name), '.xml')]">
                 <xsl:sort select="@name"/>
                 <xsl:apply-templates select="document(resolve-uri(@name,base-uri(.)))//sch:productSchema" mode="copy"/>
             </xsl:for-each>
@@ -371,7 +371,7 @@
     <xsl:function name="sch:getMessages" as="node()">
         <xsl:param name="dir" as="node()"/>
         <sch:messages>
-            <xsl:for-each select="$dir//c:directory[@name = 'message_samples' and not(ancestor::c:directory/@name = 'target')]//c:file">
+            <xsl:for-each select="$dir//c:directory[@name = 'message_samples' and not(ancestor::c:directory/@name = 'target')]//c:file[ends-with(lower-case(@name), '.xml')]">
                 <xsl:sort select="@name"/>
                 <sch:message 
                     path="{resolve-uri(@name,base-uri(.))}" 
