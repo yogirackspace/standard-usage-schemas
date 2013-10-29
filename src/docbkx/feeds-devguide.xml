@@ -520,7 +520,51 @@
                 supports the use of a HTTP GET request when asking for
                 a specific entry, forward and backward paging,
                 category searches, and JSON feed returns that are
-                experimental.</para>
+                experimental. An example of what GET returns:</para>
+            <programlisting>&lt;feed>
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
+    &lt;id> urn:uuid:f3fae0e2-f195-430a-baa1-d0d0a77779ac  &lt;/id>
+    &lt;title type="text"> sites/events  &lt;/title>
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:d0932ca8-801a-3350-93a5-c4d7b3e09172&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
+    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
+    &lt;updated> 2013-10-29T17:25:13.420Z  &lt;/updated>
+    &lt;ns3:entry>
+        &lt;atom:id> urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67  &lt;/atom:id>
+        &lt;atom:category term="tid:5834721" />
+        &lt;atom:category term="rgn:ORD" />
+        &lt;atom:category term="dc:ORD1" />
+        &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
+        &lt;ns3:title type="text"> Sites  &lt;/ns3:title>
+        &lt;ns3:category term="5834721:netapp" />
+        &lt;ns3:content type="application/xml">
+            &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="b485642c-fb2c-38ba-8a19-89e15c801a67"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5834721" type="USAGE_SNAPSHOT" version="1">
+                &lt;ns4:product groupName="cc4client1g" numFiles="1" serviceCode="CloudSites" storage="0" version="1" volume="stor1stagingord1" />
+            &lt;/ns2:event>
+        &lt;/ns3:content>
+        &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67" rel="self" />
+        &lt;ns3:updated> 2013-10-29T17:20:07.010Z  &lt;/ns3:updated>
+        &lt;ns3:published> 2013-10-29T17:20:07.010Z  &lt;/ns3:published>
+    &lt;/ns3:entry>
+    &lt;ns3:entry>
+        &lt;atom:id> urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405  &lt;/atom:id>
+        &lt;atom:category term="tid:5819296" />
+        &lt;atom:category term="rgn:ORD" />
+        &lt;atom:category term="dc:ORD1" />
+        &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
+        &lt;ns3:title type="text"> Sites  &lt;/ns3:title>
+        &lt;ns3:category term="5819296:netapp" />
+        &lt;ns3:content type="application/xml">
+            &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="2ae26c06-a0e4-31cf-a2f6-7c559809a405"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5819296" type="USAGE_SNAPSHOT" version="1">
+                &lt;ns4:product groupName="cc220hhg" numFiles="82" serviceCode="CloudSites" storage="167936" version="1" volume="stor1stagingord1" />
+            &lt;/ns2:event>
+        &lt;/ns3:content>
+        &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405" rel="self" />
+        &lt;ns3:updated> 2013-10-29T17:20:06.990Z  &lt;/ns3:updated>
+        &lt;ns3:published> 2013-10-29T17:20:06.990Z  &lt;/ns3:published>
+    &lt;/ns3:entry>
+&lt;/feed></programlisting>
             <note>
                 <para>Control and illegal characters must be escaped
                     in the URL.</para>

@@ -45,9 +45,15 @@
             <para role="shortdesc">Gets events for this product's feed.</para>            
         </wadl:doc>
         <request>
-            <param name="marker" style="query" type="xs:anyURI" required="false"/>
+            <param name="marker" style="query" type="xs:anyURI" required="false"/>            
             <param name="limit"  style="query" type="xs:int" required="false"/>
-            <param name="direction" style="query" type="xs:string" required="false"/>
+            <param name="direction" style="query" type="xs:string" required="false">
+                <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+
+                        Valid values are either backward or forward.
+                    
+                </wadl:doc>
+            </param>
         </request>
         <response status="200">
             <representation mediaType="application/atom+xml"/>
