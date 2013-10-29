@@ -1,6 +1,11 @@
 # Changelog for Usage Schema
 
-2013-10-24 | B-58493 - Update Queues Usage Bandwidth Events (Greg Sharek)  
+2013-10-29 | B-58427: add /core feed to wadls (Shinta Smith)  
+2013-10-29 | B-56175: remove billable from core_xsd (Shinta Smith)  
+2013-10-28 | B-58910: added /usagesummary to observer wadl (Shinta Smith)  
+2013-10-28 | B-58910: add /usagesummary feed (Shinta Smith)  
+2013-10-28 | B-58356 - Queues Usage Event for Request Count (Shinta Smith)  
+2013-10-28 | B-58493 - Update Queues Usage Bandwidth Events (Shinta Smith)  
 2013-10-24 | B-58710 - Update CBS Usage Events (Greg Sharek)  
 
 **usage-schema-1.28.0**  
