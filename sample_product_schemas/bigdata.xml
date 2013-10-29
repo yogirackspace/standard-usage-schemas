@@ -44,5 +44,9 @@
                max="16000000000">
         The amount of bandwidth out, in kilobytes.
     </attribute>
+   
+    <xpathAssertion test="if (@aggregatedClusterDuration) then false() else true()">
+        If the attribute is sfas
+    </xpathAssertion>
 </productSchema>
 
