@@ -79,6 +79,16 @@
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
                                 </xsl:call-template>
+                                
+                                <xsl:for-each select="./sch:attribute[@use='synthesized']">
+                                    <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
+                                    <xsl:variable name="attributeName" select="@name"/>
+                                    <param name="checkSynthesized_{$attributeName}"
+                                           style="plain"
+                                           required="true"
+                                           path="not(/atom:entry/atom:content/event:event/{$ns}:product/@{$attributeName})"
+                                           rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
+                                </xsl:for-each>
 
                                 <!--
                                     Hack, add nova updown check.
