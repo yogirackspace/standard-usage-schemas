@@ -13,7 +13,7 @@
                startTime="2013-03-15T11:51:11Z"
                endTime="2013-03-16T11:51:11Z">
             <queues:product version="1" serviceCode="CloudQueues" resourceType="QUEUE"
-                            bandwidthOut="19992"/>
+                            bandwidthOutPublic="19992" banddwidthOutServiceNet="0"/>
         </event>
     </atom:content>
 </atom:entry>
