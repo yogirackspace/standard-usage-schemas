@@ -1,0 +1,4 @@
+<books xmlns="http://docs.rackspace.com/olink">
+  <book path="src/docbkx/feeds-devguide.xml"/>
+  <book path="src/docbkx/feeds-getting-started.xml"/>
+</books>

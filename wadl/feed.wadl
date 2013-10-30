@@ -45,9 +45,15 @@
             <para role="shortdesc">Gets events for this product's feed.</para>            
         </wadl:doc>
         <request>
-            <param name="marker" style="query" type="xs:anyURI" required="false"/>
+            <param name="marker" style="query" type="xs:anyURI" required="false"/>            
             <param name="limit"  style="query" type="xs:int" required="false"/>
-            <param name="direction" style="query" type="xs:string" required="false"/>
+            <param name="direction" style="query" type="xs:string" required="false">
+                <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+
+                        Valid values are either backward or forward.
+                    
+                </wadl:doc>
+            </param>
         </request>
         <response status="200">
             <representation mediaType="application/atom+xml"/>
@@ -73,11 +79,9 @@
     </method>
 
     <method id="addPlainUnvalidatedEntry" name="POST">
-        <wadl:doc xml:lang="EN" title="Add Plain Unvalidated Entry." xmlns="http://docbook.org/ns/docbook">
+        <wadl:doc xml:lang="EN" title="Adding an event." xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para> 
-            <para>See the Appendix for
-                details and message examples that can be sent with the
-                post request.</para>
+           
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
@@ -96,9 +100,7 @@
     <method id="addPlainEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para>
-            <para>See the Appendix for
-                details and message examples that can be sent with the
-                post request.</para>
+           
             
         </wadl:doc>
         <request>
