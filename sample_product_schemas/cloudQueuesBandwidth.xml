@@ -5,18 +5,24 @@
     <description>
         Usage message for queue bandwidth.
     </description>
-    <attribute name="bandwidthType" type="string" use="required"
-               allowedValues="PUBLIC SERVICENET">
-        Type of bandwidth for this event.
-    </attribute>
-    <attribute name="bandwidthIn" type="unsignedLong" use="required"
+    <attribute name="bandwidthInPublic" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
                max="6597069766656">
-        The amount of bandwidth in, in bytes. Max is 6TB.
+        The amount of public bandwidth in, in bytes. Max is 6TB.
     </attribute>
-    <attribute name="bandwidthOut" type="unsignedLong" use="required"
+    <attribute name="bandwidthInServiceNet" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
                max="6597069766656">
-        The amount of bandwidth out, in bytes. Max is 6TB.
+        The amount of bandwidth in on Service Net, in bytes. Max is 6TB.
+    </attribute>
+    <attribute name="bandwidthOutPublic" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="6597069766656">
+        The amount of public bandwidth out, in bytes. Max is 6TB.
+    </attribute>
+    <attribute name="bandwidthOutServiceNet" type="unsignedLong" use="required"
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="6597069766656">
+        The amount of bandwidth out on Service Net, in bytes. Max is 6TB.
     </attribute>
 </productSchema>
