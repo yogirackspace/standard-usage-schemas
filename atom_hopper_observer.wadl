@@ -33,6 +33,7 @@
         <resource path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="usagesummary/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="core/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="meta/events" type="wadl/feed.wadl#AtomFeed"/>
     </resources>
 </application>

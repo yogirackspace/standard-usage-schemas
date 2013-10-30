@@ -1,5 +1,7 @@
 # Changelog for Usage Schema
 
+**usage-schema-1.29.0**  
+2013-10-29 | B-58427: add /core feed to wadls (Shinta Smith)  
 2013-10-29 | B-56175: remove billable from core_xsd (Shinta Smith)  
 2013-10-28 | B-58910: added /usagesummary to observer wadl (Shinta Smith)  
 2013-10-28 | B-58910: add /usagesummary feed (Shinta Smith)  
