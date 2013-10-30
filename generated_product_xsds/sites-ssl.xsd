@@ -20,8 +20,8 @@
          <appinfo>
             <usage:core groupByResource="true" type="USAGE_SNAPSHOT"/>
             <usage:aggregationPeriods>
-               <usage:aggregationPeriod>PT5H</usage:aggregationPeriod>
-               <usage:aggregationPeriod>PT19H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>PT6H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>PT18H</usage:aggregationPeriod>
             </usage:aggregationPeriods>
          </appinfo>
       </annotation>
