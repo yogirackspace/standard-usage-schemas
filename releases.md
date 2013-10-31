@@ -1,12 +1,12 @@
 # Changelog for Usage Schema
 
-
 **usage-schema-1.29.0**  
 2013-10-29 | B-58427: add /core feed to wadls (Shinta Smith)  
 2013-10-29 | B-56175: remove billable from core_xsd (Shinta Smith)  
 2013-10-28 | B-58910: added /usagesummary to observer wadl (Shinta Smith)  
 2013-10-28 | B-58910: add /usagesummary feed (Shinta Smith)  
 2013-10-28 | B-58356 - Queues Usage Event for Request Count (Shinta Smith)  
+2013-10-28 | D-15981 - Unable to access individual entries in staging or test (Shinta Smith)  
 2013-10-28 | B-58493 - Update Queues Usage Bandwidth Events (Shinta Smith)  
 2013-10-24 | B-58710 - Update CBS Usage Events (Greg Sharek)  
 
@@ -35,8 +35,10 @@
 2013-10-02 | B-53783 - Add delegated/impersonation/agent username to Core Schema (Greg Sharek)  
 
 **usage-schema-1.26.3**  
+2013-10-01 | D-15294: manually merge in Greg's changes (Shinta Smith)  
 
 **usage-schema-1.26.2**  
+2013-10-01 | D-15294: rename atom_hopper_identity.wadl (Shinta Smith)  
 
 **usage-schema-1.26.0**  
 2013-09-27 | B-57395 adding synthesized attributes & using them for aggregatedClusterDuration in bigdata (Bryan Taylor)  
@@ -119,6 +121,8 @@
 
 **usage-schema-1.17.4**  
 **usage-schema-1.17.3**  
+2013-05-03 | D-12736: fix RPM so we specify just %config, and not %config(noreplace) (Shinta Smith)  
+2013-05-03 | D-12072: upgrade to api-checker-1.0.8 (Shinta Smith)  
 
 **usage-schema-1.17.1**  
 **usage-schema-1.17.0**  
@@ -148,6 +152,7 @@
 2013-04-09 | B-41580: Adding public flag to all attributes, default is false. (mattkovacs)  
 2013-04-08 | B-41470: add more files to bigdata usage events (Shinta Smith)  
 2013-04-08 | B-41470: add bigdata usage events (Shinta Smith)  
+2013-04-08 | D-12072, D-12007 unit test (Shinta Smith)  
 2013-04-03 | \[B-45250\] remove aggregateFunction for numFiles attribute, update descriptions of other attributes (Shinta Smith)  
 2013-04-02 | \[B-45726\] for Sites Metered usage, add default 0 for computeCyles if not specified (Shinta Smith)  
 
