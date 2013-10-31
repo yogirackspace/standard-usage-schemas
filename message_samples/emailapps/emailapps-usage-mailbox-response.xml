@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="emailapps/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Mailbox event</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/mailbox"
+               version="1" tenantId="12334"
+               resourceId="7"
+               resourceName="Email Domain"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
+               ranEnrichmentStrategy="NONE"
+               eventTime="2012-03-12T11:51:11Z">
+            <emailapps:product version="1" serviceCode="EmailApps"
+                               resourceType="EXCHANGE_EMAIL_2007"
+                               storage="10"/>
+        </event>
+    </atom:content>
+</atom:entry>
