@@ -15,6 +15,7 @@
         <resource id="accountstatus_events" path="accountstatus/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="cbs_events" path="cbs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage"/>
         <resource id="dns_events" path="dns/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDNS "/>
+        <resource id="emailapps_events" path="emailapps/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailApps" />
         <resource id="files_events" path="files/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles"/>
         <resource id="sites_events" path="sites/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites"/>
         <resource id="domain_events" path="domain/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DomainRegistration"/>

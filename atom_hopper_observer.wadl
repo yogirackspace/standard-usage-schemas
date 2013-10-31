@@ -19,6 +19,7 @@
         <resource path="sites/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="domain/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="dbaas/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="emailapps/events" type="wadl/feed.wadl#AtomFeed" />
         <resource path="glance/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="lbaas/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="servers/events" type="wadl/feed.wadl#AtomFeed"/>

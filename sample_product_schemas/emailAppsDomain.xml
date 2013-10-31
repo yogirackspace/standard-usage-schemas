@@ -1,0 +1,18 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/emailapps/domain"
+               version="1"
+               serviceCode="EmailApps" type="USAGE_SNAPSHOT"
+               resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013">
+    <description>
+        Email and Apps number of email boxes per domain.
+    </description>
+    <!-- May be a case where there's no max.... resellers have no max. -->
+    <attribute name="maxNumberOfMailboxes" type="int" use="optional"
+               min="0" max="75000" unitOfMeasure="COUNT" aggregateFunction="LAST">
+        Max number of email boxes the user has contracted for this domain at this point in time.
+    </attribute>
+    <attribute name="currentNumberOfMailboxes" type="int" use="required"
+               min="0" max="75000" unitOfMeasure="COUNT" aggregateFunction="LAST">
+        Current number of email boxes for this domain at this point in time.
+    </attribute>
+</productSchema>
