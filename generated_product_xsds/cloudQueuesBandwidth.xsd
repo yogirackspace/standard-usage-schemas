@@ -47,7 +47,7 @@
                <html:p>The amount of bandwidth in on Service Net, in bytes. Max is 6TB.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -71,7 +71,7 @@
                <html:p>The amount of bandwidth out on Service Net, in bytes. Max is 6TB.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

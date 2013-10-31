@@ -11,7 +11,7 @@
         The amount of public bandwidth in, in bytes. Max is 6TB.
     </attribute>
     <attribute name="bandwidthInServiceNet" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               unitOfMeasure="B" min="0"
                max="6597069766656">
         The amount of bandwidth in on Service Net, in bytes. Max is 6TB.
     </attribute>
@@ -21,7 +21,7 @@
         The amount of public bandwidth out, in bytes. Max is 6TB.
     </attribute>
     <attribute name="bandwidthOutServiceNet" type="unsignedLong" use="required"
-               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               unitOfMeasure="B" min="0"
                max="6597069766656">
         The amount of bandwidth out on Service Net, in bytes. Max is 6TB.
     </attribute>
