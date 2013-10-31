@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/emailapps/mailbox"
+               version="1"
+               serviceCode="EmailApps" type="USAGE_SNAPSHOT"
+               resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013">
+    <description>
+        Email and Apps number of email boxes per account ID.
+    </description>
+    <attribute name="storage" type="int" use="required"
+               unitOfMeasure="GB" min="0" max="100">
+        The max size of the email box in GB for the individual mailbox.
+    </attribute>
+</productSchema>
