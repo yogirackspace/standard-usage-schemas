@@ -6,7 +6,6 @@
     <description>
         Email and Apps number of email boxes per domain.
     </description>
-    <!-- May be a case where there's no max.... resellers have no max. -->
     <attribute name="maxNumberOfMailboxes" type="int" use="optional"
                min="0" max="75000" unitOfMeasure="COUNT" aggregateFunction="LAST">
         Max number of email boxes the user has contracted for this domain at this point in time.
