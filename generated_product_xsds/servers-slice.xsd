@@ -33,7 +33,7 @@
                <html:p>The flavor id of the slice.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -46,10 +46,7 @@
                <html:p>The number of extra public IPs. Defaults to zero.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="true"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -62,10 +59,7 @@
                <html:p>The number of extra private IPs. Defaults to zero.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="true"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -78,7 +72,7 @@
                <html:p>Does the slice use a RedHat license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -91,7 +85,7 @@
                <html:p>Does the slice use an MSSQL license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -104,7 +98,7 @@
                <html:p>Does the slice use an MSSQL Web license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -117,7 +111,7 @@
                <html:p>Does the slice use a Windows license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -130,7 +124,7 @@
                <html:p>Does the slice use an SELinux license.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -143,7 +137,7 @@
                <html:p>Is this a managed slice.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>

@@ -27,29 +27,51 @@
                  type="xsd:Name"
                  fixed="CloudQueues"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="bandwidthIn" use="required" type="p:bandwidthInType">
+      <attribute name="bandwidthInPublic"
+                 use="required"
+                 type="p:bandwidthInPublicType">
          <annotation>
             <documentation>
-               <html:p>The amount of bandwidth in, in bytes. Max is 6TB.</html:p>
+               <html:p>The amount of public bandwidth in, in bytes. Max is 6TB.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="bandwidthOut" use="required" type="p:bandwidthOutType">
+      <attribute name="bandwidthInServiceNet"
+                 use="required"
+                 type="p:bandwidthInServiceNetType">
          <annotation>
             <documentation>
-               <html:p>The amount of bandwidth out, in bytes. Max is 6TB.</html:p>
+               <html:p>The amount of bandwidth in on Service Net, in bytes. Max is 6TB.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="bandwidthOutPublic"
+                 use="required"
+                 type="p:bandwidthOutPublicType">
+         <annotation>
+            <documentation>
+               <html:p>The amount of public bandwidth out, in bytes. Max is 6TB.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="bandwidthOutServiceNet"
+                 use="required"
+                 type="p:bandwidthOutServiceNetType">
+         <annotation>
+            <documentation>
+               <html:p>The amount of bandwidth out on Service Net, in bytes. Max is 6TB.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -64,13 +86,25 @@
          <enumeration value="QUEUE"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandwidthInType">
+   <simpleType name="bandwidthInPublicType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="6597069766656"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandwidthOutType">
+   <simpleType name="bandwidthInServiceNetType">
+      <restriction base="xsd:unsignedLong">
+         <minInclusive value="0"/>
+         <maxInclusive value="6597069766656"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthOutPublicType">
+      <restriction base="xsd:unsignedLong">
+         <minInclusive value="0"/>
+         <maxInclusive value="6597069766656"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthOutServiceNetType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="6597069766656"/>

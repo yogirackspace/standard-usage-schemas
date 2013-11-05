@@ -33,9 +33,9 @@
                 </html:p>
             </documentation>
         </annotation>
-        <sequence>
-            <element ref="schema:productSchema" minOccurs="1" maxOccurs="unbounded"/>
-        </sequence>
+	<sequence>
+          <element ref="schema:productSchema" minOccurs="1" maxOccurs="unbounded"/>
+	</sequence>
         <assert vc:minVersion="1.1"
                 test="every $pd in schema:productSchema satisfies $pd/@serviceCode = schema:productSchema[1]/@serviceCode"
                 xerces:message="All alternative schemas should share the same service code."
@@ -403,16 +403,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="billable" type="xsd:boolean" use="optional" default="true">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                This is an attribute that is used for
-                                billing purposes.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                         xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                         saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
@@ -564,6 +554,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="minLength" type="xsd:integer" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Denotes the minimum length of a string. It can be used only
+                                for string types. Default value, if not specified is 0.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="maxLength" type="xsd:integer" use="optional">
                     <annotation>
                         <documentation>
@@ -642,6 +642,17 @@
                         <documentation>
                             <html:p>
                                 The maxLength is only allowed with string types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@minLength) then @type=('string', 'string*') else true()"
+                        xerces:message="You can only set minLength in string types."
+                        saxon:message="You can only set minLength value in string types.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minLength is only allowed with string types.
                             </html:p>
                         </documentation>
                     </annotation>

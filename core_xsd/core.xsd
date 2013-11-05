@@ -55,11 +55,20 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="username" type="event:Username" use="optional">
+                <attribute name="clientUsername" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
                                 The sub-account's user name, when applicable.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="agentUsername" type="event:Username" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The rackspace agent who is taking action on account of the user.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -197,6 +206,16 @@
                         <documentation>
                             <html:p>
                                 Customer defined name for the resource.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ranEnrichmentStrategy" type="event:RanEnrichmentStrategy" use="optional"
+                        default="CI_SERVICE">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Method by which the tenant ID is mapped to a Rackspace Account Number.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -563,6 +582,21 @@
             <enumeration value="DEV"/>
             <enumeration value="UAT"/>
             <enumeration value="LOCAL"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="RanEnrichmentStrategy">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Method by which the tenant ID is mapped to a Rackspace Account Number.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="NONE"/>
+            <enumeration value="CI_SERVICE"/>
+            <enumeration value="INTEGER_RANGE"/>
         </restriction>
     </simpleType>
 </schema>

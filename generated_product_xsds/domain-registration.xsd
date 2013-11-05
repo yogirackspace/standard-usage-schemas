@@ -33,7 +33,7 @@
                <html:p>The action being taken with this domain registration.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -43,10 +43,7 @@
                <html:p>Purchase tenure in years.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -56,7 +53,7 @@
                <html:p>The date the domain registration expires.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -69,10 +66,7 @@
                <html:p>A boolean indicating that a user has selected to auto-renew this site.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes displayName="Auto-renew"
-                                 aggregateFunction="NONE"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes displayName="Auto-renew" aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -82,7 +76,7 @@
                <html:p>The endUser tenantId associated with this domain registration.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -120,6 +114,7 @@
    </simpleType>
    <simpleType name="string">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="255"/>
       </restriction>
    </simpleType>

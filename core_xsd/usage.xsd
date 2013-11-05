@@ -20,9 +20,18 @@
             schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
+    <import namespace="http://docs.rackspace.com/usage/emailapps/domain"
+            schemaLocation="../generated_product_xsds/emailappsDomain.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/emailapps/mailbox"
+            schemaLocation="../generated_product_xsds/emailappsMailbox.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/emailapps/subscription"
+            schemaLocation="../generated_product_xsds/emailAppsSubscription.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/glance"
             schemaLocation="../generated_product_xsds/glance.xsd"/>
-    
+
     <import namespace="http://docs.rackspace.com/event/nova"
             schemaLocation="../generated_product_xsds/nova.xsd"/>
 
@@ -73,6 +82,9 @@
 
     <import namespace="http://docs.rackspace.com/usage/queues/bandwidth"
             schemaLocation="../generated_product_xsds/cloudQueuesBandwidth.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/queues"
+            schemaLocation="../generated_product_xsds/cloudQueues.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/servers/hostserver"
             schemaLocation="../generated_product_xsds/servers.xsd"/>

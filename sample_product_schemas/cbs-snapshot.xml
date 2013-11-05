@@ -7,7 +7,7 @@
         CBS specific usage fields related to the snapshot.
     </description>
     <attribute name="snapshot" type="double" use="required"
-               unitOfMeasure="GB" min="0" max="1048576">
+               unitOfMeasure="GB" min="0" max="1048576" groupBy="true">
         The amount of backup (snapshot) storage used for the volume.
     </attribute>
 </productSchema>

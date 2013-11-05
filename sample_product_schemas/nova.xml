@@ -7,12 +7,12 @@
     <description>
         Usage message for a Next Generation (Nova) server.
     </description>
-    <attribute name="flavorId" type="string" maxLength="50"
+    <attribute name="flavorId" type="string" minLength="1" maxLength="50"
                use="required" 
                groupBy="true">
         The flavor id of the server.
     </attribute>
-    <attribute name="flavorName" type="string" maxLength="300"
+    <attribute name="flavorName" type="string" minLength="1" maxLength="300"
                use="required"
                groupBy="true">
         The flavor name of the server.

@@ -33,7 +33,7 @@
                <html:p>Describes the type of volume used. SSD is high performance based. SATA is standard.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -43,10 +43,7 @@
                <html:p>The amount of storage provisioned for the volume.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="GB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>

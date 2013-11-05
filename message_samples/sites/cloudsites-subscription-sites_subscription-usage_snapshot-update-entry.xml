@@ -3,13 +3,14 @@
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:db="http://docs.rackspace.com/usage/sites/db">
     <atom:title type="text">Sites</atom:title>
-    <atom:updated>2013-03-14T09:46:31Z</atom:updated>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:sites="http://docs.rackspace.com/usage/sites/subscription"
                version="1" tenantId="12334"
                resourceId="256638"
                resourceName="Mosso Standard Offering"
+               clientUsername="a1user"
+               agentUsername="racker1"
                id="560490c6-6c63-11e1-adfe-27851d5aed13"
                type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">

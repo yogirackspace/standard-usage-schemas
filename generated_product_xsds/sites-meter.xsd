@@ -20,8 +20,8 @@
          <appinfo>
             <usage:core groupByResource="true" type="USAGE"/>
             <usage:aggregationPeriods>
-               <usage:aggregationPeriod>PT5H</usage:aggregationPeriod>
-               <usage:aggregationPeriod>PT19H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>PT6H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>PT18H</usage:aggregationPeriod>
             </usage:aggregationPeriods>
          </appinfo>
       </annotation>
@@ -37,10 +37,7 @@
                <html:p>The amount of bandwidth out in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -50,10 +47,7 @@
                <html:p>The request count for the site.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -66,10 +60,7 @@
                <html:p>The compute cycles for the site.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

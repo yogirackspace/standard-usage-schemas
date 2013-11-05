@@ -33,10 +33,7 @@
                <html:p>The amount of bandwidth in, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -46,10 +43,7 @@
                <html:p>The amount of bandwidth out, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>

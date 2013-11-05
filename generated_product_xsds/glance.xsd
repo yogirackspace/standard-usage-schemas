@@ -33,10 +33,7 @@
                <html:p>The amount of storage consumed by this backup.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="AVG"
-                                 unitOfMeasure="B"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="AVG" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -46,7 +43,7 @@
                <html:p>Server ID, where the backup was taken from.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
          <simpleType>
@@ -59,7 +56,7 @@
                <html:p>The Server name, where the backup was taken from.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -87,6 +84,7 @@
    </simpleType>
    <simpleType name="string">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="255"/>
       </restriction>
    </simpleType>

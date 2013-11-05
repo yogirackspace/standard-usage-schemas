@@ -27,23 +27,23 @@
                  type="xsd:Name"
                  fixed="BigData"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="flavorId" use="required" type="p:string50">
+      <attribute name="flavorId" use="required" type="p:string1_50">
          <annotation>
             <documentation>
                <html:p>The flavor id of the cluster.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="flavorName" use="required" type="p:string300">
+      <attribute name="flavorName" use="required" type="p:string1_300">
          <annotation>
             <documentation>
                <html:p>The flavor name of the cluster.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -55,7 +55,7 @@
                <html:p>This is the number of data nodes in cluster.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -67,10 +67,7 @@
                <html:p>This is the sum of the durations in seconds of all nodes of the cluster.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="S"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="S" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -80,10 +77,7 @@
                <html:p>The amount of bandwidth in, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -93,10 +87,7 @@
                <html:p>The amount of bandwidth out, in kilobytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="KB"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -132,13 +123,15 @@
          <maxInclusive value="16000000000"/>
       </restriction>
    </simpleType>
-   <simpleType name="string50">
+   <simpleType name="string1_50">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="50"/>
       </restriction>
    </simpleType>
-   <simpleType name="string300">
+   <simpleType name="string1_300">
       <restriction base="xsd:string">
+         <minLength value="1"/>
          <maxLength value="300"/>
       </restriction>
    </simpleType>

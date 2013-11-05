@@ -43,6 +43,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //  Resources
   //
   val productSchemaDir = new File("sample_product_schemas")
+  val messageSamplesDir = new File("message_samples")
   val productSchemas = productSchemaDir.listFiles().filter(_.getName.endsWith(".xml"))
 
   val generatedXSDsDir = new File("generated_product_xsds")
@@ -83,7 +84,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   test("Product schema and generated product WADL should match") {
     printf("Checking %s\n", generatedWADL)
-    val w = toConGenWADL(productSchemaDir)
+    val w = toConGenWADL(productSchemaDir, messageSamplesDir) 
     if (w._1 != w._2) { printf("(%s)\n[%s]\n", w._1, w._2) }
     assert (w._1 == w._2)
   }
@@ -158,14 +159,14 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //  Given product schema directory, get cananicalized generaded WADs
   //  (newGenerated, fileSystem) both as strings.
   //
-  private def toConGenWADL (f : File) : (String, String) = {
+      private def toConGenWADL (s : File, m: File) : (String, String) = {
     val trans = wadlTemplate.newTransformer()
     val idTrans = defTransFactory.newTransformer()
 
     val genWriter = new StringWriter()
     val fileWriter = new StringWriter()
 
-    trans.transform(new StreamSource(toProcStepList(f)), new StreamResult(genWriter))
+    trans.transform(new StreamSource(toProcStepListSchemasAndMessages(s, m)), new StreamResult(genWriter))
     idTrans.transform(new StreamSource(generatedWADL), new StreamResult(fileWriter))
 
     (new String(canonicalizer.canonicalize(genWriter.toString.getBytes),"UTF-8"),
@@ -180,8 +181,16 @@ class ProductSchemaSuite extends BaseUsageSuite {
       <file name={f.getAbsolutePath.substring(1)} />
     } else {
       <directory xmlns="http://www.w3.org/ns/xproc-step" name={f.getName}>
-          {f.listFiles.filter(_.getName.endsWith(".xml")).map(toProcStepList)}
+          {f.listFiles.map(toProcStepList)}
       </directory>
     }
   }
+
+  //
+  //  Need both product schemas and messages in our list of files for xslt
+  //
+ private def toProcStepListSchemasAndMessages(s : File, m : File) : NodeSeq = {
+     <directory xmlns="http://www.w3.org/ns/xproc-step" xml:base="file:///">{toProcStepList(s) ++  toProcStepList(m)}</directory>
+  }
+
 }

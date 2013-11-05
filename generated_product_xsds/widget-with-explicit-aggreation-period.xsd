@@ -36,7 +36,7 @@
                <html:p>Human readable name.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -46,7 +46,7 @@
                <html:p>An example of an UUID.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -56,7 +56,7 @@
                <html:p>An optional string.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -66,10 +66,7 @@
                <html:p>A list of integers.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -79,10 +76,7 @@
                <html:p>An integer of some kind. Only the last value is taken into account.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="LAST"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes aggregateFunction="LAST" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -92,7 +86,7 @@
                <html:p>A single integer.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -105,10 +99,7 @@
                <html:p>A boolean.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes displayName="Disabled"
-                                 aggregateFunction="NONE"
-                                 groupBy="false"
-                                 billable="true"/>
+               <usage:attributes displayName="Disabled" aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -118,7 +109,7 @@
                <html:p>A time in UTC.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -128,7 +119,7 @@
                <html:p>A datetime in UTC.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -138,7 +129,7 @@
                <html:p>A list of enumertation strings.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false" billable="true"/>
+               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -191,6 +182,7 @@
    </simpleType>
    <simpleType name="string">
       <restriction base="xsd:string">
+         <minLength value="0"/>
          <maxLength value="255"/>
       </restriction>
    </simpleType>

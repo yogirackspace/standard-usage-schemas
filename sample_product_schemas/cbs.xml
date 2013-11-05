@@ -7,12 +7,12 @@
         CBS specific usage fields related to the volume.
     </description>
     <attribute name="type" type="string" use="required"
-               allowedValues="SATA SSD">
+               allowedValues="SATA SSD" groupBy="true">
         Describes the type of volume used.  SSD is high performance
         based.  SATA is standard.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
-               unitOfMeasure="GB" min="0" max="1024">
+               unitOfMeasure="GB" min="0" max="1024" groupBy="true">
         The amount of storage provisioned for the volume.
     </attribute>
 </productSchema>

@@ -37,12 +37,12 @@
         The amount of ssl bandwidth out in bytes.
     </attribute>
     <attribute name="numPolls" type="int" use="required"
-               billable="false" unitOfMeasure="COUNT"
+               unitOfMeasure="COUNT"
                min="0" max="288">
         The number of polls per load balancer.
     </attribute>
     <attribute name="numVips" type="int" use="required"
-               billable="false" unitOfMeasure="COUNT"
+               unitOfMeasure="COUNT"
                min="0" max="100">
         The number of vips per load balancer.
     </attribute>

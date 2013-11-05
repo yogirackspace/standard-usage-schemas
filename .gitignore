@@ -8,3 +8,6 @@
 *.iws
 *.project
 target
+.classpath
+.settings
+wadl/product.wadl

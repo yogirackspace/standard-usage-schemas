@@ -31,8 +31,7 @@
             <appinfo>
                <usage:attributes aggregateFunction="MAX_CONCURRENT"
                                  unitOfMeasure="COUNT"
-                                 groupBy="false"
-                                 billable="true"/>
+                                 groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
