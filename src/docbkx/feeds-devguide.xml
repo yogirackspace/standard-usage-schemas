@@ -2332,6 +2332,196 @@
                 there are no more items, no <emphasis>next</emphasis>
                 link is returned.</para>
         </section> 
+        </section><section xml:id="RBAC"
+            xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <title>Role Based Access Control</title>
+            <para>Role Based Access Control (RBAC) restricts access to
+                the capabilities of Rackspace Cloud services,
+                including the Cloud Feeds API, to authorized users
+                only. RBAC enables Rackspace Cloud customers to
+                specify which account users of their Cloud account
+                have access to which Cloud Feeds API service
+                capabilities, based on roles defined by Rackspace (see
+                    <xref linkend="RBAC_product_roles_table"/>). The
+                permissions to perform certain operations in Cloud
+                Feeds API – create, read, update, delete – are
+                assigned to specific roles, and these roles can be
+                assigned by the Cloud account admin user to account
+                users of the account. </para>
+            <section xml:id="Assigning-Roles-d1e001">
+                <title>Assigning Roles to Account Users</title>
+                <para>The account owner (identity:user-admin) can
+                    create account users on the account and then
+                    assign roles to those users. The roles grant the
+                    account users specific permissions for accessing
+                    the capabilities of the Cloud Feeds service. Each
+                    account has only one account owner, and that role
+                    is assigned by default to any Rackspace Cloud
+                    account when the account is created.</para>
+                <para>See the <citetitle>Cloud Identity Client Developer
+                    Guide</citetitle> for information about how to perform the
+                    following tasks:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link
+                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
+                            > Create account users</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link
+                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                            > Assign roles to account users</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link
+                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                            > Delete roles from account users</link></para>
+                    </listitem>
+                </itemizedlist>
+                <note>
+                    <para>The account admin user (identity:user-admin) role
+                        cannot hold any additional roles because it already has
+                        full access to all capabilities by default.</para>
+                </note>
+            </section>
+            <section xml:id="RBAC_product_roles">
+                <title>Roles Available for Cloud Feeds </title>
+                <para>Three roles (admin, observer, and service-admin)
+                    can be used to access the Cloud Feeds API
+                    specifically. The following table describes these
+                    roles and their permissions.</para>
+                <table xml:id="RBAC_product_roles_table" rules="all">
+                    <caption>Cloud Feeds Product Roles and
+                        Capabilities</caption>
+                    <col width="50%"/>
+                    <col width="50%"/>
+                    <thead>
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Role Permissions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>feeds:admin</td>
+                            <td>This role grants full access to the
+                                capabilities of the API for a single
+                                tenant (POST and GET).</td>
+                        </tr>
+                        <tr>
+                            <td>feeds:observer</td>
+                            <td>This role provides the ability to
+                                observe Cloud Feeds data for a single
+                                tenant (GET).</td>
+                        </tr>
+                        <tr>
+                            <td>feeds:service-admin</td>
+                            <td>This role provides the ability to
+                                observe Cloud Feeds data for all
+                                tenants (GET).</td>
+                        </tr>
+                   
+                    </tbody>
+                </table>
+                <para>Additionally, two multiproduct roles apply to all
+                    products. Users with multiproduct roles inherit access to
+                    future products when those products become RBAC-enabled. The
+                    following table describes these roles and their
+                    permissions.</para>
+                <table rules="all">
+                    <caption> Multiproduct (Global) Roles and
+                        Permissions</caption>
+                    <col width="50%"/>
+                    <col width="50%"/>
+                    <thead>
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Role Permissions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>admin</td>
+                            <td>This role provides Create, Read, Update, and Delete
+                                permissions in all products, where access is
+                                granted.</td>
+                        </tr>
+                        <tr>
+                            <td>observer</td>
+                            <td>This role provides Read permission in all products,
+                                where access is granted.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section xml:id="RBAC-Resolving-Conflicts-d1e001" version="5.0">
+                <title>Resolving Conflicts Between RBAC Multiproduct vs.
+                    Custom (Product-specific) Roles</title>
+                <para>The account owner can set roles for both
+                    multiproduct and Cloud Feeds scope, and it is
+                    important to understand how any potential
+                    conflicts among these roles are resolved. When two
+                    roles appear to conflict, the role that provides
+                    the more extensive permissions takes precedence.
+                    Therefore, admin roles take precedence over
+                    observer and creator roles, because admin roles
+                    provide more permissions. </para>
+                <para>The following table shows two examples of how potential
+                    conflicts between user roles in the Control Panel are
+                    resolved: </para>
+                <para>
+                    <informaltable rules="all">
+                        <thead>
+                            <tr align="center">
+                                <td>Permission Configuration</td>
+                                <td>View of Permission in the Control Panel </td>
+                                <td>Can the User Perform Product Admin Functions in
+                                    the Control Panel?</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>User is assigned the following
+                                   roles: multiproduct <emphasis
+                                   role="bold">observer</emphasis> and
+                                   Cloud Feeds <emphasis role="bold"
+                                   >admin</emphasis></td>
+                                <td>Appears that the user has only the multiproduct
+                                    <emphasis role="bold">observer</emphasis>
+                                    role</td>
+                                <td>Yes, for Cloud Feeds only. The
+                                   user has the <emphasis role="bold"
+                                   >observer</emphasis> role for the
+                                   rest of the products.</td>
+                            </tr>
+                            <tr>
+                                <td>User is assigned the following
+                                   roles: multiproduct <emphasis
+                                   role="bold">admin</emphasis> and
+                                   Cloud Feeds <emphasis role="bold"
+                                   >observer</emphasis></td>
+                                <td>Appears that the user has only the multiproduct
+                                    <emphasis role="bold">admin</emphasis> role</td>
+                                <td>Yes, for all of the products. The
+                                   Cloud Feeds <emphasis role="bold"
+                                   >observer</emphasis> role is
+                                   ignored.</td>
+                            </tr>
+                        </tbody>
+                    </informaltable>
+                </para>
+            </section>
+            <section xml:id="RBAC-Permissions-Cross-Ref-d1e001"
+                version="5.0">
+                <title>RBAC Permissions Cross-reference to Cloud Feeds
+                    API Operations</title>
+                <para>API operations for Cloud Feeds may or may not be
+                    available to all roles. To see which operations
+                    are permitted to invoke which calls, please review
+                        <link
+                        xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
+                        > the Knowledge Center article</link>.</para>
+            </section>
         </section>
         
     </chapter>
