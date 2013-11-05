@@ -1,5 +1,18 @@
 # Changelog for Usage Schema
 
+
+**usage-schema-1.30.0**  
+2013-11-05 | B-56159: rename deadletter back to usagedeadletter (Shinta Smith)  
+2013-11-04 | B-58359 - Add appliance attribute. (Greg Sharek)  
+2013-11-04 | D-15931: further restrict events that do not send dc/Region, except for Maas, Domain and Sites subscription, which would default to GLOBAL (Shinta Smith)  
+2013-10-31 | B-58701 - Email & Apps Usage Event for Exchange (Greg Sharek)  
+2013-10-31 | B-58701 - Email & Apps Usage Event for Exchange (Greg Sharek)  
+2013-10-31 | B-59327: remove aggregateFunction=SUM on the ServiceNet bandwidth in & out attributes, since they are not used for billing (Shinta Smith)  
+2013-10-30 | B-59327: add new attributes for Cloud Queues Bandwidth (Shinta Smith)  
+2013-10-30 | B-58535: change aggregation periods for some sites events (Shinta Smith)  
+2013-10-30 | B-58699: push actual changes to reject synthesized attribute (Shinta Smith)  
+2013-10-30 | B-58699: get rid of experimental code (Shinta Smith)  
+
 **usage-schema-1.29.0**  
 2013-10-29 | B-58427: add /core feed to wadls (Shinta Smith)  
 2013-10-29 | B-56175: remove billable from core_xsd (Shinta Smith)  
