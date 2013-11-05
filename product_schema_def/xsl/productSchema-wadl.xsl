@@ -75,7 +75,6 @@
                                 </xsl:call-template>
                                 <xsl:call-template name="sch:forbid-event-error" />
 
-                                <rax:preprocess href="atom_hopper_pre.xsl"/>
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
@@ -123,11 +122,6 @@
                                            rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
                                 </xsl:if>
 
-                                <!-- B-57395: implementation of BigData synthesized attribute -->
-                                <xsl:if test="$id = 'BigData'">
-                                    <rax:preprocess href="bigdata.xsl"/>
-                                </xsl:if>
-
                                 <!--
                                     B-51154: restrict the use of GLOBAL DC/Region
                                     This can be implemented inside the product schema XMLs once B-50883, 
@@ -145,6 +139,7 @@
                                                required="true"
                                                path="if ( not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
                                                rax:message="For this type of event, @region can not be GLOBAL."/>
+                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:when test="$id = 'CloudSites'">
                                         <param name="checkDatacenter"
@@ -157,6 +152,7 @@
                                                required="true"
                                                path="if ( not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
                                                rax:message="For this type of event, @region can not be GLOBAL."/>
+                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:when test="$id = 'DomainRegistration'">
                                         <param name="checkDatacenter"
@@ -169,20 +165,29 @@
                                                required="true"
                                                path="if ( not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
                                                rax:message="For this type of event, @region can not be GLOBAL."/>
+                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <param name="checkDatacenter"
                                                style="plain"
                                                required="true"
-                                               path="if (/atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
-                                               rax:message="For this product, @dataCenter can not be GLOBAL."/>
+                                               path="if ( (count(/atom:entry/atom:content/event:event) > 0 and not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
+                                               rax:message="For this product usage event, @dataCenter has to exist and can not be GLOBAL."/>
                                         <param name="checkRegion"
                                                style="plain"
                                                required="true"
-                                               path="if (/atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
-                                               rax:message="For this product, @region can not be GLOBAL."/>
+                                               path="if ( (count(/atom:entry/atom:content/event:event) > 0 and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
+                                               rax:message="For this product usage event, @region has to exist and can not be GLOBAL."/>
+                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
+
+                                <!-- per WADL schema, all rax:preprocess/extensions have to be at the bottom of params -->
+
+                                <!-- B-57395: implementation of BigData synthesized attribute -->
+                                <xsl:if test="$id = 'BigData'">
+                                    <rax:preprocess href="bigdata.xsl"/>
+                                </xsl:if>
                             </representation>
                         </request>
                         <!-- Okay -->

@@ -13,22 +13,39 @@
 
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
+        <xsl:variable name="nsUri" as="xs:string" select="namespace-uri(atom:content/event:event/*)"/>
         <xsl:copy>
             <atom:id><xsl:value-of select="concat('urn:uuid:',$event/@id)"/></atom:id>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>
             </xsl:call-template>
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="$event/@region"/>
-                <xsl:with-param name="prefix" select="'rgn:'"/>
-                <xsl:with-param name="default" select="'GLOBAL'"/>
-            </xsl:call-template>
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="$event/@dataCenter"/>
-                <xsl:with-param name="prefix" select="'dc:'"/>
-                <xsl:with-param name="default" select="'GLOBAL'"/>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="$nsUri = 'http://docs.rackspace.com/usage/maas' or $nsUri = 'http://docs.rackspace.com/usage/sites/subscription' or $nsUri = 'http://docs.rackspace.com/event/domain'">
+                   <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="$event/@region"/>
+                        <xsl:with-param name="prefix" select="'rgn:'"/>
+                        <xsl:with-param name="default" select="'GLOBAL'"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="$event/@dataCenter"/>
+                        <xsl:with-param name="prefix" select="'dc:'"/>
+                        <xsl:with-param name="default" select="'GLOBAL'"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="$event/@region"/>
+                        <xsl:with-param name="prefix" select="'rgn:'"/>
+                        <xsl:with-param name="default" select="''"/>
+                    </xsl:call-template>
+                    <xsl:call-template name="addCategory">
+                        <xsl:with-param name="term" select="$event/@dataCenter"/>
+                        <xsl:with-param name="prefix" select="'dc:'"/>
+                        <xsl:with-param name="default" select="''"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@resourceId"/>
                 <xsl:with-param name="prefix" select="'rid:'"/>

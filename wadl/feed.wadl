@@ -111,8 +111,6 @@
     <method id="addPlainEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para>
-           
-            
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
