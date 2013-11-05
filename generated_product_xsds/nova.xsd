@@ -27,6 +27,16 @@
                  type="xsd:Name"
                  fixed="CloudServersOpenStack"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
+      <attribute name="appliance" use="optional" type="p:applianceEnum">
+         <annotation>
+            <documentation>
+               <html:p>The appliance type.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+            </appinfo>
+         </annotation>
+      </attribute>
       <attribute name="flavorId" use="required" type="p:string1_50">
          <annotation>
             <documentation>
@@ -214,6 +224,11 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="SERVER"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="applianceEnum">
+      <restriction base="xsd:string">
+         <enumeration value="VYATTA"/>
       </restriction>
    </simpleType>
    <simpleType name="statusEnum">

@@ -7,6 +7,12 @@
     <description>
         Usage message for a Next Generation (Nova) server.
     </description>
+    <attribute name="appliance" type="string"
+               use="optional"
+               allowedValues="VYATTA"
+               groupBy="true">
+        The appliance type.
+    </attribute>
     <attribute name="flavorId" type="string" minLength="1" maxLength="50"
                use="required" 
                groupBy="true">
