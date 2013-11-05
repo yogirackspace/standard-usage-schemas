@@ -4,7 +4,9 @@
              xmlns:db="http://docbook.org/ns/docbook"
              xmlns:rax="http://docs.rackspace.com/api"
              xmlns:atom="http://www.w3.org/2005/Atom"
-             xmlns:wadl="http://wadl.dev.java.net/2009/02">
+             xmlns:wadl="http://wadl.dev.java.net/2009/02"
+             xmlns:error="http://docs.rackspace.com/core/error"
+             xmlns:event="http://docs.rackspace.com/core/event">
 
     <!-- Resource Types -->
     <resource_type id="AtomFeed">
@@ -108,6 +110,16 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
+                <!-- 
+                   We add an assertion to state that only usage events are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error"
+                      style="plain"
+                      required="true"
+                      path="not(/atom:entry/atom:content/error:eventError)"
+                      rax:message="eventErrors are not allowed in this feed."/>
+               <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>
         </request>
@@ -134,11 +146,11 @@
                    We add an assertion to state that only dead letters are allowed. If the XPath in the path
                    attribute evaluates to false we'll error out with the error message in rax:message.
                  -->
-                <param name="usage"
+                <param name="error"
                       style="plain"
                       required="true"
-                      path="/atom:entry/atom:content/event:usageError"
-                      rax:message="Only error events are allowed in this feed."/>
+                      path="/atom:entry/atom:content/error:eventError"
+                      rax:message="Only eventErrors are allowed in this feed."/>
                <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>

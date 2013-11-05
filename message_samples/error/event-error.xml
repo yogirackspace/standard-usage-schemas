@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="deadletter/events"?> <!-- ignore <?atom..?>, used for testing -->
-<atom:entry xmlns="http://docs.rackspace.com/core/error"
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Dead letter error event</atom:title>
+    <atom:content type="application/xml">
+        <eventError xmlns="http://docs.rackspace.com/core/error"
             xmlns:event="http://docs.rackspace.com/core/event"
             xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
-            xmlns:atom="http://www.w3.org/2005/Atom">
-    <atom:content type="application/xml">
-        <eventError type="TENANT_NOT_FOUND">
+            type="TENANT_NOT_FOUND">
             <description>No corresponding Rackspace Account Number can be found for this tenant.</description>
             <event:event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
                          region="DFW" dataCenter="DFW1" type="USAGE"

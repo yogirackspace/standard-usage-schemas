@@ -11,6 +11,9 @@
     <xsd:import namespace="http://docs.rackspace.com/core/event"
                 schemaLocation="usage.xsd"/>
                 
+    <xsd:import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://www.w3.org/2005/Atom"
+            schemaLocation="entry.xsd"/>
+                            
     <!-- Complex Types -->
     <xsd:element name="eventError" type="error:EventError" />
 
