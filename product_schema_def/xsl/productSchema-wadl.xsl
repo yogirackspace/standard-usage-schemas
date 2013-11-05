@@ -73,6 +73,7 @@
                                 <xsl:call-template name="sch:cross-check-params">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
+                                <xsl:call-template name="sch:forbid-event-error" />
 
                                 <rax:preprocess href="atom_hopper_pre.xsl"/>
                                 <xsl:call-template name="sch:searchable">
@@ -233,6 +234,13 @@
                 <xsl:text>))</xsl:text>
             </xsl:attribute>
         </param>
+    </xsl:template>
+    <xsl:template name="sch:forbid-event-error">
+        <param name="forbid-event-error" 
+               style="plain" 
+               required="true"
+               path="not(/atom:entry/atom:content/error:eventError)"
+               rax:message="eventErrors are not allowed in this feed."/>        
     </xsl:template>
     <xsl:template name="sch:param">
         <xsl:param name="schemas" as="node()*"/>

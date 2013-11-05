@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+            targetNamespace="http://docs.rackspace.com/core/error" 
+            xmlns:error="http://docs.rackspace.com/core/error" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:event="http://docs.rackspace.com/core/event">
+
+    <xsd:import namespace="http://docs.rackspace.com/core/event"
+                schemaLocation="usage.xsd"/>
+                
+    <xsd:import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://www.w3.org/2005/Atom"
+            schemaLocation="entry.xsd"/>
+                            
+    <!-- Complex Types -->
+    <xsd:element name="eventError" type="error:EventError" />
+
+    <!-- Enumerations -->
+    <xsd:simpleType name="EventErrorType">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    The type of event error.
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="TENANT_NOT_FOUND"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Simple types definition starts here -->
+
+    <!-- Complex types definition starts here -->
+    <xsd:complexType name="EventError">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    An error that provides error feedback for data from an event.  
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <html:p>
+                            A human-readable description of the error.
+                        </html:p>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element ref="event:event" minOccurs="1" maxOccurs="1">
+	            <xsd:annotation>
+	                <xsd:documentation>
+	                    <html:p>
+	                        The original event that caused the error.
+	                    </html:p>
+	                </xsd:documentation>
+	            </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="type" type="error:EventErrorType" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The type of error.  
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

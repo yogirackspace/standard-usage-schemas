@@ -4,7 +4,9 @@
              xmlns:db="http://docbook.org/ns/docbook"
              xmlns:rax="http://docs.rackspace.com/api"
              xmlns:atom="http://www.w3.org/2005/Atom"
-             xmlns:wadl="http://wadl.dev.java.net/2009/02">
+             xmlns:wadl="http://wadl.dev.java.net/2009/02"
+             xmlns:error="http://docs.rackspace.com/core/error"
+             xmlns:event="http://docs.rackspace.com/core/event">
 
     <!-- Resource Types -->
     <resource_type id="AtomFeed">
@@ -37,6 +39,15 @@
             <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
+    </resource_type>
+    
+    <resource_type id="UsageDeadLetter">
+        <wadl:doc title="UsageDeadLetter" xmlns="http//docbook.org/ns/dockbook">
+            <para>
+                Allow Usage DeadLetter events.
+            </para>
+        </wadl:doc>
+        <method href="#addUsageDeadLetter"/>
     </resource_type>
 
     <!-- METHODS -->
@@ -105,6 +116,48 @@
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
+                <!-- 
+                   We add an assertion to state that only usage events are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error"
+                      style="plain"
+                      required="true"
+                      path="not(/atom:entry/atom:content/error:eventError)"
+                      rax:message="eventErrors are not allowed in this feed."/>
+               <!-- We keep common preprocessing operations, adding common categories etc. -->
+               <rax:preprocess href="atom_hopper_pre.xsl"/>
+            </representation>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+    
+    <method id="addUsageDeadLetter" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Usage Dead Letter" xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Adding a usage dead letter event.</para>
+            <para>When a messaging system determines that it cannot or should not deliver a message, it may elect to 
+                  move the message to a Usage Dead Letter Channel.  This method allows errors to be posted to a dead letter
+                  atom feed.</para>
+        </wadl:doc>
+        <request>
+            <representation mediaType="application/atom+xml" element="atom:entry">
+               <!-- 
+                   We add an assertion to state that only usage dead letters are allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error"
+                      style="plain"
+                      required="true"
+                      path="/atom:entry/atom:content/error:eventError"
+                      rax:message="Only eventErrors are allowed in this feed."/>
+               <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>
         </request>
