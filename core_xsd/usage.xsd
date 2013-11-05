@@ -21,10 +21,10 @@
 
     <!-- Load Product Schema -->
     <import namespace="http://docs.rackspace.com/usage/emailapps/domain"
-            schemaLocation="../generated_product_xsds/emailappsDomain.xsd"/>
+            schemaLocation="../generated_product_xsds/emailAppsDomain.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/emailapps/mailbox"
-            schemaLocation="../generated_product_xsds/emailappsMailbox.xsd"/>
+            schemaLocation="../generated_product_xsds/emailAppsMailbox.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/emailapps/subscription"
             schemaLocation="../generated_product_xsds/emailAppsSubscription.xsd"/>
