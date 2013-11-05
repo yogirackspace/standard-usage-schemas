@@ -34,7 +34,7 @@
         <resource id="netdevice_events" path="netdevice/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="meta_events" path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
         <resource id="usagerecovery_events" path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="deadletter_events" path="deadletter/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#DeadLetter"/>
+        <resource id="usagedeadletter_events" path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
         <resource id="usagesummary_events" path="usagesummary/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="core_events" path="core/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         
