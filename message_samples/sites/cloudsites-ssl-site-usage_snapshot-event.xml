@@ -5,6 +5,7 @@
     type="USAGE_SNAPSHOT"
     resourceId="my.site.com" resourceName="my.site.com"
     id="47b574c4-0400-11e2-b19d-7b8e208cade0"
+    dataCenter="SYD2" region="SYD"
     tenantId="12882" version="1">
     <s:product serviceCode="CloudSites" version="1"
                resourceType="SITE" SSLenabled="true"/>

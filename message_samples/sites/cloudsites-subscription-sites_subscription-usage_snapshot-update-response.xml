@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:db="http://docs.rackspace.com/usage/sites/db">
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13</atom:id>
     <atom:category term="tid:12334"/>
     <atom:category term="rgn:DFW"/>

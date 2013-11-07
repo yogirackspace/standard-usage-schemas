@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="sites/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="region must be present"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:m="http://docs.rackspace.com/usage/sites/metered">
     <atom:title type="text">Sites</atom:title>
@@ -9,7 +10,7 @@
                type="USAGE"
                resourceId="my.site.com" resourceName="my.site.com"
                id="47b574c4-0400-11e2-b19d-7b8e208cade0"
-               dataCenter="IAD3" region="IAD"
+               dataCenter="IAD3" 
                tenantId="12882" version="1">
             <m:product serviceCode="CloudSites" version="1"
                        resourceType="SITE" bandWidthOut="998798976"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="sites/events"?> <!-- ignore <?atom..?>, used for testing -->
-<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
-            xmlns:db="http://docs.rackspace.com/usage/sites/db">
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title type="text">Sites</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
