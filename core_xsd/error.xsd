@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema elementFormDefault="qualified" 
-            targetNamespace="http://docs.rackspace.com/core/error" 
-            xmlns:error="http://docs.rackspace.com/core/error" 
+<xsd:schema elementFormDefault="qualified"
+            targetNamespace="http://docs.rackspace.com/core/error"
+            xmlns:error="http://docs.rackspace.com/core/error"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:html="http://www.w3.org/1999/xhtml"
             xmlns:event="http://docs.rackspace.com/core/event">
 
-    <xsd:import namespace="http://docs.rackspace.com/core/event"
-                schemaLocation="usage.xsd"/>
-                
-    <xsd:import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://www.w3.org/2005/Atom"
-            schemaLocation="entry.xsd"/>
-                            
+    <xsd:import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
+            schemaLocation="usage.xsd"/>
+
     <!-- Complex Types -->
     <xsd:element name="eventError" type="error:EventError" />
 
