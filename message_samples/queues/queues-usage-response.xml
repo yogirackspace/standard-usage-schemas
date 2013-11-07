@@ -6,7 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:56" />
     <atom:category term="cloudqueues.queue.queue.usage" />
-    <atom:title type="text">Cloud Big Data</atom:title>
+    <atom:title type="text">Cloud Queue</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:queues="http://docs.rackspace.com/usage/queues"
