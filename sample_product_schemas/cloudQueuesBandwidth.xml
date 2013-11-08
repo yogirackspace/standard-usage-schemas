@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/usage/queues/bandwidth"
                serviceCode="CloudQueues"
-               version="1" resourceTypes="QUEUE">
+               version="1" groupByResource="false">
     <description>
         Usage message for queue bandwidth.
     </description>

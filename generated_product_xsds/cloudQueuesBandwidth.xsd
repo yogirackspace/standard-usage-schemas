@@ -18,7 +18,7 @@
             <html:p>Usage message for queue bandwidth.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="false" type="USAGE"/>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>
@@ -26,7 +26,6 @@
                  use="required"
                  type="xsd:Name"
                  fixed="CloudQueues"/>
-      <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
       <attribute name="bandwidthInPublic"
                  use="required"
                  type="p:bandwidthInPublicType">
@@ -76,16 +75,6 @@
          </annotation>
       </attribute>
    </complexType>
-   <simpleType name="ResourceTypes">
-      <annotation>
-         <documentation>
-            <html:p>Resource Types for this product.</html:p>
-         </documentation>
-      </annotation>
-      <restriction base="xsd:token">
-         <enumeration value="QUEUE"/>
-      </restriction>
-   </simpleType>
    <simpleType name="bandwidthInPublicType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
