@@ -15,11 +15,11 @@
     <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="usage.xsd"/>
 
+    <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/error"
+            schemaLocation="error.xsd"/>
+
     <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="core.xsd"/>
-
-    <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/core/error"
-            schemaLocation="error.xsd"/>
 
     <element name="entry" type="atom:UsageEntry"/>
 
@@ -106,7 +106,7 @@
                 <sequence>
                     <choice>
                         <element ref="event:event"/>
-                        <element name="eventError" type="error:EventError"/>
+                        <element ref="error:eventError"/>
                         <any vc:minVersion="1.1" minOccurs="1" namespace="##other" processContents="skip"/>
                     </choice>
                 </sequence>
