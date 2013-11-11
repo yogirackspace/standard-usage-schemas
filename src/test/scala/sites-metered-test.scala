@@ -30,6 +30,7 @@ class SitesMeteredSuite extends BaseUsageSuite {
              type="USAGE"
              resourceId="my.site.com" resourceName="my.site.com"
              id="47b574c4-0400-11e2-b19d-7b8e208cade0"
+             dataCenter="DFW1" region="DFW"
              tenantId="12882" version="1">
         <m:product serviceCode="CloudSites" version="1"
                    resourceType="SITE" bandWidthOut="998798976"

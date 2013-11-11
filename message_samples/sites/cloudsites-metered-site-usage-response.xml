@@ -2,14 +2,14 @@
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:m="http://docs.rackspace.com/usage/sites/metered">
     <atom:id>urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0</atom:id>
     <atom:category term="tid:12882" />
-    <atom:category term="rgn:GLOBAL" />
-    <atom:category term="dc:GLOBAL" />
+    <atom:category term="rgn:IAD" />
+    <atom:category term="dc:IAD3" />
     <atom:category term="rid:my.site.com" />
     <atom:category term="cloudsites.metered.site.usage" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T19:08:46.881Z</atom:updated>
     <atom:content type="application/xml">
-        <event dataCenter="GLOBAL" endTime="2012-06-14T11:19:52Z" environment="PROD" id="47b574c4-0400-11e2-b19d-7b8e208cade0" region="GLOBAL" resourceId="my.site.com" resourceName="my.site.com" startTime="2012-06-14T10:19:52Z" tenantId="12882" type="USAGE" version="1">
+        <event dataCenter="IAD3" endTime="2012-06-14T11:19:52Z" environment="PROD" id="47b574c4-0400-11e2-b19d-7b8e208cade0" region="IAD" resourceId="my.site.com" resourceName="my.site.com" startTime="2012-06-14T10:19:52Z" tenantId="12882" type="USAGE" version="1">
             <m:product bandWidthOut="998798976" computeCycles="299" requestCount="1000" resourceType="SITE" serviceCode="CloudSites" version="1" />
         </event>
     </atom:content>

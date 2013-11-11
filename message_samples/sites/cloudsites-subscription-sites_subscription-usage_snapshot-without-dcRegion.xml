@@ -8,14 +8,12 @@
                version="1" tenantId="12334"
                resourceId="256638"
                resourceName="Mosso Standard Offering"
-               clientUsername="a1user"
-               agentUsername="racker1"
                id="560490c6-6c63-11e1-adfe-27851d5aed13"
-               type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
+               type="USAGE_SNAPSHOT"
                eventTime="2012-03-12T11:51:11Z">
             <sites:product version="1" serviceCode="CloudSites"
                            resourceType="SITES_SUBSCRIPTION" 
-                           action="UPDATE" isNewAccount="false"/>
+                           action="SUBSCRIBE" isNewAccount="true"/>
         </event>
     </atom:content>
 </atom:entry>

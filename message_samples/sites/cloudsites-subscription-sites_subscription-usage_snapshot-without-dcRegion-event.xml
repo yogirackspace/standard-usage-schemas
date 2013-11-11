@@ -1,0 +1,12 @@
+<event xmlns="http://docs.rackspace.com/core/event"
+       xmlns:sites="http://docs.rackspace.com/usage/sites/subscription"
+       version="1" tenantId="12334"
+       resourceId="256638"
+       resourceName="Mosso Standard Offering"
+       id="560490c6-6c63-11e1-adfe-27851d5aed13"
+       type="USAGE_SNAPSHOT"
+       eventTime="2012-03-12T11:51:11Z">
+    <sites:product version="1" serviceCode="CloudSites"
+                 resourceType="SITES_SUBSCRIPTION" 
+                 action="SUBSCRIBE" isNewAccount="true"/>
+</event>

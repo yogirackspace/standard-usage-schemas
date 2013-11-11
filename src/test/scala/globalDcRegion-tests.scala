@@ -112,6 +112,24 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
                                           </atom:content>
                                         </atom:entry>
 
+  val sitesMessageWithoutDCRegion = <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
+                                                xmlns:s="http://docs.rackspace.com/usage/sites/ssl">
+                              <atom:title type="text">Sites</atom:title>
+                              <atom:content type="application/xml">
+                                <event
+                                xmlns="http://docs.rackspace.com/core/event"
+                                xmlns:s="http://docs.rackspace.com/usage/sites/ssl"
+                                eventTime="2012-06-14T10:19:52Z"
+                                type="USAGE_SNAPSHOT"
+                                resourceId="my.site.com" resourceName="my.site.com"
+                                id="47b574c4-0400-11e2-b19d-7b8e208cade0"
+                                tenantId="12882" version="1">
+                                  <s:product serviceCode="CloudSites" version="1"
+                                             resourceType="SITE" SSLenabled="true"/>
+                                </event>
+                              </atom:content>
+                            </atom:entry>
+
   //
   //  A valid CBS entry, used for the tests below
   //
@@ -219,6 +237,12 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
   // #6
   test ("#6 - Events without Datacenter should be not be allowed on product feed (cbs/events) for CBS events") {
     val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithoutDCRegion)
+    assertResultFailed(atomValidator.validate(req, response, chain))
+  }
+
+  // #6
+  test ("#6 - Events without Datacenter should be not be allowed on product feed (sites/events) for Sites SSL events") {
+    val req = request("POST", "/sites/events", "application/atom+xml", sitesMessageWithoutDCRegion)
     assertResultFailed(atomValidator.validate(req, response, chain))
   }
 

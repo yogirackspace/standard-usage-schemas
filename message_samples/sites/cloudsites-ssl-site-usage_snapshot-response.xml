@@ -2,14 +2,14 @@
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:m="http://docs.rackspace.com/usage/sites/metered">
     <atom:id>urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0</atom:id>
     <atom:category term="tid:12882" />
-    <atom:category term="rgn:GLOBAL" />
-    <atom:category term="dc:GLOBAL" />
+    <atom:category term="rgn:SYD" />
+    <atom:category term="dc:SYD2" />
     <atom:category term="rid:my.site.com" />
     <atom:category term="cloudsites.ssl.site.usage_snapshot" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T19:17:37.601Z</atom:updated>
     <atom:content type="application/xml">
-        <event xmlns:s="http://docs.rackspace.com/usage/sites/ssl" dataCenter="GLOBAL" environment="PROD" eventTime="2012-06-14T10:19:52Z" id="47b574c4-0400-11e2-b19d-7b8e208cade0" region="GLOBAL" resourceId="my.site.com" resourceName="my.site.com" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+        <event xmlns:s="http://docs.rackspace.com/usage/sites/ssl" dataCenter="SYD2" environment="PROD" eventTime="2012-06-14T10:19:52Z" id="47b574c4-0400-11e2-b19d-7b8e208cade0" region="SYD" resourceId="my.site.com" resourceName="my.site.com" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
             <s:product SSLenabled="true" resourceType="SITE" serviceCode="CloudSites" version="1" />
         </event>
     </atom:content>
