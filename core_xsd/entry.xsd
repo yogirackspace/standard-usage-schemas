@@ -2,6 +2,7 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:error="http://docs.rackspace.com/core/error"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -13,6 +14,9 @@
 
     <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="usage.xsd"/>
+
+    <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/error"
+            schemaLocation="error.xsd"/>
 
     <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="core.xsd"/>
@@ -102,6 +106,7 @@
                 <sequence>
                     <choice>
                         <element ref="event:event"/>
+                        <element ref="error:eventError"/>
                         <any vc:minVersion="1.1" minOccurs="1" namespace="##other" processContents="skip"/>
                     </choice>
                 </sequence>
