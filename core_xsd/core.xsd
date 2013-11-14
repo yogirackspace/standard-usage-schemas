@@ -210,16 +210,6 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="ranEnrichmentStrategy" type="event:RanEnrichmentStrategy" use="optional"
-                        default="CI_SERVICE">
-                    <annotation>
-                        <documentation>
-                            <html:p>
-                                Method by which the tenant ID is mapped to a Rackspace Account Number.
-                            </html:p>
-                        </documentation>
-                    </annotation>
-                </attribute>
                 <assert vc:minVersion="1.1" test="if (*:product/@resourceType) then @resourceId else true()"
                         xerces:message="If a resource type is specified then so should a resourceId"
                         saxon:message="If a resource type is specified then so should a resourceId"
@@ -582,21 +572,6 @@
             <enumeration value="DEV"/>
             <enumeration value="UAT"/>
             <enumeration value="LOCAL"/>
-        </restriction>
-    </simpleType>
-
-    <simpleType name="RanEnrichmentStrategy">
-        <annotation>
-            <documentation>
-                <html:p>
-                    Method by which the tenant ID is mapped to a Rackspace Account Number.
-                </html:p>
-            </documentation>
-        </annotation>
-        <restriction base="xsd:string">
-            <enumeration value="NONE"/>
-            <enumeration value="CI_SERVICE"/>
-            <enumeration value="INTEGER_RANGE"/>
         </restriction>
     </simpleType>
 </schema>

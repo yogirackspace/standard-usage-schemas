@@ -224,6 +224,9 @@
                         <xsl:if test="@groupByResource">
                             <xsl:attribute name="groupByResource" select="@groupByResource"/>
                         </xsl:if>
+                        <xsl:if test="@ranEnrichmentStrategy">
+                            <xsl:attribute name="ranEnrichmentStrategy" select="@ranEnrichmentStrategy"/>
+                        </xsl:if>
                         <xsl:if test="@type">
                             <xsl:attribute name="type" select="@type"/>
                         </xsl:if>

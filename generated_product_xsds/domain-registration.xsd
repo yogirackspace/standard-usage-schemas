@@ -18,7 +18,9 @@
             <html:p>Subscription event for Domain Registration.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE_SNAPSHOT"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE_SNAPSHOT"/>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>

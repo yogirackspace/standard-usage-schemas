@@ -18,7 +18,9 @@
             <html:p>CBS specific usage fields related to the volume.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>

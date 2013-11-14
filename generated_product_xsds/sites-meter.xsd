@@ -18,7 +18,9 @@
             <html:p>Metered usage for a site.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
             <usage:aggregationPeriods>
                <usage:aggregationPeriod>PT6H</usage:aggregationPeriod>
                <usage:aggregationPeriod>PT18H</usage:aggregationPeriod>

@@ -320,6 +320,15 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="ranEnrichmentStrategy" type="schema:RANEnrichmentStrategy"
+                           use="optional" default="CI_SERVICE">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
 
                 <assert vc:minVersion="1.1"
                         test="if ((@groupByResource = true()) and (not(@resourceTypes))) then false() else true()"
@@ -1365,5 +1374,18 @@
     </simpleType>
     <simpleType name="TypeList">
         <list itemType="schema:Type"/>
+    </simpleType>
+    <simpleType name="RANEnrichmentStrategy">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Method by which the tenant ID is mapped to a Rackspace Account Number (RAN).
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="CI_SERVICE"/>
+            <enumeration value="INTEGER_RANGE"/>
+        </restriction>
     </simpleType>
 </schema>

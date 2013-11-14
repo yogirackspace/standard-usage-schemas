@@ -18,7 +18,9 @@
             <html:p>CloudFiles account CDN usage information.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="false" type="USAGE"/>
+            <usage:core groupByResource="false"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>
