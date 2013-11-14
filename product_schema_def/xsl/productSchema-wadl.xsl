@@ -8,6 +8,7 @@
     xmlns:sch="http://docs.rackspace.com/core/usage/schema"
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:error="http://docs.rackspace.com/core/error"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:domain="http://docs.rackspace.com/event/domain"
     xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
