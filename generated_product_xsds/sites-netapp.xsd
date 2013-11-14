@@ -18,7 +18,9 @@
             <html:p>Total netapp for a particular tenant.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="false" type="USAGE_SNAPSHOT"/>
+            <usage:core groupByResource="false"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE_SNAPSHOT"/>
             <usage:aggregationPeriods>
                <usage:aggregationPeriod>PT6H</usage:aggregationPeriod>
                <usage:aggregationPeriod>PT18H</usage:aggregationPeriod>

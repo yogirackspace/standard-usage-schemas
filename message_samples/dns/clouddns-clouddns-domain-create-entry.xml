@@ -11,8 +11,7 @@
                resourceName="mydomain.mycompany.com"
                dataCenter="DFW1" region="DFW"
                eventTime="2013-05-12T11:51:11Z"
-               type="CREATE"
-               ranEnrichmentStrategy="INTEGER_RANGE">
+               type="CREATE">
             <clouddns:product version="1" serviceCode="CloudDNS"
                          resourceType="DOMAIN"/>
         </event>

@@ -68,6 +68,16 @@
                    default="true" use="optional"/>
         <attribute name="type" type="usage:TypeList"
                    default="USAGE" use="optional"/>
+        <attribute name="ranEnrichmentStrategy" type="usage:RANEnrichmentStrategy"
+                   default="CI_SERVICE" use="optional">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        Method by which the tenant ID is mapped to a Rackspace Account Number (RAN).
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
     </complexType>
 
     <complexType name="AggregationPeriods">
@@ -197,5 +207,18 @@
 
     <simpleType name="TypeList">
         <list itemType="event:EventType"/>
+    </simpleType>
+    <simpleType name="RANEnrichmentStrategy">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Method by which the tenant ID is mapped to a Rackspace Account Number (RAN).
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="CI_SERVICE"/>
+            <enumeration value="INTEGER_RANGE"/>
+        </restriction>
     </simpleType>
 </schema>

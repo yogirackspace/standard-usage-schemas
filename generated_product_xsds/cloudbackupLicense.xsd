@@ -64,7 +64,9 @@
             <html:p>Cloud Backup periodic license event.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>
@@ -102,7 +104,9 @@
             <html:p>Cloud Backup periodic license event (version 2).</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>

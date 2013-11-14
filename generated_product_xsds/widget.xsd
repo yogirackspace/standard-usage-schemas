@@ -66,7 +66,9 @@
             <html:p>Widget specific user fields</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>
@@ -208,7 +210,9 @@
             <html:p>Widget specific user fields. Changes from version 1 message: 1. added THINGY resource type 2. Widget ID list is now a list of longs 3. some_int has a max of 22000 4. Added BAD to allowed values in enum list 5. Made str attribute searchable</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>

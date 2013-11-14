@@ -64,7 +64,9 @@
             <html:p>MaaS specific usage fields.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>
@@ -115,7 +117,9 @@
             <html:p>MaaS specific usage fields.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
          </appinfo>
       </annotation>
       <complexContent>

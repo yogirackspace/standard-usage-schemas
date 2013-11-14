@@ -18,7 +18,9 @@
             <html:p>Widget specific user fields</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true" type="USAGE"/>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
             <usage:aggregationPeriods>
                <usage:aggregationPeriod>P1D</usage:aggregationPeriod>
             </usage:aggregationPeriods>
