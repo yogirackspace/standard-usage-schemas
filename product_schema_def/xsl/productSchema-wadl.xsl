@@ -133,12 +133,12 @@
                                         <param name="checkDatacenter"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Monitoring event, @dataCenter must be present and can not be GLOBAL."/>
                                         <param name="checkRegion"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Monitoring event, @region must be present and can not be GLOBAL."/>
                                         <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
@@ -146,12 +146,12 @@
                                         <param name="checkDatacenter"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Sites event, @dataCenter must be present and can not be GLOBAL."/>
                                         <param name="checkRegion"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Sites event, @region must be present and can not be GLOBAL."/>
                                         <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
@@ -159,12 +159,12 @@
                                         <param name="checkDatacenter"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Domain event, @dataCenter must be present and can not be GLOBAL."/>
                                         <param name="checkRegion"
                                                style="plain"
                                                required="true"
-                                               path="if ( not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
+                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type Domain of event, @region must be present and can not be GLOBAL."/>
                                         <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
@@ -172,12 +172,12 @@
                                         <param name="checkDatacenter"
                                                style="plain"
                                                required="true"
-                                               path="if ( (count(/atom:entry/atom:content/event:event) > 0 and not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
+                                               path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
                                                rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
                                         <param name="checkRegion"
                                                style="plain"
                                                required="true"
-                                               path="if ( (count(/atom:entry/atom:content/event:event) > 0 and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
+                                               path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
                                                rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
                                         <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:otherwise>

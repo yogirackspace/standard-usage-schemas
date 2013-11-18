@@ -112,6 +112,16 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
                                           </atom:content>
                                         </atom:entry>
 
+  val maasNonStandardMessage = "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
+                               "<title>MaasEvent</title>" +
+                               "<category term=\"monitoring.lifecycle\"/>" +
+                               "<content type=\"application/json\">" +
+                               "  {\"txn_id\": \".rh-DL6s.h-ord1-maas-stage-api0.r-3hj7YV2w.c-3297.ts-1384473268889.v-31b5052\", \"tenant_id\": \"5821444\"," +
+                               "   \"type\": \"check.create\", \"account_id\": \"acaHrD8D0G\", \"key\": \"chCZwVK1b1\",\"entity_id\":\"ensrj2sgwg\", " +
+                               "    \"timestamp\": 1384473269241}" +
+                               "</content>" +
+                               "</entry>"
+
   val sitesMessageWithoutDCRegion = <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
                                                 xmlns:s="http://docs.rackspace.com/usage/sites/ssl">
                               <atom:title type="text">Sites</atom:title>
@@ -219,6 +229,12 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
     val req = request("POST", "/monitoring/events", "application/atom+xml", validMaaSMessageWithoutDCRegion)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:GLOBAL'")
+  }
+
+  // #3a
+  test ("#3a - Monitoring non-standard events should be accepted on product feed (monitoring/events)") {
+    val req = request("POST", "/monitoring/events", "application/atom+xml", maasNonStandardMessage)
+    atomValidator.validate(req, response, chain)
   }
 
   // #4
