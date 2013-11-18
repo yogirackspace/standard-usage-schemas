@@ -1,6 +1,14 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.31.1**  
+
+**usage-schema-1.31.0**  
+2013-11-18 | B-59357 - Update CFiles Storage Usage Event - add WEIGHTED_AVG on Disk (Greg Sharek)  
+2013-11-18 | D-16259: add checks to allow non-starndard events w/o dc/region (Shinta Smith)  
+2013-11-14 | B-58665: move ranEnrichmentStrategy to be part of <appinfo> of product schema (Shinta Smith)  
+2013-11-13 | B-59122: add /ssl feed (Shinta Smith)  
+
 **usage-schema-1.30.1**  
 2013-11-08 | D-16172: set groupByResource=false for Cloud Queues Bandwidth, remove resourceId and resourceName for all queues events (Shinta Smith)  
 2013-11-06 | D-15931: fix issues where some Sites events without DC/Region are not rejected (Shinta Smith)  
