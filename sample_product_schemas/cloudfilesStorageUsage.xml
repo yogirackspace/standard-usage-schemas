@@ -6,7 +6,7 @@
     <description>
       CloudFiles account storage information.
     </description>
-    <attribute name="disk" type="unsignedLong" use="required"
+    <attribute name="disk" type="unsignedLong" use="required" aggregateFunction="WEIGHTED_AVG"
                unitOfMeasure="B" max="112589990684262400">
         The amount of disk usage in bytes.
     </attribute>

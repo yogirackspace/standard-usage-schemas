@@ -34,7 +34,7 @@
                <html:p>The amount of disk usage in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
+               <usage:attributes aggregateFunction="WEIGHTED_AVG" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
