@@ -5,6 +5,7 @@
     <grammars>
         <include href="core_xsd/entry.xsd"/>
         <include href="core_xsd/error.xsd"/>
+        <include href="core_xsd/usage-summary.xsd"/>
     </grammars>
     <resources base="http://localhost/">
         <!-- Static paths for administration -->

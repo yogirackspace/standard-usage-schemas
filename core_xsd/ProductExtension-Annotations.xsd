@@ -202,6 +202,10 @@
                 Anything else is labeled as a COUNT.
             -->
             <enumeration value="COUNT"/>
+            <!--
+                Unless not applicable.
+            -->
+            <xsd:enumeration value="NOT_APPLICABLE"/>
         </restriction>
     </simpleType>
 

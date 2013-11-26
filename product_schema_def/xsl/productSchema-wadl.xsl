@@ -9,6 +9,7 @@
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:error="http://docs.rackspace.com/core/error"
+    xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:domain="http://docs.rackspace.com/event/domain"
     xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
@@ -75,6 +76,7 @@
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
                                 <xsl:call-template name="sch:forbid-event-error" />
+                                <xsl:call-template name="sch:forbid-usage-summary" />
 
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
@@ -247,6 +249,13 @@
                required="true"
                path="not(/atom:entry/atom:content/error:eventError)"
                rax:message="eventErrors are not allowed in this feed."/>        
+    </xsl:template>
+    <xsl:template name="sch:forbid-usage-summary">
+        <param name="forbid-usage-summary" 
+               style="plain" 
+               required="true"
+               path="not(/atom:entry/atom:content/usage-summary:usageSummary)"
+               rax:message="usageSummary elements are not allowed in this feed."/>        
     </xsl:template>
     <xsl:template name="sch:param">
         <xsl:param name="schemas" as="node()*"/>
