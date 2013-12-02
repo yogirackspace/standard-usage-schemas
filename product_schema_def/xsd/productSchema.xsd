@@ -148,6 +148,38 @@
                 </documentation>
             </annotation>
         </attribute>
+        <assert vc:minVersion="1.1"
+                test="every $attribute in schema:attribute satisfies
+                         if ($attribute/@withResource) then
+                             empty(for $r in tokenize(string($attribute/@withResource), ' ') return
+                                   if ($r = tokenize(string(@resourceTypes), ' ')) then () else true())
+                         else true()"
+                xerces:message="The 'withResource' attribute should reference a resource from the 'resourceTypes' attribute."
+                saxon:message="The 'withResource' attribute should reference a resource from the 'resourceTypes' attribute.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The 'withResource' attribute should reference a resource from the 'resourceTypes' attribute.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
+        <assert vc:minVersion="1.1"
+                test="every $attribute in schema:attribute satisfies
+                         if ($attribute/@withEventType) then
+                             empty(for $r in tokenize(string($attribute/@withEventType), ' ') return
+                                   if ($r = tokenize(string(@type), ' ')) then () else true())
+                         else true()"
+                xerces:message="The 'withEventType' attribute should reference a type from the 'types' attribute."
+                saxon:message="The 'withEventType' attribute should reference a type from the 'types' attribute.">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        The 'withEventType' attribute should reference a type from the 'types' attribute.
+                    </html:p>
+                </documentation>
+            </annotation>
+        </assert>
     </complexType>
 
     <complexType name="ProductSimpleSchema">
@@ -583,6 +615,33 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="withEventType" type="usage:TypeList" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The attribute is only valid with
+                                events of this type.  This is a
+                                whitespace seperated list "USAGE
+                                CREATE DELETE".  Currently extended
+                                event types are not supported.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="withResource" type="schema:NameList" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The attribute is only valid with
+                                events that reference this type of
+                                resource. This is a whitespace
+                                seperated list "WIDGET GADGET". The
+                                items on this list must be referenced
+                                in the resourceTypes attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (@default and @use) then @use='optional' else true()"
                         xerces:message="The attribute has a default value so 'use' must be 'optional'"
                         saxon:message="The attribute has a default value so 'use' must be 'optional'">
@@ -662,6 +721,17 @@
                         <documentation>
                             <html:p>
                                 The minLength is only allowed with string types.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@withEventType) then not('EXTENDED' = @withEventType) else true()"
+                        xerces:message="'withEventType' cannot be 'EXTENDED'"
+                        saxon:message="'withEventType' cannot be 'EXTENDED'">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                               The withEventType attribute cannot be equal to 'EXTENDED'.
                             </html:p>
                         </documentation>
                     </annotation>

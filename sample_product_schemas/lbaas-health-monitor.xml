@@ -1,0 +1,60 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/lbaas/health-monitor"
+               serviceCode="CloudLoadBalancers"
+               version="1"
+               resourceTypes="HEALTH_MONITOR"
+               type="CREATE UPDATE DELETE">
+    <description>
+        Health monitor events.
+    </description>
+
+    <attribute name="type" type="string"
+               allowedValues="CONNECT HTTP HTTPS"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        Type of health monitor.
+    </attribute>
+
+    <attribute name="delay" type="integer"
+               min="1" max="3600"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        Minimum seconds to wait before executing the health monitor.
+    </attribute>
+
+    <attribute name="timeout" type="integer"
+               min="1" max="300"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        Maximum number of seconds to wait for a connection to be
+        established before timing out.
+    </attribute>
+
+    <attribute name="attemptsBeforeDeactivation" type="integer"
+               min="1" max="10"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        Number of permissible monitor failures before removing a node
+        from rotation.
+    </attribute>
+
+    <attribute name="path" type="string"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        Path.
+    </attribute>
+
+    <attribute name="monitorStatusRegex" type="string"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        A regular expression that will be used to evaluate the HTTP
+        status code returned in the response.
+    </attribute>
+
+    <attribute name="bodyRegex" type="string"
+               use="optional"
+               withEventType="CREATE UPDATE">
+        A regular expression that will be used to evaluate the
+        contents of the body of the response.
+    </attribute>
+</productSchema>
