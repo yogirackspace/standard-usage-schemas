@@ -59,6 +59,18 @@
     <import namespace="http://docs.rackspace.com/usage/lbaas"
             schemaLocation="../generated_product_xsds/lbaas.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/event/lbaas/lb"
+            schemaLocation="../generated_product_xsds/lbaas-lb.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/lbaas/health-monitor"
+            schemaLocation="../generated_product_xsds/lbaas-health-monitor.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/lbaas/node"
+            schemaLocation="../generated_product_xsds/lbaas-node.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/lbaas/vip"
+            schemaLocation="../generated_product_xsds/lbaas-vip.xsd"/>
+
     <import namespace="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
             schemaLocation="../generated_product_xsds/cloudfilesBandwidthUsage.xsd"/>
 

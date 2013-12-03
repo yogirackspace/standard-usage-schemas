@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="lbaas/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:lb="http://docs.rackspace.com/event/lbaas/lb">
+    <atom:title type="text">Update SSL Termination</atom:title>
+    <atom:summary type="text">
+        updated ssl termination.
+    </atom:summary>
+    <atom:content type="application/xml">
+        <event resourceName="My LB"
+               resourceId="887765"
+               eventTime="2012-06-15T10:19:52Z" region="DFW" dataCenter="DFW1" type="UPDATE"
+               id="7ba76892-4058-11e3-806b-002500a28a7a"
+               severity="INFO"
+               tenantId="1223" version="1">
+            <lb:product version="1" resourceType="SSL_TERMINATION"
+                        serviceCode="CloudLoadBalancers"
+                        sslTerminationEnabled="true"
+                        secureTrafficOnly="true"
+                        securePort="2145"/>
+        </event>
+    </atom:content>
+</atom:entry>

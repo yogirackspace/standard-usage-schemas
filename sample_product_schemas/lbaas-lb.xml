@@ -1,0 +1,166 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/lbaas/lb"
+               serviceCode="CloudLoadBalancers"
+               version="1"
+               resourceTypes="LOADBALANCER CONNECTION_THROTTLE
+                              ACCESS_LIST SESSION_PERSISTENCE
+                              CONNECTION_LOGGING CONTENT_CACHING
+                              SSL_TERMINATION"
+               type="CREATE UPDATE DELETE">
+    <description>
+        Load balancer system event.
+    </description>
+
+    <!-- Load balancer attributes -->
+
+    <attribute name="algorithm" type="string"
+               use="optional"
+               allowedValues="LEAST_CONNECTIONS RANDOM ROUND_ROBIN WEIGHTED_LEAST_CONNECTIONS
+               WEIGHTED_ROUND_ROBIN"
+               withEventType="CREATE UPDATE" withResource="LOADBALANCER">
+        Algorithm that defines how traffic should be directed between back-end nodes.
+    </attribute>
+
+    <attribute name="protocol" type="string" use="optional"
+               allowedValues="DNS_TCP DNS_UDP FTP HTTP HTTPS IMAPS IMAPv4 LDAP LDAPS MYSQL POP3 POP3S
+               SMTP TCP TCP_CLIENT_FIRST UDP UDP_STREAM SFTP"
+               withEventType="CREATE UPDATE" withResource="LOADBALANCER">
+        Protocol of the service being load balanced.
+    </attribute>
+
+    <attribute name="port" type="int" max="65535" min="1"
+               use="optional"
+               withEventType="CREATE UPDATE" withResource="LOADBALANCER">
+        Port number of the service being load balanced.
+    </attribute>
+
+    <attribute name="timeout" type="int"
+               use="optional"
+               withEventType="CREATE UPDATE" withResource="LOADBALANCER">
+        Timecount configured on the load balancer.
+    </attribute>
+
+    <attribute name="halfClose" type="boolean"
+               use="optional"
+               withEventType="CREATE UPDATE" withResource="LOADBALANCER">
+        Enable or Disable Half-Closed support for the load balancer. Half-Closed support provides the ability for one
+        end of the connection to terminate its output, while still receiving data from the other end. Only available
+        for TCP and TCP_CLIENT_FIRST protocol values.
+    </attribute>
+
+    <!-- Access list configuration items of a load balancer -->
+
+    <attribute name="networkItemId" type="int"
+               use="required"
+               withEventType="UPDATE DELETE"
+               withResource="ACCESS_LIST">
+        Netowork item ID.
+    </attribute>
+
+    <attribute name="accessAddress" type="string"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="ACCESS_LIST">
+        IP address.
+    </attribute>
+
+    <attribute name="accessType" type="string"
+               allowedValues="ALLOW DENY"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="ACCESS_LIST">
+        Access type.  Either 'ALLOW' or 'DENY'.
+    </attribute>
+
+    <!-- Connection throttle configuration items of a load balancer -->
+
+    <attribute name="minConnections" type="integer"
+               min="0" max="1000"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONNECTION_THROTTLE">
+        Minimum number of connections.
+    </attribute>
+
+    <attribute name="maxConnections" type="integer"
+               min="0" max="100000"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONNECTION_THROTTLE">
+        Maximum number of connections.
+    </attribute>
+
+    <attribute name="maxConnectionRate" type="integer"
+               min="0" max="100000"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONNECTION_THROTTLE">
+        Maximum connection rate.
+    </attribute>
+
+    <attribute name="rateInterval" type="integer"
+               min="1" max="3600"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONNECTION_THROTTLE">
+        Rate interval.
+    </attribute>
+
+    <!-- Session Persistence configuration items of a load balancer -->
+
+    <attribute name="persistenceType" type="string"
+               allowedValues="HTTP_COOKIE SOURCE_IP"
+               withEventType="UPDATE"
+               withResource="SESSION_PERSISTENCE"
+               use="optional">
+        Method for persisting the session.  Either 'HTTP_COOKIE' or 'SOURCE_IP'.
+    </attribute>
+
+    <!-- Connection logging attribute -->
+
+    <attribute name="connectionLogEnabled" type="boolean"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONNECTION_LOGGING">
+        If connection log is enabled.
+    </attribute>
+
+    <!-- Content caching attribute -->
+
+    <attribute name="contentCachingEnabled" type="boolean"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="CONTENT_CACHING"
+               >
+        If content caching is enabled.
+    </attribute>
+
+    <!-- ssl termination attributes -->
+
+    <attribute name="sslTerminationEnabled" type="boolean"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="SSL_TERMINATION">
+        If ssl termination is enabled.
+    </attribute>
+
+    <attribute name="secureTrafficOnly" type="boolean"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="SSL_TERMINATION">
+        Secure traffic only.
+    </attribute>
+
+    <attribute name="securePort" type="int" max="65535" min="1"
+               use="optional"
+               withEventType="UPDATE"
+               withResource="SSL_TERMINATION">
+        Port number for SSL.
+    </attribute>
+
+    <!-- Assertions -->
+
+    <xpathAssertion test="if(@halfClose) then (@protocol = 'TCP' or @protocol = 'TCP_CLIENT_FIRST') else true()">
+        halfClose is only valid for TCP and TCP_CLIENT_FIRST protocol values.
+    </xpathAssertion>
+</productSchema>

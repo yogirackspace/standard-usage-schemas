@@ -2,7 +2,7 @@
     namespace="http://docs.rackspace.com/usage/widget"
     version="3"
     serviceCode="Widget"
-    type="UPDATE"
+    type="UPDATE DELETE"
     resourceTypes="WIDGET GADGET THINGY">
     <description>
         Test changing the message type.
@@ -12,6 +12,18 @@
     </attribute>
     <attribute name="mid" type="UUID" use="required">
         An example of an UUID.
+    </attribute>
+    <attribute name="delReqAttribute" type="string" use="required"
+               withEventType="DELETE">
+        An example attribute requried only on DELETE events.
+    </attribute>
+    <attribute name="delOptionalAttribute" type="string" use="optional"
+               withEventType="DELETE">
+        An example attribute optional only on DELETE events.
+    </attribute>
+    <attribute name="widgetOnlyAttribute" type="string" use="required"
+               withResource="WIDGET">
+        A widget only attribute.
     </attribute>
     <attributeGroup name="metaData" minOccurs="0" maxOccurs="unbounded">
         <description>

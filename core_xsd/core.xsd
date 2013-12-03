@@ -82,6 +82,15 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="resourceURI" type="xsd:anyURI" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A URI that uniquely identitfies the resource.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="id" type="event:UUID" use="required">
                     <annotation>
                         <documentation>
@@ -123,6 +132,18 @@
                                 set this type to EXTENDED and add an
                                 eventType attribute to your product
                                 schema.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="severity" type="event:Severity" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Identifies the severity of the event.
+                                Valid values are INFO, WARNING,
+                                CRITICAL. This is only valid for
+                                system events, not usage events.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -231,6 +252,18 @@
                         <documentation>
                             <html:p>
                                 A usage message must always contain a tenant id.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT')) then not(@severity) else true()"
+                        xerces:message="A usage message may not contain a severity"
+                        saxon:message="A usage message may not contain a severity"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A usage message may not contain a severity
                             </html:p>
                         </documentation>
                     </annotation>
@@ -442,6 +475,21 @@
                 test="ends-with(string($value),'Z') or ends-with(string($value),'+00:00') or ends-with(string($value),'-00:00')"
                 xerces:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."
                 saxon:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="Severity">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The severity of the envent.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="INFO"/>
+            <enumeration value="WARNING"/>
+            <enumeration value="CRITICAL"/>
         </restriction>
     </simpleType>
 

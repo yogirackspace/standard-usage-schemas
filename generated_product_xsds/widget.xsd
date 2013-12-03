@@ -361,7 +361,7 @@
             <html:p>Test changing the message type.</html:p>
          </documentation>
          <appinfo>
-            <usage:core type="UPDATE"/>
+            <usage:core type="UPDATE DELETE"/>
          </appinfo>
       </annotation>
       <complexContent>
@@ -436,6 +436,36 @@
                   </documentation>
                   <appinfo>
                      <usage:attributes/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="delReqAttribute" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>An example attribute requried only on DELETE events.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes withEventType="DELETE"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="delOptionalAttribute" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>An example attribute optional only on DELETE events.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes withEventType="DELETE"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="widgetOnlyAttribute" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>A widget only attribute.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes withResource="WIDGET"/>
                   </appinfo>
                </annotation>
             </attribute>
