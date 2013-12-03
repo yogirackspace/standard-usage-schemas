@@ -51,6 +51,7 @@
             <element name="title" type="atom:Title" minOccurs="0"/>
             <element name="id" type="xsd:anyURI" minOccurs="0"/>
             <element name="updated" type="xsd:dateTime" minOccurs="0"/>
+            <element name="summary" type="atom:LooseContent" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
                      minOccurs="0" maxOccurs="20"/> <!-- Setting a maximun of 20 categories to prevent abuse -->
             <!--
@@ -72,6 +73,7 @@
             <element name="updated" type="xsd:dateTime" minOccurs="0"/>
             <element name="category" type="atom:UsageCategory" 
                      minOccurs="0" maxOccurs="20"/>
+            <element name="summary" type="atom:LooseContent" minOccurs="0"/>
             <element name="content" type="atom:UsageContent">
             </element>
             <any maxOccurs="20" minOccurs="0" processContents="skip"/>

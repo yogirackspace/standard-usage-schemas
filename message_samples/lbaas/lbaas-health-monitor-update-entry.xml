@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="lbaas/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:lbhm="http://docs.rackspace.com/event/lbaas/health-monitor">
+    <atom:title type="text">Health Monitor UPDATE</atom:title>
+    <atom:summary type="text">
+        Health Monitor Updated.
+    </atom:summary>
+    <atom:content type="application/xml">
+        <event resourceName="My Health Monitor"
+               resourceId="6e688508-4058-11e3-851d-002500a28a7a"
+               resourceURI="http://dfw1.lbaas.rackspace.com/path/to/monitor/6e688508-4058-11e3-851d-002500a28a7a"
+               eventTime="2012-06-15T10:19:52Z" region="DFW" dataCenter="DFW1" type="UPDATE"
+               severity="INFO"
+               id="7ba76892-4058-11e3-806b-002500a28a7a"
+               tenantId="1223" version="1">
+            <lbhm:product version="1" resourceType="HEALTH_MONITOR"
+                          serviceCode="CloudLoadBalancers"
+                          type="CONNECT"
+                          delay="40" timeout="300"
+                          attemptsBeforeDeactivation="9"
+                          path="/foo/bar" monitorStatusRegex="3.."
+                          bodyRegex="foobar"/>
+        </event>
+    </atom:content>
+</atom:entry>

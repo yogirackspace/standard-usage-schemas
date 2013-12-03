@@ -1,0 +1,28 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/lbaas/vip"
+               serviceCode="CloudLoadBalancers"
+               version="1"
+               resourceTypes="VIP"
+               type="CREATE DELETE">
+    <description>
+        Lbaas Virtual IP events.
+    </description>
+
+    <attribute name="address" type="string"
+               use="required" withEventType="CREATE">
+        Virtual IP address.
+    </attribute>
+
+    <attribute name="IPversion" type="string"
+               allowedValues="IPV4 IPV6"
+               use="required" withEventType="CREATE">
+        IP version.
+    </attribute>
+
+    <attribute name="type" type="string"
+               allowedValues="PUBLIC SERVICENET"
+               use="required" withEventType="CREATE">
+        Virtual IP type.  Either 'PUBLIC' or 'SERVICENET'.
+    </attribute>
+
+</productSchema>

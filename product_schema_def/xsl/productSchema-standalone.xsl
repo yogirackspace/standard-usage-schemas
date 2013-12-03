@@ -382,6 +382,9 @@
                     <xsl:when test="@use='synthesized'">
                        <xsl:attribute name="use">optional</xsl:attribute>
                     </xsl:when>
+                    <xsl:when test="@use='required' and (@withEventType or @withResource)">
+                       <xsl:attribute name="use">optional</xsl:attribute>
+                    </xsl:when>
                     <xsl:otherwise>
                         <xsl:attribute name="use" select="@use"/>
                     </xsl:otherwise>
@@ -421,6 +424,12 @@
                         </xsl:if>
                         <xsl:if test="xsd:boolean(@searchable)">
                             <xsl:attribute name="searchable" select="@searchable"/>
+                        </xsl:if>
+                        <xsl:if test="@withEventType">
+                            <xsl:attribute name="withEventType" select="@withEventType"/>
+                        </xsl:if>
+                        <xsl:if test="@withResource">
+                            <xsl:attribute name="withResource" select="@withResource"/>
                         </xsl:if>
                     </usage:attributes>
                 </appinfo>

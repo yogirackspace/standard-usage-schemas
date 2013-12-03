@@ -63,15 +63,21 @@
                             <representation mediaType="application/atom+xml" element="atom:entry">
                                 <xsl:call-template name="sch:param">
                                     <xsl:with-param name="type" select="'USAGE'"/>
-                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or ('USAGE' = tokenize(@type,' '))]"/>
+                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or ('USAGE' = sch:stringList(@type))]"/>
                                 </xsl:call-template>
-                                <xsl:for-each select="$EVENT_TYPES">
-                                    <xsl:variable name="type" select="."/>
-                                    <xsl:call-template name="sch:param">
-                                        <xsl:with-param name="type" select="."/>
-                                        <xsl:with-param name="schemas" select="current-group()[$type = tokenize(@type,' ')]"/>
-                                    </xsl:call-template>
-                                </xsl:for-each>
+
+                                <xsl:call-template name="sch:event-type-checks">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                </xsl:call-template>
+
+                                <xsl:call-template name="sch:resource-type-checks">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                </xsl:call-template>
+
+                                <xsl:call-template name="sch:required-attribute-checks">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                </xsl:call-template>
+
                                 <xsl:call-template name="sch:cross-check-params">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                 </xsl:call-template>
@@ -227,6 +233,84 @@
             </xsl:for-each-group>
         </application>
     </xsl:template>
+    <xsl:template name="sch:required-attribute-checks">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:for-each select="$schemas">
+            <xsl:variable name="schema"  select="." as="node()"/>
+            <xsl:if test="not(empty(sch:attribute[@withResource and @withEventType and @use='required']))">
+                 <xsl:call-template name="sch:reqEventandResourceAtts">
+                     <xsl:with-param name="schema" select="$schema"/>
+                 </xsl:call-template>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:event-type-checks">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:for-each select="$EVENT_TYPES">
+            <xsl:variable name="type" select="."/>
+            <xsl:variable name="selected_schemas" as="node()*" select="$schemas[$type = sch:stringList(@type)]"/>
+            <xsl:call-template name="sch:param">
+                <xsl:with-param name="type" select="."/>
+                <xsl:with-param name="schemas" select="$selected_schemas"/>
+            </xsl:call-template>
+            <xsl:call-template name="sch:badEventType">
+                <xsl:with-param name="type" select="."/>
+                <xsl:with-param name="schemas" select="$selected_schemas"/>
+            </xsl:call-template>
+            <xsl:call-template name="sch:reqEventTypeAtts">
+                <xsl:with-param name="type" select="."/>
+                <xsl:with-param name="schemas" select="$selected_schemas"/>
+            </xsl:call-template>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:resource-type-checks">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:for-each select="$schemas">
+            <xsl:if test="sch:attribute/@withResource">
+                <xsl:variable name="resource-types" select="sch:stringList(@resourceTypes)" as="xs:string*"/>
+                <xsl:call-template name="sch:badResourceType">
+                    <xsl:with-param name="schema" select="."/>
+                    <xsl:with-param name="resource-types" select="$resource-types"/>
+                </xsl:call-template>
+                <xsl:call-template name="sch:reqResourceTypeAtts">
+                    <xsl:with-param name="schema" select="."/>
+                    <xsl:with-param name="resource-types" select="$resource-types"/>
+                </xsl:call-template>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:reqEventandResourceAtts">
+        <xsl:param name="schema" as="node()"/>
+        <xsl:variable name="resource-types" select="sch:stringList(@resourceTypes)" as="xs:string*"/>
+        <xsl:for-each select="$resource-types">
+            <xsl:variable name="rt" select="."/>
+            <xsl:for-each select="$EVENT_TYPES">
+                <xsl:variable name="et" select="."/>
+                <xsl:variable name="requiredAttributes" as="xs:string*"
+                              select="for $att in
+                                      $schema/sch:attribute[$rt = sch:stringList(@withResource) and $et = sch:stringList(@withEventType) and @use='required']
+                                      return $att/@name"/>
+                <xsl:if test="not(empty($requiredAttributes))">
+                    <param name="{concat(lower-case($rt),lower-case($et),$schema/@version)}ReqAttrCheck"
+                           style="plain" required="true">
+                        <xsl:attribute name="path">
+                            <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectEventProductandResource($et, $rt, $schema/@pos, $schema/@version)"/>
+                            <xsl:text> ) then </xsl:text>
+                            <xsl:value-of select="concat(sch:selectEventProduct('', $schema/@pos,''),'[')"/>
+                            <xsl:value-of select='for $attr in $requiredAttributes return concat("@",$attr)' separator=" and "/>
+                            <xsl:text>] else true()</xsl:text>
+                        </xsl:attribute>
+                    <xsl:attribute name="rax:message">
+                        <xsl:text>The following attributes (</xsl:text><xsl:value-of select="$requiredAttributes" separator=", "/>
+                        <xsl:text>) are required in </xsl:text><xsl:value-of select="lower-case($et)"/>
+                        <xsl:text> messages when the resource type is </xsl:text><xsl:value-of select="$rt"/>
+                        <xsl:text>.</xsl:text>
+                    </xsl:attribute>
+                    </param>
+                </xsl:if>
+            </xsl:for-each>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template name="sch:cross-check-params">
         <xsl:param name="schemas" as="node()*"/>
         <xsl:variable name="usedTypes" select="if ($schemas[not(@type)]) then
@@ -257,10 +341,106 @@
                path="not(/atom:entry/atom:content/usage-summary:usageSummary)"
                rax:message="usageSummary elements are not allowed in this feed."/>        
     </xsl:template>
+    <xsl:template name="sch:badResourceType">
+        <xsl:param name="schema" as="node()"/>
+        <xsl:param name="resource-types" as="xs:string*"/>
+        <xsl:for-each select="$resource-types">
+            <xsl:variable name="rtype" select="." as="xs:string"/>
+            <xsl:variable name="badAttributeList" as="xs:string*"
+                          select="for $att in $schema/sch:attribute[@withResource and not($rtype = sch:stringList(@withResource))] return $att/@name"/>
+            <xsl:if test="not(empty($badAttributeList))">
+                <param name="{concat(lower-case($rtype), $schema/@version)}BadResourceCheck" style="plain" required="true">
+                    <xsl:attribute name="path">
+                        <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectResource($rtype, $schema/@pos, $schema/@version)"/>
+                        <xsl:text>) then </xsl:text>
+                        <xsl:value-of select="concat(sch:selectEventProduct('', $schema/@pos, ''),'[not(')"/>
+                        <xsl:value-of select="for $attr in $badAttributeList return concat('@',$attr)" separator=" or "/>
+                        <xsl:text>)] else true()</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="rax:message">
+                        <xsl:text>The following attributes (</xsl:text><xsl:value-of select="$badAttributeList" separator=", "/>
+                        <xsl:text>) are not allowed in messages of resource type </xsl:text><xsl:value-of select="lower-case($rtype)"/>
+                        <xsl:text>.</xsl:text>
+                    </xsl:attribute>
+                </param>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:reqResourceTypeAtts">
+        <xsl:param name="schema" as="node()"/>
+        <xsl:param name="resource-types" as="xs:string*"/>
+        <xsl:for-each select="$resource-types">
+            <xsl:variable name="rtype" select="." as="xs:string"/>
+            <xsl:variable name="reqAttributeList" as="xs:string*"
+                          select="for $att in $schema/sch:attribute[@withResource and not(@withEventType) and
+                                  @use='required' and $rtype = sch:stringList(@withResource)] return $att/@name"/>
+            <xsl:if test="not(empty($reqAttributeList))">
+                <param name="{concat(lower-case($rtype), $schema/@version)}ReqAttrCheck" style="plain" required="true">
+                    <xsl:attribute name="path">
+                        <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectResource($rtype, $schema/@pos, $schema/@version)"/>
+                        <xsl:text>) then </xsl:text><xsl:value-of select="concat(sch:selectEventProduct('', $schema/@pos,''),'[')"/>
+                        <xsl:value-of select='for $attr in $reqAttributeList return concat("@",$attr)' separator=" and "/>
+                        <xsl:text>] else true()</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="rax:message">
+                        <xsl:text>The following attributes (</xsl:text><xsl:value-of select="$reqAttributeList" separator=", "/>
+                        <xsl:text>) are required in messages of resource type </xsl:text><xsl:value-of select="lower-case($rtype)"/>
+                        <xsl:text>.</xsl:text>
+                    </xsl:attribute>
+                </param>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:badEventType">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:for-each select="$schemas">
+            <xsl:variable name="badAttributeList" as="xs:string*"
+                          select="for $att in sch:attribute[@withEventType and not($type = sch:stringList(@withEventType))] return $att/@name"/>
+            <xsl:if test="not(empty($badAttributeList))">
+                <param name="{concat(lower-case($type), @version)}BadAttrCheck" style="plain" required="true">
+                    <xsl:attribute name="path">
+                        <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectEventProduct($type, @pos, @version)"/>
+                        <xsl:text>) then </xsl:text><xsl:value-of select="concat(sch:selectEventProduct('', @pos,''),'[not(')"/>
+                        <xsl:value-of select='for $attr in $badAttributeList return concat("@",$attr)' separator=" or "/>
+                        <xsl:text>)] else true()</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="rax:message">
+                        <xsl:text>The following attributes (</xsl:text><xsl:value-of select="$badAttributeList" separator=", "/>
+                        <xsl:text>) are not allowed in </xsl:text><xsl:value-of select="lower-case($type)"/>
+                        <xsl:text> messages of this type.</xsl:text>
+                    </xsl:attribute>
+                </param>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:reqEventTypeAtts">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:for-each select="$schemas">
+            <xsl:variable name="reqAttributeList" as="xs:string*"
+                          select="for $att in sch:attribute[@withEventType and not(@withResource) and @use='required'
+                                  and $type = sch:stringList(@withEventType)] return $att/@name"/>
+            <xsl:if test="not(empty($reqAttributeList))">
+                <param name="{concat(lower-case($type), @version)}ReqAttrCheck" style="plain" required="true">
+                    <xsl:attribute name="path">
+                        <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectEventProduct($type, @pos, @version)"/>
+                        <xsl:text>) then </xsl:text><xsl:value-of select="concat(sch:selectEventProduct('', @pos,''),'[')"/>
+                        <xsl:value-of select='for $attr in $reqAttributeList return concat("@",$attr)' separator=" and "/>
+                        <xsl:text>] else true()</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="rax:message">
+                        <xsl:text>The following attributes (</xsl:text><xsl:value-of select="$reqAttributeList" separator=", "/>
+                        <xsl:text>) are required in </xsl:text><xsl:value-of select="lower-case($type)"/>
+                        <xsl:text> messages of this type.</xsl:text>
+                    </xsl:attribute>
+                </param>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template name="sch:param">
         <xsl:param name="schemas" as="node()*"/>
         <xsl:param name="type" as="xs:string"/>
-        <xsl:variable name="isUsageEvent">/atom:entry/atom:content/event:event[@type='<xsl:value-of select="$type"/>']</xsl:variable>
         <xsl:if test="$schemas">
             <xsl:variable name="nsVersions" select="sch:getNSVersions($schemas)"/>
             <xsl:variable name="events" as="xs:string*">
@@ -276,15 +456,17 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:variable>
-                    <xsl:value-of select="concat($isUsageEvent,'/',@pfix,':product[@version = ',$vers,']')"/>
+                    <xsl:value-of select="sch:selectProduct(@pos, $vers)"/>
                 </xsl:for-each>
             </xsl:variable>
             <param name="{lower-case($type)}" style="plain" required="true">
                 <xsl:attribute name="path">
-                    <xsl:text>if (</xsl:text><xsl:value-of select="$isUsageEvent"/>
-                    <xsl:text>) then (</xsl:text>
-                    <xsl:value-of select='$events' separator=","/>
-                    <xsl:text>) else true()</xsl:text>
+                    <xsl:text>if (</xsl:text><xsl:value-of select="sch:selectEvent($type)"/>
+                    <xsl:text>) then </xsl:text>
+                    <xsl:value-of select="sch:selectEvent('')"/>
+                    <xsl:text>[</xsl:text>
+                    <xsl:value-of select='$events' separator=" or "/>
+                    <xsl:text>] else true()</xsl:text>
                 </xsl:attribute>
                 <xsl:attribute name="rax:message">
                     <xsl:text>Only </xsl:text><xsl:value-of select="lower-case($type)"/>
@@ -294,17 +476,89 @@
             </param>
         </xsl:if>
     </xsl:template>
+    <xsl:function name="sch:selectEvent" as="xs:string">
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:variable name="ret">
+            <xsl:text>/atom:entry/atom:content/event:event</xsl:text>
+            <xsl:if test="$type">
+                <xsl:text>[@type='</xsl:text>
+                <xsl:value-of select="$type"/>
+                <xsl:text>']</xsl:text>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:value-of select="xs:string($ret)" />
+    </xsl:function>
+    <xsl:function name="sch:selectProduct" as="xs:string">
+        <xsl:param name="pos" as="xs:integer"/>
+        <xsl:param name="version" as="xs:string"/>
+        <xsl:variable name="ret">
+            <xsl:value-of select="concat(sch:ns($pos),':product')"/>
+            <xsl:if test="$version">
+                <xsl:value-of select="concat('[@version = ',$version,']')"/>
+            </xsl:if>
+        </xsl:variable>
+        <xsl:value-of select="xs:string($ret)"/>
+    </xsl:function>
+    <xsl:function name="sch:selectEventProduct" as="xs:string">
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:param name="pos" as="xs:integer"/>
+        <xsl:param name="version" as="xs:string"/>
+        <xsl:variable name="ret">
+            <xsl:value-of select="sch:selectEvent($type)"/>
+            <xsl:value-of select="concat('/',sch:selectProduct($pos, $version))"/>
+        </xsl:variable>
+        <xsl:value-of select="xs:string($ret)"/>
+    </xsl:function>
+    <xsl:function name="sch:selectResource" as="xs:string">
+        <xsl:param name="rtype" as="xs:string"/>
+        <xsl:param name="pos" as="xs:integer"/>
+        <xsl:param name="version" as="xs:string"/>
+        <xsl:variable name="ret">
+            <xsl:value-of select="sch:selectEvent('')"/>
+            <xsl:value-of select="concat('/',sch:selectProduct($pos, ''))"/>
+            <xsl:text>[@resourceType = '</xsl:text><xsl:value-of select="$rtype"/>
+            <xsl:text>' and @version='</xsl:text><xsl:value-of select="$version"/>
+            <xsl:text>']</xsl:text>
+        </xsl:variable>
+        <xsl:value-of select="xs:string($ret)"/>
+    </xsl:function>
+    <xsl:function name="sch:selectEventProductandResource" as="xs:string">
+        <xsl:param name="etype" as="xs:string"/>
+        <xsl:param name="rtype" as="xs:string"/>
+        <xsl:param name="pos" as="xs:integer"/>
+        <xsl:param name="version" as="xs:string"/>
+        <xsl:variable name="ret">
+            <xsl:value-of select="sch:selectEvent($etype)"/>
+            <xsl:value-of select="concat('/',sch:selectProduct($pos, ''))"/>
+            <xsl:text>[@resourceType = '</xsl:text><xsl:value-of select="$rtype"/>
+            <xsl:text>' and @version='</xsl:text><xsl:value-of select="$version"/>
+            <xsl:text>']</xsl:text>
+        </xsl:variable>
+        <xsl:value-of select="xs:string($ret)"/>
+    </xsl:function>
     <xsl:function name="sch:getNSVersions" as="node()*">
         <xsl:param name="schemas" as="node()*"/>
         <xsl:for-each-group select="$schemas" group-by="@namespace">
-            <xsl:variable name="ns" as="xs:string" select="sch:ns(current-group()[1]/@pos)"/>
+            <xsl:variable name="pos" as="xs:integer" select="current-group()[1]/@pos"/>
+            <xsl:variable name="ns" as="xs:string" select="sch:ns($pos)"/>
             <xsl:variable name="versions" as="xs:string*" select="current-group()/@version"/>
-            <sch:ns pfix="{$ns}" namespace="{current-group()[1]/@namespace}">
+            <sch:ns pfix="{$ns}" pos="{$pos}" namespace="{current-group()[1]/@namespace}">
                 <xsl:attribute name="versions">
                     <xsl:value-of select="for $v in $versions return sch:quoted($v)" separator=","/>
                 </xsl:attribute>
             </sch:ns>
         </xsl:for-each-group>
+    </xsl:function>
+    <xsl:function name="sch:stringList" as="xs:string*">
+        <xsl:param name="in" as="node()?"/>
+        <xsl:choose>
+            <xsl:when test="not(empty($in))">
+                <xsl:sequence select="tokenize(normalize-space(string($in)), ' ')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:sequence select="()"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:function>
     <xsl:template name="sch:searchable">
         <xsl:param name="schemas" as="node()*"/>
@@ -390,7 +644,7 @@
     </xsl:function>
     <xsl:function name="sch:getTypes" as="xs:string*">
         <xsl:param name="schemas" as="node()*"/>
-        <xsl:copy-of select="distinct-values(for $s in $schemas return tokenize($s/@type,' '))"/>
+        <xsl:copy-of select="distinct-values(for $s in $schemas return sch:stringList($s/@type))"/>
     </xsl:function>
     <xsl:function name="sch:getSchemas" as="node()">
         <xsl:param name="dir" as="node()"/>
@@ -505,7 +759,7 @@
             <entry>
                 <para><xsl:value-of select="."/></para>
                 <xsl:if test="@allowedValues"><formalpara><title>Allowed Values:</title>
-                    <para><xsl:for-each select="tokenize(normalize-space(@allowedValues),' ')"><code><xsl:value-of select="."/></code><xsl:if test="not(position() = last())">, </xsl:if></xsl:for-each></para></formalpara></xsl:if>
+                    <para><xsl:for-each select="sch:stringList(@allowedValues)"><code><xsl:value-of select="."/></code><xsl:if test="not(position() = last())">, </xsl:if></xsl:for-each></para></formalpara></xsl:if>
             </entry>
             <entry>
                 <para><xsl:value-of select="@type"/></para>

@@ -127,6 +127,8 @@
         <attribute name="groupBy" type="xsd:boolean" use="optional" default="false"/>
         <attribute name="searchable" type="xsd:boolean" use="optional" default="false"/>
         <attribute name="public" type="xsd:boolean" use="optional" default="false"/>
+        <attribute name="withEventType" type="usage:TypeList" use="optional"/>
+        <attribute name="withResource" type="usage:NameList" use="optional"/>
         <assert vc:minVersion="1.1" test="if (@aggregateFunction!='NONE') then @unitOfMeasure else true()"
                 xerces:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure."
                 saxon:message="If a aggregateFunction is supplied then there should also be a unitOfMeasure.">
@@ -220,5 +222,9 @@
             <enumeration value="CI_SERVICE"/>
             <enumeration value="INTEGER_RANGE"/>
         </restriction>
+    </simpleType>
+
+    <simpleType name="NameList">
+        <list itemType="xsd:Name"/>
     </simpleType>
 </schema>
