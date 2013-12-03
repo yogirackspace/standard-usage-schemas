@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" 
+            targetNamespace="http://docs.rackspace.com/core/usage-summary" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:event="http://docs.rackspace.com/core/event"
+            xmlns:usage="http://docs.rackspace.com/core/usage">
+
+    <xsd:import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
+               schemaLocation="usage.xsd"/>
+    
+    <xsd:import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/usage"
+               schemaLocation="ProductExtension-Annotations.xsd"/>        
+                
+    <!-- Complex Types -->
+    <xsd:element name="usageAttribute" type="usage-summary:UsageAttribute" />
+    <xsd:element name="usageSummary" type="usage-summary:UsageSummary" />
+
+    <!-- Enumerations -->
+
+    <!-- Simple types definition starts here -->
+    <xsd:simpleType name="RackspaceAccountNumber">
+        <xsd:annotation>
+            <xsd:documentation
+                xml:lang="EN">
+                <html:p> Definition of a unique rackspace account number identifying the customer. </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{3}-.{1,32}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <!-- Complex types definition starts here -->
+    <xsd:complexType name="UsageAttribute">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    Arbitrary product-specific usage data. In order to avoid the need to create a separate XSD for 
+                    each new kind of usage summary, we use this generic element to hold arbitrary data.
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="name" type="xsd:Name" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The name of the attribute.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The unit of measure that applies to the value of this attribute / value pair. The absence of
+                        this attribute means that no unit of measure applies (e.g. for boolean values).
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="value" type="xsd:anySimpleType" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The value of the attribute.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    
+    <xsd:complexType name="UsageSummary">
+        <xsd:annotation>
+            <xsd:documentation>
+                <html:p>
+                    A Usage Summary that summarizes usage data from one or more raw / enriched usage events.  
+                </html:p>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element ref="usage-summary:usageAttribute" minOccurs="1" maxOccurs="unbounded">
+	            <xsd:annotation>
+	                <xsd:documentation>
+	                    <html:p>
+	                        UsageAttribute attribute / value pairs that provide details about the usage incurred.
+	                    </html:p>
+	                </xsd:documentation>
+	            </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="serviceCode" type="xsd:Name" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The name of the product or service to which the UsageSummary applies.  
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="usageType" type="xsd:Name" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The name of the usageType to which the UsageSummary applies. A given product may have one or many different usage types.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="tenantId" type="event:NonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The tenant ID of the tenant that used resources, resulting in this UsageSummary.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="parentTenantId" type="event:NonEmptyString" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The tenant ID of the tenant that is the parent of the tenant which used resources, resulting in this UsageSummary. This attribute will only be present
+                        for tenants that have a parent tenant.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="rackspaceAccountNumber" type="usage-summary:RackspaceAccountNumber" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The RAN (Rackspace Account Number) that should be billed for this UsageSummary.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="id" type="event:UUID" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The unique ID of the UsageSummary.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="resourceId" type="event:UUID" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The unique ID of the resource that was used. Only present for resource-level usage.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="resourceName" type="xsd:Name" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The name of the resource that was used. Only present for resource-level usage.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="resourceType" type="xsd:Name" use="optional">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The type of the resource that was used. Only present for resource-level usage.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="startTime" type="xsd:dateTime" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The start date / time, inclusive, of the time interval over which the UsageSummary applies.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="endTime" type="xsd:dateTime" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The end date / time, exclusive, of the time interval over which the UsageSummary applies.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="duration" type="xsd:duration" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    <html:p>
+                        The duration of the time interval over which the UsageSummary applies.
+                    </html:p>
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="usagesummary/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="200"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Usage Summary</atom:title>
+    <atom:content type="application/xml">
+	    <usageSummary xmlns="http://docs.rackspace.com/core/usage-summary"
+                      serviceCode="CloudSites"
+                      usageType="sites-db"
+                      tenantId="1234"
+                      parentTenantId="2345"
+                      rackspaceAccountNumber="020-2345"
+                      id="560490c6-6c63-11e1-adfe-27851d5aed13"
+                      resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+                      resourceName="MyDatabase"
+                      resourceType="MYSQL"
+                      startTime="2012-03-12T11:51:11Z"
+                      endTime="2012-03-12T15:51:11Z"
+                      duration="PT4H">
+		    <usageAttribute
+		        name="isSomething"
+		        value="true" />
+        </usageSummary>
+    </atom:content>
+</atom:entry>
