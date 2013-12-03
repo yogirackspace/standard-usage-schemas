@@ -23,7 +23,8 @@
                    namespace="http://docs.rackspace.com/usage/maas"
                    serviceCode="CloudMonitoring"
                    version="2"
-                   resourceTypes="CHECK">
+                   resourceTypes="CHECK"
+                   ranEnrichmentStrategy="INTEGER_RANGE">
         <description>
             MaaS specific usage fields.
         </description>
