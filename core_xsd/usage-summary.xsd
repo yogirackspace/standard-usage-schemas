@@ -53,11 +53,12 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="required">
+        <xsd:attribute name="unitOfMeasure" type="usage:UnitOfMeasure" use="optional">
             <xsd:annotation>
                 <xsd:documentation>
                     <html:p>
-                        The unit of measure that applies to the value of this attribute / value pair.
+                        The unit of measure that applies to the value of this attribute / value pair. The absence of
+                        this attribute means that no unit of measure applies (e.g. for boolean values).
                     </html:p>
                 </xsd:documentation>
             </xsd:annotation>

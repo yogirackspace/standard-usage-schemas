@@ -18,9 +18,8 @@
                       endTime="2012-03-12T15:51:11Z"
                       duration="PT4H">
 		    <usageAttribute
-		        name="storage"
-		        unitOfMeasure="MB"
-		        value="200" />
+		        name="isSomething"
+		        value="true" />
         </usageSummary>
     </atom:content>
 </atom:entry>
