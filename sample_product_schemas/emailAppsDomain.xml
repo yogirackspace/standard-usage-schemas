@@ -2,7 +2,8 @@
                namespace="http://docs.rackspace.com/usage/emailapps/domain"
                version="1"
                serviceCode="EmailApps" type="USAGE_SNAPSHOT"
-               resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013">
+               resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013"
+               ranEnrichmentStrategy="NONE">
     <description>
         Email and Apps number of email boxes per domain.
     </description>

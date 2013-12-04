@@ -19,7 +19,7 @@
          </documentation>
          <appinfo>
             <usage:core groupByResource="true"
-                        ranEnrichmentStrategy="CI_SERVICE"
+                        ranEnrichmentStrategy="NONE"
                         type="USAGE_SNAPSHOT"/>
          </appinfo>
       </annotation>
