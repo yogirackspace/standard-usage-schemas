@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="ssl/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="INVALID_ACTION"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>SSL Subscription</atom:title>
+    <atom:content type="application/xml">
+    <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:ssl="http://docs.rackspace.com/event/ssl"
+               version="1" tenantId="12334"
+               resourceId="ssl-cert-1"
+               resourceName="ssl-cert-1"
+               id="560490c6-6c63-22e2-adfe-27851d5aed13"
+               type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
+               eventTime="2012-03-12T11:51:11Z">
+            <ssl:product version="1" serviceCode="Ssl"
+                   resourceType="SSL_SUBSCRIPTION"
+                   action="INVALID_ACTION"
+                   certificateAuthority="TAW"
+                   quality="TAW_SSL"
+                   sanLicenseCount="1"
+                   purchaseTenure="2"
+                   expirationDate="2014-03-12T11:51:11Z"
+                   isAutoRenew="false"/>
+        </event>
+    </atom:content>
+</atom:entry>
