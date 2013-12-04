@@ -118,7 +118,7 @@
          </documentation>
          <appinfo>
             <usage:core groupByResource="true"
-                        ranEnrichmentStrategy="CI_SERVICE"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
                         type="USAGE"/>
          </appinfo>
       </annotation>
