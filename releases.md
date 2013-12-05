@@ -1,5 +1,6 @@
 # Changelog for Usage Schema
 
+2013-12-02 | B-56152: /usagesummary feed, load the usage-summary.xsd properly (Shinta Smith)  
 
 **usage-schema-1.31.1**  
 

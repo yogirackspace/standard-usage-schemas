@@ -1,0 +1,18 @@
+<event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:ssl="http://docs.rackspace.com/event/ssl"
+               version="1" tenantId="12334"
+               resourceId="ssl-cert-1"
+               resourceName="ssl-cert-1"
+               id="560490c6-6c63-22e2-adfe-27851d5aed13"
+               type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
+               eventTime="2012-03-12T11:51:11Z">
+            <ssl:product version="1" serviceCode="Ssl"
+                   resourceType="SSL_SUBSCRIPTION"
+                   action="REGISTRATION"
+                   certificateAuthority="TAW"
+                   quality="TAW_SSL"
+                   sanLicenseCount="1"
+                   purchaseTenure="2"
+                   expirationDate="2014-03-12T11:51:11Z"
+                   isAutoRenew="false"/>
+</event>
