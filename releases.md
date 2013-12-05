@@ -1,5 +1,9 @@
 # Changelog for Usage Schema
 
+
+**usage-schema-1.32.0**  
+2013-12-04 | D-16404: change ranEnrichmentStrategy of emailApps schemas to NONE (Shinta Smith)  
+2013-12-04 | B-55572: add schema for SSL subscription event (Shinta Smith)  
 2013-12-02 | B-56152: /usagesummary feed, load the usage-summary.xsd properly (Shinta Smith)  
 
 **usage-schema-1.31.1**  
