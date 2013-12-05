@@ -2,7 +2,8 @@
                namespace="http://docs.rackspace.com/usage/emailapps/subscription"
                version="1"
                serviceCode="EmailApps" type="USAGE_SNAPSHOT"
-               resourceTypes="EXCHANGE_EMAIL_2007_SUBSCRIPTION EXCHANGE_EMAIL_2010_SUBSCRIPTION EXCHANGE_EMAIL_2013_SUBSCRIPTION">
+               resourceTypes="EXCHANGE_EMAIL_2007_SUBSCRIPTION EXCHANGE_EMAIL_2010_SUBSCRIPTION EXCHANGE_EMAIL_2013_SUBSCRIPTION"
+               ranEnrichmentStrategy="NONE">
     <description>
         Subscription to Email and Apps products.
     </description>

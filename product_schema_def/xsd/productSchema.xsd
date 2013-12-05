@@ -1456,6 +1456,7 @@
         <restriction base="xsd:string">
             <enumeration value="CI_SERVICE"/>
             <enumeration value="INTEGER_RANGE"/>
+            <enumeration value="NONE"/>
         </restriction>
     </simpleType>
 </schema>
