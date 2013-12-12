@@ -754,7 +754,7 @@
                             </html:p>
                             <html:p>
                                 The XPath context is the root product
-                                element by default. The context  can be
+                                element by default. The context can be
                                 changed to the root of the entry via
                                 the scope attribute. The prefix 'p' is
                                 <html:strong>always</html:strong>
@@ -762,11 +762,14 @@
                                 context is entry then the prefix
                                 'atom' is bound to the atom namespace
                                 and 'event' is bound to the event
-                                namespace.  Additionally, when the
-                                scope is entry, the variables $entry,
-                                $event, and $product are defined, each
-                                pointing to the respective part of the
-                                message.
+                                namespace.  Finally, the prefix 'xs'
+                                is bound tho the XML Schema namespace.
+                            </html:p>
+                            <html:p>
+                                When the scope is entry, the variables
+                                $entry, $event, and $product are
+                                defined, each pointing to the
+                                respective part of the message.
                             </html:p>
                             <html:p>
                                 Note that when the scope is product,

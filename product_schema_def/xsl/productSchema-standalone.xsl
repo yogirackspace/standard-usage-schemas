@@ -31,6 +31,7 @@
             attributeFormDefault="unqualified"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:html="http://www.w3.org/1999/xhtml"
             xmlns:xerces="http://xerces.apache.org"
             xmlns:saxon="http://saxon.sf.net/"
