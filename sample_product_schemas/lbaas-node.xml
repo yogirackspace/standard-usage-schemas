@@ -33,4 +33,8 @@
         Used by the 'WEIGHTED_LEAST_CONNECTION' and
         'WEIGHTED_ROUND_ROBIN' algorithms.
     </attribute>
+
+    <xpathAssertion test="$event/@resourceId castable as xs:integer" scope="entry">
+        The resource Id for a node should be an integer.
+    </xpathAssertion>
 </productSchema>

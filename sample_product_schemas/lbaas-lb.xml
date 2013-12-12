@@ -163,4 +163,8 @@
     <xpathAssertion test="if(@halfClose) then (@protocol = 'TCP' or @protocol = 'TCP_CLIENT_FIRST') else true()">
         halfClose is only valid for TCP and TCP_CLIENT_FIRST protocol values.
     </xpathAssertion>
+
+    <xpathAssertion test="$event/@resourceId castable as xs:integer" scope="entry">
+        The resource Id for a load balancer should be an integer.
+    </xpathAssertion>
 </productSchema>
