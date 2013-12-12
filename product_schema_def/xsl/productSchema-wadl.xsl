@@ -12,8 +12,6 @@
     xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:domain="http://docs.rackspace.com/event/domain"
-    xmlns:novaHost="http://docs.rackspace.com/event/nova/host"
-    xmlns:identityUser="http://docs.rackspace.com/event/identity/user"
     xmlns:maas="http://docs.rackspace.com/usage/maas"
     xmlns:sitesSubscription="http://docs.rackspace.com/usage/sites/subscription"
     xmlns:xslout="http://www.rackspace.com/repose/wadl/checker/Transform"
@@ -83,11 +81,6 @@
                                 </xsl:call-template>
                                 <xsl:call-template name="sch:forbid-event-error" />
                                 <xsl:call-template name="sch:forbid-usage-summary" />
-
-                                <xsl:call-template name="sch:searchable">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
-                                </xsl:call-template>
                                 
                                 <xsl:for-each select="./sch:attribute[@use='synthesized']">
                                     <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
@@ -98,38 +91,6 @@
                                            path="not(/atom:entry/atom:content/event:event/{$ns}:product/@{$attributeName})"
                                            rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
                                 </xsl:for-each>
-
-                                <!--
-                                    Hack, add nova updown check.
-                                -->
-                                <xsl:if test="$id = 'CloudServersOpenStack'">
-                                    <param name="checkUp"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'UP') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'CRITICAL') else true()"
-                                           rax:message="If message is UP type then checkStatus cannot be CRITICAL."/>
-                                    <param name="checkDown"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'DOWN') then not(/atom:entry/atom:content/event:event/novaHost:product/@checkStatus = 'OK') else true()"
-                                           rax:message="If message is DOWN type then checkStatus cannot be OK."/>
-                                </xsl:if>
-
-                                <!--
-                                    Workaround, add a param for CloudIdentity
-                                -->
-                                <xsl:if test="$id = 'CloudIdentity'">
-                                    <param name="checkUpdate"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type = 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then /atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes else true()"
-                                           rax:message="For version 2 and type is UPDATE, the updatedAttributes attribute is required."/>
-                                    <param name="checkNonUpdate"
-                                           style="plain"
-                                           required="true"
-                                           path="if (/atom:entry/atom:content/event:event/@type != 'UPDATE' and /atom:entry/atom:content/event:event/identityUser:product/@version = '2') then not(/atom:entry/atom:content/event:event/identityUser:product/@updatedAttributes) else true()"
-                                           rax:message="For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used."/>
-                                </xsl:if>
 
                                 <!--
                                     B-51154: restrict the use of GLOBAL DC/Region
@@ -148,7 +109,6 @@
                                                required="true"
                                                path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Monitoring event, @region must be present and can not be GLOBAL."/>
-                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:when test="$id = 'CloudSites'">
                                         <param name="checkDatacenter"
@@ -161,7 +121,6 @@
                                                required="true"
                                                path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type of Sites event, @region must be present and can not be GLOBAL."/>
-                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:when test="$id = 'DomainRegistration'">
                                         <param name="checkDatacenter"
@@ -174,7 +133,6 @@
                                                required="true"
                                                path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                                                rax:message="For this type Domain of event, @region must be present and can not be GLOBAL."/>
-                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <param name="checkDatacenter"
@@ -187,7 +145,6 @@
                                                required="true"
                                                path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
                                                rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
-                                        <rax:preprocess href="atom_hopper_pre.xsl"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
 
@@ -197,6 +154,15 @@
                                 <xsl:if test="$id = 'BigData'">
                                     <rax:preprocess href="bigdata.xsl"/>
                                 </xsl:if>
+                                <xsl:call-template name="sch:xpath-assertions">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
+                                </xsl:call-template>
+                                <xsl:call-template name="sch:searchable">
+                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
+                                </xsl:call-template>
+                                <rax:preprocess href="atom_hopper_pre.xsl"/>
                             </representation>
                         </request>
                         <!-- Okay -->
@@ -232,6 +198,58 @@
                 </resource_type>
             </xsl:for-each-group>
         </application>
+    </xsl:template>
+    <xsl:template name="sch:xpath-assertions">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="nscount" as="xs:integer"/>
+        <xsl:variable name="excludePrefixes" as="xs:string*"
+                      select="('rax', 'util', 'xs',
+                               for $i in 1 to $nscount return concat($NS_PREFIX,xs:string($i)))"/>
+        <xsl:if test="$schemas//sch:xpathAssertion[@scope='entry']">
+            <rax:preprocess>
+                <xslout:stylesheet
+                    xmlns:event="http://docs.rackspace.com/core/event"
+                    xmlns:atom="http://www.w3.org/2005/Atom"
+                    version="2.0">
+                    <xsl:attribute name="exclude-result-prefixes">
+                        <xsl:value-of select="$excludePrefixes" separator=" "/>
+                    </xsl:attribute>
+                    <xslout:import href="util.xsl"/>
+                    <xslout:output method="xml" encoding="UTF-8"/>
+                    <xslout:variable name="entry" select="/atom:entry"/>
+                    <xslout:variable name="event" select="$entry/atom:content/event:event"/>
+                    <xslout:template match="/">
+                        <xslout:choose>
+                            <xsl:for-each-group select="$schemas[sch:xpathAssertion[@scope = 'entry']]" group-by="@namespace">
+                                <xslout:when test="$event/p:product">
+                                    <xsl:namespace name="p" select="current-group()[1]/@namespace"/>
+                                    <xslout:variable name="product" select="$event/p:product"/>
+                                    <xslout:choose>
+                                        <xsl:apply-templates select="current-group()" mode="xpath-assertions"/>
+                                    </xslout:choose>
+                                </xslout:when>
+                            </xsl:for-each-group>
+                        </xslout:choose>
+                        <xslout:copy>
+                            <xslout:apply-templates />
+                        </xslout:copy>
+                    </xslout:template>
+                </xslout:stylesheet>
+            </rax:preprocess>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="sch:productSchema" mode="xpath-assertions">
+        <xslout:when test="$product[@version = '{@version}']">
+            <xsl:apply-templates mode="xpath-assertions"/>
+        </xslout:when>
+    </xsl:template>
+    <xsl:template match="sch:xpathAssertion[@scope='entry']" mode="xpath-assertions">
+        <xslout:choose>
+            <xslout:when test="{@test}"/>
+            <xslout:otherwise>
+                <xslout:message terminate="yes"><xsl:value-of select="normalize-space(.)"/></xslout:message>
+            </xslout:otherwise>
+        </xslout:choose>
     </xsl:template>
     <xsl:template name="sch:required-attribute-checks">
         <xsl:param name="schemas" as="node()*"/>

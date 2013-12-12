@@ -22,4 +22,12 @@
                use="required">
         The description
     </attribute>
+
+    <xpathAssertion test="if ($event/@type = 'UP') then $product/@checkStatus != 'CRITICAL' else true()" scope="entry">
+        If message is UP type then checkStatus cannot be CRITICAL.
+    </xpathAssertion>
+
+    <xpathAssertion test="if ($event/@type = 'DOWN') then $product/@checkStatus != 'OK' else true()" scope="entry">
+        If message is DOWN type then checkStatus cannot be OK.
+    </xpathAssertion>
 </productSchema>

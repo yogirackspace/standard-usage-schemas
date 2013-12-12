@@ -55,10 +55,11 @@
                    searchable="true">
             The attributes that have been updated.
         </attribute>
-        <!--
-        <xpathAssertion test="if (../@type = 'UPDATE') then @updatedAttributes else true()">
-            For version 2 and type is UPDATE, the updatedAttributes attribute is required
+        <xpathAssertion test="if ($event/@type = 'UPDATE') then $product/@updatedAttributes else true()" scope="entry">
+            For version 2 and type is UPDATE, the updatedAttributes attribute is required.
         </xpathAssertion>
-        -->
+        <xpathAssertion test="if ($event/@type != 'UPDATE') then not($product/@updatedAttributes) else true()" scope="entry">
+            For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used.
+        </xpathAssertion>
     </productSchema>
 </alternatives>

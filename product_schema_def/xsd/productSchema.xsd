@@ -753,15 +753,39 @@
                                 in an error message.
                             </html:p>
                             <html:p>
-                                The context is always the root product
-                                element. The prefix 'p' is
+                                The XPath context is the root product
+                                element by default. The context  can be
+                                changed to the root of the entry via
+                                the scope attribute. The prefix 'p' is
                                 <html:strong>always</html:strong>
-                                bound to the product
-                                schema. Currently, there is no way to
-                                bound other namespaces, though
-                                strictly speaking, since these are
-                                product assertions, this shouldn't be
-                                necessary.
+                                bound to the product schema. If the
+                                context is entry then the prefix
+                                'atom' is bound to the atom namespace
+                                and 'event' is bound to the event
+                                namespace.  Additionally, when the
+                                scope is entry, the variables $entry,
+                                $event, and $product are defined, each
+                                pointing to the respective part of the
+                                message.
+                            </html:p>
+                            <html:p>
+                                Note that when the scope is product,
+                                you <html:strong>cannot</html:strong>
+                                use .. to access parent elements --
+                                use the entry scope instead.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="scope" type="schema:XPathScope" use="optional" default="product">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Determines the scope of an XPath
+                                assertion. The scope determins what
+                                the context of the XPath assertion is.
+                                It can be the 'product' or the
+                                'entry'.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -772,7 +796,8 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                Error message must not be empty for the xpathAssertion.
+                                Error message must not be empty for
+                                the xpathAssertion.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -820,6 +845,20 @@
             <enumeration value="optional"/>
             <enumeration value="required"/>
             <enumeration value="synthesized"/>
+        </restriction>
+    </simpleType>
+
+    <simpleType name="XPathScope">
+        <annotation>
+            <documentation>
+                <html:p>
+                    Scope of an XPath assertion
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:token">
+            <enumeration value="entry"/>
+            <enumeration value="product"/>
         </restriction>
     </simpleType>
 
