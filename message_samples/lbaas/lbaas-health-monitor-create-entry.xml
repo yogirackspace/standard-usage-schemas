@@ -8,8 +8,8 @@
     </atom:summary>
     <atom:content type="application/xml">
         <event resourceName="My Health Monitor"
-               resourceId="6e688508-4058-11e3-851d-002500a28a7a"
-               resourceURI="http://dfw1.lbaas.rackspace.com/path/to/monitor/6e688508-4058-11e3-851d-002500a28a7a"
+               resourceId="65"
+               resourceURI="http://dfw1.lbaas.rackspace.com/path/to/monitor/65"
                severity="INFO"
                eventTime="2012-06-15T10:19:52Z" region="DFW" dataCenter="DFW1" type="CREATE"
                id="7ba76892-4058-11e3-806b-002500a28a7a"

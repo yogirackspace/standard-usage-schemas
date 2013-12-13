@@ -31,6 +31,7 @@
             attributeFormDefault="unqualified"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
             xmlns:html="http://www.w3.org/1999/xhtml"
             xmlns:xerces="http://xerces.apache.org"
             xmlns:saxon="http://saxon.sf.net/"
@@ -469,7 +470,7 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="schema:xpathAssertion" mode="assertions">
+    <xsl:template match="schema:xpathAssertion[not(@scope) or @scope='product']" mode="assertions">
         <xsl:variable name="message" select="normalize-space(.)"/>
         <assert vc:minVersion="1.1" test="{normalize-space(@test)}"
                 xerces:message="{$message}" saxon:message="{$message}">

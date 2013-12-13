@@ -25,4 +25,16 @@
         Virtual IP type.  Either 'PUBLIC' or 'SERVICENET'.
     </attribute>
 
+    <xpathAssertion test="$event/@resourceId castable as xs:integer" scope="entry">
+        The resource Id for a VIP should be an integer.
+    </xpathAssertion>
+
+    <xpathAssertion test="if ($product/@IPversion = 'IPV4') then xs:integer($event/@resourceId) &gt;= 1 and xs:integer($event/@resourceId) &lt;= 9000000 else true()" scope="entry">
+        The resource Id for a vip (IPV4) should be between 1 and 9000000.
+    </xpathAssertion>
+
+    <xpathAssertion test="if ($product/@IPversion = 'IPV6') then xs:integer($event/@resourceId) &gt;= 9000000 else true()" scope="entry">
+        The resource Id for a vip (IPV6) should greater than or equal to  9000000.
+    </xpathAssertion>
+
 </productSchema>
