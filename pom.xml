@@ -46,6 +46,7 @@
         <xmlsec.version>1.4.6</xmlsec.version>
         <wadl-tools.version>1.0.19</wadl-tools.version>
         <api-checker.version>1.0.8</api-checker.version>
+        <surefire-plugin.version>2.12.3</surefire-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -161,7 +162,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.10</version>
+                <version>${surefire-plugin.version}</version>
                 <configuration>
                     <includes>
                         <include>**/*.class</include>
@@ -178,6 +179,25 @@
             <properties>
                 <usage.tests.xsd.impl>Xerces</usage.tests.xsd.impl>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${surefire-plugin.version}</version>
+                        <configuration>
+                            <includes>
+                                <include>**/*.class</include>
+                            </includes>
+                            <enableAssertions>false</enableAssertions>
+                            <argLine>-Dfile.encoding=UTF-8</argLine>
+                            <systemPropertyVariables>
+                                <usage.tests.xsd.impl>Xerces</usage.tests.xsd.impl>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>Rackspace Research Repositories</id>
