@@ -123,11 +123,18 @@
     </complexType>
 
     <complexType name="UsageCategory">
-        <attribute name="term" type="xsd:string" use="required"/>
+        <attribute name="term" type="atom:CategoryName" use="required"/>
         <attribute name="scheme" type="xsd:anyURI" use="optional"/>
         <attribute name="label" type="xsd:string" use="optional"/>
     </complexType>
 
+    <simpleType name="CategoryName">
+        <restriction base="xsd:string">
+            <maxLength value="256"/>
+        </restriction>
+    </simpleType>
+    
+    
     <complexType name="Title">
         <simpleContent>
             <extension base="xsd:string">

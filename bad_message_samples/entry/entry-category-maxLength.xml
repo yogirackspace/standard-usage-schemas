@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="functest1/events"?>
+<?expect code="400" message="contravenes the maxLength facet"?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event"
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:other="http:other">
+    <atom:id>urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89</atom:id>
+    <atom:category term="cloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usagecloudbackup.bandwidthIn.agent.usage" />
+    <atom:content type="application/xml">
+        <other:event>
+            other event type that won't be validated.
+        </other:event>
+     </atom:content>
+</atom:entry>
