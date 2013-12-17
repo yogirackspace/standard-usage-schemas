@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.33.1**  
+2013-12-16 | D-07837 - Product_Security - S2 - Long term attributes on category element expose Hibernate error (Greg Sharek)  
+
 **usage-schema-1.32.0**  
 2013-12-04 | D-16404: change ranEnrichmentStrategy of emailApps schemas to NONE (Shinta Smith)  
 2013-12-04 | B-55572: add schema for SSL subscription event (Shinta Smith)  
