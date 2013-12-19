@@ -159,10 +159,13 @@
             schemaLocation="../generated_product_xsds/lbaas-delete.xsd"/> 
 
     <import namespace="http://docs.rackspace.com/event/clouddns"
-            schemaLocation="../generated_product_xsds/clouddns.xsd"/> 
+            schemaLocation="../generated_product_xsds/clouddns.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/ssl"
-            schemaLocation="../generated_product_xsds/ssl.xsd"/> 
+            schemaLocation="../generated_product_xsds/ssl.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/netdevice/backupfailure"
+            schemaLocation="../generated_product_xsds/netdevice-backupfailure.xsd"/>
 
     <element name="event" type="event:EventV1"/>
 </schema>

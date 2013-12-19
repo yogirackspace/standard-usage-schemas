@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="netdevice/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="@url"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Failure Event</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:fail="http://docs.rackspace.com/event/netdevice/backupfailure"
+               version="1"
+               id="b79cc3de-b399-3883-b555-61829bbccd38"
+               resourceId="b79cc3de-b399-3883-b555-61829bbccd38"
+               dataCenter="DFW1" region="DFW" eventTime="2012-09-19T11:11:11Z"
+               type="INFO">
+            <fail:product version="1"
+                          resourceType="LOADBALANCER"
+                          serviceCode="CloudServersOpenStack"
+                          hostname="lb01"
+                          description="exploded!"/>
+        </event>
+    </atom:content>
+</atom:entry>

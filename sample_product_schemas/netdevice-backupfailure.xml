@@ -1,0 +1,32 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/event/netdevice/backupfailure"
+        serviceCode="CloudServersOpenStack"
+        version="1"
+        resourceTypes="LOADBALANCER FIREWALL"
+        type="INFO">
+
+    <description>
+        INFO messages on loadbalancer and firewall backup failures for FDaaT.
+    </description>
+
+    <attribute name="hostname" type="string"
+               use="required">
+        The hostname of the device.
+    </attribute>
+
+    <attribute name="url" type="anyURI"
+               use="required">
+        The link to view the event info in Torq.
+    </attribute>
+<!-- maybe use eventTime
+    <attribute name="failureTime" type="timestamp"
+               use="required" >
+        The time at which the backup of this device failed.
+    </attribute>
+-->
+    <attribute name="description" type="string"
+               maxLength="256"
+               use="required">
+        The description of the failure.
+    </attribute>
+</productSchema>
