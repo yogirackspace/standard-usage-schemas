@@ -36,5 +36,6 @@
         <resource path="usagesummary/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="core/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="ssl/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="support/events" type="wadl/feed.wadl#AtomFeed"/>
     </resources>
 </application>

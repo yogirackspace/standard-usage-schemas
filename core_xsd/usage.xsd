@@ -164,5 +164,8 @@
     <import namespace="http://docs.rackspace.com/event/ssl"
             schemaLocation="../generated_product_xsds/ssl.xsd"/> 
 
+    <import namespace="http://docs.rackspace.com/event/support/account"
+            schemaLocation="../generated_product_xsds/support-account.xsd"/> 
+
     <element name="event" type="event:EventV1"/>
 </schema>
