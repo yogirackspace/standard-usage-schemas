@@ -297,7 +297,7 @@
         <element>
             <xsl:copy-of select="(@name, @minOccurs)"/>
             <xsl:choose>
-                <xsl:when test="@maxOccurs = 'unbounded'">
+                <xsl:when test="string(@maxOccurs) = 'unbounded'">
                     <xsl:attribute name="maxOccurs" select="$MAX_OCCURS_VALUE"/>
                 </xsl:when>
                 <xsl:when test="@maxOccurs">
