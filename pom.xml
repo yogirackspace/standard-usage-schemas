@@ -37,15 +37,15 @@
     </distributionManagement>
 
     <properties>
-        <scala.version>2.9.3</scala.version>
-        <scala.test.version>1.9.1</scala.test.version>
+        <scala.version>2.10.3</scala.version>
+        <scala.test.version>2.0</scala.test.version>
         <junit.version>4.10</junit.version>
         <saxon-ee.version>9.4.0.6</saxon-ee.version>
         <xerces.version>2.12.1-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
         <xmlsec.version>1.4.6</xmlsec.version>
-        <wadl-tools.version>1.0.19</wadl-tools.version>
-        <api-checker.version>1.0.8</api-checker.version>
+        <wadl-tools.version>1.0.20</wadl-tools.version>
+        <api-checker.version>1.0.15-SNAPSHOT</api-checker.version>
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
     </properties>
     <dependencies>
@@ -65,8 +65,14 @@
             <version>${xerces.version}</version>
         </dependency>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.version}</artifactId>
+            <artifactId>scalatest_2.10</artifactId>
             <version>${scala.test.version}</version>
         </dependency>
         <dependency>

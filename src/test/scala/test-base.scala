@@ -43,10 +43,11 @@ object BaseUsageSuite {
   usageConfig.checkPlainParams = true
   usageConfig.enablePreProcessExtension = true
   usageConfig.enableIgnoreXSDExtension = true
-  usageConfig.enableMessageExtension
+  usageConfig.enableMessageExtension = true
   usageConfig.xslEngine = "XalanC"
   usageConfig.joinXPathChecks = true
   usageConfig.checkHeaders = false
+  usageConfig.preserveRequestBody = true
   usageConfig.resultHandler = assertHandler
 
   //

@@ -5,6 +5,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:c="http://www.w3.org/ns/xproc-step"
+    xmlns:chk="http://www.rackspace.com/repose/wadl/checker"
     xmlns:sch="http://docs.rackspace.com/core/usage/schema"
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
@@ -150,14 +151,15 @@
 
                                 <!-- per WADL schema, all rax:preprocess/extensions have to be at the bottom of params -->
 
-                                <!-- B-57395: implementation of BigData synthesized attribute -->
-                                <xsl:if test="$id = 'BigData'">
-                                    <rax:preprocess href="bigdata.xsl"/>
-                                </xsl:if>
                                 <xsl:call-template name="sch:xpath-assertions">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
                                 </xsl:call-template>
+
+                                <!-- B-57395: implementation of BigData synthesized attribute -->
+                                <xsl:if test="$id = 'BigData'">
+                                    <rax:preprocess href="bigdata.xsl"/>
+                                </xsl:if>
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
                                     <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
@@ -203,13 +205,14 @@
         <xsl:param name="schemas" as="node()*"/>
         <xsl:param name="nscount" as="xs:integer"/>
         <xsl:variable name="excludePrefixes" as="xs:string*"
-                      select="('rax', 'util', 'xs',
+                      select="('rax', 'util', 'xs', 'chk',
                                for $i in 1 to $nscount return concat($NS_PREFIX,xs:string($i)))"/>
         <xsl:if test="$schemas//sch:xpathAssertion[@scope='entry']">
             <rax:preprocess>
-                <xslout:stylesheet
+                <xslout:transform
                     xmlns:event="http://docs.rackspace.com/core/event"
                     xmlns:atom="http://www.w3.org/2005/Atom"
+                    chk:mergable="true"
                     version="2.0">
                     <xsl:attribute name="exclude-result-prefixes">
                         <xsl:value-of select="$excludePrefixes" separator=" "/>
@@ -234,7 +237,7 @@
                             <xslout:apply-templates />
                         </xslout:copy>
                     </xslout:template>
-                </xslout:stylesheet>
+                </xslout:transform>
             </rax:preprocess>
         </xsl:if>
     </xsl:template>
@@ -582,7 +585,7 @@
         <xsl:param name="schemas" as="node()*"/>
         <xsl:param name="nscount" as="xs:integer"/>
         <xsl:variable name="excludePrefixes" as="xs:string*"
-                      select="('event', 'rax', 'util', 'xs',
+                      select="('event', 'rax', 'util', 'xs', 'chk',
                                for $i in 1 to $nscount return concat($NS_PREFIX,xs:string($i)))"/>
         <!--
             If we have at least one searchable attribute, then
