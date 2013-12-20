@@ -23,7 +23,7 @@
          </appinfo>
       </annotation>
       <all vc:minVersion="1.1">
-         <element name="teams" minOccurs="0" maxOccurs="30">
+         <element name="team" minOccurs="0" maxOccurs="30">
             <complexType>
                <attribute name="teamType" use="required" type="p:teamTypeEnum">
                   <annotation>
@@ -49,7 +49,7 @@
          </element>
       </all>
       <!--Order matters in XSD 1.0 :-(--><sequence vc:minVersion="1.0" vc:maxVersion="1.1">
-         <element name="teams" minOccurs="0" maxOccurs="30">
+         <element name="team" minOccurs="0" maxOccurs="30">
             <complexType>
                <attribute name="teamType" use="required" type="p:teamTypeEnum">
                   <annotation>
@@ -104,7 +104,7 @@
    <simpleType name="accountTypeEnum">
       <restriction base="xsd:string">
          <enumeration value="CLOUD"/>
-         <enumeration value="MANAGED"/>
+         <enumeration value="MANAGED_HOSTING"/>
       </restriction>
    </simpleType>
    <simpleType name="teamTypeEnum">

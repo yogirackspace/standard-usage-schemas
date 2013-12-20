@@ -7,11 +7,11 @@
         Events for support information on account creation or updates.
     </description>
     <attribute name="accountType" type="string"
-               use="required" allowedValues="CLOUD MANAGED"
+               use="required" allowedValues="CLOUD MANAGED_HOSTING"
                searchable="true">
         The account type.
     </attribute>
-    <attributeGroup name="teams" minOccurs="0" maxOccurs="30">
+    <attributeGroup name="team" minOccurs="0" maxOccurs="30">
         <description>
             A list of teams associated with this account
         </description>
