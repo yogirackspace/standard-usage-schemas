@@ -164,5 +164,8 @@
     <import namespace="http://docs.rackspace.com/event/ssl"
             schemaLocation="../generated_product_xsds/ssl.xsd"/> 
 
+    <import namespace="http://docs.rackspace.com/usage/dedicatedvcenter/server"
+            schemaLocation="../generated_product_xsds/dedicatedvcenter-server.xsd"/> 
+
     <element name="event" type="event:EventV1"/>
 </schema>

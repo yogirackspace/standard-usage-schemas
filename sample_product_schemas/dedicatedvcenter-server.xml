@@ -1,0 +1,61 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               namespace="http://docs.rackspace.com/usage/dedicatedvcenter/server"
+               serviceCode="DedicatedVCenter"
+               version="1" resourceTypes="SERVER"
+               type="USAGE">
+    <description>
+        Usage message for a Dedicated vCenter server.
+    </description>   
+    <attribute name="vCPU" type="unsignedInt" use="required"
+               min="0" max="1000"
+               unitOfMeasure="COUNT" groupBy="true">
+        The number of vCPUs.
+    </attribute>   
+    <attribute name="vRAM" type="unsignedInt" use="required"
+               min="0" max="20971520"
+               unitOfMeasure="MB" groupBy="true">
+        Memory provisioned for this server.
+    </attribute>
+    <attribute name="guestOSLicense" type="string"
+               use="optional"
+               allowedValues="WINDOWS RHEL"
+               groupBy="true">
+        The Guest OS license for this server.
+    </attribute> 
+    <attribute name="hostOSLicense" type="string"
+               use="optional"
+               allowedValues="WINDOWS RHEL"
+               groupBy="true">
+        The Host OS license for this server.
+    </attribute>
+    <attribute name="isGuestOSSupported" type="boolean"
+               use="optional" default="false"
+               groupBy="true">
+        If the Guest OS on this server is supported.
+    </attribute>
+    <attribute name="applicationLicense" type="Name*"
+               use="optional"
+               allowedValues="MSSQL SHAREPOINT"
+               groupBy="true"
+               >
+        The application licenses on this server. 
+    </attribute>
+    <attribute name="applicationSupport" type="Name*"
+               use="optional"
+               allowedValues="MSSQL SHAREPOINT"
+               groupBy="true"
+               >
+        The application licenses that are supported on this server. 
+    </attribute> 
+    <attribute name="powerStatus" type="string"
+               use="optional"
+               groupBy="true">
+        The power status of the device
+    </attribute> 
+    <attribute name="coreStatus" type="string"
+               use="optional"
+               groupBy="true">
+        The status of the device in CORE system
+    </attribute> 
+</productSchema>
