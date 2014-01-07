@@ -82,6 +82,7 @@
                                 <xsl:call-template name="sch:forbid-event-error" />
                                 <xsl:call-template name="sch:forbid-usage-summary" />
                                 
+                                <!--
                                 <xsl:for-each select="./sch:attribute[@use='synthesized']">
                                     <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
                                     <xsl:variable name="attributeName" select="@name"/>
@@ -91,6 +92,7 @@
                                            path="not(/atom:entry/atom:content/event:event/{$ns}:product/@{$attributeName})"
                                            rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
                                 </xsl:for-each>
+                                -->
 
                                 <!--
                                     B-51154: restrict the use of GLOBAL DC/Region

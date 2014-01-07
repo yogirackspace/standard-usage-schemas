@@ -94,6 +94,16 @@
             </appinfo>
          </annotation>
       </attribute>
+      <assert vc:minVersion="1.1"
+              test="not(@aggregatedClusterDuration) then false() else true()"
+              xerces:message="The aggregatedClusterDuration is a synthesized attribute. It can not be included in the original event."
+              saxon:message="The aggregatedClusterDuration is a synthesized attribute. It can not be included in the original event.">
+         <annotation>
+            <documentation>
+               <html:p>Assertion: The aggregatedClusterDuration is a synthesized attribute. It can not be included in the original event.</html:p>
+            </documentation>
+         </annotation>
+      </assert>
    </complexType>
    <simpleType name="ResourceTypes">
       <annotation>
