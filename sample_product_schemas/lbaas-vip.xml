@@ -33,8 +33,8 @@
         The resource Id for a vip (IPV4) should be between 1 and 9000000.
     </xpathAssertion>
 
-    <xpathAssertion test="if ($product/@IPversion = 'IPV6') then xs:integer($event/@resourceId) &gt;= 9000000 else true()" scope="entry">
-        The resource Id for a vip (IPV6) should greater than or equal to  9000000.
+    <xpathAssertion test="if ($product/@IPversion = 'IPV6') then xs:integer($event/@resourceId) &gt; 9000000 else true()" scope="entry">
+        The resource Id for a vip (IPV6) should greater than 9000000.
     </xpathAssertion>
 
 </productSchema>
