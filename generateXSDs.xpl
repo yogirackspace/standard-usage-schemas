@@ -5,6 +5,7 @@
     <p:input port="source">
         <p:empty/>
     </p:input>
+    <p:input port="parameters" kind="parameter"/>
     <p:import href="product_schema_def/xpl/productSchema.xpl"/>
     <p:directory-list path="sample_product_schemas" name="schemas">
         <p:with-option name="include-filter" select="'.*xml$'"/>
