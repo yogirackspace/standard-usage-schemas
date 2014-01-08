@@ -31,6 +31,7 @@
         <resource id="nova_events" path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
         <resource id="bigdata_events" path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
         <resource id="backup_events" path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
+        <resource id="automation_events" path="automation/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="autoscale_events" path="autoscale/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="dedicated_events" path="dedicated/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="queues_events" path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
