@@ -18,12 +18,7 @@
                use="required">
         The link to view the event info in Torq.
     </attribute>
-<!-- maybe use eventTime
-    <attribute name="failureTime" type="timestamp"
-               use="required" >
-        The time at which the backup of this device failed.
-    </attribute>
--->
+
     <attribute name="description" type="string"
                maxLength="256"
                use="required">
