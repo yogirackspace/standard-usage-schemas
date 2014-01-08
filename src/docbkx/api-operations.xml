@@ -130,6 +130,7 @@
     <title>Net Device</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#netdevice_events"/>
+      <resource href="../../atom_hopper.wadl#netdevice_events_getEntry_CloudServersOpenStack"/>
     </resources>
   </section>
   <section xml:id="meta.product">
