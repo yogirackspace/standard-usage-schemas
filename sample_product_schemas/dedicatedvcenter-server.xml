@@ -48,8 +48,9 @@
                >
         The application licenses that are supported on this server. 
     </attribute> 
-    <attribute name="powerStatus" type="string"
+    <attribute name="status" type="Name"
                use="optional"
+               allowedValues="ON OFF SUSPENDED"
                groupBy="true">
         The power status of the device
     </attribute> 

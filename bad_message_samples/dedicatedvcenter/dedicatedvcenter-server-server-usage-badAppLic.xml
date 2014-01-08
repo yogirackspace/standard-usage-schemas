@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="dedicatedvcenter/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="MQSERIES"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event" 
             xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcenter/server">
@@ -23,7 +24,7 @@
                              guestOSLicense="WINDOWS"
                              hostOSLicense="WINDOWS"
                              isGuestOSSupported="true"
-                             applicationLicense="MSSQL SHAREPOINT"
+                             applicationLicense="SHAREPOINT MQSERIES"
                              applicationSupport="MSSQL SHAREPOINT"
                              />
         </event>

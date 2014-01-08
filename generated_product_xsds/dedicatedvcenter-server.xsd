@@ -107,7 +107,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="powerStatus" use="optional" type="p:string">
+      <attribute name="status" use="optional" type="p:statusEnum">
          <annotation>
             <documentation>
                <html:p>The power status of the device</html:p>
@@ -178,6 +178,13 @@
       <restriction base="xsd:Name">
          <enumeration value="MSSQL"/>
          <enumeration value="SHAREPOINT"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="statusEnum">
+      <restriction base="xsd:Name">
+         <enumeration value="ON"/>
+         <enumeration value="OFF"/>
+         <enumeration value="SUSPENDED"/>
       </restriction>
    </simpleType>
    <simpleType name="string">
