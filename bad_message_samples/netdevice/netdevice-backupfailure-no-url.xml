@@ -13,7 +13,7 @@
                type="INFO">
             <fail:product version="1"
                           resourceType="LOADBALANCER"
-                          serviceCode="CloudServersOpenStack"
+                          serviceCode="NetDevice"
                           hostname="lb01"
                           description="exploded!"/>
         </event>

@@ -12,8 +12,8 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/event/netdevice/backupfailure">
-   <element name="product" type="p:CloudServersOpenStackType"/>
-   <complexType name="CloudServersOpenStackType">
+   <element name="product" type="p:NetDeviceType"/>
+   <complexType name="NetDeviceType">
       <annotation>
          <documentation>
             <html:p>INFO messages on loadbalancer and firewall backup failures for FDaaT.</html:p>
@@ -26,7 +26,7 @@
       <attribute name="serviceCode"
                  use="required"
                  type="xsd:Name"
-                 fixed="CloudServersOpenStack"/>
+                 fixed="NetDevice"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
       <attribute name="hostname" use="required" type="p:string">
          <annotation>
