@@ -33,7 +33,7 @@
         <resource id="backup_events" path="backup/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup"/>
         <resource id="automation_events" path="automation/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="autoscale_events" path="autoscale/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource id="dedicated_events" path="dedicated/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource id="dedicatedvcenter_events" path="dedicatedvcenter/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCenter"/>
         <resource id="queues_events" path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
         <resource id="netdevice_events" path="netdevice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NetDevice"/>
         <resource id="meta_events" path="meta/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>

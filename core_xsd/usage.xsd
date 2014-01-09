@@ -167,5 +167,8 @@
     <import namespace="http://docs.rackspace.com/event/netdevice/backupfailure"
             schemaLocation="../generated_product_xsds/netdevice-backupfailure.xsd"/>
 
+    <import namespace="http://docs.rackspace.com/usage/dedicatedvcenter/server"
+            schemaLocation="../generated_product_xsds/dedicatedvcenter-server.xsd"/> 
+
     <element name="event" type="event:EventV1"/>
 </schema>
