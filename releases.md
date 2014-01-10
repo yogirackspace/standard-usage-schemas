@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.34.1**  
+2014-01-10 | D-16790: fix lbaas vip resourceId rules per email from Jorge Miramontes (Shinta Smith)  
+
 **usage-schema-1.34.0**  
 2014-01-08 | B-61993: add /automation feed (Shinta Smith)  
 2014-01-08 | B-58430 - New Schema for net_device/events for FDaAT (Greg Sharek)  
