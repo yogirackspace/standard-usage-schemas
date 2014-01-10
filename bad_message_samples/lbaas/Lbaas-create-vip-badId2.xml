@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="lbaas/events"?> <!-- ignore <?atom..?>, used for testing -->
-<?expect code="400" message="resource Id vip IPV4 should be between 1 and 9000000"?>
+<?expect code="400" message="resource Id vip IPV4 should be between 1 and 8999999"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:lbip="http://docs.rackspace.com/event/lbaas/vip">
     <atom:title type="text">VIP Create</atom:title>

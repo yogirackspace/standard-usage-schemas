@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="lbaas/events"?> <!-- ignore <?atom..?>, used for testing -->
-<?expect code="400" message="resource Id vip IPV6 greater than 9000000"?>
+<?expect code="400" message="resource Id vip IPV6 greater than or equal to 9000000"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:lbip="http://docs.rackspace.com/event/lbaas/vip">
     <atom:title type="text">VIP Create</atom:title>
@@ -9,7 +9,7 @@
     </atom:summary>
     <atom:content type="application/xml">
         <event resourceName="My Node"
-               resourceId="9000000"
+               resourceId="8999999"
                eventTime="2012-06-15T10:19:52Z" region="DFW" dataCenter="DFW1" type="CREATE"
                id="7ba76892-4058-11e3-806b-002500a28a7a"
                severity="INFO"
