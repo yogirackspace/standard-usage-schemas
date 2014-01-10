@@ -1,6 +1,15 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.34.0**  
+2014-01-08 | B-61993: add /automation feed (Shinta Smith)  
+2014-01-08 | B-58430 - New Schema for net_device/events for FDaAT (Greg Sharek)  
+2014-01-07 | D-16790: update xpathAssert for IPv6 resourceId (Shinta Smith)  
+2014-01-07 | B-61494: add multiFactorEnabled attribute for Identity events (Shinta Smith)  
+2014-01-07 | B-60544: initial draft of Dedicated vCenter schema (Shinta Smith)  
+2013-12-19 | B-58430 - New Schema for net_device/events for FDaAT (Greg Sharek)  
+2013-12-19 | D-16658: fix issue where only unbounded value can be used for maxOccurs or attributeGroup (Shinta Smith)  
+
 **usage-schema-1.33.1**  
 2013-12-16 | D-07837 - Product_Security - S2 - Long term attributes on category element expose Hibernate error (Greg Sharek)  
 
