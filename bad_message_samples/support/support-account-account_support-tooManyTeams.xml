@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="support/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="Bad Content:"?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title type="text">Support</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:support="http://docs.rackspace.com/event/support/account"
+               version="1" tenantId="654321"
+               resourceId="654321"
+               resourceName="My Account Name"
+               id="560490c6-6c63-11e1-aafe-27851d5aed13"
+               type="CREATE" dataCenter="DFW1" region="DFW"
+               eventTime="2013-12-12T11:51:11Z">
+            <support:product version="1" serviceCode="Support"
+                           resourceType="ACCOUNT_SUPPORT"
+                           >
+                <support:team teamType="SUPPORT" teamNumber="1"/>
+                <support:team teamType="SUPPORT" teamNumber="2"/>
+                <support:team teamType="SUPPORT" teamNumber="3"/>
+                <support:team teamType="SUPPORT" teamNumber="4"/>
+                <support:team teamType="SUPPORT" teamNumber="5"/>
+                <support:team teamType="SUPPORT" teamNumber="6"/>
+                <support:team teamType="SUPPORT" teamNumber="7"/>
+                <support:team teamType="SUPPORT" teamNumber="8"/>
+                <support:team teamType="SUPPORT" teamNumber="9"/>
+                <support:team teamType="SUPPORT" teamNumber="10"/>
+                <support:team teamType="SUPPORT" teamNumber="11"/>
+                <support:team teamType="SUPPORT" teamNumber="12"/>
+                <support:team teamType="SUPPORT" teamNumber="13"/>
+                <support:team teamType="SUPPORT" teamNumber="14"/>
+                <support:team teamType="SUPPORT" teamNumber="15"/>
+                <support:team teamType="SUPPORT" teamNumber="16"/>
+                <support:team teamType="SUPPORT" teamNumber="17"/>
+                <support:team teamType="SUPPORT" teamNumber="18"/>
+                <support:team teamType="SUPPORT" teamNumber="19"/>
+                <support:team teamType="SUPPORT" teamNumber="20"/>
+                <support:team teamType="SUPPORT" teamNumber="21"/>
+                <support:team teamType="SUPPORT" teamNumber="22"/>
+                <support:team teamType="SUPPORT" teamNumber="23"/>
+                <support:team teamType="SUPPORT" teamNumber="24"/>
+                <support:team teamType="SUPPORT" teamNumber="25"/>
+                <support:team teamType="SUPPORT" teamNumber="26"/>
+                <support:team teamType="SUPPORT" teamNumber="27"/>
+                <support:team teamType="SUPPORT" teamNumber="28"/>
+                <support:team teamType="SUPPORT" teamNumber="29"/>
+                <support:team teamType="SUPPORT" teamNumber="30"/>
+                <support:team teamType="SUPPORT" teamNumber="31"/>
+            </support:product>
+        </event>
+    </atom:content>
+</atom:entry>

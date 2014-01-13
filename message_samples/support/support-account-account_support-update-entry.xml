@@ -5,7 +5,7 @@
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:support="http://docs.rackspace.com/event/support/account"
-               version="1" tenantId="654321"
+               version="1" tenantId="hybrid:654321"
                resourceId="654321"
                resourceName="My Account Name"
                id="560490c6-6c63-11e1-aafe-27851d5aed13"
@@ -13,7 +13,7 @@
                eventTime="2013-12-12T11:51:11Z">
             <support:product version="1" serviceCode="Support"
                            resourceType="ACCOUNT_SUPPORT"
-                           accountType="MANAGED">
+                           >
             </support:product>
         </event>
     </atom:content>

@@ -80,16 +80,6 @@
                  type="xsd:Name"
                  fixed="Support"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="accountType" use="required" type="p:accountTypeEnum">
-         <annotation>
-            <documentation>
-               <html:p>The account type.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes searchable="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
    </complexType>
    <simpleType name="ResourceTypes">
       <annotation>
@@ -99,12 +89,6 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="ACCOUNT_SUPPORT"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="accountTypeEnum">
-      <restriction base="xsd:string">
-         <enumeration value="CLOUD"/>
-         <enumeration value="MANAGED_HOSTING"/>
       </restriction>
    </simpleType>
    <simpleType name="teamTypeEnum">
