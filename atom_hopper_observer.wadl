@@ -27,8 +27,9 @@
         <resource path="nova/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="bigdata/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="backup/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="automation/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="autoscale/events" type="wadl/feed.wadl#AtomFeed"/>
-        <resource path="dedicated/events" type="wadl/feed.wadl#AtomFeed"/>
+        <resource path="dedicatedvcenter/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="queues/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="netdevice/events" type="wadl/feed.wadl#AtomFeed"/>
         <resource path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed"/>

@@ -24,6 +24,11 @@
             True if the user has been migrated to global auth, false
             otherwise.  The default is false.
         </attribute>
+        <attribute name="multiFactorEnabled" type="boolean"
+                   use="optional" default="false">
+            True if the user has turn on multi-factor authentication, false
+            otherwise.  The default is false.
+        </attribute>
     </productSchema>
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                    namespace="http://docs.rackspace.com/event/identity/user"
@@ -48,6 +53,11 @@
         <attribute name="migrated" type="boolean"
                    use="optional" default="false">
             True if the user has been migrated to global auth, false
+            otherwise.  The default is false.
+        </attribute>
+        <attribute name="multiFactorEnabled" type="boolean"
+                   use="optional" default="false">
+            True if the user has turn on multi-factor authentication, false
             otherwise.  The default is false.
         </attribute>
         <attribute name="updatedAttributes" type="Name*"

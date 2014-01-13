@@ -510,7 +510,9 @@
             <programlisting>&lt;category term="mycategory1" />
 &lt;category term="mycategory2" /></programlisting>
             <note>
-                <para> Category tags are case sensitive.</para>
+                <para> Category tags are case sensitive. The <emphasis
+                        role="bold">category term</emphasis> attribute
+                    has a maximum length of 256 characters. </para>
             </note>
         </section>
         <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
