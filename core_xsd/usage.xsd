@@ -170,5 +170,8 @@
     <import namespace="http://docs.rackspace.com/usage/dedicatedvcenter/server"
             schemaLocation="../generated_product_xsds/dedicatedvcenter-server.xsd"/> 
 
+    <import namespace="http://docs.rackspace.com/event/support/account"
+            schemaLocation="../generated_product_xsds/support-account_support.xsd"/> 
+
     <element name="event" type="event:EventV1"/>
 </schema>
