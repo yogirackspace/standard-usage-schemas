@@ -33,7 +33,7 @@
             </affiliation>
         </author>
         <copyright>
-            <year>2013</year>
+            <year>2014</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
@@ -261,6 +261,8 @@
             <para security="writeronly">The amounts listed in the
                 following table will changes, since performance
                 numbers are changing as of 9-24-13.</para>
+            <para>The following table lists the performance for API
+                requests for the Cloud Feeds API.</para>
             <table rules="all">
                 <caption>Performance SLAs</caption>
                 <col width="25%"/>
@@ -371,8 +373,8 @@
             <para>An Atom Feed Document is a representation of an Atom
                 feed, including metadata about the feed, and some or
                 all of the entries associated with it. It's root is
-                the atom:feed element. The following is an example of
-                an Atom Feed Document:</para>
+                the <code>atom:feed</code> element. The following is
+                an example of an Atom Feed Document:</para>
             <example>
                 <title>Atom Feed Document</title>
                 <programlisting>&lt;feed>
@@ -464,7 +466,8 @@
             <title>XML Schemas</title>
             <para xlink:href="#XML_Schemas-d1e120">All product events
                 are validated against their XML schemas. For details,
-                see Chapter 5 Operations.</para> <para security="writeronly"> Writer: Insert hyperlink </para>
+                see <link xlink:href="#api-operations">Chapter 5:
+                    Operations</link>.</para> <para security="writeronly"> Writer: Insert hyperlink </para>
         </section>
     </chapter>
     <chapter xml:id="General_API_Information-d1e333">
@@ -473,7 +476,7 @@
             needed, since Cloud Feeds implements REST API.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
             <title>Adding a New Cloud Feeds Event</title>
-            <para>An Atom's content contains the actual Cloud Feeds
+            <para>An Atom entry contains the actual Cloud Feeds
                 product event. The event consists of generic and
                 product specific information.</para>
             <para>The following is an example of a simple Atom entry
@@ -522,7 +525,8 @@
                 supports the use of a HTTP GET request when asking for
                 a specific entry, forward and backward paging,
                 category searches, and JSON feed returns that are
-                experimental. An example of what GET returns:</para>
+                experimental. The following example shows the return
+                of a GET request:</para>
             <programlisting>&lt;feed>
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
@@ -635,9 +639,10 @@
                         occurred since you last polled. In a feed, the
                         entries are shown in order from newest to
                         oldest. </para>
+                    <para security="writeronly"> Note to writer:
+                        Insert the diagram for pagination here</para>
                 </listitem>
             </itemizedlist>
-            <para/>
             <important xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">
@@ -769,9 +774,9 @@
         </section>
         <section xml:id="Getting-a-Single-Entry-d1e1313">
             <title>Getting a Single Entry </title>
-            <para>Entries return one Atom XML entry which can be used
-                to return a specific entry by itself. The following is
-                a sample  response:</para>
+            <para>Entries return one Atom XML statement which, in turn
+                can be used to retrieve a specific entry. The
+                following is a sample response:</para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
     &lt;title type="text">This is the title&lt;/title>
     &lt;author>
@@ -893,7 +898,7 @@
             </section>
         </section>
         <section xml:id="JSON_Feed_Returns_d1e1319">
-            <title>JSON Feed Returns (Experimental) </title>
+            <title>JSON Feed Returns </title>
             <para>You can receive a feed in <link
                     xlink:href="http://json.org">JSON</link> using the
                 format parameter and specifying json as the value:: </para>
@@ -1486,22 +1491,21 @@
         </section>
         <section xml:id="CloudFeedsEventsVersions-d1e757">
             <title>Cloud Feeds Events Versions</title>
-            <para security="reviewer"> </para>
             <para>Core Event and Product Event are the two types of
                 event versions used by Cloud Feeds.</para>
             <section xml:id="Product_Event-d1e825">
                 <title>Core Event</title>
-                <para> The Core Event version is shown in the version
-                    attribute of the <code>&lt;event></code> element
-                    as follows:
+                <para> The Core Event version is shown in the
+                        <code>version</code> attribute of the
+                        <code>&lt;event></code> element as follows:
                     <programlisting>&lt;event version="1" ...> &lt;/event><?sbr?> <?sbr?><?sbr?></programlisting>The
                     Core Event rarely has to be incremented.</para>
             </section>
             <section xml:id="CloudFeedsEventsVersions-d1e759">
                 <title>Product Event</title>
                 <para>The Product Event version is shown in the
-                    version attribute of the <code>&lt;product></code>
-                    as follows</para>
+                        <code>version</code> attribute of the
+                        <code>&lt;product></code> as follows</para>
                 <programlisting>&lt;cb-lic:product version="1" serviceCode="CloudBackup"
                     serverID="9445"
                     resourceType="AGENT"/></programlisting>
@@ -1614,7 +1618,7 @@
                     </table>
                 </para>
                 <example>
-                    <title>JASON Response Format for Cloud
+                    <title>JSON Response Format for Cloud
                         Sites</title>
                     <para>Format:
                         https://atom.prod.ord1.us.ci.rackspace.net/sites/events</para>
