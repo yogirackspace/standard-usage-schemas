@@ -172,6 +172,7 @@
     <title>Support Services</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#support_events"/>
+      <resource href="../../atom_hopper.wadl#support_events_getEntry_Support"/>
     </resources>
   </section>
 </chapter>
