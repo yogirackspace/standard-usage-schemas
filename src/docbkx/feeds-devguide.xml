@@ -473,14 +473,12 @@
     <chapter xml:id="General_API_Information-d1e333">
         <title>Using Cloud Feeds</title>
         <para>To use Cloud Feeds an understanding of REST API is
-            needed, since Cloud Feeds implements REST API.</para>
+            needed, since Cloud Feeds use a REST API.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
-            <title>Adding a New Cloud Feeds Event</title>
-            <para>An Atom entry contains the actual Cloud Feeds
-                product event. The event consists of generic and
-                product specific information.</para>
-            <para>The following is an example of a simple Atom entry
-                (with three categories):</para>
+            <title>Adding a New Atom Entry</title>
+            <para>You can use a POST request to insert new Atom
+                entries into Atom Hopper. The following is an example
+                of a simple Atom entry (with three categories):</para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
   &lt;title type="text">This is the title&lt;/title>
   &lt;author>
@@ -491,11 +489,17 @@
   &lt;category term="MyCategory 2" />
   &lt;category term="MyCategory 3" />
 &lt;/entry></programlisting>
-            <para>The Atom XML cited above can be sent to Cloud Feeds
-                via an <emphasis role="bold">HTTP POST</emphasis>
-                along with the HTTP Header <emphasis role="bold"
-                    >Content-Type:
-                application/atom+xml.</emphasis></para>
+            <para>
+                <note>
+                    <para>When submitting the POST request, set the
+                        HTTP header to <emphasis role="bold"
+                            >Content-Type:
+                            application/atom+xml.</emphasis></para>
+                </note>
+            </para>
+            <para>If your request is successful you should receive an
+                HTTP 201 (Created) response along with the Atom XML
+                you posted in the body.</para>
         </section>
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
@@ -520,13 +524,12 @@
         </section>
         <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
             <title>Getting Events from Cloud Feeds</title>
-            <para>An HTTP GET request is used to retrieve product
-                event(s) from Cloud Feeds. The Cloud Feeds API
-                supports the use of a HTTP GET request when asking for
-                a specific entry, forward and backward paging,
-                category searches, and JSON feed returns that are
-                experimental. The following example shows the return
-                of a GET request:</para>
+            <para>You can use a GET request to retrieve product
+                event(s) from Cloud Feeds. The GET request will
+                retrieve a specific entry, forward and backward
+                paging, category searches, and JSON feed returns that
+                are experimental. The following example shows the
+                possible return of a GET request:</para>
             <programlisting>&lt;feed>
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
@@ -577,8 +580,8 @@
             </note>
             <para
                 xlink:href="https://atom.myserver.com/namespace/feed "
-                >To fetch events from a feed in Cloud Feeds, perform
-                an HTTP GET request against the following URL: </para>
+                >To fetch events from a feed in Cloud Feeds, perform a
+                GET request against the following URL: </para>
             <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
                 link and the links that follow will need to be
                 replaced for the public version of the CF Dev Guide
@@ -587,7 +590,7 @@
             <programlisting>https://atom.myserver.com/<emphasis role="bold">feedname</emphasis>/events </programlisting>
             <para>The feed name component of the URL above needs to be
                 replaced with the actual feed name. The response of
-                the above HTTP GET would contain several links as
+                the above GET would contain several links as
                 follows:</para>
             <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 &lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
@@ -660,11 +663,12 @@
             <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
             <para>To follow the link from a web browser, you must
-                change each instance of &amp;amp; to &amp;, as
-                follows: </para>
+                change each instance of &amp;amp; to &amp;, as shown
+                in the following example. The &amp;amp in this
+                example</para>
             <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
 </programlisting>
-            <para>This must be changed to: </para>
+            <para>must be changed to: </para>
             <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
             <para>This issue should not be a concern when using an XML
@@ -672,7 +676,7 @@
             <section xml:id="Cloud_Query_Pardle0001">
 
                 <title>Cloud Feeds Query Parameters</title>
-                <para>The following Table lists Cloud Feeds query
+                <para>The following table lists Cloud Feeds query
                     parameters:</para>
                 <table rules="all" width="920">
                     <caption>Cloud Feeds Query Parameters</caption>
@@ -736,7 +740,8 @@
             <para>You will notice when the Atom feed is returned that
                 each Atom entry has a self-referencing link. The
                 appearance of your self-referencing Atom entry links
-                depend upon whether you use an HTTPS POST.</para>
+                varies depending on whether you use an HTTPS POST
+                request or not</para>
             <para>With HTTPS POST, the link looks as
                 follows:<programlisting>&lt;link href="https://atom.myserver.com/feedname/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
 </programlisting></para>
@@ -744,39 +749,38 @@
         <section
             xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
             <title>Select Entries by Marker</title>
-            <para>Use a marker to denote an entry that you have
-                previously used. If you specify a marker in the GET
-                request, you can also specify a value for the
-                direction parameter. The value is either <emphasis
-                    role="bold">forward</emphasis> or <emphasis
-                    role="bold">backward</emphasis>. If you do not
-                specify a value for the direction parameter, the
-                default value of forward is used. </para><para security="writeronly"> Writer: Make sure to bold values such as
-                forward and backward thru the whole document. Else tag
-                them as a code  (courier font).</para>
+            <para>You can use a marker to denote an entry that you
+                have previously used. If you specify a marker in the
+                    <emphasis role="bold">GET</emphasis> request, you
+                can also specify a value for the direction parameter.
+                The value is either <code>forward</code> or
+                    <code>backward</code>. If you do not specify a
+                value for the direction parameter, the default value
+                of <code>forward </code>is used. </para>
             <para><emphasis role="bold"
                 >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
             <para><emphasis role="bold"
                 >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward 
 </programlisting></para>
-            <para>You can use the limit parameter to specify the
-                number of entries to return. By default the limit is
-                set to 25. The minimum limit is one and the maximum is
-                1,000.</para>
+            <para>You can use the <parameter>limit</parameter>
+                parameter to specify the number of entries to return.
+                By default the limit is set to 25. The minimum limit
+                is one and the maximum is 1,000.</para>
             <para>The following example shows a marker specified and
                 the limit set to 50, paging forward.</para>
             <programlisting> https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <para>The following example shows a marker set and the
-                limit set to 50, paging backward </para>
+                limit set to 50, paging backward.</para>
             <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
         </section>
         <section xml:id="Getting-a-Single-Entry-d1e1313">
             <title>Getting a Single Entry </title>
-            <para>Entries return one Atom XML statement which, in turn
-                can be used to retrieve a specific entry. The
-                following is a sample response:</para>
+            <para>If you submit a <emphasis role="bold">GET</emphasis>
+                request that contains the URL of an entry, Cloud Feeds
+                will return an XML response that contains the single
+                entry you requested as shown in the following example. </para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
     &lt;title type="text">This is the title&lt;/title>
     &lt;author>
@@ -789,8 +793,8 @@
 &lt;/entry> 
 </programlisting>
             <note>
-                <para> The UUID keyword is the unique ID of the Atom
-                    entry is entered by Cloud Feeds. </para>
+                <para>The UUID keyword is the unique ID of the Atom
+                    entry, which is provided by Cloud Feeds. </para>
             </note>
         </section>
         <section xml:id="Filter_Entries_by_Category_d1e1315">
@@ -816,15 +820,14 @@
             <para>To perform a search on multiple categories simply
                 append additional categories; as demonstrated in the
                 following example that searches for two categories
-                (CAT1 and <emphasis role="bold"
-                >CAT5</emphasis>):</para>
+                    (<code>CAT1 </code>and <code>CAT5)</code>:</para>
             <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5 
 </programlisting>
             <note>
                 <para>Current searching with multiple categories is an
-                    "OR" search. Meaning any entry containing one or
-                    more of the categories specified will be returned.
-                    This may change in the future.</para>
+                    "OR" search. Any entry containing one or more of
+                    the categories specified will be returned. This
+                    may change in the future.</para>
             </note>
             <section xml:id="Filter_Entries_by_Category_d1e0003">
                 <title>Advanced Filtering by Category with Cloud Feeds </title>
@@ -921,9 +924,9 @@
             <para>Cloud Feeds supports weak entity tags (ETags). An
                 ETag identifies a specific feed version. When the
                 content of the feed changes, a different ETag is
-                assigned. It's an efficient way of checking whether a
-                previously processed feed has changed. Weak ETags are
-                sent back in the HTTP header with a name of
+                assigned. ETags provide an efficient way of checking
+                whether a previously processed feed has changed. Weak
+                ETags are sent back in the HTTP header with a name of
                 ETag.</para>
             <para>Following is an example of weak ETag for a feed
                 containing more than one Atom entry:</para>
@@ -946,7 +949,7 @@
     </chapter>
     <chapter xml:id="General_API_Information-d1e633">
         <title>General API Information</title>
-        <para> The Cloud Feeds API is implemented using a RESTful web
+        <para>The Cloud Feeds API is implemented using a RESTful web
             service interface. Like other products in the Rackspace
             Cloud suite, the Cloud Feeds service shares a common
             token-based authentication system that allows seamless
@@ -1962,7 +1965,7 @@
                     the Content-Type header and is required for calls
                     that have a request body. Cloud Feeds API only
                     accept Content-Type: application/atom+xml. Any
-                    other Content-Type will result in 400 response
+                    other Content-Type will result in a 400 response
                     code. </para>
             </section>
         </section>
@@ -1993,7 +1996,8 @@
             </section>
             <section xml:id="httpPRL">
                 <title>HTTP POST Request Limit</title>
-                <para>Two hundred thousand is the maximum HTTP POST size limit. </para>
+                <para>Two hundred thousand is the maximum size limit
+                    in a POST request.</para>
            
             </section>
  
