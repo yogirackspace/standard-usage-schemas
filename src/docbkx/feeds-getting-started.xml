@@ -20,15 +20,11 @@
 ]>
 
 <book xmlns="http://docbook.org/ns/docbook"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      xmlns:xi="http://www.w3.org/2001/XInclude"
-      xml:id="feeds-getting-started"
-      version="5.0-extension RaxBook-2.0">    
-
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    xml:id="feeds-getting-started" version="5.0-extension RaxBook-2.0">
     <title>Rackspace Cloud Feeds Getting Started Guide</title>
-     
     <info>
-        
         <copyright>
             <year>2013</year>
             <holder>Rackspace US, Inc.</holder>
@@ -38,7 +34,8 @@
         <pubdate>2013-06-17</pubdate>
         <legalnotice role="rs-api">
             <annotation>
-                <remark>Copyright details are filled in by the template.</remark>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
             </annotation>
         </legalnotice>
         <revhistory>
@@ -52,13 +49,13 @@
                     </itemizedlist>
                 </revdescription>
             </revision>
-
         </revhistory>
-	<raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-	  <raxm:displayname>Getting Started Guide</raxm:displayname>
-	  <raxm:product version="v1.0">feeds</raxm:product>
-	  <raxm:priority>10</raxm:priority>
-	</raxm:metadata> 
+        <raxm:metadata
+            xmlns:raxm="http://docs.rackspace.com/api/metadata">
+            <raxm:displayname>Getting Started Guide</raxm:displayname>
+            <raxm:product version="v1.0">feeds</raxm:product>
+            <raxm:priority>10</raxm:priority>
+        </raxm:metadata>
     </info>
     <chapter xml:id="Feeds_Doc_Change_History">
         <title>Document Change History</title>
@@ -144,14 +141,16 @@
                     the ReST client for Firefox also works well for
                     testing and trying out commands, see <link
                         xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
-                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
+                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>.
+                </para>
             </listitem>
             <listitem>
                 <para>You can also download and install rest-client, a
                     Java application to test ReSTful web services,
                     from <link
                         xlink:href="http://code.google.com/p/rest-client/"
-                        >http://code.google.com/p/rest-client/</link>. </para>
+                        >http://code.google.com/p/rest-client/</link>.
+                </para>
             </listitem>
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
@@ -162,9 +161,11 @@
                 ReST interfaces. For more information on cURL, visit
                     <link xlink:href="http://curl.haxx.se/"
                     >http://curl.haxx.se/</link>. </para>
-            <para>cURL allows you to transmit and receive HTTP requests and responses from the
-                command-line or from within a shell script. This makes it possible to work with the ReST API
-                directly without using one of the client APIs. </para>
+            <para>cURL allows you to transmit and receive HTTP
+                requests and responses from the command-line or from
+                within a shell script. This makes it possible to work
+                with the ReST API directly without using one of the
+                client APIs. </para>
             <para>The following cURL command-line options will be used
                 in this guide to run the examples:</para>
             <variablelist>
@@ -186,7 +187,8 @@
                 <varlistentry>
                     <term><option>-H HEADER</option></term>
                     <listitem>
-                        <para>Specify an HTTP header in the request.</para>
+                        <para>Specify an HTTP header in the
+                            request.</para>
                     </listitem>
                 </varlistentry>
                 <varlistentry>
@@ -469,9 +471,8 @@
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
         <title>Service Access/Endpoints</title>
-        <para>The endpoints to use for your Cloud Databases API calls
-            are summarized in the table below.</para>
-        
+        <para>The endpoints to use for your Cloud Feeds API calls are
+            summarized in the table below.</para>
         <para>
             <table rules="all">
                 <caption>Regionalized Service Endpoints</caption>
@@ -485,25 +486,31 @@
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
                         <td colspan="5"
-                                ><code>https://ord.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                                ><code>https://ord.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
                         <td colspan="5"
-                                ><code>https://dfw.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                                ><code>https://dfw.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
                         <td colspan="5">
-                            <code>https://lon.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                            <code>https://lon.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
                         <td colspan="5">
-                            <code>https://syd.databases.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                            <code>https://syd.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Hong Kong (HKG)</td>
+                        <td colspan="5">
+                            <code>https://hkg.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
                         </td>
                     </tr>
                 </tbody>
@@ -539,461 +546,94 @@
                 <emphasis role="bold">your_acct_id</emphasis>
             specified in this guide. Refer to <xref
                 linkend="Generating_Auth_Token"/>.</para>
-        <para>When making a Cloud Databases API call, place the
-            endpoint at the beginning of the request URL, for example:
-                (<code>https://ord.databases.api.rackspacecloud.com/v1.0/your_acct_id/</code>),
-            as you can see in the cURL List Flavors Details Request
-            examples in <xref linkend="List_Flavors"/>.</para>
     </chapter>
-    <chapter xml:id="List_Flavors">
-        <title>List Flavors</title>
-        <para> A flavor is an available hardware configuration for a
-            database instance. Each flavor has a unique combination of
-            memory capacity and priority for CPU time. The larger the
-            flavor size you use, the larger the amount of RAM and
-            priority for CPU time your database instance will
-            receive.</para>
-        <para>You need to use the List Flavors API call
-                (<code>/flavors</code>) to find the available
-            configurations for your database instance, and then decide
-            which size you need.</para>
-        <para>This operation does not require a request body.</para>
-        <para>The following examples show the cURL requests for List
-            Flavors:</para>
-        <example>
-            <title>cURL List Flavors Request: XML</title>
-            <programlisting language="bash"><command>curl -i</command> \
--H 'X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>' \
-<option>-H 'Accept: application/xml'</option> \
-<uri>'https://ord.databases.api.rackspacecloud.com/v1.0/</uri><emphasis role="bold">your_acct_id</emphasis><uri>/flavors'</uri></programlisting>
-        </example>
-        <example>
-            <title>cURL List Flavors Request: JSON</title>
-            <programlisting language="bash"><command>curl -i</command> \
--H 'X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>' \
-<option>-H 'Accept: application/json'</option> \
-<uri>'https://ord.databases.api.rackspacecloud.com/v1.0/</uri><emphasis role="bold">your_acct_id</emphasis><uri>/flavors'</uri></programlisting>
-        </example>
-        <para>Remember to replace the names in the examples above with
-            their actual respective values for all the cURL examples
-            that follow:<itemizedlist spacing="compact">
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_auth_token</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the response examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_acct_id</emphasis> &mdash; as
-                        returned in your authentication response (must
-                        be replaced in the request URL)</para>
-                </listitem>
-            </itemizedlist></para>
-        <para>The following examples show the responses for List
-            Flavors:</para>
-        <para>In the previous examples, you can see from the flavor
-                <code>name</code> that there are multiple flavors
-            available, including <code>2GB Instance</code> (with 1
-            virtual CPU and 2 gigabytes of memory) and <code>512MB
-                Instance</code> (with 1 virtual CPU and 0.5 gigabytes
-            of memory). </para>
-        <para>In this example, assume that you decide to use the 512MB
-            Instance (id 1) to provide the needed capacity for your
-            database instance.</para>
-        <para>Notice that there are two kinds of link relations
-            associated with flavor resources. A <code>self</code> link
-            contains a <emphasis>versioned</emphasis> link to the
-            flavor resource. These links should be used in cases where
-            the link will be followed immediately (as you will see in
-            the next section). A <code>bookmark</code> link provides a
-            permanent link to a flavor resource that is appropriate
-            for long term storage and works across API
-            versions.</para>
-    </chapter>
-    
     <chapter xml:id="Create_Feeds_Instance">
-            <title>Create a Database Instance with a Database and a
-            User</title>
-            <para>A database instance is an isolated MySQL instance in
-            a single tenant environment on a shared physical host
-            machine. In the example below, you create a database
-            instance with a database and a user. The example instance
-            uses the 512MB Instance flavor and a volume size of 2
-            gigabytes (GB). </para>
-        <para>Refer to <link
-            xlink:href="http://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/POST_createDatabase__version___accountId__instances__instanceId__databases_.html"
-                >Create Database</link> in the <citetitle>Cloud
-                Databases Developer Guide</citetitle> for the
-            restrictions for choosing the database name.</para>
-        <para>The example creates a database instance
-                <code>myrackinstance</code>, with the following: <itemizedlist>
-                <listitem>
-                    <para>the 512MB Instance flavor</para>
-                </listitem>
-                <listitem>
-                    <para>volume size of 2 gigabytes (GB)</para>
-                </listitem>
-                <listitem>
-                    <para>a database named <code>sampledb</code> with:<itemizedlist>
-                            <listitem>
-                                <para><code>utf8</code> character
-                                   set</para>
-                            </listitem>
-                            <listitem>
-                                <para><code>utf8_general_ci</code>
-                                   collation</para>
-                            </listitem>
-                        </itemizedlist></para>
-                </listitem>
-                <listitem>
-                    <para>a user <code>simplestUser</code> with
-                        password <code>password</code></para>
-                </listitem>
-            </itemizedlist>
-        </para>
-        <para>Notice that the request specifies the flavor reference
-                (<code>flavorRef</code>) to the 512MB Instance flavor
-            (id 1) that was returned by the List Flavors Details call:
-                <code>"https://ord.databases.api.rackspacecloud.com/v1.0/1234/flavors/1"</code>.
-            This is the <code>self</code> link that is the versioned
-            link to the flavor resource. Refer to the response
-            examples in <xref linkend="List_Flavors"/>.</para>
-        <para>The following examples show the cURL requests for Create
-            Instance:</para>
-        <example>
-            <title>cURL Create Instance Request: XML</title>
-            <programlisting language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'&lt;?xml version="1.0" ?> 
-&lt;instance xmlns="http://docs.openstack.org/database/api/v1.0" 
-    name="myrackinstance" 
-    flavorRef= 
-      "https://ord.databases.api.rackspacecloud.com/v1.0/<emphasis role="bold">your_acct_id</emphasis>/flavors/1"> 
-    &lt;databases> 
-        &lt;database name="sampledb" character_set="utf8" 
-         collate="utf8_general_ci" /> 
-    &lt;/databases>
-    &lt;users>
-        &lt;user name="simplestUser" password="password">
-            &lt;databases>
-                &lt;database name="sampledb"/>
-            &lt;/databases>
-        &lt;/user>
-    &lt;/users> 
-    &lt;volume size="2" /> 
-&lt;/instance>' \
--H 'X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>' \
-<option>-H 'Content-Type: application/xml'</option> \
-<option>-H 'Accept: application/xml'</option> \
-<uri>'https://ord.databases.api.rackspacecloud.com/v1.0/</uri><emphasis role="bold">your_acct_id</emphasis><uri>/instances'</uri></programlisting>
-        </example>
-        <example>
-            <title>cURL Create Instance Request: JSON</title>
-            <programlisting language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'{
-    "instance": {
-        "databases": [
-            {
-                "character_set": "utf8",
-                "collate": "utf8_general_ci",
-                "name": "sampledb"
-            }
-        ],
-        "flavorRef": "https://ord.databases.api.rackspacecloud.com/v1.0/<emphasis role="bold">your_acct_id</emphasis>/flavors/1",
-        "name": "myrackinstance",
-        "users": [
-            {
-                "databases": [
-                    {
-                        "name": "sampledb"
-                    }
-                ],
-            "name": "simplestUser",
-            "password": "password"
-            }
-        ],
-        "volume": 
-            {
-                "size": 2
-            }
-    }
-}' \
--H 'X-Auth-Token: <emphasis role="bold">your_auth_token</emphasis>' \
-<option>-H 'Content-Type: application/json'</option> \
-<uri>'https://ord.databases.api.rackspacecloud.com/v1.0/</uri><emphasis role="bold">your_acct_id</emphasis><uri>/instances'</uri></programlisting>
-        </example>
-        <para>Remember to replace the names in the examples above with
-            their actual respective values for all the cURL examples
-            that follow:<itemizedlist spacing="compact">
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_auth_token</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the response examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_acct_id</emphasis> &mdash; as
-                        returned in your authentication response (must
-                        be replaced in the request URL)</para>
-                </listitem>
-            </itemizedlist></para>
-        <para>Remember to replace the account id shown in the
-                <code>flavorRef</code> property for the examples with
-            your actual account id:
-                <code>"https://ord.databases.api.rackspacecloud.com/v1.0/</code><emphasis
-                role="bold"
-                >your_acct_id</emphasis><code>/flavors/1"</code>.
-            Rather than the flavor URI shown in the previous sentence,
-            you can also pass the flavor id (integer) as the value for
-            flavorRef. For example, the flavor id for the flavor URI
-            shown above is "1". </para>
-        <para>The following examples show the Create Instance
-            responses:</para>
-        <para>You will need to specify the instance id returned (in
-            the response examples above:
-                <code>id="d379ba5c-9a1f-4aa9-9a17-afe237d04c65"</code>)
-            on subsequent API calls that require it, for example List
-            Databases for Instance.</para>
-        <para>Note that the database and user are not listed in the
-            Create Instance responses. Next you will verify that both
-            were successfully created.<note>
-                <para> The operation of creating the database instance
-                    may take up to several minutes. You will not be
-                    able to perform the operations to List Databases
-                    for Instance and List Users for Instance in the
-                    sections that follow until the instance has ACTIVE
-                    status. </para>
-            </note></para>
-        </chapter>
+        <title>Concepts</title>
+        <section xml:id="Atom_Feed_Document-d1e115">
+            <title>Atom Feed Document</title>
+            <para>An Atom Feed Document is a representation of an Atom
+                feed, including metadata about the feed, and some or
+                all of the entries associated with it. It's root is
+                the atom:feed element. The following is an example of
+                an Atom Feed Document:</para>
+            <example>
+                <title>Atom Feed Document</title>
+                <programlisting>&lt;feed>
+    &lt;link href="https://localhost/demo/events/" rel="current" />
+    &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
+    &lt;id>urn:uuid:5f4e03b9-2bd1-48de-acd8-6ad9f667f22a&lt;/id>
+    &lt;title type="text">demo/events&lt;/title>
+    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
+    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:398fc859-7c3f-4434-8049-a507a6eb1954&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
+    &lt;link href="https://localhost/demo/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
+    &lt;updated>2013-10-10T20:15:21.649Z&lt;/updated>
+    &lt;atom:entry>
+        &lt;atom:title type="text">Sites&lt;/atom:title>
+        &lt;atom:author>
+            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
+        &lt;/atom:author>
+        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
+        &lt;atom:updated>2013-09-27T15:43:50.812Z&lt;/atom:updated>
+        &lt;atom:content type="application/xml">
+            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
+            &lt;/event>
+        &lt;/atom:content>
+        &lt;atom:id>urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&lt;/atom:id>
+        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:02d4d829-5bda-4626-a603-421df50544fc"; rel="self" />
+            &lt;atom:published>2013-09-27T15:43:50.812Z&lt;/atom:published>
+    &lt;/atom:entry>
+    &lt;atom:entry>
+        &lt;atom:title type="text">Sites&lt;/atom:title>
+        &lt;atom:author>
+            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
+        &lt;/atom:author>
+        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
+        &lt;atom:updated>2013-09-27T15:43:17.041Z&lt;/atom:updated>
+        &lt;atom:content type="application/xml">
+            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
+                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
+            &lt;/event>
+        &lt;/atom:content>
+        &lt;atom:id>urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506&lt;/atom:id>
+        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506"; rel="self" />
+            &lt;atom:published>2013-09-27T15:43:17.041Z&lt;/atom:published>
+    &lt;/atom:entry>
+&lt;/feed>
+</programlisting>
+            </example>
+        </section>
+        <section xml:id="Atom_Content-d1e1116">
+            <title>Atom:Content</title>
+            <para>Provides a short description of the entry or
+                contains a content link that includes an
+                attribute.</para>
+        </section>
+        <section xml:id="Atom_Entry_Document-d1e1115">
+            <title>Atom Entry Document</title>
+            <para>An Atom Entry Document represents exactly one Atom
+                entry, outside of the context of an Atom feed. Its
+                root is the atom:entry element.</para>
+        </section>
+    </chapter>
+    <chapter xml:id="Create_Atom_Entries">
+        <title>Create Atom Entries</title>
+        <para>&lt;get information from Wiki></para>
+    </chapter>
     <chapter xml:id="List_DBS_For_Instance">
-        <title>List Databases for Instance</title>
-        <para>In this section you will list the databases in the
-            specified database instance.</para>
-        <para>This operation does not require a request body.</para>
-        <para xmlns="http://docbook.org/ns/docbook">The following
-            examples show the cURL requests for List Databases for
-            Instance:</para>
-        <para>Remember to replace the names in the examples above with
-            their actual respective values:<itemizedlist spacing="compact">
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_auth_token</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_acct_id</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">instance_id</emphasis>
-                        &mdash; as returned in your create instance
-                        response (see the examples in <xref
-                            linkend="Create_Feeds_Instance"/>)</para>
-                </listitem>
-            </itemizedlist></para>
-        <para>The following examples show the responses for Create
-            User:</para>
-        <para>You can see that the database <code>sampledb</code> was
-            successfully created. Next you will list the users.</para>
+        <title>Get Atom Entries that were Posted</title>
+        <para>In this section you will learn how to pull entries that
+            somebody else has posted</para>
+        <para>&lt;get information from Gettingthe Feed></para>
+        <para>7.1 Getting the feed</para>
     </chapter>
     <chapter xml:id="List_Users_Feeds_Instance">
-        <title>List Users in Database Instance</title>
+        <title>Filter Atom Entries by Category</title>
         <para>In this section you will list the users in the specified
             database instance.</para>
         <para>This operation does not require a request body.</para>
-        <para>The following examples show the cURL requests for List
-            Users in Database Instance:</para>
-        <para>Remember to replace the names in the examples above with
-            their actual respective values:<itemizedlist
-                spacing="compact">
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_auth_token</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold"
-                            >your_acct_id</emphasis> &mdash; as
-                        returned in your authentication response (see
-                        the examples in <xref
-                            linkend="Generating_Auth_Token"/>)</para>
-                </listitem>
-                <listitem>
-                    <para><emphasis role="bold">instance_id</emphasis>
-                        &mdash; as returned in your create instance
-                        response (see the examples in <xref
-                            linkend="Create_Feeds_Instance"/>)</para>
-                </listitem>
-            </itemizedlist></para>
-        <para>The following examples show the responses for List
-            Users in Database Instance:</para>
-        <example>
-            <title>List  Users in Database Instance Response:
-                XML</title>
-            <programlisting language="xml">HTTP/1.1 200 OK
-Content-Type: application/xml
-Content-Length: 109
-Date: Thu, 05 Apr 2012 18:20:18 GMT
-
-&lt;?xml version="1.0" ?>
-&lt;users xmlns="http://docs.openstack.org/database/api/v1.0">
-    &lt;user name="simplestUser">
-        &lt;databases>
-            &lt;database>
-                &lt;name>
-                    sampledb
-                &lt;/name>
-            &lt;/database>
-        &lt;/databases>
-    &lt;/user>
-&lt;/users>
-</programlisting>
-        </example>
-        <example>
-            <title>List Users in Database Instance Response:
-                JSON</title>
-            <programlisting language="json">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 113
-Date: Thu, 05 Apr 2012 18:13:53 GMT
-
-{
-    "users": [
-        {
-            "databases": [
-                {
-                    "name": "sampledb"
-                }
-            ],
-            "name": "simplestUser"  
-        }
-    ]
-}</programlisting>
-        </example>
-        <para>You can see that the user <code>simplestUser</code> was
-            successfully created.</para>
-    </chapter>
-    <chapter xml:id="Create_Cloud_Server">
-        <title>Create a New Cloud Server</title>
-        <para>Create a Cloud Server (or use an existing Cloud Server)
-            to access your database.</para>
-        <note>
-            <para>If you are using an existing Cloud Server on your
-                account, skip this step and go directly to <xref
-                    linkend="Configure_Cloud_Server_DB"/>.</para>
-        </note>
-        <para>Create a Cloud Server using the Cloud Servers section of
-            the Cloud Control Panel (login here: <link
-                xlink:href="http://mycloud.rackspace.com/"
-                >Cloud Control Panel</link>).</para>
-        <procedure>
-            <title>To create a Cloud Server using the Cloud Control
-                Panel:</title>
-            <step>
-                <para>Click <guimenuitem>Servers</guimenuitem> to view
-                    the Cloud Servers page.</para>
-            </step>
-            <step>
-                <para> Using the <guimenu>Region</guimenu> drop-down
-                    menu, select the appropriate region, depending on
-                    whether you want to create a first generation
-                    Cloud Server or a next generation Cloud Server.
-                    (The type of Cloud Server does not matter for this
-                    exercise.)</para>
-            </step>
-            <step>
-                <para> Select an image from a list of different
-                    operating systems, including Linux Distributions
-                    and Windows Images:</para>
-            </step>
-            <step>
-                <para> Specify the <guilabel>Server Name</guilabel>
-                    and select a <guilabel>Size</guilabel> for your
-                    Cloud Server, then click <guibutton>Create
-                        Server</guibutton>. </para>
-            </step>
-        </procedure>
-        <note>
-            <para>You can also create a Cloud Server using the Cloud
-                Servers API. Refer to the <link
-                    xlink:href="http://docs.rackspace.com/">Next Generation Cloud
-                    Servers Developer Guide</link> for
-                details.</para>
-        </note>
-    </chapter>
-    <chapter xml:id="Configure_Cloud_Server_DB">
-        <title>Configuring an Application to Use Your Cloud
-            Database</title>
-        <para>If you are configuring an application to use your
-            database on a Cloud Server, you need to configure the
-            application with the hostname for the database instance
-            and user name / password for the database. Refer to the
-            response examples in <xref linkend="Create_Feeds_Instance"/>
-            for the <code>hostname</code> returned and the request
-            examples for the user name and password you
-            specified.</para>
-    </chapter>
-    <chapter xml:id="MySQL_GUI_Admin">
-        <title>MySQL GUI Administration</title>
-        <para> If you want to access your database using the command
-            line MySQL client, then you have now completed the
-                <citetitle>Getting Started</citetitle>.</para>
-        <para>Otherwise, you can use a GUI tool such as phpMyAdmin to
-            interact with your database instance. Common operations
-            include managing databases, tables, fields, relations,
-            indexes, users, and permissions. Included below is a
-            procedure to set up phpMyAdmin on an Ubuntu 11.04 Cloud
-            Server. </para>
-        <para>For more detailed installation configuration
-            instructions see the phpMyAdmin documentation at: <link
-                xlink:href="http://www.phpmyadmin.net/documentation/"
-                >http://www.phpmyadmin.net/documentation/</link>. <note>
-                <para>Rackspace does not provide phpMyAdmin support,
-                    and the user is responsible for any security
-                    related configuration.</para>
-            </note></para>
-        <procedure>
-            <title>To install and configure phpMyAdmin on an Ubuntu
-                11.04 Cloud Server:</title>
-            <step>
-                <para> Install phpMyAdmin:</para>
-                <para>
-                    <command>sudo apt-get install
-                    phpmyadmin</command></para>
-            </step>
-            <step>
-                <para> Set up a symbolic link to the phpmyadmin config
-                    file:</para>
-                <para><command>sudo ln -s /etc/phpmyadmin/apache.conf
-                        /etc/apache2/conf.d/phpmyadmin.conf</command>
-                </para>
-            </step>
-            <step>
-                <para>Edit the
-                        <code>/etc/phpmyadmin/config-db.php</code>
-                    config file to point to your database
-                    instance:</para>
-                <para><command>$dbserver='&lt;cloud database
-                        hostname>';</command>
-                </para>
-            </step>
-            <step>
-                <para>Restart apache:</para>
-                <para><command>sudo apachectl restart</command></para>
-            </step>
-        </procedure>
-        <para>This concludes the <citetitle>Getting
-            Started</citetitle>. Thank you for using Rackspace Cloud
-            products.</para>
+        <para>The following examples show the responses for List Users
+            in Database Instance:</para>
+        <para>.</para>
     </chapter>
 </book>
