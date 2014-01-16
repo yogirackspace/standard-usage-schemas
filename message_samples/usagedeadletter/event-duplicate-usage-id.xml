@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="usagedeadletter/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Usage Dead letter error event</atom:title>
+    <atom:content type="application/xml">
+        <eventError xmlns="http://docs.rackspace.com/core/error"
+            xmlns:event="http://docs.rackspace.com/core/event"
+            xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
+            type="DUPLICATE_USAGE_ID">
+            <description>This merely tests the DUPLIcate_USAGE_ID type.</description>
+            <event:event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+                         region="DFW" dataCenter="DFW1" type="USAGE"
+                         id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+                         resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+                         tenantId="1234" version="1">
+                <cb-bin:product version="1" serviceCode="CloudBackup"
+                                serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
+                                bandwidthIn="192998" resourceType="AGENT"/>
+            </event:event>
+        </eventError>
+    </atom:content>
+</atom:entry>
