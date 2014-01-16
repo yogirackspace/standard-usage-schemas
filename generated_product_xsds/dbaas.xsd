@@ -12,8 +12,54 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/usage/dbaas">
-   <element name="product" type="p:CloudDatabaseType"/>
-   <complexType name="CloudDatabaseType">
+   <element name="product"
+            type="p:CloudDatabase2Type"
+            vc:minVersion="1.0"
+            vc:maxVersion="1.1">
+      <annotation>
+         <documentation>
+            <html:p>
+                        Alternates are not supported by XSD 1.0.  So
+                        in XSD 1.0 we are only supporting a single
+                        version (in this case version 2).
+                    </html:p>
+            <html:p>
+                        To support other versions you may redefine the
+                        product element to any of the following types:
+                    </html:p>
+            <html:ol>
+               <html:li>p:CloudDatabase1Type</html:li>
+               <html:li>p:CloudDatabase2Type</html:li>
+            </html:ol>
+         </documentation>
+      </annotation>
+   </element>
+   <element name="product" vc:minVersion="1.1" type="p:BaseCloudDatabaseType">
+      <alternative test="@version eq '1'" type="p:CloudDatabase1Type"/>
+      <alternative test="@version eq '2'" type="p:CloudDatabase2Type"/>
+      <alternative type="p:BaseCloudDatabaseTypeError"/>
+   </element>
+   <complexType name="BaseCloudDatabaseType">
+      <attribute name="version" type="xsd:string" use="required"/>
+      <attribute name="serviceCode"
+                 use="required"
+                 type="xsd:Name"
+                 fixed="CloudDatabase"/>
+   </complexType>
+   <complexType name="BaseCloudDatabaseTypeError" vc:minVersion="1.1">
+      <complexContent>
+         <extension base="p:BaseCloudDatabaseType">
+            <openContent mode="interleave">
+               <any processContents="skip"/>
+            </openContent>
+            <anyAttribute processContents="skip"/>
+            <assert test="false()"
+                    xerces:message="For this type of message, only  versions ( 1, 2 ) are supported."
+                    saxon:message="For this type of message, only  versions ( 1, 2 ) are supported."/>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="CloudDatabase1Type">
       <annotation>
          <documentation>
             <html:p>Dbaas specific user fields.</html:p>
@@ -24,34 +70,33 @@
                         type="USAGE"/>
          </appinfo>
       </annotation>
-      <attribute name="version" type="xsd:string" use="required" fixed="1"/>
-      <attribute name="serviceCode"
-                 use="required"
-                 type="xsd:Name"
-                 fixed="CloudDatabase"/>
-      <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="memory" use="required" type="p:memoryType">
-         <annotation>
-            <documentation>
-               <html:p>Memory provisioned for this database.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" unitOfMeasure="MB" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="storage" use="required" type="p:storageType">
-         <annotation>
-            <documentation>
-               <html:p>The provisioned size of the storage volume for this database.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
+      <complexContent>
+         <extension base="p:BaseCloudDatabaseType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes1"/>
+            <attribute name="memory" use="required" type="p:memory1Type">
+               <annotation>
+                  <documentation>
+                     <html:p>Memory provisioned for this database.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="MB" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="storage" use="required" type="p:storage1Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The provisioned size of the storage volume for this database.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
    </complexType>
-   <simpleType name="ResourceTypes">
+   <simpleType name="ResourceTypes1">
       <annotation>
          <documentation>
             <html:p>Resource Types for this product.</html:p>
@@ -61,16 +106,108 @@
          <enumeration value="MYSQL"/>
       </restriction>
    </simpleType>
-   <simpleType name="memoryType">
+   <simpleType name="memory1Type">
       <restriction base="xsd:int">
          <minInclusive value="0"/>
-         <maxInclusive value="65536"/>
+         <maxInclusive value="131072"/>
       </restriction>
    </simpleType>
-   <simpleType name="storageType">
+   <simpleType name="storage1Type">
       <restriction base="xsd:int">
          <minInclusive value="0"/>
          <maxInclusive value="3072"/>
+      </restriction>
+   </simpleType>
+   <complexType name="CloudDatabase2Type">
+      <annotation>
+         <documentation>
+            <html:p>Dbaas specific user fields.</html:p>
+         </documentation>
+         <appinfo>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="INTEGER_RANGE"
+                        type="USAGE"/>
+         </appinfo>
+      </annotation>
+      <complexContent>
+         <extension base="p:BaseCloudDatabaseType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes2"/>
+            <attribute name="memory" use="required" type="p:memory2Type">
+               <annotation>
+                  <documentation>
+                     <html:p>Memory provisioned for this database.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="MB" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="storage" use="optional" type="p:storage2Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The provisioned size of the storage volume for this database.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="dbVersion" use="required" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>The version of the database.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <assert vc:minVersion="1.1"
+                    test="if ( @resourceType = 'REDIS' or @resourceType = 'MONGODB' or @resourceType = 'MEMCACHED' or @resourceType = 'CASSANDRA') then not( @storage ) else @storage"
+                    xerces:message="Storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA."
+                    saxon:message="Storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.">
+               <annotation>
+                  <documentation>
+                     <html:p>Assertion: Storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.</html:p>
+                  </documentation>
+               </annotation>
+            </assert>
+         </extension>
+      </complexContent>
+   </complexType>
+   <simpleType name="ResourceTypes2">
+      <annotation>
+         <documentation>
+            <html:p>Resource Types for this product.</html:p>
+         </documentation>
+      </annotation>
+      <restriction base="xsd:token">
+         <enumeration value="MYSQL"/>
+         <enumeration value="PERCONA"/>
+         <enumeration value="MARIADB"/>
+         <enumeration value="REDIS"/>
+         <enumeration value="MONGODB"/>
+         <enumeration value="MEMCACHED"/>
+         <enumeration value="CASSANDRA"/>
+         <enumeration value="POSTGRESSQL"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="memory2Type">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="131072"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="storage2Type">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="3072"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string">
+      <restriction base="xsd:string">
+         <minLength value="0"/>
+         <maxLength value="255"/>
       </restriction>
    </simpleType>
 </xsd:schema>
