@@ -5,7 +5,7 @@
   <atom:category term="rgn:DFW"/>
   <atom:category term="dc:DFW1"/>
   <atom:category term="rid:56"/>
-  <atom:category term="cloudqueues.bandwidth.queue.usage"/>
+  <atom:category term="cloudqueues.bandwidth.usage"/>
   <atom:title type="text">Cloud Queues Bandwidth</atom:title>
   <atom:content type="application/xml">
     <event xmlns="http://docs.rackspace.com/core/event" xmlns:queues="http://docs.rackspace.com/usage/queues/bandwidth" dataCenter="DFW1" endTime="2013-03-16T11:51:11Z" environment="PROD" id="e53d007a-fc23-11e1-975c-cfa6b29bb814" region="DFW" startTime="2013-03-15T11:51:11Z" tenantId="2888" type="USAGE" version="1">
