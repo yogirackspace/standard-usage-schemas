@@ -24,6 +24,8 @@
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="TENANT_NOT_FOUND"/>
+            <xsd:enumeration value="DUPLICATE_USAGE_ID"/>
+            <xsd:enumeration value="UNSUPPORTED_CORRECTED_USAGE"/>
         </xsd:restriction>
     </xsd:simpleType>
     
