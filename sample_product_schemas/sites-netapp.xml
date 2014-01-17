@@ -7,8 +7,7 @@
         Total netapp for a particular tenant.
     </description>
     <aggregationPeriods>
-        <aggregationPeriod>PT6H</aggregationPeriod>
-        <aggregationPeriod>PT18H</aggregationPeriod>
+        <aggregationPeriod>PT24H</aggregationPeriod>
     </aggregationPeriods>
     <attribute name="groupName" type="string" use="required">
         The group name that corresponds to what Netapp uses to identify user accounts.
