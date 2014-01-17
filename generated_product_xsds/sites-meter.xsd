@@ -23,8 +23,7 @@
                         ranEnrichmentStrategy="CI_SERVICE"
                         type="USAGE"/>
             <usage:aggregationPeriods>
-               <usage:aggregationPeriod>PT6H</usage:aggregationPeriod>
-               <usage:aggregationPeriod>PT18H</usage:aggregationPeriod>
+               <usage:aggregationPeriod>P1D</usage:aggregationPeriod>
             </usage:aggregationPeriods>
          </appinfo>
       </annotation>

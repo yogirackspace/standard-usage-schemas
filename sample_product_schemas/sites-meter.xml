@@ -7,8 +7,7 @@
         Metered usage for a site.
     </description>
     <aggregationPeriods>
-        <aggregationPeriod>PT6H</aggregationPeriod>
-        <aggregationPeriod>PT18H</aggregationPeriod>
+        <aggregationPeriod>PT24H</aggregationPeriod>
     </aggregationPeriods>
     <attribute name="bandWidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM"
