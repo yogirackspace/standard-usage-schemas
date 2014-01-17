@@ -1,41 +1,85 @@
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/event/servers/hostserver"
-               serviceCode="CloudServers"
-               version="1"
-               resourceTypes="HOST" type="DOWN">
-    <description>
-        Server down event.
-    </description>
-    <attribute name="coreID" type="int" use="required">
-        The CORE ID for the HOST.
-    </attribute>
-    <attribute name="serverID" type="int" use="required">
-        The Server ID  for the HOST.
-    </attribute>
-    <attribute name="huddleID" type="int" use="required">
-        The huddle ID.
-    </attribute>
-    <attribute name="backstageURL" type="string" use="required">
-        The backstage URL to access the host.
-    </attribute>
-    <attribute name="hostIP" type="string" use="required">
-        The ip of the host.
-    </attribute>
-    <attribute name="eventType" type="string" use="required">
-        The type of monitoring event.
-    </attribute>
-    <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
+<alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/event/servers/hostserver"
+                   serviceCode="CloudServers"
+                   version="1"
+                   resourceTypes="HOST" type="DOWN">
         <description>
-            A list of slices.
+            Server down event.
         </description>
-        <attribute name="name" type="string" use="required">
-            The name of the slice.
+        <attribute name="coreID" type="int" use="required">
+            The CORE ID for the HOST.
         </attribute>
-        <attribute name="id" type="int" use="required">
-            The id of the slice.
+        <attribute name="serverID" type="int" use="required">
+            The Server ID  for the HOST.
         </attribute>
-        <attribute name="ip" type="string" use="required">
-            The IP of the slice.
+        <attribute name="huddleID" type="int" use="required">
+            The huddle ID.
         </attribute>
-    </attributeGroup>
-</productSchema>
+        <attribute name="backstageURL" type="string" use="required">
+            The backstage URL to access the host.
+        </attribute>
+        <attribute name="hostIP" type="string" use="required">
+            The ip of the host.
+        </attribute>
+        <attribute name="eventType" type="string" use="required">
+            The type of monitoring event.
+        </attribute>
+        <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
+            <description>
+                A list of slices.
+            </description>
+            <attribute name="name" type="string" use="required">
+                The name of the slice.
+            </attribute>
+            <attribute name="id" type="int" use="required">
+                The id of the slice.
+            </attribute>
+            <attribute name="ip" type="string" use="required">
+                The IP of the slice.
+            </attribute>
+        </attributeGroup>
+    </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/event/servers/hostserver"
+                   serviceCode="CloudServers"
+                   version="2"
+                   resourceTypes="HOST" type="DOWN">
+        <description>
+            Server down event.
+        </description>
+        <attribute name="coreID" type="int" use="required">
+            The CORE ID for the HOST.
+        </attribute>
+        <attribute name="serverID" type="unsignedInt" max="4294967295" use="required">
+            The Server ID  for the HOST.
+        </attribute>
+        <attribute name="huddleID" type="int" use="required">
+            The huddle ID.
+        </attribute>
+        <attribute name="backstageURL" type="string" use="required">
+            The backstage URL to access the host.
+        </attribute>
+        <attribute name="hostIP" type="string" use="required">
+            The ip of the host.
+        </attribute>
+        <attribute name="eventType" type="Name" use="required"
+                   allowedValues="GENERIC HIGH_LOAD PING_NO_SSH UNREACHABLE UPTIME_RESET">
+            The type of monitoring event.
+        </attribute>
+        <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
+            <description>
+                A list of slices.
+            </description>
+            <attribute name="name" type="string" use="required">
+                The name of the slice.
+            </attribute>
+            <attribute name="id" type="int" use="required">
+                The id of the slice.
+            </attribute>
+            <attribute name="ip" type="string" use="required">
+                The IP of the slice.
+            </attribute>
+        </attributeGroup>
+    </productSchema>
+</alternatives>

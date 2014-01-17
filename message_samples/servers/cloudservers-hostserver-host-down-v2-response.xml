@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13</atom:id>
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:4116" />
+    <atom:category term="cloudservers.hostserver.host.down" />
+    <atom:title type="text">Host Server Down</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event" xmlns:csd="http://docs.rackspace.com/event/servers/hostserver" dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4116" type="DOWN" version="1">
+            <csd:product backstageURL="http://backstage.com/huddles/41/servers/16" coreID="4116" eventType="PING_NO_SSH" hostIP="10.7.44.90" huddleID="202" resourceType="HOST" serverID="16" serviceCode="CloudServers" version="2">
+                <csd:slice id="75" ip="10.176.64.5" name="slice75" />
+            </csd:product>
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:updated>2013-02-27T21:49:38.549Z</atom:updated>
+    <atom:published>2013-02-27T21:49:38.549Z</atom:published>
+</atom:entry>
