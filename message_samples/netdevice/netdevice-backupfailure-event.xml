@@ -1,0 +1,14 @@
+<event xmlns="http://docs.rackspace.com/core/event"
+	xmlns:fail="http://docs.rackspace.com/event/netdevice/backupfailure"
+        version="1"
+        id="b79cc3de-b399-3883-b555-61829bbccd38"
+        resourceId="b79cc3de-b399-3883-b555-61829bbccd38"
+        dataCenter="DFW1" region="DFW" eventTime="2012-09-19T11:11:11Z"
+        type="INFO">
+        <fail:product version="1"
+        	resourceType="LOADBALANCER"
+                serviceCode="NetDevice"
+                hostname="lb01"
+                url="torq.com/event"
+                description="exploded!"/>
+</event>
