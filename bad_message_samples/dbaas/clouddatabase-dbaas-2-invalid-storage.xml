@@ -3,9 +3,6 @@
 <?expect code="400"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>DBaas Usage</atom:title>
-    <atom:category term="DFW1" />
-    <atom:category term="12334" />
-    <atom:category term="reddwarf.instance.modify_volume" />
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
@@ -17,9 +14,11 @@
                type="USAGE" dataCenter="DFW1" region="DFW"
                startTime="2012-03-12T11:51:11Z"
                endTime="2012-03-12T15:51:11Z">
-            <dbaas:product version="1" serviceCode="CloudDatabase"
-                           resourceType="MYSQL"
-                           memory="900000" storage="64"/>
+            <dbaas:product version="2" serviceCode="CloudDatabase"
+                           resourceType="REDIS"
+                           dbVersion=".0.0.0.0.0.0.0.1"
+                           storage="1"
+                           memory="16" />
         </event>
     </atom:content>
 </atom:entry>

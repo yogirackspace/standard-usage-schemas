@@ -1,20 +1,56 @@
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/dbaas"
-               serviceCode="CloudDatabase"
-               version="1"
-               resourceTypes="MYSQL" 
-               ranEnrichmentStrategy="INTEGER_RANGE">
-    <description>
-        Dbaas specific user fields.
-    </description>
-    <attribute name="memory" type="int" use="required"
-               min="0" max="65536"
-               unitOfMeasure="MB" groupBy="true">
-        Memory provisioned for this database.
-    </attribute>
-    <attribute name="storage" type="int" use="required"
-               min="0" max="3072"
-               unitOfMeasure="GB" groupBy="true">
-        The provisioned size of the storage volume for this database.
-    </attribute>
-</productSchema>
+<alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/dbaas"
+                   serviceCode="CloudDatabase"
+                   version="1"
+                   resourceTypes="MYSQL"
+                   ranEnrichmentStrategy="INTEGER_RANGE">
+        <description>
+            Dbaas specific user fields.
+        </description>
+        <attribute name="memory" type="int" use="required"
+                   min="0" max="131072"
+                   unitOfMeasure="MB" groupBy="true">
+            Memory provisioned for this database.
+        </attribute>
+        <attribute name="storage" type="int" use="required"
+                   min="0" max="3072"
+                   unitOfMeasure="GB" groupBy="true">
+            The provisioned size of the storage volume for this database.
+        </attribute>
+    </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/dbaas"
+                   serviceCode="CloudDatabase"
+                   version="2"
+                   resourceTypes="MYSQL PERCONA MARIADB REDIS MONGODB MEMCACHED CASSANDRA POSTGRESSQL"
+                   ranEnrichmentStrategy="INTEGER_RANGE">
+        <description>
+            Dbaas specific user fields.
+        </description>
+
+        <attribute name="memory" type="int" use="required"
+                   min="0" max="131072"
+                   unitOfMeasure="MB" groupBy="true">
+            Memory provisioned for this database.
+        </attribute>
+
+        <attribute name="storage" type="int" use="optional"
+                   min="0" max="3072"
+                   unitOfMeasure="GB" groupBy="true">
+            The provisioned size of the storage volume for this database.
+        </attribute>
+
+        <attribute name="dbVersion" type="string" use="required">
+            The version of the database.
+        </attribute>
+
+
+        <xpathAssertion test="if ( @resourceType = 'REDIS'
+                                   or @resourceType = 'MONGODB'
+                                   or @resourceType = 'MEMCACHED'
+                                   or @resourceType = 'CASSANDRA') then not( @storage ) else @storage">
+            Storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.
+        </xpathAssertion>
+    </productSchema>
+</alternatives>

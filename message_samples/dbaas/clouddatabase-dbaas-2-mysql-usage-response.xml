@@ -9,8 +9,20 @@
     <atom:title type="text">DBaas Usage</atom:title>
     <atom:category term="reddwarf.instance.modify_volume" />
     <atom:content type="application/xml">
-        <event xmlns="http://docs.rackspace.com/core/event" xmlns:dbaas="http://docs.rackspace.com/usage/dbaas" dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="QA" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" resourceName="MyDatabase" rootAction="reddwarf.instance.modify_volume" startTime="2012-03-12T11:51:11Z" tenantId="12334" type="USAGE" version="1">
-            <dbaas:product memory="16" resourceType="MYSQL" serviceCode="CloudDatabase" storage="64" version="1" />
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
+               version="1" tenantId="12334" environment="QA"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               resourceName="MyDatabase"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               rootAction="reddwarf.instance.modify_volume"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-03-12T11:51:11Z"
+               endTime="2012-03-12T15:51:11Z">
+            <dbaas:product version="2" serviceCode="CloudDatabase"
+                           resourceType="MYSQL"
+                           dbVersion="1.0.0.0.0.0.0.0"
+                           memory="16" storage="64"/>
         </event>
     </atom:content>
     <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
