@@ -7,8 +7,6 @@
     <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549" />
     <atom:category term="clouddatabase.dbaas.mysql.usage" />
     <atom:title type="text">DBaas Usage</atom:title>
-    <atom:category term="DFW1" />
-    <atom:category term="12334" />
     <atom:category term="reddwarf.instance.modify_volume" />
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:dbaas="http://docs.rackspace.com/usage/dbaas" dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="QA" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" resourceName="MyDatabase" rootAction="reddwarf.instance.modify_volume" startTime="2012-03-12T11:51:11Z" tenantId="12334" type="USAGE" version="1">
