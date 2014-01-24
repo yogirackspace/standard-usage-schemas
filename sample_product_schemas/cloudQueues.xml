@@ -7,8 +7,8 @@
         Usage message for queue request count.
     </description>
     <attribute name="requestCount" type="unsignedLong" use="required" aggregateFunction="SUM"
-            min="0" max="300000" unitOfMeasure="COUNT">
-        The number of requests.  Max is 300,000.
+            min="0" max="3000000" unitOfMeasure="COUNT">
+        The number of requests.  Max is 3,000,000.
     </attribute>
 
 </productSchema>

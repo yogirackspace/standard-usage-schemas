@@ -32,7 +32,7 @@
       <attribute name="requestCount" use="required" type="p:requestCountType">
          <annotation>
             <documentation>
-               <html:p>The number of requests. Max is 300,000.</html:p>
+               <html:p>The number of requests. Max is 3,000,000.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="SUM" unitOfMeasure="COUNT" groupBy="false"/>
@@ -43,7 +43,7 @@
    <simpleType name="requestCountType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
-         <maxInclusive value="300000"/>
+         <maxInclusive value="3000000"/>
       </restriction>
    </simpleType>
 </xsd:schema>
