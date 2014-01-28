@@ -16,67 +16,170 @@
    <complexType name="GlanceType">
       <annotation>
          <documentation>
-            <html:p>Server backup storage.</html:p>
+            <html:p>Server backup storage for a tenant.</html:p>
          </documentation>
          <appinfo>
-            <usage:core groupByResource="true"
+            <usage:core groupByResource="false"
                         ranEnrichmentStrategy="CI_SERVICE"
                         type="USAGE"/>
          </appinfo>
       </annotation>
+      <all vc:minVersion="1.1">
+         <element name="backupStorage" minOccurs="0" maxOccurs="50">
+            <complexType>
+               <attribute name="resourceId" use="required" type="p:string">
+                  <annotation>
+                     <documentation>
+                        <html:p>The resourceId of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="resourceType" use="required" type="p:Name">
+                  <annotation>
+                     <documentation>
+                        <html:p>The resourceType of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="storage" use="required" type="p:storageType">
+                  <annotation>
+                     <documentation>
+                        <html:p>The amount of storage consumed by this backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="AVG" unitOfMeasure="B" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="serverId" use="required">
+                  <annotation>
+                     <documentation>
+                        <html:p>Server ID, where the backup was taken from.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+                  <simpleType>
+                     <union memberTypes="xsd:int p:UUID"/>
+                  </simpleType>
+               </attribute>
+               <attribute name="serverName" use="required" type="p:string">
+                  <annotation>
+                     <documentation>
+                        <html:p>The Server name, where the backup was taken from.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="imageType" use="required" type="p:imageTypeEnum">
+                  <annotation>
+                     <documentation>
+                        <html:p>Backup image type.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+            </complexType>
+         </element>
+      </all>
+      <!--Order matters in XSD 1.0 :-(--><sequence vc:minVersion="1.0" vc:maxVersion="1.1">
+         <element name="backupStorage" minOccurs="0" maxOccurs="50">
+            <complexType>
+               <attribute name="resourceId" use="required" type="p:string">
+                  <annotation>
+                     <documentation>
+                        <html:p>The resourceId of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="resourceType" use="required" type="p:Name">
+                  <annotation>
+                     <documentation>
+                        <html:p>The resourceType of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="storage" use="required" type="p:storageType">
+                  <annotation>
+                     <documentation>
+                        <html:p>The amount of storage consumed by this backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="AVG" unitOfMeasure="B" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="serverId" use="required">
+                  <annotation>
+                     <documentation>
+                        <html:p>Server ID, where the backup was taken from.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+                  <simpleType>
+                     <union memberTypes="xsd:int p:UUID"/>
+                  </simpleType>
+               </attribute>
+               <attribute name="serverName" use="required" type="p:string">
+                  <annotation>
+                     <documentation>
+                        <html:p>The Server name, where the backup was taken from.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="imageType" use="required" type="p:imageTypeEnum">
+                  <annotation>
+                     <documentation>
+                        <html:p>Backup image type.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+            </complexType>
+         </element>
+      </sequence>
       <attribute name="version" type="xsd:string" use="required" fixed="1"/>
       <attribute name="serviceCode"
                  use="required"
                  type="xsd:Name"
                  fixed="Glance"/>
-      <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="storage" use="required" type="p:storageType">
-         <annotation>
-            <documentation>
-               <html:p>The amount of storage consumed by this backup.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="AVG" unitOfMeasure="B" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="serverId" use="required">
-         <annotation>
-            <documentation>
-               <html:p>Server ID, where the backup was taken from.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
-            </appinfo>
-         </annotation>
-         <simpleType>
-            <union memberTypes="xsd:int p:UUID"/>
-         </simpleType>
-      </attribute>
-      <attribute name="serverName" use="required" type="p:string">
-         <annotation>
-            <documentation>
-               <html:p>The Server name, where the backup was taken from.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
    </complexType>
-   <simpleType name="ResourceTypes">
-      <annotation>
-         <documentation>
-            <html:p>Resource Types for this product.</html:p>
-         </documentation>
-      </annotation>
-      <restriction base="xsd:token">
-         <enumeration value="BACKUP"/>
-      </restriction>
-   </simpleType>
    <simpleType name="storageType">
       <restriction base="xsd:unsignedLong">
          <maxInclusive value="2199023255552"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="imageTypeEnum">
+      <restriction base="xsd:string">
+         <enumeration value="BASE"/>
+         <enumeration value="SNAPSHOT"/>
+         <enumeration value="BACKUP"/>
+         <enumeration value="IMPORT"/>
+         <enumeration value="CLONE"/>
       </restriction>
    </simpleType>
    <simpleType name="UUID">
@@ -88,6 +191,11 @@
    <simpleType name="string">
       <restriction base="xsd:string">
          <minLength value="0"/>
+         <maxLength value="255"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="Name">
+      <restriction base="xsd:Name">
          <maxLength value="255"/>
       </restriction>
    </simpleType>

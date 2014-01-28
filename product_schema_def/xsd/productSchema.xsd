@@ -222,24 +222,13 @@
         </complexContent>
     </complexType>
 
-    <complexType name="AttributeGroup">
+    <complexType name="AttributeGroupBase">
         <sequence>
             <element name="description" type="xsd:string">
                 <annotation>
                     <documentation>
                         <html:p>
                             A description of the attribute group.
-                        </html:p>
-                    </documentation>
-                </annotation>
-            </element>
-            <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
-                <annotation>
-                    <documentation>
-                        <html:p>
-                            A set of custom attributes. Currently,
-                            only 50 custom attributes are allowed for
-                            a product schema.
                         </html:p>
                     </documentation>
                 </annotation>
@@ -272,6 +261,46 @@
                 </documentation>
             </annotation>
         </attribute>
+    </complexType>
+
+    <complexType name="AttributeGroup">
+        <complexContent>
+            <extension base="schema:AttributeGroupBase">
+                <sequence>
+                    <element name="attribute" type="schema:Attribute" minOccurs="0" maxOccurs="50">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom attributes. Currently,
+                                    only 50 custom attributes are allowed for
+                                    a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="UsageAttributeGroup">
+        <complexContent>
+            <extension base="schema:AttributeGroupBase">
+                <sequence>
+                    <element name="attribute" type="schema:UsageAttribute" minOccurs="0" maxOccurs="50">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom attributes. Currently,
+                                    only 50 custom attributes are allowed for
+                                    a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
     </complexType>
 
     <complexType name="ProductSimpleUsageSchema">
@@ -323,6 +352,17 @@
                                     attributes. Currently, only 50
                                     custom attributes are allowed for
                                     a product schema.
+                                </html:p>
+                            </documentation>
+                        </annotation>
+                    </element>
+                    <element name="attributeGroup" type="schema:UsageAttributeGroup" minOccurs="0" maxOccurs="20">
+                        <annotation>
+                            <documentation>
+                                <html:p>
+                                    A set of custom attributes groups.
+                                    Currently only 20 groups are
+                                    allowed for a product schema.
                                 </html:p>
                             </documentation>
                         </annotation>
