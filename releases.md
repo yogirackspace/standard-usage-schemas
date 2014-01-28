@@ -1,5 +1,7 @@
 # Changelog for Usage Schema
 
+
+**usage-schema-1.37.0**  
 2014-01-27 | B-58613 - Update Glance Usage Event (Greg Sharek)  
 2014-01-27 | B-61206: add all other product wadl resource to /functest1 (Shinta Smith)  
 2014-01-24 | B-63438: increase requestCount to 3M (Shinta Smith)  
