@@ -1,19 +1,15 @@
 # Changelog for Usage Schema
 
-
-**usage-schema-1.36.0**  
+2014-01-27 | B-58613 - Update Glance Usage Event (Greg Sharek)  
+2014-01-27 | B-61206: add all other product wadl resource to /functest1 (Shinta Smith)  
+2014-01-24 | B-63438: increase requestCount to 3M (Shinta Smith)  
+2014-01-21 | B-62570: add /migrationtest feed (Shinta Smith)  
 2014-01-17 | B-58268: update sites aggregation period to just one (Shinta Smith)  
 2014-01-17 | B-50559: add v2 of servers host down event (Shinta Smith)  
 2014-01-16 | B-60532 - CDB - update usage event for Redis (Greg Sharek)  
 2014-01-16 | B-62164 - Update Usage Error Event:  Add DUPLICATE_USAGE_ID and UNSUPPORTED_CORRECTED_USAGE (Greg Sharek)  
-
-**usage-schema-1.35.0**  
 2014-01-13 | B-61918: update /support schema (Shinta Smith)  
-
-**usage-schema-1.34.1**  
 2014-01-10 | D-16790: fix lbaas vip resourceId rules per email from Jorge Miramontes (Shinta Smith)  
-
-**usage-schema-1.34.0**  
 2014-01-08 | B-61993: add /automation feed (Shinta Smith)  
 2014-01-08 | B-58430 - New Schema for net_device/events for FDaAT (Greg Sharek)  
 2014-01-07 | D-16790: update xpathAssert for IPv6 resourceId (Shinta Smith)  
