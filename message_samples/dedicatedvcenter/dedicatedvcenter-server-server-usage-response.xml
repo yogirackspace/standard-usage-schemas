@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcenter/server">
+  <atom:id>urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0</atom:id>
+  <atom:category term="tid:654321"/>
+  <atom:category term="rgn:SYD"/>
+  <atom:category term="dc:SYD2"/>
+  <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+  <atom:category term="dedicatedvcenter.server.server.usage"/>
+  <atom:title type="text">Dedicated vCenter Server</atom:title>
+  <atom:content type="application/xml">
+    <event dataCenter="SYD2" endTime="2013-12-19T10:19:52Z" environment="PROD" id="47b574c4-1411-11e2-b19d-7b8e208cade0" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T10:19:52Z" tenantId="654321" type="USAGE" version="1">
+      <vcenter:product applicationLicense="MSSQL SHAREPOINT" applicationSupport="MSSQL SHAREPOINT" guestOSLicense="WINDOWS" hostOSLicense="WINDOWS" isGuestOSSupported="true" resourceType="SERVER" serviceCode="DedicatedVCenter" status="ON" vCPU="6" vRAM="1048576" version="1"/>
+    </event>
+  </atom:content>
+  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0" rel="self"/>
+  <atom:updated>2014-01-28T18:00:46.405Z</atom:updated>
+  <atom:published>2014-01-28T18:00:46.405Z</atom:published>
+</atom:entry>
