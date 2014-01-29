@@ -339,9 +339,11 @@
         <xsl:variable name="notUsed" select="for $t in $allTypes return if ($t = $usedTypes) then () else sch:quoted($t)" as="xs:string*"/>
         <param name="cross_check" style="plain" required="true" rax:message="Events of this type not allowed in the feed.">
             <xsl:attribute name="path">
-                <xsl:text>not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
+                <xsl:text>if(</xsl:text>
+                <xsl:value-of select="sch:selectEventProduct('', @pos,'')"/>
+                <xsl:text>) then not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
                 <xsl:value-of select="$notUsed" separator=","/>
-                <xsl:text>))</xsl:text>
+                <xsl:text>)) else true()</xsl:text>
             </xsl:attribute>
         </param>
     </xsl:template>
