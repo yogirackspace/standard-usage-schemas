@@ -642,10 +642,19 @@
                         occurred since you last polled. In a feed, the
                         entries are shown in order from newest to
                         oldest. </para>
-                    <para security="writeronly"> Note to writer:
-                        Insert the diagram for pagination here</para>
+                    <para>The following diagram shows how pagination
+                        works with Cloud Feeds:</para>
                 </listitem>
             </itemizedlist>
+            <informalfigure>
+                <mediaobject>
+                    <imageobject>
+                        <imagedata
+                            fileref="images/CloudFeedsAtomHopper.png"
+                            contentwidth="6in"/>
+                    </imageobject>
+                </mediaobject>
+            </informalfigure>
             <important xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">

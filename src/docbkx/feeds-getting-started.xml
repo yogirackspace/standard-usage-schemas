@@ -409,7 +409,6 @@
             along with an <code>expires</code> attribute that
             specifies when the token expires. </para>
         <note>
-            <title>Notes</title>
             <itemizedlist spacing="compact">
                 <listitem>
                     <para>For all response examples in this guide, the
@@ -517,7 +516,6 @@
             </table>
         </para>
         <note>
-            <title>Notes:</title>
             <itemizedlist>
                 <listitem>
                     <para>Choose the endpoint from the table for the
@@ -550,14 +548,21 @@
     <chapter xml:id="Create_Feeds_Instance">
         <title>Concepts</title>
         <section xml:id="Atom_Feed_Document-d1e115">
-            <title>Atom Feed Document</title>
-            <para>An Atom Feed Document is a representation of an Atom
+            <title>Atom:Feed Element</title>
+            <para>An Atom Feed element is a representation of an Atom
                 feed, including metadata about the feed, and some or
                 all of the entries associated with it. It's root is
-                the atom:feed element. The following is an example of
-                an Atom Feed Document:</para>
+                the atom:feed element. </para>
+            <para>
+   The "atom:feed" element is the document (i.e., top-level) element of
+   an Atom Feed Document, acting as a container for metadata and data
+   associated with the feed.  Its element children consist of metadata
+   elements followed by zero or more atom:entry child elements.
+            </para>
+            <para>The following is an example of an Atom:Feed
+                Element:</para>
             <example>
-                <title>Atom Feed Document</title>
+                <title>Atom Feed Element</title>
                 <programlisting>&lt;feed>
     &lt;link href="https://localhost/demo/events/" rel="current" />
     &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
@@ -604,16 +609,45 @@
             </example>
         </section>
         <section xml:id="Atom_Content-d1e1116">
-            <title>Atom:Content</title>
+            <title>Atom:Content Element</title>
             <para>Provides a short description of the entry or
-                contains a content link that includes an
-                attribute.</para>
+                contains a content link that includes an attribute.
+                The atom:content element either contains or links to
+                the content of an entry.</para>
+            <para>The following is an example of an atom:content
+                element:</para>
+            <para><programlisting>&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"xmlns:atom="http://www.w3.org/2005/Atom">
+      &lt;atom:title type="text">Support&lt;/atom:title>
+       &lt;atom:content type="application/xml">
+          &lt;event xmlns="http://docs.rackspace.com/core/event"
+                xmlns:support="http://docs.rackspace.com/event/support/account"
+                version="1" tenantId="654321" resourceId="654321"
+                resourceName="My Account Name"
+                id="560490c6-6c63-11e1-aafe-27851d5aed13"
+                type="CREATE" dataCenter="DFW1" region="DFW"
+                eventTime="2013-12-12T11:51:11Z"> &lt;support:product
+                version="1" serviceCode="Support"
+                resourceType="ACCOUNT_SUPPORT" > &lt;support:team
+                teamType="SUPPORT" teamNumber="1"/> &lt;support:team
+                teamType="SUPPORT" teamNumber="5"/>
+                &lt;/support:product> 
+               &lt;/event>
+             &lt;/atom:content>
+          &lt;/atom:entry></programlisting></para>
         </section>
         <section xml:id="Atom_Entry_Document-d1e1115">
-            <title>Atom Entry Document</title>
-            <para>An Atom Entry Document represents exactly one Atom
+            <title>Atom:Entry Element</title>
+            <para>An Atom:Entry Element represents exactly one Atom
                 entry, outside of the context of an Atom feed. Its
-                root is the atom:entry element.</para>
+                root is the atom:entry element. The "atom:entry"
+                element represents an individual entry, acting as a
+                container for metadata and data associated with the
+                entry. This element can appear as a child of the
+                atom:feed element, or it can appear as the document
+                (i.e., top-level) element of a stand-alone Atom Entry
+                Document.</para>
+            <para>The following is an example of an atom:entry
+                element:</para>
         </section>
     </chapter>
     <chapter xml:id="Create_Atom_Entries">
@@ -624,16 +658,19 @@
         <title>Get Atom Entries that were Posted</title>
         <para>In this section you will learn how to pull entries that
             somebody else has posted</para>
-        <para>&lt;get information from Gettingthe Feed></para>
-        <para>7.1 Getting the feed</para>
+        <para>An <emphasis role="bold">HTTP GET</emphasis> is used to
+            retrieve the Atom feed or a single entry from Atom Hopper.
+            The HTTP GET request supports asking for the most recent
+            entries in a feed (also called the Feed Head), a
+            specific/single atom entry, forward and backward paging,
+            and category searches.</para>
+        <para/>
     </chapter>
     <chapter xml:id="List_Users_Feeds_Instance">
         <title>Filter Atom Entries by Category</title>
-        <para>In this section you will list the users in the specified
-            database instance.</para>
-        <para>This operation does not require a request body.</para>
-        <para>The following examples show the responses for List Users
-            in Database Instance:</para>
-        <para>.</para>
+        <para>The JDBC Data Adapter support advanced filtering by
+            category, including OR, NOT, and AND criteria. See details
+            and examples at the "Advanced Filtering by Category with
+            the JDBC Adapter"</para>
     </chapter>
 </book>
