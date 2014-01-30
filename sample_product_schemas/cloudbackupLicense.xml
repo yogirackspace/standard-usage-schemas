@@ -34,4 +34,27 @@
                 If the server is NOT external, then Server ID is required.
             </xpathAssertion>
     </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/usage/cloudbackup/license"
+        serviceCode="CloudBackup"
+        version="3"
+        type="USAGE_SNAPSHOT"
+        resourceTypes="AGENT"
+        ranEnrichmentStrategy="INTEGER_RANGE">
+            <description>
+                Cloud Backup periodic license event (version 2).
+            </description>
+            <attribute name="serverID" type="int UUID" use="optional">
+                Server ID, where the agent in installed.
+            </attribute>
+            <attribute name="serverName" type="string" use="required">
+                Server Name, where the agent is installed
+            </attribute>
+            <attribute name="external" type="boolean" use="optional" default="false">
+                True if the server where the agent is installed is external to Rackspace
+            </attribute>
+            <xpathAssertion test="if (not(xsd:boolean(@external))) then @serverID else true()">
+                If the server is NOT external, then Server ID is required.
+            </xpathAssertion>
+    </productSchema>
 </alternatives>
