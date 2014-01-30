@@ -7,7 +7,7 @@
         Subscription event for Domain Registration.
     </description>
     <attribute name="action" type="Name"
-        allowedValues="REGISTRATION RENEWAL TRANSFER" use="required">
+        allowedValues="REDEMPTION REGISTRATION RENEWAL TRANSFER" use="required">
         The action being taken with this domain registration.   
     </attribute>
     <attribute name="purchaseTenure" type="int" use="required"

@@ -96,6 +96,7 @@
    </simpleType>
    <simpleType name="actionEnum">
       <restriction base="xsd:Name">
+         <enumeration value="REDEMPTION"/>
          <enumeration value="REGISTRATION"/>
          <enumeration value="RENEWAL"/>
          <enumeration value="TRANSFER"/>

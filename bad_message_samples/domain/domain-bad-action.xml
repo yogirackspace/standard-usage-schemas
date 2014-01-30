@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="domain/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="BAD_ACTION"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Domain Registration</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:domain="http://docs.rackspace.com/event/domain"
+               version="1" tenantId="12334"
+               resourceId="my.site.com"
+               resourceName="my.site.com"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
+               eventTime="2012-03-12T11:51:11Z">
+            <domain:product version="1" serviceCode="DomainRegistration"
+                            resourceType="DOMAIN_SUBSCRIPTION"
+                            action="BAD_ACTION"
+                            purchaseTenure="2"
+                            expirationDate="2014-03-12T11:51:11Z"
+                            endUserTenantId="9876543210"
+                            isAutoRenew="false"/>
+        </event>
+    </atom:content>
+</atom:entry>
