@@ -27,6 +27,26 @@
       <all vc:minVersion="1.1">
          <element name="backupStorage" minOccurs="0" maxOccurs="50">
             <complexType>
+               <attribute name="startTime" use="required" type="p:UTCDateTime">
+                  <annotation>
+                     <documentation>
+                        <html:p>The start time of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="endTime" use="required" type="p:UTCDateTime">
+                  <annotation>
+                     <documentation>
+                        <html:p>The end time of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
                <attribute name="resourceId" use="required" type="p:string">
                   <annotation>
                      <documentation>
@@ -96,6 +116,26 @@
       <!--Order matters in XSD 1.0 :-(--><sequence vc:minVersion="1.0" vc:maxVersion="1.1">
          <element name="backupStorage" minOccurs="0" maxOccurs="50">
             <complexType>
+               <attribute name="startTime" use="required" type="p:UTCDateTime">
+                  <annotation>
+                     <documentation>
+                        <html:p>The start time of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
+               <attribute name="endTime" use="required" type="p:UTCDateTime">
+                  <annotation>
+                     <documentation>
+                        <html:p>The end time of the backup.</html:p>
+                     </documentation>
+                     <appinfo>
+                        <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     </appinfo>
+                  </annotation>
+               </attribute>
                <attribute name="resourceId" use="required" type="p:string">
                   <annotation>
                      <documentation>
@@ -186,6 +226,14 @@
       <restriction base="xsd:string">
          <length value="36" fixed="true"/>
          <pattern value="[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="UTCDateTime">
+      <restriction base="xsd:dateTime" vc:minVersion="1.0" vc:maxVersion="1.1"/>
+      <restriction base="xsd:dateTimeStamp" vc:minVersion="1.1">
+         <assertion test="ends-with(string($value),'Z') or ends-with(string($value),'+00:00') or ends-with(string($value),'-00:00')"
+                    xerces:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."
+                    saxon:message="The dateTime should be in the UTC timezone, it is expect to end in +00:00 or Z."/>
       </restriction>
    </simpleType>
    <simpleType name="string">

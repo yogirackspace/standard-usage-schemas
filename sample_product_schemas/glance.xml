@@ -12,6 +12,12 @@
         <description>
             The backup storage at the instance (snapshot) level.
         </description>
+        <attribute name="startTime" type="utcDateTime" use="required">
+            The start time of the backup.
+        </attribute>
+        <attribute name="endTime" type="utcDateTime" use="required">
+            The end time of the backup.
+        </attribute>
         <attribute name="resourceId" type="string" use="required"
                 minLength="1">
             The resourceId of the backup.
