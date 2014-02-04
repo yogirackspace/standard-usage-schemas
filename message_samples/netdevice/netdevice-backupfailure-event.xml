@@ -11,7 +11,7 @@
                       url="https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127"
                       description="Exploded!"
                       deviceHostname="FW123456.DFW1"
-                      deviceNumber="123456"
+                      deviceId="123456"
                       user="System"
                       failureType="CONNECTION_TIMEOUT" />
 </event>

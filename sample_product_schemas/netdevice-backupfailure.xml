@@ -19,7 +19,7 @@
         The link to view the event info in Torq.
     </attribute>
 
-    <attribute name="deviceNumber" type="string"
+    <attribute name="deviceId" type="string"
                maxLength="64"
                use="required">
         The device number.

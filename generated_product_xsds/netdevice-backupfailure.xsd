@@ -48,7 +48,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="deviceNumber" use="required" type="p:string0_64">
+      <attribute name="deviceId" use="required" type="p:string0_64">
          <annotation>
             <documentation>
                <html:p>The device number.</html:p>
