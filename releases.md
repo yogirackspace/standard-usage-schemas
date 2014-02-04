@@ -1,6 +1,13 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.38.0**  
+2014-02-03 | B-61024: remove all the -event files (Shinta Smith)  
+2014-02-03 | B-61024: add response file for v3 (Shinta Smith)  
+2014-01-30 | B-61024: add v3 of cloudbackup with type USAGE_SNAPSHOT (Shinta Smith)  
+2014-01-30 | B-62772 - Update Domain Registration Event - Add REDEMPTION (Greg Sharek)  
+2014-01-29 | D-17014_product.wadl (Greg Sharek)  
+
 **usage-schema-1.37.0**  
 2014-01-27 | B-58613 - Update Glance Usage Event (Greg Sharek)  
 2014-01-27 | B-61206: add all other product wadl resource to /functest1 (Shinta Smith)  
