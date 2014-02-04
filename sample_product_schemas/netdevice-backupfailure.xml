@@ -9,7 +9,7 @@
         INFO messages on loadbalancer and firewall backup failures for FDaaT.
     </description>
 
-    <attribute name="hostname" type="string"
+    <attribute name="deviceHostname" type="string"
                use="required">
         The hostname of the device.
     </attribute>
@@ -19,9 +19,32 @@
         The link to view the event info in Torq.
     </attribute>
 
-    <attribute name="description" type="string"
-               maxLength="256"
+    <attribute name="deviceNumber" type="string"
+               maxLength="64"
                use="required">
-        The description of the failure.
+        The device number.
     </attribute>
+
+    <attribute name="user" type="string"
+               maxLength="32"
+               use="required">
+        The User that created the event.
+    </attribute>
+
+    <attribute name="failureType" type="Name"
+               use="required"
+               allowedValues="CONNECTION_TIMEOUT CONNECTION_REFUSED DEVICE_TIMEOUT DEVICE_LOGIN_FAILED DEVICE_BAD_CONFIG DEVICE_BAD_STATE TFTP_CONNECTION_ERROR SSH_CONNECTION_ERROR SSL_CERTIFICATE_ERROR INTERNAL_ERROR OTHER_ERROR UNKNOWN_ERROR">
+        The type of failure.
+    </attribute>
+
+    <attribute name="startedAt" type="utcDateTime"
+               use="required">
+        The date and time at which the event started.
+    </attribute>
+
+    <attribute name="endedAt" type="utcDateTime"
+               use="required">
+        The date and time at which the event ended.
+    </attribute>
+
 </productSchema>

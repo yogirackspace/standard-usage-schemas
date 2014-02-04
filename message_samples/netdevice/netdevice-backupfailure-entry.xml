@@ -11,11 +11,16 @@
                dataCenter="DFW1" region="DFW" eventTime="2012-09-19T11:11:11Z"
                type="INFO">
             <fail:product version="1"
-                          resourceType="LOADBALANCER"
+                          resourceType="FIREWALL"
                           serviceCode="NetDevice"
-                          hostname="lb01"
-                          url="torq.com/event"
-                          description="exploded!"/>
+                          url="https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127"
+                          description="Exploded!"
+                          deviceHostname="FW123456.DFW1"
+                          deviceNumber="123456"
+                          user="System"
+                          failureType="CONNECTION_TIMEOUT"
+                          startedAt="2014-02-04T07:01:35Z"
+                          endedAt="2014-02-04T07:01:56Z" />
         </event>
     </atom:content>
 </atom:entry>
