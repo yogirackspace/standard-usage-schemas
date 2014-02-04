@@ -37,14 +37,4 @@
         The type of failure.
     </attribute>
 
-    <attribute name="startedAt" type="utcDateTime"
-               use="required">
-        The date and time at which the event started.
-    </attribute>
-
-    <attribute name="endedAt" type="utcDateTime"
-               use="required">
-        The date and time at which the event ended.
-    </attribute>
-
 </productSchema>
