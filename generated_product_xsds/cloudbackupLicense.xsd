@@ -226,11 +226,11 @@
             </attribute>
             <assert vc:minVersion="1.1"
                     test="if (not(xsd:boolean(@external))) then @serverID else true()"
-                    xerces:message="If the server is NOT external, then Server ID is required."
-                    saxon:message="If the server is NOT external, then Server ID is required.">
+                    xerces:message="If the server is NOT external, then serverID is required."
+                    saxon:message="If the server is NOT external, then serverID is required.">
                <annotation>
                   <documentation>
-                     <html:p>Assertion: If the server is NOT external, then Server ID is required.</html:p>
+                     <html:p>Assertion: If the server is NOT external, then serverID is required.</html:p>
                   </documentation>
                </annotation>
             </assert>
