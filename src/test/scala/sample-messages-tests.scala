@@ -40,6 +40,10 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleXSD = new File("core_xsd/entry.xsd")
 
+  private val prepocExtract = new File("src/test/resources/procinst-extract.xslt")
+  private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
+  private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
+
   def getSampleXMLFiles(dir: File) : List[File] = {
 
     def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
@@ -56,38 +60,36 @@ class SampleMessagesSuite extends BaseUsageSuite {
     getSampleXMLFiles(dir.listFiles().toList)
   }
 
-  test("All sample files in the samples directory should be valid according to the product schema") {
-    sampleFiles.foreach ( f => {
+  sampleFiles.foreach ( f => {
+    test("Sample "+f.getAbsolutePath+" should be valid according to the product schema ") {
       printf("Checking %s\n",f.getAbsolutePath)
       usageMsg.assert(XML.loadFile(f))
-    })
-  }
+    }
+  })
 
-  test("All sample files annotated with <?atom feed=... ..> in the sample directory should pass validation on that feed") {
-    sampleFiles.map(toFeedFile).filter(_ != None).map(_.get).foreach (f => {
+
+  sampleFiles.map(toFeedFile).filter(_ != None).map(_.get).foreach (f => {
+    test("Sample "+f._2.getAbsolutePath+" should be valid against feed "+f._1) {
       printf("Checking %s against feed %s\n", f._2.getAbsolutePath, f._1)
       if ( f._2.getAbsolutePath().indexOf("/identity/") != -1 ) {
         atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
       } else {
         atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
       }
-    })
-  }
+    }
+  })
 
-  test("All sample files in the bad samples directly and annotated with <?atom...> and <?expect..> should fail in the expected way") {
-    badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
+
+  badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
+    test("Sample "+f._4.getAbsolutePath+" should fail in the expected way when posted on feed "+f._1) {
       printf("Checking %s against feed %s\n",  f._4.getAbsolutePath, f._1)
       if ( f._4.getAbsolutePath().indexOf("/identity/") != -1 ) {
         val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
       } else {
         val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
       }
-    })
-  }
-
-  private val prepocExtract = new File("src/test/resources/procinst-extract.xslt")
-  private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
-  private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
+    }
+  })
 
   //
   //  Converts a sample file to an optional (feed/path, file)

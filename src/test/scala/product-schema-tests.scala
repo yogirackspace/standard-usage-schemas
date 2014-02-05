@@ -61,35 +61,6 @@ class ProductSchemaSuite extends BaseUsageSuite {
   val xprocDirSchema = new File("src/test/resources/directory.xsd")
 
   //
-  //  Tests
-  //
-  test("All product schemas should be valid") {
-    productSchemas.foreach ( f => {
-      printf("Checking %s/%s\n",productSchemaDir.getName(),f.getName())
-      productSchema.assert(XML.loadFile(f))
-    })
-  }
-
-  test("The number of generated XSDs and product schemas should match generated schemas") {
-    assert(alternatesSchemaDir.listFiles().length == generatedXSDs.length)
-  }
-
-  test("Each product should have a generated product XSD that matches it") {
-    alternatesSchemaDir.listFiles().map(toConGenXSD).foreach(f => {
-      printf("Checking %s/%s\n",generatedXSDsDir, f._3)
-      if (f._1 != f._2) { printf("(%s)\n[%s]\n", f._1, f._2)}
-      assert(f._1 == f._2)
-    })
-  }
-
-  test("Product schema and generated product WADL should match") {
-    printf("Checking %s\n", generatedWADL)
-    val w = toConGenWADL(productSchemaDir, messageSamplesDir) 
-    if (w._1 != w._2) { printf("(%s)\n[%s]\n", w._1, w._2) }
-    assert (w._1 == w._2)
-  }
-
-  //
   //  Init xml security lib
   //
   org.apache.xml.security.Init.init()
@@ -124,6 +95,38 @@ class ProductSchemaSuite extends BaseUsageSuite {
   // Init by generating alternate schemas
   //
   genAltSchemas
+
+  //
+  //  Tests
+  //
+
+  productSchemas.foreach ( f => {
+    test("Product schema "+productSchemaDir.getName()+"/"+f.getName()+" should validate against product schema xsd") { 
+      printf("Checking %s/%s\n",productSchemaDir.getName(),f.getName())
+      productSchema.assert(XML.loadFile(f))
+    }
+  })
+
+
+  alternatesSchemaDir.listFiles().map(toConGenXSD).foreach(f => {
+    test("The generated schema  "+generatedXSDsDir+"/"+f._3+" should be generated from the product schema") {
+      printf("Checking %s/%s\n",generatedXSDsDir, f._3)
+      if (f._1 != f._2) { printf("(%s)\n[%s]\n", f._1, f._2)}
+      assert(f._1 == f._2)
+    }
+  })
+
+  test("The number of generated XSDs and product schemas should match generated schemas") {
+    assert(alternatesSchemaDir.listFiles().length == generatedXSDs.length)
+  }
+
+  test("Product schema and generated product WADL should match") {
+    printf("Checking %s\n", generatedWADL)
+    val w = toConGenWADL(productSchemaDir, messageSamplesDir)
+    if (w._1 != w._2) { printf("(%s)\n[%s]\n", w._1, w._2) }
+    assert (w._1 == w._2)
+  }
+
 
   //
   //  Generate alternate schemas.
