@@ -10,30 +10,30 @@
     <atom:title type="text">Glance</atom:title>
     <atom:updated>2012-06-14T14:46:31.867Z</atom:updated>
     <atom:content type="application/xml">
-        <event endTime="2012-06-15T10:19:52Z"
-               startTime="2013-06-14T10:19:52Z" region="DFW" dataCenter="DFW1" type="USAGE"
+        <event endTime="2012-06-14T10:19:52Z"
+               startTime="2012-06-14T10:15:51Z" region="DFW" dataCenter="DFW1" type="USAGE"
                id="b79cc3de-b399-3883-b555-61829bb7f966" tenantId="1" version="1">
             <glance:product serviceCode="Glance" version="1">
                 <glance:backupStorage resourceId="b79cc3de-b399-3883-b555-61829bbccd38"
                                       resourceType="BACKUP"
-                                      endTime="2012-06-15T10:19:52Z"
-                                      startTime="2012-06-14T10:19:52Z"
+                                      endTime="2012-06-15T11:19:52Z"
+                                      startTime="2012-06-15T10:19:52Z"
                                       storage="1200"
                                       serverId="12309477"
                                       serverName="myServer1"
                                       imageType="BASE"/>
                 <glance:backupStorage resourceId="a79cc3de-b399-3883-b555-61829bbccd33"
                                       resourceType="BACKUP"
-                                      endTime="2013-06-15T10:19:52Z"
-                                      startTime="2013-06-14T10:19:52Z"
+                                      endTime="2013-06-15T11:19:52Z"
+                                      startTime="2013-06-15T10:19:51Z"
                                       storage="1200"
                                       serverId="12309478"
                                       serverName="myServer2"
                                       imageType="SNAPSHOT"/>
                 <glance:backupStorage resourceId="c79cc3de-b399-3883-b555-61829bbccd22"
                                       resourceType="BACKUP"
-                                      endTime="2012-06-16T10:19:52Z"
-                                      startTime="2012-06-15T10:19:52Z"
+                                      endTime="2012-06-15T11:19:52Z"
+                                      startTime="2012-06-15T10:19:51Z"
                                       storage="1000"
                                       serverId="12309479"
                                       serverName="myServer3"
@@ -41,7 +41,7 @@
                 <glance:backupStorage resourceId="d79cc3de-b399-3883-b555-61829bbccd11"
                                       resourceType="BACKUP"
                                       endTime="2012-06-15T11:19:52Z"
-                                      startTime="2012-06-14T11:19:52Z"
+                                      startTime="2012-06-15T10:19:51Z"
                                       storage="2400"
                                       serverId="12309479"
                                       serverName="myServer3"
