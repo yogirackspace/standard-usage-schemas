@@ -339,11 +339,25 @@
         <xsl:variable name="notUsed" select="for $t in $allTypes return if ($t = $usedTypes) then () else sch:quoted($t)" as="xs:string*"/>
         <param name="cross_check" style="plain" required="true" rax:message="Events of this type not allowed in the feed.">
             <xsl:attribute name="path">
+	      <xsl:text>not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
+              <xsl:value-of select="$notUsed" separator=","/>
+              <xsl:text>))</xsl:text>
+<!--
+    TODO:  This fix is to enable all our schema tests to exist on the func1test feed.  However,
+    while it fixed some issues, it caused a failure with the test:
+    atom-hopper-system-tests/src/test/resources/product-events/servers/servers-heartbeat-type-wrong.xml
+
+    Also, once this is fixed, we need to unIgnore:
+
+    atom-hopper-system-tests/src/test/groovy/tests/validations/EntryValidationTest.groov
+
+
                 <xsl:text>if(</xsl:text>
                 <xsl:value-of select="sch:selectEventProduct('', @pos,'')"/>
                 <xsl:text>) then not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
                 <xsl:value-of select="$notUsed" separator=","/>
                 <xsl:text>)) else true()</xsl:text>
+-->
             </xsl:attribute>
         </param>
     </xsl:template>
