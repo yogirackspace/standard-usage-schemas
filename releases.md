@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.38.1**  
+2014-02-05 | commenting out fixes for D-17014; introduces other errors (Greg Sharek)  
+
 **usage-schema-1.38.0**  
 2014-02-03 | B-61024: remove all the -event files (Shinta Smith)  
 2014-02-03 | B-61024: add response file for v3 (Shinta Smith)  
