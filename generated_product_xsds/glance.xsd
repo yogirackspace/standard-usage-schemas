@@ -57,7 +57,7 @@
                      </appinfo>
                   </annotation>
                </attribute>
-               <attribute name="resourceType" use="required" type="p:Name">
+               <attribute name="resourceType" use="required" type="p:resourceTypeEnum">
                   <annotation>
                      <documentation>
                         <html:p>The resourceType of the backup.</html:p>
@@ -146,7 +146,7 @@
                      </appinfo>
                   </annotation>
                </attribute>
-               <attribute name="resourceType" use="required" type="p:Name">
+               <attribute name="resourceType" use="required" type="p:resourceTypeEnum">
                   <annotation>
                      <documentation>
                         <html:p>The resourceType of the backup.</html:p>
@@ -208,6 +208,11 @@
                  type="xsd:Name"
                  fixed="Glance"/>
    </complexType>
+   <simpleType name="resourceTypeEnum">
+      <restriction base="xsd:Name">
+         <enumeration value="IMAGE"/>
+      </restriction>
+   </simpleType>
    <simpleType name="storageType">
       <restriction base="xsd:unsignedLong">
          <maxInclusive value="2199023255552"/>
@@ -239,11 +244,6 @@
    <simpleType name="string">
       <restriction base="xsd:string">
          <minLength value="0"/>
-         <maxLength value="255"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="Name">
-      <restriction base="xsd:Name">
          <maxLength value="255"/>
       </restriction>
    </simpleType>

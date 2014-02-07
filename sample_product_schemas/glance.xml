@@ -22,7 +22,8 @@
                 minLength="1">
             The resourceId of the backup.
         </attribute>
-        <attribute name="resourceType" type="Name" use="required">
+        <attribute name="resourceType" type="Name" use="required"
+                   allowedValues="IMAGE">
             The resourceType of the backup.
         </attribute>
         <attribute name="storage" type="unsignedLong" use="required"
