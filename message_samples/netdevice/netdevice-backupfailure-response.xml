@@ -7,8 +7,8 @@
   <atom:category term="netdevice.backupfailure.firewall.info"/>
   <atom:title type="text">Failure Event</atom:title>
   <atom:content type="application/xml">
-    <event xmlns="http://docs.rackspace.com/core/event" xmlns:fail="http://docs.rackspace.com/event/netdevice/backupfailure" dataCenter="DFW1" environment="PROD" startTime="2014-02-19T10:30:03Z" endTime="2014-02-19T10:19:52Z" id="b79cc3de-b399-3883-b555-61829bbccd38" region="DFW" resourceName="FW123456.DFW1" resourceId="123456" agentUsername="System" type="INFO" version="1">
-      <fail:product description="Exploded!" resourceType="FIREWALL" serviceCode="NetDevice" url="https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127" failureType="CONNECTION_TIMEOUT" version="1"/>
+    <event xmlns="http://docs.rackspace.com/core/event" xmlns:fail="http://docs.rackspace.com/event/netdevice/backupfailure" dataCenter="DFW1" environment="PROD" startTime="2014-01-18T10:30:52Z" endTime="2014-01-19T10:30:52Z" id="b79cc3de-b399-3883-b555-61829bbccd38" region="DFW" resourceName="FW123456.DFW1" resourceId="123456" agentUsername="System" type="INFO" version="1">
+      <fail:product resourceType="FIREWALL" serviceCode="NetDevice" url="https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127" failureType="CONNECTION_TIMEOUT" version="1"/>
     </event>
   </atom:content>
   <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/netdevice/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38" rel="self"/>

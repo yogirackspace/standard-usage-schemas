@@ -14,7 +14,8 @@
             <fail:product version="1"
                           resourceType="FIREWALL"
                           serviceCode="NetDevice"
-                          description="exploded!"/>
+                          failureType="INTERNAL_ERROR"
+                          />
         </event>
     </atom:content>
 </atom:entry>
