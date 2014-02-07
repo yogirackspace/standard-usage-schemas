@@ -28,16 +28,6 @@
                  type="xsd:Name"
                  fixed="NetDevice"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="hostname" use="required" type="p:string">
-         <annotation>
-            <documentation>
-               <html:p>The hostname of the device.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes/>
-            </appinfo>
-         </annotation>
-      </attribute>
       <attribute name="url" use="required" type="xsd:anyURI">
          <annotation>
             <documentation>
@@ -48,10 +38,10 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="description" use="required" type="p:string0_256">
+      <attribute name="failureType" use="required" type="p:failureTypeEnum">
          <annotation>
             <documentation>
-               <html:p>The description of the failure.</html:p>
+               <html:p>The type of failure.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -70,16 +60,20 @@
          <enumeration value="FIREWALL"/>
       </restriction>
    </simpleType>
-   <simpleType name="string0_256">
-      <restriction base="xsd:string">
-         <minLength value="0"/>
-         <maxLength value="256"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="string">
-      <restriction base="xsd:string">
-         <minLength value="0"/>
-         <maxLength value="255"/>
+   <simpleType name="failureTypeEnum">
+      <restriction base="xsd:Name">
+         <enumeration value="CONNECTION_TIMEOUT"/>
+         <enumeration value="CONNECTION_REFUSED"/>
+         <enumeration value="DEVICE_TIMEOUT"/>
+         <enumeration value="DEVICE_LOGIN_FAILED"/>
+         <enumeration value="DEVICE_BAD_CONFIG"/>
+         <enumeration value="DEVICE_BAD_STATE"/>
+         <enumeration value="TFTP_CONNECTION_ERROR"/>
+         <enumeration value="SSH_CONNECTION_ERROR"/>
+         <enumeration value="SSL_CERTIFICATE_ERROR"/>
+         <enumeration value="INTERNAL_ERROR"/>
+         <enumeration value="OTHER_ERROR"/>
+         <enumeration value="UNKNOWN_ERROR"/>
       </restriction>
    </simpleType>
 </xsd:schema>
