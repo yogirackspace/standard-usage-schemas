@@ -9,26 +9,9 @@
         INFO messages on loadbalancer and firewall backup failures for FDaaT.
     </description>
 
-    <attribute name="deviceHostname" type="string"
-               use="required">
-        The hostname of the device.
-    </attribute>
-
     <attribute name="url" type="anyURI"
                use="required">
         The link to view the event info in Torq.
-    </attribute>
-
-    <attribute name="deviceId" type="string"
-               maxLength="64"
-               use="required">
-        The device number.
-    </attribute>
-
-    <attribute name="user" type="string"
-               maxLength="32"
-               use="required">
-        The User that created the event.
     </attribute>
 
     <attribute name="failureType" type="Name"

@@ -28,40 +28,10 @@
                  type="xsd:Name"
                  fixed="NetDevice"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="deviceHostname" use="required" type="p:string">
-         <annotation>
-            <documentation>
-               <html:p>The hostname of the device.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes/>
-            </appinfo>
-         </annotation>
-      </attribute>
       <attribute name="url" use="required" type="xsd:anyURI">
          <annotation>
             <documentation>
                <html:p>The link to view the event info in Torq.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="deviceId" use="required" type="p:string0_64">
-         <annotation>
-            <documentation>
-               <html:p>The device number.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="user" use="required" type="p:string0_32">
-         <annotation>
-            <documentation>
-               <html:p>The User that created the event.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -104,24 +74,6 @@
          <enumeration value="INTERNAL_ERROR"/>
          <enumeration value="OTHER_ERROR"/>
          <enumeration value="UNKNOWN_ERROR"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="string0_64">
-      <restriction base="xsd:string">
-         <minLength value="0"/>
-         <maxLength value="64"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="string0_32">
-      <restriction base="xsd:string">
-         <minLength value="0"/>
-         <maxLength value="32"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="string">
-      <restriction base="xsd:string">
-         <minLength value="0"/>
-         <maxLength value="255"/>
       </restriction>
    </simpleType>
 </xsd:schema>
