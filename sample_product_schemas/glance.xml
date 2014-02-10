@@ -12,11 +12,18 @@
         <description>
             The backup storage at the instance (snapshot) level.
         </description>
+        <attribute name="startTime" type="utcDateTime" use="required">
+            The start time of the backup.
+        </attribute>
+        <attribute name="endTime" type="utcDateTime" use="required">
+            The end time of the backup.
+        </attribute>
         <attribute name="resourceId" type="string" use="required"
                 minLength="1">
             The resourceId of the backup.
         </attribute>
-        <attribute name="resourceType" type="Name" use="required">
+        <attribute name="resourceType" type="Name" use="required"
+                   allowedValues="IMAGE">
             The resourceType of the backup.
         </attribute>
         <attribute name="storage" type="unsignedLong" use="required"
@@ -34,4 +41,23 @@
             Backup image type.
         </attribute>
     </attributeGroup>
+
+    <xpathAssertion test="empty( ( for $a in $product/*[local-name() = 'backupStorage' ]
+                          return xs:dateTime($a/@startTime) lt xs:dateTime($a/@endTime) )[ . eq false() ] )"
+                    scope="entry">
+        The startTime should come before the endTime.
+    </xpathAssertion>
+
+    <xpathAssertion test="empty( ( for $a in $product/*[local-name() = 'backupStorage' ]
+                          return xs:dateTime($a/@endTime) le (current-dateTime() + xs:dayTimeDuration('PT10M')))[ . eq false() ] )"
+                    scope="entry">
+        The endTime of an event must not be more than 10 mins in the future.
+    </xpathAssertion>
+
+    <xpathAssertion test="empty( ( for $a in $product/*[local-name() = 'backupStorage' ]
+                          return xs:dateTime($a/@endTime) le (xs:dateTime($a/@startTime) + xs:dayTimeDuration('P1D')))[ . eq false() ] )"
+                    scope="entry">
+        Usage events must not span more than 1 Day.
+    </xpathAssertion>
+
 </productSchema>
