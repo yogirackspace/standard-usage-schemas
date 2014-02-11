@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.39.0**  
+2014-02-07 | B-63987: generated schema update for /netdevice (Shinta Smith)  
+
 **usage-schema-1.38.1**  
 2014-02-05 | commenting out fixes for D-17014; introduces other errors (Greg Sharek)  
 
@@ -9,6 +12,7 @@
 2014-02-03 | B-61024: add response file for v3 (Shinta Smith)  
 2014-01-30 | B-61024: add v3 of cloudbackup with type USAGE_SNAPSHOT (Shinta Smith)  
 2014-01-30 | B-62772 - Update Domain Registration Event - Add REDEMPTION (Greg Sharek)  
+2014-01-30 | B-63768 - add startTime & endTime to glance sub-event (Greg Sharek)  
 2014-01-29 | D-17014_product.wadl (Greg Sharek)  
 
 **usage-schema-1.37.0**  
