@@ -2,6 +2,7 @@
 
 
 **usage-schema-1.39.0**  
+2014-02-10 | B-63768: add startTime & endTime to glance sub-event
 2014-02-07 | B-63987: generated schema update for /netdevice (Shinta Smith)  
 
 **usage-schema-1.38.1**  
