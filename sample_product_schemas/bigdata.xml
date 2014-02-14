@@ -2,14 +2,15 @@
                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/usage/bigdata"
                serviceCode="BigData"
-               version="1" resourceTypes="HADOOP_HDP1_1 HADOOP_HDP1_3 HBASE_HDP1_1 HBASE_HDP1_3">
+               version="1" resourceTypes="HADOOP_HDP1_3 HBASE_HDP1_3 HADOOP_HDP2_0 HBASE_HDP2_0">
     <description> 
         Usage message for a big data cluster.
     </description>
 
-    <attribute name="flavorId" type="string" 
+    <attribute name="enum" type="string"
                maxLength="50" minLength="1"
                use="required"
+               allowedValues="hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60"
                groupBy="true">
         The flavor id of the cluster.
     </attribute>
