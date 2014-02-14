@@ -79,40 +79,39 @@
             usage and system events that can be used for analysis,
             monitoring, and automation. This purpose of this document
             is explain how to access feeds by using the Cloud Feeds
-            API.  The following are technologies used by Cloud
+            API. The following are technologies used by Cloud
             Feeds:</para>
         <itemizedlist spacing="compact">
             <listitem>
                 <para>Atom Hopper (for more information see, <link
-                    xlink:href="http://atomhopper.org">Atom Hopper
-                        </link></para>
+                        xlink:href="http://atomhopper.org">Atom Hopper
+                    </link></para>
             </listitem>
             <listitem>
                 <para>Apache Abdera (for more information see, <link
-                    xlink:href="http://abdera.apache.org"
-                    >Apache Abdera</link>)</para>
+                        xlink:href="http://abdera.apache.org">Apache
+                        Abdera</link>)</para>
             </listitem>
             <listitem>
                 <para>RFC 5023 (for more information see, <link
                         xlink:href="http://www.ietf.org/rfc/rfc5023.txt"
-                    >RFC 5023</link>)</para>
+                        >RFC 5023</link>)</para>
             </listitem>
             <listitem>
                 <para>RC 5005 (for more information see,<link
-                    xlink:href="http://www.ietf.org/rfc/rfc5005.txt"
-                    >RC 5005</link>
-                    )</para>
+                        xlink:href="http://www.ietf.org/rfc/rfc5005.txt"
+                        >RC 5005</link> )</para>
             </listitem>
             <listitem>
                 <para>RESTful web services (for more information see,
                         <link
-                            xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
+                        xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
                         >RESTful web services</link>)</para>
             </listitem>
             <listitem>
                 <para>HTTP/1.1 protocol (for more information see,
                         <link
-                            xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html"
+                        xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html"
                         >HTTP/1.1 protocol</link>)</para>
             </listitem>
             <listitem>
@@ -133,9 +132,10 @@
             at (need to have a specific feedback area for the Cloud
             Feeds product) <link
                 xlink:href="http://feedback.rackspacecloud.com"
-                >http://feedback.rackspacecloud.com</link>.</para> <para security="writeronly">Writer: Insert the CF Overview Graphic
-            when received from marketing; make sure to follow-up with
-            Theresa H to remind her.</para>
+                >http://feedback.rackspacecloud.com</link>.</para>
+        <para security="writeronly">Writer: Insert the CF Overview
+            Graphic when received from marketing; make sure to
+            follow-up with Theresa H to remind her.</para>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
@@ -145,12 +145,12 @@
         </section>
         <section xml:id="Additional_Resources">
             <title>Additional Resources</title>
-            <para security="writeronly">Writer: Add the following information
-                in red when available: Descriptive information about
-                Cloud Feeds is also published in its Web Application
-                Description Language (WADL) and XML Schema Definition
-                (XSD). This information is available at the following
-                locations:</para>
+            <para security="writeronly">Writer: Add the following
+                information in red when available: Descriptive
+                information about Cloud Feeds is also published in its
+                Web Application Description Language (WADL) and XML
+                Schema Definition (XSD). This information is available
+                at the following locations:</para>
             <itemizedlist security="writeronly">
                 <listitem>
                     <para>There are multiple WADLs , see Need to
@@ -158,20 +158,22 @@
                 </listitem>
                 <listitem>
                     <para>The XSDs in the API Operations chapter, see
-                        Need to insert hyperlink when available </para>
+                        Need to insert hyperlink when available
+                    </para>
                 </listitem>
             </itemizedlist>
-            <para security="writeronly">You can download the most current versions of other
-                API-related documents from <link
-                    xlink:href="http://docs.rackspace.com/"
+            <para security="writeronly">You can download the most
+                current versions of other API-related documents from
+                    <link xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link>. </para>
-            <para security="writeronly"> Writer: When available replace the link (noted as Cloud Database) below with the Cloud Feeds version.
-                For more details about Cloud Feeds, see<link
+            <para security="writeronly"> Writer: When available
+                replace the link (noted as Cloud Database) below with
+                the Cloud Feeds version. For more details about Cloud
+                Feeds, see<link
                     xlink:href="http://www.rackspace.com/cloud/cloud_hosting_products/databases/"
-                        > Writer: A link for Cloud Feeds for
-                        more information will be developed later
-                        before the public release; followup with CF
-                        Team (Shinta)
+                    > Writer: A link for Cloud Feeds for more
+                    information will be developed later before the
+                    public release; followup with CF Team (Shinta)
                     http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>This
                 site also provides links to the official Rackspace
                 support channels, including knowledge center articles,
@@ -195,7 +197,7 @@
                 announcements via Twitter at: <link
                     xlink:href="http://www.twitter.com/rackspace"
                     >http://www.twitter.com/rackspace</link>. </para>
-            <para >This API uses standard HTTP/1.1 response codes as
+            <para>This API uses standard HTTP/1.1 response codes as
                 documented at: <link
                     xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
                     >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>.
@@ -242,7 +244,8 @@
                             >projected and actual values</link>. In
                         September 2013 Cloud Feeds needs to handle
                         POSTs and GETs at 500 entries per second. The
-                        goal for 2013 is two million entries per hour. </para>
+                        goal for 2013 is two million entries per hour.
+                    </para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
@@ -251,9 +254,10 @@
                             SLAs</emphasis>: For Cloud Feeds
                         performance SLAs, see <link
                             xlink:href="https://one.rackspace.com/display/CIT/Atom+Hopper+Testing+and+Performance+Metrics"
-                            >Testing and performance metrics</link>. </para> <para security="writeronly">
-                        Writer: The SLAs are based on a specific date with the format  XX.XX.XXXX
-                            <remark>Will need the correct
+                            >Testing and performance metrics</link>. </para>
+                    <para security="writeronly"> Writer: The SLAs are
+                        based on a specific date with the format
+                        XX.XX.XXXX <remark>Will need the correct
                             date.</remark>performance test results for
                         a feed with five million entries.</para>
                 </listitem>
@@ -301,8 +305,7 @@
                     </tr>
                     <tr>
                         <td>GET</td>
-                        <td>Feed head (25) with search
-                            category</td>
+                        <td>Feed head (25) with search category</td>
                         <td>21.70</td>
                         <td>65.76</td>
                     </tr>
@@ -322,9 +325,8 @@
                     </tr>
                     <tr>
                         <td>GET</td>
-                        <td>Paging through feed, feed head (25)
-                                with search
-                            category</td>
+                        <td>Paging through feed, feed head (25) with
+                            search category</td>
                         <td>0.36</td>
                         <td>None</td>
                     </tr>
@@ -442,7 +444,7 @@
                 Cloud Backup product). Inside the &lt;event> element
                 is the data for this Cloud Backup event. </para>
             <example>
-                <title>Cloud  Backup Event Information</title>
+                <title>Cloud Backup Event Information</title>
                 <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
 &lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
@@ -467,7 +469,9 @@
             <para xlink:href="#XML_Schemas-d1e120">All product events
                 are validated against their XML schemas. For details,
                 see <link xlink:href="#api-operations">Chapter 5:
-                    Operations</link>.</para> <para security="writeronly"> Writer: Insert hyperlink </para>
+                    Operations</link>.</para>
+            <para security="writeronly"> Writer: Insert hyperlink
+            </para>
         </section>
     </chapter>
     <chapter xml:id="General_API_Information-d1e333">
@@ -683,7 +687,6 @@
             <para>This issue should not be a concern when using an XML
                 Parser. </para>
             <section xml:id="Cloud_Query_Pardle0001">
-
                 <title>Cloud Feeds Query Parameters</title>
                 <para>The following table lists Cloud Feeds query
                     parameters:</para>
@@ -1016,11 +1019,12 @@
                                    <entry>Able to observe Cloud Feeds
                                    data for all tenants (GET).</entry>
                                 </row>
-                                    <row>
-                                        <entry>identity:admin</entry>
-                                        <entry>The same capabilities as cloudfeeds:service-admin. </entry>
-                                    </row>
-                                    <row>
+                                <row>
+                                   <entry>identity:admin</entry>
+                                   <entry>The same capabilities as
+                                   cloudfeeds:service-admin. </entry>
+                                </row>
+                                <row>
                                    <entry>identity:user-admin </entry>
                                    <entry>The same capabilities as
                                    cloudfeeds:admin.</entry>
@@ -1035,7 +1039,6 @@
                                    <entry>The same capabilities as
                                    cloudfeeds:observer.</entry>
                                 </row>
-                                
                             </tbody>
                         </tgroup>
                     </table>
@@ -1437,69 +1440,47 @@
                 appropriate replication, caching, and overall
                 maintenance of Cloud Feeds data across regional
                 boundaries to other Cloud Feeds servers. </para>
-            <para security="writeronly"> Writer: All of these endpoints need to be updated to public endpoints, out in the internet.
-                They are still being built by Nick Silkey. Check the second week of November with Nick to see if they have been built. </para>
-            <?rax-fo keep-with-next?>
-            <para>
-                <table rules="all">
-                    <caption>Regionalized Service Endpoints</caption>
-                    <thead>
-                        <tr align="center">
-                            <td colspan="2">Region</td>
-                            <td colspan="5">Endpoint</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr align="left">
-                            <td colspan="2">Chicago (ORD)</td>
-                            <td colspan="5"><code>
-                                   <link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.ord1.us.ci.rackspace.net</link>
-                                </code></td>
-                        </tr>
-                        <tr align="left">
-                            <td colspan="2">Dallas/Ft. Worth
-                                (DFW)</td>
-                            <td colspan="5"><code>
-                                   <link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.dfw1.us.ci.rackspace.net</link>
-                                </code></td>
-                        </tr>
-                        <tr align="left">
-                            <td colspan="2">United Kingdom (UK)</td>
-                            <td colspan="5">
-                                <code><link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.uk1.us.ci.rackspace.net</link></code>
-                            </td>
-                        </tr>
-                        <tr align="left">
-                            <td colspan="2">Sydney (SYD)</td>
-                            <td colspan="5">
-                                <code><link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.syd2.us.ci.rackspace.net</link></code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">Northern Virgina
-                                (IAD)</td>
-                            <td colspan="5"><code><link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.iad3.us.ci.rackspace.net</link></code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">Hong Kong (HKG)</td>
-                            <td colspan="5"><code><link
-                                   xlink:href="https://atom.prod.ord1.us.ci.rackspace.net/"
-                                   >https://atom.prod.hkg1.us.ci.rackspace.net</link></code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </para>
+            <table>
+                <caption>Regionalized Service Endpoints</caption>
+                <thead>
+                    <tr align="center">
+                        <td colspan="2">Region</td>
+                        <td colspan="5">Endpoint</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align="left">
+                        <td colspan="2">Chicago (ORD)</td>
+                        <td colspan="5"
+                                ><code>https://ord.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Dallas/Ft. Worth (DFW)</td>
+                        <td colspan="5"
+                                ><code>https://dfw.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">London (LON)</td>
+                        <td colspan="5">
+                            <code>https://lon.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Sydney (SYD)</td>
+                        <td colspan="5">
+                            <code>https://syd.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Hong Kong (HKG)</td>
+                        <td colspan="5">
+                            <code>https://hkg.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
         <section xml:id="CloudFeedsEventsVersions-d1e757">
             <title>Cloud Feeds Events Versions</title>
@@ -1566,15 +1547,17 @@
                     resourceType="AGENT"/>
 &lt;/event></programlisting>
                 </example>
-                <para security="writeronly">Need to update this example when URL for Cloud Feeds is available: <example>
-                    <title>Sample Request URL for Contract Version
-                        1.0</title>
-                    <programlisting>https://ord.databases.api.rackspacecloud.com/<emphasis role="strong">v1.0</emphasis>/1234</programlisting>
-                </example>
-                <note>
-                    <para>This document pertains to contract version
-                        1.0.</para>
-                </note> </para>
+                <para security="writeronly">Need to update this
+                    example when URL for Cloud Feeds is available: <example>
+                        <title>Sample Request URL for Contract Version
+                            1.0</title>
+                        <programlisting>https://ord.databases.api.rackspacecloud.com/<emphasis role="strong">v1.0</emphasis>/1234</programlisting>
+                    </example>
+                    <note>
+                        <para>This document pertains to contract
+                            version 1.0.</para>
+                    </note>
+                </para>
             </section>
         </section>
         <section xml:id="Request_Response_Types-d1e903">
@@ -1894,7 +1877,6 @@
     &lt;/entry></programlisting>
                 </example>
                 <para>
-                 
                     <table frame="all">
                         <title>Common HTTP Responses</title>
                         <tgroup cols="6">
@@ -1987,42 +1969,40 @@
                     limits</firstterm> and <firstterm>absolute
                     limits</firstterm>. Rate limits are thresholds
                 that are reset after a certain amount of time passes.
-                Absolute limits are fixed. </para> 
-            <para security="writeronly"> Writer: Add section titled Rate_Limits once there are rate limits for GET.
-                   
-                </para>
-            
+                Absolute limits are fixed. </para>
+            <para security="writeronly"> Writer: Add section titled
+                Rate_Limits once there are rate limits for GET. </para>
             <section xml:id="Absolute_Limits-d1e1397">
                 <title>Absolute Limit</title>
                 <para>One thousand is the maximum number of Atom
-                entries that can be returned in a single page.</para>
+                    entries that can be returned in a single
+                    page.</para>
             </section>
             <section xml:id="retention_limit">
                 <title>Retention Limit</title>
                 <para>Elements are retained for a maximum of three
-                days. Anything that exceeds that time limit is stored
-                in archival links. </para>
+                    days. Anything that exceeds that time limit is
+                    stored in archival links. </para>
             </section>
             <section xml:id="httpPRL">
                 <title>HTTP POST Request Limit</title>
-                <para>Two hundred thousand is the maximum size limit
-                    in a POST request.</para>
-           
+                <para>The maximum size limit in a
+                        <methodname>POST</methodname> request is
+                    200,000 KB. </para>
             </section>
- 
-        <section xml:id="datetimeformat">
-            <title>Date and Time Format</title>
-            <para> For the display and consumption of date and time
-                values, the Cloud Feeds service uses a date format
-                that complies with ISO 8601. </para>
-            <para>The following table lists the format of a Cloud
-                Feeds Date/Time and an example. An example of the
-                Date/Time follows: </para>
-            <example>
-                <title>Cloud Feeds Date and Time Format Example </title>
-                <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
-                <para>
-                    <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
+            <section xml:id="datetimeformat">
+                <title>Date and Time Format</title>
+                <para> For the display and consumption of date and
+                    time values, the Cloud Feeds service uses a date
+                    format that complies with ISO 8601. </para>
+                <para>The following table lists the format of a Cloud
+                    Feeds Date/Time and an example. An example of the
+                    Date/Time follows: </para>
+                <example>
+                    <title>Cloud Feeds Date and Time Format Example </title>
+                    <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+                    <para>
+                        <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="current" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="self" />
     &lt;id>urn:uuid:28c08dce-f0d9-4710-9657-c5cd35b48018&lt;/id>
@@ -2031,59 +2011,59 @@
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.activate/33bdaeca-94f9-4c47-ad1f-6ecce25bb773/&amp;limit=25&amp;search=&amp;direction=backward" rel="next" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
     &lt;updated><emphasis role="bold">2013-09-05T14:50:46.904Z</emphasis>&lt;/updated></programlisting>
-                </para>
-            </example>
-            <table rules="all">
-                <caption>Explanation of Date/Time Format
-                    Codes</caption>
-                <thead>
-                    <tr>
-                        <td>Code</td>
-                        <td>Description</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>yyyy</td>
-                        <td>Four digit year</td>
-                    </tr>
-                    <tr>
-                        <td>MM</td>
-                        <td>Two digit month</td>
-                    </tr>
-                    <tr>
-                        <td>dd</td>
-                        <td>Two digit day of month</td>
-                    </tr>
-                    <tr>
-                        <td>T</td>
-                        <td>Separator for date/time</td>
-                    </tr>
-                    <tr>
-                        <td>HH</td>
-                        <td>Two digit hour of day (00-23)</td>
-                    </tr>
-                    <tr>
-                        <td>mm</td>
-                        <td>Two digit minutes of hour</td>
-                    </tr>
-                    <tr>
-                        <td>ss</td>
-                        <td>Two digit seconds of the minute</td>
-                    </tr>
-                    <tr>
-                        <td>SSS</td>
-                        <td>Three digit milliseconds of the
-                            second</td>
-                    </tr>
-                    <tr>
-                        <td>Z</td>
-                        <td>RFC-822 timezone</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section xml:id="pagination">
+                    </para>
+                </example>
+                <table rules="all">
+                    <caption>Explanation of Date/Time Format
+                        Codes</caption>
+                    <thead>
+                        <tr>
+                            <td>Code</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>yyyy</td>
+                            <td>Four digit year</td>
+                        </tr>
+                        <tr>
+                            <td>MM</td>
+                            <td>Two digit month</td>
+                        </tr>
+                        <tr>
+                            <td>dd</td>
+                            <td>Two digit day of month</td>
+                        </tr>
+                        <tr>
+                            <td>T</td>
+                            <td>Separator for date/time</td>
+                        </tr>
+                        <tr>
+                            <td>HH</td>
+                            <td>Two digit hour of day (00-23)</td>
+                        </tr>
+                        <tr>
+                            <td>mm</td>
+                            <td>Two digit minutes of hour</td>
+                        </tr>
+                        <tr>
+                            <td>ss</td>
+                            <td>Two digit seconds of the minute</td>
+                        </tr>
+                        <tr>
+                            <td>SSS</td>
+                            <td>Three digit milliseconds of the
+                                second</td>
+                        </tr>
+                        <tr>
+                            <td>Z</td>
+                            <td>RFC-822 timezone</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section xml:id="pagination">
                 <title>Pagination</title>
                 <para>To reduce load on the service, list operations
                     return a maximum of 25 entries at a time. However,
@@ -2116,242 +2096,249 @@
                     no more items, no <emphasis>next</emphasis> link
                     is returned.</para>
             </section>
-        <section xml:id="Rules_CF_PS">
-            <title>Rules for Cloud Feeds Publishers and
-                Subscribers</title>
-            <para><emphasis role="bold">Rules for
-                    Subscribers</emphasis></para>
-            <para>Subscribers may receive the following
-                responses:</para>
-            <informaltable frame="void" width="769">
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <thead>
-                    <tr>
-                        <th>Code Category</th>
-                        <th>Code</th>
-                        <th>Code Description</th>
-                        <th>Example Request</th>
-                        <th>Example Response</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Successful</td>
-                        <td>200</td>
-                        <td>OK</td>
-                        <td>Get to Collection URI.</td>
-                        <td>200 + Atom Feed Document</td>
-                        <td>None</td>
-                    </tr>
-                    <tr>
-                        <td>Successful</td>
-                        <td>200</td>
-                        <td>OK</td>
-                        <td>Get to Member URI.</td>
-                        <td>200 +Member Representation</td>
-                        <td>None</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>401</td>
-                        <td>None</td>
-                        <td>Get with a missing, expired, or invalid
-                            token.</td>
-                        <td>None</td>
-                        <td>Retry with a valid token.</td>
-                    </tr>
-                    <tr>
-                        <td>Server Error</td>
-                        <td>500</td>
-                        <td>Internal Server Error</td>
-                        <td>Get while database is offline, or other
-                            network failure.</td>
-                        <td>None</td>
-                        <td>Retry until network failure is
-                            resolved.</td>
-                    </tr>
-                </tbody>
-            </informaltable>
-            <para><emphasis role="bold">Rules for
-                    Publishers</emphasis></para>
-            <para>Response Codes:</para>
-            <itemizedlist>
-                <listitem>
-                    <para>For every event posted to Cloud Feeds,
-                        ensure that the response is a HTTP 201
-                        (Created) and the Atom XML posted is in the
-                        response body. If any response other than a
-                        201 is received, there is either a problem
-                        with the event or a problem with Cloud
-                        Feeds</para>
-                </listitem>
-                <listitem>
-                    <para>If a 5xx response is received, the problem
-                        is with Cloud Feeds (e.g. Cloud Feeds is
-                        down). As a result, the publisher must queue
-                        their events and re-post. Publishers should
-                        queue events until the issue is
-                        resolved</para>
-                </listitem>
-                <listitem>
-                    <para>If a 4xx response is received, the problem
-                        is with the event. This could be an improperly
-                        formatted event or an event that does not
-                        adhere to the business rules included in the
-                        validation schema. The problem should be
-                        logged and the product ops and NebOps teams
-                        should be notified of the problem</para>
-                </listitem>
-            </itemizedlist>
-            <informaltable frame="void">
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <col width="16%"/>
-                <thead>
-                    <tr>
-                        <th>Code Category</th>
-                        <th>Code</th>
-                        <th>Code Description</th>
-                        <th>Example Request</th>
-                        <th>Example Response</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Successful</td>
-                        <td>201</td>
-                        <td>Created</td>
-                        <td>POST to Collection URI with Member
-                            Representation. </td>
-                        <td>Location: Member Entry URI</td>
-                        <td/>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>400</td>
-                        <td>None</td>
-                        <td>POST with schema validation error .</td>
-                        <td>Schema validation errors have content in
-                            the message body.</td>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>401</td>
-                        <td>None</td>
-                        <td>POST with a missing, expired, or invalid
-                            token. Re-post the message with a valid
-                            token. </td>
-                        <td/>
-                        <td>Retry with a valid token.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>403</td>
-                        <td>None</td>
-                        <td>POST forbidden (i.e.: tenant trying to
-                            access wrong protocol) </td>
-                        <td/>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>404</td>
-                        <td>None</td>
-                        <td>Not found </td>
-                        <td/>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>405</td>
-                        <td>None</td>
-                        <td> Used a PUT instead of a POST.</td>
-                        <td/>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>409</td>
-                        <td>None</td>
-                        <td>POST that is a duplicate (conflict). All
-                            feeds will return 409 if duplicate entryId
-                            is sent in the request except for Nova and
-                            Glance because Cloud Feeds generates
-                            unique entryIds for these feeds. Note that
-                            for Common Usage Framework standard
-                            entries, the event ID will be used as the
-                            Atom entry ID. (If it is posted without an
-                            Atom entry ID, the event ID will be used
-                            as the Atom entry ID. If it is posted with
-                            an Atom entry ID, the Atom entry ID will
-                            be overwritten by the event ID.)</td>
-                        <td>Duplicates have no content in the message
-                            body.</td>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>415</td>
-                        <td>None</td>
-                        <td>POST that is in an unsupported format
-                            (i.e., sending json when XML is expected). </td>
-                        <td/>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>422</td>
-                        <td>None</td>
-                        <td>Typically this error occurs when malformed
-                            Atom XML is passed to Cloud Feeds. It can
-                            also occur when no Atom XML was passed
-                            in.</td>
-                        <td/>
-                        <td>Fix entry and re-post.</td>
-                    </tr>
-                    <tr>
-                        <td>Client Error</td>
-                        <td>429</td>
-                        <td>Rate Limited</td>
-                        <td>Cloud Feeds will be set to 500 POSTs per
-                            second per user. </td>
-                        <td/>
-                        <td>Retry until the entry is posted.</td>
-                    </tr>
-                    <tr>
-                        <td>Server Error</td>
-                        <td>500</td>
-                        <td>Internal Server Error</td>
-                        <td>POST while database is offline, or other
-                            network failure.</td>
-                        <td/>
-                        <td>Retry until network failure is
-                            resolved.</td>
-                    </tr>
-                </tbody>
-            </informaltable>
-            <para>If the content returned by a request is paginated,
-                the response includes a structured link that are
-                similar to instance item's links, with the basic
-                structure <code>{"href": "&lt;url>", "rel":
-                    "next"}</code>. Any response that is truncated by
-                pagination will have a <emphasis>next</emphasis> link,
-                which points to the next item in the collection. If
-                there are no more items, no <emphasis>next</emphasis>
-                link is returned.</para>
-        </section> 
-        </section><section xml:id="RBAC"
+            <section xml:id="Rules_CF_PS">
+                <title>Rules for Cloud Feeds Publishers and
+                    Subscribers</title>
+                <para><emphasis role="bold">Rules for
+                        Subscribers</emphasis></para>
+                <para>Subscribers may receive the following
+                    responses:</para>
+                <informaltable frame="void" width="769">
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <thead>
+                        <tr>
+                            <th>Code Category</th>
+                            <th>Code</th>
+                            <th>Code Description</th>
+                            <th>Example Request</th>
+                            <th>Example Response</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Successful</td>
+                            <td>200</td>
+                            <td>OK</td>
+                            <td>Get to Collection URI.</td>
+                            <td>200 + Atom Feed Document</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Successful</td>
+                            <td>200</td>
+                            <td>OK</td>
+                            <td>Get to Member URI.</td>
+                            <td>200 +Member Representation</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>401</td>
+                            <td>None</td>
+                            <td>Get with a missing, expired, or
+                                invalid token.</td>
+                            <td>None</td>
+                            <td>Retry with a valid token.</td>
+                        </tr>
+                        <tr>
+                            <td>Server Error</td>
+                            <td>500</td>
+                            <td>Internal Server Error</td>
+                            <td>Get while database is offline, or
+                                other network failure.</td>
+                            <td>None</td>
+                            <td>Retry until network failure is
+                                resolved.</td>
+                        </tr>
+                    </tbody>
+                </informaltable>
+                <para><emphasis role="bold">Rules for
+                        Publishers</emphasis></para>
+                <para>Response Codes:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>For every event posted to Cloud Feeds,
+                            ensure that the response is a HTTP 201
+                            (Created) and the Atom XML posted is in
+                            the response body. If any response other
+                            than a 201 is received, there is either a
+                            problem with the event or a problem with
+                            Cloud Feeds</para>
+                    </listitem>
+                    <listitem>
+                        <para>If a 5xx response is received, the
+                            problem is with Cloud Feeds (e.g. Cloud
+                            Feeds is down). As a result, the publisher
+                            must queue their events and re-post.
+                            Publishers should queue events until the
+                            issue is resolved</para>
+                    </listitem>
+                    <listitem>
+                        <para>If a 4xx response is received, the
+                            problem is with the event. This could be
+                            an improperly formatted event or an event
+                            that does not adhere to the business rules
+                            included in the validation schema. The
+                            problem should be logged and the product
+                            ops and NebOps teams should be notified of
+                            the problem</para>
+                    </listitem>
+                </itemizedlist>
+                <informaltable frame="void">
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <thead>
+                        <tr>
+                            <th>Code Category</th>
+                            <th>Code</th>
+                            <th>Code Description</th>
+                            <th>Example Request</th>
+                            <th>Example Response</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Successful</td>
+                            <td>201</td>
+                            <td>Created</td>
+                            <td>POST to Collection URI with Member
+                                Representation. </td>
+                            <td>Location: Member Entry URI</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>400</td>
+                            <td>None</td>
+                            <td>POST with schema validation error
+                                .</td>
+                            <td>Schema validation errors have content
+                                in the message body.</td>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>401</td>
+                            <td>None</td>
+                            <td>POST with a missing, expired, or
+                                invalid token. Re-post the message
+                                with a valid token. </td>
+                            <td/>
+                            <td>Retry with a valid token.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>403</td>
+                            <td>None</td>
+                            <td>POST forbidden (i.e.: tenant trying to
+                                access wrong protocol) </td>
+                            <td/>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>404</td>
+                            <td>None</td>
+                            <td>Not found </td>
+                            <td/>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>405</td>
+                            <td>None</td>
+                            <td> Used a PUT instead of a POST.</td>
+                            <td/>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>409</td>
+                            <td>None</td>
+                            <td>POST that is a duplicate (conflict).
+                                All feeds will return 409 if duplicate
+                                entryId is sent in the request except
+                                for Nova and Glance because Cloud
+                                Feeds generates unique entryIds for
+                                these feeds. Note that for Common
+                                Usage Framework standard entries, the
+                                event ID will be used as the Atom
+                                entry ID. (If it is posted without an
+                                Atom entry ID, the event ID will be
+                                used as the Atom entry ID. If it is
+                                posted with an Atom entry ID, the Atom
+                                entry ID will be overwritten by the
+                                event ID.)</td>
+                            <td>Duplicates have no content in the
+                                message body.</td>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>415</td>
+                            <td>None</td>
+                            <td>POST that is in an unsupported format
+                                (i.e., sending json when XML is
+                                expected). </td>
+                            <td/>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>422</td>
+                            <td>None</td>
+                            <td>Typically this error occurs when
+                                malformed Atom XML is passed to Cloud
+                                Feeds. It can also occur when no Atom
+                                XML was passed in.</td>
+                            <td/>
+                            <td>Fix entry and re-post.</td>
+                        </tr>
+                        <tr>
+                            <td>Client Error</td>
+                            <td>429</td>
+                            <td>Rate Limited</td>
+                            <td>Cloud Feeds will be set to 500 POSTs
+                                per second per user. </td>
+                            <td/>
+                            <td>Retry until the entry is posted.</td>
+                        </tr>
+                        <tr>
+                            <td>Server Error</td>
+                            <td>500</td>
+                            <td>Internal Server Error</td>
+                            <td>POST while database is offline, or
+                                other network failure.</td>
+                            <td/>
+                            <td>Retry until network failure is
+                                resolved.</td>
+                        </tr>
+                    </tbody>
+                </informaltable>
+                <para>If the content returned by a request is
+                    paginated, the response includes a structured link
+                    that are similar to instance item's links, with
+                    the basic structure <code>{"href": "&lt;url>",
+                        "rel": "next"}</code>. Any response that is
+                    truncated by pagination will have a
+                        <emphasis>next</emphasis> link, which points
+                    to the next item in the collection. If there are
+                    no more items, no <emphasis>next</emphasis> link
+                    is returned.</para>
+            </section>
+        </section>
+        <section xml:id="RBAC"
             xmlns:wadl="http://wadl.dev.java.net/2009/02">
             <title>Role Based Access Control</title>
             <para>Role Based Access Control (RBAC) restricts access to
@@ -2377,30 +2364,33 @@
                     account has only one account owner, and that role
                     is assigned by default to any Rackspace Cloud
                     account when the account is created.</para>
-                <para>See the <citetitle>Cloud Identity Client Developer
-                    Guide</citetitle> for information about how to perform the
-                    following tasks:</para>
+                <para>See the <citetitle>Cloud Identity Client
+                        Developer Guide</citetitle> for information
+                    about how to perform the following tasks:</para>
                 <itemizedlist>
                     <listitem>
                         <para><link
-                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
-                            > Create account users</link></para>
+                                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/POST_addUser_v2.0_users_.html"
+                                > Create account users</link></para>
                     </listitem>
                     <listitem>
                         <para><link
-                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
-                            > Assign roles to account users</link></para>
+                                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/PUT_addUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                                > Assign roles to account
+                            users</link></para>
                     </listitem>
                     <listitem>
                         <para><link
-                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
-                            > Delete roles from account users</link></para>
+                                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/DELETE_deleteUserRole_v2.0_users__userId__roles_OS-KSADM__roleId__.html"
+                                > Delete roles from account
+                                users</link></para>
                     </listitem>
                 </itemizedlist>
                 <note>
-                    <para>The account admin user (identity:user-admin) role
-                        cannot hold any additional roles because it already has
-                        full access to all capabilities by default.</para>
+                    <para>The account admin user (identity:user-admin)
+                        role cannot hold any additional roles because
+                        it already has full access to all capabilities
+                        by default.</para>
                 </note>
             </section>
             <section xml:id="RBAC_product_roles">
@@ -2439,13 +2429,13 @@
                                 observe Cloud Feeds data for all
                                 tenants (GET).</td>
                         </tr>
-                   
                     </tbody>
                 </table>
-                <para>Additionally, two multiproduct roles apply to all
-                    products. Users with multiproduct roles inherit access to
-                    future products when those products become RBAC-enabled. The
-                    following table describes these roles and their
+                <para>Additionally, two multiproduct roles apply to
+                    all products. Users with multiproduct roles
+                    inherit access to future products when those
+                    products become RBAC-enabled. The following table
+                    describes these roles and their
                     permissions.</para>
                 <table rules="all">
                     <caption> Multiproduct (Global) Roles and
@@ -2461,21 +2451,24 @@
                     <tbody>
                         <tr>
                             <td>admin</td>
-                            <td>This role provides Create, Read, Update, and Delete
-                                permissions in all products, where access is
+                            <td>This role provides Create, Read,
+                                Update, and Delete permissions in all
+                                products, where access is
                                 granted.</td>
                         </tr>
                         <tr>
                             <td>observer</td>
-                            <td>This role provides Read permission in all products,
-                                where access is granted.</td>
+                            <td>This role provides Read permission in
+                                all products, where access is
+                                granted.</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
-            <section xml:id="RBAC-Resolving-Conflicts-d1e001" version="5.0">
-                <title>Resolving Conflicts Between RBAC Multiproduct vs.
-                    Custom (Product-specific) Roles</title>
+            <section xml:id="RBAC-Resolving-Conflicts-d1e001"
+                version="5.0">
+                <title>Resolving Conflicts Between RBAC Multiproduct
+                    vs. Custom (Product-specific) Roles</title>
                 <para>The account owner can set roles for both
                     multiproduct and Cloud Feeds scope, and it is
                     important to understand how any potential
@@ -2485,17 +2478,19 @@
                     Therefore, admin roles take precedence over
                     observer and creator roles, because admin roles
                     provide more permissions. </para>
-                <para>The following table shows two examples of how potential
-                    conflicts between user roles in the Control Panel are
-                    resolved: </para>
+                <para>The following table shows two examples of how
+                    potential conflicts between user roles in the
+                    Control Panel are resolved: </para>
                 <para>
                     <informaltable rules="all">
                         <thead>
                             <tr align="center">
                                 <td>Permission Configuration</td>
-                                <td>View of Permission in the Control Panel </td>
-                                <td>Can the User Perform Product Admin Functions in
-                                    the Control Panel?</td>
+                                <td>View of Permission in the Control
+                                   Panel </td>
+                                <td>Can the User Perform Product Admin
+                                   Functions in the Control
+                                   Panel?</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -2505,9 +2500,9 @@
                                    role="bold">observer</emphasis> and
                                    Cloud Feeds <emphasis role="bold"
                                    >admin</emphasis></td>
-                                <td>Appears that the user has only the multiproduct
-                                    <emphasis role="bold">observer</emphasis>
-                                    role</td>
+                                <td>Appears that the user has only the
+                                   multiproduct <emphasis role="bold"
+                                   >observer</emphasis> role</td>
                                 <td>Yes, for Cloud Feeds only. The
                                    user has the <emphasis role="bold"
                                    >observer</emphasis> role for the
@@ -2519,8 +2514,9 @@
                                    role="bold">admin</emphasis> and
                                    Cloud Feeds <emphasis role="bold"
                                    >observer</emphasis></td>
-                                <td>Appears that the user has only the multiproduct
-                                    <emphasis role="bold">admin</emphasis> role</td>
+                                <td>Appears that the user has only the
+                                   multiproduct <emphasis role="bold"
+                                   >admin</emphasis> role</td>
                                 <td>Yes, for all of the products. The
                                    Cloud Feeds <emphasis role="bold"
                                    >observer</emphasis> role is
@@ -2542,7 +2538,6 @@
                         > the Knowledge Center article</link>.</para>
             </section>
         </section>
-        
     </chapter>
     <xi:include href="api-operations.xml"/>
 </book>

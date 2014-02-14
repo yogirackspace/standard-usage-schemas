@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE book [        
  <!ENTITY ndash  "&#x2013;">
  <!ENTITY mdash  "&#x2014;">
@@ -18,7 +17,6 @@
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 
 ]>
-
 <book xmlns="http://docbook.org/ns/docbook"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -60,8 +58,8 @@
     <chapter xml:id="Feeds_Doc_Change_History">
         <title>Document Change History</title>
         <para>This version of the Getting Started replaces and
-            obsoletes all previous versions. The most recent changes
-            are described in the table below:</para>
+            obsoletes all previoåΩœqaazaqz1azqus versions. The most
+            recent changes are described in the table below:</para>
         <?rax revhistory?>
     </chapter>
     <chapter xml:id="Feeds_Overview">
@@ -453,19 +451,15 @@
                 </listitem>
             </itemizedlist>
         </note>
-        <para>The <code>publicURL</code> endpoints for
-                <code>cloudDatabases</code> (for example
-                <code>https://ord.databases.api.rackspacecloud.com/v1.0/1100111</code>)
-            are also returned in the response. </para>
         <para>You will find the actual account number after the final
             '/' in the <code>publicURL</code> field. In this example,
             you can see that the account number is 1100111. You need
-            to specify your account number on most of the Cloud
-            Databases API calls, wherever you see the field <emphasis
+            to specify your account number on most of the Cloud Feeds
+            API calls, wherever you see the field <emphasis
                 role="bold">your_acct_id</emphasis> specified in the
             examples in this guide.</para>
         <para>After authentication, you can use cURL to perform &GET;,
-            &DELETE;, and &POST; requests for the Cloud Databases
+            &DELETE;, and &POST; requests for the Cloud Feeds
             API.</para>
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
@@ -523,8 +517,7 @@
                         located.</para>
                 </listitem>
                 <listitem>
-                    <para>The Cloud Server that you use in <xref
-                            linkend="Create_Cloud_Server"/> must be
+                    <para>The Cloud Server that you use must be
                         located in the same datacenter where your
                         database resides.</para>
                 </listitem>
@@ -545,132 +538,257 @@
             specified in this guide. Refer to <xref
                 linkend="Generating_Auth_Token"/>.</para>
     </chapter>
-    <chapter xml:id="Create_Feeds_Instance">
-        <title>Concepts</title>
-        <section xml:id="Atom_Feed_Document-d1e115">
-            <title>Atom:Feed Element</title>
-            <para>An Atom Feed element is a representation of an Atom
-                feed, including metadata about the feed, and some or
-                all of the entries associated with it. It's root is
-                the atom:feed element. </para>
+    <chapter xml:id="Concepts">
+        <title>Cloud Feeds Concepts</title>
+        <para>Cloud Feeds uses the Atom Publishing Protocol (APP) for
+            publishing different typea of feeds. Atom is an XML-based
+            document format that describes lists of related
+            information known as "feeds". Feeds are composed of a
+            number of items, known as "entries." Each entry has an
+            extensible set of attached metadata. </para>
+        <para>The Atom Publishing Protocol together with the Atom
+            Syndication Format (ASF) provides interaction with
+            content, especially at blogs and RSS. TAPP is based on
+            HTTP transfer of Atom-formatted representations. The Atom
+            format is documented in the Atom Syndication
+            Format.</para>
+        <para>Atom Hopper is an open source ATOMPub server for
+            accessing, processing and aggregating Atom entries. Atom
+            Hopper was designed to make it easy to build both
+            generalized and specialized persistence mechanisms for
+            Atom XML data, based on the Atom Syndication Format and
+            the Atom Publishing Protocol.</para>
+        <para>To read the official documentation for the Atom
+            Syndication Format, go to <link
+                xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1"
+                >RFC 4287</link>. For more information about APP,
+            visit <link xlink:href="http://atompub.org/"
+                >http://atompub.org/</link>.</para>
+        <section xml:id="Container_Elements">
+            <title>Container Elements</title>
+            <para>An Atom feed consists of a series of container
+                element, which contain metadata or actual content
+                related to the feed. </para>
+            <para>The Atom Publishing Protocol supports the following
+                container elements:</para>
             <para>
-   The "atom:feed" element is the document (i.e., top-level) element of
-   an Atom Feed Document, acting as a container for metadata and data
-   associated with the feed.  Its element children consist of metadata
-   elements followed by zero or more atom:entry child elements.
+                <itemizedlist>
+                    <listitem>
+                        <para><link linkend="Atom_Feed_Element">Atom
+                                Feed Element</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link
+                                linkend="Atom_Entry_Element"
+                                >Atom Entry Element</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link linkend="Atom_Content-Element"
+                                >Atom Content Element</link></para>
+                    </listitem>
+                </itemizedlist>
             </para>
-            <para>The following is an example of an Atom:Feed
+        <section xml:id="Atom_Feed_Element">
+            <title>Atom Feed Element</title>
+            <para>An Atom Feed element is a representation of an Atom
+                    feed, including metadata about the feed, and some
+                    or all of the entries associated with it. </para>
+            <para>The Atom Feed element represents the top-level
+                element of an Atom Feed Document. It functions as a
+                container for metadata and data associated with the
+                feed. Its element children consist of metadata
+                elements that are followed by zero or more Atom Entry
+                child elements. </para>
+            <para>The following is an example of an Atom Feed
                 Element:</para>
             <example>
                 <title>Atom Feed Element</title>
-                <programlisting>&lt;feed>
-    &lt;link href="https://localhost/demo/events/" rel="current" />
-    &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
-    &lt;id>urn:uuid:5f4e03b9-2bd1-48de-acd8-6ad9f667f22a&lt;/id>
-    &lt;title type="text">demo/events&lt;/title>
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:398fc859-7c3f-4434-8049-a507a6eb1954&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
-    &lt;link href="https://localhost/demo/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated>2013-10-10T20:15:21.649Z&lt;/updated>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:50.812Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:02d4d829-5bda-4626-a603-421df50544fc"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:50.812Z&lt;/atom:published>
-    &lt;/atom:entry>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:17.041Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:17.041Z&lt;/atom:published>
-    &lt;/atom:entry>
-&lt;/feed>
-</programlisting>
+                <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
             </example>
         </section>
-        <section xml:id="Atom_Content-d1e1116">
-            <title>Atom:Content Element</title>
-            <para>Provides a short description of the entry or
-                contains a content link that includes an attribute.
-                The atom:content element either contains or links to
-                the content of an entry.</para>
-            <para>The following is an example of an atom:content
+        <section xml:id="Atom_Content-Element">
+            <title>Atom Content Element</title>
+            <para>The Atom Content element either contains or links to
+                    the content of an entry. The “type” attribute
+                    specifies the MIME media type. If no “type”
+                    attribute is present, the content is treated as
+                    “text”. </para>
+            <para>The following is an example of an Atom Content
                 element:</para>
-            <para><programlisting>&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"xmlns:atom="http://www.w3.org/2005/Atom">
-      &lt;atom:title type="text">Support&lt;/atom:title>
-       &lt;atom:content type="application/xml">
-          &lt;event xmlns="http://docs.rackspace.com/core/event"
-                xmlns:support="http://docs.rackspace.com/event/support/account"
-                version="1" tenantId="654321" resourceId="654321"
-                resourceName="My Account Name"
-                id="560490c6-6c63-11e1-aafe-27851d5aed13"
-                type="CREATE" dataCenter="DFW1" region="DFW"
-                eventTime="2013-12-12T11:51:11Z"> &lt;support:product
-                version="1" serviceCode="Support"
-                resourceType="ACCOUNT_SUPPORT" > &lt;support:team
-                teamType="SUPPORT" teamNumber="1"/> &lt;support:team
-                teamType="SUPPORT" teamNumber="5"/>
-                &lt;/support:product> 
-               &lt;/event>
-             &lt;/atom:content>
-          &lt;/atom:entry></programlisting></para>
+            <para>
+                <example>
+                    <title>Atom Content Element</title>
+                <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
+                </example>
+            </para>
         </section>
-        <section xml:id="Atom_Entry_Document-d1e1115">
-            <title>Atom:Entry Element</title>
-            <para>An Atom:Entry Element represents exactly one Atom
-                entry, outside of the context of an Atom feed. Its
-                root is the atom:entry element. The "atom:entry"
-                element represents an individual entry, acting as a
-                container for metadata and data associated with the
-                entry. This element can appear as a child of the
-                atom:feed element, or it can appear as the document
-                (i.e., top-level) element of a stand-alone Atom Entry
-                Document.</para>
-            <para>The following is an example of an atom:entry
+        <section xml:id="Atom_Entry_Element">
+            <title>Atom Entry Element</title>
+            <para>The Atom Entry Element represents exactly one Atom
+                    entry, outside of the context of an Atom feed. It
+                    functions as a container for metadata and data
+                    associated with the entry. This element can appear
+                    as a child of the Atom Feed element, or it can
+                    appear as the top-level element of a stand-alone
+                    Atom Entry Document. </para>
+            <para>The following is an example of an Atom Entry
                 element:</para>
+            <example><title>Atom Entry Element</title>
+            <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
+            </example>
         </section>
+        </section>
+        <section xml:id="Cloud_Feeds_Workflow"><title>Cloud Feeds Workflow</title>
+            <para>The following list describes the workflow of a Cloud
+                Feeds transaction:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>User sends a request to
+                            create/delete/update a cloud server, cloud
+                            database,cloud monitoring check,
+                            etc.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The cloud product responds to the user
+                            request and sends system and usage events
+                            to their Atom Hopper endpoint as Atom
+                            entries.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Repose logs the request, authenticates
+                            the publisher or subscriber, validates the
+                            entry, and sends the entry to Atom
+                            Hopper.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Atom Hopper writes the entry to the
+                            local database, where it will be available
+                            for 8 days.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Subscribers pull entries from the feed,
+                            filtering by category or receiving the
+                            entire feed.</para>
+                    </listitem>
+                </orderedlist>
+            </para></section>
     </chapter>
-    <chapter xml:id="Create_Atom_Entries">
-        <title>Create Atom Entries</title>
-        <para>&lt;get information from Wiki></para>
-    </chapter>
-    <chapter xml:id="List_DBS_For_Instance">
-        <title>Get Atom Entries that were Posted</title>
-        <para>In this section you will learn how to pull entries that
-            somebody else has posted</para>
-        <para>An <emphasis role="bold">HTTP GET</emphasis> is used to
-            retrieve the Atom feed or a single entry from Atom Hopper.
-            The HTTP GET request supports asking for the most recent
-            entries in a feed (also called the Feed Head), a
-            specific/single atom entry, forward and backward paging,
-            and category searches.</para>
-        <para/>
-    </chapter>
-    <chapter xml:id="List_Users_Feeds_Instance">
-        <title>Filter Atom Entries by Category</title>
-        <para>The JDBC Data Adapter support advanced filtering by
-            category, including OR, NOT, and AND criteria. See details
-            and examples at the "Advanced Filtering by Category with
-            the JDBC Adapter"</para>
+    <chapter xml:id="Using_the_Cloud_Feeds_API">
+        <title>Using the Cloud Feeds API</title>
+        <para>In this section you will learn how to use the Cloud Feeds API by going through the following steps:
+        
+        </para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Add a New Atom Event to a Feed</para>
+                </listitem>
+                <listitem>
+                    <para>Get a Feed</para>
+                </listitem>
+                <listitem>
+                    <para>Get certain types of events from a
+                        feed</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>This section assumes that you have successfully
+            authenticated against the Rackspace Cloud API and obtained
+            an authentication token as described in <link
+                linkend="Generating_Auth_Token">Chapter 4: Generate an
+                Authentication Token</link>.</para>
+        <section xml:id="Create_Atom_Entry">
+            <title>Add a New Atom Event in a Feed</title>
+            <para>To insert a new Atom event in a feed, you need to
+                make a POST request with the specified feed URL and a
+                pointer to the Atom entry you'd like to submit using
+                the following syntax:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@&lt;input_file> </programlisting>
+            </para>
+            <para><parameter>&lt;input_file> </parameter>specifies the
+                path to a file that contains an atom entry. </para>
+            <para>You can also inclue the XML entry directly in the
+                payload by using the following syntax:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@ "&lt;payload>"</programlisting>
+            </para>
+            <para>If your payload content contains double quotes ("
+                "), you have to implement the proper escape syntax by
+                placing a backward slash \ around the item in
+                quotation marks as shown in the following
+                example:</para>
+            <para>
+                <programlisting>type=\"application/xml\"></programlisting>
+            </para>
+            <para>The following example shows how to add add an new
+                Atom event by submitting the event directly in the
+                request payload. </para>
+            <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+            <para>
+                <important>
+                    <para>When making the post request, make sure to
+                        set the HTTP Header to <emphasis>Content-Type:
+                            application/atom+xml </emphasis></para>
+                </important>
+            </para>
+            <para>After you have posted the Atom XML to the correct
+                Atom Hopper endpoint you should receive an HTTP 201
+                (Created) response back along with the Atom XML you
+                posted in the body.</para>
+        </section>
+        <section xml:id="Get_Atom_Entry">
+            <title>Get Atom Entries that were Posted</title>
+            <para>To retrieve an Atom feed or an Atom entry that was
+                posted, submit a <emphasis role="bold">GET</emphasis>
+                request using the following syntax:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://&lt;feeds_url>/&lt;feed_name>/events </programlisting>
+            </para>
+            <para>The placeholders stand for the following:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>&lt;auth_token> is the token you obtain
+                            during authentication</para>
+                    </listitem>
+                    <listitem>
+                        <para>&lt;feeds_url> is the URL/VIP from the
+                            list of Cloud Feeds endpoints as described
+                            in the Service Access/Endpoints
+                            section.</para>
+                    </listitem>
+                    <listitem>
+                        <para> &lt;feed_name> is the name of the feeds
+                            you are trying to fetch events for. An
+                            example of feed name is: nova, servers,
+                            queues, files, etc.</para>
+                        
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>The following is an example for a request for a
+                feed:</para>
+            <para><programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting></para>
+       <para> The above call will return 25 of the latest events in
+                Next Gen Cloud Server feed from DFW datacenter. </para>
+            <para>To make the formatting of the returned events more
+                readable, you can submit the following request:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
+            </para>
+        </section>
+        <section xml:id="Filter_Atom_Entries">
+            <title>Get Certain Types of Events from a Feed</title>
+            <para>You can use the Cloud Keep API to filter for certain
+                types of events you would like to obtain from a feed.
+                The following example shows how to get all event types
+                that fall under the cloudsites.metered.site.usage
+                category:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+            </para>
+        </section>
     </chapter>
 </book>
