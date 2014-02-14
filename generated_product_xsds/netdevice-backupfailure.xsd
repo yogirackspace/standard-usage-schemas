@@ -16,7 +16,7 @@
    <complexType name="NetDeviceType">
       <annotation>
          <documentation>
-            <html:p>INFO messages on loadbalancer and firewall backup failures for FDaaT.</html:p>
+            <html:p>INFO messages on loadbalancer and firewall backup failures for DCX Network Services.</html:p>
          </documentation>
          <appinfo>
             <usage:core type="INFO"/>

@@ -6,7 +6,7 @@
         type="INFO">
 
     <description>
-        INFO messages on loadbalancer and firewall backup failures for FDaaT.
+        INFO messages on loadbalancer and firewall backup failures for DCX Network Services.
     </description>
 
     <attribute name="url" type="anyURI"
