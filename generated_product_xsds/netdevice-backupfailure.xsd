@@ -48,6 +48,16 @@
             </appinfo>
          </annotation>
       </attribute>
+      <attribute name="description" use="optional" type="p:string0_256">
+         <annotation>
+            <documentation>
+               <html:p>The description of the failure.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes/>
+            </appinfo>
+         </annotation>
+      </attribute>
    </complexType>
    <simpleType name="ResourceTypes">
       <annotation>
@@ -74,6 +84,12 @@
          <enumeration value="INTERNAL_ERROR"/>
          <enumeration value="OTHER_ERROR"/>
          <enumeration value="UNKNOWN_ERROR"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string0_256">
+      <restriction base="xsd:string">
+         <minLength value="0"/>
+         <maxLength value="256"/>
       </restriction>
    </simpleType>
 </xsd:schema>

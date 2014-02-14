@@ -20,4 +20,10 @@
         The type of failure.
     </attribute>
 
+    <attribute name="description" type="string"
+               maxLength="256"
+               use="optional">
+        The description of the failure.
+    </attribute>
+
 </productSchema>
