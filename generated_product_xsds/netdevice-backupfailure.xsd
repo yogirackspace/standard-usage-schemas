@@ -16,7 +16,7 @@
    <complexType name="NetDeviceType">
       <annotation>
          <documentation>
-            <html:p>INFO messages on loadbalancer and firewall backup failures for FDaaT.</html:p>
+            <html:p>INFO messages on loadbalancer and firewall backup failures for DCX Network Services.</html:p>
          </documentation>
          <appinfo>
             <usage:core type="INFO"/>
@@ -42,6 +42,16 @@
          <annotation>
             <documentation>
                <html:p>The type of failure.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="description" use="optional" type="p:string0_256">
+         <annotation>
+            <documentation>
+               <html:p>The description of the failure.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -74,6 +84,12 @@
          <enumeration value="INTERNAL_ERROR"/>
          <enumeration value="OTHER_ERROR"/>
          <enumeration value="UNKNOWN_ERROR"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string0_256">
+      <restriction base="xsd:string">
+         <minLength value="0"/>
+         <maxLength value="256"/>
       </restriction>
    </simpleType>
 </xsd:schema>
