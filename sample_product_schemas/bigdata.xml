@@ -7,7 +7,7 @@
         Usage message for a big data cluster.
     </description>
 
-    <attribute name="enum" type="string"
+    <attribute name="flavorId" type="string"
                maxLength="50" minLength="1"
                use="required"
                allowedValues="hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60"

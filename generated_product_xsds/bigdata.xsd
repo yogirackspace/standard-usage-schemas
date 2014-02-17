@@ -30,7 +30,7 @@
                  type="xsd:Name"
                  fixed="BigData"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="enum" use="required" type="p:enumEnum">
+      <attribute name="flavorId" use="required" type="p:flavorIdEnum">
          <annotation>
             <documentation>
                <html:p>The flavor id of the cluster.</html:p>
@@ -108,7 +108,7 @@
          <enumeration value="HBASE_HDP2_0"/>
       </restriction>
    </simpleType>
-   <simpleType name="enumEnum">
+   <simpleType name="flavorIdEnum">
       <restriction base="xsd:string">
          <enumeration value="hadoop1-7"/>
          <enumeration value="hadoop1-15"/>
