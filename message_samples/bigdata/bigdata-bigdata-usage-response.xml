@@ -15,8 +15,8 @@
            resourceName="My Big Data Cluster" startTime="2013-03-15T11:51:11Z"
            tenantId="2888" type="USAGE" version="1">
       <bigdata:product aggregatedClusterDuration="43200000" bandwidthIn="1024" bandwidthOut="19992"
-                       flavorId="hadoop1-30" flavorName="some flavor" numberServersInCluster="500"
-                       resourceType="HADOOP_HDP2_0" serviceCode="BigData" version="1"/>
+                       flavorId="10" flavorName="some flavor" numberServersInCluster="500"
+                       resourceType="HADOOP_HDP1_1" serviceCode="BigData" version="1"/>
     </event>
   </atom:content>
   <atom:link href="https://localhost/bigdata/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self"/>
