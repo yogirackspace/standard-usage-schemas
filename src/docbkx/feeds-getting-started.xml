@@ -58,29 +58,21 @@
     <chapter xml:id="Feeds_Doc_Change_History">
         <title>Document Change History</title>
         <para>This version of the Getting Started replaces and
-            obsoletes all previoåΩœqaazaqz1azqus versions. The most
-            recent changes are described in the table below:</para>
+            obsoletes all previous versions. The most recent changes
+            are described in the table below:</para>
         <?rax revhistory?>
     </chapter>
     <chapter xml:id="Feeds_Overview">
         <title>Overview</title>
         <para>Follow the steps described in this guide to use the
-            Rackspace Cloud Databases API and the Cloud
+            Rackspace Cloud Feeds API and the Cloud
             Servers<trademark/> section of the Rackspace Cloud Control
             Panel to create and access your database instances via
             Rackspace Cloud Servers.</para>
-        <para>For details about using the Cloud Databases API, refer
-            to the <citetitle>Cloud Databases Developer
-                Guide</citetitle> at <link
-                xlink:href="http://docs.rackspace.com/"
+        <para>For details about using the Cloud Feeds API, refer to
+            the <citetitle>Cloud Feeds Developer Guide</citetitle> at
+                <link xlink:href="http://docs.rackspace.com/"
                 >http://docs.rackspace.com/</link>.</para>
-        <para>For more details about Rackspace Cloud Databases, refer
-            to <link
-                xlink:href="http://www.rackspace.com/cloud/cloud_hosting_products/databases/"
-                >http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>.
-            This site also offers links to Rackspace's official
-            support channels, including knowledge center articles,
-            forums, phone, chat, and email. </para>
         <para>Please visit our <link
                 xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
                 >Product Feedback Forum</link> and let us know what
@@ -101,9 +93,9 @@
         </section>
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and Service Level</title>
-            <para>Cloud Databases is part of the Rackspace Cloud and
-                your use through the API will be billed as per the
-                pricing schedule at <link
+            <para>Cloud Feeds is part of the Rackspace Cloud and your
+                use through the API will be billed as per the pricing
+                schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
                     >http://www.rackspace.com/cloud/public/databases/pricing</link>.
                 Cloud Servers is also part of the Rackspace Cloud and
@@ -111,8 +103,8 @@
                 billed as per the pricing schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/public/servers/pricing"
                     >http://www.rackspace.com/cloud/public/servers/pricing</link>.</para>
-            <para>The Service Level Agreements (SLAs) for Cloud
-                Databases and Cloud Servers are available at <link
+            <para>The Service Level Agreements (SLAs) for Cloud Feeds
+                and Cloud Servers are available at <link
                     xlink:href="http://www.rackspace.com/cloud/legal/sla/#cloud_databases"
                     >http://www.rackspace.com/cloud/legal/sla/#cloud_databases</link>
                 and <link
@@ -303,7 +295,7 @@
         <para>The following example demonstrates how to use cURL to
             obtain the authentication token and the account number.
             You will need to supply the authentication token and
-            account number when making subsequent Cloud Databases API
+            account number when making subsequent Cloud Feeds API
             calls.</para>
         <para>Remember to replace the names in the Authenticate
             Request examples below with their respective
@@ -523,13 +515,57 @@
                 </listitem>
                 <listitem>
                     <para>All examples in this guide assume that you
-                        are operating against the ORD datacenter,
+                        are operating against the DFW datacenter,
                         however if you are using a different
                         datacenter, be sure to use the associated
                         endpoint from the table above instead.</para>
+       
                 </listitem>
             </itemizedlist>
         </note>
+        <para>
+            <table security="writeronly">
+                <caption>Staging Service Endpoints</caption>
+                <thead>
+                    <tr align="center">
+                        <td colspan="2">Region</td>
+                        <td colspan="5">Endpoint</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr align="left">
+                        <td colspan="2">Chicago (ORD)</td>
+                        <td colspan="5"
+                                ><code>https://ord.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Dallas/Ft. Worth (DFW)</td>
+                        <td colspan="5"
+                                ><code>https://dfw.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">London (LON)</td>
+                        <td colspan="5">
+                            <code>https://lon.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Sydney (SYD)</td>
+                        <td colspan="5">
+                            <code>https://syd.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Hong Kong (HKG)</td>
+                        <td colspan="5">
+                            <code>https://hkg.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </para>
         <para>Replace the sample account ID number,
                 <parameter>1234</parameter>, with your actual account
             number returned as part of the authentication response.
@@ -656,18 +692,12 @@
                             entries.</para>
                     </listitem>
                     <listitem>
-                        <para>Repose logs the request, authenticates
-                            the publisher or subscriber, validates the
-                            entry, and sends the entry to Atom
-                            Hopper.</para>
-                    </listitem>
-                    <listitem>
                         <para>Atom Hopper writes the entry to the
                             local database, where it will be available
                             for 8 days.</para>
                     </listitem>
                     <listitem>
-                        <para>Subscribers pull entries from the feed,
+                        <para>The user pulls entries from the feed,
                             filtering by category or receiving the
                             entire feed.</para>
                     </listitem>
@@ -681,7 +711,7 @@
         </para>
         <para>
             <itemizedlist>
-                <listitem>
+                <listitem security="writeronly">
                     <para>Add a New Atom Event to a Feed</para>
                 </listitem>
                 <listitem>
@@ -698,7 +728,7 @@
             an authentication token as described in <link
                 linkend="Generating_Auth_Token">Chapter 4: Generate an
                 Authentication Token</link>.</para>
-        <section xml:id="Create_Atom_Entry">
+        <section xml:id="Create_Atom_Entry" security="writeronly">
             <title>Add a New Atom Event in a Feed</title>
             <para>To insert a new Atom event in a feed, you need to
                 make a POST request with the specified feed URL and a
@@ -748,31 +778,49 @@
             </para>
             <para>The placeholders stand for the following:</para>
             <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>&lt;auth_token> is the token you obtain
-                            during authentication</para>
-                    </listitem>
-                    <listitem>
-                        <para>&lt;feeds_url> is the URL/VIP from the
-                            list of Cloud Feeds endpoints as described
-                            in the Service Access/Endpoints
-                            section.</para>
-                    </listitem>
-                    <listitem>
-                        <para> &lt;feed_name> is the name of the feeds
-                            you are trying to fetch events for. An
-                            example of feed name is: nova, servers,
-                            queues, files, etc.</para>
-                        
-                    </listitem>
-                </itemizedlist>
+                <table>
+                    <caption>Syntax elements</caption>
+                    <col width="11%"/>
+                    <col width="9%"/>
+                    <col width="22%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <col width="16%"/>
+                    <thead>
+                        <tr align="center">
+                            <td colspan="2">Placeholder</td>
+                            <td colspan="5">Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr align="left">
+                            <td colspan="2">&lt;auth_token> </td>
+                            <td colspan="5">Specifies the token that
+                                you obtain during authentication.</td>
+                        </tr>
+                        <tr align="left">
+                            <td colspan="2">&lt;feeds_url></td>
+                            <td colspan="5">Specifies the URL/VIP that
+                                was obtained from the list of Cloud
+                                Feeds endpoints.</td>
+                        </tr>
+                        <tr align="left">
+                            <td colspan="2">&lt;feed_name></td>
+                            <td colspan="5">Specifies  he name of the
+                                feeds you are trying to fetch events
+                                for. An example of feed name is: nova,
+                                servers, queues, files, etc.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </para>
             <para>The following is an example for a request for a
                 feed:</para>
             <para><programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting></para>
        <para> The above call will return 25 of the latest events in
-                Next Gen Cloud Server feed from DFW datacenter. </para>
+                the Next Generation Cloud Server feed from the DFW
+                datacenter. </para>
             <para>To make the formatting of the returned events more
                 readable, you can submit the following request:</para>
             <para>
@@ -791,4 +839,9 @@
             </para>
         </section>
     </chapter>
+    <chapter xml:id="Next_Steps"><title>Next Steps</title><para>To learn more aboud the Cloud Feeds API, read <olink
+                targetdoc="cloudfeeds-devguide"
+                targetptr="Using_Cloud_Feeds">Using Cloud
+                Feeds</olink> in the Cloud Feeds Developer's
+            Guide.</para></chapter>
 </book>
