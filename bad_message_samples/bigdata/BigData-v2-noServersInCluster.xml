@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="bigdata/events"?>
-<?expect code="400"?>
+<?expect code="400" message="aggregatedClusterDuration"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Cloud Big Data</atom:title>
     <atom:content type="application/xml">
