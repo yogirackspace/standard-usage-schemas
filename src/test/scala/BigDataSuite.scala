@@ -70,5 +70,10 @@ class BigDataSuite extends BaseUsageSuite {
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/bigdata:product/@aggregatedClusterDuration = '43200000'")
    }
+  test ("A usage event2 should set aggregatedClusterDuration by calculating duration as endTime - startTime and multiplying by numberServersInCluster") {
+    val req = request("POST", "/bigdata/events", "application/atom+xml", beforeTransform2)
+    atomValidator.validate(req, response, chain)
+    assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/bigdata:product/@aggregatedClusterDuration = '43200000'")
+   }
 
 }
