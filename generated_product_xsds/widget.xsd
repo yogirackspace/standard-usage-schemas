@@ -322,6 +322,16 @@
                   </appinfo>
                </annotation>
             </attribute>
+            <attribute name="myAttribute" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>An attribute that is not private</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
          </extension>
       </complexContent>
    </complexType>
@@ -392,6 +402,30 @@
                      </attribute>
                   </complexType>
                </element>
+               <element name="mixPublicPrivateAttributes" minOccurs="0" maxOccurs="5">
+                  <complexType>
+                     <attribute name="privateAttribute3" use="optional" type="xsd:int">
+                        <annotation>
+                           <documentation>
+                              <html:p>The 3rd private attribute but this time it is part of attributeGroup</html:p>
+                           </documentation>
+                           <appinfo>
+                              <usage:attributes/>
+                           </appinfo>
+                        </annotation>
+                     </attribute>
+                     <attribute name="myAttribute" use="optional" type="p:string">
+                        <annotation>
+                           <documentation>
+                              <html:p>An attribute that needs to be public here, but not inside product element.</html:p>
+                           </documentation>
+                           <appinfo>
+                              <usage:attributes/>
+                           </appinfo>
+                        </annotation>
+                     </attribute>
+                  </complexType>
+               </element>
             </all>
             <!--Order matters in XSD 1.0 :-(--><sequence vc:minVersion="1.0" vc:maxVersion="1.1">
                <element name="metaData" minOccurs="0" maxOccurs="5000">
@@ -410,6 +444,30 @@
                         <annotation>
                            <documentation>
                               <html:p>The value</html:p>
+                           </documentation>
+                           <appinfo>
+                              <usage:attributes/>
+                           </appinfo>
+                        </annotation>
+                     </attribute>
+                  </complexType>
+               </element>
+               <element name="mixPublicPrivateAttributes" minOccurs="0" maxOccurs="5">
+                  <complexType>
+                     <attribute name="privateAttribute3" use="optional" type="xsd:int">
+                        <annotation>
+                           <documentation>
+                              <html:p>The 3rd private attribute but this time it is part of attributeGroup</html:p>
+                           </documentation>
+                           <appinfo>
+                              <usage:attributes/>
+                           </appinfo>
+                        </annotation>
+                     </attribute>
+                     <attribute name="myAttribute" use="optional" type="p:string">
+                        <annotation>
+                           <documentation>
+                              <html:p>An attribute that needs to be public here, but not inside product element.</html:p>
                            </documentation>
                            <appinfo>
                               <usage:attributes/>
@@ -470,6 +528,38 @@
                   </appinfo>
                </annotation>
             </attribute>
+            <attribute name="privateAttribute1" use="optional" type="p:string">
+               <annotation>
+                  <documentation>
+                     <html:p>A private attribute that is not supposed to be shown to public</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="myAttribute" use="optional">
+               <annotation>
+                  <documentation>
+                     <html:p>An attribute that needs to be private here, but not in sub elements.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="privateAttribute3"
+                       use="optional"
+                       type="p:privateAttribute33Enum">
+               <annotation>
+                  <documentation>
+                     <html:p>Another private attribute that is not supposed to be shown to public</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes/>
+                  </appinfo>
+               </annotation>
+            </attribute>
          </extension>
       </complexContent>
    </complexType>
@@ -483,6 +573,13 @@
          <enumeration value="WIDGET"/>
          <enumeration value="GADGET"/>
          <enumeration value="THINGY"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="privateAttribute33Enum">
+      <restriction base="xsd:Name">
+         <enumeration value="W1"/>
+         <enumeration value="W2"/>
+         <enumeration value="W3"/>
       </restriction>
    </simpleType>
    <simpleType name="UUID">

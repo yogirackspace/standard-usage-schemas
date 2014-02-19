@@ -131,6 +131,16 @@
 		  <pipeline>generateWADL.xpl</pipeline>
 		</configuration>
               </execution>
+              <execution>
+		<id>generate-filter-private-attrs</id>
+		<phase>initialize</phase>
+		<goals>
+		  <goal>olink</goal>
+		</goals>
+		<configuration>
+		  <pipeline>generateFilterPrivateAttrs.xpl</pipeline>
+		</configuration>
+              </execution>
             </executions>
 	  </plugin>
 

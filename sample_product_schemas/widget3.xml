@@ -25,6 +25,18 @@
                withResource="WIDGET">
         A widget only attribute.
     </attribute>
+    <attribute name="privateAttribute1" type="string" use="optional"
+               private="true">
+        A private attribute that is not supposed to be shown to public
+    </attribute>
+    <attribute name="myAttribute" type="" use="optional" private="true">
+        An attribute that needs to be private here, but not in sub elements.
+    </attribute>
+    <attribute name="privateAttribute3" type="Name" use="optional"
+               allowedValues="W1 W2 W3"
+               private="true">
+        Another private attribute that is not supposed to be shown to public
+    </attribute>
     <attributeGroup name="metaData" minOccurs="0" maxOccurs="unbounded">
         <description>
             A list key/value meta data.
@@ -32,8 +44,20 @@
         <attribute name="key" type="string" use="required" searchable="true">
             The key
         </attribute>
-        <attribute name="value" type="string" use="required">
+        <attribute name="value" type="string" use="required" private="true">
             The value
+        </attribute>
+    </attributeGroup>
+    <attributeGroup name="mixPublicPrivateAttributes" minOccurs="0" maxOccurs="5">
+        <description>
+            A list of mixed public and private attributes
+        </description>
+        <attribute name="privateAttribute3" type="int" use="optional" private="true">
+            The 3rd private attribute but this time it is part of attributeGroup
+        </attribute>
+        <attribute name="myAttribute" type="string" use="optional" private="false">
+            An attribute that needs to be public here, but not inside product
+            element.
         </attribute>
     </attributeGroup>
 </productSchema>

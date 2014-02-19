@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://wadl.dev.java.net/2009/02" xmlns:db="http://docbook.org/ns/docbook" xmlns:error="http://docs.rackspace.com/core/error" xmlns:d312e1="http://wadl.dev.java.net/2009/02" xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary">
+  <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed74</atom:id>
+  <atom:category term="tid:12334"/>
+  <atom:category term="rgn:DFW"/>
+  <atom:category term="dc:DFW1"/>
+  <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
+  <atom:category term="widget.widget.gadget.usage"/>
+  <atom:content type="application/xml">
+    <event xmlns="http://docs.rackspace.com/core/event" xmlns:widget="http://docs.rackspace.com/usage/widget" dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" id="560490c6-6c63-11e1-adfe-27851d5aed74" region="DFW" resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" startTime="2012-03-12T11:51:11Z" tenantId="12334" type="USAGE" version="1">
+      <widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" mid="94c61976-9f4c-11e1-bddf-ab57017a9899" myAttribute="this is to be seen" num_checks="300" resourceType="GADGET" serviceCode="Widget" time="11:51:11Z" version="2"/>
+    </event>
+  </atom:content>
+  <atom:link href="https://localhost/functest1/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed74" rel="self"/>
+  <atom:updated>2014-02-18T21:11:02.381Z</atom:updated>
+  <atom:published>2014-02-18T21:11:02.381Z</atom:published>
+</atom:entry>
