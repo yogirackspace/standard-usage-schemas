@@ -16,13 +16,13 @@
         The Image ID for the Slice.
     </attribute>
     <attribute name="options" type="int" use="required">
-        The Options for the Slice.
+        The Options for the Slice, used for billing purposes.
     </attribute>
     <attribute name="huddleId" type="int" use="required">
         The huddle ID.
     </attribute>
     <attribute name="serverId" type="int" use="required">
-        The Server ID for the Slice.
+        The Server ID for the Slice. This is the host ID.
     </attribute>
     <attribute name="action" type="string" use="required" searchable="true"
                allowedValues="ADD_IP RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY ADD_IP_NO_CONFIG DELETE_IP_NO_CONFIG KERNEL_UPDATE_FAILED UPGRADE_DEVICE_SERVICE_LEVEL DOWNGRADE_DEVICE_SERVICE_LEVEL">
@@ -32,7 +32,7 @@
         The name of the image
     </attribute>
     <attribute name="customerId" type="int" use="required">
-        The Customer ID for the Slice.
+        The Customer ID for the Slice. This may be the same as the tenantId or may be the internal nucleus customer_id.
     </attribute>
     <attribute name="flavorId" type="int" use="required">
         The Flavor ID for the Slice.
@@ -43,13 +43,13 @@
     </attribute>
     <attribute name="sliceType" type="string" use="required"
                allowedValues="CLOUD SLICE">
-        The slice type.
+        The slice type. This was used when we had Slicehost and Rackspace customers; now all are Rackspace customers and sliceType is always 'CLOUD'.
     </attribute>
     <attribute name="privateIp" type="string" use="required">
-        The private ip of the slice
+        The private IP of the slice
     </attribute>
     <attribute name="publicIp" type="string" use="required">
-        The public ip of the slice
+        The public IP of the slice
     </attribute>
     <attribute name="dns1" type="string" use="required">
         The dns1 of the slice
@@ -73,10 +73,10 @@
     </attributeGroup>
     <attributeGroup name="additionalPublicAddress" minOccurs="0" maxOccurs="unbounded">
         <description>
-            A list public addresses
+            A list of public addresses
         </description>
         <attribute name="ip" type="string" use="required">
-            The ip
+            The IP
         </attribute>
         <attribute name="dns1" type="string" use="required">
             The dns1
