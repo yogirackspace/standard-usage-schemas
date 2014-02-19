@@ -39,8 +39,6 @@
         <resource path="support/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="usagedeadletter/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="usagerecovery/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-        <resource path="usagesummary/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-
         <!-- Test related feeds -->
         <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#TenantAtomFeed"/>

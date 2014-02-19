@@ -6,8 +6,7 @@
              xmlns:atom="http://www.w3.org/2005/Atom"
              xmlns:wadl="http://wadl.dev.java.net/2009/02"
              xmlns:error="http://docs.rackspace.com/core/error"
-             xmlns:event="http://docs.rackspace.com/core/event"
-             xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary">
+             xmlns:event="http://docs.rackspace.com/core/event">
 
     <!-- Resource Types -->
     <resource_type id="TenantAtomFeed">
@@ -61,15 +60,6 @@
             </para>
         </wadl:doc>
         <method href="#addUsageDeadLetter"/>
-    </resource_type>
-    
-    <resource_type id="UsageSummary">
-        <wadl:doc title="UsageSummary" xmlns="http//docbook.org/ns/dockbook">
-            <para>
-                Allow Usage Summary events.
-            </para>
-        </wadl:doc>
-        <method href="#addUsageSummary"/>
     </resource_type>
 
     <!-- METHODS -->
@@ -145,15 +135,6 @@
                       required="true"
                       path="not(/atom:entry/atom:content/error:eventError)"
                       rax:message="eventErrors are not allowed in this feed."/>
-                <!-- 
-                   We add an assertion to state that usageSummaries are not allowed. If the XPath in the path
-                   attribute evaluates to false we'll error out with the error message in rax:message.
-                 -->
-                <param name="usage-summary"
-                      style="plain"
-                      required="true"
-                      path="not(/atom:entry/atom:content/usage-summary:usageSummary)"
-                      rax:message="usageSummary elements are not allowed in this feed."/>
                <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>
@@ -186,35 +167,6 @@
                       required="true"
                       path="/atom:entry/atom:content/error:eventError"
                       rax:message="Only eventErrors are allowed in this feed."/>
-               <!-- We keep common preprocessing operations, adding common categories etc. -->
-               <rax:preprocess href="atom_hopper_pre.xsl"/>
-            </representation>
-        </request>
-        <!-- Okay -->
-        <response status="201">
-            <representation mediaType="application/atom+xml"/>
-        </response>
-        <!-- On Error -->
-        <response status="400 401 409 500 503">
-            <representation mediaType="application/xml"/>
-        </response>
-    </method>
-    
-    <method id="addUsageSummary" name="POST">
-        <wadl:doc xml:lang="EN" title="Add Usage Summary" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Adding a usage summary.</para>
-        </wadl:doc>
-        <request>
-            <representation mediaType="application/atom+xml" element="atom:entry">
-               <!-- 
-                   We add an assertion to state that only usage summaries are allowed. If the XPath in the path
-                   attribute evaluates to false we'll error out with the error message in rax:message.
-                 -->
-                <param name="usage-summary"
-                      style="plain"
-                      required="true"
-                      path="/atom:entry/atom:content/usage-summary:usageSummary"
-                      rax:message="Only usageSummary content is allowed for entries in this feed."/>
                <!-- We keep common preprocessing operations, adding common categories etc. -->
                <rax:preprocess href="atom_hopper_pre.xsl"/>
             </representation>

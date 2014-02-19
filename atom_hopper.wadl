@@ -39,7 +39,6 @@
         <resource id="support_events" path="support/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Support"/>
         <resource id="usagedeadletter_events" path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
         <resource id="usagerecovery_events" path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="usagesummary_events" path="usagesummary/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageSummary"/>
         
         <!-- Test related feeds -->
         <resource id="demo_events" path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
@@ -53,7 +52,7 @@
                   wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService 
                   wadl/product.wadl#EmailAppsUsage wadl/product.wadl#Glance wadl/product.wadl#NetDevice
                   wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
-                  wadl/feed.wadl#UsageSummary wadl/product.wadl#Widget"/>
+                  wadl/product.wadl#Widget"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="migrationtest_events" path="migrationtest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest1_events" path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
