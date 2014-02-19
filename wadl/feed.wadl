@@ -10,6 +10,13 @@
              xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary">
 
     <!-- Resource Types -->
+    <resource_type id="TenantAtomFeed">
+        <resource path="{tid}">
+            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+            <method href="#getFeed" />
+        </resource>
+    </resource_type>
+
     <resource_type id="AtomFeed">
         <method href="#getFeed"/>
     </resource_type>

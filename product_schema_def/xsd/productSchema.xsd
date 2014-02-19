@@ -624,12 +624,12 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="public" type="xsd:boolean" use="optional" default="false">
+                <attribute name="private" type="xsd:boolean" use="optional" default="false">
                     <annotation>
                         <documentation>
                             <html:p>
                                 If this is set to true then the
-                                attribute value is allowed to be displayed
+                                attribute value is not shown 
                                 to the public.
                             </html:p>
                         </documentation>

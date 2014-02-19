@@ -52,7 +52,7 @@
                <attribute name="ip" use="required" type="p:string">
                   <annotation>
                      <documentation>
-                        <html:p>The ip</html:p>
+                        <html:p>The IP</html:p>
                      </documentation>
                      <appinfo>
                         <usage:attributes/>
@@ -112,7 +112,7 @@
                <attribute name="ip" use="required" type="p:string">
                   <annotation>
                      <documentation>
-                        <html:p>The ip</html:p>
+                        <html:p>The IP</html:p>
                      </documentation>
                      <appinfo>
                         <usage:attributes/>
@@ -181,7 +181,7 @@
       <attribute name="options" use="required" type="xsd:int">
          <annotation>
             <documentation>
-               <html:p>The Options for the Slice.</html:p>
+               <html:p>The Options for the Slice, used for billing purposes.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -201,7 +201,7 @@
       <attribute name="serverId" use="required" type="xsd:int">
          <annotation>
             <documentation>
-               <html:p>The Server ID for the Slice.</html:p>
+               <html:p>The Server ID for the Slice. This is the host ID.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -231,7 +231,7 @@
       <attribute name="customerId" use="required" type="xsd:int">
          <annotation>
             <documentation>
-               <html:p>The Customer ID for the Slice.</html:p>
+               <html:p>The Customer ID for the Slice. This may be the same as the tenantId or may be the internal nucleus customer_id.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -261,7 +261,7 @@
       <attribute name="sliceType" use="required" type="p:sliceTypeEnum">
          <annotation>
             <documentation>
-               <html:p>The slice type.</html:p>
+               <html:p>The slice type. This was used when we had Slicehost and Rackspace customers; now all are Rackspace customers and sliceType is always 'CLOUD'.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -271,7 +271,7 @@
       <attribute name="privateIp" use="required" type="p:string">
          <annotation>
             <documentation>
-               <html:p>The private ip of the slice</html:p>
+               <html:p>The private IP of the slice</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>
@@ -281,7 +281,7 @@
       <attribute name="publicIp" use="required" type="p:string">
          <annotation>
             <documentation>
-               <html:p>The public ip of the slice</html:p>
+               <html:p>The public IP of the slice</html:p>
             </documentation>
             <appinfo>
                <usage:attributes/>

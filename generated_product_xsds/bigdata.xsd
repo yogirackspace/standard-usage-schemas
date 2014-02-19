@@ -12,8 +12,54 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/usage/bigdata">
-   <element name="product" type="p:BigDataType"/>
-   <complexType name="BigDataType">
+   <element name="product"
+            type="p:BigData2Type"
+            vc:minVersion="1.0"
+            vc:maxVersion="1.1">
+      <annotation>
+         <documentation>
+            <html:p>
+                        Alternates are not supported by XSD 1.0.  So
+                        in XSD 1.0 we are only supporting a single
+                        version (in this case version 2).
+                    </html:p>
+            <html:p>
+                        To support other versions you may redefine the
+                        product element to any of the following types:
+                    </html:p>
+            <html:ol>
+               <html:li>p:BigData1Type</html:li>
+               <html:li>p:BigData2Type</html:li>
+            </html:ol>
+         </documentation>
+      </annotation>
+   </element>
+   <element name="product" vc:minVersion="1.1" type="p:BaseBigDataType">
+      <alternative test="@version eq '1'" type="p:BigData1Type"/>
+      <alternative test="@version eq '2'" type="p:BigData2Type"/>
+      <alternative type="p:BaseBigDataTypeError"/>
+   </element>
+   <complexType name="BaseBigDataType">
+      <attribute name="version" type="xsd:string" use="required"/>
+      <attribute name="serviceCode"
+                 use="required"
+                 type="xsd:Name"
+                 fixed="BigData"/>
+   </complexType>
+   <complexType name="BaseBigDataTypeError" vc:minVersion="1.1">
+      <complexContent>
+         <extension base="p:BaseBigDataType">
+            <openContent mode="interleave">
+               <any processContents="skip"/>
+            </openContent>
+            <anyAttribute processContents="skip"/>
+            <assert test="false()"
+                    xerces:message="For this type of message, only  versions ( 1, 2 ) are supported."
+                    saxon:message="For this type of message, only  versions ( 1, 2 ) are supported."/>
+         </extension>
+      </complexContent>
+   </complexType>
+   <complexType name="BigData1Type">
       <annotation>
          <documentation>
             <html:p>Usage message for a big data cluster.</html:p>
@@ -24,78 +70,77 @@
                         type="USAGE"/>
          </appinfo>
       </annotation>
-      <attribute name="version" type="xsd:string" use="required" fixed="1"/>
-      <attribute name="serviceCode"
-                 use="required"
-                 type="xsd:Name"
-                 fixed="BigData"/>
-      <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="flavorId" use="required" type="p:string1_50">
-         <annotation>
-            <documentation>
-               <html:p>The flavor id of the cluster.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="flavorName" use="required" type="p:string1_300">
-         <annotation>
-            <documentation>
-               <html:p>The flavor name of the cluster.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="numberServersInCluster"
-                 use="required"
-                 type="p:numberServersInClusterType">
-         <annotation>
-            <documentation>
-               <html:p>This is the number of data nodes in cluster.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="aggregatedClusterDuration"
-                 use="optional"
-                 type="xsd:unsignedLong">
-         <annotation>
-            <documentation>
-               <html:p>This is the sum of the durations in seconds of all nodes of the cluster.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="S" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="bandwidthIn" use="required" type="p:bandwidthInType">
-         <annotation>
-            <documentation>
-               <html:p>The amount of bandwidth in, in kilobytes.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="bandwidthOut" use="required" type="p:bandwidthOutType">
-         <annotation>
-            <documentation>
-               <html:p>The amount of bandwidth out, in kilobytes.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
+      <complexContent>
+         <extension base="p:BaseBigDataType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes1"/>
+            <attribute name="flavorId" use="required" type="p:string1_50">
+               <annotation>
+                  <documentation>
+                     <html:p>The flavor id of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="flavorName" use="required" type="p:string1_300">
+               <annotation>
+                  <documentation>
+                     <html:p>The flavor name of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="numberServersInCluster"
+                       use="required"
+                       type="p:numberServersInCluster1Type">
+               <annotation>
+                  <documentation>
+                     <html:p>This is the number of data nodes in cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="aggregatedClusterDuration"
+                       use="optional"
+                       type="xsd:unsignedLong">
+               <annotation>
+                  <documentation>
+                     <html:p>This is the sum of the durations in seconds of all nodes of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="S" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="bandwidthIn" use="required" type="p:bandwidthIn1Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The amount of bandwidth in, in kilobytes.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="bandwidthOut" use="required" type="p:bandwidthOut1Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The amount of bandwidth out, in kilobytes.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
    </complexType>
-   <simpleType name="ResourceTypes">
+   <simpleType name="ResourceTypes1">
       <annotation>
          <documentation>
             <html:p>Resource Types for this product.</html:p>
@@ -108,19 +153,139 @@
          <enumeration value="HBASE_HDP1_3"/>
       </restriction>
    </simpleType>
-   <simpleType name="numberServersInClusterType">
+   <simpleType name="numberServersInCluster1Type">
       <restriction base="xsd:unsignedInt">
          <minInclusive value="1"/>
          <maxInclusive value="3000"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandwidthInType">
+   <simpleType name="bandwidthIn1Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="16000000000"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandwidthOutType">
+   <simpleType name="bandwidthOut1Type">
+      <restriction base="xsd:unsignedLong">
+         <minInclusive value="0"/>
+         <maxInclusive value="16000000000"/>
+      </restriction>
+   </simpleType>
+   <complexType name="BigData2Type">
+      <annotation>
+         <documentation>
+            <html:p>Usage message for a big data cluster.</html:p>
+         </documentation>
+         <appinfo>
+            <usage:core groupByResource="true"
+                        ranEnrichmentStrategy="CI_SERVICE"
+                        type="USAGE"/>
+         </appinfo>
+      </annotation>
+      <complexContent>
+         <extension base="p:BaseBigDataType">
+            <attribute name="resourceType" use="required" type="p:ResourceTypes2"/>
+            <attribute name="flavorId" use="required" type="p:flavorId2Enum">
+               <annotation>
+                  <documentation>
+                     <html:p>The flavor id of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="flavorName" use="required" type="p:string1_300">
+               <annotation>
+                  <documentation>
+                     <html:p>The flavor name of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="numberServersInCluster"
+                       use="required"
+                       type="p:numberServersInCluster2Type">
+               <annotation>
+                  <documentation>
+                     <html:p>This is the number of data nodes in cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="aggregatedClusterDuration"
+                       use="optional"
+                       type="xsd:unsignedLong">
+               <annotation>
+                  <documentation>
+                     <html:p>This is the sum of the durations in seconds of all nodes of the cluster.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="S" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="bandwidthIn" use="required" type="p:bandwidthIn2Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The amount of bandwidth in, in kilobytes.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+            <attribute name="bandwidthOut" use="required" type="p:bandwidthOut2Type">
+               <annotation>
+                  <documentation>
+                     <html:p>The amount of bandwidth out, in kilobytes.</html:p>
+                  </documentation>
+                  <appinfo>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                  </appinfo>
+               </annotation>
+            </attribute>
+         </extension>
+      </complexContent>
+   </complexType>
+   <simpleType name="ResourceTypes2">
+      <annotation>
+         <documentation>
+            <html:p>Resource Types for this product.</html:p>
+         </documentation>
+      </annotation>
+      <restriction base="xsd:token">
+         <enumeration value="HADOOP_HDP2_0"/>
+         <enumeration value="HADOOP_HDP1_3"/>
+         <enumeration value="HBASE_HDP2_0"/>
+         <enumeration value="HBASE_HDP1_3"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="flavorId2Enum">
+      <restriction base="xsd:string">
+         <enumeration value="hadoop1-7"/>
+         <enumeration value="hadoop1-15"/>
+         <enumeration value="hadoop1-30"/>
+         <enumeration value="hadoop1-60"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="numberServersInCluster2Type">
+      <restriction base="xsd:unsignedInt">
+         <minInclusive value="1"/>
+         <maxInclusive value="3000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthIn2Type">
+      <restriction base="xsd:unsignedLong">
+         <minInclusive value="0"/>
+         <maxInclusive value="16000000000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="bandwidthOut2Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="16000000000"/>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="bigdata/events"?>
+<?expect code="400"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Cloud Big Data</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:bigdata="http://docs.rackspace.com/usage/bigdata"
+               version="2" tenantId="2882"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               resourceId="56"
+               type="USAGE" dataCenter="DFW1" region="DFW"
+               startTime="2012-09-15T11:51:11Z"
+               endTime="2012-09-16T11:51:11Z">
+            <bigdata:product version="2" serviceCode="BigData"
+                             resourceType="HBASE_HDP1.3" flavordId="hadoop1-30"
+                             flavorName="some flavor"
+                             bandwidthIn="1001" bandwidthOut="19992"/>
+        </event>
+    </atom:content>
+</atom:entry>

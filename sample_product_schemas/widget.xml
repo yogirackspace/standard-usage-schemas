@@ -94,5 +94,9 @@
                    allowedValues="BEST BETTER WORST BAD" use="required">
             A list of enumertation strings.
         </attribute>
+        <attribute name="myAttribute" type="string"
+                   use="optional">
+            An attribute that is not private
+        </attribute>
     </productSchema>
 </alternatives>

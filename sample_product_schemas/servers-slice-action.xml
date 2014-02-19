@@ -6,7 +6,7 @@
     <description>
         Slice Action Event.
     </description>
-    <attribute name="rootPassword" type="string" use="optional">
+    <attribute name="rootPassword" type="string" use="optional" private="true">
     	The encrypted root password for a slice.
     </attribute>
     <attribute name="managed" type="boolean" use="required">
@@ -15,13 +15,13 @@
     <attribute name="imageId" type="int" use="required">
         The Image ID for the Slice.
     </attribute>
-    <attribute name="options" type="int" use="required">
+    <attribute name="options" type="int" use="required" private="true">
         The Options for the Slice, used for billing purposes.
     </attribute>
-    <attribute name="huddleId" type="int" use="required">
+    <attribute name="huddleId" type="int" use="required" private="true">
         The huddle ID.
     </attribute>
-    <attribute name="serverId" type="int" use="required">
+    <attribute name="serverId" type="int" use="required" private="true">
         The Server ID for the Slice. This is the host ID.
     </attribute>
     <attribute name="action" type="string" use="required" searchable="true"
@@ -31,7 +31,7 @@
     <attribute name="imageName" type="string" use="required">
         The name of the image
     </attribute>
-    <attribute name="customerId" type="int" use="required">
+    <attribute name="customerId" type="int" use="required" private="true">
         The Customer ID for the Slice. This may be the same as the tenantId or may be the internal nucleus customer_id.
     </attribute>
     <attribute name="flavorId" type="int" use="required">
@@ -41,7 +41,7 @@
                allowedValues="BUILD ACTIVE DELETED QUEUE_RESIZE PREP_RESIZE RESIZE VERIFY_RESIZE QUEUE_MOVE PREP_MOVE MOVE VERIFY_MOVE ERROR ERROR_ASYNC RESCUE SUSPENDED PENDING MAINTENANCE CLONE">
         The status.
     </attribute>
-    <attribute name="sliceType" type="string" use="required"
+    <attribute name="sliceType" type="string" use="required" private="true"
                allowedValues="CLOUD SLICE">
         The slice type. This was used when we had Slicehost and Rackspace customers; now all are Rackspace customers and sliceType is always 'CLOUD'.
     </attribute>
