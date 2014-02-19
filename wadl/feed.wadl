@@ -10,6 +10,13 @@
              xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary">
 
     <!-- Resource Types -->
+    <resource_type id="TenantAtomFeed">
+        <resource path="{tid}">
+            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+            <method href="#getTenantFeed" />
+        </resource>
+    </resource_type>
+
     <resource_type id="AtomFeed">
         <method href="#getFeed"/>
     </resource_type>
@@ -73,6 +80,30 @@
 
                         Valid values are either backward or forward.
                     
+                </wadl:doc>
+            </param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/atom+xml"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+        </response>
+    </method>
+
+    <method id="getTenantFeed" name="GET">
+        <wadl:doc xml:lang="EN" title="Get Events for Products" xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">Gets events for this tenant's feed.</para>
+        </wadl:doc>
+        <request>
+            <param name="marker" style="query" type="xs:anyURI" required="false"/>
+            <param name="limit"  style="query" type="xs:int" required="false"/>
+            <param name="direction" style="query" type="xs:string" required="false">
+                <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+
+                    Valid values are either backward or forward.
+
                 </wadl:doc>
             </param>
         </request>
