@@ -1,0 +1,70 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               namespace="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport"
+               serviceCode="DedicatedVCloud"
+               version="1" resourceTypes="SERVER"
+               ranEnrichmentStrategy="HYBRID_TO_CORE_RAN"
+               type="USAGE">
+    <description>
+        Usage message for a Dedicated vCloud server license and support.
+    </description>   
+    <attribute name="vCPUCount" type="unsignedInt" use="required"
+               min="0" max="1000"
+               unitOfMeasure="COUNT" groupBy="true">
+        The number of vCPUs.
+    </attribute>   
+    <attribute name="vRAM" type="unsignedInt" use="required"
+               min="0" max="20971520"
+               unitOfMeasure="MB" groupBy="true">
+        Memory provisioned for this server.
+    </attribute>
+    <attribute name="powerStatus" type="Name"
+               use="required"
+               allowedValues="ON SUSPENDED"
+               groupBy="true">
+        The power status of the device. Usage events will not be sent for servers with a powerStatus of OFF.
+    </attribute> 
+    <attribute name="coreStatus" type="Name"
+               use="required"
+               allowedValues="ONLINE_COMPLETE UNDER_REPAIR REKICK MIGRATION_SERVER REACTIVATION COMPROMISED SUSPENDED_VM SUSPENDED_VM_REPLICATION"
+               groupBy="true">
+        The status of the device in CORE system. Usage events will not be sent for servers with a coreStatus not in this list of allowedValues.
+    </attribute>
+    <attribute name="eventType" type="Name" use="required"
+               allowedValues="APP_LICENSE APP_SUPPORT OS_SUPPORT">
+        The type of this event.
+    </attribute>
+    <attribute name="applicationLicense" type="Name"
+               use="optional"
+               allowedValues="MBU_MS_EXCHANGE_AGENT MBU_MSSQL_AGENT MBU_MSSQL_AGENT_CLUSTERING MBU_MYSQL_AGENT MBU_ORACLE_AGENT MBU_MS_SHAREPOINT_AGENT MBU_CLUSTER_AGENT MBU_LBU_DEDICATED_TAPE_DRIVE MSSQL_2008_WEB MSSQL_2008_STD MSSQL_2008_ENT MSSQL_2012_WEB MSSQL_2012_STD MSSQL_2012_ENT NIMBUS_MON_LINUX NIMBUS_MON_WINDOWS SCOM_MON_WINDOWS MS_TERMINAL_SERVICES"
+               groupBy="true"
+               >
+        An application license on this server. If a server has multiple app licenses on a server, multiple usage events will be sent for those licenses.
+    </attribute>
+    <attribute name="applicationSupport" type="Name"
+               use="optional"
+               allowedValues="MBU_MS_EXCHANGE_AGENT MBU_MSSQL_AGENT MBU_MSSQL_AGENT_CLUSTERING MBU_MYSQL_AGENT MBU_ORACLE_AGENT MBU_MS_SHAREPOINT_AGENT MBU_CLUSTER_AGENT MBU_LBU_DEDICATED_TAPE_DRIVE MSSQL_2008_WEB MSSQL_2008_STD MSSQL_2008_ENT MSSQL_2012_WEB MSSQL_2012_STD MSSQL_2012_ENT NIMBUS_MON_LINUX NIMBUS_MON_WINDOWS SCOM_MON_WINDOWS MS_TERMINAL_SERVICES"
+               groupBy="true"
+               >
+        An application that is supported on this server. If a server has multiple apps that are supported on a server, multiple usage events will be sent for those apps.
+    </attribute>
+    <attribute name="guestOSSupportType" 
+               type="Name"
+               use="optional"
+               allowedValues="WINDOWS RHEL CENTOS UBUNTU"
+               groupBy="true">
+        The Guest OS for this server. 
+    </attribute>
+    <xpathAssertion scope="product" 
+            test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportTypes) else true()">
+       If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.
+    </xpathAssertion>
+    <xpathAssertion scope="product" 
+            test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportTypes) else true()">
+       If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportTypes' attribute should not be specified.
+    </xpathAssertion>
+    <xpathAssertion scope="product" 
+            test="if (@guestOSSupporTypes) then not(@applicationLicense) and not(@applicationSupport) else true()">
+       If 'applicationLicense' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.
+    </xpathAssertion>
+</productSchema>
