@@ -148,6 +148,14 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
 
+                                <xsl:if test="@ranEnrichmentStrategy = 'HYBRID_TO_CORE_RAN'">
+                                    <param name="checkTenantIdForHybrid"
+                                               style="plain"
+                                               required="true"
+                                               path="if ( /atom:entry/atom:content/event:event and not(starts-with(/atom:entry/atom:content/event:event/@tenantId, 'hybrid:')) ) then false() else true()"
+                                               rax:message="For {@serviceCode} product usage event, @tenantId must be begin with 'hybrid:'."/>
+                                </xsl:if>
+
                                 <!-- per WADL schema, all rax:preprocess/extensions have to be at the bottom of params -->
 
                                 <!-- B-57395: implementation of BigData synthesized attribute -->

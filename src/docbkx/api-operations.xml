@@ -114,11 +114,11 @@
       <resource href="../../atom_hopper.wadl#sites_events_getEntry_CloudSites"/>
     </resources>
   </section>
-  <section xml:id="dedicatedvcenter.product">
-    <title>Dedicated vCenter</title>
+  <section xml:id="dedicatedvcloud.product">
+    <title>Dedicated vCloud</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../atom_hopper.wadl#dedicatedvcenter_events"/>
-      <resource href="../../atom_hopper.wadl#dedicatedvcenter_events_getEntry_DedicatedVCenter"/>
+      <resource href="../../atom_hopper.wadl#dedicatedvcloud_events"/>
+      <resource href="../../atom_hopper.wadl#dedicatedvcloud_events_getEntry_DedicatedVCloud"/>
     </resources>
   </section>
   <section xml:id="domain.product">

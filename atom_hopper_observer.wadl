@@ -19,7 +19,7 @@
         <resource path="cbs/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="core/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="dbaas/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-        <resource path="dedicatedvcenter/events" type="wadl/feed.wadl#TenantAtomFeed"/>
+        <resource path="dedicatedvcloud/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="dns/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="domain/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="emailapps/events" type="wadl/feed.wadl#TenantAtomFeed" />

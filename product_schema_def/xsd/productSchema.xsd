@@ -1537,6 +1537,7 @@
         </annotation>
         <restriction base="xsd:string">
             <enumeration value="CI_SERVICE"/>
+            <enumeration value="HYBRID_TO_CORE_RAN"/>
             <enumeration value="INTEGER_RANGE"/>
             <enumeration value="NONE"/>
         </restriction>
