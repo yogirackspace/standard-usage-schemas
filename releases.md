@@ -1,8 +1,15 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.40.0**  
+2014-02-19 | B-39159 - Tenanted AH Feed for Public Cloud Access (Greg Sharek)  
+2014-02-19 | B-46189: added a way to auto-generate the wadl/filter_private_attrs.xsl (Shinta Smith)  
+2014-02-18 | B-46189: private attributes for Widget and CloudServer slice events (Shinta Smith)  
+2014-02-18 | B-58598: add identity to observer.wadl (Shinta Smith)  
+2014-02-17 | B-64002 Update CBD (Big Data) Usage Event #2 (Paul Benoit)  
+2014-02-14 | B-64002 Update CBD (Big Data) Usage Event (Paul Benoit)  
+
 **usage-schema-1.39.0**  
-2014-02-10 | B-63768: add startTime & endTime to glance sub-event
 2014-02-07 | B-63987: generated schema update for /netdevice (Shinta Smith)  
 
 **usage-schema-1.38.1**  
