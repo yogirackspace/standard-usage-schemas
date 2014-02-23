@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="summary/backup/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="Events of this type not allowed in the feed."?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event"
+            xmlns:cb-lic="http://docs.rackspace.com/usage/cloudbackup/license"
+            xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:content type="application/xml">
+        <event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+               region="DFW" dataCenter="DFW1" type="USAGE_SNAPSHOT"
+               id="8d89673c-c989-33e1-895a-0b3d632a8a89"
+               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+               tenantId="1234567" version="1">
+            <cb-lic:product version="2" serviceCode="CloudBackup"
+                            serverID="9445"
+                            serverName="SomeServerName"
+                            external="false"
+                            resourceType="AGENT"/>
+        </event>
+    </atom:content>
+</atom:entry>

@@ -70,5 +70,23 @@
         <resource id="usagetest11_events" path="usagetest11/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
         <resource id="usagetest12_events" path="usagetest12/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <!-- end of Test related feeds -->
+
+        <!-- Summary Feeds -->
+        <resource path="summary">
+            <resource id="bigdata_summary_events"     path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigDataSummary"/>
+            <resource id="cbs_summary_events"         path="cbs/events"     type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorageSummary"/>
+            <resource id="queues_summary_events"      path="queues/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueuesSummary"/>
+            <resource id="backup_summary_events"      path="backup/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackupSummary"/>
+            <resource id="files_summary_events"       path="files/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFilesSummary"/>
+            <resource id="dbaas_summary_events"       path="dbaas/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabaseSummary"/>
+            <resource id="dedicatedvcloud_sum_events" path="dedicatedvcloud/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloudSummary"/>
+            <resource id="glance_summary_events"      path="glance/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#GlanceSummary"/>
+            <resource id="lbaas_summary_events"       path="lbaas/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancersSummary"/>
+            <resource id="monitoring_summary_events"  path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoringSummary"/>
+            <resource id="nova_summary_events"        path="nova/events"    type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStackSummary wadl/product.wadl#RHELSummary"/>
+            <resource id="servers_summary_events"     path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersSummary wadl/product.wadl#RHELSummary"/>
+            <resource id="sites_summary_events"       path="sites/events"      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSitesSummary"/>
+            <resource id="usagetest6_summary_events"  path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#WidgetSummary"/>
+        </resource>
     </resources>
 </application>

@@ -244,7 +244,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT')) then @tenantId else true()"
+                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT','USAGE_SUMMARY')) then @tenantId else true()"
                         xerces:message="Usage messages must contain a tenantId"
                         saxon:message="Usage messages must contain a tenantId"
                         >
@@ -256,7 +256,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT')) then not(@severity) else true()"
+                <assert vc:minVersion="1.1" test="if (@type =  ('USAGE', 'USAGE_SNAPSHOT','USAGE_SUMMARY')) then not(@severity) else true()"
                         xerces:message="A usage message may not contain a severity"
                         saxon:message="A usage message may not contain a severity"
                         >
@@ -277,6 +277,33 @@
                                 Each product schema must define a
                                 service code attribute that uniquely
                                 identifies the product.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (exists(*:product/@summary)) then @type='USAGE_SUMMARY' else true()"
+                        xerces:message="The product element claims to contain usage summary information, but the type of event is not USAGE_SUMMARY."
+                        saxon:message="The product element claims to contain usage summary information, but the type of event is not USAGE_SUMMARY.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A product element that contains usage
+                                summary information should be enclosed
+                                in an event of type USAGE_SUMMARY.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (not(exists(*:product/@summary))) then not(@type='USAGE_SUMMARY') else true()"
+                        xerces:message="The product element claims does not contain usage summary information, but the type of event is USAGE_SUMMARY."
+                        saxon:message="The product element claims does not contain usage summary information, but the type of event is USAGE_SUMMARY.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A product element that does not
+                                contain usage summary information
+                                should not be enclosed in an event of
+                                type USAGE_SUMMARY.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -505,6 +532,7 @@
             <enumeration value="CREATE"/>
             <enumeration value="USAGE"/>
             <enumeration value="USAGE_SNAPSHOT"/>
+            <enumeration value="USAGE_SUMMARY"/>
             <enumeration value="UPDATE"/>
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>
