@@ -490,18 +490,35 @@
 	      <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
                 <artifactId>clouddocs-maven-plugin</artifactId>
-                <version>1.11.1</version>
+                <version>1.13.0</version>
                 <executions>
                   <execution>
-                    <id>devguide</id>
+                    <id>devguide-external</id>
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-devguide.xml</includes>
-                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
+		      <security>external</security>
+		      <enableDisqus>internet</enableDisqus>
+		      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                      <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
                     </configuration>			
+                  </execution>
+                  <execution>
+                    <id>devguide-internal</id>
+                    <goals>
+                      <goal>generate-webhelp</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                      <includes>feeds-devguide.xml</includes>
+		      <security>internal</security>
+		      <enableDisqus>intranet</enableDisqus>
+		      <enableGoogleAnalytics>0</enableGoogleAnalytics>
+                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
+                    </configuration>
                   </execution>
                   <execution>
                     <id>releasenotes</id>
@@ -512,29 +529,40 @@
                     <configuration>
                       <includes>feeds-releasenotes.xml</includes>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content</canonicalUrlBase>
-                    </configuration>			
+                    </configuration>
                   </execution>
                   <execution>
-                    <id>gettingstarted</id>
+                    <id>gettingstarted-external</id>
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-<!--                    <phase>generate-sources</phase>-->
+                    <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
+		      <security>external</security>
+		      <enableDisqus>internet</enableDisqus>
+		      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                      <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
+                    </configuration>
+                  </execution>
+                  <execution>
+                    <id>gettingstarted-internal</id>
+                    <goals>
+                      <goal>generate-webhelp</goal>
+                    </goals>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                      <includes>feeds-getting-started.xml</includes>
+		      <security>internal</security>
+		      <enableGoogleAnalytics>0</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
-                    </configuration>			
+                    </configuration>
                   </execution>
                 </executions>
                 <configuration>
                   <branding>rackspace</branding>
-                  <feedbackEmail>michael.mcgrail@rackspace.com</feedbackEmail>
-		  <socialIcons>1</socialIcons>
-		  <enableDisqus>intranet</enableDisqus>
-		  <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                  <feedbackEmail>constanze.kratel@rackspace.com</feedbackEmail>
 		  <showXslMessages>true</showXslMessages>
-		  <security>internal</security>
-		  <useLatestSuffixInPdfUrl>0</useLatestSuffixInPdfUrl>
                 </configuration>
 	      </plugin>
 	        <plugin>
