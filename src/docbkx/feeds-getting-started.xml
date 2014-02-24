@@ -65,10 +65,8 @@
     <chapter xml:id="Feeds_Overview">
         <title>Overview</title>
         <para>Follow the steps described in this guide to use the
-            Rackspace Cloud Feeds API and the Cloud
-            Servers<trademark/> section of the Rackspace Cloud Control
-            Panel to create and access your database instances via
-            Rackspace Cloud Servers.</para>
+            Rackspace Cloud Feeds API to create and access Cloud
+            Feeds.</para>
         <para>For details about using the Cloud Feeds API, refer to
             the <citetitle>Cloud Feeds Developer Guide</citetitle> at
                 <link xlink:href="http://docs.rackspace.com/"
@@ -76,7 +74,7 @@
         <para>Please visit our <link
                 xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
                 >Product Feedback Forum</link> and let us know what
-            you think about Cloud Databases!</para>
+            you think about Cloud feeds.</para>
         <section xml:id="Prerequisites_Examples">
             <title>Prerequisites for Running Examples</title>
             <para>In order to run the examples in this guide, you must
@@ -97,12 +95,7 @@
                 use through the API will be billed as per the pricing
                 schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
-                    >http://www.rackspace.com/cloud/public/databases/pricing</link>.
-                Cloud Servers is also part of the Rackspace Cloud and
-                your use through the Cloud Control Panel will be
-                billed as per the pricing schedule at <link
-                    xlink:href="http://www.rackspace.com/cloud/public/servers/pricing"
-                    >http://www.rackspace.com/cloud/public/servers/pricing</link>.</para>
+                    >http://www.rackspace.com/cloud/public/databases/pricing</link>. </para>
             <para>The Service Level Agreements (SLAs) for Cloud Feeds
                 and Cloud Servers are available at <link
                     xlink:href="http://www.rackspace.com/cloud/legal/sla/#cloud_databases"
@@ -456,8 +449,8 @@
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
         <title>Service Access/Endpoints</title>
-        <para>The endpoints to use for your Cloud Feeds API calls are
-            summarized in the table below.</para>
+        <para>The following table summarizes the  endpoints to use for
+            your Cloud Feeds API calls.</para>
         <para>
             <table rules="all">
                 <caption>Regionalized Service Endpoints</caption>
@@ -524,8 +517,9 @@
             </itemizedlist>
         </note>
         <para>
-            <table security="writeronly">
-                <caption>Staging Service Endpoints</caption>
+            <table security="internal">
+                <caption>Staging Service Endpoints for Internal
+                    Use</caption>
                 <thead>
                     <tr align="center">
                         <td colspan="2">Region</td>
@@ -577,15 +571,15 @@
     <chapter xml:id="Concepts">
         <title>Cloud Feeds Concepts</title>
         <para>Cloud Feeds uses the Atom Publishing Protocol (APP) for
-            publishing different typea of feeds. Atom is an XML-based
+            publishing different types of feeds. Atom is an XML-based
             document format that describes lists of related
             information known as "feeds". Feeds are composed of a
             number of items, known as "entries." Each entry has an
             extensible set of attached metadata. </para>
         <para>The Atom Publishing Protocol together with the Atom
             Syndication Format (ASF) provides interaction with
-            content, especially at blogs and RSS. TAPP is based on
-            HTTP transfer of Atom-formatted representations. The Atom
+            content, especially at blogs and RSS. APP is based on HTTP
+            transfer of Atom-formatted representations. The Atom
             format is documented in the Atom Syndication
             Format.</para>
         <para>Atom Hopper is an open source ATOMPub server for
@@ -680,21 +674,19 @@
             <para>
                 <orderedlist>
                     <listitem>
-                        <para>User sends a request to
-                            create/delete/update a cloud server, cloud
-                            database,cloud monitoring check,
-                            etc.</para>
+                        <para>The user sends a request to
+                            create/delete/update a Rackspace Cloud
+                            product.</para>
                     </listitem>
                     <listitem>
                         <para>The cloud product responds to the user
                             request and sends system and usage events
-                            to their Atom Hopper endpoint as Atom
+                            to their Cloud Feeds endpoint as Atom
                             entries.</para>
                     </listitem>
                     <listitem>
-                        <para>Atom Hopper writes the entry to the
-                            local database, where it will be available
-                            for 8 days.</para>
+                        <para>Atom Hopper records the entry and makes
+                            it available for 8 days.</para>
                     </listitem>
                     <listitem>
                         <para>The user pulls entries from the feed,
@@ -711,11 +703,11 @@
         </para>
         <para>
             <itemizedlist>
-                <listitem security="writeronly">
+                <listitem security="internal">
                     <para>Add a New Atom Event to a Feed</para>
                 </listitem>
                 <listitem>
-                    <para>Get a Feed</para>
+                    <para>Get Atom Entries that were posted</para>
                 </listitem>
                 <listitem>
                     <para>Get certain types of events from a
@@ -728,18 +720,21 @@
             an authentication token as described in <link
                 linkend="Generating_Auth_Token">Chapter 4: Generate an
                 Authentication Token</link>.</para>
-        <section xml:id="Create_Atom_Entry" security="writeronly">
+        <section xml:id="Create_Atom_Entry" security="internal">
             <title>Add a New Atom Event in a Feed</title>
-            <para>To insert a new Atom event in a feed, you need to
-                make a POST request with the specified feed URL and a
-                pointer to the Atom entry you'd like to submit using
-                the following syntax:</para>
+            <para>To insert a new Atom event in a feed you first need
+                to create an Atom entry and save it in the same
+                directory where you are making your request
+                from.</para>
+            <para>You then make a POST request with the specified feed
+                URL and a pointer to the Atom entry you want to submit
+                using the following syntax:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@&lt;input_file> </programlisting>
             </para>
             <para><parameter>&lt;input_file> </parameter>specifies the
                 path to a file that contains an atom entry. </para>
-            <para>You can also inclue the XML entry directly in the
+            <para>You can also include the XML entry directly in the
                 payload by using the following syntax:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@ "&lt;payload>"</programlisting>
@@ -763,10 +758,10 @@
                             application/atom+xml </emphasis></para>
                 </important>
             </para>
-            <para>After you have posted the Atom XML to the correct
-                Atom Hopper endpoint you should receive an HTTP 201
-                (Created) response back along with the Atom XML you
-                posted in the body.</para>
+            <para>After you have successfully posted the Atom XML to
+                the correct Atom Hopper endpoint you should receive an
+                HTTP 201 (Created) response along with the Atom XML
+                you posted in the request body.</para>
         </section>
         <section xml:id="Get_Atom_Entry">
             <title>Get Atom Entries that were Posted</title>
@@ -818,11 +813,11 @@
             <para>The following is an example for a request for a
                 feed:</para>
             <para><programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting></para>
-       <para> The above call will return 25 of the latest events in
-                the Next Generation Cloud Server feed from the DFW
-                datacenter. </para>
-            <para>To make the formatting of the returned events more
-                readable, you can submit the following request:</para>
+       <para>This request will return 25 of the latest events in the
+                Next Generation Cloud Server feed from the DFW
+                datacenter.  To make the formatting of the returned
+                events more readable, you can submit the following
+                request:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
             </para>
@@ -830,9 +825,13 @@
         <section xml:id="Filter_Atom_Entries">
             <title>Get Certain Types of Events from a Feed</title>
             <para>You can use the Cloud Keep API to filter for certain
-                types of events you would like to obtain from a feed.
-                The following example shows how to get all event types
-                that fall under the cloudsites.metered.site.usage
+                types of events you would like to obtain from a feed
+                by defining a specific search category. You specify
+                the seach categories by adding <code>/search?</code>
+                at the end of the feeds URL and then specifying the
+                category or item you want to search for. The following
+                example shows how to get all event types that fall
+                under the cloudsites.metered.site.usage
                 category:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
@@ -843,5 +842,26 @@
                 targetdoc="cloudfeeds-devguide"
                 targetptr="Using_Cloud_Feeds">Using Cloud
                 Feeds</olink> in the Cloud Feeds Developer's
-            Guide.</para></chapter>
+            Guide.</para>
+    <section xml:id="Additional_Resources"><title>Additional Resources</title>
+    <para>The following lists provides links to additional resources
+                about Cloud Feeds and Atom:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para><link
+                                xlink:href="https://github.com/rackerlabs/atom-hopper/wiki"
+                                >Atom Hopper Wiki on
+                            Github</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link
+                                xlink:href="https://github.com/rackerlabs/standard-usage-schemas/wiki"
+                                >Standard Usages Schemas Wiki on
+                                Github</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+    </section>
+    </chapter>
 </book>

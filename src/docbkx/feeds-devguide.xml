@@ -79,8 +79,7 @@
             usage and system events that can be used for analysis,
             monitoring, and automation. This purpose of this document
             is explain how to access feeds by using the Cloud Feeds
-            API. The following are technologies used by Cloud
-            Feeds:</para>
+            API. Cloud Feeds uses the following technologies:</para>
         <itemizedlist spacing="compact">
             <listitem>
                 <para>Atom Hopper (for more information see, <link
@@ -466,15 +465,16 @@
         </section>
         <section xml:id="XML_Schemas-d1e120">
             <title>XML Schemas</title>
-            <para xlink:href="#XML_Schemas-d1e120">All product events
-                are validated against their XML schemas. For details,
-                see <link xlink:href="#api-operations">Chapter 5:
+            <para xlink:href="#XML_Schemas-d1e120">Cloud Feeds
+                evaluates all product events against their XML
+                schemas. For details, see <link
+                    xlink:href="#api-operations">Chapter 5:
                     Operations</link>.</para>
             <para security="writeronly"> Writer: Insert hyperlink
             </para>
         </section>
     </chapter>
-    <chapter xml:id="General_API_Information-d1e333">
+    <chapter xml:id="Using_Cloud_Feeds">
         <title>Using Cloud Feeds</title>
         <para>To use Cloud Feeds an understanding of REST API is
             needed, since Cloud Feeds use a REST API.</para>
@@ -1988,7 +1988,7 @@
                 <title>HTTP POST Request Limit</title>
                 <para>The maximum size limit in a
                         <methodname>POST</methodname> request is
-                    200,000 KB. </para>
+                    200,000 bytes. </para>
             </section>
             <section xml:id="datetimeformat">
                 <title>Date and Time Format</title>
