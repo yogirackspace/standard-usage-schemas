@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book [        
- <!ENTITY ndash  "&#x2013;">
- <!ENTITY mdash  "&#x2014;">
- <!ENTITY hellip "&#x2026;">      
+<!DOCTYPE book [
+<!ENTITY ndash "&#x2013;">
+ <!ENTITY mdash "&#x2014;">
+ <!ENTITY hellip "&#x2026;">
 
         <!-- Useful for describing APIs -->
-        <!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
-        <!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
-        <!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+        <!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+        <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+        <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
         <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
 
         <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
@@ -220,12 +220,12 @@
                 <title>cURL Authenticate Request: XML</title>
                 <?dbfo keep-together="always"?>
                 <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'&lt;?xml version="1.0" encoding="UTF-8"?>  
- &lt;auth&gt;   
-    &lt;apiKeyCredentials     
-        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
-        username="<emphasis role="bold">your_username</emphasis>"     
-        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
+'&lt;?xml version="1.0" encoding="UTF-8"?>
+ &lt;auth&gt;   
+    &lt;apiKeyCredentials     
+        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
+        username="<emphasis role="bold">your_username</emphasis>"     
+        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
             </example>
@@ -235,12 +235,12 @@
                 next line:</para>
             <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
   
-   
+   
 (... lines within the xml portion of the message are not shown in this example)
-(... the example only shows lines that are part of cURL syntax)     
-     
-    
-   
+(... the example only shows lines that are part of cURL syntax)     
+     
+
+   
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
             <para>However the lines <emphasis>within</emphasis> the
@@ -248,12 +248,12 @@
                     <emphasis>not</emphasis> escaped with a backslash
                 ('\') in order to avoid issues with the xml
                 processing:</para>
-            <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>  
- &lt;auth&gt;   
-    &lt;apiKeyCredentials     
-        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
-        username="<emphasis role="bold">your_username</emphasis>"     
-        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
+            <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>
+ &lt;auth&gt;   
+    &lt;apiKeyCredentials     
+        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
+        username="<emphasis role="bold">your_username</emphasis>"     
+        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 </screen>
             <note>
@@ -356,11 +356,11 @@
             <title>cURL Authenticate Request: XML</title>
             <?dbfo keep-together="always"?>
             <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'&lt;?xml version="1.0" encoding="UTF-8"?>  
+'&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;auth>
    &lt;apiKeyCredentials
       xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">your_username</emphasis>" 
+         username="<emphasis role="bold">your_username</emphasis>"
          apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
 &lt;/auth>' \
 <option>-H 'Content-Type: application/xml'</option> \
@@ -375,10 +375,10 @@
     "auth":
     {
        "RAX-KSKEY:apiKeyCredentials":
-       {  
-          "username": "<emphasis role="bold">your_username</emphasis>",  
+       {
+          "username": "<emphasis role="bold">your_username</emphasis>",
           "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
-    }  
+    }
 }' \
 <option>-H 'Content-Type: application/json'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
@@ -567,7 +567,6 @@
                 <emphasis role="bold">your_acct_id</emphasis>
             specified in this guide. Refer to <xref
                 linkend="Generating_Auth_Token"/>.</para>
-    </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds Concepts</title>
         <para>Cloud Feeds uses the Atom Publishing Protocol (APP) for
@@ -802,7 +801,7 @@
                         </tr>
                         <tr align="left">
                             <td colspan="2">&lt;feed_name></td>
-                            <td colspan="5">Specifies  he name of the
+                            <td colspan="5">Specifies he name of the
                                 feeds you are trying to fetch events
                                 for. An example of feed name is: nova,
                                 servers, queues, files, etc.</td>
@@ -815,7 +814,7 @@
             <para><programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting></para>
        <para>This request will return 25 of the latest events in the
                 Next Generation Cloud Server feed from the DFW
-                datacenter.  To make the formatting of the returned
+                datacenter. To make the formatting of the returned
                 events more readable, you can submit the following
                 request:</para>
             <para>

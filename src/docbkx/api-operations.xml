@@ -32,7 +32,9 @@
     <title>Cloud Backup</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#backup_events"/>
-      <resource href="../../atom_hopper.wadl#backup_events_getEntry_CloudBackup"/>
+     <!--
+       <resource href="../../atom_hopper.wadl#backup_events_getEntry_CloudBackup"/>
+     -->
     </resources>
   </section>
   <section xml:id="bigdata.product">
