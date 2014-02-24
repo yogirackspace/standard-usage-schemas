@@ -684,8 +684,8 @@
                             entries.</para>
                     </listitem>
                     <listitem>
-                        <para>Atom Hopper records the entry and makes
-                            it available for 8 days.</para>
+                        <para>Cloud Feeds records the entry and makes
+                            it available for eight days.</para>
                     </listitem>
                     <listitem>
                         <para>The user pulls entries from the feed,
@@ -706,11 +706,13 @@
                     <para>Add a New Atom Event to a Feed</para>
                 </listitem>
                 <listitem>
-                    <para>Get Atom Entries that were posted</para>
+                    <para><link linkend="Get_Atom_Entry">Get Atom
+                            Entries that were posted</link></para>
                 </listitem>
                 <listitem>
-                    <para>Get certain types of events from a
-                        feed</para>
+                    <para><link linkend="Filter_Atom_Entries">Get
+                            certain types of events from a
+                        feed</link></para>
                 </listitem>
             </itemizedlist>
         </para>
@@ -835,6 +837,11 @@
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
             </para>
+            <para>For more information about filtering for certain
+                categories, see <olink targetdoc="feeds-devguide"
+                    targetptr="Filter_Entries_by_Category_d1e1315"
+                    >“Filtering Entries by Categories
+                ”</olink>.</para>
         </section>
     </chapter>
     <chapter xml:id="Next_Steps"><title>Next Steps</title><para>To learn more aboud the Cloud Feeds API, read <olink
