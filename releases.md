@@ -1,6 +1,8 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.40.1**  
+
 **usage-schema-1.40.0**  
 2014-02-19 | B-39159 - Tenanted AH Feed for Public Cloud Access (Greg Sharek)  
 2014-02-19 | B-46189: added a way to auto-generate the wadl/filter_private_attrs.xsl (Shinta Smith)  
