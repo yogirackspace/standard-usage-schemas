@@ -132,9 +132,6 @@
             Feeds product) <link
                 xlink:href="http://feedback.rackspacecloud.com"
                 >http://feedback.rackspacecloud.com</link>.</para>
-        <para security="writeronly">Writer: Insert the CF Overview
-            Graphic when received from marketing; make sure to
-            follow-up with Theresa H to remind her.</para>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
@@ -177,18 +174,15 @@
                 site also provides links to the official Rackspace
                 support channels, including knowledge center articles,
                 forums, phone, chat, and email. </para>
-            <para security="writeronly">Writer: Update this
-                information when the Getting Started Guide and the
-                Product Feedback forum when it is available: For
-                detailed information about getting started with the
-                API, see the <citetitle>Cloud Feeds Getting Started
-                    Guide</citetitle> at <link
+            <para>For detailed information about getting started with
+                the API, see the <citetitle>Cloud Feeds Getting
+                    Started Guide</citetitle> at <link
                     xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link> All you need to
-                start using Cloud Feeds is the getting started guide,
+                start using Cloud Feeds is the Getting Started guide,
                 the developer guide, your Rackspace Cloud account, and
                 at least one cloud server.</para>
-            <para security="writeronly">Visit the <link
+            <para>Visit the <link
                     xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
                     >Product Feedback Forum</link> to let us know what
                 you think about Cloud Feeds.</para>
@@ -261,9 +255,6 @@
                         a feed with five million entries.</para>
                 </listitem>
             </itemizedlist>
-            <para security="writeronly">The amounts listed in the
-                following table will changes, since performance
-                numbers are changing as of 9-24-13.</para>
             <para>The following table lists the performance for API
                 requests for the Cloud Feeds API.</para>
             <table rules="all">
@@ -365,119 +356,12 @@
             </table>
         </section>
     </chapter>
-    <chapter xml:id="Concepts-d1e111">
-        <title>Concepts</title>
-        <para>To use the Cloud Feeds API effectively, you should
-            understand the following concepts:</para>
-        <section xml:id="Atom_Feed_Document-d1e115">
-            <title>Atom Feed Document</title>
-            <para>An Atom Feed Document is a representation of an Atom
-                feed, including metadata about the feed, and some or
-                all of the entries associated with it. It's root is
-                the <code>atom:feed</code> element. The following is
-                an example of an Atom Feed Document:</para>
-            <example>
-                <title>Atom Feed Document</title>
-                <programlisting>&lt;feed>
-    &lt;link href="https://localhost/demo/events/" rel="current" />
-    &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
-    &lt;id>urn:uuid:5f4e03b9-2bd1-48de-acd8-6ad9f667f22a&lt;/id>
-    &lt;title type="text">demo/events&lt;/title>
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:398fc859-7c3f-4434-8049-a507a6eb1954&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
-    &lt;link href="https://localhost/demo/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated>2013-10-10T20:15:21.649Z&lt;/updated>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:50.812Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:02d4d829-5bda-4626-a603-421df50544fc"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:50.812Z&lt;/atom:published>
-    &lt;/atom:entry>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:17.041Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:17.041Z&lt;/atom:published>
-    &lt;/atom:entry>
-&lt;/feed>
-</programlisting>
-            </example>
-        </section>
-        <section xml:id="Atom_Content-d1e1116">
-            <title>Atom:Content</title>
-            <para>Provides a short description of the entry or
-                contains a content link that includes an
-                attribute.</para>
-        </section>
-        <section xml:id="Atom_Entry_Document-d1e1115">
-            <title>Atom Entry Document</title>
-            <para>An Atom Entry Document represents exactly one Atom
-                entry, outside of the context of an Atom feed. Its
-                root is the atom:entry element.</para>
-        </section>
-        <section xml:id="Usage_and_System_Event_Messages-d1e1362">
-            <title>Cloud Feeds Product Events</title>
-            <para>Cloud Feed places the actual product events inside
-                the atom:content element. For example, the &lt;event>
-                element contains the product events (in this case for
-                Cloud Backup product). Inside the &lt;event> element
-                is the data for this Cloud Backup event. </para>
-            <example>
-                <title>Cloud Backup Event Information</title>
-                <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
-&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
-            xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
-            xmlns:atom="http://www.w3.org/2005/Atom">
-    &lt;atom:content type="application/xml">
-        &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
-               region="DFW" dataCenter="DFW1" type="USAGE"
-               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
-               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
-               tenantId="1234" version="1">
-            &lt;cb-bin:product version="1" serviceCode="CloudBackup"
-                            serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
-                            bandwidthIn="192998" resourceType="AGENT"/>
-        &lt;/event>
-    &lt;/atom:content>
-&lt;/atom:entry></programlisting>
-            </example>
-        </section>
-        <section xml:id="XML_Schemas-d1e120">
-            <title>XML Schemas</title>
-            <para xlink:href="#XML_Schemas-d1e120">Cloud Feeds
-                evaluates all product events against their XML
-                schemas. For details, see <link
-                    xlink:href="#api-operations">Chapter 5:
-                    Operations</link>.</para>
-            <para security="writeronly"> Writer: Insert hyperlink
-            </para>
-        </section>
-    </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
         <title>Using Cloud Feeds</title>
-        <para>To use Cloud Feeds an understanding of REST API is
-            needed, since Cloud Feeds use a REST API.</para>
+        <para>To use Cloud Feeds you need to have a basic
+            understanding of REST APIs. In this section you will learn
+            how to use the Cloud Feeds REST API to perform basic API
+            operations.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
             <title>Adding a New Atom Entry</title>
             <para>You can use a POST request to insert new Atom
