@@ -703,7 +703,8 @@
         <para>
             <itemizedlist>
                 <listitem security="internal">
-                    <para>Add a New Atom Event to a Feed</para>
+                    <para><link linkend="Create_Atom_Entry">Add a New
+                            Atom Event to a Feed</link></para>
                 </listitem>
                 <listitem>
                     <para><link linkend="Get_Atom_Entry">Get Atom
@@ -720,21 +721,29 @@
             authenticated against the Rackspace Cloud API and obtained
             an authentication token as described in <link
                 linkend="Generating_Auth_Token">Chapter 4: Generate an
-                Authentication Token</link>.</para>
+                Authentication Token</link>. Please make sure to
+            record the token because you will need it to complete the
+            exercises in this chapter.</para>
         <section xml:id="Create_Atom_Entry" security="internal">
             <title>Add a New Atom Event in a Feed</title>
             <para>To insert a new Atom event in a feed you first need
                 to create an Atom entry and save it in the same
                 directory where you are making your request
                 from.</para>
-            <para>You then make a POST request with the specified feed
-                URL and a pointer to the Atom entry you want to submit
-                using the following syntax:</para>
+            <para>You then make a <methodname>POST</methodname>
+                request with the specified feed URL and a pointer to
+                the Atom entry you want to submit using the following
+                syntax:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@&lt;input_file> </programlisting>
             </para>
             <para><parameter>&lt;input_file> </parameter>specifies the
                 path to a file that contains an atom entry. </para>
+            <para>The following example shows how to add a new Atom
+                entry by providing a pointer to the entry:</para>
+            <para>
+                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events </programlisting>
+            </para>
             <para>You can also include the XML entry directly in the
                 payload by using the following syntax:</para>
             <para>
@@ -748,9 +757,9 @@
             <para>
                 <programlisting>type=\"application/xml\"></programlisting>
             </para>
-            <para>The following example shows how to add add an new
-                Atom event by submitting the event directly in the
-                request payload. </para>
+            <para>The following example shows how to add a new Atom
+                entry by submitting the event directly in the request
+                payload. </para>
             <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
             <para>
                 <important>
@@ -767,8 +776,8 @@
         <section xml:id="Get_Atom_Entry">
             <title>Get Atom Entries that were Posted</title>
             <para>To retrieve an Atom feed or an Atom entry that was
-                posted, submit a <emphasis role="bold">GET</emphasis>
-                request using the following syntax:</para>
+                posted, submit a <methodname>GET</methodname> request
+                using the following syntax:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://&lt;feeds_url>/&lt;feed_name>/events </programlisting>
             </para>

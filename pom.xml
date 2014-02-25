@@ -122,19 +122,19 @@
         </resources>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
-<plugin>
+	  <plugin>
             <groupId>com.rackspace.cloud.api</groupId>
             <artifactId>olink-maven-plugin</artifactId>
             <version>1.1.0</version>
             <executions>
               <execution>
-<id>generate-product-wadl</id>
-<phase>initialize</phase>
-<goals>
-<goal>olink</goal>
-</goals>
-<configuration>
-<pipeline>generateWADL.xpl</pipeline>
+		<id>generate-product-wadl</id>
+		<phase>initialize</phase>
+		<goals>
+		  <goal>olink</goal>
+		</goals>
+		<configuration>
+		  <pipeline>generateWADL.xpl</pipeline>
 		</configuration>
               </execution>
               <execution>
@@ -145,20 +145,20 @@
 		</goals>
 		<configuration>
 		  <pipeline>generateFilterPrivateAttrs.xpl</pipeline>
-</configuration>
+		</configuration>
               </execution>
               <execution>
-<id>generate-filter-private-attrs</id>
-<phase>initialize</phase>
-<goals>
-<goal>olink</goal>
-</goals>
-<configuration>
-<pipeline>generateFilterPrivateAttrs.xpl</pipeline>
-</configuration>
+		<id>generate-filter-private-attrs</id>
+		<phase>initialize</phase>
+		<goals>
+		  <goal>olink</goal>
+		</goals>
+		<configuration>
+		  <pipeline>generateFilterPrivateAttrs.xpl</pipeline>
+		</configuration>
               </execution>
             </executions>
-</plugin>
+	  </plugin>
 
             <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -229,9 +229,9 @@
             <id>Rackspace Research Repositories</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
-<property>
-<name>generate.docs</name>
-</property>
+		<property>
+		  <name>generate.docs</name>
+		</property>
             </activation>
             <repositories>
                 <repository>
@@ -287,18 +287,18 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.1.1</version>
+                        <groupId>org.codehaus.mojo</groupId> 
+                        <artifactId>exec-maven-plugin</artifactId> 
+                        <version>1.1.1</version> 
                         <executions>
                             <execution>
                                 <id>format-release-notes</id>
                                 <phase>process-resources</phase>
                                 <goals>
-                                    <goal>exec</goal>
+                                    <goal>exec</goal> 
                                 </goals>
                                 <configuration>
-                                    <executable>${basedir}/src/main/scripts/formatReleaseNotes.sh</executable>
+                                    <executable>${basedir}/src/main/scripts/formatReleaseNotes.sh</executable> 
                                     <arguments>
                                         <argument>${project.build.directory}/releasenotes/changelog.md</argument>
                                         <argument>${basedir}/releases.md</argument>
@@ -326,83 +326,83 @@
                             <description>Standard Usage Schema</description>
                             <prefix>/etc/repose</prefix>
                             <release>1</release>
-<mappings>
-<mapping>
-<directory>/etc/repose/usage-schema</directory>
-<username>repose</username>
-<groupname>repose</groupname>
-<!-- Modify file permissions as needed -->
-<filemode>755</filemode>
-<configuration>true</configuration>
-<directoryIncluded>true</directoryIncluded>
-</mapping>
-<mapping>
-<directory>/etc/repose/usage-schema/wadl</directory>
-<username>repose</username>
-<groupname>repose</groupname>
-<!-- Modify file permissions as needed -->
-<filemode>755</filemode>
-<configuration>true</configuration>
-<directoryIncluded>true</directoryIncluded>
-<sources>
-<source>
-<location>wadl</location>
-</source>
-</sources>
-</mapping>
-<mapping>
-<directory>/etc/repose/usage-schema/core_xsd</directory>
-<username>repose</username>
-<groupname>repose</groupname>
-<!-- Modify file permissions as needed -->
-<filemode>755</filemode>
-<configuration>true</configuration>
-<directoryIncluded>true</directoryIncluded>
-<sources>
-<source>
-<location>core_xsd</location>
-</source>
-</sources>
-</mapping>
-<mapping>
-<directory>/etc/repose/usage-schema</directory>
-<username>repose</username>
-<groupname>repose</groupname>
-<!-- Modify file permissions as needed -->
-<filemode>444</filemode>
-<configuration>true</configuration>
-<sources>
-<source>
-<location>atom_hopper.wadl</location>
-</source>
-<source>
-<location>atom_hopper_identity_admin.wadl</location>
-</source>
-<source>
-<location>atom_hopper_observer.wadl</location>
-</source>
-</sources>
-</mapping>
-<mapping>
-<directory>/etc/repose/usage-schema/generated_product_xsds</directory>
-<username>repose</username>
-<groupname>repose</groupname>
-<!-- Modify file permissions as needed -->
-<filemode>755</filemode>
-<configuration>true</configuration>
-<directoryIncluded>true</directoryIncluded>
-<sources>
-<source>
-<location>generated_product_xsds</location>
-</source>
-</sources>
-</mapping>
+		            <mappings>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>true</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/wadl</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>true</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+			               <source>
+				            <location>wadl</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/core_xsd</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>true</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+				        <source>
+				            <location>core_xsd</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>444</filemode>
+			            <configuration>true</configuration>
+			            <sources>
+				        <source>
+				            <location>atom_hopper.wadl</location>
+				        </source>
+				        <source>
+				            <location>atom_hopper_identity_admin.wadl</location>
+				        </source>
+				        <source>
+				            <location>atom_hopper_observer.wadl</location>
+				        </source>
+			            </sources>
+			        </mapping>
+			        <mapping>
+			            <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
+			            <username>repose</username>
+			            <groupname>repose</groupname>
+			            <!-- Modify file permissions as needed -->
+			            <filemode>755</filemode>
+			            <configuration>true</configuration>
+			            <directoryIncluded>true</directoryIncluded>
+			            <sources>
+				        <source>
+				            <location>generated_product_xsds</location>
+				        </source>
+			            </sources>
+			        </mapping>
                             </mappings>
                             <!-- Not sure we want to blow away this dir everytime
-<postremoveScriptlet>
-<script>rm -rf "/etc/repose/usage-schema"</script>
-</postremoveScriptlet>
--->
+                            <postremoveScriptlet>
+                                <script>rm -rf "/etc/repose/usage-schema"</script>
+                            </postremoveScriptlet>
+                            -->
                             <requires>
                                 <require>repose</require>
                             </requires>
@@ -416,19 +416,19 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-scm-plugin</artifactId>
-                        <version>1.8.1</version>
+                        <groupId>org.apache.maven.plugins</groupId> 
+                        <artifactId>maven-scm-plugin</artifactId> 
+                        <version>1.8.1</version> 
                         <executions>
                             <execution>
                                 <id>checkin-release-notes</id>
                                 <phase>process-resources</phase>
                                 <goals>
-                                    <goal>checkin</goal>
+                                    <goal>checkin</goal> 
                                 </goals>
                                 <configuration>
                                     <connectionType>connection</connectionType>
-                                    <message>update release notes</message>
+                                    <message>update release notes</message> 
                                     <includes>${basedir}/releases.md</includes>
                                     <pushChanges>true</pushChanges>
                                 </configuration>
@@ -474,30 +474,30 @@
                 </plugins>
             </build>
         </profile>
-<profile>
-<id>generate-docs</id>
+	<profile>
+	  <id>generate-docs</id>
           <activation>
-<property>
-<name>generate.docs</name>
-</property>
+	    <property>
+	      <name>generate.docs</name>
+	    </property>
           </activation>
-<build>
-<plugins>
-<plugin>
-<groupId>com.rackspace.cloud.api</groupId>
-<artifactId>olink-maven-plugin</artifactId>
-<version>1.1.0</version>
-<executions>
-<execution>
-<id>generate-olink-db</id>
-<phase>initialize</phase>
-<goals>
-<goal>olink</goal>
-</goals>
-</execution>
-</executions>
-</plugin>
-<plugin>
+	  <build>
+	    <plugins>
+	      <plugin>
+		<groupId>com.rackspace.cloud.api</groupId>
+		<artifactId>olink-maven-plugin</artifactId>
+		<version>1.1.0</version>
+		<executions>
+		  <execution>
+		    <id>generate-olink-db</id>
+		    <phase>initialize</phase>
+		    <goals>
+		      <goal>olink</goal>
+		    </goals>
+		  </execution>
+		</executions>
+	      </plugin>
+	      <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
                 <artifactId>clouddocs-maven-plugin</artifactId>
                 <version>1.14.1</version>
@@ -535,7 +535,7 @@
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-            <!-- <phase>generate-sources</phase>-->
+            <!--        <phase>generate-sources</phase>-->
                     <configuration>
                       <includes>feeds-releasenotes.xml</includes>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content</canonicalUrlBase>
@@ -563,9 +563,9 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
-<security>external</security>
-<enableDisqus>internet</enableDisqus>
-<enableGoogleAnalytics>1</enableGoogleAnalytics>
+		      <security>external</security>
+		      <enableDisqus>internet</enableDisqus>
+		      <enableGoogleAnalytics>1</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
                     </configuration>
                   </execution>
@@ -586,44 +586,30 @@
                 <configuration>
                   <branding>rackspace</branding>
                   <feedbackEmail>constanze.kratel@rackspace.com</feedbackEmail>
-<showXslMessages>true</showXslMessages>
+		  <showXslMessages>true</showXslMessages>
                 </configuration>
-</plugin>
-<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-assembly-plugin</artifactId>
-<version>2.3</version>
-<configuration>
-<descriptors>
-<descriptor>includewars.xml</descriptor>
-</descriptors>
-</configuration>
-<executions>
-<execution>
-<id>assembly</id>
-<goals>
-<goal>single</goal>
-</goals>
-<phase>package</phase>
-</execution>
-</executions>
-</plugin>
-</plugins>
-</build>
-</profile>
+	      </plugin>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-assembly-plugin</artifactId>
+	            <version>2.3</version>
+	            <configuration>
+	                <descriptors>
+	                    <descriptor>includewars.xml</descriptor>
+	                </descriptors>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <id>assembly</id>
+	                    <goals>
+	                        <goal>single</goal>
+	                    </goals>
+	                    <phase>package</phase>
+	                </execution>
+	            </executions>
+	        </plugin>
+	    </plugins>
+	  </build>
+	</profile>
     </profiles>
 </project>
-
-    Status
-    API
-    Training
-    Shop
-    Blog
-    About
-
-    © 2014 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Contact
-
