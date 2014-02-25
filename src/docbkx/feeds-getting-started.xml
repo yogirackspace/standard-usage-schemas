@@ -567,6 +567,7 @@
                 <emphasis role="bold">your_acct_id</emphasis>
             specified in this guide. Refer to <xref
                 linkend="Generating_Auth_Token"/>.</para>
+    </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds Concepts</title>
         <para>Cloud Feeds uses the Atom Publishing Protocol (APP) for
