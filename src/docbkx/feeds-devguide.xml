@@ -364,9 +364,10 @@
             operations.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
             <title>Adding a New Atom Entry</title>
-            <para>You can use a POST request to insert new Atom
-                entries into Atom Hopper. The following is an example
-                of a simple Atom entry (with three categories):</para>
+            <para>You can use a <methodname>POST</methodname> request
+                to insert new Atom entries into Atom Hopper. The
+                following is an example of a simple Atom entry (with
+                three categories):</para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
   &lt;title type="text">This is the title&lt;/title>
   &lt;author>
@@ -379,8 +380,9 @@
 &lt;/entry></programlisting>
             <para>
                 <note>
-                    <para>When submitting the POST request, set the
-                        HTTP header to <emphasis role="bold"
+                    <para>When submitting the
+                            <methodname>POST</methodname> request, set
+                        the HTTP header to <emphasis role="bold"
                             >Content-Type:
                             application/atom+xml.</emphasis></para>
                 </note>
@@ -392,14 +394,16 @@
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
             <para>The Category element provides category information
-                for a feed and our case sensitive. Also note that the
-                category XML element can appear anywhere as children
-                of the atom:entry XML element. To add categories to an
-                Atom entry you must include the category element along
-                with a term attribute:</para>
+                for a feed and is case sensitive. The category XML
+                element can appear anywhere as children of the
+                atom:entry XML element. To add categories to an Atom
+                entry you must include the category element along with
+                a term attribute as shown here:</para>
             <para><emphasis role="bold"> Single Category
                 </emphasis></para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
+            <para>You can also filter for multiple categories using
+                the following syntax:</para>
             <para><emphasis role="bold">Multiple
                 Categories</emphasis></para>
             <programlisting>&lt;category term="mycategory1" />
@@ -412,12 +416,14 @@
         </section>
         <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
             <title>Getting Events from Cloud Feeds</title>
-            <para>You can use a GET request to retrieve product
-                event(s) from Cloud Feeds. The GET request will
-                retrieve a specific entry, forward and backward
-                paging, category searches, and JSON feed returns that
-                are experimental. The following example shows the
-                possible return of a GET request:</para>
+            <para>You can use a <methodname>GET</methodname> request
+                to retrieve product event(s) from Cloud Feeds. The
+                    <methodname>GET</methodname> request will retrieve
+                a specific entry, forward and backward paging,
+                category searches, and JSON feed returns that are
+                experimental. The following example shows the possible
+                return of a <methodname>GET</methodname>
+                request:</para>
             <programlisting>&lt;feed>
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
@@ -469,7 +475,8 @@
             <para
                 xlink:href="https://atom.myserver.com/namespace/feed "
                 >To fetch events from a feed in Cloud Feeds, perform a
-                GET request against the following URL: </para>
+                    <methodname>GET</methodname> request against the
+                following URL: </para>
             <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
                 link and the links that follow will need to be
                 replaced for the public version of the CF Dev Guide
@@ -478,8 +485,8 @@
             <programlisting>https://atom.myserver.com/<emphasis role="bold">feedname</emphasis>/events </programlisting>
             <para>The feed name component of the URL above needs to be
                 replaced with the actual feed name. The response of
-                the above GET would contain several links as
-                follows:</para>
+                the above request will contain several links as shown
+                in the following example:</para>
             <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 &lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
 &lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
@@ -647,9 +654,9 @@
             <title>Select Entries by Marker</title>
             <para>You can use a marker to denote an entry that you
                 have previously used. If you specify a marker in the
-                    <emphasis role="bold">GET</emphasis> request, you
-                can also specify a value for the direction parameter.
-                The value is either <code>forward</code> or
+                    <methodname>GET</methodname> request, you can also
+                specify a value for the direction parameter. The value
+                is either <code>forward</code> or
                     <code>backward</code>. If you do not specify a
                 value for the direction parameter, the default value
                 of <code>forward </code>is used. </para>
@@ -673,10 +680,10 @@
         </section>
         <section xml:id="Getting-a-Single-Entry-d1e1313">
             <title>Getting a Single Entry </title>
-            <para>If you submit a <emphasis role="bold">GET</emphasis>
-                request that contains the URL of an entry, Cloud Feeds
-                will return an XML response that contains the single
-                entry you requested as shown in the following example. </para>
+            <para>If you submit a <methodname>GET</methodname> request
+                that contains the URL of an entry, Cloud Feeds will
+                return an XML response that contains the single entry
+                you requested as shown in the following example. </para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
     &lt;title type="text">This is the title&lt;/title>
     &lt;author>
@@ -703,8 +710,7 @@
                 (currently) case sensitive. No wild cards are
                 supported. </para>
             <para>The following is an example of searching on a
-                category entered as <emphasis role="bold"
-                    >CAT1</emphasis>:</para>
+                category entered as CAT1:</para>
             <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1
 </programlisting>
             <note>

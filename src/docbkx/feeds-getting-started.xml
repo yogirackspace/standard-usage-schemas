@@ -92,8 +92,8 @@
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and Service Level</title>
             <para>Cloud Feeds is part of the Rackspace Cloud and your
-                use through the API will be billed as per the pricing
-                schedule at <link
+                use through the API will be billed as specified in the
+                pricing schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
                     >http://www.rackspace.com/cloud/public/databases/pricing</link>. </para>
             <para>The Service Level Agreements (SLAs) for Cloud Feeds
@@ -279,8 +279,6 @@
     </chapter>
     <chapter xml:id="Generating_Auth_Token">
         <title>Generate an Authentication Token</title>
-        <para>You need to generate a token whether you use cURL or a
-            ReST client.</para>
         <para>In order to use the ReST API, you will first need to
             obtain an authentication token, which will need to be
             passed in for each request using the
@@ -870,14 +868,15 @@
         </section>
         <section xml:id="Filter_Atom_Entries">
             <title>Get Certain Types of Events from a Feed</title>
-            <para>You can use the Cloud Keep API to filter for certain
-                types of events you would like to obtain from a feed
-                by defining a specific search category. You specify
-                the seach categories by adding <code>/search?</code>
-                at the end of the feeds URL and then specifying the
-                category or item you want to search for. The following
-                example shows how to get all event types that fall
-                under the cloudsites.metered.site.usage
+            <para>You can use a <methodname>GET</methodname> request
+                to filter for certain types of events you would like
+                to obtain from a feed by defining a specific search
+                category. You specify the seach categories by adding
+                    <code>/search?</code> at the end of the feeds URL
+                and then specifying the category or item you want to
+                search for. The following example shows how to get all
+                event types that fall under the
+                    <emphasis>cloudsites.metered.site.usage</emphasis>
                 category:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
