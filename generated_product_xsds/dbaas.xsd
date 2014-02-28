@@ -158,7 +158,7 @@
                      <html:p>The version of the database.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
                   </appinfo>
                </annotation>
             </attribute>
