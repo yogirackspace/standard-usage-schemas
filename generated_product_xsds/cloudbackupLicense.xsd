@@ -81,7 +81,7 @@
                      <html:p>Server ID, where the agent in installed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
                   </appinfo>
                </annotation>
                <simpleType>
@@ -121,7 +121,7 @@
                      <html:p>Server ID, where the agent in installed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
                   </appinfo>
                </annotation>
                <simpleType>
@@ -194,7 +194,7 @@
                      <html:p>Server ID, where the agent in installed.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
                   </appinfo>
                </annotation>
                <simpleType>
