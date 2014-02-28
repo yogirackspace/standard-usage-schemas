@@ -14,9 +14,8 @@
                endTime="2012-09-16T11:51:11Z">
             <nova:product version="1" serviceCode="CloudServersOpenStack"
                         resourceType="SERVER" flavorId="3" flavorName="1GB" status="ACTIVE"
-                        isRedHat="true" isMSSQL="false"
-                        isMSSQLWeb="false" isWindows="true"
-                        isSELinux="false" isManaged="false"
+                        osLicenseType="RHEL WINDOWS"
+                        isManaged="false"
                         bandwidthIn="1001" bandwidthOut="19992"/>
         </event>
     </atom:content>

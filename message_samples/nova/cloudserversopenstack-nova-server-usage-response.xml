@@ -9,7 +9,7 @@
   <atom:title type="text">Nagios Event</atom:title>
   <atom:content type="application/xml">
     <event xmlns="http://docs.rackspace.com/core/event" xmlns:nova="http://docs.rackspace.com/event/nova" dataCenter="IAD3" endTime="2013-05-16T11:51:11Z" environment="PROD" id="e53d007a-fc23-11e1-975c-cfa6b29bb814" region="IAD" resourceId="10.24.25.92" resourceName="compute-10-24-25-92" startTime="2013-05-15T11:51:11Z" tenantId="231423" type="USAGE" version="1">
-      <nova:product bandwidthIn="640034" bandwidthOut="345123" flavorId="3" flavorName="1024MB" status="BUILD" isMSSQL="false" isMSSQLWeb="false" isManaged="false" isRedHat="true" isSELinux="false" isWindows="false" resourceType="SERVER" serviceCode="CloudServersOpenStack" version="1"/>
+      <nova:product bandwidthIn="640034" bandwidthOut="345123" flavorId="3" flavorName="1024MB" status="BUILD" isManaged="false" osLicenseType="RHEL" resourceType="SERVER" serviceCode="CloudServersOpenStack" version="1"/>
     </event>
   </atom:content>
   <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/nova/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self"/>
