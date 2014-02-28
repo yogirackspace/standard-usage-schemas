@@ -7,12 +7,6 @@
     <description>
         Usage message for a Next Generation (Nova) server.
     </description>
-    <attribute name="appliance" type="string"
-               use="optional"
-               allowedValues="VYATTA"
-               groupBy="true">
-        The appliance type.
-    </attribute>
     <attribute name="flavorId" type="string" minLength="1" maxLength="50"
                use="required" 
                groupBy="true">
@@ -28,30 +22,17 @@
                groupBy="true">
         The status of the server.
     </attribute>
-    <attribute name="isRedHat" type="boolean"
-               use="optional" default="false"
+    <attribute name="osLicenseType" type="Name"
+               use="optional" default="LINUX"
+               allowedValues="VYATTA RHEL WINDOWS LINUX"
                groupBy="true">
-        Does the server use a RedHat license.
+        The OS license type for this server.
     </attribute>
-    <attribute name="isMSSQL" type="boolean"
-               use="optional" default="false"
+    <attribute name="applicationLicense" type="Name*"
+               use="optional" 
+               allowedValues="MSSQL_WEB MSSQL"
                groupBy="true">
-        Does the server use an MSSQL license.
-    </attribute>
-    <attribute name="isMSSQLWeb" type="boolean"
-               use="optional" default="false"
-               groupBy="true">
-        Does the server use an MSSQL Web license.
-    </attribute>
-    <attribute name="isWindows" type="boolean"
-               use="optional" default="false"
-               groupBy="true">
-        Does the server use a Windows license.
-    </attribute>
-    <attribute name="isSELinux" type="boolean"
-               use="optional" default="false"
-               groupBy="true">
-        Does the server use an SELinux license.
+        An application license on this server.
     </attribute>
     <attribute name="isManaged" type="boolean"
                use="optional" default="false"
@@ -68,37 +49,8 @@
                max="6480000000">
         The amount of bandwidth out, in kilobytes.
     </attribute>
-    <xpathAssertion test="if (xsd:boolean(@isRedHat)) then
-               not(xsd:boolean(@isSELinux) or
-               xsd:boolean(@isWindows) or
-               xsd:boolean(@isMSSQL) or
-               xsd:boolean(@isMSSQLWeb)) else true()">
-        If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.
-    </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isSELinux)) then
-               not(xsd:boolean(@isRedHat) or
-               xsd:boolean(@isWindows) or
-               xsd:boolean(@isMSSQL) or
-               xsd:boolean(@isMSSQLWeb)) else true()">
-        If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.
-    </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isWindows)) then
-               not(xsd:boolean(@isRedHat) or
-               xsd:boolean(@isSELinux)) else true()">
-        If server isWindows then it cannot be RedHat or SELinux.
-    </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isMSSQL)) then
-               xsd:boolean(@isWindows) and
-               not(xsd:boolean(@isMSSQLWeb) or
-               xsd:boolean(@isRedHat) or
-               xsd:boolean(@isSELinux)) else true()">
-        If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.
-    </xpathAssertion>
-    <xpathAssertion test="if (xsd:boolean(@isMSSQLWeb)) then
-               xsd:boolean(@isWindows) and
-               not(xsd:boolean(@isMSSQL) or
-               xsd:boolean(@isRedHat) or
-               xsd:boolean(@isSELinux)) else true()">
-        If server isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.
+    <xpathAssertion test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then
+                          not( @osLicenseType = 'RHEL' or @osLicenseType = 'LINUX' ) else true()">
+        If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.
     </xpathAssertion>
 </productSchema>

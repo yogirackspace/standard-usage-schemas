@@ -14,7 +14,7 @@
                type="USAGE">
             <nova:product version="1" serviceCode="CloudServersOpenStack"
                            resourceType="SLICE" flavorId="3" flavorName="bogus flavor" status="BUILD"
-                           isRedHat="true" bandwidthIn="640034"
+                           osLicenseType="RHEL" bandwidthIn="640034"
                            bandwidthOut="345123"
                            />
         </event>

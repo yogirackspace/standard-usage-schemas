@@ -18,7 +18,7 @@
                type="USAGE">
             <nova:product version="1" serviceCode="CloudServersOpenStack"
                           resourceType="SERVER" flavorId="3" flavorName="1024MB" status="ACTIVE"
-                          appliance="VYATTA" bandwidthIn="640034"
+                          osLicenseType="VYATTA" bandwidthIn="640034"
                           bandwidthOut="345123"
                     />
         </event>
