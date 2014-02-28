@@ -30,16 +30,6 @@
                  type="xsd:Name"
                  fixed="CloudServersOpenStack"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="appliance" use="optional" type="p:applianceEnum">
-         <annotation>
-            <documentation>
-               <html:p>The appliance type.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
       <attribute name="flavorId" use="required" type="p:string1_50">
          <annotation>
             <documentation>
@@ -70,65 +60,25 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="isRedHat"
+      <attribute name="osLicenseType"
                  use="optional"
-                 default="false"
-                 type="xsd:boolean">
+                 default="LINUX"
+                 type="p:osLicenseTypeEnum">
          <annotation>
             <documentation>
-               <html:p>Does the server use a RedHat license.</html:p>
+               <html:p>The OS license type for this server.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="isMSSQL"
+      <attribute name="applicationLicense"
                  use="optional"
-                 default="false"
-                 type="xsd:boolean">
+                 type="p:applicationLicenseList">
          <annotation>
             <documentation>
-               <html:p>Does the server use an MSSQL license.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="isMSSQLWeb"
-                 use="optional"
-                 default="false"
-                 type="xsd:boolean">
-         <annotation>
-            <documentation>
-               <html:p>Does the server use an MSSQL Web license.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="isWindows"
-                 use="optional"
-                 default="false"
-                 type="xsd:boolean">
-         <annotation>
-            <documentation>
-               <html:p>Does the server use a Windows license.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="isSELinux"
-                 use="optional"
-                 default="false"
-                 type="xsd:boolean">
-         <annotation>
-            <documentation>
-               <html:p>Does the server use an SELinux license.</html:p>
+               <html:p>An application license on this server.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="true"/>
@@ -169,52 +119,12 @@
          </annotation>
       </attribute>
       <assert vc:minVersion="1.1"
-              test="if (xsd:boolean(@isRedHat)) then not(xsd:boolean(@isSELinux) or xsd:boolean(@isWindows) or xsd:boolean(@isMSSQL) or xsd:boolean(@isMSSQLWeb)) else true()"
-              xerces:message="If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb."
-              saxon:message="If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.">
+              test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then not( @osLicenseType = 'RHEL' or @osLicenseType = 'LINUX' ) else true()"
+              xerces:message="If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX."
+              saxon:message="If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If server isRedHat then it cannot be SELinux, Windows, MSSQL or MSSQLQWeb.</html:p>
-            </documentation>
-         </annotation>
-      </assert>
-      <assert vc:minVersion="1.1"
-              test="if (xsd:boolean(@isSELinux)) then not(xsd:boolean(@isRedHat) or xsd:boolean(@isWindows) or xsd:boolean(@isMSSQL) or xsd:boolean(@isMSSQLWeb)) else true()"
-              xerces:message="If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb."
-              saxon:message="If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.">
-         <annotation>
-            <documentation>
-               <html:p>Assertion: If server isSELinux then it cannot be RedHat, Windows, MSSQL or MSSQLQWeb.</html:p>
-            </documentation>
-         </annotation>
-      </assert>
-      <assert vc:minVersion="1.1"
-              test="if (xsd:boolean(@isWindows)) then not(xsd:boolean(@isRedHat) or xsd:boolean(@isSELinux)) else true()"
-              xerces:message="If server isWindows then it cannot be RedHat or SELinux."
-              saxon:message="If server isWindows then it cannot be RedHat or SELinux.">
-         <annotation>
-            <documentation>
-               <html:p>Assertion: If server isWindows then it cannot be RedHat or SELinux.</html:p>
-            </documentation>
-         </annotation>
-      </assert>
-      <assert vc:minVersion="1.1"
-              test="if (xsd:boolean(@isMSSQL)) then xsd:boolean(@isWindows) and not(xsd:boolean(@isMSSQLWeb) or xsd:boolean(@isRedHat) or xsd:boolean(@isSELinux)) else true()"
-              xerces:message="If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb."
-              saxon:message="If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.">
-         <annotation>
-            <documentation>
-               <html:p>Assertion: If server isMSSQL then it has to be windows, and not RedHat, SELinux or MSSQLWeb.</html:p>
-            </documentation>
-         </annotation>
-      </assert>
-      <assert vc:minVersion="1.1"
-              test="if (xsd:boolean(@isMSSQLWeb)) then xsd:boolean(@isWindows) and not(xsd:boolean(@isMSSQL) or xsd:boolean(@isRedHat) or xsd:boolean(@isSELinux)) else true()"
-              xerces:message="If server isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL."
-              saxon:message="If server isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.">
-         <annotation>
-            <documentation>
-               <html:p>Assertion: If server isMSSQLWeb then it has to be windows, and not RedHat, SELinux or MSSQL.</html:p>
+               <html:p>Assertion: If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.</html:p>
             </documentation>
          </annotation>
       </assert>
@@ -227,11 +137,6 @@
       </annotation>
       <restriction base="xsd:token">
          <enumeration value="SERVER"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="applianceEnum">
-      <restriction base="xsd:string">
-         <enumeration value="VYATTA"/>
       </restriction>
    </simpleType>
    <simpleType name="statusEnum">
@@ -252,6 +157,23 @@
          <enumeration value="UNKNOWN"/>
          <enumeration value="VERIFY_RESIZE"/>
          <enumeration value="SHELVED"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="osLicenseTypeEnum">
+      <restriction base="xsd:Name">
+         <enumeration value="VYATTA"/>
+         <enumeration value="RHEL"/>
+         <enumeration value="WINDOWS"/>
+         <enumeration value="LINUX"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="applicationLicenseList">
+      <list itemType="p:applicationLicenseEnum"/>
+   </simpleType>
+   <simpleType name="applicationLicenseEnum">
+      <restriction base="xsd:Name">
+         <enumeration value="MSSQL_WEB"/>
+         <enumeration value="MSSQL"/>
       </restriction>
    </simpleType>
    <simpleType name="bandwidthInType">
