@@ -95,7 +95,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                A GUID identifying the event record.
+                                Specifies the unique UUID for the event record. This value should be UUID Version 1, 2, or 4. For more information, see http://en.wikipedia.org/wiki/Universally_unique_identifier.
                             </html:p>
                         </documentation>
                     </annotation>

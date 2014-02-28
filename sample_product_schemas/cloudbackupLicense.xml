@@ -8,7 +8,7 @@
             <description>
                 Cloud Backup periodic license event.
             </description>
-            <attribute name="serverID" type="int UUID" use="required">
+            <attribute name="serverID" type="int UUID" use="required" groupBy="true">
                 Server ID, where the agent in installed.
             </attribute>
     </productSchema>
@@ -21,7 +21,7 @@
             <description>
                 Cloud Backup periodic license event (version 2).
             </description>
-            <attribute name="serverID" type="int UUID" use="optional">
+            <attribute name="serverID" type="int UUID" use="optional" groupBy="true">
                 Server ID, where the agent in installed.
             </attribute>
             <attribute name="serverName" type="string" use="required">
@@ -44,7 +44,7 @@
             <description>
                 Cloud Backup periodic license event (version 2).
             </description>
-            <attribute name="serverID" type="int UUID" use="optional">
+            <attribute name="serverID" type="int UUID" use="optional" groupBy="true">
                 Server ID, where the agent in installed.
             </attribute>
             <attribute name="serverName" type="string" use="required">

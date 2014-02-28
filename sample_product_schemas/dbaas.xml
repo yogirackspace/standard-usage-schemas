@@ -41,7 +41,7 @@
             The provisioned size of the storage volume for this database.
         </attribute>
 
-        <attribute name="dbVersion" type="string" use="required">
+        <attribute name="dbVersion" type="string" use="required" groupBy="true">
             The version of the database.
         </attribute>
 
