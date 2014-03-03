@@ -56,15 +56,15 @@
         The Guest OS for this server. 
     </attribute>
     <xpathAssertion scope="product" 
-            test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportTypes) else true()">
-       If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.
+            test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportType) else true()">
+       If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.
     </xpathAssertion>
     <xpathAssertion scope="product" 
-            test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportTypes) else true()">
-       If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportTypes' attribute should not be specified.
+            test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportType) else true()">
+       If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.
     </xpathAssertion>
     <xpathAssertion scope="product" 
-            test="if (@guestOSSupporTypes) then not(@applicationLicense) and not(@applicationSupport) else true()">
-       If 'applicationLicense' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.
+            test="if (@guestOSSupportType) then not(@applicationLicense) and not(@applicationSupport) else true()">
+       If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.
     </xpathAssertion>
 </productSchema>

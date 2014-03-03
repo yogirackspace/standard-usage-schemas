@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="dedicatedvcloud/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="guestOSLicenseTypes"?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event" 
+            xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport"
+               startTime="2013-12-18T10:19:52Z"
+               endTime="2013-12-19T10:19:52Z" 
+               type="USAGE"
+               resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" 
+               resourceName="my.site.com"
+               id="47b574c4-1421-11e2-b19d-7b8e208cade0"
+               dataCenter="SYD2" region="SYD"
+               tenantId="hybrid:654321" version="1">
+            <vcloud:product serviceCode="DedicatedVCloud" version="1"
+                             resourceType="SERVER" 
+                             vCPUCount="6"
+                             vRAM="1048576"
+                             powerStatus="SUSPENDED"
+                             coreStatus="ONLINE_COMPLETE"
+                             eventType="APP_LICENSE"
+                             guestOSLicenseTypes="foo"
+                             applicationLicense="MSSQL_2008_WEB"
+                             />
+        </event>
+    </atom:content>
+</atom:entry>

@@ -117,32 +117,32 @@
          </annotation>
       </attribute>
       <assert vc:minVersion="1.1"
-              test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportTypes) else true()"
-              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified."
-              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.">
+              test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportType) else true()"
+              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified."
+              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
       <assert vc:minVersion="1.1"
-              test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportTypes) else true()"
-              xerces:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportTypes' attribute should not be specified."
-              saxon:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportTypes' attribute should not be specified.">
+              test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportType) else true()"
+              xerces:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified."
+              saxon:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportTypes' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
       <assert vc:minVersion="1.1"
-              test="if (@guestOSSupporTypes) then not(@applicationLicense) and not(@applicationSupport) else true()"
-              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified."
-              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.">
+              test="if (@guestOSSupportType) then not(@applicationLicense) and not(@applicationSupport) else true()"
+              xerces:message="If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified."
+              saxon:message="If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
