@@ -118,16 +118,16 @@
       </attribute>
       <assert vc:minVersion="1.1"
               test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportType) else true()"
-              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified."
-              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.">
+              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified."
+              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportTypes' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
       <assert vc:minVersion="1.1"
-              test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportTypes) else true()"
+              test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportType) else true()"
               xerces:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified."
               saxon:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.">
          <annotation>
