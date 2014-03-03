@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event"
+            xmlns:maas="http://docs.rackspace.com/usage/maas">
+    <atom:id>urn:uuid:a2869958-a020-11e1-b15c-a38f4c3d83a9</atom:id>
+    <atom:category term="tid:7777" />
+    <atom:category term="rgn:GLOBAL" />
+    <atom:category term="dc:GLOBAL" />
+    <atom:category term="rid:chAAAA" />
+    <atom:category term="cloudmonitoring.maas.check.usage" />
+    <atom:title type="text">MaaSEvent</atom:title>
+    <atom:content type="application/xml">
+        <event dataCenter="GLOBAL" endTime="2012-04-30T03:27:36Z" environment="PROD" id="a2869958-a020-11e1-b15c-a38f4c3d83a9" region="GLOBAL" resourceId="chAAAA" startTime="2012-04-30T03:27:35Z" tenantId="7777" type="USAGE" version="1">
+            <maas:product checkType="remote.http" monitoringZones="3" product="CLOUD_DATABASE" productInstanceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" resourceType="CHECK" serviceCode="CloudMonitoring" version="2" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/monitoring/events/entries/urn:uuid:a2869958-a020-11e1-b15c-a38f4c3d83a9" rel="self" />
+    <atom:updated>2014-03-03T16:59:13.958Z</atom:updated>
+    <atom:published>2014-03-03T16:59:13.958Z</atom:published>
+</atom:entry>
