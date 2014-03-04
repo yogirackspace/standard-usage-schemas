@@ -1,12 +1,22 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.40.3**  
+
+**usage-schema-1.40.2**  
+2014-02-28 | B-64691: update to nova schema, remove is* attributes, add osLicenseType and applicationLicense attribute (Shinta Smith)  
+2014-02-28 | B-65400: set CloudBackup license product schema to have groupBy=true (Shinta Smith)  
+2014-02-28 | B-65384: set CloudDatabase product schemas to have groupBy=true (Shinta Smith)  
+2014-02-27 | B-65400 - add groupby true for serverID for RCBU (Joe Savak)  
+2014-02-27 | adding groupby true for dbaas per B-65384 (Joe Savak)  
+2014-02-24 | B-39159: Tenanted Feeds, adding functest1 to observer wadl (Greg Sharek)  
+
 **usage-schema-1.40.1**  
-2014-02-24 | B-39159 - Tenanted AH Feed for Public Cloud Access (Greg Sharek)  
 
 **usage-schema-1.40.0**  
-2014-02-19 | B-46189: added a way to auto-generate the wadl/filter_private_attrs.xsl (Shinta Smith)  
+2014-02-20 | B-64251: rename /dedicatedvcenter to /dedicatedvcloud, update schemas (Shinta Smith)  
 2014-02-19 | B-39159 - Tenanted AH Feed for Public Cloud Access (Greg Sharek)  
+2014-02-19 | B-46189: added a way to auto-generate the wadl/filter_private_attrs.xsl (Shinta Smith)  
 2014-02-18 | B-46189: private attributes for Widget and CloudServer slice events (Shinta Smith)  
 2014-02-18 | B-58598: add identity to observer.wadl (Shinta Smith)  
 2014-02-17 | B-64002 Update CBD (Big Data) Usage Event #2 (Paul Benoit)  
