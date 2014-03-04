@@ -1,9 +1,4 @@
-curl –H "X-Auth-Token: <your auth_token>"
-    -H "Content-Type: application/atom+xml"
-    -X POST https://dfw.feeds.api.rackspacecloud.com/files/events
-    –d@ "
-    <?xml version=\"1.0\" encoding="UTF-8"?>
-    <atom:entry xmlns=\"http://docs.rackspace.com/core/event\"
+<atom:entry xmlns=\"http://docs.rackspace.com/core/event\"
         xmlns:cf-b=\"http://docs.rackspace.com/usage/cloudfiles/bandwidth\"
         xmlns:atom=\"http://www.w3.org/2005/Atom\">
         <atom:content type=\"application/xml\">
