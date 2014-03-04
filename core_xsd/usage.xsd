@@ -174,7 +174,10 @@
             schemaLocation="../generated_product_xsds/dedicatedvcloud-serverlicenseandsupport.xsd"/> 
 
     <import namespace="http://docs.rackspace.com/event/support/account"
-            schemaLocation="../generated_product_xsds/support-account_support.xsd"/> 
+            schemaLocation="../generated_product_xsds/support-account_support.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/ebs/bu-team"
+            schemaLocation="../generated_product_xsds/ebs-bu-team.xsd"/>
 
     <element name="event" type="event:EventV1"/>
 </schema>

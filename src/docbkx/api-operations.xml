@@ -63,6 +63,13 @@
       <resource href="../../atom_hopper.wadl#dns_events_getEntry_CloudDNS"/>
     </resources>
   </section>
+    <section xml:id="ebs.product">
+        <title>EBS</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../atom_hopper.wadl#ebs_events"/>
+            <resource href="../../atom_hopper.wadl#ebs_events_getEntry_EBS"/>
+        </resources>
+    </section>
   <section xml:id="files.product">
     <title>Cloud Files</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
