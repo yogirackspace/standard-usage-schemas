@@ -50,7 +50,7 @@
         The amount of bandwidth out, in kilobytes.
     </attribute>
     <xpathAssertion test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then
-                          not( @osLicenseType = 'RHEL' or @osLicenseType = 'LINUX' ) else true()">
+                          @osLicenseType = 'WINDOWS' else true()">
         If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.
     </xpathAssertion>
 </productSchema>
