@@ -55,7 +55,8 @@
                   wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudSites wadl/product.wadl#DedicatedVCloud
                   wadl/product.wadl#DomainRegistration wadl/product.wadl#EBS wadl/product.wadl#EmailApps
                   wadl/product.wadl#Glance wadl/product.wadl#NetDevice wadl/product.wadl#RHEL wadl/product.wadl#Ssl
-                  wadl/product.wadl#Support wadl/product.wadl#Widget"/>
+                  wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter wadl/feed.wadl#UsageSummary
+                  wadl/product.wadl#Widget"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="migrationtest_events" path="migrationtest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest1_events" path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
