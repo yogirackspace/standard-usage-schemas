@@ -490,7 +490,7 @@
 	      <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
                 <artifactId>clouddocs-maven-plugin</artifactId>
-                <version>1.13.0</version>
+                <version>1.14.1</version>
                 <executions>
                   <execution>
                     <id>devguide-external</id>
@@ -536,7 +536,7 @@
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-                    <phase>generate-sources</phase>
+                    <!-- <phase>generate-sources</phase> -->
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
 		      <security>external</security>
@@ -550,7 +550,7 @@
                     <goals>
                       <goal>generate-webhelp</goal>
                     </goals>
-                    <phase>generate-sources</phase>
+                    <!-- <phase>generate-sources</phase> -->
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
 		      <security>internal</security>
