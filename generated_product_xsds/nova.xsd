@@ -119,7 +119,7 @@
          </annotation>
       </attribute>
       <assert vc:minVersion="1.1"
-              test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then not( @osLicenseType = 'RHEL' or @osLicenseType = 'LINUX' ) else true()"
+              test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then @osLicenseType = 'WINDOWS' else true()"
               xerces:message="If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX."
               saxon:message="If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.">
          <annotation>
