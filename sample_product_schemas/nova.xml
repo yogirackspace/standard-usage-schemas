@@ -51,6 +51,6 @@
     </attribute>
     <xpathAssertion test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then
                           @osLicenseType = 'WINDOWS' else true()">
-        If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType can not be RHEL or LINUX.
+        If applicationLicense is MSSQL_WEB or MSSQL, then osLicenseType must be WINDOWS.
     </xpathAssertion>
 </productSchema>
