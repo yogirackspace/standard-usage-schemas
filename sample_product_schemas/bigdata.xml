@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -52,13 +51,6 @@
                    namespace="http://docs.rackspace.com/usage/bigdata"
                    serviceCode="BigData"
                    version="2" resourceTypes="HADOOP_HDP2_0 HADOOP_HDP1_3 HBASE_HDP2_0 HBASE_HDP1_3">
-=======
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-               namespace="http://docs.rackspace.com/usage/bigdata"
-               serviceCode="BigData"
-               version="1" resourceTypes="HADOOP_HDP1_1 HADOOP_HDP1_3 HBASE_HDP1_1 HBASE_HDP1_3">
->>>>>>> Renamed and added a few files
     <description>
         Usage message for a big data cluster.
     </description>
