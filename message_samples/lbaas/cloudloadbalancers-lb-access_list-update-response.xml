@@ -1,0 +1,19 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event"
+            xmlns:lb="http://docs.rackspace.com/event/lbaas/lb">
+    <atom:id>urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a</atom:id>
+    <atom:category term="tid:1223" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:887765" />
+    <atom:category term="cloudloadbalancers.lb.access_list.update" />
+    <atom:title type="text">Update Access List</atom:title>
+    <atom:summary type="text">Access list updated.</atom:summary>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-06-15T10:19:52Z" id="7ba76892-4058-11e3-806b-002500a28a7a" region="DFW" resourceId="887765" resourceName="My LB" resourceURI="http://dfw1.lbaas.rackspace.com/path/to/accesslist/6e688508-4058-11e3-851d-002500a28a7a" severity="INFO" tenantId="1223" type="UPDATE" version="1">
+            <lb:product accessAddress="100.10.10.100" accessType="ALLOW" networkItemId="25" resourceType="ACCESS_LIST" serviceCode="CloudLoadBalancers" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
+    <atom:updated>2014-03-03T16:25:00.927Z</atom:updated>
+    <atom:published>2014-03-03T16:25:00.927Z</atom:published>
+</atom:entry>

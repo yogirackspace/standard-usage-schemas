@@ -1,0 +1,19 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event"
+            xmlns:lbn="http://docs.rackspace.com/event/lbaas/node">
+    <atom:id>urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a</atom:id>
+    <atom:category term="tid:1223" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:3833" />
+    <atom:category term="cloudloadbalancers.node.node.create" />
+    <atom:title type="text">Node Create</atom:title>
+    <atom:summary type="text">Created node...</atom:summary>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-06-15T10:19:52Z" id="7ba76892-4058-11e3-806b-002500a28a7a" region="DFW" resourceId="3833" resourceName="My Node" severity="INFO" tenantId="1223" type="CREATE" version="1">
+            <lbn:product address="100.10.10.34" condition="ENABLED" port="1010" resourceType="NODE" serviceCode="CloudLoadBalancers" version="1" weight="10" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
+    <atom:updated>2014-03-03T16:46:16.295Z</atom:updated>
+    <atom:published>2014-03-03T16:46:16.295Z</atom:published>
+</atom:entry>
