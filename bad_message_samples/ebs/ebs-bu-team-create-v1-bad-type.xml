@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="ebs/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="not allowed in this feed"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns="http://docs.rackspace.com/core/event"
+            xmlns:bu="http://docs.rackspace.com/event/ebs/bu-team" >
+    <atom:title>business unit event</atom:title>
+    <atom:content type="application/xml">
+        <event version="1"
+               id="560490c6-6c63-11e1-adfe-27851d5aed13"
+               dataCenter="DFW1" region="DFW"
+               type="UP"
+               eventTime="2014-03-01T11:51:11Z">
+            <bu:product version="1" serviceCode="EBS"
+                        businessUnit="BusinessUnit1"
+                        description="description">
+                <bu:team name="TeamName1"
+                         number="TeamNumber1" />
+                <bu:team name="TeamName2"
+                         number="TeamNumber2" />
+                <bu:team name="TeamName3"
+                         number="TeamNumber3" />
+            </bu:product>
+        </event>
+    </atom:content>
+</atom:entry>

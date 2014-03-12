@@ -1,9 +1,0 @@
-<event xmlns="http://docs.rackspace.com/core/event"
-       xmlns:cf-cdn="http://docs.rackspace.com/usage/cloudfiles/cdnbandwidth"
-       endTime="2012-06-20T10:19:52Z" startTime="2012-06-19T10:19:52Z"
-       region="DFW" dataCenter="DFW1" type="USAGE"
-       id="8d89673c-c989-11e1-895a-0b3d632a8a89"
-       tenantId="1234" version="1">
-    <cf-cdn:product version="1" serviceCode="CloudFiles"
-                    cdnBandwidthOut="2999283"/>
-</event>

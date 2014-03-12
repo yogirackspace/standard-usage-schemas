@@ -1,0 +1,19 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event"
+            xmlns:lbhm="http://docs.rackspace.com/event/lbaas/health-monitor">
+    <atom:id>urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a</atom:id>
+    <atom:category term="tid:1223" />
+    <atom:category term="rgn:DFW" />
+    <atom:category term="dc:DFW1" />
+    <atom:category term="rid:65" />
+    <atom:category term="cloudloadbalancers.health-monitor.health_monitor.create" />
+    <atom:title type="text">Health Monitor Create</atom:title>
+    <atom:summary type="text">Health Monitor Created.</atom:summary>
+    <atom:content type="application/xml">
+        <event dataCenter="DFW1" environment="PROD" eventTime="2012-06-15T10:19:52Z" id="7ba76892-4058-11e3-806b-002500a28a7a" region="DFW" resourceId="65" resourceName="My Health Monitor" resourceURI="http://dfw1.lbaas.rackspace.com/path/to/monitor/65" severity="INFO" tenantId="1223" type="CREATE" version="1">
+            <lbhm:product attemptsBeforeDeactivation="3" bodyRegex="Okay" delay="20" monitorStatusRegex="2.." path="/foo" resourceType="HEALTH_MONITOR" serviceCode="CloudLoadBalancers" timeout="39" type="HTTP" version="1" />
+        </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
+    <atom:updated>2014-03-03T15:44:40.932Z</atom:updated>
+    <atom:published>2014-03-03T15:44:40.932Z</atom:published>
+</atom:entry>
