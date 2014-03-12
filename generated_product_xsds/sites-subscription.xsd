@@ -71,6 +71,7 @@
          <enumeration value="SUBSCRIBE"/>
          <enumeration value="CANCEL"/>
          <enumeration value="UPDATE"/>
+         <enumeration value="REVERT_CANCEL"/>
       </restriction>
    </simpleType>
 </xsd:schema>
