@@ -15,7 +15,8 @@
             <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
             <method href="#getFeed" />
         </resource>
-        <resource path="entries/{id}">
+        <resource path="{tid}/entries/{id}">
+            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
             <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
