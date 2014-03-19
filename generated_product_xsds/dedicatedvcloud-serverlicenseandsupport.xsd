@@ -92,24 +92,10 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="applicationSupport"
-                 use="optional"
-                 type="p:applicationSupportEnum">
+      <attribute name="support" use="optional" type="p:supportEnum">
          <annotation>
             <documentation>
-               <html:p>An application that is supported on this server. If a server has multiple apps that are supported on a server, multiple usage events will be sent for those apps.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-            </appinfo>
-         </annotation>
-      </attribute>
-      <attribute name="guestOSSupportType"
-                 use="optional"
-                 type="p:guestOSSupportTypeEnum">
-         <annotation>
-            <documentation>
-               <html:p>The Guest OS for this server.</html:p>
+               <html:p>A guest operating system or an application that is supported on this virtual machine. If a virtual machine has more than one item in the set of software items supported, then the product must produce separate usage events for each supported software item (i.e. one event per item). For example, a virtual machine with a supported operating system and also a supported MySQL database would send two usage events: one for the operating system support, and another for the MySQL application support.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="true"/>
@@ -117,32 +103,22 @@
          </annotation>
       </attribute>
       <assert vc:minVersion="1.1"
-              test="if (@applicationLicense) then not(@applicationSupport) and not(@guestOSSupportType) else true()"
-              xerces:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified."
-              saxon:message="If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.">
+              test="if (@applicationLicense) then not(@support) else true()"
+              xerces:message="If 'applicationLicense' attribute is specified, then 'support' attribute should not be specified."
+              saxon:message="If 'applicationLicense' attribute is specified, then 'support' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'applicationSupport' and 'guestOSSupportType' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'applicationLicense' attribute is specified, then 'support' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
       <assert vc:minVersion="1.1"
-              test="if (@applicationSupport) then not(@applicationLicense) and not(@guestOSSupportType) else true()"
-              xerces:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified."
-              saxon:message="If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.">
+              test="if (@support) then not(@applicationLicense) else true()"
+              xerces:message="If 'support' attribute is specified, then 'applicationLicense' attribute should not be specified."
+              saxon:message="If 'support' attribute is specified, then 'applicationLicense' attribute should not be specified.">
          <annotation>
             <documentation>
-               <html:p>Assertion: If 'applicationSupport' attribute is specified, then 'applicationLicense' and 'guestOSSupportType' attribute should not be specified.</html:p>
-            </documentation>
-         </annotation>
-      </assert>
-      <assert vc:minVersion="1.1"
-              test="if (@guestOSSupportType) then not(@applicationLicense) and not(@applicationSupport) else true()"
-              xerces:message="If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified."
-              saxon:message="If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.">
-         <annotation>
-            <documentation>
-               <html:p>Assertion: If 'guestOSSupportType' attribute is specified, then 'applicationLicense' and 'applicationSupport' attribute should not be specified.</html:p>
+               <html:p>Assertion: If 'support' attribute is specified, then 'applicationLicense' attribute should not be specified.</html:p>
             </documentation>
          </annotation>
       </assert>
@@ -189,9 +165,8 @@
    </simpleType>
    <simpleType name="eventTypeEnum">
       <restriction base="xsd:Name">
-         <enumeration value="APP_LICENSE"/>
-         <enumeration value="APP_SUPPORT"/>
-         <enumeration value="OS_SUPPORT"/>
+         <enumeration value="APP"/>
+         <enumeration value="SUPPORT"/>
       </restriction>
    </simpleType>
    <simpleType name="applicationLicenseEnum">
@@ -216,8 +191,12 @@
          <enumeration value="MS_TERMINAL_SERVICES"/>
       </restriction>
    </simpleType>
-   <simpleType name="applicationSupportEnum">
+   <simpleType name="supportEnum">
       <restriction base="xsd:Name">
+         <enumeration value="WINDOWS"/>
+         <enumeration value="RHEL"/>
+         <enumeration value="CENTOS"/>
+         <enumeration value="UBUNTU"/>
          <enumeration value="MBU_MS_EXCHANGE_AGENT"/>
          <enumeration value="MBU_MSSQL_AGENT"/>
          <enumeration value="MBU_MSSQL_AGENT_CLUSTERING"/>
@@ -236,14 +215,6 @@
          <enumeration value="NIMBUS_MON_WINDOWS"/>
          <enumeration value="SCOM_MON_WINDOWS"/>
          <enumeration value="MS_TERMINAL_SERVICES"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="guestOSSupportTypeEnum">
-      <restriction base="xsd:Name">
-         <enumeration value="WINDOWS"/>
-         <enumeration value="RHEL"/>
-         <enumeration value="CENTOS"/>
-         <enumeration value="UBUNTU"/>
       </restriction>
    </simpleType>
 </xsd:schema>
