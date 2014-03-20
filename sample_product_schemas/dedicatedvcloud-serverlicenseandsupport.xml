@@ -52,5 +52,8 @@
             test="if (@support) then not(@applicationLicense) else true()">
        If 'support' attribute is specified, then 'applicationLicense' attribute should not be specified.
     </xpathAssertion>
-    <!-- TODO: add an xpath assertion that one of @applicationLicense or @support must be present. Not sure how to do this in xpath assertion. -->
+    <xpathAssertion scope="product"
+            test="exists(@support) or exists(@applicationLicense)">
+       One of 'support' or 'applicationLicense' attribute must be present.
+    </xpathAssertion>
 </productSchema>

@@ -70,16 +70,6 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="eventType" use="required" type="p:eventTypeEnum">
-         <annotation>
-            <documentation>
-               <html:p>The type of this event.</html:p>
-            </documentation>
-            <appinfo>
-               <usage:attributes aggregateFunction="NONE" groupBy="false"/>
-            </appinfo>
-         </annotation>
-      </attribute>
       <attribute name="applicationLicense"
                  use="optional"
                  type="p:applicationLicenseEnum">
@@ -122,6 +112,16 @@
             </documentation>
          </annotation>
       </assert>
+      <assert vc:minVersion="1.1"
+              test="exists(@support) or exists(@applicationLicense)"
+              xerces:message="One of 'support' or 'applicationLicense' attribute must be present."
+              saxon:message="One of 'support' or 'applicationLicense' attribute must be present.">
+         <annotation>
+            <documentation>
+               <html:p>Assertion: One of 'support' or 'applicationLicense' attribute must be present.</html:p>
+            </documentation>
+         </annotation>
+      </assert>
    </complexType>
    <simpleType name="ResourceTypes">
       <annotation>
@@ -161,12 +161,6 @@
          <enumeration value="COMPROMISED"/>
          <enumeration value="SUSPENDED_VM"/>
          <enumeration value="SUSPENDED_VM_REPLICATION"/>
-      </restriction>
-   </simpleType>
-   <simpleType name="eventTypeEnum">
-      <restriction base="xsd:Name">
-         <enumeration value="APP"/>
-         <enumeration value="SUPPORT"/>
       </restriction>
    </simpleType>
    <simpleType name="applicationLicenseEnum">
