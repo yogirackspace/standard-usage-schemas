@@ -30,10 +30,6 @@
                groupBy="true">
         The status of the device in CORE system. Usage events will not be sent for servers with a coreStatus not in this list of allowedValues.
     </attribute>
-    <attribute name="eventType" type="Name" use="required"
-               allowedValues="APP SUPPORT">
-        The type of this event.
-    </attribute>
     <attribute name="applicationLicense" type="Name"
                use="optional"
                allowedValues="MBU_MS_EXCHANGE_AGENT MBU_MSSQL_AGENT MBU_MSSQL_AGENT_CLUSTERING MBU_MYSQL_AGENT MBU_ORACLE_AGENT MBU_MS_SHAREPOINT_AGENT MBU_CLUSTER_AGENT MBU_LBU_DEDICATED_TAPE_DRIVE MSSQL_2008_WEB MSSQL_2008_STD MSSQL_2008_ENT MSSQL_2012_WEB MSSQL_2012_STD MSSQL_2012_ENT NIMBUS_MON_LINUX NIMBUS_MON_WINDOWS SCOM_MON_WINDOWS MS_TERMINAL_SERVICES"
@@ -56,4 +52,5 @@
             test="if (@support) then not(@applicationLicense) else true()">
        If 'support' attribute is specified, then 'applicationLicense' attribute should not be specified.
     </xpathAssertion>
+    <!-- TODO: add an xpath assertion that one of @applicationLicense or @support must be present. Not sure how to do this in xpath assertion. -->
 </productSchema>

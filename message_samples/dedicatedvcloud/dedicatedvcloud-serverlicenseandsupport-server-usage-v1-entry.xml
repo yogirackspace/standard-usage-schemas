@@ -21,7 +21,6 @@
                              vRAM="1048576"
                              powerStatus="SUSPENDED"
                              coreStatus="ONLINE_COMPLETE"
-                             eventType="APP"
                              applicationLicense="MSSQL_2008_WEB"
                              />
         </event>

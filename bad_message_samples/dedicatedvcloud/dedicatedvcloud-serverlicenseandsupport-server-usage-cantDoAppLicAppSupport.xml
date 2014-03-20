@@ -22,9 +22,8 @@
                              vRAM="1048576"
                              powerStatus="SUSPENDED"
                              coreStatus="ONLINE_COMPLETE"
-                             eventType="APP_LICENSE"
                              applicationLicense="MSSQL_2008_WEB"
-                             applicationSupport="MBU_LBU_DEDICATED_TAPE_DRIVE"
+                             support="MBU_LBU_DEDICATED_TAPE_DRIVE"
                              />
         </event>
     </atom:content>
