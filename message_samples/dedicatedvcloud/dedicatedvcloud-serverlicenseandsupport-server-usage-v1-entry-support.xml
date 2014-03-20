@@ -21,7 +21,7 @@
                              vRAM="1048576"
                              powerStatus="SUSPENDED"
                              coreStatus="ONLINE_COMPLETE"
-                             applicationLicense="MSSQL_2008_WEB"
+                             support="MSSQL_2008_WEB"
                              />
         </event>
     </atom:content>

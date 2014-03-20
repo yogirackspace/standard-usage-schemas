@@ -22,7 +22,6 @@
                              vRAM="1048576"
                              powerStatus="SUSPENDED"
                              coreStatus="ONLINE_COMPLETE"
-                             eventType="APP_LICENSE"
                              guestOSLicenseTypes="foo"
                              applicationLicense="MSSQL_2008_WEB"
                              />
