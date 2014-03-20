@@ -24,12 +24,12 @@
     <title>Rackspace Cloud Feeds Getting Started Guide</title>
     <info>
         <copyright>
-            <year>2013</year>
+            <year>2014</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
         <productname>Rackspace Cloud Feeds</productname>
-    <pubdate/>
+        <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
                 <remark>Copyright details are filled in by the
@@ -38,11 +38,11 @@
         </legalnotice>
         <revhistory>
             <revision>
-                <date>2013-07-01</date>
+                <date>2014-01-01</date>
                 <revdescription>
                     <itemizedlist spacing="compact">
                         <listitem>
-                            <para>Ipsum lorem.</para>
+                            <para>Created initial draft</para>
                         </listitem>
                     </itemizedlist>
                 </revdescription>
@@ -57,24 +57,55 @@
     </info>
     <chapter xml:id="Feeds_Doc_Change_History">
         <title>Document Change History</title>
-        <para>This version of the Getting Started replaces and
+        <para>This version of the getting started guide replaces and
             obsoletes all previous versions. The most recent changes
             are described in the table below:</para>
         <?rax revhistory?>
     </chapter>
     <chapter xml:id="Feeds_Overview">
         <title>Overview</title>
+        <para>This Getting Started Guide provides an introduction of
+            the Cloud Feeds product. It also teaches how to use the
+            Cloud Feeds API and to perform simple API operations. In
+            this document, you will learn the following:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Chapter 3 describes how to send requests to
+                        the Rackspace API using cURL.</para>
+                </listitem>
+                <listitem>
+                    <para>Chapter 4 shows how to obtain an
+                        authentication token to be used with the Cloud
+                        Feeds API.</para>
+                </listitem>
+                <listitem>
+                    <para>Chapter 5 provides information on how to
+                        access the Cloud Feeds service through the
+                        service endpoints.</para>
+                </listitem>
+                <listitem>
+                    <para>Chapter 6 introduces general concepts about
+                        Cloud Feeds, including Atom events.</para>
+                </listitem>
+                <listitem>
+                    <para>Chapter 7 provides a set of steps on how you
+                        can use the Cloud Feeds API to retrieve
+                        feeds.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
         <para>Follow the steps described in this guide to use the
-            Rackspace Cloud Feeds API to create and access Cloud
-            Feeds.</para>
+            Rackspace Cloud Feeds API and programmatically access
+            feeds.</para>
         <para>For details about using the Cloud Feeds API, refer to
             the <citetitle>Cloud Feeds Developer Guide</citetitle> at
                 <link xlink:href="http://docs.rackspace.com/"
                 >http://docs.rackspace.com/</link>.</para>
-        <para>Please visit our <link
+        <para>Visit our <link
                 xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                >Product Feedback Forum</link> and let us know what
-            you think about Cloud f\Feeds.</para>
+                >Product Feedback Forum</link> and tell us what you
+            think about Cloud Feeds.</para>
         <section xml:id="Prerequisites_Examples">
             <title>Prerequisites for Running Examples</title>
             <para>In order to run the examples in this guide, you must
@@ -96,123 +127,137 @@
                 pricing schedule at <link
                     xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
                     >http://www.rackspace.com/cloud/public/databases/pricing</link>. </para>
-            <para>The Service Level Agreements (SLAs) for Cloud Feeds
+            <para>The service level agreements (SLAs) for Cloud Feeds
                 and Cloud Servers are available at <link
                     xlink:href="http://www.rackspace.com/cloud/legal/sla/#cloud_databases"
                     >http://www.rackspace.com/cloud/legal/sla/#cloud_databases</link>
                 and <link
                     xlink:href="http://www.rackspace.com/cloud/legal/sla"
-                    >http://www.rackspace.com/cloud/legal/sla</link>
-                respectively.</para>
+                    >http://www.rackspace.com/cloud/legal/sla</link>.</para>
         </section>
     </chapter>
     <chapter xml:id="Feeds_Sending_API_Requests">
-        <title>Send Requests to the API</title>
+        <title>Sending Requests to the API</title>
         <para>You have several options for sending requests through an
             API: </para>
         <itemizedlist spacing="compact">
             <listitem>
-                <para>Developers and testers may prefer to use cURL,
+                <para>Developers and testers might prefer to use cURL,
                     the command-line tool from <link
                         xlink:href="http://curl.haxx.se/"
                         >http://curl.haxx.se/</link>. </para>
-                <para>With cURL you can send HTTP requests and receive
-                    responses back from the command line. </para>
+                <para>With cURL, you can send HTTP requests and
+                    receive responses back from the command line. </para>
             </listitem>
             <listitem>
                 <para>If you like to use a more graphical interface,
-                    the ReST client for Firefox also works well for
-                    testing and trying out commands, see <link
+                    the REST client for Firefox, also works well for
+                    testing and trying out commands. See <link
                         xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
-                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>.
-                </para>
+                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
             </listitem>
             <listitem>
-                <para>You can also download and install rest-client, a
-                    Java application to test ReSTful web services,
-                    from <link
+                <para>You can also download and install RESTclient, a
+                    Java application used to test RESTful web
+                    services, from <link
                         xlink:href="http://code.google.com/p/rest-client/"
-                        >http://code.google.com/p/rest-client/</link>.
-                </para>
+                        >http://code.google.com/p/rest-client/</link>. </para>
             </listitem>
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
-            <title>Send API Requests Using cURL</title>
-            <para>cURL is a command-line tool that is available on
-                most UNIX®-like environments and Mac OS X® and can be
-                downloaded for Windows® in order to interact with the
-                ReST interfaces. For more information on cURL, visit
-                    <link xlink:href="http://curl.haxx.se/"
+            <title>Sending API Requests Using cURL</title>
+            <para>cURL is a command-line tool that is available oin
+                most UNIX system-based environments and Apple Mac OS X
+                systems, and can be downloaded for Microsoft Windows
+                to interact with REST interfaces. For more information
+                on cURL, visit <link xlink:href="http://curl.haxx.se/"
                     >http://curl.haxx.se/</link>. </para>
             <para>cURL allows you to transmit and receive HTTP
                 requests and responses from the command-line or from
                 within a shell script. This makes it possible to work
                 with the ReST API directly without using one of the
                 client APIs. </para>
-            <para>The following cURL command-line options will be used
-                in this guide to run the examples:</para>
-            <variablelist>
-                <title>cURL Command-Line Options</title>
-                <varlistentry>
-                    <term><option>-d</option></term>
-                    <listitem>
-                        <para>Sends the specified data in a post
-                            request to the HTTP server.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term><option>-i</option></term>
-                    <listitem>
-                        <para>Includes the HTTP header in the
-                            output.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term><option>-H HEADER</option></term>
-                    <listitem>
-                        <para>Specify an HTTP header in the
-                            request.</para>
-                    </listitem>
-                </varlistentry>
-                <varlistentry>
-                    <term><option>-X</option></term>
-                    <listitem>
-                        <para>Specifies the request method to use when
-                            communicating with the HTTP server. The
-                            specified request is used instead of the
-                            default method, which is GET. For example,
-                                <option>-X PUT</option> specifies to
-                            use the PUT request method.</para>
-                    </listitem>
-                </varlistentry>
-            </variablelist>
-        </section>
-        <section xml:id="Feeds_copy_paste_examples">
-            <title>Copying and Pasting cURL Request Examples into a
-                Terminal Window</title>
+            <para>The following cURL command-line options are used in this guide to run the examples.</para>
+            <para>
+                <table frame="void">
+                    <caption>cURL Command-Line Options</caption>
+                    <col width="31%"/>
+                    <col width="69%"/>
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><option>-d</option></td>
+                            <td>Sends the specified data in a POST
+                                request to the HTTP server</td>
+                        </tr>
+                        <tr>
+                            <td><option>-i</option></td>
+                            <td>Includes the HTTP header in the
+                                output.</td>
+                        </tr>
+                        <tr>
+                            <td><option>-H HEADER</option></td>
+                            <td>Specifies an HTTP header in the
+                                request.</td>
+                        </tr>
+                        <tr>
+                            <td><option>-X</option></td>
+                            <td>Specifies the request method to use
+                                when communicating with the HTTP
+                                server.The specified request is used
+                                instead of the default method, which
+                                is GET. For example, <option>-X
+                                   PUT</option> specifies to use the
+                                PUT request method.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>
+                <note>
+                    <para>If you have the tools, you can run the cURL
+                        JSON request examples with the following
+                        options to format the output from cURL:
+                            <emphasis role="bold">&lt;curl JSON
+                            request example&gt; | python
+                            -mjson.tool</emphasis>.</para>
+                </note>
+            </para>
             <para>To run the cURL request examples shown in this guide
-                on Linux or Mac systems, copy and paste each example
-                from the HTML version of this guide into an ASCII
-                editor (for example <emphasis role="bold"
-                    >vi</emphasis> or <emphasis role="bold"
-                    >TextEdit</emphasis>). Then modify each example
-                with your required account information and so forth,
-                as detailed in this guide.</para>
-            <note>
-                <para>The carriage returns in the cURL request
-                    examples that are part of the cURL syntax are
-                    escaped with a backslash ('\') in order to avoid
-                    prematurely terminating the command. However you
-                    should not escape carriage returns inside the xml
-                    or json message within the command.</para>
-            </note>
-            <para>Consider the following cURL Authenticate Request:
-                XML example that is described in detail in <xref
-                    linkend="Generating_Auth_Token"/>:</para>
-            <example>
-                <title>cURL Authenticate Request: XML</title>
-                <?dbfo keep-together="always"?>
-                <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+                on Linux or Mac systems, perform the following
+                actions:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para> Copy each example from the HTML version
+                            of this guide an paste it into an ASCII
+                            text editor (for example, vi or TextEdit).
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para> Modify each example with your required
+                            account information and other information,
+                            as detailed in this guide.</para>
+                            <para><note>
+                                <para>The carriage returns in the cURL request
+                                    examples that are part of the cURL syntax are
+                                    escaped with a backslash ('\') in order to avoid
+                                    prematurely terminating the command. However you
+                                    should not escape carriage returns inside the xml
+                                    or json message within the command.</para>
+                            </note></para>
+                        <para>Consider the following cURL Authenticate Request:
+                            XML example that is described in detail in <xref
+                                linkend="Generating_Auth_Token"/>:</para>
+                        <example>
+                            <title>cURL Authentication Request: XML</title>
+                            <?dbfo keep-together="always"?>
+                            <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
  &lt;auth&gt;   
     &lt;apiKeyCredentials     
@@ -221,12 +266,12 @@
         apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-            </example>
-            <para>You can see that the lines that are part of the cURL
-                command syntax have all been escaped with a backslash
-                ('\') to indicate that the command continues on the
-                next line:</para>
-            <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+                        </example>
+                        <para>The lines that are part of the cURL command syntax
+                            have been escaped with a backslash ('\') to
+                            indicate that the command continues on the
+                            next line:</para>
+                        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
   
    
 (... lines within the xml portion of the message are not shown in this example)
@@ -236,12 +281,12 @@
    
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-            <para>However the lines <emphasis>within</emphasis> the
-                xml portion of the message are
-                    <emphasis>not</emphasis> escaped with a backslash
-                ('\') in order to avoid issues with the xml
-                processing:</para>
-            <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>
+                        <para>However the lines <emphasis>within</emphasis> the
+                            xml portion of the message are
+                            <emphasis>not</emphasis> escaped with a backslash
+                            ('\') in order to avoid issues with the xml
+                            processing:</para>
+                        <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>
  &lt;auth&gt;   
     &lt;apiKeyCredentials     
         xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
@@ -249,59 +294,66 @@
         apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 </screen>
-            <note>
-                <para>The final line of the xml message is escaped
-                    since the backslash lies
-                        <emphasis>outside</emphasis> the xml message
-                    and continues the cURL command to the next
-                    line.</para>
-            </note>
-            <para>After you are finished modifying the text for the
-                cURL request example with your information (for
-                example <emphasis role="bold"
-                        ><code>your_username</code></emphasis> and
-                    <emphasis role="bold"
-                    ><code>your_api_key</code></emphasis>), paste it
-                into your terminal window. Then execute the cURL
-                command by pressing <guilabel>Enter</guilabel>.</para>
-            <para>If you have trouble copying and pasting the examples
-                as described, try typing the entire example on one
-                long line, removing all the backslash line
-                continuation characters.</para>
+                        <para>The final line of the xml message is escaped
+                            since the backslash lies
+                            <emphasis>outside</emphasis> the xml message
+                            and continues the cURL command to the next
+                            line.</para>
+                    </listitem>
+            <listitem>
+                        <para>After you are finished modifying the
+                            text for the cURL request example with
+                            your information (for example <emphasis
+                                role="bold"
+                                ><code>your_username</code></emphasis>
+                            and <emphasis role="bold"
+                                   ><code>your_api_key</code></emphasis>),
+                            paste it into your terminal window. Then
+                            execute the cURL command by pressing
+                                <guilabel>Enter</guilabel>.</para>
+                        <para>If you have trouble copying and pasting
+                            the examples as described, try typing the
+                            entire example on one long line, removing
+                            all the backs.</para>
+                    </listitem>
+                <listitem>
+                        <para>Press <guilabel>Enter</guilabel> to run
+                            the cURL command.</para>
+                    </listitem>
+            </orderedlist></para>
         </section>
     </chapter>
     <chapter xml:id="Generating_Auth_Token">
-        <title>Generate an Authentication Token</title>
-        <para>In order to use the ReST API, you will first need to
-            obtain an authentication token, which will need to be
-            passed in for each request using the
-                <code>X-Auth-Token</code> header. </para>
-        <para>The following example demonstrates how to use cURL to
-            obtain the authentication token and the account number.
-            You will need to supply the authentication token and
-            account number when making subsequent Cloud Feeds API
-            calls.</para>
-        <para>Remember to replace the names in the Authenticate
-            Request examples below with their respective
-                values:<itemizedlist spacing="compact">
+        <title>Generating an Authentication Token</title>
+        <para>Whether you use cURL or a REST client to interact with
+            the Cloud Feeds API, you must generate an authentication
+            token. You provide this token in the X-Auth-Token header
+            in each Cloud Feeds API request. </para>
+        <para>Examples 4.1 and 4.2 demonstrate how to use cURL to
+            obtain the authentication token and your account number.
+            You must provide both when making subsequent Cloud Feeds
+            API requests.</para>
+        <para>Remember to replace the placeholder names in the
+            following authentication request examples with your
+                information:<itemizedlist spacing="compact">
                 <listitem>
-                    <para><emphasis role="bold"
-                            >your_username</emphasis> &mdash; The
-                        username is your common Rackspace Cloud
-                        username, as supplied during
-                        registration.</para>
+                    <para><emphasis role="italic"
+                            >yourUserName</emphasis> &mdash; Your
+                        common Rackspace Cloud username, as supplied
+                        during registration.</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="bold"
-                            >your_api_key</emphasis> &mdash; The key
-                        is your API access key. The key can be
-                        obtained from the Rackspace Cloud Control
-                        Panel in the <guimenu>&lt;Your
-                            Account></guimenu> / <guimenuitem>API
-                            Keys</guimenuitem> section (login here:
-                            <link
+                    <para><emphasis role="italic"
+                            >yourApiKey</emphasis> &mdash; Your API
+                        access key. You can obtain the key from the
+                        Rackspace <link
                             xlink:href="http://mycloud.rackspace.com/"
-                            >Cloud Control Panel</link>).</para>
+                            >Cloud Control Panel</link>) by accessing
+                        selecting <emphasis role="bold">Account
+                            Settings</emphasis> from the <emphasis
+                            role="italic">yourAccount</emphasis> menu
+                        in the top-right corner of the window.
+                    </para>
                 </listitem>
             </itemizedlist></para>
         <para> You can use either of the following endpoints to access
@@ -318,7 +370,7 @@
                         >&ENDPOINT-UK-20;</link></para>
             </listitem>
         </itemizedlist>
-        <para> Your account may be based in either the US or the UK;
+        <para> Your account might be based in either the US or the UK;
             this is not determined by your physical location but by
             the location of the Rackspace retail site which was used
             to create your account: </para>
@@ -336,13 +388,18 @@
                     UK-based account. </para>
             </listitem>
         </itemizedlist>
-        <para>Notice that you authenticate using a special URL for
-            Cloud authentication services. For example, you may use
+        <para>Notice that you authenticate by using a special URL for
+            the Cloud authentication service. For example, you may use
                 <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>,
             as shown in the following Authenticate Request examples.
             Note that the <code>v2.0</code> component in the URL
-            indicates that you are using version 2.0 of the Cloud Auth
-            API.</para>
+            indicates that you are using version 2.0 of the Cloud
+            Authentication API.</para>
+        <note>
+            <para>For UK-based accounts, you may decide to use
+                <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
+                instead.</para>
+        </note>
         <example>
             <title>cURL Authenticate Request: XML</title>
             <?dbfo keep-together="always"?>
@@ -351,8 +408,8 @@
 &lt;auth>
    &lt;apiKeyCredentials
       xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">your_username</emphasis>"
-         apiKey="<emphasis role="bold">your_api_key</emphasis>"/>
+         username="<emphasis role="bold">yourUserName</emphasis>"
+         apiKey="<emphasis role="bold">yourApiKey</emphasis>"/>
 &lt;/auth>' \
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
@@ -367,53 +424,38 @@
     {
        "RAX-KSKEY:apiKeyCredentials":
        {
-          "username": "<emphasis role="bold">your_username</emphasis>",
-          "apiKey": "<emphasis role="bold">your_api_key</emphasis>"}
+          "username": "<emphasis role="bold">yourUserName</emphasis>",
+          "apiKey": "<emphasis role="bold">yourApiKey</emphasis>"}
     }
 }' \
 <option>-H 'Content-Type: application/json'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
         </example>
-        <note>
-            <para>For UK-based accounts, you may decide to use
-                    <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
-                instead.</para>
-        </note>
         <para>The authentication token <code>id</code> is returned
             along with an <code>expires</code> attribute that
             specifies when the token expires. </para>
         <note>
             <itemizedlist spacing="compact">
                 <listitem>
-                    <para>For all response examples in this guide, the
-                        field values you receive in your responses
-                        will vary from those shown here since they
-                        will be specific to your account.</para>
+                    <para>The values that you receive in your
+                        responses vary from the examples shown in this
+                        document because they are specific to your
+                        account.</para>
                 </listitem>
                 <listitem>
-                    <para>The information shown in the Authenticate
-                        Response examples above is for US-based
+                    <para>The information shown in the authentication
+                        response examples above is for US-based
                         accounts. If you authenticate against the
-                        UK-endpoint for auth, you will see the service
-                        catalog information for UK-based
+                        UK-endpoint for authorization service, you see
+                        the service catalog information for UK-based
                         accounts.</para>
-                </listitem>
-                <listitem>
-                    <para>The <code>id</code> attribute in the
-                        Authenticate Response specifies the
-                        authentication token. Tokens are valid for a
-                        finite duration.</para>
-                    <para>Remember to supply your authentication token
-                        wherever you see the field <emphasis
-                            role="bold">your_auth_token</emphasis> in
-                        the examples in this guide.</para>
                 </listitem>
                 <listitem>
                     <para> The <code>expires</code> attribute denotes
                         the time after which the token will
-                        automatically become invalid. A token may be
-                        manually revoked before the time identified by
-                        the expires attribute; <code>expires</code>
+                        automatically expire. A token may be manually
+                        revoked before the time identified by the
+                        expires attribute; <code>expires</code>
                         predicts a token's maximum possible lifespan
                         but does not guarantee that it will reach that
                         lifespan. Clients are encouraged to cache a
@@ -427,19 +469,19 @@
                 </listitem>
             </itemizedlist>
         </note>
-        <para>You will find the actual account number after the final
-            '/' in the <code>publicURL</code> field. In this example,
-            you can see that the account number is 1100111. You need
-            to specify your account number on most of the Cloud Feeds
-            API calls, wherever you see the field <emphasis
-                role="bold">your_acct_id</emphasis> specified in the
-            examples in this guide.</para>
+        <para>The actual account number is located after the final
+            slash (/) in the <code>publicURL</code> field. In the
+            following examples, the account number is 1100111. You
+            must specify your account number on most of the Cloud
+            Feeds API operations, wherever you see the placeholder
+                <emphasis role="bold">tenant id</emphasis> specified
+            in the examples in this guide.</para>
         <para>After authentication, you can use cURL to perform &GET;
             and &POST; requests for the Cloud Feeds API.</para>
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
-        <title>Service Access/Endpoints</title>
-        <para>The following table summarizes the  endpoints to use for
+        <title>Service Endpoints</title>
+        <para>The following table summarizes the endpoints to use for
             your Cloud Feeds API calls.</para>
         <para>
             <table rules="all" security="external">
@@ -471,9 +513,15 @@
                                 id></code></td>
                     </tr>
                     <tr align="left">
+                        <td colspan="2">Northern Virginia</td>
+                        <td colspan="5"
+                                ><code>https://iad.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
+                                id></code></td>
+                    </tr>
+                    <tr align="left">
                         <td colspan="2">London (LON)</td>
-                        <td colspan="5"><code>
-                                https://lon.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
+                        <td colspan="5"
+                                ><code>https://lon.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
                                 id></code></td>
                     </tr>
                     <tr align="left">
@@ -489,30 +537,33 @@
                                 id></code></td>
                     </tr>
                 </tbody>
-            </table>
-        </para>
+            </table>Replace &lt;tenant id> with your actual account
+            number returned as part of the authentication response.
+            Use your actual account number wherever you see the
+            placeholder &lt;tenant id> specified in this guide. </para>
         <note>
             <itemizedlist>
                 <listitem>
-                    <para>Choose the endpoint from the table for the
-                        datacenter where your Cloud resources are
-                        located.</para>
+                    <para>Choose the endpoint for the data center
+                        where your Cloud resources are located.</para>
                 </listitem>
                 <listitem>
                     <para>The Cloud Server that you use must be
-                        located in the same datacenter where your
+                        located in the same datancenter where your
                         database resides.</para>
                 </listitem>
                 <listitem>
                     <para>All examples in this guide assume that you
-                        are operating against the DFW datacenter,
-                        however if you are using a different
+                        are operating against the DFW data center,
+                        however, if you are using a different
                         datacenter, be sure to use the associated
-                        endpoint from the table above instead.</para>
-       
+                        endpoint from the table instead.</para>
                 </listitem>
             </itemizedlist>
         </note>
+        <para security="internal">The following table lists the
+            endpoints for a staging enviroment. This is for internal
+            use only.</para>
         <para>
             <table security="internal">
                 <caption>Staging Service Endpoints </caption>
@@ -554,6 +605,9 @@
                 </tbody>
             </table>
         </para>
+        <para security="internal">The following table lists the
+            endpoints for a production enviroment. This is for
+            internal use only.</para>
         <para>
             <table security="internal">
                 <caption>Production Service Endpoints </caption>
@@ -594,29 +648,21 @@
                 </tbody>
             </table>
         </para>
-        <para>Replace the sample account ID number,
-                <parameter>1234</parameter>, with your actual account
-            number returned as part of the authentication response.
-            Use your actual account number wherever you see the field
-                <emphasis role="bold">your_acct_id</emphasis>
-            specified in this guide. Refer to <xref
-                linkend="Generating_Auth_Token"/>.</para>
     </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds Concepts</title>
-        <para>Cloud Feeds uses the Atom Publishing Protocol (APP) for
-            publishing different types of feeds. Feeds are composed of
-            a number of items, known as "entries." Each entry has an
-            extensible set of attached metadata. </para>
-        <para>The Atom Publishing Protocol together with the Atom
-            Syndication Format (ASF) provides a format for
-            implementing web feeds. Web feeds offer a method to
-            provide users with frequently updated content. APP is
-            based on HTTP transfer of Atom-formatted representations.
-            The Atom format is documented in the Atom Syndication
-            Format.</para>
-        <para>Cloud Feeds is an open source ATOMPub server for
-            accessing, processing and aggregating Atom entries. Cloud
+        <para>Cloud Feeds uses AtomPub to publish different types of
+            feeds. Feeds are composed of a number of items called
+                <emphasis role="italic">entries</emphasis>. Each entry
+            has an extensible set of attached metadata. </para>
+        <para>The AtomPub together with the Atom Syndication Format
+            (ASF) provides a format for implementing web feeds. Web
+            feeds provide users with frequently updated content.
+            AtomPub is based on HTTP transfer of Atom-formatted
+            representations. The Atom format is documented in the Atom
+            Syndication Format.</para>
+        <para>Cloud Feeds is an open-source AtomPub server for
+            accessing, processing, and aggregating Atom entries. Cloud
             Feeds was designed to make it easy to build both
             generalized and specialized persistence mechanisms for
             Atom XML data, based on the Atom Syndication Format and
@@ -625,8 +671,9 @@
         <para>
             <orderedlist>
                 <listitem>
-                    <para>Events are generated by a publisher. Events
-                        can be usage events, system events or billing
+                    <para>Events are generated by a publisher and
+                        added to the database as entries. Events can
+                        be usage events, system events or billing
                         events.</para>
                 </listitem>
                 <listitem>
@@ -637,15 +684,15 @@
             </orderedlist>
         </para>
         <para>To read the official documentation for the Atom
-            Syndication Format, go to <link
+            Syndication Format, see <link
                 xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1"
-                >RFC 4287</link>. For more information about APP,
+                >RFC 4287</link>. For more information about AtomPub,
             visit <link xlink:href="http://atompub.org/"
                 >http://atompub.org/</link>.</para>
         <section xml:id="Container_Elements">
             <title>Container Elements</title>
             <para>An Atom feed consists of a series of container
-                element, which contain metadata or actual content
+                elements, which contain metadata or actual content
                 related to the feed. </para>
             <para>The Atom Publishing Protocol supports the following
                 container elements:</para>
@@ -656,9 +703,8 @@
                                 Feed Element</link></para>
                     </listitem>
                     <listitem>
-                        <para><link
-                                linkend="Atom_Entry_Element"
-                                >Atom Entry Element</link></para>
+                        <para><link linkend="Atom_Entry_Element">Atom
+                                Entry Element</link></para>
                     </listitem>
                     <listitem>
                         <para><link linkend="Atom_Content-Element"
@@ -666,61 +712,63 @@
                     </listitem>
                 </itemizedlist>
             </para>
-        <section xml:id="Atom_Feed_Element">
-            <title>Atom Feed Element</title>
-            <para>An Atom Feed element is a representation of an Atom
-                    feed, including metadata about the feed, and some
-                    or all of the entries associated with it. </para>
-            <para>The Atom Feed element represents the top-level
-                element of an Atom Feed Document. It functions as a
-                container for metadata and data associated with the
-                feed. Its element children consist of metadata
-                elements that are followed by zero or more Atom Entry
-                child elements. </para>
-            <para>The following is an example of an Atom Feed
-                Element:</para>
-            <example>
+            <section xml:id="Atom_Feed_Element">
                 <title>Atom Feed Element</title>
-                <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
-            </example>
-        </section>
-        <section xml:id="Atom_Content-Element">
-            <title>Atom Content Element</title>
-            <para>The Atom Content element either contains or links to
-                    the content of an entry. The “type” attribute
-                    specifies the MIME media type. If no “type”
-                    attribute is present, the content is treated as
-                    “text”. </para>
-            <para>The following is an example of an Atom Content
-                element:</para>
-            <para>
+                <para>An Atom Feed element is a representation of an
+                    Atom feed, including metadata about the feed, and
+                    some or all of the entries associated with it. </para>
+                <para>The Atom Feed element represents the top-level
+                    element of an Atom Feed Document. It functions as
+                    a container for metadata and data associated with
+                    the feed. Its element children consist of metadata
+                    elements that are followed by zero or more Atom
+                    Entry child elements. </para>
+                <para>Following is an example of an Atom Feed
+                    element.</para>
                 <example>
-                    <title>Atom Content Element</title>
-                <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
+                    <title>Atom Feed Element</title>
+                    <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
                 </example>
-            </para>
-        </section>
-        <section xml:id="Atom_Entry_Element">
-            <title>Atom Entry Element</title>
-            <para>The Atom Entry Element represents exactly one Atom
-                    entry, outside of the context of an Atom feed. It
-                    functions as a container for metadata and data
-                    associated with the entry. This element can appear
-                    as a child of the Atom Feed element, or it can
-                    appear as the top-level element of a stand-alone
-                    Atom Entry Document. </para>
-            <para>The following is an example of an Atom Entry
-                element:</para>
-            <example><title>Atom Entry Element</title>
-            <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
-            </example>
-        </section>
-            
+            </section>
+            <section xml:id="Atom_Content-Element">
+                <title>Atom Content Element</title>
+                <para>The Atom Content element either contains or
+                    links to the content of an entry. The type
+                    attribute specifies the MIME media
+                        <parameter>type</parameter>. If no
+                        <parameter>type</parameter> attribute is
+                    present, the content is treated as
+                        <parameter>text</parameter>. </para>
+                <para>Following is an example of an Atom Content
+                    element.</para>
+                <para>
+                    <example>
+                        <title>Atom Content Element</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
+                    </example>
+                </para>
+            </section>
+            <section xml:id="Atom_Entry_Element">
+                <title>Atom Entry Element</title>
+                <para>The Atom Entry element represents exactly one
+                    Atom entry, outside of the context of an Atom
+                    feed. It functions as a container for metadata and
+                    data associated with the entry. This element can
+                    appear as a child of the Atom Feed element, or it
+                    can appear as the top-level element of a
+                    stand-alone Atom Entry Document. </para>
+                <para>Following is an example of an Atom Entry
+                    element.</para>
+                <example>
+                    <title>Atom Entry Element</title>
+                    <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
+                </example>
+            </section>
         </section>
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
             <title>Cloud Feeds Product Events</title>
-            <para>Cloud Feed places the actual product events inside
-                the atom:content element. For example, the &lt;event>
+            <para>Cloud Feed places product events inside the Atom
+                Content element. For example, the <tag>event</tag>
                 element contains the product events (in this case for
                 Cloud Backup product). </para>
             <example>
@@ -731,7 +779,7 @@
             xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
             xmlns:atom="http://www.w3.org/2005/Atom">
     &lt;atom:content type="application/xml">
-        <emphasis>&lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
+       <emphasis role="bold"> &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
                region="DFW" dataCenter="DFW1" type="USAGE"
                id="8d89673c-c989-11e1-895a-0b3d632a8a89"
                resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
@@ -753,9 +801,8 @@
     </chapter>
     <chapter xml:id="Using_the_Cloud_Feeds_API">
         <title>Using the Cloud Feeds API</title>
-        <para>In this section you will learn how to use the Cloud Feeds API by going through the following steps:
-        
-        </para>
+        <para>This section uses the following steps to explain how to
+            use the Cloud Feeds API:</para>
         <para>
             <itemizedlist>
                 <listitem security="internal">
@@ -778,7 +825,7 @@
             an authentication token as described in <link
                 linkend="Generating_Auth_Token">Chapter 4: Generate an
                 Authentication Token</link>. Please make sure to
-            record the token because you will need it to complete the
+            record the token because you need it to complete the
             exercises in this chapter.</para>
         <section xml:id="Create_Atom_Entry" security="internal">
             <title>Add a New Atom Event in a Feed</title>
@@ -791,10 +838,11 @@
                 the Atom entry you want to submit using the following
                 syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d@&lt;input_file> </programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events –d@&lt;<emphasis role="italic">inputFile</emphasis>> </programlisting>
             </para>
-            <para><parameter>&lt;input_file> </parameter>specifies the
-                path to a file that contains an atom entry. </para>
+            <para><parameter>&lt;<emphasis role="italic"
+                        >inputFile</emphasis>> </parameter>specifies
+                the path to a file that contains an atom entry. </para>
             <para>You also need to specify the request payload in a
                 separate file using xml format. </para>
             <para>The following example shows what a payload for an
@@ -803,12 +851,12 @@
             <para>The following example shows how to add a new Atom
                 entry by providing a pointer to the entry:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://dfw.feeds.api.rackspacecloud.com/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://dfw.feeds.api.rackspacecloud.com/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
             </para>
             <para>You can also include the XML entry directly in the
                 payload by using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d "&lt;payload>"</programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d "&lt;<emphasis role="italic">payload</emphasis>>"</programlisting>
             </para>
             <para>
                 <important>
@@ -823,14 +871,15 @@
                 you posted in the request body.</para>
         </section>
         <section xml:id="Get_Atom_Entry">
-            <title>Get Atom Entries that were Posted</title>
+            <title>Get Atom Entries That Were Posted</title>
             <para>To retrieve an Atom feed or an Atom entry that was
                 posted, submit a <methodname>GET</methodname> request
                 using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://&lt;endpoint_url>/&lt;feed_name>/events </programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;feed_name>/events/&lt;<emphasis role="italic">tentantId</emphasis>></programlisting>
             </para>
-            <para>The placeholders stand for the following:</para>
+            <para>The placeholders are defined in the following
+                table.</para>
             <para>
                 <table>
                     <caption>Syntax elements</caption>
@@ -842,25 +891,28 @@
                     <col width="16%"/>
                     <col width="16%"/>
                     <thead>
-                        <tr align="center">
+                        <tr align="left">
                             <td colspan="2">Placeholder</td>
                             <td colspan="5">Description</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr align="left">
-                            <td colspan="2">&lt;auth_token> </td>
+                            <td colspan="2"><emphasis role="italic"
+                                   >authenticationToken</emphasis></td>
                             <td colspan="5">Specifies the token that
                                 you obtain during authentication.</td>
                         </tr>
                         <tr align="left">
-                            <td colspan="2">&lt;feeds_url></td>
+                            <td colspan="2"><emphasis role="italic"
+                                   >endpointURL</emphasis></td>
                             <td colspan="5">Specifies the URL/VIP that
                                 was obtained from the list of Cloud
                                 Feeds endpoints.</td>
                         </tr>
                         <tr align="left">
-                            <td colspan="2">&lt;feed_name></td>
+                            <td colspan="2"><emphasis role="italic"
+                                   >feedName</emphasis></td>
                             <td colspan="5">Specifies he name of the
                                 feeds you are trying to fetch events
                                 for. An example of feed name is: nova,
@@ -871,11 +923,13 @@
             </para>
             <para>The following is an example for a request for a
                 feed:</para>
-            <para><programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting></para>
-       <para>This request will return 25 of the latest events in the
-                Next Generation Cloud Server feed from the DFW
-                datacenter. To make the formatting of the returned
-                events more readable, you can submit the following
+            <para>
+                <programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting>
+            </para>
+            <para>This request returns 25 of the latest events in the
+                Next Generation Cloud Server feed from the DFW data
+                center. To make the formatting of the returned events
+                more readable, you can submit the following
                 request:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
@@ -904,14 +958,17 @@
                 ”</olink>.</para>
         </section>
     </chapter>
-    <chapter xml:id="Next_Steps"><title>Next Steps</title><para>To learn more aboud the Cloud Feeds API, read <olink
+    <chapter xml:id="Next_Steps">
+        <title>Next Steps</title>
+        <para>To learn more aboud the Cloud Feeds API, read <olink
                 targetdoc="cloudfeeds-devguide"
                 targetptr="Using_Cloud_Feeds">Using Cloud
-                Feeds</olink> in the Cloud Feeds Developer's
-            Guide.</para>
-    <section xml:id="Additional_Resources"><title>Additional Resources</title>
-    <para>The following lists provides links to additional resources
-                about Cloud Feeds and Atom:</para>
+                Feeds</olink> in the <emphasis role="italic">Cloud
+                Feeds Developer's Guide</emphasis>.</para>
+        <section xml:id="Additional_Resources">
+            <title>Additional Resources</title>
+            <para>The following lists provides links to additional
+                resources about Cloud Feeds and Atom:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -928,6 +985,6 @@
                     </listitem>
                 </itemizedlist>
             </para>
-    </section>
+        </section>
     </chapter>
 </book>
