@@ -44,34 +44,52 @@
     <xsl:message>input-query-uri</xsl:message>
     <xsl:message> <xsl:copy-of select="$queryDoc"/> </xsl:message>
     <xsl:message> ============= </xsl:message>              
--->
-<xsl:copy-of select="."/>
-<xsl:apply-templates select="$headerDoc/*"/>
-<xsl:apply-templates select="$queryDoc/*"/>
-<xsl:apply-templates select="$requestDoc/*" />
+    
+    <xsl:copy-of select="."/>
+    <xsl:apply-templates select="$headerDoc/*"/>
+    <xsl:apply-templates select="$queryDoc/*"/>
+    <xsl:apply-templates select="$requestDoc/*" />
   </xsl:template>
-  
+-->  
   <xsl:variable name="tenantId">
     <xsl:call-template name="getTenantId">
       <xsl:with-param name="uri"
 		      select="$requestDoc/httpx:request-information/httpx:uri"/>            
     </xsl:call-template>
   </xsl:variable>
-  
+
+  <xsl:variable name="entries">
+    <xsl:call-template name="getEntries">
+      <xsl:with-param name="uri"
+		      select="$requestDoc/httpx:request-information/httpx:uri"/>            
+    </xsl:call-template>      
+  </xsl:variable>
+
   <xsl:template name="getTenantId">
     <xsl:param name="uri"/>        
     <xsl:analyze-string select="$uri"
-			regex="(.*/events/)([^/?]+)/?(\?.*)?">
+			regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
       <xsl:matching-substring>
 	<xsl:value-of select="regex-group(2)"/>
       </xsl:matching-substring>
     </xsl:analyze-string>                      
   </xsl:template>
+
   
+  <xsl:template name="getEntries">
+    <xsl:param name="uri"/>
+    <xsl:analyze-string select="$uri"
+			regex=".*/events/[^/?]+/(entries/[^/?]+)/?(\?.*)?">
+      <xsl:matching-substring>
+	<xsl:value-of select="regex-group(1)"/>
+      </xsl:matching-substring>
+    </xsl:analyze-string>
+  </xsl:template>
+
   <xsl:template name="parseURI">
     <xsl:param name="uri"/>
     <xsl:analyze-string select="$uri"
-			regex="(.*/events/)([^/?]+)/?(\?.*)?">
+			regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
       <xsl:matching-substring>
 	
 	<xsl:value-of select="regex-group(1)"/>
@@ -84,18 +102,23 @@
     <xsl:result-document method="xml" include-content-type="no" href="{$output-request-uri}">
       
       <request-information xmlns="http://openrepose.org/repose/httpx/v1.0">
-	<uri>
-	  <xsl:call-template name="parseURI">
-	    <xsl:with-param name="uri"
-			    select="httpx:uri"/>
-	  </xsl:call-template>                
-	</uri> 
-	
+       <uri>
+          <xsl:call-template name="parseURI">
+            <xsl:with-param name="uri"
+                            select="httpx:uri"/>
+          </xsl:call-template>
+          <xsl:if test="$entries != ''">
+            <xsl:value-of select="$entries"/>
+          </xsl:if>
+        </uri>
 	<url>
 	  <xsl:call-template name="parseURI">
 	    <xsl:with-param name="uri"
 			    select="httpx:uri"/>
 	  </xsl:call-template>                
+	  <xsl:if test="$entries != ''">
+	    <xsl:value-of select="$entries"/>
+	  </xsl:if>
 	</url> 
 	
       </request-information>
@@ -109,7 +132,7 @@
 	  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	  xmlns='http://openrepose.org/repose/httpx/v1.0'>
 	<xsl:apply-templates/>    
-	<xsl:if test="not( httpx:parameter[@name='search'] )">
+	<xsl:if test="not( httpx:parameter[@name='search'] ) and $entries = ''">
 	  <parameter name="search">
             <xsl:attribute name="value">(cat=tid:<xsl:value-of select="$tenantId"/>)</xsl:attribute>
 	  </parameter>
@@ -119,7 +142,7 @@
   </xsl:template>
   
   <xsl:template match="httpx:parameter">
-    <xsl:if test="@name = 'search'">
+    <xsl:if test="@name = 'search' and $entries = ''">
       <xsl:element name="httpx:parameter">
 	<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
 	<xsl:attribute name="value">
