@@ -1,6 +1,21 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.43.0**  
+2014-03-24 | B-65932: add more enum values for sites subscription action (Shinta Smith)  
+2014-03-20 | B-66236: /dedicatedvcloud schema changes (Shinta Smith)  
+2014-03-19 | B-66235: update to /dedicatedvcloud schema per BenT (Shinta Smith)  
+2014-03-12 | B-65932 - add revert_cancel (Joe Savak)  
+
+**usage-schema-1.41.0**  
+2014-03-07 | B-65764: update the entry.xml (Shinta Smith)  
+2014-03-07 | B-65764: update nova assert for applicationLicense MSSQL_WEB and MSSQL (Shinta Smith)  
+2014-03-06 | B-65764: update nova xml assert (Joe Savak)  
+2014-03-06 | B-65764: update sample (Joe Savak)  
+2014-03-06 | D-17018 - UsageDeadLetter and UsageSummary can not be included in /functest1 (Greg Sharek)  
+2014-03-04 | B-52505 - Upgrade Repose 3.0.2 (Greg Sharek)  
+2014-03-04 | B-63677 - New Feed - ebs/events for Oracle EBS (Greg Sharek)  
+
 **usage-schema-1.40.3**  
 
 **usage-schema-1.40.2**  
