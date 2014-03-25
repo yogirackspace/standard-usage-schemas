@@ -126,12 +126,6 @@
                         >JRFC 4287</link></para>
             </listitem>
         </itemizedlist>
-        <para security="writeronly">Writer (insert the link cited when
-            available): We welcome feedback, comments, and bug reports
-            at (need to have a specific feedback area for the Cloud
-            Feeds product) <link
-                xlink:href="http://feedback.rackspacecloud.com"
-                >http://feedback.rackspacecloud.com</link>.</para>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
@@ -800,6 +794,50 @@
                     follows: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
 </programlisting>
+            </section>
+            <section xml:id="Filter_Entries_by_Timestamp">
+                <title>Filtering Entries by Timestamp</title>
+                <para>You can filter for entries by timestamp by using
+                    the <parameter>StartingAt</parameter> query
+                    parameter. </para>
+                <para>The value for this parameter must be in ISO 8601
+                    Date and Time format (see <link
+                        xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                        >http://en.wikipedia.org/wiki/ISO_8601</link>).
+                    The parameter value <emphasis role="bold"
+                        >must</emphasis> contain a timezone, such as
+                    2014-03-10T06:00:00.000Z.</para>
+                <para>
+                    <note>
+                        <para>The <emphasis role="bold"
+                                >startingAt</emphasis> parameter can
+                            not be used together with the <emphasis
+                                role="bold">marker</emphasis>
+                            parameter.</para>
+                        <para>If the <emphasis role="bold"
+                                >startingAt</emphasis> parameter is
+                            used without a <emphasis role="bold"
+                                >direction</emphasis> parameter, then
+                            direction FORWARD is assumed. If you want
+                            to fetch feeds from a time period before
+                            the time specified in the timestamp, you
+                            need to use the <emphasis role="bold"
+                                >direction</emphasis> parameter and
+                            then the <emphasis role="bold"
+                                >backward</emphasis> marker, like the
+                                following:<emphasis role="italic">
+                                direction=backward.</emphasis></para>
+                    </note>
+                </para>
+                <para>To obtain entries whose timestamp is newer than
+                    2014-03-10 00:00:00.000 UTC, you can use the
+                    following URL:
+                    <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+                    To fetch entries whose timestamp is older than
+                    2014-03-10 00:00:00.000 UTC, you need to specify
+                    the direcdtion as backward as shown in the
+                    following
+                    example:<programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting></para>
             </section>
         </section>
         <section xml:id="JSON_Feed_Returns_d1e1319">
