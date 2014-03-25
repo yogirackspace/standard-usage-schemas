@@ -147,21 +147,24 @@
                         xlink:href="http://curl.haxx.se/"
                         >http://curl.haxx.se/</link>. </para>
                 <para>With cURL, you can send HTTP requests and
-                    receive responses back from the command line. </para>
+                    receive responses back from the command line.
+                </para>
             </listitem>
             <listitem>
                 <para>If you like to use a more graphical interface,
                     the REST client for Firefox, also works well for
                     testing and trying out commands. See <link
                         xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
-                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
+                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>.
+                </para>
             </listitem>
             <listitem>
                 <para>You can also download and install RESTclient, a
                     Java application used to test RESTful web
                     services, from <link
                         xlink:href="http://code.google.com/p/rest-client/"
-                        >http://code.google.com/p/rest-client/</link>. </para>
+                        >http://code.google.com/p/rest-client/</link>.
+                </para>
             </listitem>
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
@@ -177,7 +180,8 @@
                 within a shell script. This makes it possible to work
                 with the ReST API directly without using one of the
                 client APIs. </para>
-            <para>The following cURL command-line options are used in this guide to run the examples.</para>
+            <para>The following cURL command-line options are used in
+                this guide to run the examples.</para>
             <para>
                 <table frame="void">
                     <caption>cURL Command-Line Options</caption>
@@ -243,34 +247,42 @@
                         <para> Modify each example with your required
                             account information and other information,
                             as detailed in this guide.</para>
-                            <para><note>
-                                <para>The carriage returns in the cURL request
-                                    examples that are part of the cURL syntax are
-                                    escaped with a backslash ('\') in order to avoid
-                                    prematurely terminating the command. However you
-                                    should not escape carriage returns inside the xml
-                                    or json message within the command.</para>
-                            </note></para>
-                        <para>Consider the following cURL Authenticate Request:
-                            XML example that is described in detail in <xref
-                                linkend="Generating_Auth_Token"/>:</para>
+                        <para>
+                            <note>
+                                <para>The carriage returns in the cURL
+                                   request examples that are part of
+                                   the cURL syntax are escaped with a
+                                   backslash ('\') in order to avoid
+                                   prematurely terminating the
+                                   command. However you should not
+                                   escape carriage returns inside the
+                                   xml or json message within the
+                                   command.</para>
+                            </note>
+                        </para>
+                        <para>Consider the following cURL Authenticate
+                            Request: XML example that is described in
+                            detail in <xref
+                                linkend="Generating_Auth_Token"
+                            />:</para>
                         <example>
-                            <title>cURL Authentication Request: XML</title>
+                            <title>cURL Authentication Request:
+                                XML</title>
                             <?dbfo keep-together="always"?>
                             <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
  &lt;auth&gt;   
     &lt;apiKeyCredentials     
         xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
-        username="<emphasis role="bold">your_username</emphasis>"     
-        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
+        username="<emphasis role="italic">yourUserName</emphasis>"     
+        apiKey="<emphasis role="italic">yourApiKey</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
                         </example>
-                        <para>The lines that are part of the cURL command syntax
-                            have been escaped with a backslash ('\') to
-                            indicate that the command continues on the
-                            next line:</para>
+                        <para>The lines that are part of the cURL
+                            command syntax have been escaped with a
+                            backslash ('\') to indicate that the
+                            command continues on the next line:</para>
                         <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
   
    
@@ -281,46 +293,47 @@
    
  &lt;/auth&gt;<option>'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-                        <para>However the lines <emphasis>within</emphasis> the
-                            xml portion of the message are
-                            <emphasis>not</emphasis> escaped with a backslash
-                            ('\') in order to avoid issues with the xml
-                            processing:</para>
+                        <para>However the lines
+                                <emphasis>within</emphasis> the xml
+                            portion of the message are
+                                <emphasis>not</emphasis> escaped with
+                            a backslash ('\') in order to avoid issues
+                            with the xml processing:</para>
                         <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>
  &lt;auth&gt;   
     &lt;apiKeyCredentials     
         xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
-        username="<emphasis role="bold">your_username</emphasis>"     
-        apiKey="<emphasis role="bold">your_api_key</emphasis>"/&gt;   
+        username="<emphasis role="italic">yourUserName</emphasis>"     
+        apiKey="<emphasis role="italic">yourApiKey</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 </screen>
-                        <para>The final line of the xml message is escaped
-                            since the backslash lies
-                            <emphasis>outside</emphasis> the xml message
-                            and continues the cURL command to the next
-                            line.</para>
+                        <para>The final line of the xml message is
+                            escaped since the backslash lies
+                                <emphasis>outside</emphasis> the xml
+                            message and continues the cURL command to
+                            the next line.</para>
                     </listitem>
-            <listitem>
+                    <listitem>
                         <para>After you are finished modifying the
                             text for the cURL request example with
                             your information (for example <emphasis
-                                role="bold"
-                                ><code>your_username</code></emphasis>
-                            and <emphasis role="bold"
-                                   ><code>your_api_key</code></emphasis>),
-                            paste it into your terminal window. Then
-                            execute the cURL command by pressing
+                                role="italic">yourUserName</emphasis>
+                            and <emphasis role="italic"
+                                >yourApiKey</emphasis>), paste it into
+                            your terminal window. Then execute the
+                            cURL command by pressing
                                 <guilabel>Enter</guilabel>.</para>
                         <para>If you have trouble copying and pasting
                             the examples as described, try typing the
                             entire example on one long line, removing
                             all the backs.</para>
                     </listitem>
-                <listitem>
+                    <listitem>
                         <para>Press <guilabel>Enter</guilabel> to run
                             the cURL command.</para>
                     </listitem>
-            </orderedlist></para>
+                </orderedlist>
+            </para>
         </section>
     </chapter>
     <chapter xml:id="Generating_Auth_Token">
@@ -352,8 +365,7 @@
                         selecting <emphasis role="bold">Account
                             Settings</emphasis> from the <emphasis
                             role="italic">yourAccount</emphasis> menu
-                        in the top-right corner of the window.
-                    </para>
+                        in the top-right corner of the window. </para>
                 </listitem>
             </itemizedlist></para>
         <para> You can use either of the following endpoints to access
@@ -397,7 +409,7 @@
             Authentication API.</para>
         <note>
             <para>For UK-based accounts, you may decide to use
-                <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
+                    <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
                 instead.</para>
         </note>
         <example>
@@ -586,6 +598,11 @@
                                 ><code>https://staging.dfw.feeds.api.rackspacecloud.com/&lt;feed></code></td>
                     </tr>
                     <tr align="left">
+                        <td colspan="2">Northern Virginia</td>
+                        <td colspan="5"
+                            ><code>https://staging.iad.feeds.api.rackspacecloud.com/&lt;feed></code></td>
+                    </tr>
+                    <tr align="left">
                         <td colspan="2">London (LON)</td>
                         <td colspan="5">
                             <code>https://staging.lon.feeds.api.rackspacecloud.com/&lt;feed></code></td>
@@ -621,29 +638,32 @@
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
                         <td colspan="5"
-                                ><code>https://ord.feeds.api.rackspacecloud.com/&lt;feed></code></td>
+                                ><code>https://atom.prod.ord1.us.ci.rackspace.net/&lt;feed></code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
                         <td colspan="5"
-                                ><code>https://dfw.feeds.api.rackspacecloud.com/&lt;feed>
-                            </code></td>
+                                ><code>https://atom.prod.dfw1.us.ci.rackspace.net/&lt;feed></code></td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="2">Northern Virginia IAD)</td>
+                                <td colspan="5"
+                                ><code>https://atom.prod.iad3.us.ci.rackspace.net/&lt;feed></code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
-                        <td colspan="5">
-                            <code>https://lon.feeds.api.rackspacecloud.com/&lt;feed></code></td>
+                        <td colspan="5"
+                                ><code>https://atom.prod.lon1.uk.ci.rackspace.net/&lt;feed></code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
                         <td colspan="5"
-                                ><code>https://syd.feeds.api.rackspacecloud.com/&lt;feed>
-                            </code></td>
+                                ><code>https://atom.prod.syd2.us.ci.rackspace.net/&lt;feed></code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Hong Kong (HKG)</td>
-                        <td colspan="5">
-                            <code>https://hkg.feeds.api.rackspacecloud.com/&lt;feed></code></td>
+                        <td colspan="5"
+                                ><code>https://atom.prod.hkg1.us.ci.rackspace.net/&lt;feed></code></td>
                     </tr>
                 </tbody>
             </table>
@@ -840,9 +860,9 @@
             <para>
                 <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events –d@&lt;<emphasis role="italic">inputFile</emphasis>> </programlisting>
             </para>
-            <para><parameter>&lt;<emphasis role="italic"
-                        >inputFile</emphasis>> </parameter>specifies
-                the path to a file that contains an atom entry. </para>
+            <para>&lt;<emphasis role="italic">inputFile</emphasis>>
+                specifies the path to a file that contains an atom
+                entry. </para>
             <para>You also need to specify the request payload in a
                 separate file using xml format. </para>
             <para>The following example shows what a payload for an
@@ -856,7 +876,7 @@
             <para>You can also include the XML entry directly in the
                 payload by using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;feeds_url>/&lt;feed_name>/events –d "&lt;<emphasis role="italic">payload</emphasis>>"</programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;<emphasis role="italic">feedsURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events –d "&lt;<emphasis role="italic">payload</emphasis>>"</programlisting>
             </para>
             <para>
                 <important>
@@ -876,7 +896,7 @@
                 posted, submit a <methodname>GET</methodname> request
                 using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;feed_name>/events/&lt;<emphasis role="italic">tentantId</emphasis>></programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events/&lt;<emphasis role="italic">tenantId</emphasis>></programlisting>
             </para>
             <para>The placeholders are defined in the following
                 table.</para>
