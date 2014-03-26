@@ -44,13 +44,13 @@
     <xsl:message>input-query-uri</xsl:message>
     <xsl:message> <xsl:copy-of select="$queryDoc"/> </xsl:message>
     <xsl:message> ============= </xsl:message>              
-    
+-->    
     <xsl:copy-of select="."/>
     <xsl:apply-templates select="$headerDoc/*"/>
     <xsl:apply-templates select="$queryDoc/*"/>
     <xsl:apply-templates select="$requestDoc/*" />
   </xsl:template>
--->  
+  
   <xsl:variable name="tenantId">
     <xsl:call-template name="getTenantId">
       <xsl:with-param name="uri"
