@@ -1,6 +1,8 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.43.1**  
+
 **usage-schema-1.43.0**  
 2014-03-24 | B-65932: add more enum values for sites subscription action (Shinta Smith)  
 2014-03-20 | B-66236: /dedicatedvcloud schema changes (Shinta Smith)  
