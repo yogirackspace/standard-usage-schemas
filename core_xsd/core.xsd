@@ -527,7 +527,7 @@
               - must start with a letter
               - can contain letters, digits, -, _ & @
               -->
-            <pattern value="[a-zA-z][a-zA-z0-9.\-_@]*"/>
+            <pattern value="[a-zA-Z][a-zA-Z0-9.\-_@]*"/>
         </restriction>
     </simpleType>
     <simpleType name="NonEmptyString">
