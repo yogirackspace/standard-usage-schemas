@@ -944,7 +944,7 @@
             <para>The following is an example for a request for a
                 feed:</para>
             <para>
-                <programlisting language="xml"><xi:include href="./samples/reqGetAtomEntry.xml" parse="text"/></programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events</programlisting>
             </para>
             <para>This request returns 25 of the latest events in the
                 Next Generation Cloud Server feed from the DFW data
@@ -952,7 +952,7 @@
                 more readable, you can submit the following
                 request:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
             </para>
         </section>
         <section xml:id="Filter_Atom_Entries">
@@ -968,7 +968,7 @@
                     <emphasis>cloudsites.metered.site.usage</emphasis>
                 category:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;auth_token>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
             </para>
             <para>You can also specify multiple categories to filter
                 by. For more information about filtering for certain
