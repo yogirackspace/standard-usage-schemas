@@ -1,0 +1,31 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/emailapps/msservice"
+               version="1"
+               serviceCode="EmailAppsMSService" type="INFO"
+               resourceTypes="LYNC"
+               >
+    <description>
+        Email and Apps Microsoft Service events
+    </description>
+    <attribute name="operation" type="string" use="required">
+        The operation performed on the resource that this event corresponds to.
+    </attribute>
+    <attribute name="status" type="Name" allowedValues="COMPLETED ERROR" use="required">
+        The status of the operation performed on the resource that this event corresponds to.
+    </attribute>
+    <attribute name="request" type="string" minLength="1" maxLength="20000" use="required">
+        The request that this event corresponds to.
+    </attribute>
+    <attribute name="response" type="string" minLength="1" maxLength="20000" use="required">
+        The response for the request above.
+    </attribute>
+    <attributeGroup name="dependent" minOccurs="0" maxOccurs="unbounded">
+        <description>
+            The list of all dependent objects for an event. For example, in mailbox related events, since mailbox
+            has to be under a domain, a domain object can be listed as one of the dependents.
+        </description>
+        <attribute name="key" type="string" minLength="1" use="required">
+            The key of the dependent objects
+        </attribute>
+    </attributeGroup>
+</productSchema>

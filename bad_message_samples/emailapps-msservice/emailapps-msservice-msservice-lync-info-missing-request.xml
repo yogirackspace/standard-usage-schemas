@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="emailapps/msservice/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="request"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>Lync event</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:eams="http://docs.rackspace.com/event/emailapps/msservice"
+               version="1" tenantId="12334"
+               resourceId="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
+               resourceName="Lync Service"
+               id="560490c6-6c63-33e3-adfe-27851d5aed13"
+               type="INFO" dataCenter="DFW1" region="DFW"
+               eventTime="2012-03-12T11:51:11Z">
+            <eams:product version="1" serviceCode="EmailAppsMSService"
+                          resourceType="LYNC"
+                          operation="UPDATE"
+                          status="COMPLETED"
+                          response="200"
+                          />
+        </event>
+    </atom:content>
+</atom:entry>
