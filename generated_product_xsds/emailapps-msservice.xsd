@@ -60,6 +60,16 @@
                  type="xsd:Name"
                  fixed="EmailAppsMSService"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
+      <attribute name="productType" use="required" type="p:string">
+         <annotation>
+            <documentation>
+               <html:p>The MS Service product that this event corresponds to</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes/>
+            </appinfo>
+         </annotation>
+      </attribute>
       <attribute name="operation" use="required" type="p:string">
          <annotation>
             <documentation>
@@ -108,7 +118,7 @@
          </documentation>
       </annotation>
       <restriction base="xsd:token">
-         <enumeration value="LYNC"/>
+         <enumeration value="MSSERVICE_PROVISIONING"/>
       </restriction>
    </simpleType>
    <simpleType name="statusEnum">

@@ -13,7 +13,8 @@
                type="INFO" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
             <eams:product version="1" serviceCode="EmailAppsMSService"
-                          resourceType="LYNC"
+                          resourceType="MSSERVICE_PROVISIONING"
+                          productType="lync"
                           operation="UPDATE"
                           status="COMPLETED"
                           response="200"

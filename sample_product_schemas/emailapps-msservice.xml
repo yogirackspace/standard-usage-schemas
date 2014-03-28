@@ -2,11 +2,14 @@
                namespace="http://docs.rackspace.com/event/emailapps/msservice"
                version="1"
                serviceCode="EmailAppsMSService" type="INFO"
-               resourceTypes="LYNC"
+               resourceTypes="MSSERVICE_PROVISIONING"
                >
     <description>
         Email and Apps Microsoft Service events
     </description>
+    <attribute name="productType" type="string" use="required">
+        The MS Service product that this event corresponds to
+    </attribute>
     <attribute name="operation" type="string" use="required">
         The operation performed on the resource that this event corresponds to.
     </attribute>
