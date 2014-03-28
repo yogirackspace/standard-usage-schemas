@@ -90,7 +90,7 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="response" use="required" type="p:string1_20000">
+      <attribute name="response" use="optional" type="p:string1_20000">
          <annotation>
             <documentation>
                <html:p>The response for the request above.</html:p>

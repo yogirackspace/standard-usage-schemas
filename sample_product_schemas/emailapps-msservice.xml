@@ -16,7 +16,7 @@
     <attribute name="request" type="string" minLength="1" maxLength="20000" use="required">
         The request that this event corresponds to.
     </attribute>
-    <attribute name="response" type="string" minLength="1" maxLength="20000" use="required">
+    <attribute name="response" type="string" minLength="1" maxLength="20000" use="optional">
         The response for the request above.
     </attribute>
     <attributeGroup name="dependent" minOccurs="0" maxOccurs="unbounded">
