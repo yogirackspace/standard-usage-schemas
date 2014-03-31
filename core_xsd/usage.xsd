@@ -30,7 +30,7 @@
             schemaLocation="../generated_product_xsds/emailAppsSubscription.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/emailapps/msservice"
-            schemaLocation="../generated_product_xsds/emailapps-msservice.xsd"/>
+            schemaLocation="../generated_product_xsds/emailapps_msservice.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/glance"
             schemaLocation="../generated_product_xsds/glance.xsd"/>

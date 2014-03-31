@@ -27,7 +27,7 @@
         <resource id="domain_events" path="domain/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DomainRegistration"/>
         <resource id="ebs_events" path="ebs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EBS"/>
         <resource id="emailapps_events" path="emailapps/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailApps" />
-        <resource id="emailapps_msservice_events" path="emailapps/msservice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsMSService" />
+        <resource id="emailapps_msservice_events" path="emailapps_msservice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsMSService" />
         <resource id="files_events" path="files/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles"/>
         <resource id="glance_events" path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource id="identity_events" path="identity/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity"/>
