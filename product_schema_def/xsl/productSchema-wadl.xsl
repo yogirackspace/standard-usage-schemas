@@ -153,60 +153,28 @@
                             </xsl:call-template>
 
                             <!--
+                                !!!!!!  HACK   !!!!!!
                                 B-51154: restrict the use of GLOBAL DC/Region
                                 This can be implemented inside the product schema XMLs once B-50883,
                                 which depends on Repose 2.8.6 or above, is implemented.
+
+                                JW:  We should probably implement this by extending the product schema
+                                     to support of allowing global dcs etc, instead of doing this
+                                     via individual product assurtions. That would be much cleaner.
+                                     PLEASE FIX. :-)
                             -->
-                            <xsl:choose>
-                                <xsl:when test="$serviceCode = 'CloudMonitoring'">
-                                    <param name="checkDatacenter"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                           rax:message="For this type of Monitoring event, @dataCenter must be present and can not be GLOBAL."/>
-                                    <param name="checkRegion"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                           rax:message="For this type of Monitoring event, @region must be present and can not be GLOBAL."/>
-                                </xsl:when>
-                                <xsl:when test="$serviceCode = 'CloudSites'">
-                                    <param name="checkDatacenter"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                           rax:message="For this type of Sites event, @dataCenter must be present and can not be GLOBAL."/>
-                                    <param name="checkRegion"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                           rax:message="For this type of Sites event, @region must be present and can not be GLOBAL."/>
-                                </xsl:when>
-                                <xsl:when test="$serviceCode = 'DomainRegistration'">
-                                    <param name="checkDatacenter"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                       rax:message="For this type of Domain event, @dataCenter must be present and can not be GLOBAL."/>
-                                    <param name="checkRegion"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                           rax:message="For this type Domain of event, @region must be present and can not be GLOBAL."/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <param name="checkDatacenter"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
-                                           rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
-                                    <param name="checkRegion"
-                                           style="plain"
-                                           required="true"
-                                           path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
-                                           rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            <xsl:call-template name="sch:restrict-global">
+                                <xsl:with-param name="serviceCode" select="$serviceCode"/>
+                                <xsl:with-param name="rules">
+                                    <rax:restrict-rules>
+                                        <!-- For these resource and resource types, the dc and region must be GLOBAL-->
+                                        <!-- The nsprefix must be declared at the top of this XSL for this to work! -->
+                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefix="maas"              resourceType="CHECK"/>
+                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefix="sitesSubscription" resourceType="SITES_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefix="domain"            resourceType="DOMAIN_SUBSCRIPTION"/>
+                                    </rax:restrict-rules>
+                                </xsl:with-param>
+                            </xsl:call-template>
 
                             <xsl:call-template name="sch:check-tenant-for-hybrid">
                                 <xsl:with-param name="schemas" select="$currentSchemas"/>
@@ -219,6 +187,7 @@
                             </xsl:call-template>
 
                             <!-- !!!!!! HACK !!!!!! -->
+
                             <!-- These synthasized XSLs should be associated via the product schema.  PLEASE FIX. :-) -->
                             <!-- Intententially use $id instead of $serviceCode, we don't want to perform the transform on a summary event -->
 
@@ -272,6 +241,46 @@
                 </resource>
            </resource_type>
         </xsl:if>
+    </xsl:template>
+    <xsl:template name="sch:restrict-global">
+        <xsl:param name="serviceCode" as="xs:string"/>
+        <xsl:param name="rules" as="node()"/>
+        <xsl:variable name="hitRules" select="$rules/rax:restrict-rules/rax:restrict-rule[@serviceCode = $serviceCode]"/>
+        <xsl:choose>
+            <xsl:when test="not(empty($hitRules))">
+                <xsl:for-each select="$hitRules">
+                    <xsl:variable name="rtype" as="xs:string" select="./@resourceType"/>
+                    <xsl:variable name="scode" as="xs:string" select="./@serviceCode"/>
+                    <xsl:variable name="pfix"  as="xs:string" select="./@nsprefix"/>
+                    <param name="checkDatacenter_{$rtype}"
+                           style="plain"
+                           required="true"
+                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                                    (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
+                           rax:message="For this type of {$scode} event, @dataCenter must be present and can not be GLOBAL."/>
+                    <param name="checkRegion_{$rtype}"
+                           style="plain"
+                           required="true"
+                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                                 (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
+                           rax:message="For this type of {$scode} event, @region must be present and can not be GLOBAL."/>
+                </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+                <param name="checkDatacenter"
+                       style="plain"
+                       required="true"
+                       path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter)) or
+                             /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
+                       rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
+                <param name="checkRegion"
+                       style="plain"
+                       required="true"
+                       path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or
+                             /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
+                       rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template name="sch:check-tenant-for-hybrid">
         <xsl:param name="schemas" as="node()*"/>
