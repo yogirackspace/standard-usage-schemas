@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-        <!-- Some useful entities borrowed from HTML -->
-        <!ENTITY ndash  "&#x2013;">
-        <!ENTITY mdash  "&#x2014;">
+<!-- Some useful entities borrowed from HTML -->
+        <!ENTITY ndash "&#x2013;">
+        <!ENTITY mdash "&#x2014;">
         <!ENTITY hellip "&#x2026;">
 
         <!-- Useful for describing APIs -->
-        <!ENTITY GET    '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
-        <!ENTITY PUT    '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
-        <!ENTITY POST   '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+        <!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+        <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+        <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
         <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
         
         <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
@@ -126,15 +126,6 @@
                         >JRFC 4287</link></para>
             </listitem>
         </itemizedlist>
-        <para security="writeronly">Writer (insert the link cited when
-            available): We welcome feedback, comments, and bug reports
-            at (need to have a specific feedback area for the Cloud
-            Feeds product) <link
-                xlink:href="http://feedback.rackspacecloud.com"
-                >http://feedback.rackspacecloud.com</link>.</para>
-        <para security="writeronly">Writer: Insert the CF Overview
-            Graphic when received from marketing; make sure to
-            follow-up with Theresa H to remind her.</para>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
             <para>This version of the Developer Guide replaces and
@@ -177,18 +168,15 @@
                 site also provides links to the official Rackspace
                 support channels, including knowledge center articles,
                 forums, phone, chat, and email. </para>
-            <para security="writeronly">Writer: Update this
-                information when the Getting Started Guide and the
-                Product Feedback forum when it is available: For
-                detailed information about getting started with the
-                API, see the <citetitle>Cloud Feeds Getting Started
-                    Guide</citetitle> at <link
+            <para>For detailed information about getting started with
+                the API, see the <citetitle>Cloud Feeds Getting
+                    Started Guide</citetitle> at <link
                     xlink:href="http://docs.rackspace.com/"
                     >http://docs.rackspace.com/</link> All you need to
-                start using Cloud Feeds is the getting started guide,
+                start using Cloud Feeds is the Getting Started guide,
                 the developer guide, your Rackspace Cloud account, and
                 at least one cloud server.</para>
-            <para security="writeronly">Visit the <link
+            <para>Visit the <link
                     xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
                     >Product Feedback Forum</link> to let us know what
                 you think about Cloud Feeds.</para>
@@ -261,9 +249,6 @@
                         a feed with five million entries.</para>
                 </listitem>
             </itemizedlist>
-            <para security="writeronly">The amounts listed in the
-                following table will changes, since performance
-                numbers are changing as of 9-24-13.</para>
             <para>The following table lists the performance for API
                 requests for the Cloud Feeds API.</para>
             <table rules="all">
@@ -365,124 +350,18 @@
             </table>
         </section>
     </chapter>
-    <chapter xml:id="Concepts-d1e111">
-        <title>Concepts</title>
-        <para>To use the Cloud Feeds API effectively, you should
-            understand the following concepts:</para>
-        <section xml:id="Atom_Feed_Document-d1e115">
-            <title>Atom Feed Document</title>
-            <para>An Atom Feed Document is a representation of an Atom
-                feed, including metadata about the feed, and some or
-                all of the entries associated with it. It's root is
-                the <code>atom:feed</code> element. The following is
-                an example of an Atom Feed Document:</para>
-            <example>
-                <title>Atom Feed Document</title>
-                <programlisting>&lt;feed>
-    &lt;link href="https://localhost/demo/events/" rel="current" />
-    &lt;link href="https://localhost/demo/events/?limit=2&amp;direction=backward" rel="self" />
-    &lt;id>urn:uuid:5f4e03b9-2bd1-48de-acd8-6ad9f667f22a&lt;/id>
-    &lt;title type="text">demo/events&lt;/title>
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
-    &lt;link href="https://localhost/demo/events/?marker=urn:uuid:398fc859-7c3f-4434-8049-a507a6eb1954&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
-    &lt;link href="https://localhost/demo/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated>2013-10-10T20:15:21.649Z&lt;/updated>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:50.812Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:02d4d829-5bda-4626-a603-421df50544fc&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:02d4d829-5bda-4626-a603-421df50544fc"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:50.812Z&lt;/atom:published>
-    &lt;/atom:entry>
-    &lt;atom:entry>
-        &lt;atom:title type="text">Sites&lt;/atom:title>
-        &lt;atom:author>
-            &lt;atom:name>Atom Hopper Team&lt;/atom:name>
-        &lt;/atom:author>
-        &lt;atom:category label="atom-hopper-test" term="atom-hopper-test" />
-        &lt;atom:updated>2013-09-27T15:43:17.041Z&lt;/atom:updated>
-        &lt;atom:content type="application/xml">
-            &lt;event dataCenter="DFW1" eventTime="2012-06-14T10:19:52Z" id="999c90fd-2f7a-14c2-3436-c7c9fb8bd12b" region="DFW" resourceId="db:mssqldb" tenantId="12882" type="USAGE_SNAPSHOT" version="1">
-                &lt;db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
-            &lt;/event>
-        &lt;/atom:content>
-        &lt;atom:id>urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506&lt;/atom:id>
-        &lt;atom:link href="http://10.14.209.232:9090/demo/events/entries/urn:uuid:a227c4a8-3e3d-42a2-b4bd-74264f68a506"; rel="self" />
-            &lt;atom:published>2013-09-27T15:43:17.041Z&lt;/atom:published>
-    &lt;/atom:entry>
-&lt;/feed>
-</programlisting>
-            </example>
-        </section>
-        <section xml:id="Atom_Content-d1e1116">
-            <title>Atom:Content</title>
-            <para>Provides a short description of the entry or
-                contains a content link that includes an
-                attribute.</para>
-        </section>
-        <section xml:id="Atom_Entry_Document-d1e1115">
-            <title>Atom Entry Document</title>
-            <para>An Atom Entry Document represents exactly one Atom
-                entry, outside of the context of an Atom feed. Its
-                root is the atom:entry element.</para>
-        </section>
-        <section xml:id="Usage_and_System_Event_Messages-d1e1362">
-            <title>Cloud Feeds Product Events</title>
-            <para>Cloud Feed places the actual product events inside
-                the atom:content element. For example, the &lt;event>
-                element contains the product events (in this case for
-                Cloud Backup product). Inside the &lt;event> element
-                is the data for this Cloud Backup event. </para>
-            <example>
-                <title>Cloud Backup Event Information</title>
-                <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
-&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
-            xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
-            xmlns:atom="http://www.w3.org/2005/Atom">
-    &lt;atom:content type="application/xml">
-        &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
-               region="DFW" dataCenter="DFW1" type="USAGE"
-               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
-               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
-               tenantId="1234" version="1">
-            &lt;cb-bin:product version="1" serviceCode="CloudBackup"
-                            serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
-                            bandwidthIn="192998" resourceType="AGENT"/>
-        &lt;/event>
-    &lt;/atom:content>
-&lt;/atom:entry></programlisting>
-            </example>
-        </section>
-        <section xml:id="XML_Schemas-d1e120">
-            <title>XML Schemas</title>
-            <para xlink:href="#XML_Schemas-d1e120">Cloud Feeds
-                evaluates all product events against their XML
-                schemas. For details, see <link
-                    xlink:href="#api-operations">Chapter 5:
-                    Operations</link>.</para>
-            <para security="writeronly"> Writer: Insert hyperlink
-            </para>
-        </section>
-    </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
         <title>Using Cloud Feeds</title>
-        <para>To use Cloud Feeds an understanding of REST API is
-            needed, since Cloud Feeds use a REST API.</para>
+        <para>To use Cloud Feeds you need to have a basic
+            understanding of REST APIs. In this section you will learn
+            how to use the Cloud Feeds REST API to perform basic API
+            operations.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
             <title>Adding a New Atom Entry</title>
-            <para>You can use a POST request to insert new Atom
-                entries into Atom Hopper. The following is an example
-                of a simple Atom entry (with three categories):</para>
+            <para>You can use a <methodname>POST</methodname> request
+                to insert new Atom entries into Atom Hopper. The
+                following is an example of a simple Atom entry (with
+                three categories):</para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
   &lt;title type="text">This is the title&lt;/title>
   &lt;author>
@@ -495,8 +374,9 @@
 &lt;/entry></programlisting>
             <para>
                 <note>
-                    <para>When submitting the POST request, set the
-                        HTTP header to <emphasis role="bold"
+                    <para>When submitting the
+                            <methodname>POST</methodname> request, set
+                        the HTTP header to <emphasis role="bold"
                             >Content-Type:
                             application/atom+xml.</emphasis></para>
                 </note>
@@ -508,14 +388,16 @@
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
             <para>The Category element provides category information
-                for a feed and our case sensitive. Also note that the
-                category XML element can appear anywhere as children
-                of the atom:entry XML element. To add categories to an
-                Atom entry you must include the category element along
-                with a term attribute:</para>
+                for a feed and is case sensitive. The category XML
+                element can appear anywhere as children of the
+                atom:entry XML element. To add categories to an Atom
+                entry you must include the category element along with
+                a term attribute as shown here:</para>
             <para><emphasis role="bold"> Single Category
                 </emphasis></para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
+            <para>You can also filter for multiple categories using
+                the following syntax:</para>
             <para><emphasis role="bold">Multiple
                 Categories</emphasis></para>
             <programlisting>&lt;category term="mycategory1" />
@@ -528,28 +410,30 @@
         </section>
         <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
             <title>Getting Events from Cloud Feeds</title>
-            <para>You can use a GET request to retrieve product
-                event(s) from Cloud Feeds. The GET request will
-                retrieve a specific entry, forward and backward
-                paging, category searches, and JSON feed returns that
-                are experimental. The following example shows the
-                possible return of a GET request:</para>
+            <para>You can use a <methodname>GET</methodname> request
+                to retrieve product event(s) from Cloud Feeds. The
+                    <methodname>GET</methodname> request will retrieve
+                a specific entry, forward and backward paging,
+                category searches, and JSON feed returns that are
+                experimental. The following example shows the possible
+                return of a <methodname>GET</methodname>
+                request:</para>
             <programlisting>&lt;feed>
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
-    &lt;id> urn:uuid:f3fae0e2-f195-430a-baa1-d0d0a77779ac  &lt;/id>
-    &lt;title type="text"> sites/events  &lt;/title>
+    &lt;id> urn:uuid:f3fae0e2-f195-430a-baa1-d0d0a77779ac &lt;/id>
+    &lt;title type="text"> sites/events &lt;/title>
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:d0932ca8-801a-3350-93a5-c4d7b3e09172&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
     &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated> 2013-10-29T17:25:13.420Z  &lt;/updated>
+    &lt;updated> 2013-10-29T17:25:13.420Z &lt;/updated>
     &lt;ns3:entry>
-        &lt;atom:id> urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67  &lt;/atom:id>
+        &lt;atom:id> urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67 &lt;/atom:id>
         &lt;atom:category term="tid:5834721" />
         &lt;atom:category term="rgn:ORD" />
         &lt;atom:category term="dc:ORD1" />
         &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
-        &lt;ns3:title type="text"> Sites  &lt;/ns3:title>
+        &lt;ns3:title type="text"> Sites &lt;/ns3:title>
         &lt;ns3:category term="5834721:netapp" />
         &lt;ns3:content type="application/xml">
             &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="b485642c-fb2c-38ba-8a19-89e15c801a67"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5834721" type="USAGE_SNAPSHOT" version="1">
@@ -557,16 +441,16 @@
             &lt;/ns2:event>
         &lt;/ns3:content>
         &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67" rel="self" />
-        &lt;ns3:updated> 2013-10-29T17:20:07.010Z  &lt;/ns3:updated>
-        &lt;ns3:published> 2013-10-29T17:20:07.010Z  &lt;/ns3:published>
+        &lt;ns3:updated> 2013-10-29T17:20:07.010Z &lt;/ns3:updated>
+        &lt;ns3:published> 2013-10-29T17:20:07.010Z &lt;/ns3:published>
     &lt;/ns3:entry>
     &lt;ns3:entry>
-        &lt;atom:id> urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405  &lt;/atom:id>
+        &lt;atom:id> urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405 &lt;/atom:id>
         &lt;atom:category term="tid:5819296" />
         &lt;atom:category term="rgn:ORD" />
         &lt;atom:category term="dc:ORD1" />
         &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
-        &lt;ns3:title type="text"> Sites  &lt;/ns3:title>
+        &lt;ns3:title type="text"> Sites &lt;/ns3:title>
         &lt;ns3:category term="5819296:netapp" />
         &lt;ns3:content type="application/xml">
             &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="2ae26c06-a0e4-31cf-a2f6-7c559809a405"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5819296" type="USAGE_SNAPSHOT" version="1">
@@ -574,8 +458,8 @@
             &lt;/ns2:event>
         &lt;/ns3:content>
         &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405" rel="self" />
-        &lt;ns3:updated> 2013-10-29T17:20:06.990Z  &lt;/ns3:updated>
-        &lt;ns3:published> 2013-10-29T17:20:06.990Z  &lt;/ns3:published>
+        &lt;ns3:updated> 2013-10-29T17:20:06.990Z &lt;/ns3:updated>
+        &lt;ns3:published> 2013-10-29T17:20:06.990Z &lt;/ns3:published>
     &lt;/ns3:entry>
 &lt;/feed></programlisting>
             <note>
@@ -585,7 +469,8 @@
             <para
                 xlink:href="https://atom.myserver.com/namespace/feed "
                 >To fetch events from a feed in Cloud Feeds, perform a
-                GET request against the following URL: </para>
+                    <methodname>GET</methodname> request against the
+                following URL: </para>
             <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
                 link and the links that follow will need to be
                 replaced for the public version of the CF Dev Guide
@@ -594,8 +479,8 @@
             <programlisting>https://atom.myserver.com/<emphasis role="bold">feedname</emphasis>/events </programlisting>
             <para>The feed name component of the URL above needs to be
                 replaced with the actual feed name. The response of
-                the above GET would contain several links as
-                follows:</para>
+                the above request will contain several links as shown
+                in the following example:</para>
             <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 &lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
 &lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
@@ -763,16 +648,16 @@
             <title>Select Entries by Marker</title>
             <para>You can use a marker to denote an entry that you
                 have previously used. If you specify a marker in the
-                    <emphasis role="bold">GET</emphasis> request, you
-                can also specify a value for the direction parameter.
-                The value is either <code>forward</code> or
+                    <methodname>GET</methodname> request, you can also
+                specify a value for the direction parameter. The value
+                is either <code>forward</code> or
                     <code>backward</code>. If you do not specify a
                 value for the direction parameter, the default value
                 of <code>forward </code>is used. </para>
             <para><emphasis role="bold"
                 >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
             <para><emphasis role="bold"
-                >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward 
+                >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting></para>
             <para>You can use the <parameter>limit</parameter>
                 parameter to specify the number of entries to return.
@@ -789,10 +674,10 @@
         </section>
         <section xml:id="Getting-a-Single-Entry-d1e1313">
             <title>Getting a Single Entry </title>
-            <para>If you submit a <emphasis role="bold">GET</emphasis>
-                request that contains the URL of an entry, Cloud Feeds
-                will return an XML response that contains the single
-                entry you requested as shown in the following example. </para>
+            <para>If you submit a <methodname>GET</methodname> request
+                that contains the URL of an entry, Cloud Feeds will
+                return an XML response that contains the single entry
+                you requested as shown in the following example. </para>
             <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
     &lt;title type="text">This is the title&lt;/title>
     &lt;author>
@@ -802,7 +687,7 @@
     &lt;category term="MyCategory 1" />
     &lt;category term="MyCategory 2" />
     &lt;category term="MyCategory 3" />
-&lt;/entry> 
+&lt;/entry>
 </programlisting>
             <note>
                 <para>The UUID keyword is the unique ID of the Atom
@@ -819,9 +704,8 @@
                 (currently) case sensitive. No wild cards are
                 supported. </para>
             <para>The following is an example of searching on a
-                category entered as <emphasis role="bold"
-                    >CAT1</emphasis>:</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1 
+                category entered as CAT1:</para>
+            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1
 </programlisting>
             <note>
                 <para>%2B is the URL-encoded value of the +
@@ -833,7 +717,7 @@
                 append additional categories; as demonstrated in the
                 following example that searches for two categories
                     (<code>CAT1 </code>and <code>CAT5)</code>:</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5 
+            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5
 </programlisting>
             <note>
                 <para>Current searching with multiple categories is an
@@ -910,6 +794,50 @@
                     follows: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
 </programlisting>
+            </section>
+            <section xml:id="Filter_Entries_by_Timestamp">
+                <title>Filtering Entries by Timestamp</title>
+                <para>You can filter for entries by timestamp by using
+                    the <parameter>StartingAt</parameter> query
+                    parameter. </para>
+                <para>The value for this parameter must be in ISO 8601
+                    Date and Time format (see <link
+                        xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                        >http://en.wikipedia.org/wiki/ISO_8601</link>).
+                    The parameter value <emphasis role="bold"
+                        >must</emphasis> contain a timezone, such as
+                    2014-03-10T06:00:00.000Z.</para>
+                <para>
+                    <note>
+                        <para>The <emphasis role="bold"
+                                >startingAt</emphasis> parameter can
+                            not be used together with the <emphasis
+                                role="bold">marker</emphasis>
+                            parameter.</para>
+                        <para>If the <emphasis role="bold"
+                                >startingAt</emphasis> parameter is
+                            used without a <emphasis role="bold"
+                                >direction</emphasis> parameter, then
+                            direction FORWARD is assumed. If you want
+                            to fetch feeds from a time period before
+                            the time specified in the timestamp, you
+                            need to use the <emphasis role="bold"
+                                >direction</emphasis> parameter and
+                            then the <emphasis role="bold"
+                                >backward</emphasis> description, like
+                            the following:<emphasis role="italic">
+                                direction=backward.</emphasis></para>
+                    </note>
+                </para>
+                <para>To obtain entries whose timestamp is newer than
+                    2014-03-10 00:00:00.000 UTC, you can use the
+                    following URL:
+                    <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+                    To fetch entries whose timestamp is older than
+                    2014-03-10 00:00:00.000 UTC, you need to specify
+                    the direcdtion as backward as shown in the
+                    following
+                    example:<programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting></para>
             </section>
         </section>
         <section xml:id="JSON_Feed_Returns_d1e1319">
