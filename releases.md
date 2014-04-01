@@ -1,6 +1,11 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.44.0**  
+2014-04-01 | B-66289: rename /emailapps feed to /emailapps_usage (Shinta Smith)  
+2014-03-27 | D-17584 fixing regex for Username type (Greg Sharek)  
+2014-03-27 | B-66030: add new /emailapps/msservice feed and schema (Shinta Smith)  
+
 **usage-schema-1.43.1**  
 
 **usage-schema-1.43.0**  
