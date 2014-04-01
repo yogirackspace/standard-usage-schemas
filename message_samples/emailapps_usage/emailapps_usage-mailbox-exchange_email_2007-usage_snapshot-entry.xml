@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="emailapps_usage/events"?> <!-- ignore <?atom..?>, used for testing -->
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-    <atom:id>urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13</atom:id>
-    <atom:category term="tid:12334" />
-    <atom:category term="rgn:DFW" />
-    <atom:category term="dc:DFW1" />
-    <atom:category term="rid:7" />
-    <atom:category term="emailapps.mailbox.exchange_email_2007.usage_snapshot" />
-    <atom:title type="text">Mailbox event</atom:title>
+    <atom:title>Mailbox event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/mailbox"
@@ -16,13 +11,9 @@
                id="560490c6-6c63-11e1-adfe-27851d5aed13"
                type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
-            <emailapps:product version="1" serviceCode="EmailApps"
+            <emailapps:product version="1" serviceCode="EmailAppsUsage"
                                resourceType="EXCHANGE_EMAIL_2007"
                                storage="10"/>
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
-               rel="self" />
-    <atom:updated>2014-02-28T19:48:32.802Z</atom:updated>
-    <atom:published>2014-02-28T19:48:32.802Z</atom:published>
 </atom:entry>

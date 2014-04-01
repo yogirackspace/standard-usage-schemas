@@ -12,8 +12,8 @@
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
             targetNamespace="http://docs.rackspace.com/usage/emailapps/subscription">
-   <element name="product" type="p:EmailAppsType"/>
-   <complexType name="EmailAppsType">
+   <element name="product" type="p:EmailAppsUsageType"/>
+   <complexType name="EmailAppsUsageType">
       <annotation>
          <documentation>
             <html:p>Subscription to Email and Apps products.</html:p>
@@ -28,7 +28,7 @@
       <attribute name="serviceCode"
                  use="required"
                  type="xsd:Name"
-                 fixed="EmailApps"/>
+                 fixed="EmailAppsUsage"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
       <attribute name="action" use="required" type="p:actionEnum">
          <annotation>

@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/usage/emailapps/domain"
                version="1"
-               serviceCode="EmailApps" type="USAGE_SNAPSHOT"
+               serviceCode="EmailAppsUsage" type="USAGE_SNAPSHOT"
                resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013"
                ranEnrichmentStrategy="NONE">
     <description>

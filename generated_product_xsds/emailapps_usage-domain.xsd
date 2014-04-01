@@ -8,15 +8,15 @@
             xmlns:saxon="http://saxon.sf.net/"
             xmlns="http://www.w3.org/2001/XMLSchema"
             xmlns:usage="http://docs.rackspace.com/core/usage"
-            xmlns:p="http://docs.rackspace.com/usage/emailapps/mailbox"
+            xmlns:p="http://docs.rackspace.com/usage/emailapps/domain"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
-            targetNamespace="http://docs.rackspace.com/usage/emailapps/mailbox">
-   <element name="product" type="p:EmailAppsType"/>
-   <complexType name="EmailAppsType">
+            targetNamespace="http://docs.rackspace.com/usage/emailapps/domain">
+   <element name="product" type="p:EmailAppsUsageType"/>
+   <complexType name="EmailAppsUsageType">
       <annotation>
          <documentation>
-            <html:p>Email and Apps number of email boxes per account ID.</html:p>
+            <html:p>Email and Apps number of email boxes per domain.</html:p>
          </documentation>
          <appinfo>
             <usage:core groupByResource="true"
@@ -28,15 +28,29 @@
       <attribute name="serviceCode"
                  use="required"
                  type="xsd:Name"
-                 fixed="EmailApps"/>
+                 fixed="EmailAppsUsage"/>
       <attribute name="resourceType" use="required" type="p:ResourceTypes"/>
-      <attribute name="storage" use="required" type="p:storageType">
+      <attribute name="maxNumberOfMailboxes"
+                 use="optional"
+                 type="p:maxNumberOfMailboxesType">
          <annotation>
             <documentation>
-               <html:p>The max size of the email box in GB for the individual mailbox.</html:p>
+               <html:p>Max number of email boxes the user has contracted for this domain at this point in time.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" unitOfMeasure="GB" groupBy="false"/>
+               <usage:attributes aggregateFunction="LAST" unitOfMeasure="COUNT" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="currentNumberOfMailboxes"
+                 use="required"
+                 type="p:currentNumberOfMailboxesType">
+         <annotation>
+            <documentation>
+               <html:p>Current number of email boxes for this domain at this point in time.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="LAST" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -53,10 +67,16 @@
          <enumeration value="EXCHANGE_EMAIL_2013"/>
       </restriction>
    </simpleType>
-   <simpleType name="storageType">
+   <simpleType name="maxNumberOfMailboxesType">
       <restriction base="xsd:int">
          <minInclusive value="0"/>
-         <maxInclusive value="100"/>
+         <maxInclusive value="75000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="currentNumberOfMailboxesType">
+      <restriction base="xsd:int">
+         <minInclusive value="0"/>
+         <maxInclusive value="75000"/>
       </restriction>
    </simpleType>
 </xsd:schema>

@@ -23,7 +23,7 @@
         <resource id="dns_events" path="dns/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDNS "/>
         <resource id="domain_events" path="domain/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DomainRegistration"/>
         <resource id="ebs_events" path="ebs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EBS"/>
-        <resource id="emailapps_events" path="emailapps/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailApps" />
+        <resource id="emailapps_usage_events" path="emailapps_usage/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsUsage" />
         <resource id="emailapps_msservice_events" path="emailapps_msservice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsMSService" />
         <resource id="files_events" path="files/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles"/>
         <resource id="glance_events" path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
@@ -50,7 +50,8 @@
                   wadl/product.wadl#CloudFiles wadl/product.wadl#CloudLoadBalancers wadl/product.wadl#CloudMonitoring
                   wadl/product.wadl#CloudQueues wadl/product.wadl#CloudServers wadl/product.wadl#CloudServersOpenStack
                   wadl/product.wadl#CloudSites wadl/product.wadl#DedicatedVCloud wadl/product.wadl#DomainRegistration
-                  wadl/product.wadl#EBS wadl/product.wadl#EmailApps wadl/product.wadl#Glance wadl/product.wadl#NetDevice
+                  wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService 
+                  wadl/product.wadl#EmailAppsUsage wadl/product.wadl#Glance wadl/product.wadl#NetDevice
                   wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
                   wadl/feed.wadl#UsageSummary wadl/product.wadl#Widget"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>

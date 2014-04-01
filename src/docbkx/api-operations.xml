@@ -138,8 +138,8 @@
   <section xml:id="emailapps.product">
     <title>Email and Apps</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../atom_hopper.wadl#emailapps_events"/>
-      <resource href="../../atom_hopper.wadl#emailapps_events_getEntry_EmailApps"/>
+      <resource href="../../atom_hopper.wadl#emailapps_usage_events"/>
+      <resource href="../../atom_hopper.wadl#emailapps_usage_events_getEntry_EmailAppsUsage"/>
     </resources>
   </section>
   <section xml:id="emailapps_msservice.product">

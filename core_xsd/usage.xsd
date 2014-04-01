@@ -21,13 +21,13 @@
 
     <!-- Load Product Schema -->
     <import namespace="http://docs.rackspace.com/usage/emailapps/domain"
-            schemaLocation="../generated_product_xsds/emailAppsDomain.xsd"/>
+            schemaLocation="../generated_product_xsds/emailapps_usage-domain.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/emailapps/mailbox"
-            schemaLocation="../generated_product_xsds/emailAppsMailbox.xsd"/>
+            schemaLocation="../generated_product_xsds/emailapps_usage-mailbox.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/emailapps/subscription"
-            schemaLocation="../generated_product_xsds/emailAppsSubscription.xsd"/>
+            schemaLocation="../generated_product_xsds/emailapps_usage-subscription.xsd"/>
 
     <import namespace="http://docs.rackspace.com/event/emailapps/msservice"
             schemaLocation="../generated_product_xsds/emailapps_msservice.xsd"/>
