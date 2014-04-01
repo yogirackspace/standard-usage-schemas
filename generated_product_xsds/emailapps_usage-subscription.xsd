@@ -8,10 +8,10 @@
             xmlns:saxon="http://saxon.sf.net/"
             xmlns="http://www.w3.org/2001/XMLSchema"
             xmlns:usage="http://docs.rackspace.com/core/usage"
-            xmlns:p="http://docs.rackspace.com/usage/emailapps/subscription"
+            xmlns:p="http://docs.rackspace.com/usage/emailapps_usage/subscription"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
-            targetNamespace="http://docs.rackspace.com/usage/emailapps/subscription">
+            targetNamespace="http://docs.rackspace.com/usage/emailapps_usage/subscription">
    <element name="product" type="p:EmailAppsUsageType"/>
    <complexType name="EmailAppsUsageType">
       <annotation>

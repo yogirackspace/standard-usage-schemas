@@ -4,7 +4,7 @@
     <atom:title>Lync event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:eams="http://docs.rackspace.com/event/emailapps/msservice"
+               xmlns:eams="http://docs.rackspace.com/event/emailapps_msservice"
                version="1" tenantId="12334"
                resourceId="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
                resourceName="Lync Service"

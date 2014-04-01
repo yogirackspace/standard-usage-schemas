@@ -4,7 +4,7 @@
     <atom:title>Email Apps Domain event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/domain"
+               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps_usage/domain"
                version="1" tenantId="12334"
                resourceId="7"
                resourceName="Email Domain"

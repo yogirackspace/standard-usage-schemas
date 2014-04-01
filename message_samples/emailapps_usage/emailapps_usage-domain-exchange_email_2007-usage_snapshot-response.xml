@@ -9,7 +9,7 @@
     <atom:title type="text">Email Apps Domain event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/domain"
+               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps_usage/domain"
                version="1" tenantId="12334"
                resourceId="7"
                resourceName="Email Domain"
@@ -22,7 +22,7 @@
                                currentNumberOfMailboxes="1"/>
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps_usage/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
                rel="self" />
     <atom:updated>2014-02-28T19:45:41.876Z</atom:updated>
     <atom:published>2014-02-28T19:45:41.876Z</atom:published>

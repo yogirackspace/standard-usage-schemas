@@ -8,10 +8,10 @@
             xmlns:saxon="http://saxon.sf.net/"
             xmlns="http://www.w3.org/2001/XMLSchema"
             xmlns:usage="http://docs.rackspace.com/core/usage"
-            xmlns:p="http://docs.rackspace.com/event/emailapps/msservice"
+            xmlns:p="http://docs.rackspace.com/event/emailapps_msservice"
             elementFormDefault="qualified"
             attributeFormDefault="unqualified"
-            targetNamespace="http://docs.rackspace.com/event/emailapps/msservice">
+            targetNamespace="http://docs.rackspace.com/event/emailapps_msservice">
    <element name="product" type="p:EmailAppsMSServiceType"/>
    <complexType name="EmailAppsMSServiceType">
       <annotation>

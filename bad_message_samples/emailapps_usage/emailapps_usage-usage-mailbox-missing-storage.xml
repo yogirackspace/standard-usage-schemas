@@ -5,7 +5,7 @@
     <atom:title>Mailbox event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/mailbox"
+               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps_usage/mailbox"
                version="1" tenantId="12334"
                resourceId="7"
                resourceName="Email Mailbox"
