@@ -20,16 +20,16 @@
             schemaLocation="ProductExtension-Annotations.xsd"/>
 
     <!-- Load Product Schema -->
-    <import namespace="http://docs.rackspace.com/usage/emailapps/domain"
-            schemaLocation="../generated_product_xsds/emailAppsDomain.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/emailapps_usage/domain"
+            schemaLocation="../generated_product_xsds/emailapps_usage-domain.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/emailapps/mailbox"
-            schemaLocation="../generated_product_xsds/emailAppsMailbox.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/emailapps_usage/mailbox"
+            schemaLocation="../generated_product_xsds/emailapps_usage-mailbox.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/usage/emailapps/subscription"
-            schemaLocation="../generated_product_xsds/emailAppsSubscription.xsd"/>
+    <import namespace="http://docs.rackspace.com/usage/emailapps_usage/subscription"
+            schemaLocation="../generated_product_xsds/emailapps_usage-subscription.xsd"/>
 
-    <import namespace="http://docs.rackspace.com/event/emailapps/msservice"
+    <import namespace="http://docs.rackspace.com/event/emailapps_msservice"
             schemaLocation="../generated_product_xsds/emailapps_msservice.xsd"/>
 
     <import namespace="http://docs.rackspace.com/usage/glance"

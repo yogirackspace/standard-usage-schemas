@@ -1,5 +1,5 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/event/emailapps/msservice"
+               namespace="http://docs.rackspace.com/event/emailapps_msservice"
                version="1"
                serviceCode="EmailAppsMSService" type="INFO"
                resourceTypes="MSSERVICE_PROVISIONING"

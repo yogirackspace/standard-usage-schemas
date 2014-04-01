@@ -9,21 +9,21 @@
     <atom:title type="text">Subscription event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps/subscription"
+               xmlns:emailapps="http://docs.rackspace.com/usage/emailapps_usage/subscription"
                version="1" tenantId="12334"
                resourceId="7"
                resourceName="Email Subscription"
                id="560490c6-6c63-11e1-adfe-27851d5aed13"
                type="USAGE_SNAPSHOT" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
-            <emailapps:product version="1" serviceCode="EmailApps"
+            <emailapps:product version="1" serviceCode="EmailAppsUsage"
                                resourceType="EXCHANGE_EMAIL_2007_SUBSCRIPTION"
                                action="SUBSCRIBE"
                                isNewAccount="true"
                                maxNumberOfMailboxes="10" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps_usage/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
     <atom:updated>2014-02-28T19:49:55.708Z</atom:updated>
     <atom:published>2014-02-28T19:49:55.708Z</atom:published>
 </atom:entry>
