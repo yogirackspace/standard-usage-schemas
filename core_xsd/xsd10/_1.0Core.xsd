@@ -44,6 +44,24 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="clientUsername" type="event:Username" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The sub-account's user name, when applicable.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="agentUsername" type="event:Username" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The rackspace agent who is taking action on account of the user.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="resourceId" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
@@ -53,11 +71,20 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="resourceURI" type="xsd:anyURI" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                A URI that uniquely identitfies the resource.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="id" type="event:UUID" use="required">
                     <annotation>
                         <documentation>
                             <html:p>
-                                A GUID identifying the event record.
+                                Specifies the unique UUID for the event record. This value should be UUID Version 1, 2, or 4. For more information, see http://en.wikipedia.org/wiki/Universally_unique_identifier.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -94,6 +121,18 @@
                                 set this type to EXTENDED and add an
                                 eventType attribute to your product
                                 schema.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="severity" type="event:Severity" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Identifies the severity of the event.
+                                Valid values are INFO, WARNING,
+                                CRITICAL. This is only valid for
+                                system events, not usage events.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -195,6 +234,7 @@
                 
                 
                 
+                
             </extension>
         </complexContent>
     </complexType>
@@ -231,6 +271,21 @@
         
     </simpleType>
 
+    <simpleType name="Severity">
+        <annotation>
+            <documentation>
+                <html:p>
+                    The severity of the envent.
+                </html:p>
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <enumeration value="INFO"/>
+            <enumeration value="WARNING"/>
+            <enumeration value="CRITICAL"/>
+        </restriction>
+    </simpleType>
+
     <simpleType name="EventType">
         <annotation>
             <documentation>
@@ -254,6 +309,20 @@
         </restriction>
     </simpleType>
 
+    <simpleType name="Username">
+        <annotation>
+
+        </annotation>
+        <restriction base="xsd:string">
+            <minLength value="1"/>
+            <maxLength value="255"/>
+            <!--
+              - must start with a letter
+              - can contain letters, digits, -, _ & @
+              -->
+            <pattern value="[a-zA-Z][a-zA-Z0-9.\-_@]*"/>
+        </restriction>
+    </simpleType>
     <simpleType name="NonEmptyString">
         <annotation>
             <documentation>
