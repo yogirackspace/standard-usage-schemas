@@ -83,14 +83,15 @@
                                 <xsl:call-template name="sch:forbid-event-error" />
                                 <xsl:call-template name="sch:forbid-usage-summary" />
                                 
-                                <xsl:for-each select="./sch:attribute[@use='synthesized']">
+                                <xsl:for-each select="current-group()/sch:attribute[@use='synthesized']">
                                     <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
                                     <xsl:variable name="attributeName" select="@name"/>
-                                    <param name="checkSynthesized_{$attributeName}"
+                                    <xsl:variable name="schemaVersion" select="../@version"/>
+                                    <param name="checkSynthesized_{$attributeName}_v{$schemaVersion}"
                                            style="plain"
                                            required="true"
-                                           path="not(/atom:entry/atom:content/event:event/{$ns}:product/@{$attributeName})"
-                                           rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
+                                           path="not(/atom:entry/atom:content/event:event/{$ns}:product[@version='{$schemaVersion}']/@{$attributeName})"
+                                           rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event (version '{$schemaVersion}')."/>
                                 </xsl:for-each>
 
                                 <!--
@@ -167,6 +168,10 @@
                                 <!-- B-57395: implementation of BigData synthesized attribute -->
                                 <xsl:if test="$id = 'BigData'">
                                     <rax:preprocess href="bigdata.xsl"/>
+                                </xsl:if>
+                                <!-- B-59857: Cloud Load Balancer synthesized attributes -->
+                                <xsl:if test="$id = 'CloudLoadBalancers'">
+                                    <rax:preprocess href="synthesize_lbaas.xsl"/>
                                 </xsl:if>
                                 <xsl:call-template name="sch:searchable">
                                     <xsl:with-param name="schemas" select="current-group()"/>
