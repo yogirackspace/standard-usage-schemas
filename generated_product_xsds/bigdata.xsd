@@ -120,7 +120,7 @@
             <attribute name="bandwidthIn" use="required" type="p:bandwidthIn1Type">
                <annotation>
                   <documentation>
-                     <html:p>The amount of bandwidth in, in kilobytes.</html:p>
+                     <html:p>The amount of bandwidth in, in bytes.</html:p>
                   </documentation>
                   <appinfo>
                      <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
@@ -130,7 +130,7 @@
             <attribute name="bandwidthOut" use="required" type="p:bandwidthOut1Type">
                <annotation>
                   <documentation>
-                     <html:p>The amount of bandwidth out, in kilobytes.</html:p>
+                     <html:p>The amount of bandwidth out, in bytes.</html:p>
                   </documentation>
                   <appinfo>
                      <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
