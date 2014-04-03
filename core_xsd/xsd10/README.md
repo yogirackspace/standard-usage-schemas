@@ -62,6 +62,41 @@ available:
    Saxon is proprietary and therefore requires a license. Rackspace
    has a site license for Saxon. Contact Jesse Gonzalez for details.
 
+## Generating Code from XSD 1.0 Schema Files
+
+The files in this directory can be consumed by code generation tools such as JAX-B. 
+
+You would need an extra XSD file containing the import of specific product schema
+XSD files, similar to the file [usage.xsd](../usage.xsd) in the parent directory.
+
+If you want to generate code for all the product schemas, simply make a copy of the 
+[usage.xsd](../usage.xsd) that's XML Schema 1.0 compatible when run your code 
+generation tool.
+
+If you only want to generate code for one or two specific product schemas, you
+will have to create your own XSD file that contains the relevant import statements.
+For example, if you want to generate code for the Support product schemas, you
+need to create an XSD file that contains these:
+```
+<schema
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://docs.rackspace.com/core/event">
+
+    <include schemaLocation="core.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/event/support/account"
+            schemaLocation="../generated_product_xsds/support-account_support.xsd"/>
+
+    <element name="event" type="event:EventV1"/>
+</schema>
+```
+
 ## Regenerating XSD 1.0 Core Schema Files
 
 **DO NOT edit the XSD 1.0 files directly**
