@@ -32,7 +32,7 @@
             </xsl:choose>
             <xsl:attribute name="hasSSLConnection"
                            select="xsd:boolean(@sslMode = 'ON' or @sslMode = 'MIXED')"/>
-            <xsl:apply-templates select="@*[(local-name() != 'avgConcurrentConnectionsSum')] | node()"/>
+            <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
     </xsl:template>
 
