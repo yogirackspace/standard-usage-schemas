@@ -35,14 +35,14 @@
         </attribute>
 
         <attribute name="bandwidthIn" type="unsignedLong" use="required"
-                   unitOfMeasure="KB" aggregateFunction="SUM" min="0"
-                   max="16000000000">
+                   unitOfMeasure="B" aggregateFunction="SUM" min="0"
+                   max="16000000000000">
             The amount of bandwidth in, in kilobytes.
         </attribute>
 
         <attribute name="bandwidthOut" type="unsignedLong" use="required"
-                   unitOfMeasure="KB" aggregateFunction="SUM" min="0"
-                   max="16000000000">
+                   unitOfMeasure="B" aggregateFunction="SUM" min="0"
+                   max="16000000000000">
             The amount of bandwidth out, in kilobytes.
         </attribute>
     </productSchema>
@@ -83,14 +83,14 @@
     </attribute>
 
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM" min="0"
-               max="16000000000">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="16000000000000">
         The amount of bandwidth in, in kilobytes.
     </attribute>
 
     <attribute name="bandwidthOut" type="unsignedLong" use="required"
-               unitOfMeasure="KB" aggregateFunction="SUM" min="0"
-               max="16000000000">
+               unitOfMeasure="B" aggregateFunction="SUM" min="0"
+               max="16000000000000">
         The amount of bandwidth out, in kilobytes.
     </attribute>
     </productSchema>
