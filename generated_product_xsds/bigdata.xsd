@@ -123,7 +123,7 @@
                      <html:p>The amount of bandwidth in, in kilobytes.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -133,7 +133,7 @@
                      <html:p>The amount of bandwidth out, in kilobytes.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -162,13 +162,13 @@
    <simpleType name="bandwidthIn1Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
-         <maxInclusive value="16000000000"/>
+         <maxInclusive value="16000000000000"/>
       </restriction>
    </simpleType>
    <simpleType name="bandwidthOut1Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
-         <maxInclusive value="16000000000"/>
+         <maxInclusive value="16000000000000"/>
       </restriction>
    </simpleType>
    <complexType name="BigData2Type">
@@ -235,7 +235,7 @@
                      <html:p>The amount of bandwidth in, in kilobytes.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -245,7 +245,7 @@
                      <html:p>The amount of bandwidth out, in kilobytes.</html:p>
                   </documentation>
                   <appinfo>
-                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="KB" groupBy="false"/>
+                     <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
                   </appinfo>
                </annotation>
             </attribute>
@@ -282,13 +282,13 @@
    <simpleType name="bandwidthIn2Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
-         <maxInclusive value="16000000000"/>
+         <maxInclusive value="16000000000000"/>
       </restriction>
    </simpleType>
    <simpleType name="bandwidthOut2Type">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
-         <maxInclusive value="16000000000"/>
+         <maxInclusive value="16000000000000"/>
       </restriction>
    </simpleType>
    <simpleType name="string1_50">
