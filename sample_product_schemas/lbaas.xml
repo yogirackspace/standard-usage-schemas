@@ -16,7 +16,7 @@
     </attribute>
     <attribute name="avgConcurrentConnectionsSum" type="double" use="synthesized"
                aggregateFunction="WEIGHTED_AVG"
-               unitOfMeasure="COUNT" groupBy="true">
+               unitOfMeasure="COUNT">
         The sum amount of conncurrent connections for regular and SSL.
     </attribute>
     <attribute name="bandWidthIn" type="unsignedLong" use="required"
@@ -30,7 +30,7 @@
         The amount of ssl bandwidth in, in bytes.
     </attribute>
     <attribute name="publicBandWidthInSum" type="unsignedLong" use="synthesized"
-               unitOfMeasure="B" aggregateFunction="SUM" groupBy="true">
+               unitOfMeasure="B" aggregateFunction="SUM">
         The sum amount of bandwidth in for regular and SSL, in bytes.
     </attribute>
     
@@ -45,7 +45,7 @@
         The amount of ssl bandwidth out in bytes.
     </attribute>
     <attribute name="publicBandWidthOutSum" type="unsignedLong" use="synthesized"
-               unitOfMeasure="B" aggregateFunction="SUM" groupBy="true">
+               unitOfMeasure="B" aggregateFunction="SUM">
         The sum amount of bandwidth out for regular and SSL, in bytes.
     </attribute>
 
@@ -69,7 +69,8 @@
     </attribute>
     <attribute name="hasSSLConnection" type="boolean" use="synthesized"
                groupBy="true"> 
-        The mode determining SSL for billing on the load balancer.
+        An attribute determining whether or not the Cloud Load Balancer
+        used an SSL connection. Used for billing purposes.
     </attribute>
     <attribute name="status" type="string" use="required"
                allowedValues="ACTIVE SUSPENDED">
