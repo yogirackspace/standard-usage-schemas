@@ -1,17 +1,17 @@
 <schema
-    elementFormDefault="qualified"
-    attributeFormDefault="unqualified"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:error="http://docs.rackspace.com/core/error"
-    xmlns:usagesummary="http://docs.rackspace.com/core/usage-summary"
-    xmlns:event="http://docs.rackspace.com/core/event"
-    xmlns:atom="http://www.w3.org/2005/Atom"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    xmlns:xerces="http://xerces.apache.org"
-    xmlns:saxon="http://saxon.sf.net/"
-    targetNamespace="http://www.w3.org/2005/Atom">
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:error="http://docs.rackspace.com/core/error"
+        xmlns:usagesummary="http://docs.rackspace.com/core/usage-summary"
+        xmlns:event="http://docs.rackspace.com/core/event"
+        xmlns:atom="http://www.w3.org/2005/Atom"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+        xmlns:xerces="http://xerces.apache.org"
+        xmlns:saxon="http://saxon.sf.net/"
+        targetNamespace="http://www.w3.org/2005/Atom">
 
     <import vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="usage.xsd"/>
@@ -37,47 +37,40 @@
             </documentation>
         </annotation>
         <all vc:minVersion="1.1">
-            <!--
-                The following elements are required...
-            -->
+            <!-- The following elements are required...-->
             <element name="content" type="atom:BaseContent">
                 <alternative test="@type='application/xml'" type="atom:UsageContent"/>
                 <alternative test="not(@type='application/xml')" type="atom:LooseContent"/>
             </element>
-
-            <!--
-                One or more categories are optional...
-            -->
-            <element name="title" type="atom:Title" minOccurs="0"/>
-            <element name="id" type="xsd:anyURI" minOccurs="0"/>
-            <element name="updated" type="xsd:dateTime" minOccurs="0"/>
-            <element name="summary" type="atom:LooseContent" minOccurs="0"/>
-            <element name="category" type="atom:UsageCategory" 
-                     minOccurs="0" maxOccurs="20"/> <!-- Setting a maximun of 20 categories to prevent abuse -->
-            <!--
-                We are pretty lax in what else we allow in the
-                entry. We ignore anything else that's in here, but
-                limit to 20 elements to prevent abuse.  Note that
-                AtomHopper will do a second validation to ensure that
-                the atom entry is in fact correct according to the
-                atom RFC.
-            -->
-            <any maxOccurs="20" minOccurs="0" processContents="skip"/>
+            <!-- One or more categories are optional...-->
+            <element name="name" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="published" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="author" type="atom:personType" minOccurs="0" maxOccurs="1"/>
+            <element name="link" type="atom:Link" minOccurs="0" maxOccurs="20"/>
+            <element name="title" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="id" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+            <element name="updated" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+            <element name="summary" type="atom:LooseContent" minOccurs="0" maxOccurs="1"/>
+            <element name="category" type="atom:UsageCategory"
+                     minOccurs="0" maxOccurs="20"/>  <!--Setting a maximum of 20 categories to prevent abuse -->
         </all>
         <!--
             Order matters in 1.0 land :-(
         -->
         <sequence vc:minVersion="1.0" vc:maxVersion="1.1">
-            <element name="title" type="atom:Title" minOccurs="0"/>
-            <element name="id" type="xsd:anyURI" minOccurs="0"/>
-            <element name="updated" type="xsd:dateTime" minOccurs="0"/>
-            <element name="category" type="atom:UsageCategory" 
-                     minOccurs="0" maxOccurs="20"/>
-            <element name="summary" type="atom:LooseContent" minOccurs="0"/>
-            <element name="content" type="atom:UsageContent">
+            <element name="name" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="published" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="author" type="atom:personType" minOccurs="0" maxOccurs="1"/>
+            <element name="link" type="atom:Link" minOccurs="0" maxOccurs="20"/>
+            <element name="title" type="atom:Title" minOccurs="0" maxOccurs="1"/>
+            <element name="id" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+            <element name="updated" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+            <element name="category" type="atom:UsageCategory" minOccurs="0" maxOccurs="20"/>
+            <element name="summary" type="atom:LooseContent" minOccurs="0" maxOccurs="1"/>
+            <element name="content" type="atom:UsageContent" minOccurs="0" maxOccurs="1">
             </element>
-            <any maxOccurs="20" minOccurs="0" processContents="skip"/>
         </sequence>
+
         <anyAttribute processContents="skip"/>
         <assert vc:minVersion="1.1" test="not(count(atom:content) &gt; 1)"
                 xerces:message="An atom entry can only contain a single content element."
@@ -127,14 +120,12 @@
         <attribute name="scheme" type="xsd:anyURI" use="optional"/>
         <attribute name="label" type="xsd:string" use="optional"/>
     </complexType>
-
     <simpleType name="CategoryName">
         <restriction base="xsd:string">
             <maxLength value="256"/>
         </restriction>
     </simpleType>
-    
-    
+
     <complexType name="Title">
         <simpleContent>
             <extension base="xsd:string">
@@ -143,11 +134,50 @@
         </simpleContent>
     </complexType>
 
+    <complexType name="personType">
+        <annotation>
+            <documentation>
+                The Atom person construct is defined in section 3.2 of the format spec.
+            </documentation>
+        </annotation>
+        <choice minOccurs="0" maxOccurs="unbounded">
+            <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <element name="uri" type="atom:uriType" minOccurs="0" maxOccurs="1" />
+            <element name="email" type="atom:emailType" minOccurs="0" maxOccurs="1" />
+            <any namespace="##other"/>
+        </choice>
+    </complexType>
+
+    <complexType name="uriType">
+        <simpleContent>
+            <extension base="xsd:anyURI">
+            </extension>
+        </simpleContent>
+    </complexType>
+
+    <simpleType name="emailType">
+        <annotation>
+            <documentation>
+                Schema definition for an email address.
+            </documentation>
+        </annotation>
+        <restriction base="xsd:string">
+            <pattern value="\w+@(\w+\.)+\w+" />
+        </restriction>
+    </simpleType>
+
+    <complexType name="Link">
+        <attribute name="href" type="xsd:string"/>
+        <attribute name="rel" type="xsd:string"/>
+    </complexType>
+    <!--Created the new complexType for the link definition so our schema would be defined properly and not fail-->
     <simpleType name="Type">
         <restriction base="xsd:string">
-            <enumeration value="text"/>
-            <enumeration value="html"/>
-            <enumeration value="xhtml"/>
+            <xsd:enumeration value="text"/>
+            <xsd:enumeration value="html"/>
+            <xsd:enumeration value="xhtml"/>
+            <xsd:enumeration value="xml"/>
         </restriction>
     </simpleType>
 </schema>
+
