@@ -4,7 +4,7 @@
                version="1"
                resourceTypes="LOADBALANCER">
     <description>
-        Lbaas load balancer usage fields.
+        Cloud Load Balancer usage fields.
     </description>
     <attribute name="avgConcurrentConnections" type="double" use="required"
                unitOfMeasure="COUNT" min="0" max="1000000">
@@ -15,7 +15,8 @@
         The amount of conncurrent ssl connections.
     </attribute>
     <attribute name="avgConcurrentConnectionsSum" type="double" use="synthesized"
-               unitOfMeasure="COUNT">
+               aggregateFunction="WEIGHTED_AVG"
+               unitOfMeasure="COUNT" groupBy="true">
         The sum amount of conncurrent connections for regular and SSL.
     </attribute>
     <attribute name="bandWidthIn" type="unsignedLong" use="required"
@@ -29,7 +30,7 @@
         The amount of ssl bandwidth in, in bytes.
     </attribute>
     <attribute name="publicBandWidthInSum" type="unsignedLong" use="synthesized"
-               unitOfMeasure="B" aggregateFunction="SUM">
+               unitOfMeasure="B" aggregateFunction="SUM" groupBy="true">
         The sum amount of bandwidth in for regular and SSL, in bytes.
     </attribute>
     
@@ -44,7 +45,7 @@
         The amount of ssl bandwidth out in bytes.
     </attribute>
     <attribute name="publicBandWidthOutSum" type="unsignedLong" use="synthesized"
-               unitOfMeasure="B" aggregateFunction="SUM">
+               unitOfMeasure="B" aggregateFunction="SUM" groupBy="true">
         The sum amount of bandwidth out for regular and SSL, in bytes.
     </attribute>
 

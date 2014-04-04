@@ -16,7 +16,7 @@
    <complexType name="CloudLoadBalancersType">
       <annotation>
          <documentation>
-            <html:p>Lbaas load balancer usage fields.</html:p>
+            <html:p>Cloud Load Balancer usage fields.</html:p>
          </documentation>
          <appinfo>
             <usage:core groupByResource="true"
@@ -60,7 +60,9 @@
                <html:p>The sum amount of conncurrent connections for regular and SSL.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
+               <usage:attributes aggregateFunction="WEIGHTED_AVG"
+                                 unitOfMeasure="COUNT"
+                                 groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -90,7 +92,7 @@
                <html:p>The sum amount of bandwidth in for regular and SSL, in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -120,7 +122,7 @@
                <html:p>The sum amount of bandwidth out for regular and SSL, in bytes.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
+               <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
