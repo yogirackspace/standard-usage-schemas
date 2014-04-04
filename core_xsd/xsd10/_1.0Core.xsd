@@ -177,8 +177,8 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                UTC, ISO Format start time. startTime is 
-                                inclusive (i.e. the event occurred starting 
+                                UTC, ISO Format start time. startTime is
+                                inclusive (i.e. the event occurred starting
                                 at the startTime, not after).
                             </html:p>
                         </documentation>
@@ -190,7 +190,7 @@
                             <html:p>
                                 UTC, ISO Format end time.  For an EXISTs
                                 event, the startTime and endTime reflect the
-                                event duriation for the resource instance. 
+                                event duriation for the resource instance.
                                 endTime is exclusive (i.e. the event occurred
                                 up to, but not during the endTime).
                                 endTime must come after startTime.
@@ -219,22 +219,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+
             </extension>
         </complexContent>
     </complexType>
@@ -268,7 +253,7 @@
             </documentation>
         </annotation>
         <restriction base="xsd:dateTime" vc:minVersion="1.0" vc:maxVersion="1.1"/>
-        
+
     </simpleType>
 
     <simpleType name="Severity">
@@ -349,7 +334,7 @@
                 <html:p>
                     Note that the source of truth for this is in the
                     <html:a href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
-                    Portal</html:a>.
+                        Portal</html:a>.
                 </html:p>
             </documentation>
         </annotation>
@@ -375,7 +360,7 @@
                 <html:p>
                     Note that the source of truth for this is in the
                     <html:a href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
-                    Portal</html:a>.
+                        Portal</html:a>.
                 </html:p>
             </documentation>
         </annotation>
