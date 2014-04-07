@@ -16,7 +16,7 @@
    <complexType name="CloudLoadBalancersType">
       <annotation>
          <documentation>
-            <html:p>Lbaas load balancer usage fields.</html:p>
+            <html:p>Cloud Load Balancer usage fields.</html:p>
          </documentation>
          <appinfo>
             <usage:core groupByResource="true"
@@ -38,9 +38,7 @@
                <html:p>The amount of conncurrent connections.</html:p>
             </documentation>
             <appinfo>
-               <usage:attributes aggregateFunction="WEIGHTED_AVG"
-                                 unitOfMeasure="COUNT"
-                                 groupBy="false"/>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -50,6 +48,16 @@
          <annotation>
             <documentation>
                <html:p>The amount of conncurrent ssl connections.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="COUNT" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="avgConcurrentConnectionsSum" use="optional" type="xsd:double">
+         <annotation>
+            <documentation>
+               <html:p>The sum amount of conncurrent connections for regular and SSL.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="WEIGHTED_AVG"
@@ -62,6 +70,26 @@
          <annotation>
             <documentation>
                <html:p>The amount of bandwidth in, in bytes.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="bandWidthInSsl" use="required" type="p:bandWidthInSslType">
+         <annotation>
+            <documentation>
+               <html:p>The amount of ssl bandwidth in, in bytes.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" unitOfMeasure="B" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="publicBandWidthInSum" use="optional" type="xsd:unsignedLong">
+         <annotation>
+            <documentation>
+               <html:p>The sum amount of bandwidth in for regular and SSL, in bytes.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
@@ -78,20 +106,20 @@
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="bandWidthInSsl" use="required" type="p:bandWidthInSslType">
+      <attribute name="bandWidthOutSsl" use="required" type="p:bandWidthOutSslType">
          <annotation>
             <documentation>
-               <html:p>The amount of ssl bandwidth in, in bytes.</html:p>
+               <html:p>The amount of ssl bandwidth out in bytes.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
             </appinfo>
          </annotation>
       </attribute>
-      <attribute name="bandWidthOutSsl" use="required" type="p:bandWidthOutSslType">
+      <attribute name="publicBandWidthOutSum" use="optional" type="xsd:unsignedLong">
          <annotation>
             <documentation>
-               <html:p>The amount of ssl bandwidth out in bytes.</html:p>
+               <html:p>The sum amount of bandwidth out for regular and SSL, in bytes.</html:p>
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="SUM" unitOfMeasure="B" groupBy="false"/>
@@ -135,6 +163,16 @@
             </documentation>
             <appinfo>
                <usage:attributes aggregateFunction="NONE" groupBy="false"/>
+            </appinfo>
+         </annotation>
+      </attribute>
+      <attribute name="hasSSLConnection" use="optional" type="xsd:boolean">
+         <annotation>
+            <documentation>
+               <html:p>An attribute determining whether or not the Cloud Load Balancer used an SSL connection. Used for billing purposes.</html:p>
+            </documentation>
+            <appinfo>
+               <usage:attributes aggregateFunction="NONE" groupBy="true"/>
             </appinfo>
          </annotation>
       </attribute>
@@ -207,13 +245,13 @@
          <maxInclusive value="10995116277760"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandWidthOutType">
+   <simpleType name="bandWidthInSslType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="10995116277760"/>
       </restriction>
    </simpleType>
-   <simpleType name="bandWidthInSslType">
+   <simpleType name="bandWidthOutType">
       <restriction base="xsd:unsignedLong">
          <minInclusive value="0"/>
          <maxInclusive value="10995116277760"/>
