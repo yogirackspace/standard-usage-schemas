@@ -1,6 +1,11 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.45.0**  
+**usage-schema-1.44.1**  
+2014-04-03 | B-70394 - update UOM (Joe Savak)  
+2014-04-02 | B-59857: add synthesize attributes: avgConcurrentConnectionsSum, hasSSLConnection, publicBandWidthInSum, publicBandWidthOutSum (Shinta Smith)  
+
 **usage-schema-1.44.0**  
 2014-04-01 | B-66289: rename /emailapps feed to /emailapps_usage (Shinta Smith)  
 2014-03-27 | D-17584 fixing regex for Username type (Greg Sharek)  
