@@ -23,7 +23,7 @@
         <resource path="dns/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="domain/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="emailapps_usage/events" type="wadl/feed.wadl#TenantAtomFeed" />
-        <resource path="emailapps_msservice/events" type="wadl/feed.wadl#TenatAtomFeed" />
+        <resource path="emailapps_msservice/events" type="wadl/feed.wadl#TenantAtomFeed" />
         <resource path="files/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="glance/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource path="identity/events" type="wadl/feed.wadl#TenantAtomFeed"/>
