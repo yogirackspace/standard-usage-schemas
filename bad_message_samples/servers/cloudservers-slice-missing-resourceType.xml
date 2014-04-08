@@ -4,7 +4,9 @@
 <?expect code="400" message="resourceType"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>Slice Action</atom:title>
-    <atom:author><atom:name>Atom Hopper Team</atom:name></atom:author>
+    <atom:author>
+        <atom:name>Atom Hopper Team</atom:name>
+    </atom:author>
     <atom:category label="atom-hopper-test" term="atom-hopper-test" />
     <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"
