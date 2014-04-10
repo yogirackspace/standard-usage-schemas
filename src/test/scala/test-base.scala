@@ -55,9 +55,10 @@ object BaseUsageSuite {
   //
   val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
   val atomValidatorIdentity = Validator(new StreamSource(new File("atom_hopper_identity_admin.wadl")), usageConfig)
+  val atomValidatorObserver = Validator(new StreamSource(new File("atom_hopper_observer.wadl")), usageConfig)
 
   //
-  //  Convinece function to get to the XML of a request
+  //  Convenience function to get to the XML of a request
   //
   def getProcessedXML(req : HttpServletRequest) : Document = req.getAttribute(PARSED_XML).asInstanceOf[Document]
 }
