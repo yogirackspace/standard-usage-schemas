@@ -420,8 +420,8 @@
 &lt;auth>
    &lt;apiKeyCredentials
       xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
-         username="<emphasis role="bold">yourUserName</emphasis>"
-         apiKey="<emphasis role="bold">yourApiKey</emphasis>"/>
+         username="<replaceable>yourUserName</replaceable>"
+         apiKey="<replaceable>yourApiKey"</replaceable>/>
 &lt;/auth>' \
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
@@ -430,18 +430,11 @@
         <example>
             <title>cURL Authenticate Request: JSON</title>
             <?dbfo keep-together="always"?>
-            <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
-'{
-    "auth":
-    {
-       "RAX-KSKEY:apiKeyCredentials":
-       {
-          "username": "<emphasis role="bold">yourUserName</emphasis>",
-          "apiKey": "<emphasis role="bold">yourApiKey</emphasis>"}
-    }
-}' \
-<option>-H 'Content-Type: application/json'</option> \
-<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
+            <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+     -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
+        "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
+     <emphasis role="bold">-H "Content-Type:
+        application/json" | python -m json.tool </emphasis></screen>
         </example>
         <para>The authentication token <code>id</code> is returned
             along with an <code>expires</code> attribute that
@@ -858,7 +851,7 @@
                 the Atom entry you want to submit using the following
                 syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events –d@&lt;<emphasis role="italic">inputFile</emphasis>> </programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
             </para>
             <para>&lt;<emphasis role="italic">inputFile</emphasis>>
                 specifies the path to a file that contains an atom
@@ -871,12 +864,12 @@
             <para>The following example shows how to add a new Atom
                 entry by providing a pointer to the entry:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://dfw.feeds.api.rackspacecloud.com/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://dfw.feeds.api.rackspacecloud.com/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
             </para>
             <para>You can also include the XML entry directly in the
                 payload by using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" -H "Content-Type: application/atom+xml" -X POST https://&lt;<emphasis role="italic">feedsURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events –d "&lt;<emphasis role="italic">payload</emphasis>>"</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d "<replaceable>payload</replaceable>"</programlisting>
             </para>
             <para>
                 <important>
@@ -896,7 +889,7 @@
                 posted, submit a <methodname>GET</methodname> request
                 using the following syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://&lt;<emphasis role="italic">endpointURL</emphasis>>/&lt;<emphasis role="italic">feedName</emphasis>>/events/&lt;<emphasis role="italic">tenantId</emphasis>></programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantId</replaceable></programlisting>
             </para>
             <para>The placeholders are defined in the following
                 table.</para>
@@ -944,7 +937,7 @@
             <para>The following is an example for a request for a
                 feed:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events</programlisting>
             </para>
             <para>This request returns 25 of the latest events in the
                 Next Generation Cloud Server feed from the DFW data
@@ -952,7 +945,7 @@
                 more readable, you can submit the following
                 request:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events | xmllint --format -</programlisting>
             </para>
         </section>
         <section xml:id="Filter_Atom_Entries">
@@ -968,7 +961,7 @@
                     <emphasis>cloudsites.metered.site.usage</emphasis>
                 category:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: &lt;<emphasis role="italic">authenticationToken</emphasis>>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
             </para>
             <para>You can also specify multiple categories to filter
                 by. For more information about filtering for certain
