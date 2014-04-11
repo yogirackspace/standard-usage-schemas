@@ -24,11 +24,6 @@ class ValidatorSuite extends BaseUsageSuite {
     atomValidator.validate( request( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4" ), response, chain )
   }
 
-  test( "Getting an entry on a Validated Identity feed should always succeed" ) {
-
-    atomValidatorIdentity.validate( request( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4" ), response, chain )
-  }
-
   test( "Getting an entry on an Unvalidated feed should always succeed" ) {
 
     atomValidator.validate( request( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4" ), response, chain )
