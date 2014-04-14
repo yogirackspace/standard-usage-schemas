@@ -29,7 +29,6 @@
                     </html:p>
             <html:ol>
                <html:li>p:CloudBackup1Type</html:li>
-               <html:li>p:CloudBackup2Type</html:li>
                <html:li>p:CloudBackup3Type</html:li>
             </html:ol>
          </documentation>
@@ -37,7 +36,6 @@
    </element>
    <element name="product" vc:minVersion="1.1" type="p:BaseCloudBackupType">
       <alternative test="@version eq '1'" type="p:CloudBackup1Type"/>
-      <alternative test="@version eq '2'" type="p:CloudBackup2Type"/>
       <alternative test="@version eq '3'" type="p:CloudBackup3Type"/>
       <alternative type="p:BaseCloudBackupTypeError"/>
    </element>
@@ -56,8 +54,8 @@
             </openContent>
             <anyAttribute processContents="skip"/>
             <assert test="false()"
-                    xerces:message="For this type of message, only  versions ( 1, 2, 3 ) are supported."
-                    saxon:message="For this type of message, only  versions ( 1, 2, 3 ) are supported."/>
+                    xerces:message="For this type of message, only  versions ( 1, 3 ) are supported."
+                    saxon:message="For this type of message, only  versions ( 1, 3 ) are supported."/>
          </extension>
       </complexContent>
    </complexType>
@@ -92,79 +90,6 @@
       </complexContent>
    </complexType>
    <simpleType name="ResourceTypes1">
-      <annotation>
-         <documentation>
-            <html:p>Resource Types for this product.</html:p>
-         </documentation>
-      </annotation>
-      <restriction base="xsd:token">
-         <enumeration value="AGENT"/>
-      </restriction>
-   </simpleType>
-   <complexType name="CloudBackup2Type">
-      <annotation>
-         <documentation>
-            <html:p>Cloud Backup periodic license event (version 2).</html:p>
-         </documentation>
-         <appinfo>
-            <usage:core groupByResource="true"
-                        ranEnrichmentStrategy="INTEGER_RANGE"
-                        type="USAGE"/>
-         </appinfo>
-      </annotation>
-      <complexContent>
-         <extension base="p:BaseCloudBackupType">
-            <attribute name="resourceType" use="required" type="p:ResourceTypes2"/>
-            <attribute name="serverID" use="optional">
-               <annotation>
-                  <documentation>
-                     <html:p>Server ID, where the agent in installed.</html:p>
-                  </documentation>
-                  <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="true"/>
-                  </appinfo>
-               </annotation>
-               <simpleType>
-                  <union memberTypes="xsd:int p:UUID"/>
-               </simpleType>
-            </attribute>
-            <attribute name="serverName" use="required" type="p:string">
-               <annotation>
-                  <documentation>
-                     <html:p>Server Name, where the agent is installed</html:p>
-                  </documentation>
-                  <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
-                  </appinfo>
-               </annotation>
-            </attribute>
-            <attribute name="external"
-                       use="optional"
-                       default="false"
-                       type="xsd:boolean">
-               <annotation>
-                  <documentation>
-                     <html:p>True if the server where the agent is installed is external to Rackspace</html:p>
-                  </documentation>
-                  <appinfo>
-                     <usage:attributes aggregateFunction="NONE" groupBy="false"/>
-                  </appinfo>
-               </annotation>
-            </attribute>
-            <assert vc:minVersion="1.1"
-                    test="if (not(xsd:boolean(@external))) then @serverID else true()"
-                    xerces:message="If the server is NOT external, then Server ID is required."
-                    saxon:message="If the server is NOT external, then Server ID is required.">
-               <annotation>
-                  <documentation>
-                     <html:p>Assertion: If the server is NOT external, then Server ID is required.</html:p>
-                  </documentation>
-               </annotation>
-            </assert>
-         </extension>
-      </complexContent>
-   </complexType>
-   <simpleType name="ResourceTypes2">
       <annotation>
          <documentation>
             <html:p>Resource Types for this product.</html:p>
