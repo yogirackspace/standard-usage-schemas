@@ -11,6 +11,10 @@
 
     <xsl:output method="xml" encoding="UTF-8"/>
 
+    <xsl:template match="/processing-instruction('atom')">
+        <!-- ignore atom unit test processing instruction -->
+    </xsl:template>
+
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:variable name="nsUri" select="namespace-uri(atom:content/event:event/*)"/>

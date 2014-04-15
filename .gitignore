@@ -11,3 +11,4 @@ target
 .classpath
 .settings
 wadl/product.wadl
+generated_product_xsds/*

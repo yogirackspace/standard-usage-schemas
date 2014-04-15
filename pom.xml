@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
@@ -49,6 +51,7 @@
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -125,8 +128,18 @@
 	  <plugin>
             <groupId>com.rackspace.cloud.api</groupId>
             <artifactId>olink-maven-plugin</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
             <executions>
+              <execution>
+                <id>generate-product-xsd</id>
+                <phase>initialize</phase>
+                <goals>
+                  <goal>olink</goal>
+                </goals>
+                <configuration>
+                  <pipeline>generateXSDs.xpl</pipeline>
+                </configuration>
+              </execution>		
               <execution>
 		<id>generate-product-wadl</id>
 		<phase>initialize</phase>
@@ -149,7 +162,25 @@
               </execution>
 	    </executions>
 	  </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/schema.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
@@ -476,7 +507,7 @@
 	      <plugin>
 		<groupId>com.rackspace.cloud.api</groupId>
 		<artifactId>olink-maven-plugin</artifactId>
-		<version>1.1.0</version>
+		<version>1.2.0</version>
 		<executions>
 		  <execution>
 		    <id>generate-olink-db</id>
@@ -571,7 +602,7 @@
 	            <version>2.3</version>
 	            <configuration>
 	                <descriptors>
-	                    <descriptor>includewars.xml</descriptor>
+                        <descriptor>src/assembly/includewars.xml</descriptor>
 	                </descriptors>
 	            </configuration>
 	            <executions>
@@ -587,5 +618,37 @@
 	    </plugins>
 	  </build>
 	</profile>
-    </profiles>
+	<profile>
+	  <id>generate-samples</id>
+	  <build>
+	    <plugins>
+	      <plugin>
+		<groupId>com.rackspace.cloud.api</groupId>
+		<artifactId>olink-maven-plugin</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
+		<executions>
+		  <execution>
+		    <id>generate-samples</id>
+		    <phase>initialize</phase>
+		    <goals>
+		      <goal>olink</goal>
+		    </goals>
+		    <configuration>
+		      <pipeline>generateSamples.xpl</pipeline>
+		      <inputs>
+                  <source>${productSchema}</source>
+		      </inputs>
+		      <parameters>
+                  <parameters>
+                      base_feed_name=${feedName}
+                  </parameters>
+              </parameters>
+		    </configuration>
+		  </execution>
+		</executions>
+	      </plugin>
+	    </plugins>
+	  </build>
+	</profile>
+      </profiles>
 </project>
