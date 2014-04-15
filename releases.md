@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.46.0**  
+2014-04-14 | B-70224 Schema update: CBU - remove version 2 (Paul Benoit)  
+
 **usage-schema-1.45.0**  
 **usage-schema-1.44.1**  
 2014-04-03 | B-70394 - update UOM (Joe Savak)  
