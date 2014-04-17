@@ -157,7 +157,13 @@
 
     <import namespace="http://docs.rackspace.com/usage/widget"
             schemaLocation="../generated_product_xsds/widget.xsd"/>
-        
+
+    <import namespace="http://docs.rackspace.com/usage/widget/explicit"
+            schemaLocation="../generated_product_xsds/widget-with-explicit-aggreation-period.xsd"/>
+
+    <import namespace="http://docs.rackspace.com/usage/widget/multiple"
+            schemaLocation="../generated_product_xsds/widget-with-mulitple-aggregation-periods.xsd"/>
+
     <import namespace="http://docs.rackspace.com/event/lbaas/delete"
             schemaLocation="../generated_product_xsds/lbaas-delete.xsd"/> 
 
