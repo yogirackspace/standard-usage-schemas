@@ -163,9 +163,6 @@
             <xsl:element name="atom:category" namespace="http://www.w3.org/2005/Atom">
                 <xsl:attribute name="term"><xsl:value-of select="$actualTerm"/></xsl:attribute>
             </xsl:element>
-        <!--
-            <atom:category term="{$actualTerm}"/>
-        -->
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

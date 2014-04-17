@@ -19,7 +19,9 @@
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:variable name="nsUri" select="namespace-uri(atom:content/event:event/*)"/>
         <xsl:copy>
-            <atom:id><xsl:value-of select="concat('urn:uuid:',$event/@id)"/></atom:id>
+            <xsl:element name="atom:id" namespace="http://www.w3.org/2005/Atom">
+                <xsl:value-of select="concat('urn:uuid:',$event/@id)"/>
+            </xsl:element>
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>
