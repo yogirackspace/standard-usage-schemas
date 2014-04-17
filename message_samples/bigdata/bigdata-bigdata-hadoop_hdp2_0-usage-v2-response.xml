@@ -22,7 +22,7 @@
             xmlns:saxon="http://saxon.sf.net/"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns="http://www.w3.org/2001/XMLSchema">
-   <atom:id xmlns="">urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
+   <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
    <atom:category term="tid:1234"/>
    <atom:category term="rgn:DFW"/>
    <atom:category term="dc:DFW1"/>
