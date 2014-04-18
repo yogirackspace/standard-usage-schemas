@@ -128,7 +128,7 @@
 	  <plugin>
             <groupId>com.rackspace.cloud.api</groupId>
             <artifactId>olink-maven-plugin</artifactId>
-            <version>1.2.1</version>
+            <version>1.2.2</version>
             <executions>
               <execution>
                 <id>generate-product-xsd</id>
@@ -507,7 +507,7 @@
 	      <plugin>
 		<groupId>com.rackspace.cloud.api</groupId>
 		<artifactId>olink-maven-plugin</artifactId>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 		<executions>
 		  <execution>
 		    <id>generate-olink-db</id>
@@ -625,7 +625,7 @@
 	      <plugin>
 		<groupId>com.rackspace.cloud.api</groupId>
 		<artifactId>olink-maven-plugin</artifactId>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 		<executions>
 		  <execution>
 		    <id>generate-samples</id>
