@@ -27,7 +27,7 @@
             The list of all dependent objects for an event. For example, in mailbox related events, since mailbox
             has to be under a domain, a domain object can be listed as one of the dependents.
         </description>
-        <attribute name="key" type="string" minLength="1" maxLength="255" use="required">
+        <attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
             The key of the dependent objects
         </attribute>
     </attributeGroup>
