@@ -765,6 +765,17 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1" test="if (@minLength) then @maxLength else true()"
+                        xerces:message="You can only set minLength if maxLength is also set."
+                        saxon:message="You can only set minLength if maxLength is also set.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                The minLength is only allowed if maxLength is also set.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
                 <assert vc:minVersion="1.1" test="if (@withEventType) then not('EXTENDED' = @withEventType) else true()"
                         xerces:message="'withEventType' cannot be 'EXTENDED'"
                         saxon:message="'withEventType' cannot be 'EXTENDED'">
