@@ -49,6 +49,7 @@
         <wadl-tools.version>1.0.22</wadl-tools.version>
         <api-checker.version>1.0.16</api-checker.version>
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
+        <olink-maven-plugin.version>1.2.2</olink-maven-plugin.version>
     </properties>
     <dependencies>
 
@@ -128,7 +129,7 @@
 	  <plugin>
             <groupId>com.rackspace.cloud.api</groupId>
             <artifactId>olink-maven-plugin</artifactId>
-            <version>1.2.2</version>
+            <version>${olink-maven-plugin.version}</version>
             <executions>
               <execution>
                 <id>generate-product-xsd</id>
@@ -507,7 +508,7 @@
 	      <plugin>
 		<groupId>com.rackspace.cloud.api</groupId>
 		<artifactId>olink-maven-plugin</artifactId>
-		<version>1.2.2</version>
+		<version>${olink-maven-plugin.version}</version>
 		<executions>
 		  <execution>
 		    <id>generate-olink-db</id>
@@ -625,7 +626,7 @@
 	      <plugin>
 		<groupId>com.rackspace.cloud.api</groupId>
 		<artifactId>olink-maven-plugin</artifactId>
-		<version>1.2.2</version>
+		<version>${olink-maven-plugin.version}</version>
 		<executions>
 		  <execution>
 		    <id>generate-samples</id>
