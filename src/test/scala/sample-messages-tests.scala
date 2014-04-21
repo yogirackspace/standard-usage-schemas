@@ -8,15 +8,8 @@ import java.net.URL
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
-import org.w3c.dom.Document
-
 import scala.xml._
-import scala.collection.mutable.HashMap
 
-import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
-import com.rackspace.cloud.api.wadl.Converters._
-import com.rackspace.com.papi.components.checker.Converters._
-import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
 import com.rackspace.cloud.api.wadl.test.SchemaAsserter
 
 import BaseUsageSuite._
