@@ -11,6 +11,7 @@ import org.scalatest.junit.JUnitRunner
 import org.w3c.dom.Document
 
 import scala.xml._
+import scala.collection.mutable.HashMap
 
 import com.rackspace.com.papi.components.checker.servlet.RequestAttributes._
 import com.rackspace.cloud.api.wadl.Converters._
@@ -67,17 +68,19 @@ class SampleMessagesSuite extends BaseUsageSuite {
     }
   })
 
-
-  sampleFiles.map(toFeedFile).filter(_ != None).map(_.get).foreach (f => {
-    test("Sample "+f._2.getAbsolutePath+" should be valid against feed "+f._1) {
-      printf("Checking %s against feed %s\n", f._2.getAbsolutePath, f._1)
-      if ( f._2.getAbsolutePath().indexOf("/identity/") != -1 ) {
-        atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
-      } else {
-        atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._2)), response, chain)
+  sampleFiles.map(toFeedFile).foreach { element =>
+      element.foreach { pair =>
+          val (feed, fl) = pair
+          test("Sample "+fl.getAbsolutePath+" should be valid against feed "+feed) {
+              printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
+              if ( fl.getAbsolutePath().indexOf("/identity/") != -1 ) {
+                  atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+              } else {
+                  atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+              }
+          }
       }
-    }
-  })
+  }
 
 
   badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
@@ -92,14 +95,16 @@ class SampleMessagesSuite extends BaseUsageSuite {
   })
 
   //
-  //  Converts a sample file to an optional (feed/path, file)
+  //  Converts a sample file to a list of (feed/path, file)
   //
-  def toFeedFile (f : File) : Option[(String, File)] = {
-    val feed = (getProcs(f, "atom") \\ "atom" \\ "@feed").text
-    if (feed.isEmpty()) {
-      None
+  def toFeedFile (f : File) : List[(String, File)] = {
+    val feedAttr = (getProcs(f, "atom") \\ "atom" \\ "@feed").text
+    if (feedAttr.isEmpty()) {
+      List()
     } else {
-      Some((feed, f))
+      feedAttr.split(' ').toList.map { feed =>
+          (feed, f)
+      }
     }
   }
 
