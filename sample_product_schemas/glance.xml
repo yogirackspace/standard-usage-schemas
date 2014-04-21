@@ -19,7 +19,7 @@
             The end time of the backup.
         </attribute>
         <attribute name="resourceId" type="string" use="required"
-                minLength="1">
+                minLength="1" maxLength="255">
             The resourceId of the backup.
         </attribute>
         <attribute name="resourceType" type="Name" use="required"
