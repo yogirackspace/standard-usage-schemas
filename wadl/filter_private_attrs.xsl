@@ -16,32 +16,4 @@
          <xsl:apply-templates select="@*|node()"/>
       </xsl:copy>
    </xsl:template>
-
-    <!--For product: CloudServers -->
-    <xsl:template xmlns:pf="http://docs.rackspace.com/event/servers/slice"
-                 match="pf:product[@version='1']/@*[some $x in ('rootPassword', 'options', 'huddleId', 'serverId', 'customerId', 'sliceType') satisfies $x eq local-name(.)]">
-      <xsl:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-         <xsl:copy-of select="."/>
-      </xsl:if>
-   </xsl:template>
-
-    <!--For product: Widget -->
-    <xsl:template xmlns:pf="http://docs.rackspace.com/usage/widget"
-                 match="pf:product[@version='3']/@*[some $x in ('privateAttribute1', 'myAttribute', 'privateAttribute3') satisfies $x eq local-name(.)]">
-      <xsl:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-         <xsl:copy-of select="."/>
-      </xsl:if>
-   </xsl:template>
-   <xsl:template xmlns:pf="http://docs.rackspace.com/usage/widget"
-                 match="pf:product[@version='3']/pf:metaData/@*[some $x in ('value') satisfies $x eq local-name(.)]">
-      <xsl:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-         <xsl:copy-of select="."/>
-      </xsl:if>
-   </xsl:template>
-   <xsl:template xmlns:pf="http://docs.rackspace.com/usage/widget"
-                 match="pf:product[@version='3']/pf:mixPublicPrivateAttributes/@*[some $x in ('privateAttribute3') satisfies $x eq local-name(.)]">
-      <xsl:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-         <xsl:copy-of select="."/>
-      </xsl:if>
-   </xsl:template>
 </xsl:stylesheet>

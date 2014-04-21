@@ -7,7 +7,7 @@
 
   <p:validate-with-xml-schema name="validateProductSchema" assert-valid="true" mode="strict">
     <p:input port="schema">
-      <p:document href="product_schema_def/xsd/productSchema.xsd"></p:document>
+      <p:document href="../../product_schema_def/xsd/productSchema.xsd"></p:document>
     </p:input>
   </p:validate-with-xml-schema>
 
@@ -16,7 +16,7 @@
       <p:pipe port="result" step="validateProductSchema"/>
     </p:input>
     <p:input port="stylesheet">
-      <p:document href="product_schema_def/xsl/productSchema-samples.xsl" />
+      <p:document href="../../product_schema_def/xsl/productSchema-samples.xsl" />
     </p:input>
     <p:input port="parameters">
       <p:pipe step="genSamples" port="parameters"/>
@@ -44,7 +44,7 @@
         <p:pipe step="entryVersions" port="current"/>
       </p:input>
       <p:input port="stylesheet">
-        <p:document href="wadl/bigdata.xsl" />
+        <p:document href="../../wadl/bigdata.xsl" />
       </p:input>
       <p:input port="parameters">
         <p:empty/>
@@ -56,7 +56,7 @@
         <p:pipe step="genBigData" port="result"/>
       </p:input>
       <p:input port="stylesheet">
-        <p:document href="wadl/bigdata.xsl" />
+        <p:document href="../../wadl/bigdata.xsl" />
       </p:input>
       <p:input port="parameters">
         <p:empty/>
@@ -68,7 +68,7 @@
         <p:pipe step="genLbaas" port="result"/>
       </p:input>
       <p:input port="stylesheet">
-        <p:document href="wadl/atom_hopper_pre.xsl" />
+        <p:document href="../../wadl/atom_hopper_pre.xsl" />
       </p:input>
       <p:input port="parameters">
         <p:empty/>
@@ -80,7 +80,7 @@
       <p:pipe step="genResp" port="result"/>
     </p:input>
     <p:input port="schema">
-      <p:document href="core_xsd/entry.xsd"></p:document>
+      <p:document href="../../core_xsd/entry.xsd"></p:document>
     </p:input>
   </p:validate-with-xml-schema>
 

@@ -137,7 +137,7 @@
                   <goal>olink</goal>
                 </goals>
                 <configuration>
-                  <pipeline>generateXSDs.xpl</pipeline>
+                  <pipeline>src/xpl/generateXSDs.xpl</pipeline>
                 </configuration>
               </execution>		
               <execution>
@@ -147,7 +147,7 @@
 		  <goal>olink</goal>
 		</goals>
 		<configuration>
-		  <pipeline>generateWADL.xpl</pipeline>
+		  <pipeline>src/xpl/generateWADL.xpl</pipeline>
 		</configuration>
               </execution>
               <execution>
@@ -157,7 +157,7 @@
 		  <goal>olink</goal>
 		</goals>
 		<configuration>
-		  <pipeline>generateFilterPrivateAttrs.xpl</pipeline>
+		  <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
 		</configuration>
               </execution>
 	    </executions>
@@ -634,7 +634,7 @@
 		      <goal>olink</goal>
 		    </goals>
 		    <configuration>
-		      <pipeline>generateSamples.xpl</pipeline>
+		      <pipeline>src/xpl/generateSamples.xpl</pipeline>
 		      <inputs>
                   <source>${productSchema}</source>
 		      </inputs>
