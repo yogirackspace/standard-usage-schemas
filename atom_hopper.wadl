@@ -66,9 +66,9 @@
         <resource id="usagetest6_events" path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Widget"/>
         <resource id="usagetest7_events" path="usagetest7/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="usagetest8_events" path="usagetest8/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource id="usagetest9_events" path="usagetest9/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="usagetest10_events" path="usagetest10/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="usagetest11_events" path="usagetest11/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="usagetest9_events" path="usagetest9/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
+        <resource id="usagetest10_events" path="usagetest10/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
+        <resource id="usagetest11_events" path="usagetest11/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
         <resource id="usagetest12_events" path="usagetest12/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <!-- end of Test related feeds -->
     </resources>
