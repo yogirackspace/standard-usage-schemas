@@ -1,6 +1,11 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.47.0**  
+2014-04-21 | D-17682: specify maxLength for key attribute of emailapps_msservice (Shinta Smith)  
+2014-04-21 | D-17918: add lbaas and bigdata resource types to usagetest9..11 feeds (Shinta Smith)  
+2014-04-16 | B-65128 - Operaitonalize Onboarding: Auto-Gen XSD and Samples (Greg Sharek)  
+
 **usage-schema-1.46.0**  
 2014-04-14 | B-70224 Schema update: CBU - remove version 2 (Paul Benoit)  
 
