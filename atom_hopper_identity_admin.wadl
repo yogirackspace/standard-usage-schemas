@@ -89,9 +89,9 @@
         <!-- end of Test related feeds -->
 
         <!-- Summary Feeds -->
-        <resource path="usageusagesummary">
-            <resource id="bigdata_usagesummary_events"     path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigDataSummary"/>
+        <resource path="usagesummary">
             <resource id="backup_usagesummary_events"      path="backup/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackupSummary"/>
+            <resource id="bigdata_usagesummary_events"     path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigDataSummary"/>
             <resource id="cbs_usagesummary_events"         path="cbs/events"     type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorageSummary"/>
             <resource id="dbaas_usagesummary_events"       path="dbaas/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabaseSummary"/>
             <resource id="dedicatedvcloud_sum_events" path="dedicatedvcloud/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloudSummary"/>

@@ -45,8 +45,8 @@
 
         <!-- Summary Feeds -->
         <resource path="usagesummary">
-            <resource id="bigdata_usagesummary_events"     path="bigdata/events" type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="backup_usagesummary_events"      path="backup/events"  type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="bigdata_usagesummary_events"     path="bigdata/events" type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="cbs_usagesummary_events"         path="cbs/events"     type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="dbaas_usagesummary_events"       path="dbaas/events"   type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="dedicatedvcloud_sum_events"      path="dedicatedvcloud/events" type="wadl/feed.wadl#TenantAtomFeed"/>
