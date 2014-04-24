@@ -415,6 +415,20 @@
                         </documentation>
                     </annotation>
                 </assert>
+                <assert vc:minVersion="1.1"
+                        test="empty(for $t in tokenize(string(@type),' ') return if ($t='USAGE_SUMMARY') then true() else ())"
+                        xerces:message="Product schemas of type 'USAGE_SUMMARY' may not be explicitly defined."
+                        saxon:message="Product schemas of type 'USAGE_SUMMARY' may not be explicitly defined.">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Product schemas of type
+                                'USAGE_SUMMARY' may not be explicitly
+                                defined.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
             </extension>
         </complexContent>
     </complexType>

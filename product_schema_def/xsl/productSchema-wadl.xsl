@@ -10,7 +10,6 @@
     xmlns:rax="http://docs.rackspace.com/api"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:error="http://docs.rackspace.com/core/error"
-    xmlns:usage-summary="http://docs.rackspace.com/core/usage-summary"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:domain="http://docs.rackspace.com/event/domain"
     xmlns:maas="http://docs.rackspace.com/usage/maas"
@@ -24,7 +23,7 @@
     <xsl:variable name="NS_PREFIX" select="'w_ns'"/>
     <!-- Event types, excepts for USAGE, which is a special case -->
     <xsl:variable name="EVENT_TYPES" as="xs:string*"
-        select="('CREATE','USAGE_SNAPSHOT','UPDATE', 'DELETE', 'SUSPEND', 'UNSUSPEND', 'EXTENDED','UP','DOWN','INFO')"/>
+        select="('CREATE','USAGE_SNAPSHOT','USAGE_SUMMARY', 'UPDATE', 'DELETE', 'SUSPEND', 'UNSUSPEND', 'EXTENDED','UP','DOWN','INFO')"/>
     
     <xsl:template match="c:directory">
         <xsl:variable name="productSchemas" as="node()" select="sch:addSchemaPos(sch:getSchemas(.))"/>
@@ -45,143 +44,193 @@
                 <xsl:namespace name="{sch:ns(current-group()[1]/@pos)}" select="current-group()[1]/@namespace"/>
             </xsl:for-each-group>
             <xsl:for-each-group select="$productSchemas//sch:productSchema" group-by="@serviceCode">
-                <xsl:variable name="id" select="current-group()[1]/@serviceCode"/>
-                <resource_type id="{$id}">
-                    <method id="add{$id}Entry" name="POST">
-                    <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>                  
-                        <wadl:doc title="Add {sch:lookupServiceCode(current-grouping-key())} Event" xmlns="http://docbook.org/ns/docbook">
-                            <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>
-                            <para role="shortdesc">Add <xsl:value-of select="sch:lookupServiceCode(current-grouping-key())"/> event.</para>
-                            <!-- TODO: write out product schema tables here -->
-                            <xsl:apply-templates select="current-group()" mode="wadlDoc">
+                <!-- Create resource group twice, once with and without usage summary. -->
+                <xsl:for-each select="(false(), true())">
+                    <xsl:variable name="summaryOnly" select="." as="xs:boolean"/>
+                    <xsl:call-template name="sch:create-resource-type">
+                        <xsl:with-param name="summaryOnly" select="$summaryOnly"/>
+                        <xsl:with-param name="schemas" select="current-group()"/>
+                        <xsl:with-param name="serviceCode" select="current-grouping-key()"/>
+                        <xsl:with-param name="productSchemas" select="$productSchemas"/>
+                        <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
+                    </xsl:call-template>
+                </xsl:for-each>
+            </xsl:for-each-group>
+        </application>
+    </xsl:template>
+    <xsl:template name="sch:create-resource-type">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:param name="serviceCode" as="xs:string"/>
+        <xsl:param name="summaryOnly" as="xs:boolean"/>
+        <xsl:param name="sampleMessages" as="node()"/>
+        <xsl:param name="productSchemas" as="node()"/>
+        <xsl:variable name="id" as="xs:string">
+            <xsl:choose>
+                <xsl:when test="$summaryOnly">
+                    <xsl:value-of select="concat($serviceCode,'Summary')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$serviceCode"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="currentSchemas" as="node()*">
+            <xsl:choose>
+                <xsl:when test="$summaryOnly">
+                    <xsl:sequence select="$schemas[not(@type) or ('USAGE' = sch:stringList(@type)) or
+                                          ('USAGE_SNAPSHOT' = sch:stringList(@type))]"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:sequence select="$schemas"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:if test="not(empty($currentSchemas))">
+            <resource_type id="{$id}">
+                <method id="add{$id}Entry" name="POST">
+                    <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>
+                    <wadl:doc title="Add {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                        <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>
+                        <para role="shortdesc">Add <xsl:value-of select="sch:lookupServiceCode($serviceCode)"/>
+                        <xsl:if test="$summaryOnly"> Summary </xsl:if> event.</para>
+                        <!-- TODO: write out product schema tables here -->
+                        <!-- TODO: adjust message samples to handle summaries -->
+                        <xsl:if test="not($summaryOnly)">
+                            <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                 <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                 <xsl:with-param name="context">addEntry</xsl:with-param>
-                            </xsl:apply-templates>                            
-                        </wadl:doc>
-                        <request>
-                            <representation mediaType="application/atom+xml" element="atom:entry">
-                                <xsl:call-template name="sch:param">
-                                    <xsl:with-param name="type" select="'USAGE'"/>
-                                    <xsl:with-param name="schemas" select="current-group()[not(@type) or ('USAGE' = sch:stringList(@type))]"/>
-                                </xsl:call-template>
+                            </xsl:apply-templates>
+                        </xsl:if>
+                    </wadl:doc>
+                    <request>
+                        <representation mediaType="application/atom+xml" element="atom:entry">
+                            <!--
+                               This deals with the edge case dealing with USAGE types.
+                            -->
+                            <xsl:choose>
+                                <xsl:when test="$summaryOnly">
+                                    <xsl:call-template name="sch:param">
+                                        <xsl:with-param name="type" select="'USAGE_SUMMARY'"/>
+                                        <xsl:with-param name="schemas" select="$currentSchemas"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:call-template name="sch:param">
+                                        <xsl:with-param name="type" select="'USAGE'"/>
+                                        <xsl:with-param name="schemas" select="$currentSchemas[not(@type) or ('USAGE' = sch:stringList(@type))]"/>
+                                    </xsl:call-template>
+                                </xsl:otherwise>
+                            </xsl:choose>
 
+                            <!--
+                               @withEventType attributes, currently
+                               don't work with USAGE_SUMMARY messages. -jw
+                               TODO: FIX.
+                            -->
+                            <xsl:if test="not($summaryOnly)">
                                 <xsl:call-template name="sch:event-type-checks">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
+                                    <xsl:with-param name="schemas" select="$currentSchemas"/>
                                 </xsl:call-template>
+                            </xsl:if>
 
-                                <xsl:call-template name="sch:resource-type-checks">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                </xsl:call-template>
+                            <xsl:call-template name="sch:resource-type-checks">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                            </xsl:call-template>
 
-                                <xsl:call-template name="sch:required-attribute-checks">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                </xsl:call-template>
+                            <xsl:call-template name="sch:required-attribute-checks">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                            </xsl:call-template>
 
-                                <xsl:call-template name="sch:cross-check-params">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                </xsl:call-template>
-                                <xsl:call-template name="sch:forbid-event-error" />
-                                <xsl:call-template name="sch:forbid-usage-summary" />
-                                
-                                <xsl:for-each select="current-group()/sch:attribute[@use='synthesized']">
-                                    <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
-                                    <xsl:variable name="attributeName" select="@name"/>
-                                    <xsl:variable name="schemaVersion" select="../@version"/>
-                                    <param name="checkSynthesized_{$attributeName}_v{$schemaVersion}"
-                                           style="plain"
-                                           required="true"
-                                           path="not(/atom:entry/atom:content/event:event/{$ns}:product[@version='{$schemaVersion}']/@{$attributeName})"
-                                           rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event (version '{$schemaVersion}')."/>
-                                </xsl:for-each>
+                            <xsl:call-template name="sch:cross-check-params">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                                <xsl:with-param name="summaryOnly" select="$summaryOnly"/>
+                            </xsl:call-template>
 
-                                <!--
-                                    B-51154: restrict the use of GLOBAL DC/Region
-                                    This can be implemented inside the product schema XMLs once B-50883, 
-                                    which depends on Repose 2.8.6 or above, is implemented.
-                                -->
-                                <xsl:choose>
-                                    <xsl:when test="$id = 'CloudMonitoring'">
-                                        <param name="checkDatacenter"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type of Monitoring event, @dataCenter must be present and can not be GLOBAL."/>
-                                        <param name="checkRegion"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/maas:product/@resourceType = 'CHECK') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type of Monitoring event, @region must be present and can not be GLOBAL."/>
-                                    </xsl:when>
-                                    <xsl:when test="$id = 'CloudSites'">
-                                        <param name="checkDatacenter"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type of Sites event, @dataCenter must be present and can not be GLOBAL."/>
-                                        <param name="checkRegion"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/sitesSubscription:product/@resourceType = 'SITES_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type of Sites event, @region must be present and can not be GLOBAL."/>
-                                    </xsl:when>
-                                    <xsl:when test="$id = 'DomainRegistration'">
-                                        <param name="checkDatacenter"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type of Domain event, @dataCenter must be present and can not be GLOBAL."/>
-                                        <param name="checkRegion"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/domain:product/@resourceType = 'DOMAIN_SUBSCRIPTION') and (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
-                                               rax:message="For this type Domain of event, @region must be present and can not be GLOBAL."/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <param name="checkDatacenter"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
-                                               rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
-                                        <param name="checkRegion"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
-                                               rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                            <xsl:call-template name="sch:forbid-event-error" />
 
-                                <xsl:if test="@ranEnrichmentStrategy = 'HYBRID_TO_CORE_RAN'">
-                                    <param name="checkTenantIdForHybrid"
-                                               style="plain"
-                                               required="true"
-                                               path="if ( /atom:entry/atom:content/event:event and not(starts-with(/atom:entry/atom:content/event:event/@tenantId, 'hybrid:')) ) then false() else true()"
-                                               rax:message="For {@serviceCode} product usage event, @tenantId must be begin with 'hybrid:'."/>
-                                </xsl:if>
+                            <xsl:call-template name="sch:synth-attribute-check">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                            </xsl:call-template>
 
-                                <!-- per WADL schema, all rax:preprocess/extensions have to be at the bottom of params -->
+                            <!--
+                                !!!!!!  HACK   !!!!!!
+                                B-51154: restrict the use of GLOBAL DC/Region
+                                This can be implemented inside the product schema XMLs once B-50883,
+                                which depends on Repose 2.8.6 or above, is implemented.
 
-                                <xsl:call-template name="sch:xpath-assertions">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
-                                </xsl:call-template>
+                                JW:  We should probably implement this by extending the product schema
+                                     to support of allowing global dcs etc, instead of doing this
+                                     via individual product assurtions. That would be much cleaner.
+                                     PLEASE FIX. :-)
+                            -->
+                            <xsl:call-template name="sch:restrict-global">
+                                <xsl:with-param name="serviceCode" select="$serviceCode"/>
+                                <xsl:with-param name="rules">
+                                    <rax:restrict-rules>
+                                        <!-- For these resource and resource types, the dc and region must be GLOBAL-->
+                                        <!-- The nsprefix must be declared at the top of this XSL for this to work! -->
+                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefix="maas"              resourceType="CHECK"/>
+                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefix="sitesSubscription" resourceType="SITES_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefix="domain"            resourceType="DOMAIN_SUBSCRIPTION"/>
+                                    </rax:restrict-rules>
+                                </xsl:with-param>
+                            </xsl:call-template>
 
-                                <!-- B-57395: implementation of BigData synthesized attribute -->
-                                <xsl:if test="$id = 'BigData'">
-                                    <rax:preprocess href="bigdata.xsl"/>
-                                </xsl:if>
-                                <!-- B-59857: Cloud Load Balancer synthesized attributes -->
-                                <xsl:if test="$id = 'CloudLoadBalancers'">
-                                    <rax:preprocess href="synthesize_lbaas.xsl"/>
-                                </xsl:if>
-                                <xsl:call-template name="sch:searchable">
-                                    <xsl:with-param name="schemas" select="current-group()"/>
-                                    <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
-                                </xsl:call-template>
-                                <rax:preprocess href="atom_hopper_pre.xsl"/>
-                            </representation>
-                        </request>
-                        <!-- Okay -->
-                        <response status="201">
+                            <xsl:call-template name="sch:check-tenant-for-hybrid">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                            </xsl:call-template>
+
+                            <!-- per WADL schema, all rax:preprocess/extensions have to be at the bottom of params -->
+                            <xsl:call-template name="sch:xpath-assertions">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                                <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
+                            </xsl:call-template>
+
+                            <!-- !!!!!! HACK !!!!!! -->
+
+                            <!-- These synthasized XSLs should be associated via the product schema.  PLEASE FIX. :-) -->
+                            <!-- Intententially use $id instead of $serviceCode, we don't want to perform the transform on a summary event -->
+
+                            <!-- B-57395: implementation of BigData synthesized attribute -->
+                            <xsl:if test="$id = 'BigData'">
+                                <rax:preprocess href="bigdata.xsl"/>
+                            </xsl:if>
+                            <!-- B-59857: Cloud Load Balancer synthesized attributes -->
+                            <xsl:if test="$id = 'CloudLoadBalancers'">
+                                <rax:preprocess href="synthesize_lbaas.xsl"/>
+                            </xsl:if>
+                            <xsl:call-template name="sch:searchable">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                                <xsl:with-param name="nscount" select="count(sch:getNSVersions($productSchemas//sch:productSchema))"/>
+                            </xsl:call-template>
+                            <rax:preprocess href="atom_hopper_pre.xsl"/>
+                        </representation>
+                    </request>
+                    <!-- Okay -->
+                    <response status="201">
+                        <representation mediaType="application/atom+xml"/>
+                    </response>
+                    <!-- On Error -->
+                    <response status="400 401 409 500 503">
+                        <representation mediaType="application/xml"/>
+                    </response>
+                </method>
+                <xsl:variable name="opencurly">{</xsl:variable>
+                <xsl:variable name="closecurly">}</xsl:variable>
+                <resource path="entries/{$opencurly}id{$closecurly}" id="getEntry_{$id}">
+                    <param name="id" type="xs:anyURI" style="template"> <!-- Have to add wadl: prefix to doc to make test pass. Canonicalization seems to be messing up --><wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc></param>
+                    <method id="getEntry{$id}" name="GET">
+                        <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                            <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
+                            <!-- TODO: Adjust samples to work with usage summaries -->
+                            <xsl:if test="not($summaryOnly)">
+                                <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
+                                    <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
+                                    <xsl:with-param name="context">getEntry</xsl:with-param>
+                                </xsl:apply-templates>
+                            </xsl:if>
+                        </wadl:doc>
+                        <response status="200">
                             <representation mediaType="application/atom+xml"/>
                         </response>
                         <!-- On Error -->
@@ -189,30 +238,75 @@
                             <representation mediaType="application/xml"/>
                         </response>
                     </method>
-                    <xsl:variable name="opencurly">{</xsl:variable>
-                    <xsl:variable name="closecurly">}</xsl:variable>
-                    <resource path="entries/{$opencurly}id{$closecurly}" id="getEntry_{$id}">
-                        <param name="id" type="xs:anyURI" style="template"> <!-- Have to add wadl: prefix to doc to make test pass. Canonicalization seems to be messing up --><wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc></param>
-                        <method id="getEntry{$id}" name="GET">
-                            <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode(current-grouping-key())} Event" xmlns="http://docbook.org/ns/docbook">
-                                <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
-                                <xsl:apply-templates select="current-group()" mode="wadlDoc">
-                                    <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
-                                    <xsl:with-param name="context">getEntry</xsl:with-param>
-                                </xsl:apply-templates>  
-                            </wadl:doc>
-                            <response status="200">
-                                <representation mediaType="application/atom+xml"/>
-                            </response>
-                            <!-- On Error -->
-                            <response status="400 401 409 500 503">
-                                <representation mediaType="application/xml"/>
-                            </response>
-                        </method>                     
-                    </resource>                
-                </resource_type>
-            </xsl:for-each-group>
-        </application>
+                </resource>
+           </resource_type>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="sch:restrict-global">
+        <xsl:param name="serviceCode" as="xs:string"/>
+        <xsl:param name="rules" as="node()"/>
+        <xsl:variable name="hitRules" select="$rules/rax:restrict-rules/rax:restrict-rule[@serviceCode = $serviceCode]"/>
+        <xsl:choose>
+            <xsl:when test="not(empty($hitRules))">
+                <xsl:for-each select="$hitRules">
+                    <xsl:variable name="rtype" as="xs:string" select="./@resourceType"/>
+                    <xsl:variable name="scode" as="xs:string" select="./@serviceCode"/>
+                    <xsl:variable name="pfix"  as="xs:string" select="./@nsprefix"/>
+                    <param name="checkDatacenter_{$rtype}"
+                           style="plain"
+                           required="true"
+                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                                    (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
+                           rax:message="For this type of {$scode} event, @dataCenter must be present and can not be GLOBAL."/>
+                    <param name="checkRegion_{$rtype}"
+                           style="plain"
+                           required="true"
+                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                                 (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
+                           rax:message="For this type of {$scode} event, @region must be present and can not be GLOBAL."/>
+                </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+                <param name="checkDatacenter"
+                       style="plain"
+                       required="true"
+                       path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter)) or
+                             /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') then false() else true()"
+                       rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
+                <param name="checkRegion"
+                       style="plain"
+                       required="true"
+                       path="if ( (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region)) or
+                             /atom:entry/atom:content/event:event/@region = 'GLOBAL') then false() else true()"
+                       rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template name="sch:check-tenant-for-hybrid">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:for-each select="$schemas[@ranEnrichmentStrategy = 'HYBRID_TO_CORE_RAN']">
+            <xsl:variable name="ns" as="xs:string" select="sch:ns(@pos)"/>
+            <xsl:variable name="version" as="xs:string" select="@version"/>
+             <param name="checkTenantIdForHybrid_{$ns}_{$version}"
+                    style="plain"
+                    required="true"
+                    path="if ((/atom:entry/atom:content/event:event/{$ns}:product/@version='{$version}')
+                          and not(starts-with(/atom:entry/atom:content/event:event/@tenantId, 'hybrid:')) ) then false() else true()"
+                    rax:message="For {@serviceCode} product usage event, @tenantId must be begin with 'hybrid:'."/>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template name="sch:synth-attribute-check">
+        <xsl:param name="schemas" as="node()*"/>
+        <xsl:for-each select="$schemas/sch:attribute[@use='synthesized']">
+            <xsl:variable name="ns" as="xs:string" select="sch:ns(../@pos)"/>
+            <xsl:variable name="version" as="xs:string" select="../@version"/>
+            <xsl:variable name="attributeName" select="@name"/>
+            <param name="checkSynthesized_{$attributeName}_{$version}"
+                   style="plain"
+                   required="true"
+                   path="not(/atom:entry/atom:content/event:event/{$ns}:product[@version='{$version}']/@{$attributeName})"
+                   rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
+        </xsl:for-each>
     </xsl:template>
     <xsl:template name="sch:xpath-assertions">
         <xsl:param name="schemas" as="node()*"/>
@@ -347,7 +441,9 @@
     </xsl:template>
     <xsl:template name="sch:cross-check-params">
         <xsl:param name="schemas" as="node()*"/>
-        <xsl:variable name="usedTypes" select="if ($schemas[not(@type)]) then
+        <xsl:param name="summaryOnly" as="xs:boolean"/>
+        <xsl:variable name="usedTypes" select="if ($summaryOnly) then 'USAGE_SUMMARY' else
+                                               if ($schemas[not(@type)]) then
                                                distinct-values((sch:getTypes($schemas),'USAGE'))
                                                else sch:getTypes($schemas)"
                       as="xs:string*"/>
@@ -383,13 +479,6 @@
                required="true"
                path="not(/atom:entry/atom:content/error:eventError)"
                rax:message="eventErrors are not allowed in this feed."/>        
-    </xsl:template>
-    <xsl:template name="sch:forbid-usage-summary">
-        <param name="forbid-usage-summary" 
-               style="plain" 
-               required="true"
-               path="not(/atom:entry/atom:content/usage-summary:usageSummary)"
-               rax:message="usageSummary elements are not allowed in this feed."/>        
     </xsl:template>
     <xsl:template name="sch:badResourceType">
         <xsl:param name="schema" as="node()"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="usagesummary/sites/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="1000.345"?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:email="http://docs.rackspace.com/usage/sites/email">
+    <atom:title type="text">Sites</atom:title>
+    <atom:content type="application/xml">
+        <event type="USAGE_SUMMARY"
+               resourceId="my.site.com" resourceName="my.site.com"
+               eventTime="2012-06-14T10:19:52Z"
+               id="47b574c4-0400-11e2-b19d-7b8e208cade1"
+               dataCenter="ORD1" region="ORD"
+               tenantId="12883" version="1">
+            <email:product serviceCode="CloudSites" version="1"
+                       resourceType="SITES_EMAIL"
+                       numberOfMailboxes="1000.345"/>
+        </event>
+    </atom:content>
+</atom:entry>

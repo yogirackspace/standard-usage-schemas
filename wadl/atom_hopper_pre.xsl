@@ -67,6 +67,25 @@
         <!-- Ignore passed in ID -->
     </xsl:template>
 
+
+    <!--
+        A summary attribute to a product who's event is of type
+        USAGE_SUMMARY.
+    -->
+    <xsl:template match="event:event[@type='USAGE_SUMMARY']">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates select="node()" mode="addSummary"/>
+        </xsl:copy>
+    </xsl:template>
+
+    <xsl:template match="node()" mode="addSummary">
+        <xsl:copy>
+            <xsl:attribute name="summary">true</xsl:attribute>
+            <xsl:apply-templates select="@*[local-name() != 'summary'] | node()"/>
+        </xsl:copy>
+    </xsl:template>
+
     <!--
         STOP GAP: If the category is 'monitoring.check.usage' and the
         tenantId starts with hybrid: , then remove the category.

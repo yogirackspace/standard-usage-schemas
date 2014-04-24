@@ -43,22 +43,33 @@
         <resource id="support_events" path="support/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Support"/>
         <resource id="usagedeadletter_events" path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
         <resource id="usagerecovery_events" path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="usagesummary_events" path="usagesummary/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageSummary"/>
 
         <!-- Test related feeds -->
         <resource id="demo_events" path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="experiments_events" path="experiments/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#AtomFeed
-                  wadl/product.wadl#AtomHopper wadl/product.wadl#BigData wadl/product.wadl#CloudBackup
-                  wadl/product.wadl#CloudBlockStorage wadl/product.wadl#CloudDatabase wadl/product.wadl#CloudDNS
-                  wadl/product.wadl#CloudFiles wadl/product.wadl#CloudIdentity wadl/product.wadl#CloudLoadBalancers
-                  wadl/product.wadl#CloudMonitoring wadl/product.wadl#CloudQueues wadl/product.wadl#CloudServers
-                  wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudSites wadl/product.wadl#DedicatedVCloud
-                  wadl/product.wadl#DomainRegistration wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService
+                  wadl/product.wadl#AtomHopper
+                  wadl/product.wadl#BigData wadl/product.wadl#BigDataSummary
+                  wadl/product.wadl#CloudBackup wadl/product.wadl#CloudBackupSummary
+                  wadl/product.wadl#CloudBlockStorage wadl/product.wadl#CloudBlockStorageSummary
+                  wadl/product.wadl#CloudDatabase wadl/product.wadl#CloudDatabaseSummary
+                  wadl/product.wadl#CloudDNS
+                  wadl/product.wadl#CloudFiles wadl/product.wadl#CloudFilesSummary
+                  wadl/product.wadl#CloudIdentity
+                  wadl/product.wadl#CloudLoadBalancers wadl/product.wadl#CloudLoadBalancersSummary
+                  wadl/product.wadl#CloudMonitoring wadl/product.wadl#CloudMonitoringSummary
+                  wadl/product.wadl#CloudQueues wadl/product.wadl#CloudQueuesSummary
+                  wadl/product.wadl#CloudServers wadl/product.wadl#CloudServersSummary
+                  wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudServersOpenStackSummary
+                  wadl/product.wadl#CloudSites wadl/product.wadl#CloudSitesSummary
+                  wadl/product.wadl#DedicatedVCloud wadl/product.wadl#DedicatedVCloudSummary
+                  wadl/product.wadl#DomainRegistration
+                  wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService
                   wadl/product.wadl#EmailAppsUsage
-                  wadl/product.wadl#Glance wadl/product.wadl#NetDevice wadl/product.wadl#RHEL wadl/product.wadl#Ssl
-                  wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter wadl/feed.wadl#UsageSummary
-                  wadl/product.wadl#Widget"/>
+                  wadl/product.wadl#Glance wadl/product.wadl#GlanceSummary
+                  wadl/product.wadl#NetDevice
+                  wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
+                  wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="migrationtest_events" path="migrationtest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest1_events" path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
@@ -76,5 +87,23 @@
         <resource id="usagetest11_events" path="usagetest11/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
         <resource id="usagetest12_events" path="usagetest12/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <!-- end of Test related feeds -->
+
+        <!-- Summary Feeds -->
+        <resource path="usagesummary">
+            <resource id="backup_usagesummary_events"      path="backup/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackupSummary"/>
+            <resource id="bigdata_usagesummary_events"     path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigDataSummary"/>
+            <resource id="cbs_usagesummary_events"         path="cbs/events"     type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorageSummary"/>
+            <resource id="dbaas_usagesummary_events"       path="dbaas/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabaseSummary"/>
+            <resource id="dedicatedvcloud_sum_events" path="dedicatedvcloud/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloudSummary"/>
+            <resource id="files_usagesummary_events"       path="files/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFilesSummary"/>
+            <resource id="glance_usagesummary_events"      path="glance/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#GlanceSummary"/>
+            <resource id="lbaas_usagesummary_events"       path="lbaas/events"   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancersSummary"/>
+            <resource id="monitoring_usagesummary_events"  path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoringSummary"/>
+            <resource id="nova_usagesummary_events"        path="nova/events"    type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStackSummary wadl/product.wadl#RHELSummary"/>
+            <resource id="queues_usagesummary_events"      path="queues/events"  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueuesSummary"/>
+            <resource id="servers_usagesummary_events"     path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersSummary wadl/product.wadl#RHELSummary"/>
+            <resource id="sites_usagesummary_events"       path="sites/events"      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSitesSummary"/>
+            <resource id="usagetest6_usagesummary_events"  path="usagetest6/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#WidgetSummary"/>
+        </resource>
     </resources>
 </application>

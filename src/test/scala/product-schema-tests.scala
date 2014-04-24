@@ -44,7 +44,6 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //
   val productSchemaDir = new File("sample_product_schemas")
   val messageSamplesDir = new File("message_samples")
-  val productSchemas = productSchemaDir.listFiles().filter(_.getName.endsWith(".xml"))
 
   val generatedXSDsDir = new File("generated_product_xsds")
   val generatedXSDs = generatedXSDsDir.listFiles().filter(_.getName.endsWith("xsd"))
@@ -88,8 +87,6 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   private val defTransFactory = TransformerFactory.newInstance()
 
-  private val productSchema = new SchemaAsserter(new URL(productSchemaSchema.toURI.toString))
-
 
   //
   // Init by generating alternate schemas
@@ -99,13 +96,6 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //
   //  Tests
   //
-
-  productSchemas.foreach ( f => {
-    test("Product schema "+productSchemaDir.getName()+"/"+f.getName()+" should validate against product schema xsd") { 
-      printf("Checking %s/%s\n",productSchemaDir.getName(),f.getName())
-      productSchema.assert(XML.loadFile(f))
-    }
-  })
 
 
   alternatesSchemaDir.listFiles().map(toConGenXSD).foreach(f => {

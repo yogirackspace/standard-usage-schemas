@@ -35,8 +35,10 @@ class SampleMessagesSuite extends BaseUsageSuite {
   val sampleXSD = new File("core_xsd/entry.xsd")
 
   private val prepocExtract = new File("src/test/resources/procinst-extract.xslt")
+  private val preprocAHop   = new File("wadl/atom_hopper_pre.xsl")
   private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
   private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
+  private val preproc_template = TransformerFactory.newInstance("org.apache.xalan.xsltc.trax.TransformerFactoryImpl",null).newTemplates(new StreamSource(preprocAHop))
 
   def getSampleXMLFiles(dir: File) : List[File] = {
 
@@ -57,7 +59,11 @@ class SampleMessagesSuite extends BaseUsageSuite {
   sampleFiles.foreach ( f => {
     test("Sample "+f.getAbsolutePath+" should be valid according to the product schema ") {
       printf("Checking %s\n",f.getAbsolutePath)
-      usageMsg.assert(XML.loadFile(f))
+      val trans = preproc_template.newTransformer()
+      val writer = new StringWriter()
+
+      trans.transform(new StreamSource(f), new StreamResult(writer))
+      usageMsg.assert(XML.loadString(writer.toString))
     }
   })
 

@@ -59,7 +59,8 @@
             4. Added BAD to allowed values in enum list
             5. Made str attribute searchable
         </description>
-        <attribute name="label" type="string" use="required">
+        <attribute name="label" type="string" use="required"
+                   groupBy="false">
             Human readable name.
         </attribute>
         <attribute name="mid" type="UUID" use="required">
@@ -77,7 +78,8 @@
             An integer of some kind.  Only the last value is taken into
             account.
         </attribute>
-        <attribute name="num_checks" type="int" use="required">
+        <attribute name="num_checks" type="int" use="required" unitOfMeasure="COUNT"
+                   aggregateFunction="AVG">
             A single integer.
         </attribute>
         <attribute name="disabled" type="boolean" use="optional" default="false"
@@ -91,7 +93,7 @@
             A datetime in UTC.
         </attribute>
         <attribute name="enumList" type="Name*"
-                   allowedValues="BEST BETTER WORST BAD" use="required">
+                   allowedValues="BEST BETTER WORST BAD" use="required" groupBy="true">
             A list of enumertation strings.
         </attribute>
         <attribute name="myAttribute" type="string"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="usagesummary/usagetest6/events"?> <!-- ignore <?atom..?>, used for testing -->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:widget="http://docs.rackspace.com/usage/widget"
+               version="1" tenantId="12334"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               id="560490c6-6c63-11e1-adfe-27851d5aed74"
+               type="USAGE_SUMMARY" dataCenter="DFW1" region="DFW"
+               startTime="2012-03-12T11:51:11Z"
+               endTime="2012-03-12T15:51:11Z">
+            <widget:product version="2"
+                            serviceCode="Widget"
+                            resourceType="GADGET"
+                            enumList="BEST BETTER"
+                            num_checks="300.3553"/>
+        </event>
+    </atom:content>
+</atom:entry>
