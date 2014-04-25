@@ -11,4 +11,5 @@ target
 .classpath
 .settings
 wadl/product.wadl
+wadl/filter_private_attrs.xsl
 generated_product_xsds/*

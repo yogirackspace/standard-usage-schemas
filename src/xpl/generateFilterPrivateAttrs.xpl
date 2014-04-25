@@ -9,7 +9,7 @@
     
     <p:import href="../../src/xpl/recursive-directory-list.xpl"/>
     
-    <l:recursive-directory-list path="." name="schemas">
+    <l:recursive-directory-list path="../../" name="schemas">
         <p:with-option name="include-filter" select="'.*'"/>
     </l:recursive-directory-list>
     <p:xslt name="genarate_XSLT">
