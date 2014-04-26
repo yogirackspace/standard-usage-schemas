@@ -104,6 +104,12 @@
                     </wadl:doc>
                     <request>
                         <representation mediaType="application/atom+xml" element="atom:entry">
+
+                            <xsl:call-template name="sch:cross-check-params">
+                                <xsl:with-param name="schemas" select="$currentSchemas"/>
+                                <xsl:with-param name="summaryOnly" select="$summaryOnly"/>
+                            </xsl:call-template>
+
                             <!--
                                This deals with the edge case dealing with USAGE types.
                             -->
@@ -139,11 +145,6 @@
 
                             <xsl:call-template name="sch:required-attribute-checks">
                                 <xsl:with-param name="schemas" select="$currentSchemas"/>
-                            </xsl:call-template>
-
-                            <xsl:call-template name="sch:cross-check-params">
-                                <xsl:with-param name="schemas" select="$currentSchemas"/>
-                                <xsl:with-param name="summaryOnly" select="$summaryOnly"/>
                             </xsl:call-template>
 
                             <xsl:call-template name="sch:forbid-event-error" />
