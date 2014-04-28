@@ -193,7 +193,7 @@
             <para>The following cURL command-line options are used in
                 this guide to run the examples.</para>
             <para>
-                <table frame="void">
+                <table>
                     <caption>cURL Command-Line Options</caption>
                     <col width="31%"/>
                     <col width="69%"/>
@@ -1023,7 +1023,7 @@
                 specify multiple query parameters. The following table
                 summarizes query parameters you can specify:</para>
             <para>
-                <table frame="void">
+                <table>
                     <caption>Query parameters</caption>
                     <col width="13%"/>
                     <col width="39%"/>
