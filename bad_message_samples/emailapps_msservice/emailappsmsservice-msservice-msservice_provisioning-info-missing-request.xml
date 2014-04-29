@@ -12,6 +12,7 @@
                type="INFO" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
             <eams:product version="1" serviceCode="EmailAppsMSService"
+                          key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"
                           productType="lync"
                           operation="UPDATE"
                           status="COMPLETED"
