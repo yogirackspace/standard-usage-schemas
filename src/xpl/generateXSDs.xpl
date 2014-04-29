@@ -35,14 +35,10 @@
         </p:try>
     </p:for-each>
     <p:sink/>
-    <!-- Remove old generated files -->
-    <p:directory-list path="../../generated_product_xsds" name="oldSchemas">
-        <p:with-option name="include-filter" select="'.*xsd$'"/>
-    </p:directory-list>
     <p:for-each>
         <p:iteration-source select="//c:file"/>
         <p:exec command="rm" result-is-xml="false" source-is-xml="false" errors-is-xml="false">
-            <p:with-option name="args" select="concat('../../generated_product_xsds/',//c:file/@name)"/>
+            <p:with-option name="args" select="concat('generated_product_xsds/',//c:file/@name)"/>
             <p:input port="source">
                 <p:empty/>
             </p:input>
@@ -57,7 +53,7 @@
         <p:input port="source">
             <p:pipe port="result" step="schemas"/>
         </p:input>
-        <p:with-param name="outputBaseURI" select="'../../generated_product_xsds'"/>
+        <p:with-param name="outputBaseURI" select="'generated_product_xsds'"/>
     </p:xslt>
     <p:sink/>
     <p:for-each>
