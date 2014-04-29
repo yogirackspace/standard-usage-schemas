@@ -7,13 +7,11 @@
         <event xmlns="http://docs.rackspace.com/core/event"
                xmlns:eams="http://docs.rackspace.com/event/emailapps_msservice"
                version="1" tenantId="12334"
-               resourceId="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
                resourceName="Lync Service"
                id="560490c6-6c63-33e3-adfe-27851d5aed13"
                type="INFO" dataCenter="DFW1" region="DFW"
                eventTime="2012-03-12T11:51:11Z">
             <eams:product version="1" serviceCode="EmailAppsMSService"
-                          resourceType="MSSERVICE_PROVISIONING"
                           productType="lync"
                           operation="UPDATE"
                           status="COMPLETED"
