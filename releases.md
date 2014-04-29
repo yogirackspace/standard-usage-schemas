@@ -1,6 +1,15 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.48.2**  
+**usage-schema-1.48.1**  
+2014-04-29 | B-71279: fix issues with xpl not removing old generated XSDs and generating new XSDs in the wrong place (Shinta Smith)  
+2014-04-28 | B-53820: add 2 feeds for nooverridestest and overridestest (Shinta Smith)  
+
+**usage-schema-1.48.0**  
+2014-04-24 | D-17878: add unit test, for each feed with sample message, we should also be able to GET the feed and get individual entry (Shinta Smith)  
+2014-04-23 | D-17878: add the resource for fetching an individual entry (Shinta Smith)  
+
 **usage-schema-1.47.0**  
 2014-04-21 | D-17682: specify maxLength for key attribute of emailapps_msservice (Shinta Smith)  
 2014-04-21 | D-17918: add lbaas and bigdata resource types to usagetest9..11 feeds (Shinta Smith)  
