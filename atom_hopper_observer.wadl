@@ -2,6 +2,7 @@
 <application xmlns="http://wadl.dev.java.net/2009/02"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:atom="http://www.w3.org/2005/Atom">
+    <doc title="Feeds Catalog"/>
     <grammars>
         <include href="core_xsd/entry.xsd"/>
     </grammars>
