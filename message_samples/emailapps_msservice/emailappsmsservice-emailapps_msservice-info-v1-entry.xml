@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="emailapps_msservice/events"?>
+<!--
+    This example has been generated using
+    'mvn -P generate-eamss clean generate-sources -DproductSchema=file:/Users/shin4590/src/forks/sus/eams_product_schemas/emailapps_msservice.xml -DfeedName=emailapps_msservice' call.
+    Some assumptions have been made when generating this and might not be correct.  Manual modification
+    might be required for the unit tests to pass.
+
+    The assumptions:
+
+      - If the productSchema requires a 'resourceId' attribute, its value is set to
+        '4a2b42f4-6c63-11e1-815b-7fcbcf67f549'.
+      - If the productSchema has <xpathAssertion> nodes, the assertions might not be satisfied
+        by the generated content.
+      - No optional nodes or attributes are generated.
+      - Does not process the 'withEventType' and 'withResource' attributes.
+-->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:html="http://www.w3.org/1999/xhtml"
+            xmlns:usage="http://docs.rackspace.com/core/usage"
+            xmlns:xerces="http://xerces.apache.org"
+            xmlns:saxon="http://saxon.sf.net/"
+            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+   <atom:title>EmailAppsMSService</atom:title>
+   <atom:content type="application/xml">
+      <event xmlns="http://docs.rackspace.com/core/event"
+             xmlns:eams="http://docs.rackspace.com/event/emailapps_msservice"
+             id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+             version="1"
+             eventTime="2013-03-15T11:51:11Z"
+             type="INFO"
+             dataCenter="DFW1"
+             region="DFW">
+         <eams:product serviceCode="EmailAppsMSService"
+                         version="1"
+                         key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
+                         productType="lync"
+                         operation="UPDATE"
+                         status="COMPLETED"
+                         request="HTTP GET" 
+                         response="200">
+            <eams:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
+            <eams:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
+         </eams:product>
+      </event>
+   </atom:content>
+</atom:entry>
