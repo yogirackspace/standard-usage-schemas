@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.48.0-SNAPSHOT</version>
+    <version>1.49.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -348,6 +348,21 @@
                     </includes>
                     <enableAssertions>false</enableAssertions>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                          <directory>${basedir}/generated_product_xsds</directory>
+                          <includes>
+                              <include>**/*.xsd</include>
+                          </includes>
+                          <followSymlinks>false</followSymlinks>
+                      </fileset>
+                  </filesets>
                 </configuration>
             </plugin>
         </plugins>
@@ -766,7 +781,7 @@
 		      <goal>olink</goal>
 		    </goals>
 		    <configuration>
-		      <pipeline>generateSamples.xpl</pipeline>
+		      <pipeline>src/xpl/generateSamples.xpl</pipeline>
 		      <inputs>
                   <source>${productSchema}</source>
 		      </inputs>

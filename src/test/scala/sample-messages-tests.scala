@@ -67,16 +67,32 @@ class SampleMessagesSuite extends BaseUsageSuite {
     }
   })
 
-  sampleFiles.map(toFeedFile).foreach { element =>
-      element.foreach { pair =>
-          val (feed, fl) = pair
-          test("Sample "+fl.getAbsolutePath+" should be valid against feed "+feed) {
-              printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
-              if ( fl.getAbsolutePath().indexOf("/identity/") != -1 ) {
-                  atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-              } else {
-                  atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-              }
+  val sampleFeedToFilePairs = sampleFiles.map(toFeedFile).flatten
+
+  sampleFeedToFilePairs.foreach { case(feed, fl) =>
+      test("Sample "+fl.getAbsolutePath+" should be valid against feed "+feed) {
+          printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
+          if ( fl.getAbsolutePath().indexOf("/identity/") != -1 ) {
+              atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+          } else {
+              atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+          }
+      }
+  }
+
+  sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
+      test("Getting feed " + feed + " should work") {
+          if ( feed.startsWith("identity/") ) {
+              atomValidatorIdentity.validate(request("GET", feed), response, chain)
+          } else {
+              atomValidator.validate(request("GET", feed), response, chain)
+          }
+      }
+      test("Getting individual entry for feed " + feed + " should work") {
+          if ( feed.startsWith("identity/") ) {
+              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
+          } else {
+              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
           }
       }
   }

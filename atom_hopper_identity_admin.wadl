@@ -73,6 +73,8 @@
                   wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="migrationtest_events" path="migrationtest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="nooverridestest_events" path="nooverridestest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="overridestest_events" path="overridestest/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest1_events" path="perftest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest2_events" path="perftest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="usagetest1_events" path="usagetest1/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
