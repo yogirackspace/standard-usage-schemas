@@ -100,7 +100,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
 
   alternatesSchemaDir.listFiles().map(toConGenXSD).foreach(f => {
     test("The generated schema  "+generatedXSDsDir+"/"+f._3+" should be generated from the product schema") {
-      printf("Checking %s/%s\n",generatedXSDsDir, f._3)
+      printf("Checking %s\n", f._3)
       if (f._1 != f._2) { printf("(%s)\n[%s]\n", f._1, f._2)}
       assert(f._1 == f._2)
     }
