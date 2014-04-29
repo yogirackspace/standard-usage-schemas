@@ -4,12 +4,10 @@
   <atom:category term="tid:12334"/>
   <atom:category term="rgn:DFW"/>
   <atom:category term="dc:DFW1"/>
-  <atom:category term="rid:(domain=5002_domain_2.com)|(service=5002_domain_2.com)"/>
-  <atom:category term="emailappsmsservice.msservice.msservice_provisioning.info"/>
   <atom:title type="text">Lync event</atom:title>
   <atom:content type="application/xml">
-    <event xmlns="http://docs.rackspace.com/core/event" xmlns:eams="http://docs.rackspace.com/event/emailapps_msservice" dataCenter="DFW1" environment="PROD" eventTime="2012-03-12T11:51:11Z" id="560490c6-6c63-33e3-adfe-27851d5aed13" region="DFW" resourceId="(domain=5002_domain_2.com)|(service=5002_domain_2.com)" resourceName="Lync Service" tenantId="12334" type="INFO" version="1">
-      <eams:product operation="UPDATE" request="HTTP GET" resourceType="MSSERVICE_PROVISIONING" productType="lync" response="200" serviceCode="EmailAppsMSService" status="COMPLETED" version="1">
+    <event xmlns="http://docs.rackspace.com/core/event" xmlns:eams="http://docs.rackspace.com/event/emailapps_msservice" dataCenter="DFW1" environment="PROD" eventTime="2012-03-12T11:51:11Z" id="560490c6-6c63-33e3-adfe-27851d5aed13" region="DFW" resourceName="Lync Service" tenantId="12334" type="INFO" version="1">
+      <eams:product operation="UPDATE" request="HTTP GET" key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)" productType="lync" response="200" serviceCode="EmailAppsMSService" status="COMPLETED" version="1">
         <eams:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
         <eams:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
       </eams:product>
