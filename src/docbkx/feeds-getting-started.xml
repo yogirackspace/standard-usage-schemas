@@ -1004,24 +1004,39 @@
             </para>
         </section>
         <section xml:id="Filter_Atom_Entries">
-            <title>Get certain types of events from a feed</title>
-            <para>You can use a <methodname>GET</methodname> request
-                to filter for certain types of events you would like
-                to obtain from a feed by defining a specific search
-                category. You specify the seach categories by adding
-                search as the URL parameter at the end of the feeds
-                URL and then specifying the category or item you want
-                to search for. The following example shows how to get
-                all event types that fall under the
-                    <emphasis>cloudsites.metered.site.usage</emphasis>
-                category:</para>
+            <title>Using query parameters to filter for certain
+                events</title>
+            <para>You can use query parameters to filter for certain
+                events within a feed. Query parameters are part of the
+                URL that is being passed to the server as part of an
+                API request. When you add query parameters to an API
+                request, you modify the results in ways such as
+                refining your query, applying a timestamp, sorting the
+                output, or seeing only the newest results. </para>
+            <para>A typical URL that contains a query parameter looks
+                like the following:</para>
+            <para><code>http://server/program/path/?query_string
+                </code></para>
+            <para>The query string is composed of one or more field
+                value pairs using the following format:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+                <itemizedlist>
+                    <listitem>
+                        <para>Within each field value pair, the field
+                            name and value are separated by an equals
+                            sign (<emphasis role="italic">
+                                =</emphasis>).</para>
+                    </listitem>
+                    <listitem>
+                        <para>The series of pairs is separated by and
+                            ampersand (&amp;) as shown in the
+                            following example:</para>
+                        <para><code>field1=value1&amp;field2=value2&amp;field3=value3...</code></para>
+                    </listitem>
+                </itemizedlist>
             </para>
-            <para>In addition to using the search query, you can
-                specify multiple query parameters. The following table
-                summarizes query parameters you can specify:</para>
+            <para>The following table summarizes query parameters you
+                can specify for Cloud Feeds:</para>
             <para>
                 <table>
                     <caption>Query parameters</caption>
@@ -1083,7 +1098,7 @@
                                 entries that start at a specified
                                 timestamp</td>
                             <td>string</td>
-                            <td>Must be in  ISO 8601 Date and Time
+                            <td>Must be in ISO 8601 Date and Time
                                 format, and must contain a time zone,
                                 for example: 2014-03-10T06:00:00.000Z.
                                 For more information, see <link
@@ -1105,9 +1120,41 @@
                         assumed.</para>
                 </note>
             </para>
-            <para>The following URL  shows how to fetch entries with a
-                timestamp that is newer than 2014-03-10 00:00:00.000
-                UTC:</para>
+            <para>For more information, see <olink
+                targetdoc="feeds-devguide"
+                targetptr="Filter_Entries_by_Category_d1e1315"
+                >“Filtering Entries by Categories
+                ”</olink>.</para>
+            <section xml:id="Filter_by_Search_Category">
+                <title>Filtering by search category</title>
+            <para>You can use a <methodname>GET</methodname> request
+                    to filter for certain types of events you would
+                    like to obtain from a feed by defining a specific
+                        <emphasis role="italic">search
+                        category</emphasis>. You specify the seach
+                    categories by adding <parameter>search</parameter>
+                    as the URL parameter at the end of the feeds URL
+                    and then specifying the category or item you want
+                    to search for. The following example shows how to
+                    get all event types that fall under the
+                        <emphasis>cloudsites.metered.site.usage</emphasis>
+                    category:</para>
+            <para>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage):</programlisting>
+            </para>
+            </section>
+            <section xml:id="Filter_by_timestamp">
+                <title>Filtering by
+                    timestamp<?sbr?><?sbr?><?sbr?></title>
+                <para>You can use the
+                        <parameter>startingAt</parameter> query
+                    parameter to filter for feed entries starting at a
+                    certain timestamp. The parameter takes an ISO 8601
+                    Date and Time format and must contain a timezone. </para>
+            <para>The following URL shows how to fetch entries with a
+                    timestamp that is newer than 2014-03-10
+                    00:00:00.000 UTC:</para>
             <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
             <para>The following URL shows how to fetch entries with a
                 timestamp that older than 2014-03-10 00:00:00.000 UTC
@@ -1115,11 +1162,8 @@
                 parameter to <emphasis role="italic"
                     >backward</emphasis>:</para>
             <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
-            <para>For more information, see <olink
-                    targetdoc="feeds-devguide"
-                    targetptr="Filter_Entries_by_Category_d1e1315"
-                    >“Filtering Entries by Categories
-                ”</olink>.</para>
+                </section>
+
         </section>
     </chapter>
     <chapter xml:id="Next_Steps">
