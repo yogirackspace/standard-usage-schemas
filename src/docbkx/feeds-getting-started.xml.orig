@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-<!ENTITY ndash "&#x2013;">
+<!ENTITY ndash "&#x2013;  ">
  <!ENTITY mdash "&#x2014;">
  <!ENTITY hellip "&#x2026;">
 
@@ -1010,7 +1009,11 @@
                 events within a feed. Query parameters are part of the
                 URL that is being passed to the server as part of an
                 API request. When you add query parameters to an API
+<<<<<<< HEAD
+                request, you modify the results in ways such as
+=======
                 request, you modify the results in ways, such as
+>>>>>>> making additional changes
                 refining your query or sorting the output. </para>
             <para>A typical URL that contains a query parameter looks
                 like the following:</para>
@@ -1054,10 +1057,16 @@
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
+<<<<<<< HEAD
                             <td>Specifies a uuid which exists in the
                                 cloud feeds system, for example
                                 urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
                             <td>valid ID</td>
+=======
+                            <td>Specifies the unique of an Atom
+                                entry</td>
+                            <td>valid id</td>
+>>>>>>> making additional changes
                             <td>none</td>
                         </tr>
                         <tr>
@@ -1082,7 +1091,11 @@
                             <td><parameter>search</parameter></td>
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
+<<<<<<< HEAD
                             <td>string</td>
+=======
+                            <td>string </td>
+>>>>>>> making additional changes
                             <td>&lt;see below></td>
                         </tr>
                         <tr>
@@ -1101,6 +1114,7 @@
                     </tbody>
                 </table>
             </para>
+
             <para>
                 <note>
                     <para>The <parameter>startingAt</parameter>
