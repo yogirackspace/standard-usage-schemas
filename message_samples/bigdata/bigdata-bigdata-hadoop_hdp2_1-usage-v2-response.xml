@@ -44,7 +44,7 @@
          <sample:product aggregatedClusterDuration="86400"
                          serviceCode="BigData"
                          version="2"
-                         resourceType="HADOOP_HDP2_0"
+                         resourceType="HADOOP_HDP2_1"
                          flavorId="hadoop1-7"
                          flavorName="a"
                          numberServersInCluster="1"
