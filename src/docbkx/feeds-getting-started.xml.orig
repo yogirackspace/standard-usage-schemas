@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-<!ENTITY ndash "&#x2013;">
+<!ENTITY ndash "&#x2013;  ">
  <!ENTITY mdash "&#x2014;">
  <!ENTITY hellip "&#x2026;">
 
@@ -1058,6 +1057,9 @@
                                 cloud feeds system, for example
                                 urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
                             <td>valid ID</td>
+                            <td>Specifies the unique of an Atom
+                                entry</td>
+                            <td>valid id</td>
                             <td>none</td>
                         </tr>
                         <tr>
@@ -1083,6 +1085,7 @@
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
                             <td>string</td>
+                            <td>string </td>
                             <td>&lt;see below></td>
                         </tr>
                         <tr>
@@ -1101,6 +1104,7 @@
                     </tbody>
                 </table>
             </para>
+
             <para>
                 <note>
                     <para>The <parameter>startingAt</parameter>
