@@ -455,22 +455,6 @@
 	      <xsl:text>not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
               <xsl:value-of select="$notUsed" separator=","/>
               <xsl:text>))</xsl:text>
-<!--
-    TODO:  This fix is to enable all our schema tests to exist on the func1test feed.  However,
-    while it fixed some issues, it caused a failure with the test:
-    atom-hopper-system-tests/src/test/resources/product-events/servers/servers-heartbeat-type-wrong.xml
-
-    Also, once this is fixed, we need to unIgnore:
-
-    atom-hopper-system-tests/src/test/groovy/tests/validations/EntryValidationTest.groov
-
-
-                <xsl:text>if(</xsl:text>
-                <xsl:value-of select="sch:selectEventProduct('', @pos,'')"/>
-                <xsl:text>) then not(/atom:entry/atom:content/event:event/@type = (</xsl:text>
-                <xsl:value-of select="$notUsed" separator=","/>
-                <xsl:text>)) else true()</xsl:text>
--->
             </xsl:attribute>
         </param>
     </xsl:template>
@@ -609,9 +593,8 @@
                     <xsl:text>] else true()</xsl:text>
                 </xsl:attribute>
                 <xsl:attribute name="rax:message">
-                    <xsl:text>Only </xsl:text><xsl:value-of select="lower-case($type)"/>
-                    <xsl:text> messages with product attributes in the following namespaces are allowed on this feed: </xsl:text>
-                    <xsl:value-of select="for $n in $nsVersions return concat($n/@namespace,' version(s) (',$n/@versions,')')" separator=", "/>
+                    <xsl:text>The version and namespace of the event you submitted does not correspond with events of type </xsl:text>
+                    <xsl:value-of select="lower-case($type)"/>
                 </xsl:attribute>
             </param>
         </xsl:if>
