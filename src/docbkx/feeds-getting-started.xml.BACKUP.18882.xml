@@ -1057,16 +1057,13 @@
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-<<<<<<< HEAD
                             <td>Specifies a uuid which exists in the
                                 cloud feeds system, for example
                                 urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
                             <td>valid ID</td>
-=======
                             <td>Specifies the unique of an Atom
                                 entry</td>
                             <td>valid id</td>
->>>>>>> making additional changes
                             <td>none</td>
                         </tr>
                         <tr>
@@ -1091,11 +1088,8 @@
                             <td><parameter>search</parameter></td>
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
-<<<<<<< HEAD
                             <td>string</td>
-=======
                             <td>string </td>
->>>>>>> making additional changes
                             <td>&lt;see below></td>
                         </tr>
                         <tr>
