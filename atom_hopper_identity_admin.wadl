@@ -6,7 +6,7 @@
     <grammars>
         <include href="core_xsd/entry.xsd"/>
     </grammars>
-    <resources base="https://localhost/">
+    <resources base="http://localhost/">
 
         <!-- Includes all valid paths for the identity:admin role -->
 
