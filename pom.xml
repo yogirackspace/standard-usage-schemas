@@ -44,10 +44,11 @@
         <xerces.version>2.12.1-rax</xerces.version>
         <mockito.version>1.9.0</mockito.version>
         <xmlsec.version>1.4.6</xmlsec.version>
-        <wadl-tools.version>1.0.22</wadl-tools.version>
-        <api-checker.version>1.0.16</api-checker.version>
+        <wadl-tools.version>1.0.25</wadl-tools.version>
+        <api-checker.version>1.0.17</api-checker.version>
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
         <olink-maven-plugin.version>1.2.2</olink-maven-plugin.version>
+        <slf4j.log4j.version>1.7.7</slf4j.log4j.version>
     </properties>
 
     <dependencies>
@@ -111,6 +112,12 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+       <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.log4j.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
