@@ -1,6 +1,9 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.49.0**  
+2014-04-29 | B-72221: update sample messages (Shinta Smith)  
+
 **usage-schema-1.48.2**  
 **usage-schema-1.48.1**  
 2014-04-29 | B-71279: fix issues with xpl not removing old generated XSDs and generating new XSDs in the wrong place (Shinta Smith)  
