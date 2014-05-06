@@ -66,6 +66,17 @@
         </resource>
     </resource_type>
 
+    <resource_type id="TenantFeedsCatalog">
+        <resource path="{tid}">
+            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+            <method name="GET"/>
+        </resource>
+    </resource_type>
+
+    <resource_type id="FeedsCatalog">
+        <method name="GET"/>
+    </resource_type>
+
     <!-- METHODS -->
     <method id="getFeed" name="GET">
         <wadl:doc xml:lang="EN" title="Get Events for Products" xmlns="http://docbook.org/ns/docbook">
