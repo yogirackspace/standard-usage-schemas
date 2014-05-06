@@ -1009,11 +1009,8 @@
                 events within a feed. Query parameters are part of the
                 URL that is being passed to the server as part of an
                 API request. When you add query parameters to an API
-<<<<<<< HEAD
                 request, you modify the results in ways such as
-=======
                 request, you modify the results in ways, such as
->>>>>>> making additional changes
                 refining your query or sorting the output. </para>
             <para>A typical URL that contains a query parameter looks
                 like the following:</para>
