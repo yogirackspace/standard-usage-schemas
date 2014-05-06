@@ -6,7 +6,7 @@
     <grammars>
         <include href="core_xsd/entry.xsd"/>
     </grammars>
-    <resources base="https://atom.test.ord1.us.ci.rackspace.net/">
+    <resources base="https://localhost/">
 
         <!-- Includes all valid paths for the identity:admin role -->
 
