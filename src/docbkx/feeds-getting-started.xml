@@ -1011,8 +1011,7 @@
                 URL that is being passed to the server as part of an
                 API request. When you add query parameters to an API
                 request, you modify the results in ways such as
-                refining your query, applying a timestamp, sorting the
-                output, or seeing only the newest results. </para>
+                refining your query or sorting the output. </para>
             <para>A typical URL that contains a query parameter looks
                 like the following:</para>
             <para><code>http://server/program/path/?query_string
@@ -1055,8 +1054,9 @@
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-                            <td>Specifies the unique id of an Atom
-                                entry.</td>
+                            <td>Specifies a uuid which exists in the
+                                cloud feeds system, for example
+                                urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
                             <td>valid ID</td>
                             <td>none</td>
                         </tr>
@@ -1079,18 +1079,11 @@
                             <td>25</td>
                         </tr>
                         <tr>
-                            <td><parameter>format</parameter></td>
-                            <td>Returns the feed in a specified
-                                format.</td>
-                            <td>JSON</td>
-                            <td>none</td>
-                        </tr>
-                        <tr>
                             <td><parameter>search</parameter></td>
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
                             <td>string</td>
-                            <td>none</td>
+                            <td>&lt;see below></td>
                         </tr>
                         <tr>
                             <td><parameter>startingAt</parameter></td>
