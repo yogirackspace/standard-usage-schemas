@@ -50,21 +50,23 @@
         <olink-maven-plugin.version>1.2.2</olink-maven-plugin.version>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>net.sf.saxon</groupId>
             <artifactId>saxon-ee</artifactId>
             <version>${saxon-ee.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>xerces</groupId>
             <artifactId>xerces-xsd11</artifactId>
             <version>${xerces.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -76,6 +78,7 @@
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_2.10</artifactId>
             <version>${scala.test.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.santuario</groupId>
@@ -113,54 +116,48 @@
     <build>
         <resources>
             <resource>
-                <directory>.</directory>
-                <excludes>
-                    <exclude>target/**/*</exclude>
-                    <exclude>src</exclude>
-                    <exclude>docs</exclude>
-                    <exclude>pom.xml</exclude>
-                </excludes>
+                <directory>src/main/resources</directory>
             </resource>
         </resources>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
-	  <plugin>
-            <groupId>com.rackspace.cloud.api</groupId>
-            <artifactId>olink-maven-plugin</artifactId>
-            <version>${olink-maven-plugin.version}</version>
-            <executions>
-              <execution>
-                <id>generate-product-xsd</id>
-                <phase>initialize</phase>
-                <goals>
-                  <goal>olink</goal>
-                </goals>
-                <configuration>
-                  <pipeline>src/xpl/generateXSDs.xpl</pipeline>
-                </configuration>
-              </execution>		
-              <execution>
-		<id>generate-product-wadl</id>
-		<phase>initialize</phase>
-		<goals>
-		  <goal>olink</goal>
-		</goals>
-		<configuration>
-		  <pipeline>src/xpl/generateWADL.xpl</pipeline>
-		</configuration>
-              </execution>
-              <execution>
-		<id>generate-filter-private-attrs</id>
-		<phase>initialize</phase>
-		<goals>
-		  <goal>olink</goal>
-		</goals>
-		<configuration>
-		  <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
-		</configuration>
-              </execution>
-	    </executions>
-	  </plugin>
+  	  <plugin>
+              <groupId>com.rackspace.cloud.api</groupId>
+              <artifactId>olink-maven-plugin</artifactId>
+              <version>${olink-maven-plugin.version}</version>
+              <executions>
+                <execution>
+                  <id>generate-product-xsd</id>
+                  <phase>initialize</phase>
+                  <goals>
+                    <goal>olink</goal>
+                  </goals>
+                  <configuration>
+                    <pipeline>src/xpl/generateXSDs.xpl</pipeline>
+                  </configuration>
+                </execution>		
+                <execution>
+  		<id>generate-product-wadl</id>
+  		<phase>initialize</phase>
+  		<goals>
+  		  <goal>olink</goal>
+  		</goals>
+  		<configuration>
+  		  <pipeline>src/xpl/generateWADL.xpl</pipeline>
+  		</configuration>
+                </execution>
+                <execution>
+  		<id>generate-filter-private-attrs</id>
+  		<phase>initialize</phase>
+  		<goals>
+  		  <goal>olink</goal>
+  		</goals>
+  		<configuration>
+  		  <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
+  		</configuration>
+                </execution>
+  	      </executions>
+  	    </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
