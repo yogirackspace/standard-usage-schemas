@@ -179,7 +179,7 @@
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
             <title>Sending API requests using cURL</title>
-            <para>cURL is a command-line tool that is available oin
+            <para>cURL is a command-line tool that is available in
                 most UNIX system-based environments and Apple Mac OS X
                 systems, and can be downloaded for Microsoft Windows
                 to interact with REST interfaces. For more information
@@ -621,7 +621,7 @@
                 </listitem>
                 <listitem>
                     <para>The Cloud Server that you use must be
-                        located in the same datancenter where your
+                        located in the same datacenter where your
                         database resides.</para>
                 </listitem>
                 <listitem>
