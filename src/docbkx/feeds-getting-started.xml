@@ -1133,7 +1133,7 @@
                     category:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage):</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
             </para>
             </section>
             <section xml:id="Filter_by_timestamp">
