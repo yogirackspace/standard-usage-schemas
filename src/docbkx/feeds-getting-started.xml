@@ -1040,33 +1040,31 @@
                 <table>
                     <caption>Query parameters</caption>
                     <col width="15%"/>
-                    <col width="35%"/>
-                    <col width="18%"/>
-                    <col width="32%"/>
+                    <col width="34%"/>
+                    <col width="641pt"/>
                     <thead>
                         <tr>
                             <th>Query parameter</th>
                             <th>Description</th>
-                            <th>Data type</th>
                             <th>Acceptable values</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-                            <td>Specifies a uuid which exists in the
-                                cloud feeds system, for example
-                                urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
-                            <td>valid ID</td>
-                            <td>none</td>
+                            <td>Specifies a uuid that exists in the
+                                Cloud Feeds system.</td>
+                            <td>Must be a valid uuid that exists in
+                                the Cloud Feeds, system, for example
+                                   <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
                             <td>Specifies the direction from which to
                                 return entries starting from the
                                 current marker or entry.</td>
-                            <td>forward | backward</td>
-                            <td>forward</td>
+                            <td>Can be either <code>forward</code> or
+                                   <code>backward</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>limit</parameter></td>
@@ -1075,22 +1073,23 @@
                                 greater than the actual number of
                                 entries, the actual number of entries
                                 will be used.</td>
-                            <td>1 to 1000</td>
-                            <td>25</td>
+                            <td>Must be an integer between 1 and 1000
+                                inclusive.</td>
                         </tr>
                         <tr>
                             <td><parameter>search</parameter></td>
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
-                            <td>string</td>
-                            <td>&lt;see below></td>
+                            <td>See the <link
+                                   linkend="Filter_by_Search_Category"
+                                   >Filtering by search
+                                   category</link> section.</td>
                         </tr>
                         <tr>
                             <td><parameter>startingAt</parameter></td>
                             <td>Allows filtering for a number of
                                 entries that start at a specified
                                 timestamp.</td>
-                            <td>string</td>
                             <td>Must be in ISO 8601 Date and Time
                                 format, and must contain a time zone,
                                 for example: 2014-03-10T06:00:00.000Z.
