@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?atom feed="encore/events"?> <!-- ignore <?atom..?>, used for testing -->
+<entry xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title type="text">delete</title>
+    <category term="delete" />
+    <category term="resourceId:123456" />
+    <category term="accountId:862323" />
+    <category term="rgn:STAGING-LON" />
+    <category term="dc:LON3" />
+    <category term="attribute:" />
+    <category term="device_type:vm"/>
+    <content type="application/json">
+    {
+     'account': 'Account Name',
+     'accountNumber': '862323',
+     'id': '862323',
+     'datacenter': 'Kubik',
+     'datacenterId': 13,
+     'datacenterAbbr': 'LON3',
+     'deviceType': 'vm',
+     'hypervisorClusters': [{'id': 345627, 'rel': 'hypervisorCluster'}, ...],
+     'hypervisors': [{'id': 687549,'rel': 'hypervisor'}, ...] 
+     'ipAddress': '127.0.0.1',
+     'name': '123456-vcenter',
+     'device_type': 'vm',
+     'uuid': '',
+     'is_default': false,
+    }
+    </content>
+</entry>
+
