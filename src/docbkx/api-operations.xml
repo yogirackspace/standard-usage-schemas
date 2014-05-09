@@ -149,6 +149,12 @@
       <resource href="../../atom_hopper.wadl#emailapps_msservice_events_getEntry_EmailAppsMSService"/>
     </resources>
   </section>
+  <section xml:id="encore.product">
+    <title>Encore events</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#encore_events"/>
+    </resources>
+  </section>
   <section xml:id="glance.product">
     <title>Glance</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
