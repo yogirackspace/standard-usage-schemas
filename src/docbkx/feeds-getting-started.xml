@@ -179,7 +179,7 @@
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
             <title>Sending API requests using cURL</title>
-            <para>cURL is a command-line tool that is available oin
+            <para>cURL is a command-line tool that is available in
                 most UNIX system-based environments and Apple Mac OS X
                 systems, and can be downloaded for Microsoft Windows
                 to interact with REST interfaces. For more information
@@ -621,7 +621,7 @@
                 </listitem>
                 <listitem>
                     <para>The Cloud Server that you use must be
-                        located in the same datancenter where your
+                        located in the same datacenter where your
                         database resides.</para>
                 </listitem>
                 <listitem>
@@ -706,7 +706,7 @@
         </para>
     </chapter>
     <chapter xml:id="Concepts">
-        <title>Cloud feeds concepts</title>
+        <title>Cloud Feeds concepts</title>
         <para>Cloud Feeds uses AtomPub to publish different types of
             feeds. Feeds are composed of a number of items called
                 <emphasis role="italic">entries</emphasis>. Each entry
@@ -900,8 +900,6 @@
             <para>&lt;<emphasis role="italic">inputFile</emphasis>>
                 specifies the path to a file that contains an atom
                 entry. </para>
-            <para>You also need to specify the request payload in a
-                separate file using xml format. </para>
             <para>The following example shows what a payload for an
                 Atom entry can look like. </para>
             <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
@@ -909,11 +907,6 @@
                 entry by providing a pointer to the entry:</para>
             <para>
                 <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
-            </para>
-            <para>You can also include the XML entry directly in the
-                payload by using the following syntax:</para>
-            <para>
-                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d "<replaceable>payload</replaceable>"</programlisting>
             </para>
             <para>
                 <important>
@@ -944,45 +937,41 @@
             <para>
                 <table>
                     <caption>Syntax elements</caption>
-                    <col width="11%"/>
-                    <col width="9%"/>
-                    <col width="22%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
-                    <col width="16%"/>
+                    <col width="30%"/>
+                    <col width="70%"/>
                     <thead>
                         <tr align="left">
-                            <td colspan="2">Placeholder</td>
-                            <td colspan="5">Description</td>
+                            <td>Placeholder</td>
+                            <td>Description</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr align="left">
-                            <td colspan="2"><emphasis role="italic"
+                            <td><emphasis role="italic"
                                    >authenticationToken</emphasis></td>
-                            <td colspan="5">Specifies the token that
-                                you obtain during authentication.</td>
+                            <td>Specifies the token that you obtain
+                                during authentication.</td>
                         </tr>
                         <tr align="left">
-                            <td colspan="2"><emphasis role="italic"
+                            <td><emphasis role="italic"
                                    >endpointURL</emphasis></td>
-                            <td colspan="5">Specifies the URL/VIP that
-                                was obtained from the list of Cloud
-                                Feeds endpoints.</td>
+                            <td>Specifies the URL/VIP that was
+                                obtained from the list of Cloud Feeds
+                                endpoints.</td>
                         </tr>
                         <tr align="left">
-                            <td colspan="2"><emphasis role="italic"
+                            <td><emphasis role="italic"
                                    >feedName</emphasis></td>
-                            <td colspan="5">Specifies he name of the
-                                feeds you are trying to fetch events
-                                for. An example of feed name is: nova,
-                                servers, queues, files, etc.</td>
+                            <td>Specifies he name of the feeds you are
+                                trying to fetch events for. An example
+                                of feed name is: nova, servers,
+                                queues, files, etc.</td>
                         </tr>
                         <tr align="left" security="external">
-                            <td colspan="2"><emphasis role="italic"
-                                >tenantID</emphasis></td>
-                            <td colspan="5">Specifies the tenantID for the given tenant.</td>
+                            <td><emphasis role="italic"
+                                   >tenantID</emphasis></td>
+                            <td>Specifies the tenantID for the given
+                                tenant.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1006,12 +995,13 @@
         <section xml:id="Filter_Atom_Entries">
             <title>Using query parameters to filter for certain
                 events</title>
-            <para>You can use query parameters to filter for certain
-                events within a feed. Query parameters are part of the
-                URL that is being passed to the server as part of an
-                API request. When you add query parameters to an API
-                request, you modify the results in ways, such as
-                refining your query or sorting the output. </para>
+            <para>You can use query parameters to customize the
+                entries and their order within a feed. Query
+                parameters are part of the URL that is passed to the
+                server as part of an API request. When you add query
+                parameters to an API request, you modify the results
+                in ways, such as refining your query or sorting the
+                output. </para>
             <para>A typical URL that contains a query parameter looks
                 like the following:</para>
             <para><code>http://server/program/path/?query_string
@@ -1034,39 +1024,37 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>The following table summarizes query parameters you
-                can specify for Cloud Feeds:</para>
+            <para>The following table summarizes the query parameters
+                you can specify for Cloud Feeds:</para>
             <para>
                 <table>
                     <caption>Query parameters</caption>
                     <col width="15%"/>
-                    <col width="35%"/>
-                    <col width="18%"/>
-                    <col width="32%"/>
+                    <col width="34%"/>
+                    <col width="51%"/>
                     <thead>
                         <tr>
                             <th>Query parameter</th>
                             <th>Description</th>
-                            <th>Data type</th>
                             <th>Acceptable values</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-                            <td>Specifies a uuid which exists in the
-                                cloud feeds system, for example
-                                urn:uuid:cd42141b-c030-6fca-6704-8285789a274b.</td>
-                            <td>valid ID</td>
-                            <td>none</td>
+                            <td>Specifies a uuid that exists in the
+                                Cloud Feeds system.</td>
+                            <td>Must be a valid uuid that exists in
+                                the Cloud Feeds, system, for example
+                                   <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
                             <td>Specifies the direction from which to
                                 return entries starting from the
                                 current marker or entry.</td>
-                            <td>forward | backward</td>
-                            <td>forward</td>
+                            <td>Can be either <code>forward</code> or
+                                   <code>backward</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>limit</parameter></td>
@@ -1075,22 +1063,23 @@
                                 greater than the actual number of
                                 entries, the actual number of entries
                                 will be used.</td>
-                            <td>1 to 1000</td>
-                            <td>25</td>
+                            <td>Must be an integer between 1 and 1000
+                                inclusive.</td>
                         </tr>
                         <tr>
                             <td><parameter>search</parameter></td>
                             <td>Allows filtering of a feed only for
                                 events of a specified category.</td>
-                            <td>string</td>
-                            <td>&lt;see below></td>
+                            <td>See the <link
+                                   linkend="Filter_by_Search_Category"
+                                   >Filtering by search
+                                   category</link> section.</td>
                         </tr>
                         <tr>
                             <td><parameter>startingAt</parameter></td>
                             <td>Allows filtering for a number of
                                 entries that start at a specified
                                 timestamp.</td>
-                            <td>string</td>
                             <td>Must be in ISO 8601 Date and Time
                                 format, and must contain a time zone,
                                 for example: 2014-03-10T06:00:00.000Z.
@@ -1134,7 +1123,7 @@
                     category:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage):</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
             </para>
             </section>
             <section xml:id="Filter_by_timestamp">
