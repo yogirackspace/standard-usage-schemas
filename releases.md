@@ -1,6 +1,10 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.50.0**  
+2014-05-09 | B-72611: add new validated /encore feed (Shinta Smith)  
+2014-05-05 | B-66281: update WADLs for feedscatalog app (Shinta Smith)  
+
 **usage-schema-1.49.0**  
 2014-04-29 | B-72221: update sample messages (Shinta Smith)  
 
