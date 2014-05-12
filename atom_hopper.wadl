@@ -27,6 +27,7 @@
         <resource id="ebs_events" path="ebs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EBS"/>
         <resource id="emailapps_usage_events" path="emailapps_usage/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsUsage" />
         <resource id="emailapps_msservice_events" path="emailapps_msservice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsMSService" />
+        <resource id="encore_events" path="encore/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="files_events" path="files/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles"/>
         <resource id="glance_events" path="glance/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource id="lbaas_events" path="lbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers"/>
