@@ -26,6 +26,7 @@
    <atom:category term="rgn:DFW"/>
    <atom:category term="dc:DFW1"/>
    <atom:category term="emailappsmsservice.emailapps_msservice.info"/>
+   <atom:category term="type:emailappsmsservice.emailapps_msservice.info"/>
    <atom:title>EmailAppsMSService</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"

@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.loadbalancer.delete" />
+    <atom:category term="type:cloudloadbalancers.lb.loadbalancer.delete" />
     <atom:title type="text">Update LB</atom:title>
     <atom:summary type="text">Load balancer deleted.</atom:summary>
     <atom:content type="application/xml">

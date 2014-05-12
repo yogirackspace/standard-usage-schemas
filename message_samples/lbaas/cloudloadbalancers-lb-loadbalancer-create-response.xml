@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.loadbalancer.create" />
+    <atom:category term="type:cloudloadbalancers.lb.loadbalancer.create" />
     <atom:title type="text">Create LB</atom:title>
     <atom:summary type="text">Load balancer Created.</atom:summary>
     <atom:content type="application/xml">

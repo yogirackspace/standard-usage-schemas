@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.content_caching.update" />
+    <atom:category term="type:cloudloadbalancers.lb.content_caching.update" />
     <atom:title type="text">Update Content Cache</atom:title>
     <atom:summary type="text">Update content cache.</atom:summary>
     <atom:content type="application/xml">

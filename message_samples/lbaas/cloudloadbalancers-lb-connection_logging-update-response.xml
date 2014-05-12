@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.connection_logging.update" />
+    <atom:category term="type:cloudloadbalancers.lb.connection_logging.update" />
     <atom:title type="text">Update Connection Log</atom:title>
     <atom:summary type="text">Connection log updated.</atom:summary>
     <atom:content type="application/xml">

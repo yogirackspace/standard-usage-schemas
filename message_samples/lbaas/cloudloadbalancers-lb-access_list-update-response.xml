@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.access_list.update" />
+    <atom:category term="type:cloudloadbalancers.lb.access_list.update" />
     <atom:title type="text">Update Access List</atom:title>
     <atom:summary type="text">Access list updated.</atom:summary>
     <atom:content type="application/xml">

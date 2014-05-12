@@ -5,6 +5,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:backup/events" />
     <atom:category term="atomhopper.feedcount.feed.update" />
+    <atom:category term="type:atomhopper.feedcount.feed.update" />
     <atom:title type="text">AHop Count</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:ahopc="http://docs.rackspace.com/event/atom-hopper/feedcount" dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="backup/events" type="UPDATE" version="1">

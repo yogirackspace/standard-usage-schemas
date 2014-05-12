@@ -27,6 +27,7 @@
    <atom:category term="dc:DFW1"/>
    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
    <atom:category term="cloudservers.hostserver.host.down"/>
+   <atom:category term="type:cloudservers.hostserver.host.down"/>
    <atom:title>CloudServers</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"

@@ -6,6 +6,7 @@
     <atom:category term="dc:IAD3" />
     <atom:category term="rid:my.site.com" />
     <atom:category term="cloudsites.metered.site.usage" />
+    <atom:category term="type:cloudsites.metered.site.usage" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T19:08:46.881Z</atom:updated>
     <atom:content type="application/xml">

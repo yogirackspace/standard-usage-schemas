@@ -6,6 +6,7 @@
     <atom:category term="dc:SYD2" />
     <atom:category term="rid:my.site.com" />
     <atom:category term="cloudsites.ssl.site.usage_snapshot" />
+    <atom:category term="type:cloudsites.ssl.site.usage_snapshot" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T19:17:37.601Z</atom:updated>
     <atom:content type="application/xml">

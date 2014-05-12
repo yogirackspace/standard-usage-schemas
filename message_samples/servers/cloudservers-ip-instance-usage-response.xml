@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:6acb5696-4a31-11e2-9c2e-db3bb6302f8d" />
     <atom:category term="cloudservers.ip.instance.usage" />
+    <atom:category term="type:cloudservers.ip.instance.usage" />
     <atom:title type="text">First Gen Cloud Server Additonal IP usage event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:ip="http://docs.rackspace.com/usage/servers/ip" dataCenter="DFW1" endTime="2012-09-16T11:51:11Z" environment="PROD" id="5da1c590-4a31-11e2-ba50-67eebdd137db" region="DFW" resourceId="6acb5696-4a31-11e2-9c2e-db3bb6302f8d" startTime="2012-09-15T11:51:11Z" tenantId="27726" type="USAGE" version="1">

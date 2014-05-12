@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:3833" />
     <atom:category term="cloudloadbalancers.vip.vip.create" />
+    <atom:category term="type:cloudloadbalancers.vip.vip.create" />
     <atom:title type="text">VIP Create</atom:title>
     <atom:summary type="text">Created vip.</atom:summary>
     <atom:content type="application/xml">

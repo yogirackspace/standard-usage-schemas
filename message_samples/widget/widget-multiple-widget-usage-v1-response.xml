@@ -28,6 +28,7 @@
    <atom:category term="dc:DFW1"/>
    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
    <atom:category term="widget.multiple.widget.usage"/>
+   <atom:category term="type:widget.multiple.widget.usage"/>
    <atom:title>Widget</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"

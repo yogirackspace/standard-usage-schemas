@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:65" />
     <atom:category term="cloudloadbalancers.health-monitor.health_monitor.create" />
+    <atom:category term="type:cloudloadbalancers.health-monitor.health_monitor.create" />
     <atom:title type="text">Health Monitor Create</atom:title>
     <atom:summary type="text">Health Monitor Created.</atom:summary>
     <atom:content type="application/xml">

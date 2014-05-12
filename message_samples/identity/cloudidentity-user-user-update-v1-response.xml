@@ -5,6 +5,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:10031728" />
     <atom:category term="cloudidentity.user.user.update" />
+    <atom:category term="type:cloudidentity.user.user.update" />
     <atom:title type="text">Identity Event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:id="http://docs.rackspace.com/event/identity/user" dataCenter="DFW1" environment="PROD" eventTime="2012-09-19T11:11:11Z" id="e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" region="DFW" resourceId="10031728" resourceName="testuser" type="UPDATE" version="1">

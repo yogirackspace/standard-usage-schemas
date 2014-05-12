@@ -5,6 +5,7 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="ebs.bu-team.create" />
+    <atom:category term="type:ebs.bu-team.create" />
     <atom:title type="text">business unit event</atom:title>
     <atom:content type="application/xml">
         <event dataCenter="DFW1" environment="PROD" eventTime="2014-03-01T11:51:11Z"
