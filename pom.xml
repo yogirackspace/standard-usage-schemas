@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.49.1-SNAPSHOT</version>
+    <version>1.50.0</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
