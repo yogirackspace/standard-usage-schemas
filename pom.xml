@@ -49,6 +49,7 @@
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
         <olink-maven-plugin.version>1.2.2</olink-maven-plugin.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -121,43 +122,93 @@
         </resources>
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
-  	  <plugin>
-              <groupId>com.rackspace.cloud.api</groupId>
-              <artifactId>olink-maven-plugin</artifactId>
-              <version>${olink-maven-plugin.version}</version>
-              <executions>
-                <execution>
-                  <id>generate-product-xsd</id>
-                  <phase>initialize</phase>
-                  <goals>
-                    <goal>olink</goal>
-                  </goals>
-                  <configuration>
-                    <pipeline>src/xpl/generateXSDs.xpl</pipeline>
-                  </configuration>
-                </execution>		
-                <execution>
-  		<id>generate-product-wadl</id>
-  		<phase>initialize</phase>
-  		<goals>
-  		  <goal>olink</goal>
-  		</goals>
-  		<configuration>
-  		  <pipeline>src/xpl/generateWADL.xpl</pipeline>
-  		</configuration>
-                </execution>
-                <execution>
-  		<id>generate-filter-private-attrs</id>
-  		<phase>initialize</phase>
-  		<goals>
-  		  <goal>olink</goal>
-  		</goals>
-  		<configuration>
-  		  <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
-  		</configuration>
-                </execution>
-  	      </executions>
-  	    </plugin>
+            <plugin>
+                <groupId>com.rackspace.cloud.api</groupId>
+                <artifactId>olink-maven-plugin</artifactId>
+                <version>${olink-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-product-xsd</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateXSDs.xpl</pipeline>
+                        </configuration>
+                    </execution>        
+                    <execution>
+                        <id>generate-product-wadl</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateWADL.xpl</pipeline>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-filter-private-attrs</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-usage-xsd</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformationSets>
+                        <transformationSet>
+                            <dir>${basedir}</dir>
+                            <!-- Note that we're not actually transforming this file,
+                                 This is only to fool this plugin which requires input
+                                 file. This particular XSLT reads all xml file in the
+                                 directory specified as input_dir parameter
+                            -->
+                            <includes>
+                                <include>pom.xml</include>
+                            </includes>
+                            <outputDir>${basedir}/core_xsd</outputDir>
+                            <stylesheet>${basedir}/src/main/xsl/generate-usagexsd.xsl</stylesheet>
+                            <parameters>
+                                <parameter>
+                                    <name>input_dir</name>
+                                    <value>${basedir}/sample_product_schemas</value>
+                                </parameter>
+                            </parameters>
+                            <fileMappers>
+                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                    <pattern>pom.xml</pattern>
+                                    <replacement>usage.xsd</replacement>
+                                </fileMapper>
+                            </fileMappers>
+                        </transformationSet>
+                    </transformationSets>
+                </configuration>
+                <dependencies>
+                  <dependency>
+                    <groupId>net.sf.saxon</groupId>
+                    <artifactId>saxon-ee</artifactId>
+                    <version>${saxon-ee.version}</version>
+                  </dependency>
+                </dependencies>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -220,13 +271,20 @@
                 <configuration>
                     <filesets>
                         <fileset>
-                          <directory>${basedir}/generated_product_xsds</directory>
-                          <includes>
-                              <include>**/*.xsd</include>
-                          </includes>
-                          <followSymlinks>false</followSymlinks>
-                      </fileset>
-                  </filesets>
+                            <directory>${basedir}/generated_product_xsds</directory>
+                            <includes>
+                                <include>**/*.xsd</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>${basedir}/core_xsd</directory>
+                            <includes>
+                                <include>usage.xsd</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
                 </configuration>
             </plugin>
         </plugins>
@@ -261,9 +319,9 @@
             <id>Rackspace Research Repositories</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
-		<property>
-		  <name>generate.docs</name>
-		</property>
+        <property>
+          <name>generate.docs</name>
+        </property>
             </activation>
             <repositories>
                 <repository>
@@ -358,77 +416,77 @@
                             <description>Standard Usage Schema</description>
                             <prefix>/etc/repose</prefix>
                             <release>1</release>
-		            <mappings>
-			        <mapping>
-			            <directory>/etc/repose/usage-schema</directory>
-			            <username>repose</username>
-			            <groupname>repose</groupname>
-			            <!-- Modify file permissions as needed -->
-			            <filemode>755</filemode>
-			            <configuration>true</configuration>
-			            <directoryIncluded>true</directoryIncluded>
-			        </mapping>
-			        <mapping>
-			            <directory>/etc/repose/usage-schema/wadl</directory>
-			            <username>repose</username>
-			            <groupname>repose</groupname>
-			            <!-- Modify file permissions as needed -->
-			            <filemode>755</filemode>
-			            <configuration>true</configuration>
-			            <directoryIncluded>true</directoryIncluded>
-			            <sources>
-			               <source>
-				            <location>wadl</location>
-				        </source>
-			            </sources>
-			        </mapping>
-			        <mapping>
-			            <directory>/etc/repose/usage-schema/core_xsd</directory>
-			            <username>repose</username>
-			            <groupname>repose</groupname>
-			            <!-- Modify file permissions as needed -->
-			            <filemode>755</filemode>
-			            <configuration>true</configuration>
-			            <directoryIncluded>true</directoryIncluded>
-			            <sources>
-				        <source>
-				            <location>core_xsd</location>
-				        </source>
-			            </sources>
-			        </mapping>
-			        <mapping>
-			            <directory>/etc/repose/usage-schema</directory>
-			            <username>repose</username>
-			            <groupname>repose</groupname>
-			            <!-- Modify file permissions as needed -->
-			            <filemode>444</filemode>
-			            <configuration>true</configuration>
-			            <sources>
-				        <source>
-				            <location>atom_hopper.wadl</location>
-				        </source>
-				        <source>
-				            <location>atom_hopper_identity_admin.wadl</location>
-				        </source>
-				        <source>
-				            <location>atom_hopper_observer.wadl</location>
-				        </source>
-			            </sources>
-			        </mapping>
-			        <mapping>
-			            <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
-			            <username>repose</username>
-			            <groupname>repose</groupname>
-			            <!-- Modify file permissions as needed -->
-			            <filemode>755</filemode>
-			            <configuration>true</configuration>
-			            <directoryIncluded>true</directoryIncluded>
-			            <sources>
-				        <source>
-				            <location>generated_product_xsds</location>
-				        </source>
-			            </sources>
-			        </mapping>
+                    <mappings>
+                    <mapping>
+                        <directory>/etc/repose/usage-schema</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>755</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                    </mapping>
+                    <mapping>
+                        <directory>/etc/repose/usage-schema/wadl</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>755</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                        <sources>
+                           <source>
+                            <location>wadl</location>
+                        </source>
+                        </sources>
+                    </mapping>
+                    <mapping>
+                        <directory>/etc/repose/usage-schema/core_xsd</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>755</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                        <sources>
+                        <source>
+                            <location>core_xsd</location>
+                        </source>
+                        </sources>
+                    </mapping>
+                    <mapping>
+                        <directory>/etc/repose/usage-schema</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>444</filemode>
+                        <configuration>true</configuration>
+                        <sources>
+                        <source>
+                            <location>atom_hopper.wadl</location>
+                        </source>
+                        <source>
+                            <location>atom_hopper_identity_admin.wadl</location>
+                        </source>
+                        <source>
+                            <location>atom_hopper_observer.wadl</location>
+                        </source>
+                        </sources>
+                    </mapping>
+                    <mapping>
+                        <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>755</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                        <sources>
+                        <source>
+                            <location>generated_product_xsds</location>
+                        </source>
+                        </sources>
+                    </mapping>
                             </mappings>
                             <!-- Not sure we want to blow away this dir everytime
                             <postremoveScriptlet>
@@ -477,6 +535,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>xml-maven-plugin</artifactId>
+                        <version>1.0</version>
                         <executions>
                             <execution>
                                 <goals>
@@ -492,7 +551,7 @@
                                         <include>core.xsd</include>
                                         <include>entry.xsd</include>
                                     </includes>
-                                    <stylesheet>${basedir}/src/main/config/xsd.vc.xsl</stylesheet>
+                                    <stylesheet>${basedir}/src/main/xsl/xsd.vc.xsl</stylesheet>
                                     <parameters>
                                         <parameter>
                                             <name>vc.Version</name>
@@ -506,30 +565,30 @@
                 </plugins>
             </build>
         </profile>
-	<profile>
-	  <id>generate-docs</id>
+    <profile>
+      <id>generate-docs</id>
           <activation>
-	    <property>
-	      <name>generate.docs</name>
-	    </property>
+        <property>
+          <name>generate.docs</name>
+        </property>
           </activation>
-	  <build>
-	    <plugins>
-	      <plugin>
-		<groupId>com.rackspace.cloud.api</groupId>
-		<artifactId>olink-maven-plugin</artifactId>
-		<version>${olink-maven-plugin.version}</version>
-		<executions>
-		  <execution>
-		    <id>generate-olink-db</id>
-		    <phase>initialize</phase>
-		    <goals>
-		      <goal>olink</goal>
-		    </goals>
-		  </execution>
-		</executions>
-	      </plugin>
-	      <plugin>
+      <build>
+        <plugins>
+          <plugin>
+        <groupId>com.rackspace.cloud.api</groupId>
+        <artifactId>olink-maven-plugin</artifactId>
+        <version>${olink-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>generate-olink-db</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>olink</goal>
+            </goals>
+          </execution>
+        </executions>
+          </plugin>
+          <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
                 <artifactId>clouddocs-maven-plugin</artifactId>
                 <version>1.14.1</version>
@@ -542,11 +601,11 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-devguide.xml</includes>
-		      <security>external</security>
-		      <enableDisqus>internet</enableDisqus>
-		      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+              <security>external</security>
+              <enableDisqus>internet</enableDisqus>
+              <enableGoogleAnalytics>1</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
-                    </configuration>			
+                    </configuration>            
                   </execution>
                   <execution>
                     <id>devguide-internal</id>
@@ -556,9 +615,9 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-devguide.xml</includes>
-		      <security>internal</security>
-		      <enableDisqus>intranet</enableDisqus>
-		      <enableGoogleAnalytics>0</enableGoogleAnalytics>
+              <security>internal</security>
+              <enableDisqus>intranet</enableDisqus>
+              <enableGoogleAnalytics>0</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
                     </configuration>
                   </execution>
@@ -581,9 +640,9 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
-		      <security>external</security>
-		      <enableDisqus>internet</enableDisqus>
-		      <enableGoogleAnalytics>1</enableGoogleAnalytics>
+              <security>external</security>
+              <enableDisqus>internet</enableDisqus>
+              <enableGoogleAnalytics>1</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
                     </configuration>
                   </execution>
@@ -595,8 +654,8 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
-		      <security>internal</security>
-		      <enableGoogleAnalytics>0</enableGoogleAnalytics>
+              <security>internal</security>
+              <enableGoogleAnalytics>0</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
                     </configuration>
                   </execution>
@@ -604,62 +663,62 @@
                 <configuration>
                   <branding>rackspace</branding>
                   <feedbackEmail>constanze.kratel@rackspace.com</feedbackEmail>
-		  <showXslMessages>true</showXslMessages>
+          <showXslMessages>true</showXslMessages>
                 </configuration>
-	      </plugin>
-	        <plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-assembly-plugin</artifactId>
-	            <version>2.3</version>
-	            <configuration>
-	                <descriptors>
+          </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
                         <descriptor>src/assembly/includewars.xml</descriptor>
-	                </descriptors>
-	            </configuration>
-	            <executions>
-	                <execution>
-	                    <id>assembly</id>
-	                    <goals>
-	                        <goal>single</goal>
-	                    </goals>
-	                    <phase>package</phase>
-	                </execution>
-	            </executions>
-	        </plugin>
-	    </plugins>
-	  </build>
-	</profile>
-	<profile>
-	  <id>generate-samples</id>
-	  <build>
-	    <plugins>
-	      <plugin>
-		<groupId>com.rackspace.cloud.api</groupId>
-		<artifactId>olink-maven-plugin</artifactId>
-		<version>${olink-maven-plugin.version}</version>
-		<executions>
-		  <execution>
-		    <id>generate-samples</id>
-		    <phase>initialize</phase>
-		    <goals>
-		      <goal>olink</goal>
-		    </goals>
-		    <configuration>
-		      <pipeline>src/xpl/generateSamples.xpl</pipeline>
-		      <inputs>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>generate-samples</id>
+      <build>
+        <plugins>
+          <plugin>
+        <groupId>com.rackspace.cloud.api</groupId>
+        <artifactId>olink-maven-plugin</artifactId>
+        <version>${olink-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>generate-samples</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>olink</goal>
+            </goals>
+            <configuration>
+              <pipeline>src/xpl/generateSamples.xpl</pipeline>
+              <inputs>
                   <source>${productSchema}</source>
-		      </inputs>
-		      <parameters>
+              </inputs>
+              <parameters>
                   <parameters>
                       base_feed_name=${feedName}
                   </parameters>
               </parameters>
-		    </configuration>
-		  </execution>
-		</executions>
-	      </plugin>
-	    </plugins>
-	  </build>
-	</profile>
+            </configuration>
+          </execution>
+        </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
       </profiles>
 </project>

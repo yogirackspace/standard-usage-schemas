@@ -13,5 +13,6 @@ target
 wadl/product.wadl
 wadl/filter_private_attrs.xsl
 generated_product_xsds/*
+core_xsd/usage.xsd
 TODO.org
 
