@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:887765" />
     <atom:category term="cloudloadbalancers.lb.ssl_termination.update" />
+    <atom:category term="type:cloudloadbalancers.lb.ssl_termination.update" />
     <atom:title type="text">Update SSL Termination</atom:title>
     <atom:summary type="text">updated ssl termination.</atom:summary>
     <atom:content type="application/xml">

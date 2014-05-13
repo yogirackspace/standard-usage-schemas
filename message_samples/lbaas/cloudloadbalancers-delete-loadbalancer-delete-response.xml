@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:b79cc3de-b399-3883-b555-61829bbccd38" />
     <atom:category term="cloudloadbalancers.delete.loadbalancer.delete" />
+    <atom:category term="type:cloudloadbalancers.delete.loadbalancer.delete" />
     <atom:title type="text">LBAAS</atom:title>
     <atom:category label="loadBalancerUsage" scheme="PLAIN" term="term" />
     <atom:content type="application/xml">

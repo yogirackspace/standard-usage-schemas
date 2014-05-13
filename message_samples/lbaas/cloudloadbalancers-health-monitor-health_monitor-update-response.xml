@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:65" />
     <atom:category term="cloudloadbalancers.health-monitor.health_monitor.update" />
+    <atom:category term="type:cloudloadbalancers.health-monitor.health_monitor.update" />
     <atom:title type="text">Health Monitor UPDATE</atom:title>
     <atom:summary type="text">Health Monitor Updated.</atom:summary>
     <atom:content type="application/xml">

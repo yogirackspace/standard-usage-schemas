@@ -5,6 +5,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:10031728" />
     <atom:category term="cloudidentity.user.user.update" />
+    <atom:category term="type:cloudidentity.user.user.update" />
     <atom:category term="updatedAttributes:GROUPS" />
     <atom:title type="text">Identity Event</atom:title>
     <atom:content type="application/xml">

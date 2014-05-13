@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:12882:mssqldb" />
     <atom:category term="cloudsites.db.mssql.usage_snapshot" />
+    <atom:category term="type:cloudsites.db.mssql.usage_snapshot" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T18:54:54.003Z</atom:updated>
     <atom:content type="application/xml">

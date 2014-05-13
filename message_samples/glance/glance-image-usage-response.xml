@@ -7,6 +7,7 @@
     <atom:category term="dc:DFW1"/>
     <atom:category term="rid:b79cc3de-b399-3883-b555-61829bbccd38"/>
     <atom:category term="glance.glance.backup.usage"/>
+    <atom:category term="type:glance.glance.backup.usage"/>
     <atom:title type="text">Glance</atom:title>
     <atom:updated>2012-06-14T14:46:31.867Z</atom:updated>
     <atom:content type="application/xml">

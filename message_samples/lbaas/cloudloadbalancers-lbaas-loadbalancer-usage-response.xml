@@ -6,6 +6,7 @@
   <atom:category term="dc:DFW1"/>
   <atom:category term="rid:b79cc3de-b399-3883-b555-61829bbccd38"/>
   <atom:category term="cloudloadbalancers.lbaas.loadbalancer.usage"/>
+  <atom:category term="type:cloudloadbalancers.lbaas.loadbalancer.usage"/>
   <atom:title type="text">LBAAS</atom:title>
   <atom:content type="application/xml">
     <event dataCenter="DFW1" endTime="2012-06-15T10:19:52Z" environment="PROD" id="131f0fdc-bab0-11e3-979e-14109fdffead" region="DFW" resourceId="b79cc3de-b399-3883-b555-61829bbccd38" resourceName="LoadBalancer" startTime="2012-06-14T10:19:52Z" tenantId="1" type="USAGE" version="1">

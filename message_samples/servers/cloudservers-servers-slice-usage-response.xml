@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:56" />
     <atom:category term="cloudservers.servers.slice.usage" />
+    <atom:category term="type:cloudservers.servers.slice.usage" />
     <atom:title type="text">Slice</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:cs="http://docs.rackspace.com/event/servers" dataCenter="DFW1" endTime="2012-09-16T11:51:11Z" environment="PROD" id="e53d007a-fc23-11e1-975c-cfa6b29bb814" region="DFW" resourceId="56" startTime="2012-09-15T11:51:11Z" tenantId="2882" type="USAGE" version="1">

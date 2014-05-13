@@ -6,6 +6,7 @@
   <atom:category term="tid:12334"/>
   <atom:category term="rid:256638"/>
   <atom:category term="cloudsites.subscription.sites_subscription.usage_snapshot"/>
+  <atom:category term="type:cloudsites.subscription.sites_subscription.usage_snapshot"/>
   <atom:title type="text">Sites</atom:title>
   <atom:content type="application/xml">
     <event xmlns:sites="http://docs.rackspace.com/usage/sites/subscription" dataCenter="GLOBAL" environment="PROD" eventTime="2012-03-12T11:51:11Z" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="GLOBAL" resourceId="256638" resourceName="Mosso Standard Offering" tenantId="12334" type="USAGE_SNAPSHOT" version="1">

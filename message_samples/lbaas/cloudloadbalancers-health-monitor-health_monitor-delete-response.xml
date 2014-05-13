@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:75" />
     <atom:category term="cloudloadbalancers.health-monitor.health_monitor.delete" />
+    <atom:category term="type:cloudloadbalancers.health-monitor.health_monitor.delete" />
     <atom:title type="text">Health Monitor Deleted</atom:title>
     <atom:summary type="text">Health Monitor Deleted.</atom:summary>
     <atom:content type="application/xml">

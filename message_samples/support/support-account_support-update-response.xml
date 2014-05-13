@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:654321" />
     <atom:category term="support.account.account_support.update.hybrid" />
+    <atom:category term="type:support.account.account_support.update.hybrid" />
     <atom:title type="text">Support</atom:title>
     <atom:content type="application/xml">
         <event dataCenter="DFW1" environment="PROD" eventTime="2013-12-12T11:51:11Z" id="560490c6-6c63-11e1-aafe-27851d5aed13" region="DFW" resourceId="654321" resourceName="My Account Name" tenantId="hybrid:654321" type="UPDATE" version="1">

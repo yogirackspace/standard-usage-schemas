@@ -5,6 +5,7 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="cloudfiles.cdnbandwidth.usage" />
+    <atom:category term="type:cloudfiles.cdnbandwidth.usage" />
     <atom:content type="application/xml">
         <event dataCenter="DFW1" endTime="2012-06-20T10:19:52Z" environment="PROD" id="8d89673c-c989-11e1-895a-0b3d632a8a89" region="DFW" startTime="2012-06-19T10:19:52Z" tenantId="1234" type="USAGE" version="1">
             <cf-cdn:product cdnBandwidthOut="2999283" serviceCode="CloudFiles" version="1" />

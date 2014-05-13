@@ -6,6 +6,7 @@
   <atom:category term="dc:DFW1"/>
   <atom:category term="rid:ssl-cert-1"/>
   <atom:category term="ssl.ssl.ssl_subscription.usage_snapshot"/>
+  <atom:category term="type:ssl.ssl.ssl_subscription.usage_snapshot"/>
   <atom:title type="text">SSL Subscription</atom:title>
   <atom:content type="application/xml">
     <event xmlns="http://docs.rackspace.com/core/event" xmlns:ssl="http://docs.rackspace.com/event/ssl" dataCenter="DFW1" environment="PROD" eventTime="2012-03-12T11:51:11Z" id="560490c6-6c63-22e3-adfe-27851d5aed13" region="DFW" resourceId="ssl-cert-1" resourceName="ssl-cert-1" tenantId="12334" type="USAGE_SNAPSHOT" version="1">

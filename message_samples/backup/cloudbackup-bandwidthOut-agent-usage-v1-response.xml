@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:3863d42a-ec9a-11e1-8e12-df8baa3ca440" />
     <atom:category term="cloudbackup.bandwidthOut.agent.usage" />
+    <atom:category term="type:cloudbackup.bandwidthOut.agent.usage" />
     <atom:content type="application/xml">
         <event dataCenter="DFW1" endTime="2012-06-15T10:19:52Z" environment="PROD" id="8d89673c-c989-11e1-895a-0b3d632a8a89" region="DFW" resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440" startTime="2012-06-14T10:19:52Z" tenantId="1234" type="USAGE" version="1">
             <cb-bout:product bandwidthOut="9887765" resourceType="AGENT" serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86" serviceCode="CloudBackup" version="1" />

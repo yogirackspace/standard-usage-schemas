@@ -6,6 +6,7 @@
   <atom:category term="dc:SYD2"/>
   <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
   <atom:category term="dedicatedvcloud.serveroslicense.server.usage"/>
+  <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage"/>
   <atom:title type="text">Dedicated vCloud Server</atom:title>
   <atom:content type="application/xml">
     <event dataCenter="SYD2" endTime="2013-12-19T10:19:52Z" environment="PROD" id="47b574c4-1421-11e2-b19d-7b8e208cade0" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T10:19:52Z" tenantId="654321" type="USAGE" version="1">

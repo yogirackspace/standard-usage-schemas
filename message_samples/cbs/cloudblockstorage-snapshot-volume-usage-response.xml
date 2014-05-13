@@ -6,6 +6,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549" />
     <atom:category term="cloudblockstorage.snapshot.volume.usage" />
+    <atom:category term="type:cloudblockstorage.snapshot.volume.usage" />
     <atom:title type="text">CBS Usage</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:cbs="http://docs.rackspace.com/usage/cbs/snapshot" dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549" resourceName="MyVolume" startTime="2012-03-12T11:51:11Z" tenantId="12334" type="USAGE" version="1">

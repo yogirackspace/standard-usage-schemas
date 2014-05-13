@@ -5,6 +5,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:56" />
     <atom:category term="cloudservers.heartbeat.qb.up" />
+    <atom:category term="type:cloudservers.heartbeat.qb.up" />
     <atom:title type="text">QB Heartbeat</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:cs="http://docs.rackspace.com/event/servers/heartbeat" dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z" id="e53d007a-fc23-11e1-975c-cfa6b29bb814" region="DFW" resourceId="56" type="UP" version="1">

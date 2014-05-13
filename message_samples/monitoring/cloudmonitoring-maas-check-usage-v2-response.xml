@@ -7,6 +7,7 @@
     <atom:category term="dc:GLOBAL" />
     <atom:category term="rid:chAAAA" />
     <atom:category term="cloudmonitoring.maas.check.usage" />
+    <atom:category term="type:cloudmonitoring.maas.check.usage" />
     <atom:title type="text">MaaSEvent</atom:title>
     <atom:content type="application/xml">
         <event dataCenter="GLOBAL" endTime="2012-04-30T03:27:36Z" environment="PROD" id="a2869958-a020-11e1-b15c-a38f4c3d83a9" region="GLOBAL" resourceId="chAAAA" startTime="2012-04-30T03:27:35Z" tenantId="7777" type="USAGE" version="1">

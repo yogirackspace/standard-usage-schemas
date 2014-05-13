@@ -104,6 +104,15 @@
         <xsl:call-template name="addCategory">
             <xsl:with-param name="term" select="$Id_2"/>
         </xsl:call-template>
+        <!--
+           event type prefixed with 'type:' gets saved to its own eventtype DB column and enables
+           quicker searches.  Saving eventtype in the generic categories column is preserved for
+           backwards compatibility.
+        -->
+        <xsl:call-template name="addCategory">
+            <xsl:with-param name="term" select="$Id_2"/>
+            <xsl:with-param name="prefix" select="'type:'"/>
+        </xsl:call-template>
     </xsl:template>
 
     <!--

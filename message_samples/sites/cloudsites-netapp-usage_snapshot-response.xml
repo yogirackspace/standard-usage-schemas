@@ -5,6 +5,7 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="cloudsites.netapp.usage_snapshot" />
+    <atom:category term="type:cloudsites.netapp.usage_snapshot" />
     <atom:title type="text">Sites</atom:title>
     <atom:updated>2013-02-28T19:15:01.419Z</atom:updated>
     <atom:content type="application/xml">
