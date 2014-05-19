@@ -39,10 +39,8 @@
         <resource id="sites_events"               path="sites/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="ssl_events"                 path="ssl/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="support_events"             path="support/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-        <resource id="usagecorrelation_events"    path="usagecorrelation/events" type="wadl/feed.wadl#TenantAtomFeed" />
         <resource id="usagedeadletter_events"     path="usagedeadletter/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="usagerecovery_events"       path="usagerecovery/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-        <resource id="usagesummaryrecovery_events" path="usagesummaryrecovery/events" type="wadl/feed.wadl#TenantAtomFeed"/>
 
         <!-- Test related feeds -->
         <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#TenantAtomFeed"/>
