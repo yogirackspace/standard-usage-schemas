@@ -611,7 +611,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="allowedValues" type="schema:NameList" use="optional">
+                <attribute name="allowedValues" type="schema:TokenList" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -877,6 +877,10 @@
     <!--
         Simple Types
     -->
+    <simpleType name="TokenList">
+        <list itemType="xsd:token"/>
+    </simpleType>
+
     <simpleType name="NameList">
         <list itemType="xsd:Name"/>
     </simpleType>

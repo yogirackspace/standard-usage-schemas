@@ -44,7 +44,8 @@
                          num_checks="1"
                          time="15:32:00Z"
                          dateTime="2013-09-26T15:32:00Z"
-                         enumList="BEST BEST"/>
+                         enumList="BEST BEST"
+                         stringEnum="3.0.4"/>
       </event>
    </atom:content>
 </atom:entry>
