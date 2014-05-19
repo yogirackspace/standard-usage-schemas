@@ -176,6 +176,12 @@
       <resource href="../../atom_hopper.wadl#meta_events_getEntry_AtomHopper"/>
     </resources>
   </section>
+  <section xml:id="usagecorrelation.product">
+    <title>Usage Correlation</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#usagecorrelation_events"/>
+    </resources>
+  </section>
   <section xml:id="usagerecovery.product">
     <title>Usage Recovery</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -186,6 +192,12 @@
     <title>Usage Error</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#usagedeadletter_events"/>
+    </resources>
+  </section>
+  <section xml:id="usagesummaryrecovery.product">
+    <title>Usage Summary Recovery</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#usagesummaryrecovery_events"/>
     </resources>
   </section>
   <section xml:id="support.product">
