@@ -40,8 +40,10 @@
         <resource id="sites_events" path="sites/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites"/>
         <resource id="ssl_events" path="ssl/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Ssl"/>
         <resource id="support_events" path="support/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Support"/>
+        <resource id="usagecorrelation_events" path="usagecorrelation/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="usagedeadletter_events" path="usagedeadletter/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
         <resource id="usagerecovery_events" path="usagerecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="usagesummaryrecovery_events" path="usagesummaryrecovery/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         
         <!-- Test related feeds -->
         <resource id="demo_events" path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
