@@ -128,13 +128,13 @@
       <resource href="../../atom_hopper.wadl#sites_events_getEntry_CloudSites"/>
     </resources>
   </section>
-   <section xml:id="signup.product">
+  <section xml:id="signup.product">
     <title>Account Creation Process</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#signup_events"/>
       <resource href="../../atom_hopper.wadl#signup_events"/>
     </resources>
-   </section>
+  </section>
   <section xml:id="dedicatedvcloud.product">
     <title>Dedicated vCloud</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
