@@ -23,6 +23,7 @@
         <resource id="bigdata_events" path="bigdata/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
         <resource id="cbs_events" path="cbs/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage"/>
         <resource id="core_events" path="core/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="customer" path="customer/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="dbaas_events" path="dbaas/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase"/>
         <resource id="dedicatedvcloud_events" path="dedicatedvcloud/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloud"/>
         <resource id="dns_events" path="dns/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDNS"/>
@@ -42,6 +43,7 @@
         <resource id="queues_events" path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
         <resource id="servers_events" path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers wadl/product.wadl#RHEL"/>
         <resource id="sites_events" path="sites/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites"/>
+        <resource id="signup" path="signup/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="ssl_events" path="ssl/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Ssl"/>
         <resource id="support_events" path="support/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Support"/>
         <resource id="usagecorrelation_events" path="usagecorrelation/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
