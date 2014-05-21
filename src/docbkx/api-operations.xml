@@ -49,6 +49,13 @@
       <resource href="../../atom_hopper.wadl#cbs_events_getEntry_CloudBlockStorage"/>      
     </resources>
   </section>
+  <section xml:id="customer.product">
+    <title>Customer Information</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#customer_events"/>
+      <resource href="../../atom_hopper.wadl#customer_events"/>
+    </resources>
+  </section>
   <section xml:id="dbaas.product">
     <title>Cloud Databases</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -119,6 +126,13 @@
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#sites_events"/>
       <resource href="../../atom_hopper.wadl#sites_events_getEntry_CloudSites"/>
+    </resources>
+  </section>
+  <section xml:id="signup.product">
+    <title>Account Creation Process</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#signup_events"/>
+      <resource href="../../atom_hopper.wadl#signup_events"/>
     </resources>
   </section>
   <section xml:id="dedicatedvcloud.product">
