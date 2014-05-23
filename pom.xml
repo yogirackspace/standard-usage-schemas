@@ -566,7 +566,7 @@
             </build>
         </profile>
     <profile>
-      <id>generate-docs</id>
+      <id>src/main/scripts/generate-docs</id>
           <activation>
         <property>
           <name>generate.docs</name>
