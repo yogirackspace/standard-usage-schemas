@@ -10,7 +10,7 @@
         <description>
             Describes the roles of rackers for a given support account.
         </description>
-        <attribute name="sso" type="string" use="required"> 
+        <attribute name="sso" type="Name" use="required"> 
             The SSO login for the Racker
         </attribute>
         <attribute name="role" type="Name" use="required"
