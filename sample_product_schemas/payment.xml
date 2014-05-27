@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/payment"
+               serviceCode="PaymentService"
+               type="CREATE UPDATE DELETE"
+               version="1">
+    <description>
+        This event type is published by the Payment Service. It 
+        captures changes in the payment methods. 
+    </description>
+    <attribute name="methodId" type="UUID" use="required">
+        The method ID associated with a customer's payment
+    </attribute>
+</productSchema>
