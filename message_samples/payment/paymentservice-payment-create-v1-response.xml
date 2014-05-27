@@ -15,12 +15,7 @@
       - Does not process the 'withEventType' and 'withResource' attributes.
 -->
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
-            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:html="http://www.w3.org/1999/xhtml"
             xmlns:usage="http://docs.rackspace.com/core/usage"
-            xmlns:xerces="http://xerces.apache.org"
-            xmlns:saxon="http://saxon.sf.net/"
-            xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
    <atom:category term="rgn:DFW"/>
@@ -33,6 +28,7 @@
              xmlns:payment="http://docs.rackspace.com/event/payment"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
+             tenantId="020-5821915"
              eventTime="2013-03-15T11:51:11Z"
              type="CREATE"
              dataCenter="DFW1"
