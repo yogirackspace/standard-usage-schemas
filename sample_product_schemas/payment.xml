@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/event/payment"
                serviceCode="PaymentService"
-               type="CREATE UPDATE DELETE"
+               type="UPDATE DELETE"
                version="1">
     <description>
         This event type is published by the Payment Service. It 

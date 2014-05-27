@@ -26,7 +26,7 @@
              version="1"
              eventTime="2013-03-15T11:51:11Z"
              tenantId="020-5821915"
-             type="CREATE"
+             type="UPDATE"
              dataCenter="DFW1"
              region="DFW">
          <payment:product serviceCode="PaymentService"
