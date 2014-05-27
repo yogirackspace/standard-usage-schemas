@@ -18,8 +18,8 @@
             xmlns:usage="http://docs.rackspace.com/core/usage"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
-   <atom:category term="rgn:DFW"/>
-   <atom:category term="dc:DFW1"/>
+   <atom:category term="rgn:ORD"/>
+   <atom:category term="dc:ORD1"/>
    <atom:category term="paymentservice.payment.update"/>
    <atom:category term="type:paymentservice.payment.update"/>
    <atom:title>PaymentService</atom:title>
@@ -31,8 +31,8 @@
              tenantId="020-5821915"
              eventTime="2013-03-15T11:51:11Z"
              type="UPDATE"
-             dataCenter="DFW1"
-             region="DFW">
+             dataCenter="ORD1"
+             region="ORD">
          <payment:product serviceCode="PaymentService"
                          version="1"
                          methodId="6e8bc430-9c3a-11d9-9669-0800200c9a66"/>
