@@ -38,7 +38,6 @@
         <resource id="servers_events"             path="servers/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="sites_events"               path="sites/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="ssl_events"                 path="ssl/events" type="wadl/feed.wadl#TenantAtomFeed"/>
-        <resource id="support_events"             path="support/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="usagedeadletter_events"     path="usagedeadletter/events" type="wadl/feed.wadl#TenantAtomFeed"/>
         <resource id="usagerecovery_events"       path="usagerecovery/events" type="wadl/feed.wadl#TenantAtomFeed"/>
 

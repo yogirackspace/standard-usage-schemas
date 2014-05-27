@@ -1,0 +1,24 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/support/account/roles"
+               serviceCode="Support"
+               version="1" resourceTypes="ACCOUNT_SUPPORT" 
+               type="CREATE UPDATE">
+    <description>
+        Events for support information on account roles creation or updates.
+    </description>
+    <attributeGroup name="role" minOccurs="0" maxOccurs="30">
+        <description>
+            Describes the roles of rackers for a given support account.
+        </description>
+        <attribute name="sso" type="Name" use="required"> 
+            The SSO login for the Racker
+        </attribute>
+        <attribute name="role" type="Name" use="required"
+                   allowedValues="ACCOUNT_MANAGER BUSINESS_DEVELOPMENT_CONSULTANT CLOUD_ADVISOR LAUNCH_MANAGER ONBOARDING_SPECIALIST SALES_ASSOCIATE TEAM_OWNER TECH_LEAD TECHNICAL_ACCOUNT_MANAGER"> 
+            The role for the specified Racker
+        </attribute>
+        <attribute name="roleId" type="int" use="required">
+            The roleId for the specified Racker
+        </attribute>
+    </attributeGroup>
+</productSchema>
