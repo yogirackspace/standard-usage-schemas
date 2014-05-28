@@ -574,6 +574,44 @@
           </activation>
       <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformationSets>
+                        <transformationSet>
+                            <dir>${basedir}/src/docbkx</dir>
+                            <includes>
+                                <include>api-operations.xml</include>
+                            </includes>
+                            <outputDir>${project.build.directory}/generated-resources/feed-table</outputDir>
+                            <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
+                            <fileMappers>
+                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                    <pattern>api-operations.xml</pattern>
+                                    <replacement>feed-table.xml</replacement>
+                                </fileMapper>
+                            </fileMappers>
+                        </transformationSet>
+                    </transformationSets>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>Saxon-HE</artifactId>
+                        <version>9.4.0.6</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
           <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>olink-maven-plugin</artifactId>

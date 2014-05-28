@@ -16,6 +16,13 @@
     </resources>
   </section>
   -->
+  <xi:include href="../../target/generated-resources/feed-table/feed-table.xml">
+    <xi:fallback>
+      <?rax fail?>
+      <para>feed-table.xml missing.</para>
+    </xi:fallback>
+  </xi:include>
+
   <section xml:id="automation.product">
     <title>Automation</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
