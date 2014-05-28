@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="bigdata/events"?>
+<?atom feed="bigdata/events functest1/events usagetest9/events"?>
 <!--
     This example has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=file:/Users/sree7559/Documents/CloudFeeds/standard-usage-schemas/sample_product_schemas/bigdata.xml -DfeedName=bigdata' call.
