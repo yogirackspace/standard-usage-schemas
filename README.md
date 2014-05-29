@@ -1,10 +1,6 @@
 __Project Summary__
 
-All validation to Cloud Feeds (or Feed Service) is done by Repose. A WADL is fed as input that provides important criteria that are relevant to the [Cloud Feeds validation and transformations](https://github.com/rackerlabs/standard-usage-schemas/wiki/Overview).
-It is known that managing and maintaining the WADL and its underlying artifacts (XSDs, XSLs) manually could be cumbersome, and the process would be error prone. Instead, we describe the individual rules separately using a simplified format called a Product Schema. A product schema describes a message (or series of related messages) sent by a product to Atom Hopper. Product schemas are stored in the [sample_product_schemas](https://github.com/rackerlabs/standard-usage-schemas/tree/master/sample_product_schemas) directory.
-
-This project takes a look at all of the product schemas in the product schemas directory and generates the redundant parts of the Atom Hopper WADL (sub WADL, XSDs, and XSLTs). Importantly, there is clear scope for automation as some parts are still manual in the process, and hence the goal is to eventually generate the entire WADL from the product schemas.
-
+This project contains files related to Cloud Feeds API contract. For more information read the [Project Overview](https://github.com/rackerlabs/standard-usage-schemas/wiki/Overview).
 
 __Schemas__
 
