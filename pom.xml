@@ -719,7 +719,7 @@
                         <goals>
                             <goal>single</goal>
                         </goals>
-                        <phase>package</phase>
+                        <phase>process-sources</phase>
                     </execution>
                 </executions>
             </plugin>
