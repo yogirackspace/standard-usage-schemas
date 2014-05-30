@@ -1,11 +1,16 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.52.0**  
+2014-05-27 | B-73456: add 2 new support events: roles and sla (Shinta Smith)  
+2014-05-27 | B-73068: add /payment feed (Shinta Smith)  
+2014-05-19 | B-65812: enable enums to start with digit (Shinta Smith)  
+
 **usage-schema-1.51.0**  
 2014-05-13 | B-71281: generate usage.xsd as part of mvn build (Shinta Smith)  
-2014-05-12 | B-59299 - Categories Refactoring (Greg Sharek)  
 
 **usage-schema-1.50.0**  
+2014-05-12 | B-59299 - Categories Refactoring (Greg Sharek)  
 2014-05-09 | B-72611: add new validated /encore feed (Shinta Smith)  
 2014-05-05 | B-66281: update WADLs for feedscatalog app (Shinta Smith)  
 

@@ -16,6 +16,13 @@
     </resources>
   </section>
   -->
+  <xi:include href="../../target/generated-resources/feed-table/feed-table.xml">
+    <xi:fallback>
+      <?rax fail?>
+      <para>feed-table.xml missing.</para>
+    </xi:fallback>
+  </xi:include>
+
   <section xml:id="automation.product">
     <title>Automation</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -47,6 +54,12 @@
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#cbs_events"/>
       <resource href="../../atom_hopper.wadl#cbs_events_getEntry_CloudBlockStorage"/>      
+    </resources>
+  </section>
+  <section xml:id="customer.product">
+    <title>Customer Information</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#customer_events"/>
     </resources>
   </section>
   <section xml:id="dbaas.product">
@@ -91,6 +104,13 @@
       <resource href="../../atom_hopper.wadl#monitoring_events_getEntry_CloudMonitoring"/>
     </resources>
   </section>
+  <section xml:id="payment.product">
+    <title>Payment Service</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#payment_events"/>
+      <resource href="../../atom_hopper.wadl#payment_events_getEntry_PaymentService"/>
+    </resources>
+  </section>
   <section xml:id="queues.product">
     <title>Cloud Queues</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -119,6 +139,12 @@
     <resources xmlns="http://wadl.dev.java.net/2009/02">
       <resource href="../../atom_hopper.wadl#sites_events"/>
       <resource href="../../atom_hopper.wadl#sites_events_getEntry_CloudSites"/>
+    </resources>
+  </section>
+  <section xml:id="signup.product">
+    <title>Account Creation Process</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../atom_hopper.wadl#signup_events"/>
     </resources>
   </section>
   <section xml:id="dedicatedvcloud.product">
