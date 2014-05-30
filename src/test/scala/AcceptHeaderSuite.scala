@@ -40,8 +40,8 @@ class AcceptHeaderSuite extends BaseUsageSuite {
             assertResultFailed(atomValidatorIdentity.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/vnd.collection+json")) ), response, chain), 406 )
         }
 
-        test("Getting /encore feed JSON Content as observer with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidatorObserver.validate(request("GET", "/encore/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
+        test("Getting /dedicatedvcloud feed JSON Content as observer with Accept: application/json should fail with 406") {
+            assertResultFailed(atomValidatorObserver.validate(request("GET", "/dedicatedvcloud/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
     }
@@ -92,7 +92,7 @@ class AcceptHeaderSuite extends BaseUsageSuite {
 
         // observer entry
         test("Getting a single /sites entry JSON Content as observer with Accept application/json should fail with 406") {
-            atomValidatorObserver.validate(request("GET", "/sites/events/12345/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain)
+            assertResultFailed(atomValidatorObserver.validate(request("GET", "/sites/events/12345/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406)
         }
     }
 

@@ -239,7 +239,7 @@
                         <request>
                             <!-- Restrict representation to application/atom+xml. Means JSON not allowed -->
                             <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
-                                rax:message="Accept header does not contain supported media types: application/xml, or application/atom+xml"
+                                rax:message="getEntry{$id}: Accept header contains unsupported media types: application/*json"
                                 name="ACCEPT"/>
                         </request>
                         </xsl:if>
