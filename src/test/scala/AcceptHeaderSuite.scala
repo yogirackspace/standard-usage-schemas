@@ -31,6 +31,9 @@ class AcceptHeaderSuite extends BaseUsageSuite {
             atomValidator.validate(request("GET", "/servers/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain)
         }
 
+        // the following are the test feed that we allow JSON
+
+
         // JSON is not allowed on these feeds
         test("Getting /files feed JSON Content with Accept: application/json should fail with 406") {
             assertResultFailed(atomValidator.validate(request("GET", "/files/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )

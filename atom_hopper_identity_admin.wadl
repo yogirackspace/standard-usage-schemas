@@ -53,7 +53,7 @@
         <!-- Test related feeds -->
         <resource id="demo_events" path="demo/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="experiments_events" path="experiments/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#AtomFeedAllowJson
+        <resource id="functest1_events" path="functest1/events" type="wadl/feed.wadl#AtomFeed
                   wadl/product.wadl#AtomHopper
                   wadl/product.wadl#BigData wadl/product.wadl#BigDataSummary
                   wadl/product.wadl#CloudBackup wadl/product.wadl#CloudBackupSummary
