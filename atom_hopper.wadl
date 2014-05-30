@@ -36,6 +36,7 @@
         <resource id="monitoring_events" path="monitoring/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudMonitoring"/>
         <resource id="netdevice_events" path="netdevice/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NetDevice"/>
         <resource id="nova_events" path="nova/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
+        <resource id="payment_events" path="payment/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#PaymentService"/>
         <resource id="queues_events" path="queues/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues"/>
         <resource id="servers_events" path="servers/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServers wadl/product.wadl#RHEL"/>
         <resource id="signup_events" path="signup/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
@@ -70,6 +71,7 @@
                   wadl/product.wadl#EmailAppsUsage 
                   wadl/product.wadl#Glance wadl/product.wadl#GlanceSummary 
                   wadl/product.wadl#NetDevice
+                  wadl/product.wadl#PaymentService
                   wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
                   wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
         <resource id="functest2_events" path="functest2/events" type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
