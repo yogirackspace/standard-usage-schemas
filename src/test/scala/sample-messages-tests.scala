@@ -83,16 +83,16 @@ class SampleMessagesSuite extends BaseUsageSuite {
   sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed, "", "", false, Map("Accept"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed), response, chain)
+              atomValidator.validate(request("GET", feed, "", "", false, Map("Accept"->List("*/*"))), response, chain)
           }
       }
       test("Getting individual entry for feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("Accept"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
+              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("Accept"->List("*/*"))), response, chain)
           }
       }
   }
@@ -117,7 +117,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
     if (feedAttr.isEmpty()) {
       List()
     } else {
-      feedAttr.split(' ').toList.map { feed =>
+      feedAttr.split(" ").toList.map { feed =>
           (feed, f)
       }
     }

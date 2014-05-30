@@ -45,7 +45,7 @@
         <mockito.version>1.9.0</mockito.version>
         <xmlsec.version>1.4.6</xmlsec.version>
         <wadl-tools.version>1.0.22</wadl-tools.version>
-        <api-checker.version>1.0.16</api-checker.version>
+        <api-checker.version>1.0.18-SNAPSHOT</api-checker.version>
         <surefire-plugin.version>2.12.3</surefire-plugin.version>
         <olink-maven-plugin.version>1.2.2</olink-maven-plugin.version>
     </properties>

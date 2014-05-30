@@ -5,6 +5,7 @@
     <doc title="Feeds Catalog"/>
     <grammars>
         <include href="core_xsd/entry.xsd"/>
+        <include href="core_xsd/feedsapi.xsd"/>
     </grammars>
     <resources base="http://localhost/">
         <!-- Static paths for administration -->
