@@ -14,7 +14,7 @@
 
         </restriction>
     </simpleType>
-    
+
     <!-- The following is for testing only
     <element name="root" type="cldfeeds:rootType"/>
     

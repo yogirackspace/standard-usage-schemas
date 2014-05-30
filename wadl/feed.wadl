@@ -88,10 +88,10 @@
             <para role="shortdesc">Fetch the most recent events for this product's feed.</para>            
         </wadl:doc>
         <request>
-            <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
+            <param name="ACCEPT" style="header" type="cldfeeds:AcceptHeaderType" repeating="true" required="true"
                 rax:message="getFeed: Accept header contains unsupported media types: application/*json"
-                name="ACCEPT"/>
-               
+                rax:code="406"/>
+
             <param name="marker" style="query" type="xs:anyURI" required="false"/>            
             <param name="limit"  style="query" type="xs:int" required="false"/>
             <param name="direction" style="query" type="xs:string" required="false">

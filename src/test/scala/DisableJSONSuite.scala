@@ -10,7 +10,7 @@ import junit.framework.TestSuite
  * Date: 5/21/14
  */
 @RunWith(classOf[JUnitRunner])
-class AcceptHeaderSuite extends BaseUsageSuite {
+class DisableJSONSuite extends BaseUsageSuite {
 
     new TestSuite("Getting feeds in JSON") {
 
@@ -31,9 +31,6 @@ class AcceptHeaderSuite extends BaseUsageSuite {
             atomValidator.validate(request("GET", "/servers/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain)
         }
 
-        // the following are the test feed that we allow JSON
-
-
         // JSON is not allowed on these feeds
         test("Getting /files feed JSON Content with Accept: application/json should fail with 406") {
             assertResultFailed(atomValidator.validate(request("GET", "/files/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
@@ -45,6 +42,10 @@ class AcceptHeaderSuite extends BaseUsageSuite {
 
         test("Getting /dedicatedvcloud feed JSON Content as observer with Accept: application/json should fail with 406") {
             assertResultFailed(atomValidatorObserver.validate(request("GET", "/dedicatedvcloud/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
+        }
+
+        test("Getting /functest1 feed JSON Content with Accept: application/json should fail with 406") {
+            assertResultFailed(atomValidator.validate(request("GET", "/functest1/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
     }
@@ -98,5 +99,4 @@ class AcceptHeaderSuite extends BaseUsageSuite {
             assertResultFailed(atomValidatorObserver.validate(request("GET", "/sites/events/12345/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406)
         }
     }
-
 }
