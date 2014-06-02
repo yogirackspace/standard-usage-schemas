@@ -33,7 +33,7 @@ class DisableJSONSuite extends BaseUsageSuite {
 
         // JSON is not allowed on these feeds
         test("Getting /files feed JSON Content with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidator.validate(request("GET", "/files/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
+            assertResultFailed(atomValidator.validate(request("GET", "/files/events", "", "", false, Map("ACCEPT"->List("application/json;q=.5")) ), response, chain), 406 )
         }
 
         test("Getting /identity feed JSON Content with Accept: application/vnd.collection+json should fail with 406") {
@@ -81,17 +81,17 @@ class DisableJSONSuite extends BaseUsageSuite {
     new TestSuite("Getting a single atom entry") {
         // Unvalidated feed
         test("Getting a single /autoscale entry JSON Content with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidator.validate(request("GET", "/autoscale/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("Accept"->List("application/json")) ), response, chain), 406 )
+            assertResultFailed(atomValidator.validate(request("GET", "/autoscale/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
         // Validated feed
         test("Getting a single /encore entry JSON Content with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidator.validate(request("GET", "/encore/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("Accept"->List("application/json")) ), response, chain), 406 )
+            assertResultFailed(atomValidator.validate(request("GET", "/encore/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
         // Product Schema validated feed
         test("Getting a single /support entry JSON Content with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidator.validate(request("GET", "/support/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("Accept"->List("application/json")) ), response, chain), 406 )
+            assertResultFailed(atomValidator.validate(request("GET", "/support/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
         // observer entry

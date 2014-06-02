@@ -25,7 +25,7 @@ class ObserverSuite extends BaseUsageSuite{
 
   test( "Getting an entry on a Validated Observer feed with UUID should always succeed" ) {
 
-    atomValidatorObserver.validate(request("GET", "/bigdata/events/12334/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4" ), response, chain)
+    atomValidatorObserver.validate(request("GET", "/bigdata/events/12334/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
   }
 
   test("A GET on /buildinfo should always succeed") {

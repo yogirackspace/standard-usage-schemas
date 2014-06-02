@@ -21,17 +21,17 @@ class ValidatorSuite extends BaseUsageSuite {
 
   test( "Getting an entry on a Validated feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("Accept"->List("*/*"))), response, chain )
+    atomValidator.validate( request( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*"))), response, chain )
   }
 
   test( "Getting an entry on an Unvalidated feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("Accept"->List("*/*")) ), response, chain )
+    atomValidator.validate( request( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain )
   }
 
   test( "Getting an entry on a product feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("Accept"->List("*/*")) ), response, chain )
+    atomValidator.validate( request( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain )
   }
 
   test("A GET on /buildinfo should always succeed") {

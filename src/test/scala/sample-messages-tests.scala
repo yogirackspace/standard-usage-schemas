@@ -83,16 +83,16 @@ class SampleMessagesSuite extends BaseUsageSuite {
   sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed, "", "", false, Map("Accept"->List("*/*"))), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed, "", "", false, Map("Accept"->List("*/*"))), response, chain)
+              atomValidator.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           }
       }
       test("Getting individual entry for feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("Accept"->List("*/*"))), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("Accept"->List("*/*"))), response, chain)
+              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           }
       }
   }
