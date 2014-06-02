@@ -21,52 +21,59 @@ import org.w3c.dom.Document
 
 
 object BaseUsageSuite {
-  //
-  //  Assert handler used when validating test requests
-  //
-  val assertHandler = new DispatchResultHandler(List[ResultHandler](new ConsoleResultHandler(), 
-                                                                    new AssertResultHandler(),
-                                                                    new ServletResultHandler()))
-  //
-  //  Default validator configuration
-  //
-  val usageConfig = new Config()
+    //
+    //  Assert handler used when validating test requests
+    //
+    val assertHandler = new DispatchResultHandler(List[ResultHandler](new ConsoleResultHandler(),
+        new AssertResultHandler(),
+        new ServletResultHandler()))
+    val assertHandlerWithDot = new DispatchResultHandler(List[ResultHandler](new ConsoleResultHandler(),
+        new SaveDotHandler(new File("target/validator.dot"), false, false),
+        new AssertResultHandler(),
+        new ServletResultHandler()))
 
-  usageConfig.removeDups = true
-  usageConfig.validateChecker = true
-  usageConfig.xsdEngine = System.getProperty("usage.tests.xsd.impl","SaxonEE")
-  usageConfig.checkWellFormed = true
-  usageConfig.checkXSDGrammar = true
-  usageConfig.doXSDGrammarTransform = true
-  usageConfig.checkElements = true
-  usageConfig.xpathVersion = 2
-  usageConfig.checkPlainParams = true
-  usageConfig.enablePreProcessExtension = true
-  usageConfig.enableIgnoreXSDExtension = true
-  usageConfig.enableMessageExtension = true
-  usageConfig.xslEngine = "XalanC"
-  usageConfig.joinXPathChecks = true
-  usageConfig.checkHeaders = false
-  usageConfig.preserveRequestBody = true
-  usageConfig.resultHandler = assertHandler
+    //
+    //  Default validator configuration
+    //
+    val usageConfig = new Config()
 
-  //
-  //  The atom hopper validator
-  //
-  val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
-  val atomValidatorIdentity = Validator(new StreamSource(new File("atom_hopper_identity_admin.wadl")), usageConfig)
-  val atomValidatorObserver = Validator(new StreamSource(new File("atom_hopper_observer.wadl")), usageConfig)
+    usageConfig.removeDups = true
+    usageConfig.validateChecker = true
+    usageConfig.xsdEngine = System.getProperty("usage.tests.xsd.impl", "SaxonEE")
+    usageConfig.checkWellFormed = true
+    usageConfig.checkXSDGrammar = true
+    usageConfig.doXSDGrammarTransform = true
+    usageConfig.checkElements = true
+    usageConfig.xpathVersion = 2
+    usageConfig.checkPlainParams = true
+    usageConfig.enablePreProcessExtension = true
+    usageConfig.enableIgnoreXSDExtension = true
+    usageConfig.enableMessageExtension = true
+    usageConfig.xslEngine = "XalanC"
+    usageConfig.joinXPathChecks = true
+    usageConfig.checkHeaders = true
+    usageConfig.preserveRequestBody = true
+    usageConfig.resultHandler = assertHandler
 
-  //
-  //  Convenience function to get to the XML of a request
-  //
-  def getProcessedXML(req : HttpServletRequest) : Document = req.getAttribute(PARSED_XML).asInstanceOf[Document]
+    //
+    //  The atom hopper validator
+    //
+    val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
+    val atomValidatorIdentity = Validator(new StreamSource(new File("atom_hopper_identity_admin.wadl")), usageConfig)
+    val atomValidatorObserver = Validator(new StreamSource(new File("atom_hopper_observer.wadl")), usageConfig)
+
+    //
+    //  Convenience function to get to the XML of a request
+    //
+    def getProcessedXML(req: HttpServletRequest): Document = req.getAttribute(PARSED_XML).asInstanceOf[Document]
 }
 
 class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
-  //
-  //  Default namespaces for atom assertions
-  //
-  register ("atom", "http://www.w3.org/2005/Atom")
-  register ("event", "http://docs.rackspace.com/core/event")
+    //
+    //  Default namespaces for atom assertions
+    //
+    register("atom", "http://www.w3.org/2005/Atom")
+    register("event", "http://docs.rackspace.com/core/event")
+    register("cldfeeds", "http://docs.rackspace.com/api/cloudfeeds")
+
 }
