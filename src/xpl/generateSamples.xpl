@@ -25,9 +25,50 @@
 
   <p:sink/>
 
+  <p:choose name="genSummaryCheck" >
+      <p:xpath-context>
+        <p:pipe step="genSamples" port="parameters"/>
+      </p:xpath-context>
+
+    <p:when test="//productSchema[not(@type) or contains( @type, 'USAGE') or contains( @type, 'USAGE_SNAPSHOT')]">
+
+      <p:output port="secondary">
+        <p:pipe step="genSummary" port="secondary"/>
+      </p:output>
+
+      <p:xslt name="genSummary">
+        <p:input port="source">
+          <p:pipe port="result" step="validateProductSchema"/>
+        </p:input>
+        <p:input port="stylesheet">
+          <p:document href="../../product_schema_def/xsl/productSchema-summarySamples.xsl" />
+        </p:input>
+        <p:input port="parameters">
+          <p:pipe step="genSamples" port="parameters"/>
+        </p:input>
+      </p:xslt>
+
+      <p:sink/>
+    </p:when>
+    <p:otherwise>
+
+     <p:output port="secondary">
+       <p:empty/>
+     </p:output>
+
+     <p:sink>
+       <p:input port="source">
+         <p:pipe port="result" step="validateProductSchema"/>
+       </p:input>
+     </p:sink>
+
+    </p:otherwise>
+  </p:choose>
+
   <p:for-each name="entryVersions">
     <p:iteration-source>
       <p:pipe step="genEntry" port="secondary"/>
+      <p:pipe step="genSummaryCheck" port="secondary"/>
     </p:iteration-source>
 
     <p:variable name="entry" select="p:base-uri()"/>
@@ -74,15 +115,6 @@
         <p:empty/>
       </p:input>
     </p:xslt>
-
-  <p:validate-with-xml-schema name="validateProcessedEntry" assert-valid="true" mode="strict">
-    <p:input port="source">
-      <p:pipe step="genResp" port="result"/>
-    </p:input>
-    <p:input port="schema">
-      <p:document href="../../core_xsd/entry.xsd"></p:document>
-    </p:input>
-  </p:validate-with-xml-schema>
 
     <p:store method="xml" indent="true" encoding="UTF-8"
 	     omit-xml-declaration="false" name="respStore">
