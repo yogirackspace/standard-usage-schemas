@@ -1,7 +1,16 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.53.0**  
+2014-06-03 | B-71737 - Generate sample summary entries & responses (Greg Sharek)  
+2014-05-30 | B-70587: disable JSON content on some feeds (Shinta Smith)  
+
+**usage-schema-1.52.1**  
+2014-05-28 | B-73068: add payment resource to /functest1 (Shinta Smith)  
+2014-05-28 | B-73447 modified bigdata-bigdata-hadoop_hdp1_1-usage-v1-entry.xml to include functest1/events usagetest9/events (sreesurendran)  
+
 **usage-schema-1.52.0**  
+2014-05-27 | B-73447 re-generated message samples for bigdata in message_samples/bigdata (sreesurendran)  
 2014-05-27 | B-73456: add 2 new support events: roles and sla (Shinta Smith)  
 2014-05-27 | B-73068: add /payment feed (Shinta Smith)  
 2014-05-19 | B-65812: enable enums to start with digit (Shinta Smith)  
