@@ -766,7 +766,7 @@
     <chapter xml:id="Cloud_Feeds_Catalog">
         <title>Cloud Feeds catalog</title>
         <para>Cloud Feeds supports a catalog of different feeds that
-            are published through Atom Hopper.</para>
+            are published.</para>
         <para> You can obtain a list of all the feeds that are
             available by submitting a <command>GET</command> request
             against the Cloud Feeds endpoint as shown in the following
