@@ -10,8 +10,8 @@
                allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
         The current serviceLevel for this account
     </attribute>
-    <attribute name="currentServiceType" type="Name" use="optional"
-                   allowedValues="SYSOPS DEVOPS">
+    <attribute name="currentServiceType" type="Name" use="required"
+                   allowedValues="SYSOPS DEVOPS LEGACY">
         The current serviceType for this account
     </attribute>
     <attribute name="requestedServiceLevel" type="Name" use="required"

@@ -10,8 +10,8 @@
                allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
         The serviceLevel for this account
     </attribute>
-    <attribute name="serviceType" type="Name" use="optional"
-                   allowedValues="SYSOPS DEVOPS">
+    <attribute name="serviceType" type="Name" use="required"
+                   allowedValues="SYSOPS DEVOPS LEGACY">
         The serviceType for this account
     </attribute>
 </productSchema>
