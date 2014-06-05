@@ -49,9 +49,12 @@
             <xsl:processing-instruction name="atom">
             feed="<xsl:value-of select="$base_feed_name"/>/events"</xsl:processing-instruction>
             <xsl:text>&#x0a;</xsl:text>
+            <!--
+               Once we fix o-link and can run from maven, replace with  'mvn -P generate-samples clean generate-sources -DproductSchema=<xsl:value-of select="$input_path"/> -DfeedName=<xsl:value-of select="$base_feed_name"/>' call.
+            -->
             <xsl:comment>
     This example has been generated using
-    'mvn -P generate-samples clean generate-sources -DproductSchema=<xsl:value-of select="$input_path"/> -DfeedName=<xsl:value-of select="$base_feed_name"/>' call.
+    'calabash -c calabash_config.xml -p base_feed_name=<xsl:value-of select="$base_feed_name"/> -i [relative path to product schema]  src/xpl/generateSamples.xpl' call.
     Some assumptions have been made when generating this and might not be correct.  Manual modification
     might be required for the unit tests to pass.
 
