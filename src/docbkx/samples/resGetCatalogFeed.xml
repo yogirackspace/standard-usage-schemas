@@ -1,0 +1,21 @@
+<feedCatalog>
+    <version> 1.51.0  </version>
+    <feed id="automation_events">
+        <endpoint region="ORD" publicURL="https://atom.prod.ord1.us.ci.rackspace.net/automation/events" />
+    </feed>
+    <feed id="autoscale_events">
+        <endpoint region="ORD" publicURL="https://atom.prod.ord1.us.ci.rackspace.net/autoscale/events" />
+    </feed>
+    <feed id="backup_events">
+        <endpoint region="ORD" publicURL="https://atom.prod.ord1.us.ci.rackspace.net/backup/events" />
+    </feed>
+    <feed id="bigdata_events">
+        <endpoint region="ORD" publicURL="https://atom.prod.ord1.us.ci.rackspace.net/bigdata/events" />
+    </feed>
+    <feed id="cbs_events">
+        <endpoint region="ORD" publicURL="https://atom.prod.ord1.us.ci.rackspace.net/cbs/events" />
+    </feed>
+    …
+    
+</feedCatalog>
+

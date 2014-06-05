@@ -21,7 +21,10 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xml:id="feeds-getting-started" version="5.0-extension RaxBook-2.0">
+    <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Rackspace Cloud Feeds Getting Started Guide</title>
+    <?rax status.bar.text.font.size="40px"
+          status.bar.text="Early Availability"?>   
     <info>
         <copyright>
             <year>2014</year>
@@ -130,21 +133,6 @@
                     </listitem>
                 </itemizedlist></para>
         </section>
-        <section xml:id="Pricing_SLA-d1e1362" security="external">
-            <title>Pricing and service level</title>
-            <para>Cloud Feeds is part of the Rackspace Cloud and your
-                use through the API will be billed as specified in the
-                pricing schedule at <link
-                    xlink:href="http://www.rackspace.com/cloud/public/databases/pricing"
-                    >http://www.rackspace.com/cloud/public/databases/pricing</link>. </para>
-            <para>The service level agreements (SLAs) for Cloud Feeds
-                and Cloud Servers are available at <link
-                    xlink:href="http://www.rackspace.com/cloud/legal/sla/#cloud_databases"
-                    >http://www.rackspace.com/cloud/legal/sla/#cloud_databases</link>
-                and <link
-                    xlink:href="http://www.rackspace.com/cloud/legal/sla"
-                    >http://www.rackspace.com/cloud/legal/sla</link>.</para>
-        </section>
     </chapter>
     <chapter xml:id="Feeds_Sending_API_Requests">
         <title>Sending requests to the API</title>
@@ -236,10 +224,10 @@
                 <note>
                     <para>If you have the tools, you can run the cURL
                         JSON request examples with the following
-                        options to format the output from cURL:
-                            <emphasis role="bold">&lt;curl JSON
-                            request example&gt; | python
-                            -mjson.tool</emphasis>.</para>
+                        options to render the output from cURL into a
+                        more readable format: <emphasis role="bold"
+                            >&lt;curl JSON request example&gt; |
+                            python -mjson.tool</emphasis>.</para>
                 </note>
             </para>
             <para>To run the cURL request examples shown in this guide
@@ -490,8 +478,8 @@
             <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
-     <emphasis role="bold">-H "Content-Type:
-        application/json" | python -m json.tool </emphasis></screen>
+     -H "Content-Type:
+        application/json" </screen>
         </example>
         <example security="internal">
             <title>cURL authenticate request: JSON</title>
@@ -500,7 +488,7 @@
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
      <emphasis role="bold">-H "Content-Type:
-        application/json" | python -m json.tool </emphasis></screen>
+        application/json" </emphasis></screen>
         </example>
         <para>The authentication token <code>id</code> is returned
             along with an <code>expires</code> attribute that
@@ -541,12 +529,80 @@
             </itemizedlist>
         </note>
         <para>The actual account number is located after the final
-            slash (/) in the <code>publicURL</code> field. In the
-            following examples, the account number is 1100111. You
-            must specify your account number on most of the Cloud
-            Feeds API operations, wherever you see the placeholder
-                <emphasis role="bold">tenant id</emphasis> specified
-            in the examples in this guide.</para>
+            slash (/) in the <code>publicURL</code> field. You must
+            specify your account number on most of the Cloud Feeds API
+            operations, wherever you see the placeholder
+                <replaceable>tenantID</replaceable> specified in the
+            examples in this guide.</para>
+        <para>To be able to obtain feeds, customers need to be enabled
+            for one of the following roles:</para>
+        <para>
+            <table frame="void">
+                <caption>Cloud Feeds Roles</caption>
+                <col width="29%"/>
+                <col width="71%"/>
+                <thead>
+                    <tr>
+                        <th>Role </th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cloudfeeds:service-admin</td>
+                        <td>This role can see all tenant IDs that have
+                            been enabled for Cloud feeds. The
+                            service-admin can perform
+                                <command>POST</command>, as well as
+                                <command>GET</command> requests.</td>
+                    </tr>
+                    <tr>
+                        <td>cloudfeeds:observer</td>
+                        <td>The observer role requires a tenant ID.
+                            This role can only perform
+                                <command>GET</command> requests.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </para>
+    <para>You can view the role for which you are enabled in the
+            successful response to an authentication request. The
+            example below shows a tenant who has been enabled for the
+                <emphasis role="italic">service-admin</emphasis> role. </para>
+        <para>
+            <programlisting>
+  "user": {
+     "RAX-AUTH:defaultRegion": "DFW",
+     "RAX-AUTH:federated": false,
+     "id": "1234567",
+     "name": "cloudfeedadmin",
+     "roles": [
+                {
+                    "description": "<emphasis role="bold">Able to observe cloud feeds data for all tenants</emphasis>",
+                    "id": "1234567",
+                    "name": "<emphasis role="bold">cloudfeeds:service-admin</emphasis>"
+                },
+                {
+                    "description": "Admin Role.",
+                    "id": "1",
+                    "name": "identity:admin"
+                },
+                {
+                    "description": "A Role that allows a user access to keystone Service methods",
+                    "id": "5",
+                    "name": "object-store:default",
+                    "tenantId": "1234567"
+                },
+                {
+                    "description": "A Role that allows a user access to keystone Service methods",
+                    "id": "684",
+                    "name": "compute:default",
+                    "tenantId": "1234567"
+                }
+            ]
+        }
+       </programlisting>
+        </para>
         <para>After authentication, you can use cURL to perform &GET;
             and &POST; requests for the Cloud Feeds API.</para>
     </chapter>
@@ -609,10 +665,12 @@
                     </tr>
                 </tbody>
             </table></para>
-            <para security="external">Replace &lt;tenant id> with your actual account
-            number returned as part of the authentication response.
-            Use your actual account number wherever you see the
-            placeholder &lt;tenant id> specified in this guide. </para>
+            <para security="external">Replace &lt;tenant id> with your
+            actual account number returned as part of the
+            authentication response. Use your actual account number
+            wherever you see the placeholder
+                <replaceable>tenantID</replaceable> specified in this
+            guide. </para>
         <note security="internal">
             <itemizedlist>
                 <listitem>
@@ -705,16 +763,30 @@
             </table>
         </para>
     </chapter>
+    <chapter xml:id="Cloud_Feeds_Catalog">
+        <title>Cloud Feeds catalog</title>
+        <para>Cloud Feeds supports a catalog of different feeds that
+            are published through Atom Hopper.</para>
+        <para> You can obtain a list of all the feeds that are
+            available by submitting a <command>GET</command> request
+            against the Cloud Feeds endpoint as shown in the following
+            example:</para>
+        <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+        <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+    <para>This operation returns a list of supported feeds as shown in
+            the following example</para>
+        <programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+    </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds concepts</title>
         <para>Cloud Feeds uses AtomPub to publish different types of
             feeds. Feeds are composed of a number of items called
                 <emphasis role="italic">entries</emphasis>. Each entry
             has an extensible set of attached metadata. </para>
-        <para>The AtomPub together with the Atom Syndication Format
-            (ASF) provides a format for implementing web feeds. Web
-            feeds provide users with frequently updated content.
-            AtomPub is based on HTTP transfer of Atom-formatted
+        <para>AtomPub together with the Atom Syndication Format (ASF)
+            provides a format for implementing web feeds. Web feeds
+            provide users with frequently updated content. AtomPub is
+            based on an HTTP transfer of Atom-formatted
             representations. The Atom format is documented in the Atom
             Syndication Format.</para>
         <para>Cloud Feeds is an open-source AtomPub server for
@@ -830,23 +902,29 @@
                 Cloud Backup product). </para>
             <example>
                 <title>Cloud backup event information</title>
-                <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
-&lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
-            xmlns:cb-bin="http://docs.rackspace.com/usage/cloudbackup/bandwidthIn"
-            xmlns:atom="http://www.w3.org/2005/Atom">
+                <programlisting>&lt;atom:entry>
+    &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
+    &lt;atom:category term="tid:65909bc5" />
+    &lt;atom:category term="rgn:DFW" />
+    &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
+    &lt;atom:category term="widget.widget.gadget.usage" />
+    &lt;atom:category term="type:widget.widget.gadget.usage" />
+    &lt;atom:category term="type:cloud backup.storage.agent.usage" />
+    &lt;atom:category term="dc:DFW1" />
     &lt;atom:content type="application/xml">
-       <emphasis role="bold"> &lt;event endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
-               region="DFW" dataCenter="DFW1" type="USAGE"
-               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
-               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
-               tenantId="1234" version="1">
-            &lt;cb-bin:product version="1" serviceCode="CloudBackup"
-                            serverID="944576fa-ec99-11e1-bb8e-ebb21b47fa86"
-                            bandwidthIn="192998" resourceType="AGENT"/>
-        &lt;/event></emphasis>
+      &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
+          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW"resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
+          startTime="2012-03-12T11:51:11Z" tenantId="65909bc5" type="USAGE" version="1">
+        &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
+          mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
+          serviceCode="Widget" time="11:51:11Z" version="2" />
+      &lt;/event>
     &lt;/atom:content>
-&lt;/atom:entry></programlisting>
+    &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
+    &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
+    &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
+  &lt;/atom:entry>
+</programlisting>
             </example>
             <para>
                 <note>
@@ -1122,8 +1200,8 @@
                         <emphasis>cloudsites.metered.site.usage</emphasis>
                     category:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
             </para>
             </section>
             <section xml:id="Filter_by_timestamp">
@@ -1137,14 +1215,181 @@
             <para>The following URL shows how to fetch entries with a
                     timestamp that is newer than 2014-03-10
                     00:00:00.000 UTC:</para>
-            <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+            <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+            <programlisting security = "external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
             <para>The following URL shows how to fetch entries with a
                 timestamp that older than 2014-03-10 00:00:00.000 UTC
                 by setting the <parameter>direction</parameter>
                 parameter to <emphasis role="italic"
                     >backward</emphasis>:</para>
-            <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+            <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
                 </section>
+            <section xml:id="Filtering_using_AND_OR_NOT"><title>Filtering using AND, OR, and NOT</title>
+                <para>Cloud Feeds supports advanced filters using the
+                    AND, OR, and NOT operators and their combinations. </para>
+                <para>The following example shows how to filter for
+                    multiple categories using the &amp; (AND)
+                    operator:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for multiple categories using
+                            an &amp; operator</title>
+                        <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))</programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for multiple categories using
+                            an &amp; operator</title>
+                        <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))</programlisting>
+                    </example>
+                </para>
+                <para>
+                    <note>
+                        <para><emphasis role="bold">%26</emphasis> is
+                            the urlencoded value of the <emphasis
+                                role="bold">&amp;</emphasis> operator.
+                            The decoded search string for the above
+                            example is
+                            (&amp;(cat=CAT1)(cat=CAT2)).</para>
+                    </note>
+                </para>
+                <para>The following example shows how to filter for
+                    multiple categories using an AND statement:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for multiple categories using
+                            an AND statement</title>
+                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for multiple categories using
+                            an AND statement</title>
+                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                    </example>
+                </para>
+                <para>The following example shows how to filter for
+                    multiple categories using an | (OR)
+                    operator:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for multiple categories using
+                            an | operator</title>
+                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2)) 
+</programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for multiple categories using
+                            an | operator</title>
+                        <programlisting> http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2)) 
+</programlisting>
+                    </example>
+                </para>
+                <para>
+                    <note>
+                        <para>
+                            <emphasis role="bold">%7C</emphasis> is
+                            the urlencoded value of the <emphasis
+                                role="bold">|</emphasis> operator. The
+                            decoded search string for the above
+                            example is (|(cat=CAT1)(cat=CAT2))</para>
+                    </note>
+                </para>
+                <para>The following example shows how to filter for
+                    multiple categories using an OR statement:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for multiple categories using
+                            an OR statement</title>
+                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+</programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for multiple categories using
+                            an OR statement</title>
+                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+</programlisting>
+                    </example>
+                </para>
+                <para>The following example shows how to filter for a
+                    category that is entered as not <emphasis
+                        role="bold">CAT1</emphasis> using a !
+                    operator:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for a single category using a
+                            ! (NOT) operator</title>
+                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(!(cat=CAT1)) </programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for a single category using a
+                            ! (NOT) operator</title>
+                        <programlisting> http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(!(cat=CAT1)) </programlisting>
+                    </example>
+                </para>
+                <para>The following example shows how to filter for a
+                    category that is entered as not <emphasis
+                        role="bold">CAT1</emphasis> using a NOT
+                    statement:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for a single category using a
+                            NOT statement</title>
+                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for a single category using a
+                            NOT statement</title>
+                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                    </example>
+                </para>
+                <para>You can also use the AND, OR, and NOT operators
+                    to filter for multiple categories combined.</para>
+                <para>The following is example shows how to search for
+                    a category that is entered as CAT1 and ( CAT2 or
+                    CAT3 ) but not CAT4:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering on a category entered as CAT1, but not CAT4:</title>
+                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4))) </programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering on a category entered as
+                            CAT1, but not CAT4:</title>
+                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4))) </programlisting>
+                    </example>
+                </para>
+                <para>
+                    <note>
+                        <para><emphasis role="bold">%26</emphasis> is
+                            the urlencoded value of the <emphasis
+                                role="bold">&amp;</emphasis> operator
+                            and <emphasis role="bold">%7C</emphasis>
+                            is the urlencoded value of the <emphasis
+                                role="bold">|</emphasis> operator. The
+                            decoded search string for the above
+                            example is
+                            (&amp;(cat=CAT1)(|(cat=CAT2)(cat=CAT3))(!(cat=CAT4))).</para>
+                    </note>
+                </para>
+                <para>Additionally you can use the word "AND" in place
+                    of the <emphasis role="bold">&amp;</emphasis>
+                    operator and the word "OR" in place of the
+                        <emphasis role="bold">|</emphasis> operator
+                    ias shown int he following example:</para>
+                <para>
+                    <example security="internal">
+                        <title>Filtering for multiple categories using
+                            AND statement</title>
+                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Filtering for multiple categories using
+                            AND statement</title>
+                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                    </example>
+                </para>
+            
+            </section>
 
         </section>
     </chapter>
