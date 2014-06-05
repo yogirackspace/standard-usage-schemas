@@ -21,7 +21,7 @@
    <atom:title>Support</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"
-             xmlns:support="http://docs.rackspace.com/event/support/account"
+             xmlns:support="http://docs.rackspace.com/event/support/account/teams"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
              resourceId="654321"
