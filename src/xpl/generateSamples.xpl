@@ -26,11 +26,18 @@
   <p:sink/>
 
   <p:choose name="genSummaryCheck" >
+
       <p:xpath-context>
-        <p:pipe step="genSamples" port="parameters"/>
+        <p:pipe port="result" step="validateProductSchema"/>
       </p:xpath-context>
 
-    <p:when test="//productSchema[not(@type) or contains( @type, 'USAGE') or contains( @type, 'USAGE_SNAPSHOT')]">
+<!--
+    This looks like a better way to test for usage events.  However, non-usage events throw an exception, which looks like
+    an internal saxon error.
+
+    <p:when test="boolean(//*:productSchema[not(@type) or contains( @type, 'USAGE') or contains( @type, 'USAGE_SNAPSHOT')])">
+-->
+    <p:when test="boolean( //*:productSchema[contains( @namespace, 'usage')])">
 
       <p:output port="secondary">
         <p:pipe step="genSummary" port="secondary"/>
