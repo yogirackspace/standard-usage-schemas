@@ -474,7 +474,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE_SUMMARY') then @duration else true()"
+                <assert vc:minVersion="1.1" test="if (@type = 'USAGE_SUMMARY') then @duration else true()"
                         xerces:message="If this event is of type USAGE_SUMMARY, then it should have duration attribute"
                         saxon:message="If this event is of type USAGE_SUMMARY, then it should have duration attribute"
                         >

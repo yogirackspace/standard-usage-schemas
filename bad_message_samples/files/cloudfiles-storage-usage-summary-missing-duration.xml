@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="usagesummary/files/events"?>
+<?expect code="400" message="duration"?>
 <!--
     This example summary entry has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/cloudfilesStorageUsage.xml -DfeedName=files' call.
