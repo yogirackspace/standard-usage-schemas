@@ -21,7 +21,10 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
     version="5.0-extension RaxBook-2.0">
+    <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Rackspace Cloud Feeds Developer Guide</title>
+    <?rax status.bar.text.font.size="40px"
+          status.bar.text="Early Availability"?>  
     <info>
         <author>
             <personname>
