@@ -2,7 +2,7 @@
 <?atom feed="support/events"?>
 <!--
     This example has been generated using
-    'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/support-account_support.xml -DfeedName=support' call.
+    'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/support-account-slarequest.xml -DfeedName=support' call.
     Some assumptions have been made when generating this and might not be correct.  Manual modification
     might be required for the unit tests to pass.
 
@@ -16,23 +16,26 @@
       - Does not process the 'withEventType' and 'withResource' attributes.
 -->
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
-            xmlns:usage="http://docs.rackspace.com/core/usage"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:title>Support</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"
-             xmlns:support="http://docs.rackspace.com/event/support/account"
+             xmlns:sample="http://docs.rackspace.com/event/support/account/slarequest"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
-             resourceId="654321"
-             tenantId="654321"
-             eventTime="2013-05-27T11:51:11Z"
-             type="UPDATE"
+             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+             eventTime="2013-03-15T11:51:11Z"
+             type="CREATE"
              dataCenter="DFW1"
              region="DFW">
-         <support:product serviceCode="Support" version="1" resourceType="ACCOUNT_SUPPORT">
-             <support:team teamType="SUPPORT" teamNumber="6"/>
-         </support:product>
+         <sample:product serviceCode="Support"
+                         version="1"
+                         resourceType="ACCOUNT_SUPPORT"
+                         currentServiceLevel="MANAGED"
+                         requestedServiceLevel="INTENSIVE"
+                         requestedServiceType="SYSOPS"
+                         accountPlanRequestedURI="https://dfw.support.encore.rackspace.com/v1/support-accounts/6045502/plan_request/1"/>
       </event>
    </atom:content>
 </atom:entry>

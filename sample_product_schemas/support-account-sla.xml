@@ -4,14 +4,14 @@
                version="1" resourceTypes="ACCOUNT_SUPPORT" 
                type="CREATE UPDATE">
     <description>
-        Events for support information on account roles creation or updates.
+        Events describing serviceLevel changes of a supported account
     </description>
     <attribute name="serviceLevel" type="Name" use="required"
                allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
-            The serviceLevel for this account
+        The serviceLevel for this account
     </attribute>
     <attribute name="serviceType" type="Name" use="optional"
                    allowedValues="SYSOPS DEVOPS">
-            The role for the specified Racker
+        The serviceType for this account
     </attribute>
 </productSchema>
