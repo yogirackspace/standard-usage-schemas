@@ -28,6 +28,7 @@
              tenantId="hybrid:1234"
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T11:51:11Z"
+             duration="PT10M"
              type="USAGE_SUMMARY"
              dataCenter="DFW1"
              region="DFW">
