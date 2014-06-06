@@ -38,6 +38,7 @@
                          version="1"
                          resourceType="ACCOUNT_SUPPORT"
                          currentServiceLevel="MANAGED"
+                         currentServiceType="DEVOPS"
                          requestedServiceLevel="INTENSIVE"
                          requestedServiceType="SYSOPS"
                          accountPlanRequestedURI="https://dfw.support.encore.rackspace.com/v1/support-accounts/6045502/plan_request/1"/>
