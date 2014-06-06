@@ -1,6 +1,11 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.54.0**  
+2014-06-05 | B-73863: update requested by support team (Shinta Smith)  
+2014-06-05 | B-73855: add duration with type xsd:duration to usage summary events (Shinta Smith)  
+2014-06-05 | B-73863: add new event for /support feed for sla request (Shinta Smith)  
+
 **usage-schema-1.53.0**  
 2014-06-03 | B-71737 - Generate sample summary entries & responses (Greg Sharek)  
 2014-05-30 | B-70587: disable JSON content on some feeds (Shinta Smith)  
