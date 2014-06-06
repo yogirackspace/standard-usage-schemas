@@ -909,7 +909,6 @@
     &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
     &lt;atom:category term="widget.widget.gadget.usage" />
     &lt;atom:category term="type:widget.widget.gadget.usage" />
-    &lt;atom:category term="type:cloud backup.storage.agent.usage" />
     &lt;atom:category term="dc:DFW1" />
     &lt;atom:content type="application/xml">
       &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
@@ -1203,6 +1202,74 @@
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
             </para>
+                <section xml:id="Filtering_using_AND_OR_NOT"><title>Filtering using AND, OR, and NOT</title>
+                    <para>Cloud Feeds supports advanced filters using the
+                        AND, OR, and NOT operators and their combinations. </para>
+                    <para>The following example shows how to filter for
+                        multiple categories using an AND statement:</para>
+                    <para>
+                        <example security="internal">
+                            <title>Filtering for multiple categories using
+                                an AND statement</title>
+                            <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                        </example>
+                        <example security="external">
+                            <title>Filtering for multiple categories using
+                                an AND statement</title>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                        </example>
+                    </para>
+                    <para>The following example shows how to filter for
+                        multiple categories using an OR statement:</para>
+                    <para>
+                        <example security="internal">
+                            <title>Filtering for multiple categories using
+                                an OR statement</title>
+                            <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+</programlisting>
+                        </example>
+                        <example security="external">
+                            <title>Filtering for multiple categories using
+                                an OR statement</title>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+</programlisting>
+                        </example>
+                    </para>
+                    <para>The following example shows how to filter for a
+                        category that is entered as not <emphasis
+                            role="bold">CAT1</emphasis> using a NOT
+                        statement:</para>
+                    <para>
+                        <example security="internal">
+                            <title>Filtering for a single category using a
+                                NOT statement</title>
+                            <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                        </example>
+                        <example security="external">
+                            <title>Filtering for a single category using a
+                                NOT statement</title>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                        </example>
+                    </para>
+                    <para>You can also use the AND, OR, and NOT operators
+                        to filter for multiple categories combined.</para>
+                    <para>The following is example shows how to search for
+                        a category that is entered as CAT1 and ( CAT2 or
+                        CAT3 ) but not CAT4:</para>
+                    <para>
+                        <example security="internal">
+                            <title>Filtering for multiple categories using
+                                AND statement</title>
+                            <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                        </example>
+                        <example security="external">
+                            <title>Filtering for multiple categories using
+                                AND statement</title>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                        </example>
+                    </para>
+                    
+                </section>
             </section>
             <section xml:id="Filter_by_timestamp">
                 <title>Filtering by
@@ -1225,172 +1292,6 @@
             <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
             <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
                 </section>
-            <section xml:id="Filtering_using_AND_OR_NOT"><title>Filtering using AND, OR, and NOT</title>
-                <para>Cloud Feeds supports advanced filters using the
-                    AND, OR, and NOT operators and their combinations. </para>
-                <para>The following example shows how to filter for
-                    multiple categories using the &amp; (AND)
-                    operator:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for multiple categories using
-                            an &amp; operator</title>
-                        <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))</programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for multiple categories using
-                            an &amp; operator</title>
-                        <programlisting>http://localhost:8080/namespace/feed/?search=(%26(cat=CAT1)(cat=CAT2))</programlisting>
-                    </example>
-                </para>
-                <para>
-                    <note>
-                        <para><emphasis role="bold">%26</emphasis> is
-                            the urlencoded value of the <emphasis
-                                role="bold">&amp;</emphasis> operator.
-                            The decoded search string for the above
-                            example is
-                            (&amp;(cat=CAT1)(cat=CAT2)).</para>
-                    </note>
-                </para>
-                <para>The following example shows how to filter for
-                    multiple categories using an AND statement:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for multiple categories using
-                            an AND statement</title>
-                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for multiple categories using
-                            an AND statement</title>
-                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
-                    </example>
-                </para>
-                <para>The following example shows how to filter for
-                    multiple categories using an | (OR)
-                    operator:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for multiple categories using
-                            an | operator</title>
-                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2)) 
-</programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for multiple categories using
-                            an | operator</title>
-                        <programlisting> http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(%7C(cat=CAT1)(cat=CAT2)) 
-</programlisting>
-                    </example>
-                </para>
-                <para>
-                    <note>
-                        <para>
-                            <emphasis role="bold">%7C</emphasis> is
-                            the urlencoded value of the <emphasis
-                                role="bold">|</emphasis> operator. The
-                            decoded search string for the above
-                            example is (|(cat=CAT1)(cat=CAT2))</para>
-                    </note>
-                </para>
-                <para>The following example shows how to filter for
-                    multiple categories using an OR statement:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for multiple categories using
-                            an OR statement</title>
-                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
-</programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for multiple categories using
-                            an OR statement</title>
-                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
-</programlisting>
-                    </example>
-                </para>
-                <para>The following example shows how to filter for a
-                    category that is entered as not <emphasis
-                        role="bold">CAT1</emphasis> using a !
-                    operator:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for a single category using a
-                            ! (NOT) operator</title>
-                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(!(cat=CAT1)) </programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for a single category using a
-                            ! (NOT) operator</title>
-                        <programlisting> http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(!(cat=CAT1)) </programlisting>
-                    </example>
-                </para>
-                <para>The following example shows how to filter for a
-                    category that is entered as not <emphasis
-                        role="bold">CAT1</emphasis> using a NOT
-                    statement:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for a single category using a
-                            NOT statement</title>
-                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for a single category using a
-                            NOT statement</title>
-                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
-                    </example>
-                </para>
-                <para>You can also use the AND, OR, and NOT operators
-                    to filter for multiple categories combined.</para>
-                <para>The following is example shows how to search for
-                    a category that is entered as CAT1 and ( CAT2 or
-                    CAT3 ) but not CAT4:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering on a category entered as CAT1, but not CAT4:</title>
-                        <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4))) </programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering on a category entered as
-                            CAT1, but not CAT4:</title>
-                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4))) </programlisting>
-                    </example>
-                </para>
-                <para>
-                    <note>
-                        <para><emphasis role="bold">%26</emphasis> is
-                            the urlencoded value of the <emphasis
-                                role="bold">&amp;</emphasis> operator
-                            and <emphasis role="bold">%7C</emphasis>
-                            is the urlencoded value of the <emphasis
-                                role="bold">|</emphasis> operator. The
-                            decoded search string for the above
-                            example is
-                            (&amp;(cat=CAT1)(|(cat=CAT2)(cat=CAT3))(!(cat=CAT4))).</para>
-                    </note>
-                </para>
-                <para>Additionally you can use the word "AND" in place
-                    of the <emphasis role="bold">&amp;</emphasis>
-                    operator and the word "OR" in place of the
-                        <emphasis role="bold">|</emphasis> operator
-                    ias shown int he following example:</para>
-                <para>
-                    <example security="internal">
-                        <title>Filtering for multiple categories using
-                            AND statement</title>
-                        <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
-                    </example>
-                    <example security="external">
-                        <title>Filtering for multiple categories using
-                            AND statement</title>
-                        <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
-                    </example>
-                </para>
-            
-            </section>
-
         </section>
     </chapter>
     <chapter xml:id="Next_Steps">
