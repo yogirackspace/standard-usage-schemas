@@ -80,9 +80,10 @@
                             <xsl:attribute name="resourceId">4a2b42f4-6c63-11e1-815b-7fcbcf67f549</xsl:attribute>
                         </xsl:if>
     
-                        <xsl:attribute name="tenantId">1234</xsl:attribute>
+                        <xsl:attribute name="tenantId">123456</xsl:attribute>
                         <xsl:attribute name="startTime">2013-03-15T11:51:11Z</xsl:attribute>
                         <xsl:attribute name="endTime">2013-03-16T11:51:11Z</xsl:attribute>
+                        <xsl:attribute name="duration">PT20M</xsl:attribute>
                         <xsl:attribute name="type">USAGE_SUMMARY</xsl:attribute>
                         <xsl:attribute name="dataCenter">DFW1</xsl:attribute>
                         <xsl:attribute name="region">DFW</xsl:attribute>

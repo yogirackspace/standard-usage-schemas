@@ -7,6 +7,7 @@
         <event type="USAGE_SUMMARY"
                resourceId="my.site.com" resourceName="my.site.com"
                eventTime="2012-06-14T10:19:52Z"
+               duration="PT10M"
                id="47b574c4-0400-11e2-b19d-7b8e208cade1"
                dataCenter="ORD1" region="ORD"
                tenantId="12883" version="1">
