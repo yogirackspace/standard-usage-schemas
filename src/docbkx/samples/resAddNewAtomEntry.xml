@@ -5,6 +5,7 @@
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:3863d42a-ec9a-11e1-8e12-df8baa3ca440" />
     <atom:category term="cloudbackup.storage.agent.usage" />
+    <atom:category term="type:cloudbackup.storage.agent.usage" /> 
     <atom:content type="application/xml">
         <event dataCenter="DFW1" endTime="2012-06-15T10:19:52Z" environment="PROD" id="8d89673c-c989-11e1-895a-0b3d632a8a89" region="DFW" resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440" startTime="2012-06-14T10:19:52Z" tenantId="1234" type="USAGE" version="1">
             <cb-store:product resourceType="AGENT" serverID="9445" serviceCode="CloudBackup" storage="99992827882" version="1" />
