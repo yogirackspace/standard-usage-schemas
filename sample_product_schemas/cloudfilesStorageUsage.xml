@@ -10,11 +10,11 @@
                unitOfMeasure="B" max="112589990684262400">
         The amount of disk usage in bytes.
     </attribute>
-    <attribute name="freeops" type="unsignedInt" use="required"
+    <attribute name="freeops" type="unsignedInt" use="required" aggregateFunction="SUM"
                min="0" max="2000000000">
         The number of free operations.
     </attribute>
-    <attribute name="costops" type="unsignedInt" use="required"
+    <attribute name="costops" type="unsignedInt" use="required" aggregateFunction="SUM"
                min="0" max="2000000000">
         The number of cost operations
     </attribute>
