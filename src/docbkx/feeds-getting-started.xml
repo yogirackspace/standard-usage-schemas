@@ -98,11 +98,16 @@
                         service endpoints.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 6 introduces general concepts about
+                    <para>Chapter 6 shows how to obtain a lists of
+                        Cloud Feeds that are available to you throught
+                        the Cloud Feeds catalog</para>
+                </listitem>
+                <listitem>
+                    <para>Chapter 7 introduces general concepts about
                         Cloud Feeds, including Atom events.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 7 provides a set of steps on how you
+                    <para>Chapter 8 provides a set of steps on how you
                         can use the Cloud Feeds API to retrieve
                         feeds.</para>
                 </listitem>
@@ -897,11 +902,10 @@
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
             <title>Cloud feeds product events</title>
             <para>Cloud Feed places product events inside the Atom
-                Content element. For example, the <tag>event</tag>
-                element contains the product events (in this case for
-                Cloud Backup product). </para>
+                Content element. The <tag>event</tag> element contains
+                the product events as shown in the following example. </para>
             <example>
-                <title>Cloud backup event information</title>
+                <title>Cloud feeds product events</title>
                 <programlisting>&lt;atom:entry>
     &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
     &lt;atom:category term="tid:65909bc5" />
@@ -993,11 +997,10 @@
                 </important>
             </para>
             <para>After you have successfully posted the Atom XML to
-                the correct Atom Hopper endpoint you will receive an
-                    <code>HTTP 201</code> status code as a response.
-                The response body also contains the Atom XML you
-                posted in the request body as shown in the following
-                example:</para>
+                the correct endpoint you will receive an <code>HTTP
+                    201</code> status code as a response. The response
+                body also contains the Atom XML you posted in the
+                request body as shown in the following example:</para>
             <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
         </section>
         <section xml:id="Get_Atom_Entry">
@@ -1253,9 +1256,9 @@
                     </para>
                     <para>You can also use the AND, OR, and NOT operators
                         to filter for multiple categories combined.</para>
-                    <para>The following is example shows how to search for
-                        a category that is entered as CAT1 and ( CAT2 or
-                        CAT3 ) but not CAT4:</para>
+                    <para>The following example shows how to search
+                        for a category that is entered as CAT1 and (
+                        CAT2 or CAT3 ) but not CAT4:</para>
                     <para>
                         <example security="internal">
                             <title>Filtering for multiple categories using
