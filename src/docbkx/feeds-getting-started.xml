@@ -100,7 +100,7 @@
                 <listitem>
                     <para>Chapter 6 shows how to obtain a lists of
                         Cloud Feeds that are available to you throught
-                        the Cloud Feeds catalog</para>
+                        the Cloud Feeds catalog.</para>
                 </listitem>
                 <listitem>
                     <para>Chapter 7 introduces general concepts about
@@ -999,8 +999,9 @@
             <para>After you have successfully posted the Atom XML to
                 the correct endpoint you will receive an <code>HTTP
                     201</code> status code as a response. The response
-                body also contains the Atom XML you posted in the
-                request body as shown in the following example:</para>
+                body contains the Atom XML you posted in the request
+                body, as well as category information for the entry,
+                as shown in the following example:</para>
             <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
         </section>
         <section xml:id="Get_Atom_Entry">
