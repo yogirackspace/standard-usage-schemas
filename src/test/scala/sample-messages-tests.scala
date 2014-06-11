@@ -136,7 +136,11 @@ class SampleMessagesSuite extends BaseUsageSuite {
   }
 
   // Don't test responses which have incorrect messages
-  val usagerecoveryConflicts = Set( "CloudBackup", "CloudFiles", "CloudServers", "CloudSites", "Ssl" ).map( _.toLowerCase )
+  val usagerecoveryConflicts = (Set( "CloudBackup", "CloudFiles", "CloudServers", "CloudSites", "Ssl" ) ++
+    // these aren't fully validated since they have synthesized attributes
+    Set( "BigData", "CloudLoadBalancers" ) ).map( _.toLowerCase )
+
+  val usageRecoveryIgnoreTests = Set( "glance-usage-longer-1-day.xml", "glance-usage-more-than-10-future.xml", "glance-usage-start-before-end.xml")
 
 
   badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
@@ -157,6 +161,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
     // if usagerecovery accepts the event, check it there too
     if ((usagerecoveryResources -- usagerecoveryConflicts ).exists( f._4.getAbsolutePath.contains( _ ) )
+      && !usageRecoveryIgnoreTests.exists( f._4.getAbsolutePath.contains( _ ) )
       && isRegularEntry( f._1, f._4.getAbsolutePath ) ) {
 
       runTest( ("usagerecovery/events", f._2, f._3, f._4 ) )
