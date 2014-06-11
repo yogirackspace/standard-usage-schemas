@@ -31,7 +31,11 @@
              type="USAGE_SUMMARY"
              dataCenter="DFW1"
              region="DFW">
-         <sample:product serviceCode="CloudFiles" version="1" disk="112589990684262400"/>
+         <sample:product serviceCode="CloudFiles"
+                         version="1"
+                         disk="112589990684262400"
+                         freeops="1000"
+                         costops="1000"/>
       </event>
    </atom:content>
 </atom:entry>

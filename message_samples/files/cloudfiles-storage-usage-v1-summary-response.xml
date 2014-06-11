@@ -39,7 +39,9 @@
          <sample:product summary="true"
                          serviceCode="CloudFiles"
                          version="1"
-                         disk="112589990684262400"/>
+                         disk="112589990684262400"
+                         freeops="1000"
+                         costops="1000"/>
       </event>
    </atom:content>
 </atom:entry>
