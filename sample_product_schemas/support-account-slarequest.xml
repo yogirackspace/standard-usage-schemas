@@ -22,7 +22,7 @@
                    allowedValues="SYSOPS DEVOPS">
         The requested serviceType for this account
     </attribute>
-    <attribute name="accountPlanRequestedURI" type="anyURI" use="required">
-        The account plan's requested URI
+    <attribute name="accountPlanRequestURI" type="anyURI" use="required">
+        The account plan's request URI
     </attribute>
 </productSchema>

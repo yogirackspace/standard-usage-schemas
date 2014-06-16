@@ -36,7 +36,7 @@
                          currentServiceType="DEVOPS"
                          requestedServiceLevel="INTENSIVE"
                          requestedServiceType="SYSOPS"
-                         accountPlanRequestedURI="https://dfw.support.encore.rackspace.com/v1/support-accounts/6045502/plan_request/1"/>
+                         accountPlanRequestURI="https://dfw.support.encore.rackspace.com/v1/support-accounts/6045502/plan_request/1"/>
       </event>
    </atom:content>
 </atom:entry>
