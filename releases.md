@@ -1,6 +1,10 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.55.0**  
+2014-06-16 | B-74589: correct typo accountPlanRequestedURI to accountPlanRequestURI (Shinta Smith)  
+2014-06-10 | B-63879 - Add validation for /usagerecovery (Greg Sharek)  
+
 **usage-schema-1.54.0**  
 2014-06-05 | B-73863: update requested by support team (Shinta Smith)  
 2014-06-05 | B-73855: add duration with type xsd:duration to usage summary events (Shinta Smith)  
