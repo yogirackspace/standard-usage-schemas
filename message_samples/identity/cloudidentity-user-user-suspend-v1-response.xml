@@ -4,12 +4,14 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:10031728" />
+    <atom:category term="tid:123456" />
     <atom:category term="cloudidentity.user.user.suspend" />
     <atom:category term="type:cloudidentity.user.user.suspend" />
     <atom:title type="text">Identity Event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:id="http://docs.rackspace.com/event/identity/user"
                dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z"
+               tenantId="123456"
                id="e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" region="DFW" resourceId="10031728"
                resourceName="testuser" type="SUSPEND" version="1">
             <id:product displayName="testUser" migrated="true" resourceType="USER"
