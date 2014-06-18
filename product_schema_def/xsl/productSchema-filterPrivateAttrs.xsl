@@ -45,6 +45,19 @@
                     <xsl:with-param name="schemas" select="current-group()"/>
                 </xsl:call-template>
             </xsl:for-each-group>
+
+            <!-- Special handling for those product events using event attributes 
+                 whose values need to be filtered out
+            -->
+            <xsl:text>&#x0a;&#x0a;</xsl:text>
+            <xsl:comment>For product: CloudIdentity</xsl:comment>
+            <xsl:text>&#x0a;   </xsl:text>
+            <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
+                             match="event:event/@resourceId">
+                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
+                   <xslout:copy-of select="."/>
+                </xslout:if>
+            </xslout:template>
         </xslout:stylesheet>
 
     </xsl:template>
