@@ -270,7 +270,7 @@ class ValidatorSuite extends BaseUsageSuite {
     </atom:entry>), response, chain), 400)
   }
 
-  <!-- verify that prefix categories are not allowed to be posted to validated and product feeds -->
+  // verify that prefix categories are not allowed to be posted to validated and product feeds
 
   List( "tid:", "rgn:", "dc:", "rid:", "type:" ).foreach( prefix => {
 
