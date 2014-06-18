@@ -269,4 +269,39 @@ class ValidatorSuite extends BaseUsageSuite {
       </atom:content>
     </atom:entry>), response, chain), 400)
   }
+
+  <!-- verify that prefix categories are not allowed to be posted to validated and product feeds -->
+
+  List( "tid:", "rgn:", "dc:", "rid:", "type:" ).foreach( prefix => {
+
+    List( "/usagetest1/events", "cbs/events" ).foreach( feed => {
+
+      test( "Posting category of with prefix of '" + prefix + "' on '" + feed + "' fails with 400" ) {
+
+        assertResultFailed( atomValidator.validate( request( "POST", feed, "application/atom+xml", <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>CBS Usage</atom:title>
+          <atom:content type="application/xml">
+            <atom:category term="{ prefix }:1234"/>
+            <event xmlns="http://docs.rackspace.com/core/event"
+                   xmlns:cbs="http://docs.rackspace.com/usage/cbs"
+                   version="1" tenantId="12334"
+                   username=""
+                   resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+                   resourceName="MyVolume"
+                   id="560490c6-6c63-11e1-adfe-27851d5aed13"
+                   type="USAGE" dataCenter="DFW1" region="DFW"
+                   startTime="2012-03-12T11:51:11Z"
+                   endTime="2012-03-12T15:51:11Z">
+              <cbs:product version="1" serviceCode="CloudBlockStorage"
+                           resourceType="VOLUME"
+                           type="fooooo"
+                           provisioned="120"/>
+            </event>
+          </atom:content>
+        </atom:entry>), response, chain), 400)
+      }
+    }
+    )
+  }
+  )
 }

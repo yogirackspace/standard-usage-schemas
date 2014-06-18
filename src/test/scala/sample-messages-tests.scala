@@ -69,50 +69,16 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleFeedToFilePairs = sampleFiles.map(toFeedFile).flatten
 
-  val usagerecoveryResources = Set(
-    "BigData",
-    "CloudBackup",
-    "CloudBlockStorage",
-    "CloudDatabase",
-    "CloudFiles",
-    "CloudLoadBalancers",
-    "CloudMonitoring",
-    "CloudQueues",
-    "CloudServers",
-    "CloudServersOpenStack",
-    "CloudSites",
-    "DedicatedVCloud",
-    "DomainRegistration",
-    "EmailAppsUsage",
-    "Glance",
-    "Ssl" ).map( _.toLowerCase )
-
-  def isRegularEntry( feed : String, filePath : String ) : Boolean = {
-
-    !feed.matches( ".*test\\d*/events" ) &&
-      !feed.matches( "usagedeadletter/events" ) && !filePath.contains( "-summary-" )
-  }
-
   sampleFeedToFilePairs.foreach {
     case (feed, fl) => {
-      def runTest(feed: String, f1: File) = {
-        test("Sample " + fl.getAbsolutePath + " should be valid against feed " + feed) {
-          printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
-          if (fl.getAbsolutePath().indexOf("/identity/") != -1) {
-            atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-          } else {
-            atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-          }
+
+      test("Sample " + fl.getAbsolutePath + " should be valid against feed " + feed) {
+        printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
+        if (fl.getAbsolutePath().indexOf("/identity/") != -1) {
+          atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+        } else {
+          atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
         }
-      }
-
-      runTest(feed, fl);
-
-      // if usagerecovery accepts the event, check it there too
-      if (usagerecoveryResources.exists( fl.getAbsolutePath.contains( _ ) )
-        && isRegularEntry( feed, fl.getAbsolutePath ) ) {
-
-        runTest("usagerecovery/events", fl)
       }
     }
   }
@@ -135,36 +101,15 @@ class SampleMessagesSuite extends BaseUsageSuite {
       }
   }
 
-  // Don't test responses which have incorrect messages
-  val usagerecoveryConflicts = (Set( "CloudBackup", "CloudFiles", "CloudServers", "CloudSites", "Ssl" ) ++
-    // these aren't fully validated since they have synthesized attributes
-    Set( "BigData", "CloudLoadBalancers" ) ).map( _.toLowerCase )
-
-  val usageRecoveryIgnoreTests = Set( "glance-usage-longer-1-day.xml", "glance-usage-more-than-10-future.xml", "glance-usage-start-before-end.xml")
-
-
   badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
 
-    def runTest( f : Tuple4[String, Int, List[String], File] ) = {
-
-      test("Sample " + f._4.getAbsolutePath + " should fail in the expected way when posted on feed " + f._1) {
-        printf("Checking %s against feed %s\n", f._4.getAbsolutePath, f._1)
-        if (f._4.getAbsolutePath().indexOf("/identity/") != -1) {
-          val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
-        } else {
-          val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
-        }
+    test("Sample " + f._4.getAbsolutePath + " should fail in the expected way when posted on feed " + f._1) {
+      printf("Checking %s against feed %s\n", f._4.getAbsolutePath, f._1)
+      if (f._4.getAbsolutePath().indexOf("/identity/") != -1) {
+        val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
+      } else {
+        val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
       }
-    }
-
-    runTest( f )
-
-    // if usagerecovery accepts the event, check it there too
-    if ((usagerecoveryResources -- usagerecoveryConflicts ).exists( f._4.getAbsolutePath.contains( _ ) )
-      && !usageRecoveryIgnoreTests.exists( f._4.getAbsolutePath.contains( _ ) )
-      && isRegularEntry( f._1, f._4.getAbsolutePath ) ) {
-
-      runTest( ("usagerecovery/events", f._2, f._3, f._4 ) )
     }
   })
 
