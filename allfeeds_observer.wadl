@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:rax="http://docs.rackspace.com/api"
+             xmlns:atom="http://www.w3.org/2005/Atom">
+    <doc title="Feeds Catalog"/>
+    <grammars>
+        <include href="core_xsd/entry.xsd"/>
+        <include href="core_xsd/feedsapi.xsd"/>
+    </grammars>
+    <resources base="http://localhost/">
+
+        <!-- Static paths for administration -->
+        <resource id="buildinfo" path="buildinfo"><method name="GET"/></resource>
+
+        <!-- Resources exposed to observers (GET only) -->
+        <resource id="observers" path="/" rax:roles="cloudfeeds:observer observer admin identity:user-admin">
+            <resource id="feedscatalog_obs"            path="feedscatalog/catalog"    type="wadl/feed.wadl#TenantFeedsCatalog"/>
+            
+            <resource id="autoscale_events_obs"        path="autoscale/events"        type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="backup_events_obs"           path="backup/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="bigdata_events_obs"          path="bigdata/events"          type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="cbs_events_obs"              path="cbs/events"              type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="dbaas_events_obs"            path="dbaas/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="dedicatedvcloud_events_obs"  path="dedicatedvcloud/events"  type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="dns_events_obs"              path="dns/events"              type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="domain_events_obs"           path="domain/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="emailapps_usage_events_obs"  path="emailapps_usage/events"  type="wadl/feed.wadl#TenantAtomFeed" />
+            <resource id="files_events_obs"            path="files/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="glance_events_obs"           path="glance/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="identity_events_obs"         path="identity/events"         type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="lbaas_events_obs"            path="lbaas/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="monitoring_events_obs"       path="monitoring/events"       type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="netdevice_events_obs"        path="netdevice/events"        type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="nova_events_obs"             path="nova/events"             type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="queues_events_obs"           path="queues/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="servers_events_obs"          path="servers/events"          type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="sites_events_obs"            path="sites/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="ssl_events_obs"              path="ssl/events"              type="wadl/feed.wadl#TenantAtomFeed"/>
+            
+            <!-- Test related feed -->
+            <resource id="functest1_events_obs"        path="functest1/events"        type="wadl/feed.wadl#TenantAtomFeed"/>
+            <resource id="functest2_events_obs"        path="functest2/events"        type="wadl/feed.wadl#TenantAtomFeed"/>
+            
+            <resource path="usagesummary">
+                <resource id="backup_usagesummary_events_obs"      path="backup/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="bigdata_usagesummary_events_obs"     path="bigdata/events"          type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="cbs_usagesummary_events_obs"         path="cbs/events"              type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="dbaas_usagesummary_events_obs"       path="dbaas/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="dedicatedvcloud_sum_events_obs"      path="dedicatedvcloud/events"  type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="files_usagesummary_events_obs"       path="files/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="glance_usagesummary_events_obs"      path="glance/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="lbaas_usagesummary_events_obs"       path="lbaas/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="monitoring_usagesummary_events_obs"  path="monitoring/events"       type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="nova_usagesummary_events_obs"        path="nova/events"             type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="queues_usagesummary_events_obs"      path="queues/events"           type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="servers_usagesummary_events_obs"     path="servers/events"          type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="sites_usagesummary_events_obs"       path="sites/events"            type="wadl/feed.wadl#TenantAtomFeed"/>
+                <resource id="usagetest6_usagesummary_events_obs"  path="usagetest6/events"       type="wadl/feed.wadl#TenantAtomFeed"/>
+            </resource>
+        </resource>
+    </resources>
+</application>
