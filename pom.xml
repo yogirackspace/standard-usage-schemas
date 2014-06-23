@@ -466,10 +466,10 @@
                             <location>atom_hopper.wadl</location>
                         </source>
                         <source>
-                            <location>atom_hopper_identity_admin.wadl</location>
+                            <location>allfeeds.wadl</location>
                         </source>
                         <source>
-                            <location>atom_hopper_observer.wadl</location>
+                            <location>allfeeds_observer.wadl</location>
                         </source>
                         </sources>
                     </mapping>
