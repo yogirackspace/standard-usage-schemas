@@ -59,8 +59,8 @@ object BaseUsageSuite {
     //  The atom hopper validator
     //
     val atomValidator = Validator(new StreamSource(new File("atom_hopper.wadl")), usageConfig)
-    val atomValidatorIdentity = Validator(new StreamSource(new File("atom_hopper_identity_admin.wadl")), usageConfig)
-    val atomValidatorObserver = Validator(new StreamSource(new File("atom_hopper_observer.wadl")), usageConfig)
+    val atomValidatorIdentity = Validator(new StreamSource(new File("allfeeds.wadl")), usageConfig)
+    val atomValidatorObserver = Validator(new StreamSource(new File("allfeeds_observer.wadl")), usageConfig)
 
     //
     //  Convenience function to get to the XML of a request
