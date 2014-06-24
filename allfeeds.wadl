@@ -219,7 +219,7 @@
             <!-- end of Test related feeds -->
     
             <!-- Summary Feeds -->
-            <resource path="usagesummary">
+            <resource path="/usagesummary/">
                 <resource id="backup_usagesummary_events"
                           path="backup/events"
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackupSummary"/>

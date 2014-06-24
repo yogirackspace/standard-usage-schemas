@@ -93,7 +93,7 @@
                       path="functest2/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
 
-            <resource path="usagesummary">
+            <resource path="/usagesummary/">
                 <resource id="backup_usagesummary_events_obs"
                           path="backup/events"
                           type="wadl/feed.wadl#TenantAtomFeed"/>
