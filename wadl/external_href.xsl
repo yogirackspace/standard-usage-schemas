@@ -95,7 +95,7 @@
 
     <xsl:template match="httpx:header">
         <xsl:choose>
-            <xsl:when test="@name = 'Link' or @name = 'LOCATION'"> 
+            <xsl:when test="lower-case( @name ) = 'link' or lower-case( @name ) = 'location'">
                 <xsl:element name="httpx:header">
                     <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
                     <xsl:attribute name="value">
@@ -108,7 +108,7 @@
                 </xsl:element>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates/>
+                <xsl:copy-of select="." />
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
