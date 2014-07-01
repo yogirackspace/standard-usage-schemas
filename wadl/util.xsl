@@ -16,9 +16,22 @@
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
     exclude-result-prefixes="event"
-    version="1.0">
+    version="2.0">
 
     <xsl:output method="xml" encoding="UTF-8"/>
+
+    <!--
+       Get tenant id from request URL
+    -->
+    <xsl:template name="getTenantId">
+        <xsl:param name="uri"/>
+        <xsl:analyze-string select="$uri"
+                            regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
+            <xsl:matching-substring>
+                <xsl:value-of select="regex-group(2)"/>
+            </xsl:matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
 
     <!--
         Identity transform.
