@@ -14,7 +14,10 @@
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
 		xmlns:httpx="http://openrepose.org/repose/httpx/v1.0">
-  
+
+  <!-- Import utility templates -->
+  <xsl:import href="util.xsl" />
+
   <xsl:output method="xml"/>
   
   <xsl:param name="input-headers-uri" />
@@ -65,15 +68,7 @@
     </xsl:call-template>      
   </xsl:variable>
 
-  <xsl:template name="getTenantId">
-    <xsl:param name="uri"/>        
-    <xsl:analyze-string select="$uri"
-			regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
-      <xsl:matching-substring>
-	<xsl:value-of select="regex-group(2)"/>
-      </xsl:matching-substring>
-    </xsl:analyze-string>                      
-  </xsl:template>
+
 
   
   <xsl:template name="getEntries">
