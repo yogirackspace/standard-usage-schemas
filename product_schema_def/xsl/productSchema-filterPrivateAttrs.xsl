@@ -54,7 +54,10 @@
             <xsl:text>&#x0a;   </xsl:text>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
                              match="event:event/@resourceId">
-                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
+                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and 
+                                                                               (@value = 'cloudfeeds:service-admin' or
+                                                                                @value = 'identity:admin')]) or
+                                 not(parent::node()/identity:product)">
                    <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
