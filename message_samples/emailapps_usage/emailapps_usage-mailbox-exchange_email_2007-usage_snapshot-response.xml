@@ -5,8 +5,8 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:7" />
-    <atom:category term="emailapps.mailbox.exchange_email_2007.usage_snapshot" />
-    <atom:category term="type:emailapps.mailbox.exchange_email_2007.usage_snapshot" />
+    <atom:category term="emailappsusage.mailbox.exchange_email_2007.usage_snapshot" />
+    <atom:category term="type:emailappsusage.mailbox.exchange_email_2007.usage_snapshot" />
     <atom:title type="text">Mailbox event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"
