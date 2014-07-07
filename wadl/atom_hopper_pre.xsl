@@ -15,6 +15,125 @@
         <!-- ignore atom unit test processing instruction -->
     </xsl:template>
 
+    <xsl:template match="atom:category[starts-with(@term,'tid:')]">
+        <xsl:if test="/atom:entry/atom:content/event:event">
+            <xsl:variable name="tenantId" select="substring-after(@term, 'tid:')"/>
+            <xsl:choose>
+                <xsl:when test="/atom:entry/atom:content/event:event/@tenantId = $tenantId">
+                    <xsl:copy>
+                        <xsl:apply-templates select="@* | node()"/>
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:message terminate="yes">The "tid:[tenantId]" category is automatically added by Cloud Feeds.  Alternative "tid:[other]" categories cannot be submitted.</xsl:message>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="atom:category[starts-with(@term,'rid:')]">
+        <xsl:if test="/atom:entry/atom:content/event:event">
+            <xsl:variable name="value" select="substring-after(@term, 'rid:')"/>
+            <xsl:choose>
+                <xsl:when test="/atom:entry/atom:content/event:event/@resourceId = $value">
+                    <xsl:copy>
+                        <xsl:apply-templates select="@* | node()"/>
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:message terminate="yes">The "rid:[resourceId]" category is automatically added by Cloud Feeds.  Alternative "rid:[other]" categories cannot be submitted.</xsl:message>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="atom:category[starts-with(@term,'type:')]">
+        <xsl:if test="/atom:entry/atom:content/event:event">
+            <xsl:variable name="value" select="substring-after(@term, 'type:')"/>
+            <xsl:variable name="eventType">
+                <xsl:call-template name="getEventType">
+                    <xsl:with-param name="event" select="../atom:content/event:event"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:choose>
+                <xsl:when test="$eventType = $value">
+                    <xsl:copy>
+                        <xsl:apply-templates select="@* | node()"/>
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:message terminate="yes">The "type:[eventType]" category is automatically added by Cloud Feeds.  Alternative "type:[other]" categories cannot be submitted.</xsl:message>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="atom:category[starts-with(@term,'rgn:')]">
+        <xsl:if test="/atom:entry/atom:content/event:event">
+            <xsl:variable name="value" select="substring-after(@term, 'rgn:')"/>
+            <xsl:variable name="nsUri" select="namespace-uri(../atom:content/event:event/*)"/>
+            <xsl:choose>
+                <xsl:when test="$nsUri = 'http://docs.rackspace.com/usage/maas' or $nsUri = 'http://docs.rackspace.com/usage/sites/subscription' or $nsUri = 'http://docs.rackspace.com/event/domain'">
+                    <xsl:choose>
+                        <xsl:when test="/atom:entry/atom:content/event:event/@region = $value or 'GLOBAL' = $value">
+                            <xsl:copy>
+                                <xsl:apply-templates select="@* | node()"/>
+                            </xsl:copy>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:message terminate="yes">The "rgn:[region]" category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:choose>
+                        <xsl:when test="/atom:entry/atom:content/event:event/@region = $value">
+                            <xsl:copy>
+                                <xsl:apply-templates select="@* | node()"/>
+                            </xsl:copy>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:message terminate="yes">The "rgn:[region]" category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template match="atom:category[starts-with(@term,'dc:')]">
+        <xsl:if test="/atom:entry/atom:content/event:event">
+            <xsl:variable name="value" select="substring-after(@term, 'dc:')"/>
+            <xsl:variable name="nsUri" select="namespace-uri(../atom:content/event:event/*)"/>
+            <xsl:choose>
+                <xsl:when test="$nsUri = 'http://docs.rackspace.com/usage/maas' or $nsUri = 'http://docs.rackspace.com/usage/sites/subscription' or $nsUri = 'http://docs.rackspace.com/event/domain'">
+                    <xsl:choose>
+                        <xsl:when test="/atom:entry/atom:content/event:event/@dataCenter = $value or 'GLOBAL' = $value">
+                            <xsl:copy>
+                                <xsl:apply-templates select="@* | node()"/>
+                            </xsl:copy>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:message terminate="yes">The "dc:[dataCenter]" category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:choose>
+                        <xsl:when test="/atom:entry/atom:content/event:event/@dataCenter = $value">
+                            <xsl:copy>
+                                <xsl:apply-templates select="@* | node()"/>
+                            </xsl:copy>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:message terminate="yes">The "dc:[dataCenter]" category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+    </xsl:template>
+
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:variable name="nsUri" select="namespace-uri(atom:content/event:event/*)"/>
@@ -102,4 +221,5 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
 </xsl:stylesheet>
