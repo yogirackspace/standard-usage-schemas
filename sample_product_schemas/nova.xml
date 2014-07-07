@@ -18,7 +18,7 @@
         The flavor name of the server.
     </attribute>
     <attribute name="status" type="Name"
-               use="required" allowedValues="ACTIVE BUILD DELETED ERROR HARD_REBOOT MIGRATING PASSWORD REBOOT REBUILD RESCUE RESIZE REVERT_RESIZE SUSPENDED UNKNOWN VERIFY_RESIZE SHELVED"
+               use="required" allowedValues="ACTIVE BUILD DELETED ERROR HARD_REBOOT PASSWORD REBOOT REBUILD RESCUE RESIZE REVERT_RESIZE SHUTOFF SUSPENDED UNKNOWN VERIFY_RESIZE"
                groupBy="true">
         The status of the server.
     </attribute>
