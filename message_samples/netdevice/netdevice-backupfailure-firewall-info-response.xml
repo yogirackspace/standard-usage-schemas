@@ -3,7 +3,7 @@
   <atom:id>urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38</atom:id>
   <atom:category term="rgn:DFW"/>
   <atom:category term="dc:DFW1"/>
-  <atom:category term="rid:b79cc3de-b399-3883-b555-61829bbccd38"/>
+  <atom:category term="rid:123456"/>
   <atom:category term="netdevice.backupfailure.firewall.info"/>
   <atom:category term="type:netdevice.backupfailure.firewall.info"/>
   <atom:title type="text">Failure Event</atom:title>

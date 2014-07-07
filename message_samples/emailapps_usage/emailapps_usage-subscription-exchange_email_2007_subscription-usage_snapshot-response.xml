@@ -5,8 +5,8 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:7" />
-    <atom:category term="emailapps.subscription.exchange_email_2007_subscription.usage_snapshot" />
-    <atom:category term="type:emailapps.subscription.exchange_email_2007_subscription.usage_snapshot" />
+    <atom:category term="emailappsusage.subscription.exchange_email_2007_subscription.usage_snapshot" />
+    <atom:category term="type:emailappsusage.subscription.exchange_email_2007_subscription.usage_snapshot" />
     <atom:title type="text">Subscription event</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event"

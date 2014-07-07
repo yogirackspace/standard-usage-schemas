@@ -21,8 +21,8 @@
    <atom:category term="rgn:DFW"/>
    <atom:category term="dc:DFW1"/>
    <atom:category term="rid:654321"/>
-   <atom:category term="support.account.account_support.create"/>
-   <atom:category term="type:support.account.account_support.create"/>
+   <atom:category term="support.teams.account_support.create"/>
+   <atom:category term="type:support.teams.account_support.create"/>
    <atom:title>Support</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"
