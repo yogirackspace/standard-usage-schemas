@@ -25,7 +25,7 @@
                     </xsl:copy>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:message terminate="yes">The "tid:[tenantId] category is automatically added by Cloud Feeds.  Alternative "tid:[other]" categories cannot be submitted.</xsl:message>
+                    <xsl:message terminate="yes">The "tid:[tenantId]" category is automatically added by Cloud Feeds.  Alternative "tid:[other]" categories cannot be submitted.</xsl:message>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
@@ -81,7 +81,7 @@
                             </xsl:copy>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:message terminate="yes">The "rgn:[region] category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
+                            <xsl:message terminate="yes">The "rgn:[region]" category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
@@ -93,7 +93,7 @@
                             </xsl:copy>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:message terminate="yes">The "rgn:[region] category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
+                            <xsl:message terminate="yes">The "rgn:[region]" category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:otherwise>
@@ -114,7 +114,7 @@
                             </xsl:copy>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:message terminate="yes">The "dc:[dataCenter] category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
+                            <xsl:message terminate="yes">The "dc:[dataCenter]" category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
@@ -126,7 +126,7 @@
                             </xsl:copy>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:message terminate="yes">The "dc:[dataCenter] category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
+                            <xsl:message terminate="yes">The "dc:[dataCenter]" category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:otherwise>
