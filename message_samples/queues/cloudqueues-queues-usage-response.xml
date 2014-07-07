@@ -4,7 +4,6 @@
   <atom:category term="tid:2888"/>
   <atom:category term="rgn:DFW"/>
   <atom:category term="dc:DFW1"/>
-  <atom:category term="rid:56"/>
   <atom:category term="cloudqueues.queues.usage"/>
   <atom:category term="type:cloudqueues.queues.usage"/>
   <atom:title type="text">Cloud Queues</atom:title>

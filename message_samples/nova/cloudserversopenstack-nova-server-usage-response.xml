@@ -4,7 +4,7 @@
   <atom:category term="tid:231423"/>
   <atom:category term="rgn:IAD"/>
   <atom:category term="dc:IAD3"/>
-  <atom:category term="rid:10.24.25.92"/>
+  <atom:category term="rid:f37bca20-29c5-4e08-97f4-e47908887bc1"/>
   <atom:category term="cloudserversopenstack.nova.server.usage"/>
   <atom:category term="type:cloudserversopenstack.nova.server.usage"/>
   <atom:title type="text">Nagios Event</atom:title>
