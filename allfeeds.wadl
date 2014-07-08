@@ -46,7 +46,7 @@
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase"/>
             <resource id="dedicatedvcloud_events"
                       path="dedicatedvcloud/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloud"/>
+                      type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#DedicatedVCloud"/>
             <resource id="dns_events"
                       path="dns/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDNS"/>
@@ -109,7 +109,7 @@
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Ssl"/>
             <resource id="support_events"
                       path="support/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Support"/>
+                      type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#Support"/>
             <resource id="usagecorrelation_events"
                       path="usagecorrelation/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
