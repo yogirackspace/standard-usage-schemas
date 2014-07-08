@@ -7,16 +7,16 @@
         <description>
             Server down event.
         </description>
-        <attribute name="coreID" type="int" use="required">
+        <attribute name="coreID" type="int" use="required" private="true">
             The CORE ID for the HOST.
         </attribute>
         <attribute name="serverID" type="int" use="required">
             The Server ID  for the HOST.
         </attribute>
-        <attribute name="huddleID" type="int" use="required">
+        <attribute name="huddleID" type="int" use="required" private="true">
             The huddle ID.
         </attribute>
-        <attribute name="backstageURL" type="string" use="required">
+        <attribute name="backstageURL" type="string" use="required" private="true">
             The backstage URL to access the host.
         </attribute>
         <attribute name="hostIP" type="string" use="required">
@@ -48,16 +48,16 @@
         <description>
             Server down event.
         </description>
-        <attribute name="coreID" type="int" use="required">
+        <attribute name="coreID" type="int" use="required" private="true">
             The CORE ID for the HOST.
         </attribute>
         <attribute name="serverID" type="unsignedInt" max="4294967295" use="required">
             The Server ID  for the HOST.
         </attribute>
-        <attribute name="huddleID" type="int" use="required">
+        <attribute name="huddleID" type="int" use="required" private="true">
             The huddle ID.
         </attribute>
-        <attribute name="backstageURL" type="string" use="required">
+        <attribute name="backstageURL" type="string" use="required" private="true">
             The backstage URL to access the host.
         </attribute>
         <attribute name="hostIP" type="string" use="required">

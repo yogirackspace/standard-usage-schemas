@@ -34,7 +34,7 @@
     <attribute name="customerId" type="int" use="required" private="true">
         The Customer ID for the Slice. This may be the same as the tenantId or may be the internal nucleus customer_id.
     </attribute>
-    <attribute name="flavorId" type="int" use="required">
+    <attribute name="flavorId" type="int" use="required" private="true">
         The Flavor ID for the Slice.
     </attribute>
     <attribute name="status" type="string" use="required" searchable="true"
@@ -45,7 +45,7 @@
                allowedValues="CLOUD SLICE">
         The slice type. This was used when we had Slicehost and Rackspace customers; now all are Rackspace customers and sliceType is always 'CLOUD'.
     </attribute>
-    <attribute name="privateIp" type="string" use="required">
+    <attribute name="privateIp" type="string" use="required" private="true">
         The private IP of the slice
     </attribute>
     <attribute name="publicIp" type="string" use="required">

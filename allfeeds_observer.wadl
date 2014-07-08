@@ -19,17 +19,14 @@
                   rax:roles="cloudfeeds:observer observer admin identity:user-admin">
             
             <!-- product events -->
-            <resource id="autoscale_events_obs" 
-                      path="autoscale/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="backup_events_obs" 
                       path="backup/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="bigdata_events_obs" 
                       path="bigdata/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="cbs_events_obs" 
-                      path="cbs/events"
+            <resource id="cbs_events_obs"
+                      path="cbs/events" 
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="dbaas_events_obs" 
                       path="dbaas/events"
@@ -38,13 +35,7 @@
                       path="dedicatedvcloud/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="dns_events_obs"
-                      path="dns/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="domain_events_obs"
-                      path="domain/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="emailapps_usage_events_obs"
-                      path="emailapps_usage/events"
+                      path="dns/events" 
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="files_events_obs"
                       path="files/events"
@@ -61,9 +52,6 @@
             <resource id="monitoring_events_obs"
                       path="monitoring/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="netdevice_events_obs"
-                      path="netdevice/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="nova_events_obs"
                       path="nova/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
@@ -72,9 +60,6 @@
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="servers_events_obs"
                       path="servers/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="sites_events_obs"
-                      path="sites/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="ssl_events_obs"
                       path="ssl/events"
@@ -101,7 +86,7 @@
                           path="bigdata/events"
                           type="wadl/feed.wadl#TenantAtomFeed"/>
                 <resource id="cbs_usagesummary_events_obs"
-                          path="cbs/events"
+                          path="cbs/events" 
                           type="wadl/feed.wadl#TenantAtomFeed"/>
                 <resource id="dbaas_usagesummary_events_obs"
                           path="dbaas/events"
@@ -130,8 +115,8 @@
                 <resource id="servers_usagesummary_events_obs"
                           path="servers/events"
                           type="wadl/feed.wadl#TenantAtomFeed"/>
-                <resource id="sites_usagesummary_events_obs"
-                          path="sites/events"
+                <resource id="ssl_usagesummary_events_obs"
+                          path="ssl/events"
                           type="wadl/feed.wadl#TenantAtomFeed"/>
             </resource>
         </resource>
