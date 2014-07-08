@@ -1,5 +1,23 @@
 # Changelog for Usage Schema
 
+2014-07-07 | B-75319: add more attributes to be private, remove private feeds from Observer role (Shinta Smith)  
+2014-07-07 | B-75239 - Change allowable values for nova status attributes (Greg Sharek)  
+2014-07-03 | D-18332 - ensure events have clean categories (Greg Sharek)  
+
+**usage-schema-1.56.3**  
+2014-07-01 | D-18709: fix accidental filtering of resourceId on non-Identity delete token events when feed is unauthenticated (Shinta Smith)  
+2014-07-01 | D-16856 - external Cloud Feeds return incorrect Location, Link headers and atom:link elements (Greg Sharek)  
+
+**usage-schema-1.56.2**  
+
+**usage-schema-1.56.1**  
+2014-06-23 | D-18332 - taking out clean categories (Greg Sharek)  
+2014-06-23 | D-18332 - Ensure events have clean categories (Greg Sharek)  
+
+**usage-schema-1.56.0**  
+2014-06-20 | B-65259, B-73238: use rax roles to add observer, admin, and identity:user-admin roles to have the same privileges as cloudfeeds:observer (Shinta Smith)  
+2014-06-18 | D-18332 - Ensure events have clean categories (Greg Sharek)  
+2014-06-17 | B-65026: add xlate filter to hide token from delete token (Shinta Smith)  
 
 **usage-schema-1.55.0**  
 2014-06-16 | B-74589: correct typo accountPlanRequestedURI to accountPlanRequestURI (Shinta Smith)  
