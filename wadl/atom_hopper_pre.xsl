@@ -15,6 +15,10 @@
         <!-- ignore atom unit test processing instruction -->
     </xsl:template>
 
+    <!--
+      Verify that the user is not sending categories (tid, rid, type, rgn, dc) when the event node
+      contains the data and we set them here.
+    -->
     <xsl:template match="atom:category[starts-with(@term,'tid:')]">
         <xsl:choose>
             <xsl:when test="/atom:entry/atom:content/event:event">
@@ -172,10 +176,33 @@
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:variable name="nsUri" select="namespace-uri(atom:content/event:event/*)"/>
+
+
+        <xsl:variable name="eventType">
+            <xsl:call-template name="getEventType">
+                <xsl:with-param name="event" select="$event"/>
+            </xsl:call-template>
+        </xsl:variable>
+
         <xsl:copy>
+
             <xsl:element name="atom:id" namespace="http://www.w3.org/2005/Atom">
                 <xsl:value-of select="concat('urn:uuid:',$event/@id)"/>
             </xsl:element>
+
+            <!--
+              Mark event as private if necessary
+            -->
+            <!--
+              nova events will soon be posted, but not yet public for observers
+            -->
+            <xsl:if test="$eventType = 'cloudserversopenstack.nova.server.usage'">
+                <xsl:call-template name="addCategory">
+                    <xsl:with-param name="prefix" select="'cloudfeeds:'"/>
+                    <xsl:with-param name="term" select="'private'"/>
+                </xsl:call-template>
+            </xsl:if>
+
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>
