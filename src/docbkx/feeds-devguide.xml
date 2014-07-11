@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book [
+    <!DOCTYPE book [
 <!-- Some useful entities borrowed from HTML -->
         <!ENTITY ndash "&#x2013;">
         <!ENTITY mdash "&#x2014;">
@@ -359,35 +359,44 @@
             understanding of REST APIs. In this section you will learn
             how to use the Cloud Feeds REST API to perform basic API
             operations.</para>
-        <section xml:id="Adding_a_New_Atom_Entry-d1e1303">
-            <title>Adding a New Atom Entry</title>
-            <para>You can use a <methodname>POST</methodname> request
-                to insert new Atom entries into Atom Hopper. The
-                following is an example of a simple Atom entry (with
-                three categories):</para>
-            <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
-  &lt;title type="text">This is the title&lt;/title>
-  &lt;author>
-    &lt;name>John Doe&lt;/name>
-  &lt;/author>
-  &lt;content type="text">Hello World&lt;/content>
-  &lt;category term="MyCategory 1" />
-  &lt;category term="MyCategory 2" />
-  &lt;category term="MyCategory 3" />
-&lt;/entry></programlisting>
-            <para>
-                <note>
-                    <para>When submitting the
-                            <methodname>POST</methodname> request, set
-                        the HTTP header to <emphasis role="bold"
-                            >Content-Type:
-                            application/atom+xml.</emphasis></para>
-                </note>
-            </para>
-            <para>If your request is successful you should receive an
-                HTTP 201 (Created) response along with the Atom XML
-                you posted in the body.</para>
-        </section>
+        <section xml:id="Adding_a_New_Atom_Entry-d1e1303" security="internal">
+            <title>Adding a new Atom event</title>
+            <para>You can use a <methodname>POST</methodname> request to insert new Atom entries
+                into Atom Hopper. To insert a new Atom event in a feed you first need to create an
+                Atom entry and save it in the same directory where you are making your request
+                from.</para>
+                <para>You then make a <methodname>POST</methodname> request with the specified feed
+                    URL and a pointer to the Atom entry you want to submit using the following
+                    syntax:</para>
+                <para>
+                    <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
+                </para>
+                <para>&lt;<emphasis role="italic">inputFile</emphasis>> specifies the path to a file
+                    that contains an atom entry. </para>
+                <para>The following example shows what a payload for an Atom entry can look like. </para>
+                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+                <para>The following example shows how to add a new Atom entry by providing a pointer
+                    to the entry:</para>
+                <para>
+                    <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
+                </para>
+                <para>
+                    <important>
+                        <para>When making the post request, make sure to set the HTTP Header to
+                                <emphasis>Content-Type: application/atom+xml </emphasis></para>
+                    </important>
+                </para>
+                <para>After you have successfully posted the Atom XML to the correct endpoint you
+                    will receive an <code>HTTP 201</code> status code as a response. The response
+                    body contains the Atom XML you posted in the request body, as well as category
+                    information for the entry, as shown in the following example:</para>
+                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
+                <para>You will notice when the Atom feed is returned that each Atom entry has a
+                    self-referencing link. The appearance of your self-referencing Atom entry links
+                    varies depending on whether you use an HTTPS POST request or not</para>
+                <para>With HTTPS POST, the link looks as
+                    follows:<programlisting>&lt;link href="https://atom.myserver.com/feedname/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
+</programlisting></para>
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
             <para>The Category element provides category information
@@ -399,8 +408,7 @@
             <para><emphasis role="bold"> Single Category
                 </emphasis></para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
-            <para>You can also filter for multiple categories using
-                the following syntax:</para>
+            <para>You can also add multiple categories using the following syntax:</para>
             <para><emphasis role="bold">Multiple
                 Categories</emphasis></para>
             <programlisting>&lt;category term="mycategory1" />
@@ -411,173 +419,132 @@
                     has a maximum length of 256 characters. </para>
             </note>
         </section>
-        <section xml:id="Getting-the-Feed-d1e1307" xlink:href="">
-            <title>Getting Events from Cloud Feeds</title>
-            <para>You can use a <methodname>GET</methodname> request
-                to retrieve product event(s) from Cloud Feeds. The
-                    <methodname>GET</methodname> request will retrieve
-                a specific entry, forward and backward paging,
-                category searches, and JSON feed returns that are
-                experimental. The following example shows the possible
-                return of a <methodname>GET</methodname>
-                request:</para>
-            <programlisting>&lt;feed>
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/" rel="current" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?limit=2&amp;direction=backward" rel="self" />
-    &lt;id> urn:uuid:f3fae0e2-f195-430a-baa1-d0d0a77779ac &lt;/id>
-    &lt;title type="text"> sites/events &lt;/title>
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67&amp;limit=2&amp;search=&amp;direction=forward" rel="previous" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:d0932ca8-801a-3350-93a5-c4d7b3e09172&amp;limit=2&amp;search=&amp;direction=backward" rel="next" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?marker=last&amp;limit=2&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated> 2013-10-29T17:25:13.420Z &lt;/updated>
-    &lt;ns3:entry>
-        &lt;atom:id> urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67 &lt;/atom:id>
-        &lt;atom:category term="tid:5834721" />
-        &lt;atom:category term="rgn:ORD" />
-        &lt;atom:category term="dc:ORD1" />
-        &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
-        &lt;ns3:title type="text"> Sites &lt;/ns3:title>
-        &lt;ns3:category term="5834721:netapp" />
-        &lt;ns3:content type="application/xml">
-            &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="b485642c-fb2c-38ba-8a19-89e15c801a67"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5834721" type="USAGE_SNAPSHOT" version="1">
-                &lt;ns4:product groupName="cc4client1g" numFiles="1" serviceCode="CloudSites" storage="0" version="1" volume="stor1stagingord1" />
-            &lt;/ns2:event>
-        &lt;/ns3:content>
-        &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:b485642c-fb2c-38ba-8a19-89e15c801a67" rel="self" />
-        &lt;ns3:updated> 2013-10-29T17:20:07.010Z &lt;/ns3:updated>
-        &lt;ns3:published> 2013-10-29T17:20:07.010Z &lt;/ns3:published>
-    &lt;/ns3:entry>
-    &lt;ns3:entry>
-        &lt;atom:id> urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405 &lt;/atom:id>
-        &lt;atom:category term="tid:5819296" />
-        &lt;atom:category term="rgn:ORD" />
-        &lt;atom:category term="dc:ORD1" />
-        &lt;atom:category term="cloudsites.netapp.usage_snapshot" />
-        &lt;ns3:title type="text"> Sites &lt;/ns3:title>
-        &lt;ns3:category term="5819296:netapp" />
-        &lt;ns3:content type="application/xml">
-            &lt;ns2:event dataCenter="ORD1" environment="STAGE" eventTime="2013-10-29T17:13:48Z" id="2ae26c06-a0e4-31cf-a2f6-7c559809a405"ranEnrichmentStrategy="CI_SERVICE" region="ORD" tenantId="5819296" type="USAGE_SNAPSHOT" version="1">
-                &lt;ns4:product groupName="cc220hhg" numFiles="82" serviceCode="CloudSites" storage="167936" version="1" volume="stor1stagingord1" />
-            &lt;/ns2:event>
-        &lt;/ns3:content>
-        &lt;ns3:link href="https://atom.staging.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:2ae26c06-a0e4-31cf-a2f6-7c559809a405" rel="self" />
-        &lt;ns3:updated> 2013-10-29T17:20:06.990Z &lt;/ns3:updated>
-        &lt;ns3:published> 2013-10-29T17:20:06.990Z &lt;/ns3:published>
-    &lt;/ns3:entry>
-&lt;/feed></programlisting>
+        </section>
+        <section xml:id="Get_Atom_Entry">
+            <title>Reading a feed</title>
+            <para>To retrieve an Atom feed or an Atom entry that was posted, submit a
+                    <methodname>GET</methodname> request using the following syntax:</para>
+            <para>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
+            </para>
+            <para>The placeholders are defined in the following table.</para>
+            <para>
+                <table>
+                    <caption>Syntax elements</caption>
+                    <col width="30%"/>
+                    <col width="70%"/>
+                    <thead>
+                        <tr align="left">
+                            <td>Placeholder</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr align="left">
+                            <td><emphasis role="italic">authenticationToken</emphasis></td>
+                            <td>Specifies the token that you obtain during authentication.</td>
+                        </tr>
+                        <tr align="left">
+                            <td><emphasis role="italic">endpointURL</emphasis></td>
+                            <td>Specifies the URL/VIP that was obtained from the list of Cloud Feeds
+                                endpoints.</td>
+                        </tr>
+                        <tr align="left">
+                            <td><emphasis role="italic">feedName</emphasis></td>
+                            <td>Specifies he name of the feeds you are trying to fetch events for.
+                                An example of feed name is: nova, servers, queues, files, etc.</td>
+                        </tr>
+                        <tr align="left" security="external">
+                            <td><emphasis role="italic">tenantID</emphasis></td>
+                            <td>Specifies the tenantID for the given tenant.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>The following is an example for a request for a feed:</para>
+            <para>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
+            </para>
+            <para>This request returns 25 of the latest events in the Next Generation Cloud Server
+                feed from the DFW data center. To make the formatting of the returned events more
+                readable, you can submit the following request:</para>
+            <para>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
+            </para>
             <note>
-                <para>Control and illegal characters must be escaped
-                    in the URL.</para>
+                <para>Control and illegal characters must be escaped in the URL.</para>
             </note>
-            <para
-                xlink:href="https://atom.myserver.com/namespace/feed "
-                >To fetch events from a feed in Cloud Feeds, perform a
-                    <methodname>GET</methodname> request against the
-                following URL: </para>
-            <para security="writeronly"> FOLLOW-UP WITH SHINTA! This
-                link and the links that follow will need to be
-                replaced for the public version of the CF Dev Guide
-                (follow-up 2 weeks before the public release of the
-                guide). </para>
-            <programlisting>https://atom.myserver.com/<emphasis role="bold">feedname</emphasis>/events </programlisting>
-            <para>The feed name component of the URL above needs to be
-                replaced with the actual feed name. The response of
-                the above request will contain several links as shown
-                in the following example:</para>
-            <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
-&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:2de9cd50-5665-48f2-be91-d8fe06fdc471&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="next" />
-&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:580ea828-67a7-4f96-8c69-b4d05e81e0fa&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward" rel="last" />
-&lt;link href="https://atom.myserver.com/feedname/events/" rel="current" />
-&lt;link href="https://atom.myserver.com/feedname/events/" rel="self" /></programlisting>
-            <para>For version 1.1.0 and above, the following are the
-                links returned in the Cloud Feeds responses:</para>
+        </section>
+            <section xml:id="Navigating_through_feeds">
+                <title>Navigating through feeds</title>
+            <para>A successful response to a GET request to obtain a feed returns links that help
+                you navigate to the Atom entries of your feed. The following are the links returned
+                in the Cloud Feeds responses:</para>
             <itemizedlist>
                 <listitem>
-                    <para>The <emphasis role="bold">current</emphasis>
-                        links to the feed.</para>
+                    <para>The <emphasis role="bold">current</emphasis> links to the feed.</para>
                 </listitem>
                 <listitem>
-                    <para>Use the <emphasis role="bold"
-                            >last</emphasis> links to go to the last
-                        page of Atom entries in the database for the
-                        specified feed. This can be useful for finding
-                        the first Atom entry ever inserted for a given
-                        feed. Note that Cloud Feeds uses a mock last
-                        link marker. This helps move some of the
+                    <para>Use the <emphasis role="bold">last</emphasis> links to go to the last page
+                        of Atom entries in the database for the specified feed. This can be useful
+                        for finding the first Atom entry ever inserted for a given feed. Note that
+                        Cloud Feeds uses a mock last link marker. This helps move some of the
                         heavier queries off the feed head call.</para>
                 </listitem>
                 <listitem>
-                    <para>Use the <emphasis role="bold"
-                            >self</emphasis> link to bring back the
-                        entry that you are currently viewing. Note
-                        that in the example above, the feeds are being
-                        hit with no options; as a result, if any new
-                        Atom entries have been entered, then those
-                        will appear as well.</para>
+                    <para>Use the <emphasis role="bold">self</emphasis> link to bring back the entry
+                        that you are currently viewing. Note that in the example above, the feeds
+                        are being hit with no options; as a result, if any new Atom entries have
+                        been entered, then those will appear as well.</para>
                 </listitem>
                 <listitem>
-                    <para>Use the <emphasis role="bold"
-                            >next</emphasis> link to navigate by page
-                        to the next page of Atom entries. When you get
-                        to the end of the feed, this link will not be
-                        present.</para>
+                    <para>Use the <emphasis role="bold">next</emphasis> link to navigate by page to
+                        the next page of Atom entries. When you get to the end of the feed, this
+                        link will not be present.</para>
                 </listitem>
                 <listitem>
-                    <para>Use the <emphasis role="bold"
-                            >previous</emphasis> link to navigate by
-                        page to the previous page of Atom entries.
-                        Sometimes the link is in the feed header;
-                        however, the link will not be in the feed
-                        header if the feed is empty. If you are at the
-                        top of the feed and you follow this link, an
-                        empty feed is returned unless new entries have
-                        occurred since you last polled. In a feed, the
-                        entries are shown in order from newest to
-                        oldest. </para>
-                    <para>The following diagram shows how pagination
-                        works with Cloud Feeds:</para>
+                    <para>Use the <emphasis role="bold">previous</emphasis> link to navigate by page
+                        to the previous page of Atom entries. Sometimes the link is in the feed
+                        header; however, the link will not be in the feed header if the feed is
+                        empty. If you are at the top of the feed and you follow this link, an empty
+                        feed is returned unless new entries have occurred since you last polled. In
+                        a feed, the entries are shown in order from newest to oldest. </para>
+                    <para>The following diagram shows how pagination works with Cloud Feeds:</para>
                 </listitem>
             </itemizedlist>
             <informalfigure>
                 <mediaobject>
                     <imageobject>
-                        <imagedata
-                            fileref="images/CloudFeedsAtomHopper.png"
-                            contentwidth="6in"/>
+                        <imagedata fileref="images/CloudFeedsAtomHopper.png" contentwidth="6in"/>
                     </imageobject>
                 </mediaobject>
             </informalfigure>
             <important xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">
-                <para>When viewed in a web browser or web tool such as
-                    Poster, each <emphasis role="bold"
-                        >&amp;</emphasis> characters in a link returns
-                    as an HTML ampersand character code. To follow the
-                    link in a web browser or web tool such as Poster,
-                    you must change each HTML ampersand character
-                    (&amp;amp;) to <emphasis role="bold"
-                        >&amp;</emphasis>. For example, when viewed in
-                    a web browser, the feed returns the following
-                    link: </para>
+                <para>When viewed in a web browser or web tool such as Chrome Poster, each <emphasis
+                        role="bold">&amp;</emphasis> characters in a link returns as an HTML
+                    ampersand character code. To follow the link in a web browser or web tool such
+                    as Poster, you must change each HTML ampersand character (&amp;amp;) to
+                        <emphasis role="bold">&amp;</emphasis>. For example, when viewed in a web
+                    browser, the feed returns the following link: </para>
             </important>
-            <programlisting>&lt;link href="https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+            <programlisting>&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
-            <para>To follow the link from a web browser, you must
-                change each instance of &amp;amp; to &amp;, as shown
-                in the following example. The &amp;amp in this
-                example</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
+            <para>To follow the link from a web browser, you must change each instance of &amp;amp;
+                to &amp;, as shown in the following example. The &amp;amp in this example</para>
+            <programlisting>https://ord.feeds.api.rackspacecloud.com/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
 </programlisting>
             <para>must be changed to: </para>
-            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+            <programlisting>https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
-            <para>This issue should not be a concern when using an XML
-                Parser. </para>
+            <para>This issue should not be a concern when using an XML Parser. </para></section>
             <section xml:id="Cloud_Query_Pardle0001">
                 <title>Cloud Feeds Query Parameters</title>
-                <para>The following table lists Cloud Feeds query
-                    parameters:</para>
+                <para>The following table lists Cloud Feeds query parameters:</para>
                 <table rules="all" width="920">
                     <caption>Cloud Feeds Query Parameters</caption>
                     <col width="9%"/>
@@ -601,51 +568,34 @@
                         </tr>
                         <tr>
                             <td>direction</td>
-                            <td>The direction from the current marker
-                                (or entry) to begin getting more
-                                entries.</td>
+                            <td>The direction from the current marker (or entry) to begin getting
+                                more entries.</td>
                             <td>forward | backward</td>
                             <td>forward</td>
                         </tr>
                         <tr>
                             <td>limit</td>
-                            <td>The number of entries returned. If the
-                                entered limit is greater than the
-                                actual number of entries, the actual
-                                number of entries will be used.</td>
+                            <td>The number of entries returned. If the entered limit is greater than
+                                the actual number of entries, the actual number of entries will be
+                                used.</td>
                             <td>1 to 1,000</td>
                             <td>25</td>
                         </tr>
                         <tr>
                             <td>format</td>
-                            <td>Returns the feed in JSON format
-                                (Experimental).</td>
+                            <td>Returns the feed in JSON format (Experimental).</td>
                             <td>json</td>
                             <td>none</td>
                         </tr>
                         <tr>
                             <td>Search</td>
-                            <td>Allows filtering of feed for only
-                                events of specified category.</td>
+                            <td>Allows filtering of feed for only events of specified category.</td>
                             <td>string</td>
                             <td>none</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
-        </section>
-        <section
-            xml:id="Self-referencing-Links-with-HTTP-HTTPS-d1e1309">
-            <title>Links with HTTPS</title>
-            <para>You will notice when the Atom feed is returned that
-                each Atom entry has a self-referencing link. The
-                appearance of your self-referencing Atom entry links
-                varies depending on whether you use an HTTPS POST
-                request or not</para>
-            <para>With HTTPS POST, the link looks as
-                follows:<programlisting>&lt;link href="https://atom.myserver.com/feedname/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
-</programlisting></para>
-        </section>
         <section
             xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
             <title>Select Entries by Marker</title>
@@ -675,192 +625,81 @@
             <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
         </section>
-        <section xml:id="Getting-a-Single-Entry-d1e1313">
-            <title>Getting a Single Entry </title>
-            <para>If you submit a <methodname>GET</methodname> request
-                that contains the URL of an entry, Cloud Feeds will
-                return an XML response that contains the single entry
-                you requested as shown in the following example. </para>
-            <programlisting>&lt;entry xmlns="http://www.w3.org/2005/Atom">
-    &lt;title type="text">This is the title&lt;/title>
-    &lt;author>
-        &lt;name>John Doe&lt;/name>
-    &lt;/author>
-    &lt;content type="text">Hello World&lt;/content>
-    &lt;category term="MyCategory 1" />
-    &lt;category term="MyCategory 2" />
-    &lt;category term="MyCategory 3" />
-&lt;/entry>
-</programlisting>
-            <note>
-                <para>The UUID keyword is the unique ID of the Atom
-                    entry, which is provided by Cloud Feeds. </para>
-            </note>
-        </section>
         <section xml:id="Filter_Entries_by_Category_d1e1315">
             <title>Filtering Entries by Categories </title>
-            <para>Entries can be filtered by using the following
-                categories:</para>
-            <para><emphasis role="bold">Single
-                Category</emphasis></para>
-            <para>The entry category must be an exact match and is
-                (currently) case sensitive. No wild cards are
-                supported. </para>
-            <para>The following is an example of searching on a
-                category entered as CAT1:</para>
+            <para>Entries can be filtered by using the following categories:</para>
+            <para><emphasis role="bold">Single Category</emphasis></para>
+            <para>The entry category must be an exact match and is (currently) case sensitive. No
+                wild cards are supported. </para>
+            <para>The following is an example of searching on a category entered as CAT1:</para>
             <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1
 </programlisting>
             <note>
-                <para>%2B is the URL-encoded value of the +
-                    operator.</para>
+                <para>%2B is the URL-encoded value of the + operator.</para>
             </note>
-            <para><emphasis role="bold">Multiple
-                categories</emphasis></para>
-            <para>To perform a search on multiple categories simply
-                append additional categories; as demonstrated in the
-                following example that searches for two categories
-                    (<code>CAT1 </code>and <code>CAT5)</code>:</para>
+            <para><emphasis role="bold">Multiple categories</emphasis></para>
+            <para>To perform a search on multiple categories simply append additional categories; as
+                demonstrated in the following example that searches for two categories (<code>CAT1
+                </code>and <code>CAT5)</code>:</para>
             <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5
 </programlisting>
             <note>
-                <para>Current searching with multiple categories is an
-                    "OR" search. Any entry containing one or more of
-                    the categories specified will be returned. This
-                    may change in the future.</para>
+                <para>Current searching with multiple categories is an "OR" search. Any entry
+                    containing one or more of the categories specified will be returned. This may
+                    change in the future.</para>
             </note>
             <section xml:id="Filter_Entries_by_Category_d1e0003">
                 <title>Advanced Filtering by Category with Cloud Feeds </title>
-                <para>Cloud Feeds ships with advanced search
-                    capability. Also, advanced filters (those
-                    requiring AND, OR and NOT and their combinations)
-                    by category are supported for LDAP style search
-                    parameters. </para>
-                <para><emphasis role="bold">Single Category
-                        Filter</emphasis></para>
-                <para>Following is an example of searching on a
-                    category entered as
+                <para>Cloud Feeds ships with advanced search capability. Also, advanced filters
+                    (those requiring AND, OR and NOT and their combinations) by category are
+                    supported for LDAP style search parameters. </para>
+                <para><emphasis role="bold">Single Category Filter</emphasis></para>
+                <para>Following is an example of searching on a category entered as
                     CAT1:<programlisting>https://atom.myserver.com/feedname/events/?search=(cat=CAT1)
 </programlisting></para>
-                <para><emphasis role="bold">Multiple Category AND
-                        Filter</emphasis></para>
-                <para>Following is an example of searching on a
-                    category entered as CAT1 and CAT2: </para>
+                <para><emphasis role="bold">Multiple Category AND Filter</emphasis></para>
+                <para>Following is an example of searching on a category entered as CAT1 and CAT2: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(cat=CAT2))
 </programlisting>
-                <para>%26 is the URL-encoded value of the &amp;
-                    operator, so the decoded search string noted above
-                    is (&amp;(cat=CAT1)(cat=CAT2)).</para>
-                <para>Additionally you can use the AND operator in
-                    place of the &amp; operator in the above call. For
-                    example: </para>
+                <para>%26 is the URL-encoded value of the &amp; operator, so the decoded search
+                    string noted above is (&amp;(cat=CAT1)(cat=CAT2)).</para>
+                <para>Additionally you can use the AND operator in place of the &amp; operator in
+                    the above call. For example: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(cat=CAT2))
 </programlisting>
-                <para><emphasis role="bold">Multiple Category OR
-                        Filter</emphasis></para>
-                <para>Following is an example of searching on a
-                    category entered as CAT1 or CAT2:</para>
+                <para><emphasis role="bold">Multiple Category OR Filter</emphasis></para>
+                <para>Following is an example of searching on a category entered as CAT1 or
+                    CAT2:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(%7C(cat=CAT1)(cat=CAT2))
 </programlisting>
-                <para>The %7C is the URL-encoded value of the |
-                    operator. So the decoded search string above is
-                    (|(cat=CAT1)(cat=CAT2)).</para>
-                <para>Additionally you can use the word "OR" in place
-                    of the | operator in the above as follows:</para>
+                <para>The %7C is the URL-encoded value of the | operator. So the decoded search
+                    string above is (|(cat=CAT1)(cat=CAT2)).</para>
+                <para>Additionally you can use the word "OR" in place of the | operator in the above
+                    as follows:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(OR(cat=CAT1)(cat=CAT2))</programlisting>
-                <para><emphasis role="bold">Single Category NOT
-                        Filter</emphasis></para>
-                <para>Following is an example of searching on a
-                    category entered as NOT CAT1:</para>
+                <para><emphasis role="bold">Single Category NOT Filter</emphasis></para>
+                <para>Following is an example of searching on a category entered as NOT CAT1:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(!(cat=CAT1))
 </programlisting>
-                <para>Additionally you can use the word NOT operator
-                    in place of the ! operator in the above as
-                    follows: </para>
+                <para>Additionally you can use the word NOT operator in place of the ! operator in
+                    the above as follows: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(NOT(cat=CAT1))
 </programlisting>
-                <para><emphasis role="bold">Multiple Category COMBINED
-                        Filter</emphasis>
+                <para><emphasis role="bold">Multiple Category COMBINED Filter</emphasis>
                 </para>
-                <para>Following is an example of searching on a
-                    category entered as CAT1 and (CAT2 or CAT3 ) but
-                    not CAT4:</para>
+                <para>Following is an example of searching on a category entered as CAT1 and (CAT2
+                    or CAT3 ) but not CAT4:</para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
 </programlisting>
-                <para>The %26 is the URL-encoded value of the &amp;
-                    operator and the %7C is the URL-encoded value of
-                    the | operator, so the decoded search string in
-                    the previous example is
+                <para>The %26 is the URL-encoded value of the &amp; operator and the %7C is the
+                    URL-encoded value of the | operator, so the decoded search string in the
+                    previous example is
                     (&amp;(cat=CAT1)(|(cat=CAT2)(cat=CAT3))(!(cat=CAT4))).</para>
-                <para>Additionally you can use the AND operator in
-                    place of the &amp; operator and the word "OR" in
-                    place of the | operator noted in the above call as
-                    follows: </para>
+                <para>Additionally you can use the AND operator in place of the &amp; operator and
+                    the word "OR" in place of the | operator noted in the above call as follows: </para>
                 <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
 </programlisting>
             </section>
-            <section xml:id="Filter_Entries_by_Timestamp">
-                <title>Filtering Entries by Timestamp</title>
-                <para>You can filter for entries by timestamp by using
-                    the <parameter>StartingAt</parameter> query
-                    parameter. </para>
-                <para>The value for this parameter must be in ISO 8601
-                    Date and Time format (see <link
-                        xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
-                        >http://en.wikipedia.org/wiki/ISO_8601</link>).
-                    The parameter value <emphasis role="bold"
-                        >must</emphasis> contain a timezone, such as
-                    2014-03-10T06:00:00.000Z.</para>
-                <para>
-                    <note>
-                        <para>The <emphasis role="bold"
-                                >startingAt</emphasis> parameter can
-                            not be used together with the <emphasis
-                                role="bold">marker</emphasis>
-                            parameter.</para>
-                        <para>If the <emphasis role="bold"
-                                >startingAt</emphasis> parameter is
-                            used without a <emphasis role="bold"
-                                >direction</emphasis> parameter, then
-                            direction FORWARD is assumed. If you want
-                            to fetch feeds from a time period before
-                            the time specified in the timestamp, you
-                            need to use the <emphasis role="bold"
-                                >direction</emphasis> parameter and
-                            then the <emphasis role="bold"
-                                >backward</emphasis> description, like
-                            the following:<emphasis role="italic">
-                                direction=backward.</emphasis></para>
-                    </note>
-                </para>
-                <para>To obtain entries whose timestamp is newer than
-                    2014-03-10 00:00:00.000 UTC, you can use the
-                    following URL:
-                    <programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
-                    To fetch entries whose timestamp is older than
-                    2014-03-10 00:00:00.000 UTC, you need to specify
-                    the direcdtion as backward as shown in the
-                    following
-                    example:<programlisting>http://localhost:8080/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting></para>
-            </section>
-        </section>
-        <section xml:id="JSON_Feed_Returns_d1e1319">
-            <title>JSON Feed Returns </title>
-            <para>You can receive a feed in <link
-                    xlink:href="http://json.org">JSON</link> using the
-                format parameter and specifying json as the value:: </para>
-            <programlisting>https://atom.myserver.com/feedname/events/?format=json
-</programlisting>
-            <para>The <link
-                    xlink:href="https://cwiki.apache.org/confluence/display/ABDERA/JSON+Serialization"
-                    >Abdera JSON Writer</link> is used to translate
-                simple Atom entries to JSON. Be sure to complete a
-                full test with your Atom entries to ensure that the
-                JSON is properly matched.</para>
-            <note>
-                <para> If you need to embed JSON into an Atom XML
-                    entry, then make sure to wrap the JSON content in
-                    an XML CDATA section.</para>
-            </note>
         </section>
         <section xml:id="Weak_ETag_Support_d1e1321">
             <title>Support for Weak ETag </title>
@@ -873,11 +712,7 @@
                 ETag.</para>
             <para>Following is an example of weak ETag for a feed
                 containing more than one Atom entry:</para>
-            <programlisting>W/"urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76:urn:uuid:def3ba91-799f-4347-833e-d9a97d3359dc"</programlisting>
-            <para>The following is an example of a weak ETag for a
-                feed with only one Atom entry :</para>
-            <programlisting>W/"urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76:urn:uuid:21d39ce9-940b-4277-baa3-7daa3f209e76"
-</programlisting>
+            <programlisting>W/"4ec07c96e1399298d48db885c014703b"</programlisting>
             <para>ETags are not returned in the following situations:<orderedlist>
                     <listitem>
                         <para>The feed is empty</para>
