@@ -77,12 +77,10 @@
     </info>
     <chapter xml:id="overview">
         <title>Overview</title>
-        <para>Rackspace Cloud Feeds enables customers and Rackspace
-            apps running on the public cloud to access near real-time
-            usage and system events that can be used for analysis,
-            monitoring, and automation. This purpose of this document
-            is explain how to access feeds by using the Cloud Feeds
-            API. Cloud Feeds uses the following technologies:</para>
+        <para>Rackspace Cloud Feeds enables customers on the public cloud to access near real-time
+            usage and system events that can be used for analysis, monitoring, and automation. The
+            purpose of this document is explain how to access feeds by using the Cloud Feeds API.
+            Cloud Feeds uses the following technologies:</para>
         <itemizedlist spacing="compact">
             <listitem>
                 <para>Atom Hopper (for more information see, <link
@@ -131,46 +129,12 @@
         </itemizedlist>
         <section xml:id="Document_Change_History">
             <title>Document Change History</title>
-            <para>This version of the Developer Guide replaces and
-                obsoletes all previous versions. The most recent
-                changes are described in the table below:</para>
+            <para>This version of the guide replaces and obsoletes all previous versions. The most
+                recent changes are described in the table below:</para>
             <?rax revhistory?>
         </section>
         <section xml:id="Additional_Resources">
             <title>Additional Resources</title>
-            <para security="writeronly">Writer: Add the following
-                information in red when available: Descriptive
-                information about Cloud Feeds is also published in its
-                Web Application Description Language (WADL) and XML
-                Schema Definition (XSD). This information is available
-                at the following locations:</para>
-            <itemizedlist security="writeronly">
-                <listitem>
-                    <para>There are multiple WADLs , see Need to
-                        insert hyperlink when available</para>
-                </listitem>
-                <listitem>
-                    <para>The XSDs in the API Operations chapter, see
-                        Need to insert hyperlink when available
-                    </para>
-                </listitem>
-            </itemizedlist>
-            <para security="writeronly">You can download the most
-                current versions of other API-related documents from
-                    <link xlink:href="http://docs.rackspace.com/"
-                    >http://docs.rackspace.com/</link>. </para>
-            <para security="writeronly"> Writer: When available
-                replace the link (noted as Cloud Database) below with
-                the Cloud Feeds version. For more details about Cloud
-                Feeds, see<link
-                    xlink:href="http://www.rackspace.com/cloud/cloud_hosting_products/databases/"
-                    > Writer: A link for Cloud Feeds for more
-                    information will be developed later before the
-                    public release; followup with CF Team (Shinta)
-                    http://www.rackspace.com/cloud/cloud_hosting_products/databases/</link>This
-                site also provides links to the official Rackspace
-                support channels, including knowledge center articles,
-                forums, phone, chat, and email. </para>
             <para>For detailed information about getting started with
                 the API, see the <citetitle>Cloud Feeds Getting
                     Started Guide</citetitle> at <link
@@ -245,11 +209,6 @@
                         performance SLAs, see <link
                             xlink:href="https://one.rackspace.com/display/CIT/Atom+Hopper+Testing+and+Performance+Metrics"
                             >Testing and performance metrics</link>. </para>
-                    <para security="writeronly"> Writer: The SLAs are
-                        based on a specific date with the format
-                        XX.XX.XXXX <remark>Will need the correct
-                            date.</remark>performance test results for
-                        a feed with five million entries.</para>
                 </listitem>
             </itemizedlist>
             <para>The following table lists the performance for API
@@ -361,13 +320,12 @@
             operations.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303" security="internal">
             <title>Adding a new Atom event</title>
-            <para>You can use a <methodname>POST</methodname> request to insert new Atom entries
-                into Atom Hopper. To insert a new Atom event in a feed you first need to create an
-                Atom entry and save it in the same directory where you are making your request
-                from.</para>
-                <para>You then make a <methodname>POST</methodname> request with the specified feed
-                    URL and a pointer to the Atom entry you want to submit using the following
-                    syntax:</para>
+            <para>You can use a <command>POST </command>request to insert new Atom entries into Atom
+                Hopper. To insert a new Atom event in a feed you first need to create an Atom entry
+                and save it in the same directory where you are making your request from.</para>
+                <para>You then make a <command>POST</command> request with the specified feed URL
+                and a pointer to the Atom entry you want to submit using the following
+                syntax:</para>
                 <para>
                     <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
                 </para>
@@ -382,8 +340,9 @@
                 </para>
                 <para>
                     <important>
-                        <para>When making the post request, make sure to set the HTTP Header to
-                                <emphasis>Content-Type: application/atom+xml </emphasis></para>
+                        <para>When making the <command>POST</command> request, make sure to set the
+                        HTTP Header to <emphasis>Content-Type: application/atom+xml
+                        </emphasis></para>
                     </important>
                 </para>
                 <para>After you have successfully posted the Atom XML to the correct endpoint you
@@ -392,25 +351,21 @@
                     information for the entry, as shown in the following example:</para>
                 <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
                 <para>You will notice when the Atom feed is returned that each Atom entry has a
-                    self-referencing link. The appearance of your self-referencing Atom entry links
-                    varies depending on whether you use an HTTPS POST request or not</para>
-                <para>With HTTPS POST, the link looks as
-                    follows:<programlisting>&lt;link href="https://atom.myserver.com/feedname/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
+                self-referencing link. The appearance of your self-referencing Atom entry links
+                varies depending on whether you use an HTTPS <command>POST</command> request or
+                not</para>
+                <para>With an HTTPS <command>POST</command> request, the link looks as
+                follows:<programlisting>&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
 </programlisting></para>
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
-            <para>The Category element provides category information
-                for a feed and is case sensitive. The category XML
-                element can appear anywhere as children of the
-                atom:entry XML element. To add categories to an Atom
-                entry you must include the category element along with
-                a term attribute as shown here:</para>
-            <para><emphasis role="bold"> Single Category
-                </emphasis></para>
+            <para>The <emphasis role="italic">category</emphasis> element provides category
+                    information for a feed and is case sensitive. The category XML element can
+                    appear anywhere as children of the atom:entry XML element. To add categories to
+                    an Atom entry you must include the category element along with a term attribute
+                    as shown here:</para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
             <para>You can also add multiple categories using the following syntax:</para>
-            <para><emphasis role="bold">Multiple
-                Categories</emphasis></para>
             <programlisting>&lt;category term="mycategory1" />
 &lt;category term="mycategory2" /></programlisting>
             <note>
@@ -423,7 +378,7 @@
         <section xml:id="Get_Atom_Entry">
             <title>Reading a feed</title>
             <para>To retrieve an Atom feed or an Atom entry that was posted, submit a
-                    <methodname>GET</methodname> request using the following syntax:</para>
+                    <command>GET</command> request using the following syntax:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
@@ -480,9 +435,9 @@
         </section>
             <section xml:id="Navigating_through_feeds">
                 <title>Navigating through feeds</title>
-            <para>A successful response to a GET request to obtain a feed returns links that help
-                you navigate to the Atom entries of your feed. The following are the links returned
-                in the Cloud Feeds responses:</para>
+            <para>A successful response to a <command>GET</command> request to obtain a feed returns
+                links that help you navigate to the Atom entries of your feed. The following are the
+                links returned in the Cloud Feeds responses:</para>
             <itemizedlist>
                 <listitem>
                     <para>The <emphasis role="bold">current</emphasis> links to the feed.</para>
@@ -543,75 +498,115 @@
 </programlisting>
             <para>This issue should not be a concern when using an XML Parser. </para></section>
             <section xml:id="Cloud_Query_Pardle0001">
-                <title>Cloud Feeds Query Parameters</title>
-                <para>The following table lists Cloud Feeds query parameters:</para>
-                <table rules="all" width="920">
-                    <caption>Cloud Feeds Query Parameters</caption>
-                    <col width="9%"/>
-                    <col width="30%"/>
-                    <col width="140t"/>
-                    <col width="10%"/>
+            <title>Cloud Feeds query parameters</title>
+            <para>You can use query parameters to customize the entries and their order within a
+                feed. Query parameters are part of the URL that is passed to the server as part of
+                an API request. When you add query parameters to an API request, you modify the
+                results in ways, such as refining your query or sorting the output. </para>
+            <para>A typical URL that contains a query parameter looks like the following:</para>
+            <para><code>http://server/program/path/?query_string</code></para>
+            <para>The query string is composed of one or more field value pairs using the following
+                format:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Within each field value pair, the field name and value are separated
+                            by an equals sign (<emphasis role="italic">=</emphasis>).</para>
+                    </listitem>
+                    <listitem>
+                        <para>The series of pairs is separated by and ampersand (&amp;) as shown in
+                            the following example:</para>
+                        <para><code>field1=value1&amp;field2=value2&amp;field3=value3...</code></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>The following table summarizes the query parameters you can specify for Cloud
+                Feeds:</para>
+            <para>
+                <table>
+                    <caption>Query parameters</caption>
+                    <col width="15%"/>
+                    <col width="34%"/>
+                    <col width="51%"/>
                     <thead>
                         <tr>
-                            <th>Parameter Name</th>
+                            <th>Query parameter</th>
                             <th>Description</th>
-                            <th>Data Types/Acceptable Values</th>
-                            <th>Default</th>
+                            <th>Acceptable values</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>marker</td>
-                            <td>The unique id of an Atom entry.</td>
-                            <td>valid ID</td>
-                            <td>none</td>
+                            <td><parameter>marker</parameter></td>
+                            <td>Specifies a uuid that exists in the Cloud Feeds system.</td>
+                            <td>Must be a valid uuid that exists in the Cloud Feeds, system, for
+                                example
+                                <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.</td>
                         </tr>
                         <tr>
-                            <td>direction</td>
-                            <td>The direction from the current marker (or entry) to begin getting
-                                more entries.</td>
-                            <td>forward | backward</td>
-                            <td>forward</td>
+                            <td><parameter>direction</parameter></td>
+                            <td>Specifies the direction from which to return entries starting from
+                                the current marker or entry.</td>
+                            <td>Can be either <code>forward</code> or <code>backward</code>.</td>
                         </tr>
                         <tr>
-                            <td>limit</td>
-                            <td>The number of entries returned. If the entered limit is greater than
-                                the actual number of entries, the actual number of entries will be
-                                used.</td>
-                            <td>1 to 1,000</td>
-                            <td>25</td>
+                            <td><parameter>limit</parameter></td>
+                            <td>Specifies the number of entries to be returned. If the entered limit
+                                is greater than the actual number of entries, the actual number of
+                                entries will be used.</td>
+                            <td>Must be an integer between 1 and 1000 inclusive.</td>
                         </tr>
                         <tr>
-                            <td>format</td>
-                            <td>Returns the feed in JSON format (Experimental).</td>
-                            <td>json</td>
-                            <td>none</td>
+                            <td><parameter>search</parameter></td>
+                            <td>Allows filtering of a feed only for events of a specified
+                                category.</td>
+                            <td>See the <link linkend="Filter_Entries_by_Category_d1e1315">Filtering
+                                    entries by category</link> section.</td>
                         </tr>
                         <tr>
-                            <td>Search</td>
-                            <td>Allows filtering of feed for only events of specified category.</td>
-                            <td>string</td>
-                            <td>none</td>
+                            <td><parameter>startingAt</parameter></td>
+                            <td>Allows filtering for a number of entries that start at a specified
+                                timestamp.</td>
+                            <td>Must be in ISO 8601 Date and Time format, and must contain a time
+                                zone, for example: 2014-03-10T06:00:00.000Z. For more information,
+                                see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                                    >http://en.wikipedia.org/wiki/ISO_8601</link>.</td>
                         </tr>
                     </tbody>
                 </table>
-            </section>
+            </para>
+            <para>
+                <note>
+                    <para>The <parameter>startingAt</parameter> parameter can not be used together
+                        with the <parameter>marker</parameter> parameter. If the
+                            <parameter>startingAt</parameter> parameter is used without a
+                            <parameter>direction</parameter> parameter, then forward direction is
+                        assumed.</para>
+                </note>
+            </para>
+        </section>
         <section
             xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
-            <title>Select Entries by Marker</title>
-            <para>You can use a marker to denote an entry that you
-                have previously used. If you specify a marker in the
-                    <methodname>GET</methodname> request, you can also
-                specify a value for the direction parameter. The value
-                is either <code>forward</code> or
-                    <code>backward</code>. If you do not specify a
-                value for the direction parameter, the default value
-                of <code>forward </code>is used. </para>
-            <para><emphasis role="bold"
-                >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
-            <para><emphasis role="bold"
-                >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
-</programlisting></para>
+            <title>Filtering entries by the using the marker parameter </title>
+            <para>You can use the <parameter>marker</parameter> parameter to denote an entry that
+                you have previously used. If you specify a marker in the <command>GET</command>
+                request, you can also specify a value for the <parameter>direction</parameter>
+                parameter. The value is either <code>forward</code> or <code>backward</code>. If you
+                do not specify a value for the <parameter>direction</parameter> parameter, the
+                default value of <code>forward</code> is used. </para>
+            <para>The following example shows a <parameter>marker</parameter> parameter specified
+                and the <parameter>direction</parameter> parameter set to
+                    <parameter>forward</parameter>.</para>
+            <para>
+                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+            </para>
+            <para>The following example shows a <parameter>marker</parameter> parameter specified
+                and the <parameter>direction</parameter> parameter set to
+                    <parameter>backward</parameter>.</para>
+            <para>
+                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+</programlisting>
+            </para>
             <para>You can use the <parameter>limit</parameter>
                 parameter to specify the number of entries to return.
                 By default the limit is set to 25. The minimum limit
@@ -626,83 +621,111 @@
 </programlisting>
         </section>
         <section xml:id="Filter_Entries_by_Category_d1e1315">
-            <title>Filtering Entries by Categories </title>
-            <para>Entries can be filtered by using the following categories:</para>
-            <para><emphasis role="bold">Single Category</emphasis></para>
-            <para>The entry category must be an exact match and is (currently) case sensitive. No
-                wild cards are supported. </para>
-            <para>The following is an example of searching on a category entered as CAT1:</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1
+            <title>Filtering entries by categories <?sbr?></title>
+            <para>You can use a <command>GET</command> request to filter for certain types of events
+                you would like to obtain from a feed by defining a specific <emphasis role="italic"
+                    >search category</emphasis>. You specify the seach categories by adding
+                    <parameter>search</parameter> as the URL parameter at the end of the feeds URL
+                and then specifying the category or item you want to search for. The following
+                example shows how to get all event types that fall under the
+                    <emphasis>cloudsites.metered.site.usage</emphasis> category:</para>
+            <para>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+            </para>
+            <section xml:id="Filtering_using_AND_OR_NOT">
+                <title>Advanced Filtering using AND, OR, and NOT</title>
+                        <para>Cloud Feeds supports advanced filters using the AND, OR, and NOT
+                            operators and their combinations. </para>
+                        <para>The following example shows how to filter for multiple categories
+                            using an AND statement:</para>
+                        <para>
+                            <example security="internal">
+                                <title>Filtering for multiple categories using an AND
+                                    statement</title>
+                                <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                            </example>
+                            <example security="external">
+                                <title>Filtering for multiple categories using an AND
+                                    statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                            </example>
+                        </para>
+                        <para>The following example shows how to filter for multiple categories
+                            using an OR statement:</para>
+                        <para>
+                            <example security="internal">
+                                <title>Filtering for multiple categories using an OR
+                                    statement</title>
+                                <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
-            <note>
-                <para>%2B is the URL-encoded value of the + operator.</para>
-            </note>
-            <para><emphasis role="bold">Multiple categories</emphasis></para>
-            <para>To perform a search on multiple categories simply append additional categories; as
-                demonstrated in the following example that searches for two categories (<code>CAT1
-                </code>and <code>CAT5)</code>:</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?search=%2BCAT1%2BCAT5
+                            </example>
+                            <example security="external">
+                                <title>Filtering for multiple categories using an OR
+                                    statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
-            <note>
-                <para>Current searching with multiple categories is an "OR" search. Any entry
-                    containing one or more of the categories specified will be returned. This may
-                    change in the future.</para>
-            </note>
-            <section xml:id="Filter_Entries_by_Category_d1e0003">
-                <title>Advanced Filtering by Category with Cloud Feeds </title>
-                <para>Cloud Feeds ships with advanced search capability. Also, advanced filters
-                    (those requiring AND, OR and NOT and their combinations) by category are
-                    supported for LDAP style search parameters. </para>
-                <para><emphasis role="bold">Single Category Filter</emphasis></para>
-                <para>Following is an example of searching on a category entered as
-                    CAT1:<programlisting>https://atom.myserver.com/feedname/events/?search=(cat=CAT1)
-</programlisting></para>
-                <para><emphasis role="bold">Multiple Category AND Filter</emphasis></para>
-                <para>Following is an example of searching on a category entered as CAT1 and CAT2: </para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(cat=CAT2))
-</programlisting>
-                <para>%26 is the URL-encoded value of the &amp; operator, so the decoded search
-                    string noted above is (&amp;(cat=CAT1)(cat=CAT2)).</para>
-                <para>Additionally you can use the AND operator in place of the &amp; operator in
-                    the above call. For example: </para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(cat=CAT2))
-</programlisting>
-                <para><emphasis role="bold">Multiple Category OR Filter</emphasis></para>
-                <para>Following is an example of searching on a category entered as CAT1 or
-                    CAT2:</para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(%7C(cat=CAT1)(cat=CAT2))
-</programlisting>
-                <para>The %7C is the URL-encoded value of the | operator. So the decoded search
-                    string above is (|(cat=CAT1)(cat=CAT2)).</para>
-                <para>Additionally you can use the word "OR" in place of the | operator in the above
-                    as follows:</para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(OR(cat=CAT1)(cat=CAT2))</programlisting>
-                <para><emphasis role="bold">Single Category NOT Filter</emphasis></para>
-                <para>Following is an example of searching on a category entered as NOT CAT1:</para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(!(cat=CAT1))
-</programlisting>
-                <para>Additionally you can use the word NOT operator in place of the ! operator in
-                    the above as follows: </para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(NOT(cat=CAT1))
-</programlisting>
-                <para><emphasis role="bold">Multiple Category COMBINED Filter</emphasis>
-                </para>
-                <para>Following is an example of searching on a category entered as CAT1 and (CAT2
-                    or CAT3 ) but not CAT4:</para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(%26(cat=CAT1)(%7C(cat=CAT2)(cat=CAT3))(!(cat=CAT4)))
-</programlisting>
-                <para>The %26 is the URL-encoded value of the &amp; operator and the %7C is the
-                    URL-encoded value of the | operator, so the decoded search string in the
-                    previous example is
-                    (&amp;(cat=CAT1)(|(cat=CAT2)(cat=CAT3))(!(cat=CAT4))).</para>
-                <para>Additionally you can use the AND operator in place of the &amp; operator and
-                    the word "OR" in place of the | operator noted in the above call as follows: </para>
-                <programlisting>https://atom.myserver.com/feedname/events/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4)))
-</programlisting>
+                            </example>
+                        </para>
+                        <para>The following example shows how to filter for a category that is
+                            entered as not <emphasis role="bold">CAT1</emphasis> using a NOT
+                            statement:</para>
+                        <para>
+                            <example security="internal">
+                                <title>Filtering for a single category using a NOT statement</title>
+                                <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                            </example>
+                            <example security="external">
+                                <title>Filtering for a single category using a NOT statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                            </example>
+                        </para>
+                        <para>You can also use the AND, OR, and NOT operators to filter for multiple
+                            categories combined.</para>
+                        <para>The following example shows how to search for a category that is
+                            entered as CAT1 and ( CAT2 or CAT3 ) but not CAT4:</para>
+                        <para>
+                            <example security="internal">
+                                <title>Filtering for multiple categories using AND statement</title>
+                                <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                            </example>
+                            <example security="external">
+                                <title>Filtering for multiple categories using AND statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                            </example>
+                        </para>
+                    </section>
             </section>
-        </section>
+        <section xml:id="Filtering_by_timestamp"><title>Filtering by timestamp</title>
+            <para>You can use the <parameter>startingAt</parameter> query parameter to filter for
+                feed entries starting at a certain timestamp. The parameter takes an ISO 8601 Date
+                and Time format (see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                    >http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone, such
+                as such as 2014-03-10T06:00:00.000Z.</para>
+            <para>The following URL shows how to fetch entries with a timestamp that is newer than
+                2014-03-10 00:00:00.000 UTC:</para>
+            <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+            <para>The following URL shows how to fetch entries with a timestamp that older than
+                2014-03-10 00:00:00.000 UTC by setting the <parameter>direction</parameter>
+                parameter to <emphasis role="italic">backward</emphasis>:</para>
+            <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+            <para>
+                <note>
+                    <para>The <emphasis role="bold">startingAt</emphasis> parameter can not be used
+                        together with the <emphasis role="bold">marker</emphasis> parameter.</para>
+                    <para>If the <emphasis role="bold">startingAt</emphasis> parameter is used
+                        without a <emphasis role="bold">direction</emphasis> parameter, then
+                        direction FORWARD is assumed. If you want to fetch feeds from a time period
+                        before the time specified in the timestamp, you need to use the <emphasis
+                            role="bold">direction</emphasis> parameter and then the <emphasis
+                            role="bold">backward</emphasis> description, like the
+                            following:<emphasis role="italic"> direction=backward.</emphasis></para>
+                </note>
+            </para></section>
         <section xml:id="Weak_ETag_Support_d1e1321">
-            <title>Support for Weak ETag </title>
+            <title>Support for weak ETag </title>
             <para>Cloud Feeds supports weak entity tags (ETags). An
                 ETag identifies a specific feed version. When the
                 content of the feed changes, a different ETag is
@@ -726,7 +749,7 @@
         </section>
     </chapter>
     <chapter xml:id="General_API_Information-d1e633">
-        <title>General API Information</title>
+        <title>General API information</title>
         <para>The Cloud Feeds API is implemented using a RESTful web
             service interface. Like other products in the Rackspace
             Cloud suite, the Cloud Feeds service shares a common
@@ -1324,406 +1347,6 @@
                             version 1.0.</para>
                     </note>
                 </para>
-            </section>
-        </section>
-        <section xml:id="Request_Response_Types-d1e903">
-            <title>Request and Response Types</title>
-            <para>The Cloud Feeds API supports only XML format or both
-                JSON and XML data serialization formats depending on
-                whether it is the request or the response.</para>
-            <section xml:id="response-dle910">
-                <title>Response </title>
-                <para>Cloud Feeds API supports both the JSON and XML
-                    data serialization formats in responses. The
-                    response format can be specified in requests
-                    either by using the Accept header. Note that it is
-                    possible for a response to be serialized using a
-                    format different from the request. If no response
-                    format is specified, XML is the default. </para>
-                <para>
-                    <table frame="all">
-                        <title>Response Formats</title>
-                        <tgroup cols="4">
-                            <colspec colname="c1" colnum="1"
-                                colwidth="1.0*"/>
-                            <colspec colname="c2" colnum="2"
-                                colwidth="1.0*"/>
-                            <colspec colname="c3" colnum="3"
-                                colwidth="1.0*"/>
-                            <colspec colname="newCol4" colnum="4"/>
-                            <colspec colname="c4" colnum="5"
-                                colwidth="1.0*"/>
-                            <thead>
-                                <row>
-                                   <entry>Format</entry>
-                                   <entry>Accept Header</entry>
-                                   <entry>Query Extension</entry>
-                                   <entry>Default</entry>
-                                </row>
-                            </thead>
-                            <tbody>
-                                <row>
-                                   <entry>JSON</entry>
-                                   <entry>application/json</entry>
-                                   <entry>.json</entry>
-                                   <entry/>
-                                </row>
-                                <row>
-                                   <entry>XML</entry>
-                                   <entry>application/xml</entry>
-                                   <entry>.xml</entry>
-                                   <entry>Default</entry>
-                                </row>
-                            </tbody>
-                        </tgroup>
-                    </table>
-                </para>
-                <example>
-                    <title>JSON Response Format for Cloud
-                        Sites</title>
-                    <para>Format:
-                        https://atom.prod.ord1.us.ci.rackspace.net/sites/events</para>
-                    <programlisting>{
- "feed":{
-  "id":"urn:uuid:325a400c-88a9-4e8e-8e04-7c5034d5067f",
-  "title":"sites/events",
-  "updated":"2013-09-23T18:49:38.693Z",
-  "links":[{
-    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/",
-    "rel":"current"
-   },{
-    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/",
-    "rel":"self"
-   },{
-    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906&amp;limit=25&amp;search=&amp;direction=forward",
-    "rel":"previous"
-   },{
-    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=urn:uuid:dcca5481-70a6-3958-9bd5-97e3089e0d10&amp;limit=25&amp;search=&amp;direction=backward",
-    "rel":"next"
-   },{
-    "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward",
-    "rel":"last"
-   }
-  ],
-  "entries":[{
-    "id":"urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906",
-    "title":"Sites",
-    "content":{
-     "attributes":{
-      "type":"application/xml"
-     },
-     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-23T07:24:03Z\" id=\"d59f982f-bdba-326b-b09c-64ae87e3f906\" region=\"ORD\" resourceId=\"758393:636371_wp\" resourceName=\"636371_wp\" tenantId=\"636371\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"4161\" version=\"1\" />&lt;\/ns2:event>"
-     ]
-    },
-    "updated":"2013-09-23T18:49:38.480Z",
-    "published":"2013-09-23T18:49:38.480Z",
-    "links":[{
-      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:d59f982f-bdba-326b-b09c-64ae87e3f906",
-      "rel":"self"
-     }
-    ],
-    "categories":[{
-      "term":"tid:636371"
-     },{
-      "term":"rgn:ORD"
-     },{
-      "term":"dc:ORD1"
-     },{
-      "term":"rid:758393:636371_wp"
-     },{
-      "term":"cloudsites.db.mysql.usage_snapshot"
-     },{
-      "term":"636371:mysql"
-     }
-    ]
-   },{
-    "id":"urn:uuid:4d9c3969-de20-3fa9-8229-921f89728454",
-    "title":"Sites",
-    "content":{
-     "attributes":{
-      "type":"application/xml"
-     },
-     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-22T05:16:30Z\" id=\"4d9c3969-de20-3fa9-8229-921f89728454\" region=\"ORD\" resourceId=\"329665:448445_wpblog\" resourceName=\"448445_wpblog\" tenantId=\"448445\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"22014577\" version=\"1\" />&lt;\/ns2:event>"
-     ]
-    },
-    "updated":"2013-09-23T18:49:38.474Z",
-    "published":"2013-09-23T18:49:38.474Z",
-    "links":[{
-      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:4d9c3969-de20-3fa9-8229-921f89728454",
-      "rel":"self"
-     }
-    ],
-    "categories":[{
-      "term":"tid:448445"
-     },{
-      "term":"rgn:ORD"
-     },{
-      "term":"dc:ORD1"
-     },{
-      "term":"rid:329665:448445_wpblog"
-     },{
-      "term":"cloudsites.db.mysql.usage_snapshot"
-     },{
-      "term":"448445:mysql"
-     }
-    ]
-   },{
-    "id":"urn:uuid:d9663241-9d58-30ca-a094-69d23c322a4b",
-    "title":"Sites",
-    "content":{
-     "attributes":{
-      "type":"application/xml"
-     },
-     "children":["&lt;ns2:event xmlns:ns2=\"http://docs.rackspace.com/core/event\" dataCenter=\"ORD1\" environment=\"PROD\" eventTime=\"2013-09-22T07:16:05Z\" id=\"d9663241-9d58-30ca-a094-69d23c322a4b\" region=\"ORD\" resourceId=\"340866:432449_pligg\" resourceName=\"432449_pligg\" tenantId=\"432449\" type=\"USAGE_SNAPSHOT\" version=\"1\">&lt;ns4:product xmlns:ns4=\"http://docs.rackspace.com/usage/sites/db\" resourceType=\"MYSQL\" serviceCode=\"CloudSites\" storage=\"677908\" version=\"1\" />&lt;\/ns2:event>"
-     ]
-    },
-    "updated":"2013-09-23T18:49:38.471Z",
-    "published":"2013-09-23T18:49:38.471Z",
-    "links":[{
-      "href":"https://atom.prod.ord1.us.ci.rackspace.net/sites/events/entries/urn:uuid:d9663241-9d58-30ca-a094-69d23c322a4b",
-      "rel":"self"
-     }
-    ],</programlisting>
-                </example>
-                <example>
-                    <title>XML Response Format for Dbaas
-                        Events</title>
-                    <para>Format for:
-                        https://atom.staging.ord1.us.ci.rackspace.net/dbase/events</para>
-                    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;feed xmlns="http://www.w3.org/2005/Atom">
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/"
-        rel="current"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/"
-        rel="self"/>
-    &lt;id>urn:uuid:3c953af0-31c9-4d79-a54f-1276799ee866&lt;/id>
-    &lt;title type="text">dbaas/events&lt;/title>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward"
-        rel="previous"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=urn:uuid:866edc52-db14-4b1f-90b3-f2cd80266081&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
-        rel="next"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/?marker=last&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
-        rel="last"/>
-    &lt;updated>2013-08-21T15:49:38.082Z&lt;/updated>
-    &lt;entry>
-        &lt;atom:id xmlns:atom="http://www.w3.org/2005/Atom"
-            >urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710&lt;/atom:id>
-        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
-            term="tid:5863804"/>
-        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
-            term="rgn:ORD"/>
-        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
-            term="dc:ORD1"/>
-        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
-            term="rid:d952c563-2c2c-4e9d-8e63-0617ea91be35"/>
-        &lt;atom:category xmlns:atom="http://www.w3.org/2005/Atom"
-            term="clouddatabase.dbaas.mysql.usage"/>
-        &lt;title type="text">trove.instance.modify_volume&lt;/title>
-        &lt;link
-            href="http://127.0.0.1:8000/trove.instance.modify_volume/ccbd108f-c727-41b4-9f39-c7af9b39c4b3"
-            rel="alternate"/>
-        &lt;summary type="html">trove.instance.modify_volume&lt;/summary>
-        &lt;category term="trove.instance.modify_volume"/>
-        &lt;category term="ORD1"/>
-        &lt;category term="ORD"/>
-        &lt;category term="5863804"/>
-        &lt;content type="application/xml">
-            &lt;event xmlns="http://docs.rackspace.com/core/event"
-                dataCenter="ORD1" endTime="2013-08-21T15:45:00Z"
-                environment="STAGE"
-                id="041a7788-3c8f-4fcb-97ea-00a89d53d710" region="ORD"
-                resourceId="d952c563-2c2c-4e9d-8e63-0617ea91be35"
-                resourceName="TEST_2013-08-21 10:42:42.541071"
-                rootAction="trove.instance.modify_volume"
-                startTime="2013-08-21T15:42:43Z" tenantId="5863804"
-                type="USAGE" version="1">
-                &lt;dbaas:product
-                    xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
-                    memory="2048" resourceType="MYSQL"
-                    serviceCode="CloudDatabase" storage="1"
-                    version="1"/>
-            &lt;/event>
-        &lt;/content>
-        &lt;link
-            href="https://atom.staging.ord1.us.ci.rackspace.net/dbaas/events/entries/urn:uuid:041a7788-3c8f-4fcb-97ea-00a89d53d710"
-            rel="self"/>
-        &lt;updated>2013-08-21T15:45:02.742Z&lt;/updated>
-        &lt;published>2013-08-21T15:45:02.742Z&lt;/published>
-    &lt;/entry></programlisting>
-                </example>
-                <example>
-                    <title>XML Response Format for Glance
-                        Events</title>
-                    <para>Format for:
-                        https://atom.staging.ord1.us.ci.rackspace.net/glance/events</para>
-                    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;feed xmlns="http://www.w3.org/2005/Atom">
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/"
-        rel="current"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/"
-        rel="self"/>
-    &lt;id>urn:uuid:da3e39b4-ef4e-4c70-b383-34566c4df08c&lt;/id>
-    &lt;title type="text">glance/events&lt;/title>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward"
-        rel="previous"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.delete/52fc853a-83c6-48a2-ac73-dcd59fe2aed9/&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
-        rel="next"/>
-    &lt;link
-        href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=last&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=backward"
-        rel="last"/>
-    &lt;updated>2013-08-21T16:21:43.179Z&lt;/updated>
-    &lt;entry xml:lang="en">
-        &lt;title type="text">image.delete&lt;/title>
-        &lt;link
-            href="http://127.0.0.1:8080/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df"
-            rel="alternate"/>
-        &lt;id>tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/&lt;/id>
-        &lt;summary type="html">image.delete&lt;/summary>
-        &lt;category term="image.delete"/>
-        &lt;category term="DATACENTER=ORD1"/>
-        &lt;category term="REGION=PREPROD-ORD"/>
-        &lt;content type="application/json">{"event_type":
-            "image.delete", "timestamp": "2013-08-21 16:20:56.796173",
-            "message_id": "c68b6f7e-347e-4b94-8301-5559fc01c7df",
-            "priority": "INFO", "publisher_id":
-            "glance-api02-r2961.global.preprod-ord.ohthree.com",
-            "payload": {"status": "active", "created_at":
-            "2013-07-02T23:45:53", "name": "Daily-pt195-1372808752",
-            "deleted": true, "container_format": "ovf", "min_ram":
-            512, "disk_format": "vhd", "updated_at":
-            "2013-08-21T16:20:55.352220", "properties":
-            {"org.openstack__1__created_by":
-            "scheduled_images_service",
-            "com.rackspace__1__build_rackconnect": "1",
-            "com.rackspace__1__options": "0", "instance_type_id": "2",
-            "com.rackspace__1__release_version": "2",
-            "com.rackspace__1__release_id": "1004",
-            "com.rackspace__1__build_core": "1", "base_image_ref":
-            "88130782-11ec-4795-b85f-b55a297ba446",
-            "com.rackspace__1__kickstart_qc": "pass",
-            "org.openstack__1__os_distro": "com.ubuntu", "image_type":
-            "snapshot", "com.rackspace__1__source": "kickstart",
-            "instance_type_ephemeral_gb": "0",
-            "com.rackspace__1__release_state": "qe_passed",
-            "com.rackspace__1__build_managed": "1",
-            "org.openstack__1__architecture": "x64",
-            "com.rackspace__1__visible_core": "0",
-            "instance_type_vcpu_weight": "10",
-            "instance_type_root_gb": "20", "instance_type_name":
-            "512MB Standard Instance",
-            "com.rackspace__1__release_build_date":
-            "2013-03-06_18-27-47", "instance_type_rxtx_factor": "2",
-            "auto_disk_config": "True", "instance_type_vcpus": "1",
-            "com.rackspace__1__visible_managed": "0", "instance_uuid":
-            "40857b43-43c4-4c3b-95ea-aa59d15e6b45",
-            "instance_type_memory_mb": "512", "instance_type_swap":
-            "512", "user_id": "10035732", "instance_type_flavorid":
-            "2", "com.rackspace__1__visible_rackconnect": "0",
-            "os_type": "linux", "org.openstack__1__os_version":
-            "12.10"}, "min_disk": 20, "protected": false, "checksum":
-            "a95a15f76c4890ef45ac9ec90b364efa", "owner": "5837679",
-            "is_public": false, "deleted_at":
-            "2013-08-21T16:20:55.350976", "id":
-            "6956e8f9-ba04-4b12-a05d-6d57792ac311", "size":
-            355706880}}&lt;/content>
-        &lt;link
-            href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/entries/tag:127.0.0.1:/image.delete/c68b6f7e-347e-4b94-8301-5559fc01c7df/"
-            rel="self"/>
-        &lt;updated>2013-08-21T16:21:27.508Z&lt;/updated>
-        &lt;published>2013-08-21T16:21:27.508Z&lt;/published>
-    &lt;/entry></programlisting>
-                </example>
-                <para>
-                    <table frame="all">
-                        <title>Common HTTP Responses</title>
-                        <tgroup cols="6">
-                            <colspec colname="c1" colnum="1"
-                                colwidth="1.79*"/>
-                            <colspec colname="c2" colnum="2"
-                                colwidth="1*"/>
-                            <colspec colname="c3" colnum="3"
-                                colwidth="1.96*"/>
-                            <colspec colname="c4" colnum="4"
-                                colwidth="2.42*"/>
-                            <colspec colname="c5" colnum="5"
-                                colwidth="1.79*"/>
-                            <colspec colname="c6" colnum="6"
-                                colwidth="1.79*"/>
-                            <thead>
-                                <row>
-                                   <entry>Code Category</entry>
-                                   <entry>Code</entry>
-                                   <entry>Code Description</entry>
-                                   <entry>Example Request</entry>
-                                   <entry>Example Response</entry>
-                                   <entry>Notes</entry>
-                                </row>
-                            </thead>
-                            <tbody>
-                                <row>
-                                   <entry>Successful</entry>
-                                   <entry>200</entry>
-                                   <entry>OK</entry>
-                                   <entry>Get to Collection
-                                   URI.</entry>
-                                   <entry>200 + Atom Feed
-                                   Document</entry>
-                                   <entry>None</entry>
-                                </row>
-                                <row>
-                                   <entry>Successful</entry>
-                                   <entry>200</entry>
-                                   <entry>OK</entry>
-                                   <entry>GET to Member URI.</entry>
-                                   <entry>200 + Member
-                                   Representation</entry>
-                                   <entry>None</entry>
-                                </row>
-                                <row>
-                                   <entry>Client Error</entry>
-                                   <entry>401</entry>
-                                   <entry>None</entry>
-                                   <entry>GET with missing, expired,
-                                   or invalid token.</entry>
-                                   <entry>None</entry>
-                                   <entry>Retry with valid
-                                   token.</entry>
-                                </row>
-                                <row>
-                                   <entry>Server Error</entry>
-                                   <entry>500</entry>
-                                   <entry>Internal Server
-                                   Error</entry>
-                                   <entry>GET while database is
-                                   offline or other network
-                                   failure.</entry>
-                                   <entry>None</entry>
-                                   <entry>Retry until network error is
-                                   resolved.</entry>
-                                </row>
-                            </tbody>
-                        </tgroup>
-                    </table>
-                </para>
-            </section>
-            <section xml:id="Request-d1e1209">
-                <title>Request </title>
-                <para>Cloud Feeds API supports only XML format for
-                    requests. The request format is specified using
-                    the Content-Type header and is required for calls
-                    that have a request body. Cloud Feeds API only
-                    accept Content-Type: application/atom+xml. Any
-                    other Content-Type will result in a 400 response
-                    code. </para>
             </section>
         </section>
         <section xml:id="Limits-d1e1208">
