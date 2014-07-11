@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="identity/events"?>
+<!--
+    This example has been generated using
+    'calabash -c calabash_config.xml -p base_feed_name=identity -i [relative path to product schema]  src/xpl/generateSamples.xpl' call.
+    Some assumptions have been made when generating this and might not be correct.  Manual modification
+    might be required for the unit tests to pass.
+
+    The assumptions:
+
+      - If the productSchema requires a 'resourceId' attribute, its value is set to
+        '4a2b42f4-6c63-11e1-815b-7fcbcf67f549'.
+      - If the productSchema has <xpathAssertion> nodes, the assertions might not be satisfied
+        by the generated content.
+      - No optional nodes or attributes are generated.
+      - Does not process the 'withEventType' and 'withResource' attributes.
+-->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+   <atom:title>CloudIdentity</atom:title>
+   <atom:content type="application/xml">
+      <event xmlns="http://docs.rackspace.com/core/event"
+             xmlns:identity="http://docs.rackspace.com/event/identity/token"
+             id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+             version="1"
+             tenantId="5914283"
+             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+             eventTime="2013-03-15T11:51:11Z"
+             type="DELETE"
+             dataCenter="DFW1"
+             region="DFW">
+         <identity:product serviceCode="CloudIdentity" version="1" resourceType="TOKEN"
+             tenants="1234 tenant2 3882"/>
+      </event>
+   </atom:content>
+</atom:entry>

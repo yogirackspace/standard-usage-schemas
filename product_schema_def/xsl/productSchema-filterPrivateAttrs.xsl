@@ -61,6 +61,12 @@
                    <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
+            <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
+                             match="atom:entry/atom:category[starts-with(@term, 'rid:')]">
+                <xslout:if test="not(parent::node()/atom:content/event:event/identity:product)">
+                    <xslout:copy-of select="."/>
+                </xslout:if>
+            </xslout:template>
         </xslout:stylesheet>
 
     </xsl:template>
