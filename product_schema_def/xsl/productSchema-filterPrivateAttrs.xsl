@@ -63,7 +63,10 @@
             </xslout:template>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
                              match="atom:entry/atom:category[starts-with(@term, 'rid:')]">
-                <xslout:if test="not(parent::node()/atom:content/event:event/identity:product)">
+                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and 
+                                                                               (@value = 'cloudfeeds:service-admin' or
+                                                                                @value = 'identity:admin')]) or
+                                 not(parent::node()/atom:content/event:event/identity:product)">
                     <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
