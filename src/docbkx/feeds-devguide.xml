@@ -84,239 +84,116 @@
         <itemizedlist spacing="compact">
             <listitem>
                 <para>Atom Hopper (for more information see, <link
-                        xlink:href="http://atomhopper.org">Atom Hopper
-                    </link></para>
+                        xlink:href="http://atomhopper.org">Atom Hopper </link></para>
             </listitem>
             <listitem>
                 <para>Apache Abdera (for more information see, <link
-                        xlink:href="http://abdera.apache.org">Apache
-                        Abdera</link>)</para>
+                        xlink:href="http://abdera.apache.org">Apache Abdera</link>)</para>
             </listitem>
             <listitem>
                 <para>RFC 5023 (for more information see, <link
-                        xlink:href="http://www.ietf.org/rfc/rfc5023.txt"
-                        >RFC 5023</link>)</para>
+                        xlink:href="http://www.ietf.org/rfc/rfc5023.txt">RFC 5023</link>)</para>
             </listitem>
             <listitem>
                 <para>RC 5005 (for more information see,<link
-                        xlink:href="http://www.ietf.org/rfc/rfc5005.txt"
-                        >RC 5005</link> )</para>
+                        xlink:href="http://www.ietf.org/rfc/rfc5005.txt">RC 5005</link> )</para>
             </listitem>
             <listitem>
-                <para>RESTful web services (for more information see,
-                        <link
+                <para>RESTful web services (for more information see, <link
                         xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
                         >RESTful web services</link>)</para>
             </listitem>
             <listitem>
-                <para>HTTP/1.1 protocol (for more information see,
-                        <link
-                        xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html"
-                        >HTTP/1.1 protocol</link>)</para>
+                <para>HTTP/1.1 protocol (for more information see, <link
+                        xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1
+                        protocol</link>)</para>
             </listitem>
             <listitem>
-                <para>JSON and XML data serialization formats (for
-                    more information see, <link
-                        xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html"
-                        >JSON and XML</link>)</para>
+                <para>JSON and XML data serialization formats (for more information see, <link
+                        xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html">JSON
+                        and XML</link>)</para>
             </listitem>
             <listitem>
-                <para>Atom Syndication Format RFC 4287 (for more
-                    information see, <link
-                        xlink:href="http://www.rfc-base.org/rfc-4287.html"
-                        >JRFC 4287</link></para>
+                <para>Atom Syndication Format RFC 4287 (for more information see, <link
+                        xlink:href="http://www.rfc-base.org/rfc-4287.html">JRFC 4287</link></para>
             </listitem>
         </itemizedlist>
         <section xml:id="Document_Change_History">
-            <title>Document Change History</title>
+            <title>Document change history</title>
             <para>This version of the guide replaces and obsoletes all previous versions. The most
                 recent changes are described in the table below:</para>
             <?rax revhistory?>
         </section>
         <section xml:id="Additional_Resources">
-            <title>Additional Resources</title>
-            <para>For detailed information about getting started with
-                the API, see the <citetitle>Cloud Feeds Getting
-                    Started Guide</citetitle> at <link
-                    xlink:href="http://docs.rackspace.com/"
-                    >http://docs.rackspace.com/</link> All you need to
-                start using Cloud Feeds is the Getting Started guide,
-                the developer guide, your Rackspace Cloud account, and
-                at least one cloud server.</para>
+            <title>Additional resources</title>
+            <para>For detailed information about getting started with the API, see the
+                    <citetitle>Cloud Feeds Getting Started Guide</citetitle> at <link
+                    xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link> All
+                you need to start using Cloud Feeds is the Getting Started guide, the developer
+                guide, your Rackspace Cloud account, and at least one cloud server.</para>
             <para>Visit the <link
                     xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                    >Product Feedback Forum</link> to let us know what
-                you think about Cloud Feeds.</para>
-            <para>You can also follow Rackspace updates and
-                announcements via Twitter at: <link
+                    >Product Feedback Forum</link> to let us know what you think about Cloud
+                Feeds.</para>
+            <para>You can also follow Rackspace updates and announcements via Twitter at: <link
                     xlink:href="http://www.twitter.com/rackspace"
                     >http://www.twitter.com/rackspace</link>. </para>
-            <para>This API uses standard HTTP/1.1 response codes as
-                documented at: <link
+            <para>This API uses standard HTTP/1.1 response codes as documented at: <link
                     xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
-                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>.
-            </para>
+                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
         </section>
         <section xml:id="Pricing_SLA-d1e1362">
-            <title>Pricing and Service Level</title>
-            <para>Pricing and service level agreement (SLA)
-                information for Cloud Feeds is as follows:</para>
+            <title>Pricing and service level</title>
+            <para>Pricing and service level agreement (SLA) information for Cloud Feeds is as
+                follows:</para>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Pricing</emphasis>:
-                        Currently, Cloud feeds is available at no cost
-                        for Rackspace service admins who are using the
-                        public cloud. </para>
+                    <para><emphasis role="bold">Pricing</emphasis>: Currently, Cloud feeds is
+                        available at no cost for Rackspace service admins who are using the public
+                        cloud. </para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">SLA</emphasis>: The
-                        Cloud Feeds SLA is for publishers and
-                        subscribers. The SLA provides a support model
-                        that uses Nova as the first product to send
-                        events through Cloud Feeds.</para>
+                    <para><emphasis role="bold">SLA</emphasis>: The Cloud Feeds SLA is for
+                        publishers and subscribers. The SLA provides a support model that uses Nova
+                        as the first product to send events through Cloud Feeds. For detailed
+                        information on the amount of requests that can be made per role, see <link
+                            linkend="Rate_limits_per_role">Rate limits per role per
+                        role</link>.</para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Uptime</emphasis>: The
-                        uptime goal for Cloud Feeds is 99.999 percent.
-                        If Cloud Feeds is down, all publishers must
-                        continue to hold their events until Cloud
-                        Feeds is back up. Publishers must queue events
+                    <para><emphasis role="bold">Uptime</emphasis>: The uptime goal for Cloud Feeds
+                        is 99.999 percent. If Cloud Feeds is down, all publishers must continue to
+                        hold their events until Cloud Feeds is back up. Publishers must queue events
                         for a minimum of two days.</para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Performance
-                            Requirements (Projected
-                        Volume)</emphasis>: For projected estimates,
-                        see <link
+                    <para><emphasis role="bold">Performance Requirements (Projected
+                            Volume)</emphasis>: For projected estimates, see <link
                             xlink:href="https://docs.google.com/spreadsheet/ccc?key=0AovJFX0OgO9cdGJwUlNNbzhvcmhhSFgxUjcyX21qanc#gid=3"
-                            >projected and actual values</link>. In
-                        September 2013 Cloud Feeds needs to handle
-                        POSTs and GETs at 500 entries per second. The
-                        goal for 2013 is two million entries per hour.
-                    </para>
+                            >projected and actual values</link>.</para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Performance
-                            SLAs</emphasis>: For Cloud Feeds
-                        performance SLAs, see <link
+                    <para><emphasis role="bold">Performance Guidelines</emphasis>: For Cloud Feeds
+                        performance guidelines, see <link
                             xlink:href="https://one.rackspace.com/display/CIT/Atom+Hopper+Testing+and+Performance+Metrics"
                             >Testing and performance metrics</link>. </para>
                 </listitem>
             </itemizedlist>
-            <para>The following table lists the performance for API
-                requests for the Cloud Feeds API.</para>
-            <table rules="all">
-                <caption>Performance SLAs</caption>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-                <col width="25%"/>
-                <thead>
-                    <tr>
-                        <th>Request</th>
-                        <th>Payload</th>
-                        <th>Response Times in Seconds</th>
-                        <th>Entries per Second</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>POST with a random number categories that
-                            contain 50 threads</td>
-                        <td>One entry size at 2.5 KB</td>
-                        <td>0.15</td>
-                        <td>329.71</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>First GET request for a page with a size
-                            of 1,000 pages with category</td>
-                        <td>26.24</td>
-                        <td>None</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>First GET request for a page with a page
-                            size of 1,000 pages, without category</td>
-                        <td>11.45</td>
-                        <td>None</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>Feed head (25) with search category</td>
-                        <td>21.70</td>
-                        <td>65.76</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>Paging through a feed, with a search
-                            category and a limit of 1,000 </td>
-                        <td>6.37</td>
-                        <td>157.74</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>Paging through feed, without a search
-                            category and limit of 1,000</td>
-                        <td>5.91</td>
-                        <td>166.67</td>
-                    </tr>
-                    <tr>
-                        <td>GET</td>
-                        <td>Paging through feed, feed head (25) with
-                            search category</td>
-                        <td>0.36</td>
-                        <td>None</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table rules="all">
-                <caption>Combined Traffic Performance with 5M entries
-                    and a random number of categories:</caption>
-                <col width="33%"/>
-                <col width="33%"/>
-                <col width="33%"/>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Average Responses (per second)</th>
-                        <th>Throughput (number of entries per
-                            second)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>POST five million entries</td>
-                        <td>0.09</td>
-                        <td>543.18</td>
-                    </tr>
-                    <tr>
-                        <td>GET (1,000) with category</td>
-                        <td>22.42</td>
-                        <td>4.95</td>
-                    </tr>
-                    <tr>
-                        <td>Paging through</td>
-                        <td>8.29</td>
-                        <td>104.40</td>
-                    </tr>
-                </tbody>
-            </table>
+           
         </section>
     </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
         <title>Using Cloud Feeds</title>
-        <para>To use Cloud Feeds you need to have a basic
-            understanding of REST APIs. In this section you will learn
-            how to use the Cloud Feeds REST API to perform basic API
+        <para>To use Cloud Feeds you need to have a basic understanding of REST APIs. In this
+            section you learn how to use the Cloud Feeds REST API to perform basic API
             operations.</para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303" security="internal">
             <title>Adding a new Atom event</title>
@@ -350,28 +227,27 @@
                     body contains the Atom XML you posted in the request body, as well as category
                     information for the entry, as shown in the following example:</para>
                 <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
-                <para>You will notice when the Atom feed is returned that each Atom entry has a
+                <para>You  notice when the Atom feed is returned that each Atom entry has a
                 self-referencing link. The appearance of your self-referencing Atom entry links
                 varies depending on whether you use an HTTPS <command>POST</command> request or
-                not</para>
+                not.</para>
                 <para>With an HTTPS <command>POST</command> request, the link looks as
                 follows:<programlisting>&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
 </programlisting></para>
         <section xml:id="Adding_one-or-more-categories-d1e1305">
             <title>Adding One or More Categories</title>
-            <para>The <emphasis role="italic">category</emphasis> element provides category
-                    information for a feed and is case sensitive. The category XML element can
-                    appear anywhere as children of the atom:entry XML element. To add categories to
-                    an Atom entry you must include the category element along with a term attribute
-                    as shown here:</para>
+            <para>The <code>category</code> element provides category information for a feed and is
+                    case sensitive. The <code>category</code> element can appear anywhere as child
+                    of the <code>atom:entry</code> element. To add categories to an Atom entry you
+                    must include the <code>category</code> element along with a <code>term</code>
+                    attribute as shown here:</para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
             <para>You can also add multiple categories using the following syntax:</para>
             <programlisting>&lt;category term="mycategory1" />
 &lt;category term="mycategory2" /></programlisting>
             <note>
-                <para> Category tags are case sensitive. The <emphasis
-                        role="bold">category term</emphasis> attribute
-                    has a maximum length of 256 characters. </para>
+                <para> Category tags are case sensitive. The <code>category term</code> attribute
+                        has a maximum length of 256 characters. </para>
             </note>
         </section>
         </section>
@@ -436,18 +312,19 @@
             <section xml:id="Navigating_through_feeds">
                 <title>Navigating through feeds</title>
             <para>A successful response to a <command>GET</command> request to obtain a feed returns
-                links that help you navigate to the Atom entries of your feed. The following are the
-                links returned in the Cloud Feeds responses:</para>
+                links that help you navigate to the Atom entries of your feed. The following links
+                are returned in the Cloud Feeds responses:</para>
             <itemizedlist>
                 <listitem>
-                    <para>The <emphasis role="bold">current</emphasis> links to the feed.</para>
+                    <para>The <emphasis role="bold">current</emphasis> link node goes to the current
+                        feed.</para>
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">last</emphasis> links to go to the last page
-                        of Atom entries in the database for the specified feed. This can be useful
-                        for finding the first Atom entry ever inserted for a given feed. Note that
-                        Cloud Feeds uses a mock last link marker. This helps move some of the
-                        heavier queries off the feed head call.</para>
+                        of Atom entries in the database for the specified feed. Using the last link
+                        can be useful for finding the first Atom entry ever inserted for a given
+                        feed. Note that Cloud Feeds uses a mock last link marker. This helps move
+                        some of the heavier queries off the feed head call.</para>
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">self</emphasis> link to bring back the entry
@@ -487,14 +364,20 @@
                         <emphasis role="bold">&amp;</emphasis>. For example, when viewed in a web
                     browser, the feed returns the following link: </para>
             </important>
-            <programlisting>&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+            <programlisting security="external">&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+</programlisting>
+                <programlisting security = "internal">&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
             <para>To follow the link from a web browser, you must change each instance of &amp;amp;
                 to &amp;, as shown in the following example. The &amp;amp in this example</para>
-            <programlisting>https://ord.feeds.api.rackspacecloud.com/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
+            <programlisting security = "external">https://ord.feeds.api.rackspacecloud.com/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
+</programlisting>
+                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
 </programlisting>
             <para>must be changed to: </para>
-            <programlisting>https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+            <programlisting security = "external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+</programlisting>
+                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
             <para>This issue should not be a concern when using an XML Parser. </para></section>
             <section xml:id="Cloud_Query_Pardle0001">
@@ -598,26 +481,33 @@
                 and the <parameter>direction</parameter> parameter set to
                     <parameter>forward</parameter>.</para>
             <para>
-                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
             </para>
             <para>The following example shows a <parameter>marker</parameter> parameter specified
                 and the <parameter>direction</parameter> parameter set to
                     <parameter>backward</parameter>.</para>
             <para>
-                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+</programlisting>
+                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
             </para>
             <para>You can use the <parameter>limit</parameter>
                 parameter to specify the number of entries to return.
                 By default the limit is set to 25. The minimum limit
                 is one and the maximum is 1,000.</para>
-            <para>The following example shows a marker specified and
-                the limit set to 50, paging forward.</para>
-            <programlisting> https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+            <para>The following example shows the <parameter>marker</parameter> parameter specified
+                and the <parameter>limit</parameter> parameter set to 50, paging forward.</para>
+            <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+</programlisting>
+            <programlisting security = "external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <para>The following example shows a marker set and the
                 limit set to 50, paging backward.</para>
-            <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+            <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+</programlisting>
+            <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
         </section>
         <section xml:id="Filter_Entries_by_Category_d1e1315">
@@ -634,7 +524,7 @@
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
             </para>
             <section xml:id="Filtering_using_AND_OR_NOT">
-                <title>Advanced Filtering using AND, OR, and NOT</title>
+                <title>Advanced filtering using AND, OR, and NOT</title>
                         <para>Cloud Feeds supports advanced filters using the AND, OR, and NOT
                             operators and their combinations. </para>
                         <para>The following example shows how to filter for multiple categories
@@ -713,14 +603,14 @@
             <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
             <para>
                 <note>
-                    <para>The <emphasis role="bold">startingAt</emphasis> parameter can not be used
-                        together with the <emphasis role="bold">marker</emphasis> parameter.</para>
-                    <para>If the <emphasis role="bold">startingAt</emphasis> parameter is used
-                        without a <emphasis role="bold">direction</emphasis> parameter, then
-                        direction FORWARD is assumed. If you want to fetch feeds from a time period
-                        before the time specified in the timestamp, you need to use the <emphasis
-                            role="bold">direction</emphasis> parameter and then the <emphasis
-                            role="bold">backward</emphasis> description, like the
+                    <para>The <parameter>startingAt</parameter> parameter can not be used together
+                        with the marker parameter.</para>
+                    <para>If the <parameter>startingAt</parameter> parameter is used without a
+                            <parameter>direction</parameter> parameter, then direction <emphasis
+                            role="italic">forward </emphasis>is assumed. If you want to fetch feeds
+                        from a time period before the time specified in the timestamp, you need to
+                        use the <parameter>direction</parameter> parameter and then the <emphasis
+                            role="italic">backward </emphasis>description, like the
                             following:<emphasis role="italic"> direction=backward.</emphasis></para>
                 </note>
             </para></section>
@@ -738,12 +628,12 @@
             <programlisting>W/"4ec07c96e1399298d48db885c014703b"</programlisting>
             <para>ETags are not returned in the following situations:<orderedlist>
                     <listitem>
-                        <para>The feed is empty</para>
+                        <para>The feed is empty.</para>
                     </listitem>
                     <listitem>
-                        <para>You use a marker, specify the direction
-                            as forward, and no entries exist after
-                            that marker.</para>
+                        <para>You use the <parameter>marker</parameter> parameter, specify the
+                            direction as <emphasis role="italic">forward</emphasis>, and no entries
+                            exist after that marker.</para>
                     </listitem>
                 </orderedlist></para>
         </section>
@@ -772,8 +662,7 @@
                     >Cloud Identity Service</link>) and supplying a
                 valid username and API access key. </para>
             <section xml:id="AuthRoles-d1e699">
-                <title>Authorization Roles Required for Cloud Feeds
-                    Access</title>
+                <title>Authorization roles required for Cloud Feeds access</title>
                 <para>
                     <table frame="all">
                         <title>Roles</title>
@@ -784,44 +673,23 @@
                                 colwidth="2.57*"/>
                             <thead>
                                 <row>
-                                   <entry>Role Name</entry>
+                                   <entry>Role name</entry>
                                    <entry>Access</entry>
                                 </row>
                             </thead>
                             <tbody>
                                 <row>
-                                   <entry>cloudfeeds:admin </entry>
-                                   <entry>An administrative user,
-                                   granted full access to the
-                                   capabilities of the API for a
-                                   single tenant (POST and
-                                   GET).</entry>
-                                </row>
-                                <row>
                                    <entry>cloudfeeds:observer </entry>
-                                   <entry>Able to observe Cloud Feeds
-                                   data for a single tenant
-                                   (GET).</entry>
-                                </row>
-                                <row>
-                                   <entry>cloudfeeds:service-admin</entry>
-                                   <entry>Able to observe Cloud Feeds
-                                   data for all tenants (GET).</entry>
-                                </row>
-                                <row>
-                                   <entry>identity:admin</entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:service-admin. </entry>
+                                   <entry>Able to read Cloud Feeds data for a single tenant
+                                        (GET).</entry>
                                 </row>
                                 <row>
                                    <entry>identity:user-admin </entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:admin.</entry>
+                                   <entry>The same capabilities as cloudfeeds:observer.</entry>
                                 </row>
                                 <row>
                                    <entry>admin</entry>
-                                   <entry>The same capabilities as
-                                   cloudfeeds:admin.</entry>
+                                   <entry>The same capabilities as cloudfeeds:observer.</entry>
                                 </row>
                                 <row>
                                    <entry>observer</entry>
@@ -831,10 +699,102 @@
                             </tbody>
                         </tgroup>
                     </table>
+                    <table frame="all" security = "internal">
+                        <title>Roles</title>
+                        <tgroup cols="2">
+                            <colspec colname="c1" colnum="1"
+                                colwidth="1*"/>
+                            <colspec colname="c2" colnum="2"
+                                colwidth="2.57*"/>
+                            <thead>
+                                <row>
+                                    <entry>Role name</entry>
+                                    <entry>Access</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>cloudfeeds:observer </entry>
+                                    <entry>Able to read Cloud Feeds data for a single tenant
+                                        (GET).</entry>
+                                </row>
+                                <row>
+                                    <entry>cloudfeeds:service-admin</entry>
+                                    <entry>Able to read and write Cloud Feeds data for all tenants
+                                        (GET/POST).</entry>
+                                </row>
+                                <row>
+                                    <entry>identity:admin</entry>
+                                    <entry>The same capabilities as
+                                        cloudfeeds:service-admin. </entry>
+                                </row>
+                                <row>
+                                    <entry>identity:user-admin </entry>
+                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
+                                </row>
+                                <row>
+                                    <entry>admin</entry>
+                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
+                                </row>
+                                <row>
+                                    <entry>observer</entry>
+                                    <entry>The same capabilities as
+                                        cloudfeeds:observer.</entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </table>
                 </para>
             </section>
+            <section xml:id="Rate_limits_per_role"><title>Rate limits per role<?sbr?><?sbr?><?sbr?></title>
+                <para>Cloud Feeds limits the amount of requests that can be made within a specific
+                    time frame per role. </para>
+                <para>The following table lists the number of transactions per role and feed
+                    type.</para>
+                <para>
+                    <table frame="void">
+                        <caption>Transactions per role</caption>
+                        <col width="33%"/>
+                        <col width="33%"/>
+                        <col width="33%"/>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Number of transactions</th>
+                                <th>Feed type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>cloudfeeds:observer</td>
+                                <td>10/minute (GET requests)</td>
+                                <td>all feeds</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:service-admin</td>
+                                <td>300/second (POST requests)</td>
+                                <td>files feed</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:service-admin</td>
+                                <td>675/second (POST requests)</td>
+                                <td>sites feed</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:service-admin</td>
+                                <td>200/second (POST requests)</td>
+                                <td>all other feeds (except files and sites feeds)</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:service-admin</td>
+                                <td>350/second (GET requests)</td>
+                                <td>all feeds</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </para></section>
             <section xml:id="Geographic_Endpoints">
-                <title>Geographic Endpoints</title>
+                <title>Geographic endpoints</title>
                 <para> Rackspace Cloud Identity Service serves as the
                     entry point to all Rackspace Cloud APIs and is
                     itself a ReSTful web service. </para>
@@ -875,139 +835,189 @@
                 xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">
-                <title>Retrieving the Authentication Token</title>
-                <informaltable rules="all">
-                    <tbody>
-                        <tr>
-                            <td colspan="1">&POST; </td>
-                            <td colspan="1"> v2.0/tokens </td>
-                            <td colspan="4"> Authenticate to receive a
-                                token and a service catalog. </td>
-                        </tr>
-                    </tbody>
-                </informaltable>
-                <simpara> Normal Response Code(s):
-                        <returnvalue>200</returnvalue>,
-                        <returnvalue>203</returnvalue>
-                </simpara>
-                <simpara> Error Response Code(s): unauthorized
-                        (<errorcode>401</errorcode>), userDisabled
-                        (<errorcode>403</errorcode>), badRequest
-                        (<errorcode>400</errorcode>), authFault
-                        (<errorcode>500</errorcode>),
-                    serviceUnavailable (<errorcode>503</errorcode>) </simpara>
-                <para> The authenticate operation provides clients
-                    with an authentication token and a list of
-                    regional cloud endpoints. The sample requests and
-                    responses in this section illustrate a general
-                    case. In your authentication request, use your own
-                    credentials rather than the sample values shown
-                    here for <code>username</code> and
-                        <code>apiKey</code>. When you authenticate
-                    successfully, the response to your authentication
-                    request will include a catalog of the services to
-                    which you have subscribed rather than the sample
-                    values shown here.</para>
-                <example>
-                    <title>Auth Request: XML</title>
-                    <programlistingco>
-                        <areaspec>
-                            <area xml:id="credentials.xml.user"
-                                units="linecolumn" coords="13 17"/>
-                            <area xml:id="credentials.xml.key"
-                                units="linecolumn" coords="14 15"/>
-                        </areaspec>
-                        <programlisting language="xml">
-<xi:include href="samples/db-credentials-20.xml" parse="text"/>
-                    </programlisting>
-                    </programlistingco>
+                <title>Retrieving the authentication token</title>
+           
+                <para>To use the Cloud Feeds API, you must generate an authentication token, whether
+                    you use cURL or a REST client to interact with the Cloud Feeds API. You provide
+                    this token in the X-Auth-Token header in each Cloud Feeds API request. </para>
+                <para>The examples below demonstrate how to use cURL to obtain the authentication
+                    token and your account number. You must provide both when making subsequent
+                    Cloud Feeds API requests.</para>
+                <para>Remember to replace the placeholder names in the following authentication
+                    request examples with your information:<itemizedlist spacing="compact">
+                        <listitem>
+                            <para security="external"><emphasis role="italic"
+                                    >yourUserName</emphasis> &mdash; Your common Rackspace Cloud
+                                username, as supplied during registration.</para>
+                            <para security="internal"><emphasis role="italic"
+                                    >yourUserName</emphasis> &mdash; Your common Cloud username as
+                                supplied to you.</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis role="italic">yourApiKey</emphasis> &mdash; Your API
+                                access key.</para>
+                            <para security="external"> You can obtain the key from the Rackspace
+                                    <link xlink:href="http://mycloud.rackspace.com/">Cloud Control
+                                    Panel</link>) by accessing selecting <emphasis role="bold"
+                                    >Account Settings</emphasis> from the <emphasis role="italic"
+                                    >yourAccount</emphasis> menu in the top-right corner of the
+                                window.</para>
+                        </listitem>
+                    </itemizedlist></para>
+                <para security="internal"> You can use either of the following endpoints to access
+                    the authentication service, depending whether you use a staging or a production
+                    environment: </para>
+                <itemizedlist spacing="compact" security="internal">
+                    <listitem>
+                        <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
+                    </listitem>
+                    <listitem>
+                        <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
+                    </listitem>
+                </itemizedlist>
+                <para security="external"> You can use either of the following endpoints to access
+                    the Authentication Service, regardless of US or UK identities: </para>
+                <itemizedlist spacing="compact" security="external">
+                    <listitem>
+                        <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
+                    </listitem>
+                </itemizedlist>
+                <para security="external"> Your account might be based in either the US or the UK;
+                    this is not determined by your physical location but by the location of the
+                    Rackspace retail site which was used to create your account: </para>
+                <itemizedlist spacing="compact" security="external">
+                    <listitem>
+                        <para> If your account was created via <link
+                                xlink:href="http://www.rackspacecloud.com"
+                                >http://www.rackspacecloud.com</link>, it is a US-based account.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para> If your account was created via <link
+                                xlink:href="http://www.rackspace.co.uk"
+                                >http://www.rackspace.co.uk</link>, it is a UK-based account.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                <para security="external">Notice that you authenticate by using a special URL for
+                    the Cloud authentication service. For example, you may use
+                        <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> as shown in
+                    the following Authenticate Request examples. Note that the <code>v2.0</code>
+                    component in the URL indicates that you are using version 2.0 of the Cloud
+                    Authentication API.</para>
+                <para security="internal">Notice that you authenticate by using a special URL for
+                    the Cloud authentication service. For example, you may use
+                        <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code> or
+                        <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code> as
+                    shown in the following Authenticate Request examples. Note that the
+                        <code>v2.0</code> component in the URL indicates that you are using version
+                    2.0 of the Cloud Authentication API.</para>
+                <note security="external">
+                    <para>For UK-based accounts, you may decide to use
+                            <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
+                        instead.</para>
+                </note>
+                <note security="internal">
+                    <para>For UK-based accounts, you may decide to use
+                            <code>'https://lon.identity-internal.api.rackspacecloud.com/v2.0/tokens'</code>
+                        or
+                            <code>'https://lon.staging.identity.api.rackspacecloud.com/v2.0/tokens'</code>
+                        instead.</para>
+                </note>
+                <example security="external">
+                    <title>cURL authenticate request: XML</title>
+                    <?dbfo keep-together="always"?>
+                    <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;auth>
+   &lt;apiKeyCredentials
+      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+         username="<replaceable>yourUserName</replaceable>"
+         apiKey="<replaceable>yourApiKey"</replaceable>/>
+&lt;/auth>' \
+<option>-H 'Content-Type: application/xml'</option> \
+<option>-H 'Accept: application/xml'</option> \
+<uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
                 </example>
-                <example>
-                    <title>Auth Request: JSON</title>
-                    <programlistingco>
-                        <areaspec>
-                            <area xml:id="credentials.json.user"
-                                units="linecolumn" coords="14 22"/>
-                            <area xml:id="credentials.json.key"
-                                units="linecolumn" coords="15 20"/>
-                        </areaspec>
-                        <programlisting language="json">
-<xi:include href="samples/db-credentials-20.json" parse="text"/>
-                    </programlisting>
-                    </programlistingco>
+                <example security="internal">
+                    <title>cURL authenticate request: XML</title>
+                    <?dbfo keep-together="always"?>
+                    <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+'&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;auth>
+   &lt;apiKeyCredentials
+      xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
+         username="<replaceable>yourUserName</replaceable>"
+         apiKey="<replaceable>yourApiKey"</replaceable>/>
+&lt;/auth>' \
+<option>-H 'Content-Type: application/xml'</option> \
+<option>-H 'Accept: application/xml'</option> \
+<uri>'https://staging.identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
                 </example>
-                <calloutlist>
-                    <callout arearefs="credentials.xml.user">
-                        <para> The username supplied here is your
-                            common Rackspace Cloud username. </para>
-                    </callout>
-                    <callout arearefs="credentials.xml.key">
-                        <para> The key is your API access key. The key
-                            can be obtained from the Rackspace Cloud
-                            Control Panel in the <guimenu>&lt;Your
-                                Account></guimenu>/<guimenuitem>API
-                                Access</guimenuitem> section (login
-                            here: <link
-                                xlink:href="http://mycloud.rackspace.com/"
-                                >Control Panel Login</link>). </para>
-                    </callout>
-                </calloutlist>
+                <example security="external">
+                    <title>cURL authenticate request: JSON</title>
+                    <?dbfo keep-together="always"?>
+                    <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+     -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
+        "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
+     -H "Content-Type:
+        application/json" </screen>
+                </example>
+                <example security="internal">
+                    <title>cURL authenticate request: JSON</title>
+                    <?dbfo keep-together="always"?>
+                    <screen language="bash">curl -s https://staging.identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+     -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
+        "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
+     <emphasis role="bold">-H "Content-Type:
+        application/json" </emphasis></screen>
+                </example>
+                <para>The authentication token <code>id</code> is returned along with an
+                        <code>expires</code> attribute that specifies when the token expires. </para>
+                <note>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>The values that you receive in your responses vary from the
+                                examples shown in this document because they are specific to your
+                                account.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The information shown in the authentication response examples
+                                above is for US-based accounts. If you authenticate against the
+                                UK-endpoint for authorization service, you see the service catalog
+                                information for UK-based accounts.</para>
+                        </listitem>
+                        <listitem>
+                            <para> The <code>expires</code> attribute denotes the time after which
+                                the token will automatically expire. A token may be manually revoked
+                                before the time identified by the expires attribute;
+                                    <code>expires</code> predicts a token's maximum possible
+                                lifespan but does not guarantee that it will reach that lifespan.
+                                Clients are encouraged to cache a token until it expires.</para>
+                        </listitem>
+                        <listitem>
+                            <para>Applications should be designed to re-authenticate after receiving
+                                a 401 (Unauthorized) response from a service endpoint.</para>
+                        </listitem>
+                    </itemizedlist>
+                </note>
+                <para>The actual account number is located after the final slash (/) in the
+                        <code>publicURL</code> field. You must specify your account number on most
+                    of the Cloud Feeds API operations, wherever you see the placeholder
+                        <replaceable>tenantID</replaceable> specified in the examples in this
+                    guide.</para>
+                <para>The following examples show the response for a successful authentication
+                    request.</para>
                 <example>
-                    <title>Auth Response: XML</title>
-                    <programlistingco>
-                        <areaspec>
-                            <area xml:id="response.xml.namespaces"
-                                units="linecolumn" coords="7 9"/>
-                            <area xml:id="response.xml.token"
-                                units="linecolumn" coords="15 10"/>
-                            <area xml:id="response.xml.dfltregion"
-                                units="linecolumn" coords="16 67"/>
-                            <area xml:id="response.xml.role"
-                                units="linecolumn" coords="17 12"/>
-                            <area xml:id="response.xml.catalog"
-                                units="linecolumn" coords="22 21"/>
-                            <area xml:id="response.xml.servicetype"
-                                units="linecolumn" coords="51 34"/>
-                            <area xml:id="response.xml.servicename"
-                                units="linecolumn" coords="51 54"/>
-                            <area xml:id="response.xml.region"
-                                units="linecolumn" coords="52 30"/>
-                            <area xml:id="response.xml.tenant"
-                                units="linecolumn" coords="53 66"/>
-                            <area xml:id="response.xml.url"
-                                units="linecolumn" coords="54 9"/>
-                        </areaspec>
+                    <title>Authentication response: XML</title>
                         <programlisting language="xml"><xi:include href="samples/db-auth-20.xml" parse="text"/></programlisting>
-                    </programlistingco>
                 </example>
                 <example xml:id="auth-response-example-json">
-                    <title>Auth Response: JSON</title>
-                    <programlistingco>
-                        <areaspec>
-                            <area xml:id="response.json.namespaces"
-                                units="linecolumn" coords="200 1"/>
-                            <area xml:id="response.json.token"
-                                units="linecolumn" coords="9 8"/>
-                            <area xml:id="response.json.dfltregion"
-                                units="linecolumn" coords="16 45"/>
-                            <area xml:id="response.json.role"
-                                units="linecolumn" coords="17 12"/>
-                            <area xml:id="response.json.catalog"
-                                units="linecolumn" coords="30 8"/>
-                            <area xml:id="response.json.servicetype"
-                                units="linecolumn" coords="114 16"/>
-                            <area xml:id="response.json.servicename"
-                                units="linecolumn" coords="113 16"/>
-                            <area xml:id="response.json.region"
-                                units="linecolumn" coords="104 24"/>
-                            <area xml:id="response.json.tenant"
-                                units="linecolumn" coords="101 24"/>
-                            <area xml:id="response.json.url"
-                                units="linecolumn" coords="102 24"/>
-                        </areaspec>
-                        <programlisting language="json"><xi:include href="samples/db-auth-20.json" parse="text"/>
-                    </programlisting>
-                    </programlistingco>
+                    <title>Authentication response: JSON</title>
+                        <programlisting language="json"><xi:include href="samples/db-auth-20.json" parse="text"/></programlisting>
                 </example>
                 <note>
                     <para>The information shown in the Auth Response
@@ -1016,164 +1026,7 @@
                         you will see the service catalog information
                         for UK-based accounts.</para>
                 </note>
-                <calloutlist>
-                    <callout arearefs="response.xml.namespaces">
-                        <para> In XML responses only, a list of
-                            namespaces identifies API extensions that
-                            add functionality to the core API. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.token">
-                        <para> This token can be presented to a
-                            service as evidence of authentication.
-                            Tokens are valid for a finite duration; a
-                            token's default lifespan is twenty-four
-                            hours. </para>
-                        <para> The token's <code>expires</code>
-                            attribute denotes the time after which the
-                            token will automatically become invalid. A
-                            token may be manually revoked before the
-                            time identified by the
-                                <code>expires</code> attribute;
-                                <code>expires</code> predicts a
-                            token's maximum possible lifespan but does
-                            not guarantee that it will reach that
-                            lifespan. Clients are encouraged to cache
-                            a token until it expires. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.dfltregion">
-                        <para> Users can be assigned a default region
-                            so that, when there is a choice between
-                            multiple endpoints associated with a
-                            service in the user's catalog, the
-                            endpoint for the user's default region
-                            will be selected if it is available. In
-                            this example, the user's default region is
-                            DFW and several of the services in the
-                            user's catalog offer endpoints in that
-                            region and the ORD region; this user's
-                            work will be directed to the DFW region
-                            whenever possible. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.role">
-                        <para> Users can be assigned multiple roles,
-                            with each role providing specific
-                            privileges. In this example,
-                                <code>jsmith</code> is the
-                            administrative user for the account,
-                            holding the fully-privileged
-                                <code>identity:admin</code> role.
-                            Other users might hold other roles with
-                            different privileges. Roles need not be
-                            associated with actual job functions such
-                            as Administrator, Operator, Developer,
-                            Tester, or Trainer. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.catalog">
-                        <para> The service catalog lists the services
-                            this user can access. In this example, the
-                            user can access one database service, one
-                            loadbalancing service, two compute
-                            services (Cloud Servers OpenStack and
-                            Cloud Servers), two object storage
-                            services (Cloud Files Content Distribution
-                            Network (CDN), and Cloud Files), and one
-                            DNS service. The catalog listing for each
-                            service provides at least one endpoint URL
-                            for that service. Other information, such
-                            as regions, versions, and tenants, is
-                            provided if it's relevant to this user's
-                            access to this service. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.servicetype">
-                        <para> The service type attribute identifies
-                            services that perform similar functions,
-                            whatever those services might be named. In
-                            this example, the services named
-                            cloudServers and cloudServersOpenstack are
-                            both identified as
-                                <code>type="compute"</code>,
-                            identifying them as compute services even
-                            though the word "compute" does not appear
-                            in their names. </para>
-                        <important>
-                            <para>Use service type as the primary
-                                value for locating a service. If
-                                multiple endpoints of the same service
-                                type exist in the same region, use
-                                service name as the tiebreaker.</para>
-                        </important>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.servicename">
-                        <para> The service name attribute identifies
-                            each unique service in the catalog. Once a
-                            service is created, its name does not
-                            change. However, new services of the same
-                            service type may be added to the catalog
-                            with new names. </para>
-                        <important>
-                            <para> If you are programmatically parsing
-                                an authentication response, use
-                                service type rather than service name
-                                as the basis for determining whether a
-                                user has access to a particular kind
-                                of service. Service type is stable
-                                across all releases; new service types
-                                may be developed, but existing service
-                                types are not renamed. In this
-                                example, <code>type="compute"</code>
-                                identifies all the available compute
-                                services, one of which is named
-                                cloudServers and one of which is named
-                                cloudServersOpenStack. New compute
-                                service names may be added in future
-                                releases; whatever the compute
-                                services are named, you can always
-                                recognize them by parsing for
-                                   <code>type="compute"</code> in the
-                                authentication response's service
-                                catalog. </para>
-                        </important>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.region">
-                        <para> A service may expose endpoints in
-                            different regions. Regional endpoints
-                            allow clients to provision resources in a
-                            manner that provides high availability. </para>
-                        <para> Some services are not region-specific.
-                            These services supply a single
-                            non-regional endpoint and do not provide
-                            access to internal URLs. </para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.tenant">
-                        <para> Some services recognize specification
-                            of a tenant. If a service does recognize
-                            tenants, the format of the tenant
-                            specification is defined only by the
-                            service; for details about whether and how
-                            to specify a tenant, check the
-                            documentation for the service you are
-                            using.</para>
-                        <para> </para>
-                    </callout>
-                    <callout arearefs="response.xml.url">
-                        <para> An endpoint can be assigned public and
-                            internal URLs. A public URL is accessible
-                            from anywhere. Access to a public URL
-                            usually incurs traffic charges. Internal
-                            URLs are only accessible to services
-                            within the same region. Access to an
-                            internal URL is free of charge. </para>
-                        <para> </para>
-                    </callout>
-                </calloutlist>
+ 
                 <para>Authentication tokens are typically valid for 24
                     hours. Applications should be designed to
                     re-authenticate after receiving a 401
@@ -1223,14 +1076,14 @@
             </section>
         </section>
         <section xml:id="Service_Access_Endpoints-d1e753">
-            <title>Service Access/Endpoints</title>
+            <title>Service access/endpoints</title>
             <para>Cloud Feeds service is a regionalized service.
                 Therefore, the user of the service is responsible for
                 appropriate replication, caching, and overall
                 maintenance of Cloud Feeds data across regional
                 boundaries to other Cloud Feeds servers. </para>
             <table>
-                <caption>Regionalized Service Endpoints</caption>
+                <caption>Regionalized service endpoints</caption>
                 <thead>
                     <tr align="center">
                         <td colspan="2">Region</td>
@@ -1240,39 +1093,35 @@
                 <tbody>
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
-                        <td colspan="5"
-                                ><code>https://ord.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        <td colspan="5"><code>https://ord.feeds.api.rackspacecloud.com/v1.0/</code>
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                        <td colspan="5"
-                                ><code>https://dfw.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                        <td colspan="5"><code>https://dfw.feeds.api.rackspacecloud.com/v1.0/</code>
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
                         <td colspan="5">
-                            <code>https://lon.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
-                        </td>
+                            <code>https://lon.feeds.api.rackspacecloud.com/v1.0/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
                         <td colspan="5">
-                            <code>https://syd.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
-                        </td>
+                            <code>https://syd.feeds.api.rackspacecloud.com/v1.0/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Hong Kong (HKG)</td>
                         <td colspan="5">
-                            <code>https://hkg.feeds.api.rackspacecloud.com/v1.0/</code><parameter>1234</parameter>/
+                            <code>https://hkg.feeds.api.rackspacecloud.com/v1.0/</code>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </section>
         <section xml:id="CloudFeedsEventsVersions-d1e757">
-            <title>Cloud Feeds Events Versions</title>
+            <title>Cloud Feeds events versions</title>
             <para>Core Event and Product Event are the two types of
                 event versions used by Cloud Feeds.</para>
             <section xml:id="Product_Event-d1e825">
@@ -1300,7 +1149,7 @@
                     examples of instances for Cloud Backup Product
                     Event versions one and two:</para>
                 <example>
-                    <title>Version 1 Cloud Backup Product Event </title>
+                    <title>Version 1 cloud backup product event </title>
                     <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;?atom feed="backup/events"?> &lt;!-- ignore &lt;?atom..?>, used for testing -->
 &lt;atom:entry xmlns="http://docs.rackspace.com/core/event"
@@ -1320,8 +1169,7 @@
 &lt;/atom:entry></programlisting>
                 </example>
                 <example>
-                    <title>Version 2 Cloud Backup Product Event
-                        Example</title>
+                    <title>Version 2 cloud backup product event example</title>
                     <programlisting>&lt;event xmlns="http://docs.rackspace.com/core/event"
        xmlns:cb-lic="http://docs.rackspace.com/usage/cloudbackup/license"
        endTime="2012-06-15T10:19:52Z" startTime="2012-06-14T10:19:52Z"
@@ -1336,17 +1184,7 @@
                     resourceType="AGENT"/>
 &lt;/event></programlisting>
                 </example>
-                <para security="writeronly">Need to update this
-                    example when URL for Cloud Feeds is available: <example>
-                        <title>Sample Request URL for Contract Version
-                            1.0</title>
-                        <programlisting>https://ord.databases.api.rackspacecloud.com/<emphasis role="strong">v1.0</emphasis>/1234</programlisting>
-                    </example>
-                    <note>
-                        <para>This document pertains to contract
-                            version 1.0.</para>
-                    </note>
-                </para>
+                <para security="writeronly"> </para>
             </section>
         </section>
         <section xml:id="Limits-d1e1208">
@@ -1359,28 +1197,26 @@
                     limits</firstterm>. Rate limits are thresholds
                 that are reset after a certain amount of time passes.
                 Absolute limits are fixed. </para>
-            <para security="writeronly"> Writer: Add section titled
-                Rate_Limits once there are rate limits for GET. </para>
             <section xml:id="Absolute_Limits-d1e1397">
-                <title>Absolute Limit</title>
+                <title>Absolute limit</title>
                 <para>One thousand is the maximum number of Atom
                     entries that can be returned in a single
                     page.</para>
             </section>
             <section xml:id="retention_limit">
-                <title>Retention Limit</title>
+                <title>Retention limit</title>
                 <para>Elements are retained for a maximum of three
                     days. Anything that exceeds that time limit is
                     stored in archival links. </para>
             </section>
             <section xml:id="httpPRL">
-                <title>HTTP POST Request Limit</title>
+                <title>HTTP POST request limit</title>
                 <para>The maximum size limit in a
                         <methodname>POST</methodname> request is
                     200,000 bytes. </para>
             </section>
             <section xml:id="datetimeformat">
-                <title>Date and Time Format</title>
+                <title>Date and time Format</title>
                 <para> For the display and consumption of date and
                     time values, the Cloud Feeds service uses a date
                     format that complies with ISO 8601. </para>
@@ -1388,7 +1224,7 @@
                     Feeds Date/Time and an example. An example of the
                     Date/Time follows: </para>
                 <example>
-                    <title>Cloud Feeds Date and Time Format Example </title>
+                    <title>Cloud Feeds date and time format example </title>
                     <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
                     <para>
                         <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
@@ -1403,8 +1239,7 @@
                     </para>
                 </example>
                 <table rules="all">
-                    <caption>Explanation of Date/Time Format
-                        Codes</caption>
+                    <caption>Explanation of date/time format codes</caption>
                     <thead>
                         <tr>
                             <td>Code</td>
@@ -1454,13 +1289,11 @@
             </section>
             <section xml:id="pagination">
                 <title>Pagination</title>
-                <para>To reduce load on the service, list operations
-                    return a maximum of 25 entries at a time. However,
-                    you can use the limit parameter in the GET request
-                    to allow up to 1,000 entries per page. Specifying
-                    the number of entries to return is referred to as
-                    pagination. If a request supplies no limit or one
-                    that exceeds the configured default limit, the
+                <para>To reduce load on the service, list operations return a maximum of 25 entries
+                    at a time. However, you can use the limit parameter in the
+                        <command>GET</command> request to allow up to 1,000 entries per page.
+                    Specifying the number of entries to return is referred to as pagination. If a
+                    request supplies no limit or one that exceeds the configured default limit, the
                     default value is used instead.</para>
                 <para>Pagination provides the ability to limit the
                     size of the returned data and retrieve a specified
@@ -1486,8 +1319,7 @@
                     is returned.</para>
             </section>
             <section xml:id="Rules_CF_PS">
-                <title>Rules for Cloud Feeds Publishers and
-                    Subscribers</title>
+                <title>Rules for Cloud Feeds publishers and subscribers</title>
                 <para><emphasis role="bold">Rules for
                         Subscribers</emphasis></para>
                 <para>Subscribers may receive the following
@@ -1501,11 +1333,11 @@
                     <col width="16%"/>
                     <thead>
                         <tr>
-                            <th>Code Category</th>
+                            <th>Code category</th>
                             <th>Code</th>
-                            <th>Code Description</th>
-                            <th>Example Request</th>
-                            <th>Example Response</th>
+                            <th>Code description</th>
+                            <th>Example request</th>
+                            <th>Example response</th>
                             <th>Notes</th>
                         </tr>
                     </thead>
@@ -1588,11 +1420,11 @@
                     <col width="16%"/>
                     <thead>
                         <tr>
-                            <th>Code Category</th>
+                            <th>Code category</th>
                             <th>Code</th>
-                            <th>Code Description</th>
-                            <th>Example Request</th>
-                            <th>Example Response</th>
+                            <th>Code description</th>
+                            <th>Example request</th>
+                            <th>Example response</th>
                             <th>Notes</th>
                         </tr>
                     </thead>
@@ -1604,7 +1436,8 @@
                             <td>POST to Collection URI with Member
                                 Representation. </td>
                             <td>Location: Member Entry URI</td>
-                            <td/>
+                            <td>The entry was successfully published to the feed, no further action
+                                is needed</td>
                         </tr>
                         <tr>
                             <td>Client Error</td>
@@ -1917,8 +1750,7 @@
             </section>
             <section xml:id="RBAC-Permissions-Cross-Ref-d1e001"
                 version="5.0">
-                <title>RBAC Permissions Cross-reference to Cloud Feeds
-                    API Operations</title>
+                <title>RBAC permissions cross-reference to Cloud Feeds API operations</title>
                 <para>API operations for Cloud Feeds may or may not be
                     available to all roles. To see which operations
                     are permitted to invoke which calls, please review
