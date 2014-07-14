@@ -17,7 +17,9 @@
     <xsl:variable name="MAX_STRING">255</xsl:variable>
     <xsl:variable name="MAX_OCCURS_VALUE">5000</xsl:variable>
 
-    <xsl:template match="//schema:productSchema[not(@type) or contains( @type, 'USAGE') or contains( @type, 'USAGE_SNAPSHOT')]">
+    <xsl:template match="//schema:productSchema[@type and not( contains( string(@type), 'USAGE' ) ) and not( contains( string(@type), 'USAGE_SNAPSHOT')) ]"/>
+
+    <xsl:template match="//schema:productSchema[not(@type) or contains( string(@type), 'USAGE') or contains( string(@type), 'USAGE_SNAPSHOT')]">
         <xsl:variable name="product_namespace">
             <xsl:value-of select="@namespace"/>
         </xsl:variable>
@@ -49,12 +51,9 @@
             <xsl:processing-instruction name="atom">
                 feed="usagesummary/<xsl:value-of select="$base_feed_name"/>/events"</xsl:processing-instruction>
             <xsl:text>&#x0a;</xsl:text>
-            <!--
-               Once we fix o-link and can run from maven, replace with  'mvn -P generate-samples clean generate-sources -DproductSchema=<xsl:value-of select="$input_path"/> -DfeedName=<xsl:value-of select="$base_feed_name"/>' call.
-            -->
             <xsl:comment>
     This example summary entry has been generated using
-    'calabash -c calabash_config.xml -p base_feed_name=<xsl:value-of select="$base_feed_name"/> -i [relative path to product schema] src/xpl/generateSamples.xpl' call.
+    'mvn -P generate-samples clean generate-sources -DproductSchema=<xsl:value-of select="$input_path"/> -DfeedName=<xsl:value-of select="$base_feed_name"/>' call.
     Some assumptions have been made when generating this and might not be correct.  Manual modification
     might be required for the unit tests to pass.
 

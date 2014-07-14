@@ -39,7 +39,7 @@
 -->
     <p:when test="boolean( //*:productSchema[contains( @namespace, 'usage')])">
 
-      <p:output port="secondary">
+      <p:output port="secondary" sequence="true">
         <p:pipe step="genSummary" port="secondary"/>
       </p:output>
 
@@ -104,7 +104,7 @@
         <p:pipe step="genBigData" port="result"/>
       </p:input>
       <p:input port="stylesheet">
-        <p:document href="../../wadl/bigdata.xsl" />
+        <p:document href="../../wadl/synthesize_lbaas.xsl" />
       </p:input>
       <p:input port="parameters">
         <p:empty/>

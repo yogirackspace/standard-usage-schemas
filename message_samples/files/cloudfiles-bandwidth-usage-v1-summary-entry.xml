@@ -24,10 +24,10 @@
              xmlns:sample="http://docs.rackspace.com/usage/cloudfiles/bandwidth"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
-             tenantId="1234"
+             tenantId="123456"
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T11:51:11Z"
-             duration="PT10M"
+             duration="PT20M"
              type="USAGE_SUMMARY"
              dataCenter="DFW1"
              region="DFW">

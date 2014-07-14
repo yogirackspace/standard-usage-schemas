@@ -1,6 +1,9 @@
 ## intellij stuff
 .idea/
 
+## used to verify sample generation
+message_samples/usagetest6/
+
 *~
 *.DS_Store
 *.iml
