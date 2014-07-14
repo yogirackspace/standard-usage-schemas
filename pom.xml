@@ -692,7 +692,8 @@
                     <phase>generate-sources</phase>
                     <configuration>
                       <includes>feeds-getting-started.xml</includes>
-              <security>internal</security>
+                        <security>internal</security>
+                        <enableDisqus>intranet</enableDisqus>
               <enableGoogleAnalytics>0</enableGoogleAnalytics>
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
                     </configuration>

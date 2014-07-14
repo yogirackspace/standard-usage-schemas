@@ -154,12 +154,16 @@
                 </para>
             </listitem>
             <listitem>
-                <para>If you like to use a more graphical interface,
-                    the REST client for Firefox, also works well for
-                    testing and trying out commands. See <link
+                <para>If you like to use a more graphical interface, the REST client for Firefox
+                    also works well for testing and trying out commands. See <link
                         xlink:href="https://addons.mozilla.org/en-US/firefox/addon/restclient/"
-                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>.
-                </para>
+                        >https://addons.mozilla.org/en-US/firefox/addon/restclient/</link>. </para>
+            </listitem>
+            <listitem>
+                <para>You can also try a tool, such as Chrome Poster, which allows you to make HTTP
+                    requests without using REST. See <link
+                        xlink:href="https://code.google.com/p/chrome-poster/"
+                        >https://code.google.com/p/chrome-poster/</link>.</para>
             </listitem>
             <listitem>
                 <para>You can also download and install RESTclient, a
@@ -570,10 +574,10 @@
                 </tbody>
             </table>
         </para>
-    <para>You can view the role for which you are enabled in the
-            successful response to an authentication request. The
-            example below shows a tenant who has been enabled for the
-                <emphasis role="italic">service-admin</emphasis> role. </para>
+    <para>You can view the role for which you are enabled in the successful response to an
+            authentication request. The example below shows a port of the successfull authentication
+            response for a tenant who has been enabled for the <emphasis role="italic"
+                >service-admin</emphasis> role. </para>
         <para>
             <programlisting>
   "user": {
@@ -635,8 +639,8 @@
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
                         <td colspan="5"
-                                ><code>https://ord.feeds.api.rackspacecloud.com/&lt;feed
-                                >/&lt;tenant id></code></td>
+                                ><code>https://ord.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
+                                id></code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
@@ -916,7 +920,7 @@
     &lt;atom:category term="dc:DFW1" />
     &lt;atom:content type="application/xml">
       &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
-          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW"resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
+          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
           startTime="2012-03-12T11:51:11Z" tenantId="65909bc5" type="USAGE" version="1">
         &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
           mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
@@ -929,7 +933,7 @@
   &lt;/atom:entry>
 </programlisting>
             </example>
-            <para>
+            <para security = "internal">
                 <note>
                     <para>Cloud Feeds evaluates all product events
                         against their XML schemas. </para>
@@ -1085,17 +1089,14 @@
                 output. </para>
             <para>A typical URL that contains a query parameter looks
                 like the following:</para>
-            <para><code>http://server/program/path/?query_string
-                </code></para>
+            <para><code>http://server/program/path/?query_string</code></para>
             <para>The query string is composed of one or more field
                 value pairs using the following format:</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>Within each field value pair, the field
-                            name and value are separated by an equals
-                            sign (<emphasis role="italic">
-                                =</emphasis>).</para>
+                        <para>Within each field value pair, the field name and value are separated
+                            by an equals sign (<emphasis role="italic">=</emphasis>).</para>
                     </listitem>
                     <listitem>
                         <para>The series of pairs is separated by and
@@ -1188,6 +1189,30 @@
                 targetptr="Filter_Entries_by_Category_d1e1315"
                 >“Filtering Entries by Categories
                 ”</olink>.</para>
+            <section xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
+                <title>Filtering entries by the using the Marker parameter </title>
+                <para>You can use a marker to denote an entry that you have previously used. If you
+                    specify a marker in the <methodname>GET</methodname> request, you can also
+                    specify a value for the direction parameter. The value is either
+                        <code>forward</code> or <code>backward</code>. If you do not specify a value
+                    for the direction parameter, the default value of <code>forward </code>is used. </para>
+                <para><emphasis role="bold"
+                    >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
+                <para><emphasis role="bold"
+                    >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+</programlisting></para>
+                <para>You can use the <parameter>limit</parameter> parameter to specify the number
+                    of entries to return. By default the limit is set to 25. The minimum limit is
+                    one and the maximum is 1,000.</para>
+                <para>The following example shows a marker specified and the limit set to 50, paging
+                    forward.</para>
+                <programlisting> https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+</programlisting>
+                <para>The following example shows a marker set and the limit set to 50, paging
+                    backward.</para>
+                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+</programlisting>
+            </section>
             <section xml:id="Filter_by_Search_Category">
                 <title>Filtering by search category</title>
             <para>You can use a <methodname>GET</methodname> request
@@ -1278,11 +1303,12 @@
             <section xml:id="Filter_by_timestamp">
                 <title>Filtering by
                     timestamp<?sbr?><?sbr?><?sbr?></title>
-                <para>You can use the
-                        <parameter>startingAt</parameter> query
-                    parameter to filter for feed entries starting at a
-                    certain timestamp. The parameter takes an ISO 8601
-                    Date and Time format and must contain a timezone. </para>
+                <para>You can use the <parameter>startingAt</parameter> query parameter to filter
+                    for feed entries starting at a certain timestamp. The parameter takes an ISO
+                    8601 Date and Time format  (see <link
+                        xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                        >http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone,
+                    such as such as 2014-03-10T06:00:00.000Z.</para>
             <para>The following URL shows how to fetch entries with a
                     timestamp that is newer than 2014-03-10
                     00:00:00.000 UTC:</para>
@@ -1295,7 +1321,22 @@
                     >backward</emphasis>:</para>
             <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
             <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
-                </section>
+                <para>
+                    <note>
+                        <para>The <emphasis role="bold">startingAt</emphasis> parameter can not be
+                            used together with the <emphasis role="bold">marker</emphasis>
+                            parameter.</para>
+                        <para>If the <emphasis role="bold">startingAt</emphasis> parameter is used
+                            without a <emphasis role="bold">direction</emphasis> parameter, then
+                            direction FORWARD is assumed. If you want to fetch feeds from a time
+                            period before the time specified in the timestamp, you need to use the
+                                <emphasis role="bold">direction</emphasis> parameter and then the
+                                <emphasis role="bold">backward</emphasis> description, like the
+                                following:<emphasis role="italic">
+                            direction=backward.</emphasis></para>
+                    </note>
+                </para>    
+            </section>
         </section>
     </chapter>
     <chapter xml:id="Next_Steps">
