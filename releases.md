@@ -1,5 +1,15 @@
 # Changelog for Usage Schema
 
+
+**usage-schema-1.58.0**  
+2014-07-11 | D-18710: add check for role (Shinta Smith)  
+2014-07-11 | D-18710: filter out category with term=rid:... for Identity delete token event (Shinta Smith)  
+2014-07-10 | B-74692 - Hide certain events from external observers (Greg Sharek)  
+
+**usage-schema-1.57.1**  
+2014-07-08 | B-74332: also add AtomFeedAllowJson to feeds that can be fetched with format=json (Shinta Smith)  
+
+**usage-schema-1.57.0**  
 2014-07-07 | B-75319: add more attributes to be private, remove private feeds from Observer role (Shinta Smith)  
 2014-07-07 | B-75239 - Change allowable values for nova status attributes (Greg Sharek)  
 2014-07-03 | D-18332 - ensure events have clean categories (Greg Sharek)  
