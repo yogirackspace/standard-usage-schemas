@@ -31,9 +31,6 @@
             <resource id="dbaas_events_obs" 
                       path="dbaas/events"
                       type="wadl/feed.wadl#TenantAtomFeed"/>
-            <resource id="dedicatedvcloud_events_obs" 
-                      path="dedicatedvcloud/events"
-                      type="wadl/feed.wadl#TenantAtomFeed"/>
             <resource id="dns_events_obs"
                       path="dns/events" 
                       type="wadl/feed.wadl#TenantAtomFeed"/>
@@ -90,9 +87,6 @@
                           type="wadl/feed.wadl#TenantAtomFeed"/>
                 <resource id="dbaas_usagesummary_events_obs"
                           path="dbaas/events"
-                          type="wadl/feed.wadl#TenantAtomFeed"/>
-                <resource id="dedicatedvcloud_sum_events_obs"
-                          path="dedicatedvcloud/events"
                           type="wadl/feed.wadl#TenantAtomFeed"/>
                 <resource id="files_usagesummary_events_obs"
                           path="files/events"

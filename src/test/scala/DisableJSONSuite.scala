@@ -40,8 +40,8 @@ class DisableJSONSuite extends BaseUsageSuite {
             assertResultFailed(atomValidatorIdentity.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/vnd.collection+json")) ), response, chain), 406 )
         }
 
-        test("Getting /dedicatedvcloud feed JSON Content as observer with Accept: application/json should fail with 406") {
-            assertResultFailed(atomValidatorObserver.validate(request("GET", "/dedicatedvcloud/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
+        test("Getting /monitoring feed JSON Content as observer with Accept: application/json should fail with 406") {
+            assertResultFailed(atomValidatorObserver.validate(request("GET", "/monitoring/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
 
         test("Getting /functest1 feed JSON Content with Accept: application/json should fail with 406") {
