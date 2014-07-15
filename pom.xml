@@ -127,6 +127,68 @@
                 <artifactId>olink-maven-plugin</artifactId>
                 <version>${olink-maven-plugin.version}</version>
                 <executions>
+                    <!--
+                       Execute sample generation for widget as a unit test for
+                       sample generation
+                    -->
+
+                    <execution>
+                        <id>generate-samples-test-1</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateSamples.xpl</pipeline>
+                            <inputs>
+                                <source>sample_product_schemas/widget.xml</source>
+                            </inputs>
+                            <parameters>
+                                <parameters>
+                                    base_feed_name=usagetest6
+                                    input_path=sample_product_schemas/widget.xml
+                                </parameters>
+                            </parameters>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-samples-test-2</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateSamples.xpl</pipeline>
+                            <inputs>
+                                <source>sample_product_schemas/widget-with-explicit-aggreation-period.xml</source>
+                            </inputs>
+                            <parameters>
+                                <parameters>
+                                    base_feed_name=usagetest6
+                                    input_path=sample_product_schemas/widget-with-explicit-aggreation-period.xml
+                                </parameters>
+                            </parameters>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-samples-test-3</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateSamples.xpl</pipeline>
+                            <inputs>
+                                <source>sample_product_schemas/widget-with-mulitple-aggregation-periods.xml</source>
+                            </inputs>
+                            <parameters>
+                                <parameters>
+                                    base_feed_name=usagetest6
+                                    input_path=sample_product_schemas/widget-with-mulitple-aggregation-periods.xml
+                                </parameters>
+                            </parameters>
+                        </configuration>
+                    </execution>
                     <execution>
                         <id>generate-product-xsd</id>
                         <phase>initialize</phase>
