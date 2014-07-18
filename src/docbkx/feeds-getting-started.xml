@@ -638,49 +638,33 @@
                 <tbody>
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
-                        <td colspan="5"
-                                ><code>https://ord.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                        <td colspan="5"><code>https://ord.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                        <td colspan="5"
-                                ><code>https://dfw.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                        <td colspan="5"><code>https://dfw.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Northern Virginia</td>
-                        <td colspan="5"
-                                ><code>https://iad.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                        <td colspan="5"><code>https://iad.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
-                        <td colspan="5"
-                                ><code>https://lon.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                        <td colspan="5"><code>https://lon.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
                         <td colspan="5">
-                            <code>https://syd.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                            <code>https://syd.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Hong Kong (HKG)</td>
                         <td colspan="5">
-                            <code>https://hkg.feeds.api.rackspacecloud.com/&lt;feed>/&lt;tenant
-                                id></code></td>
+                            <code>https://hkg.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                 </tbody>
             </table></para>
-            <para security="external">Replace &lt;tenant id> with your
-            actual account number returned as part of the
-            authentication response. Use your actual account number
-            wherever you see the placeholder
-                <replaceable>tenantID</replaceable> specified in this
-            guide. </para>
-        <note security="internal">
+        <note>
             <itemizedlist>
                 <listitem>
                     <para>Choose the endpoint for the data center
@@ -692,11 +676,14 @@
                         database resides.</para>
                 </listitem>
                 <listitem>
-                    <para>All examples in this guide assume that you
-                        are operating against the DFW data center,
-                        however, if you are using a different
-                        datacenter, be sure to use the associated
-                        endpoint from the table instead.</para>
+                    <para>All examples in this guide assume that you are operating against the DFW
+                        data center, however, if you are using a different datacenter, be sure to
+                        use the associated endpoint from the table instead.</para>
+                </listitem>
+                <listitem>
+                    <para>The endpoints provided in this sections are the base URL for accessing
+                        Cloud Feeds. To access actual feeds, you need to provide additional
+                        information.</para>
                 </listitem>
             </itemizedlist>
         </note>
@@ -714,14 +701,13 @@
                 <tbody>
                     <tr align="left">
                         <td colspan="2">US</td>
-                        <td colspan="5"
-                                ><code>https://atom.staging.ord1.us.ci.rackspace.net/&lt;feed></code>
+                        <td colspan="5"><code>https://atom.staging.ord1.us.ci.rackspace.net</code>
                         </td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">UK</td>
                         <td colspan="5"
-                                ><code>https://atom.staging.ord1.uk.ci.rackspace.net/&lt;feed></code></td>
+                            ><code>https://atom.staging.ord1.uk.ci.rackspace.net</code></td>
                     </tr>
                 </tbody>
             </table>
@@ -740,33 +726,28 @@
                 <tbody>
                     <tr align="left">
                         <td colspan="2">Chicago (ORD)</td>
-                        <td colspan="5"
-                                ><code>https://atom.prod.ord1.us.ci.rackspace.net/&lt;feed></code></td>
+                        <td colspan="5"><code>https://atom.prod.ord1.us.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                        <td colspan="5"
-                                ><code>https://atom.prod.dfw1.us.ci.rackspace.net/&lt;feed></code></td>
+                        <td colspan="5"><code>https://atom.prod.dfw1.us.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Northern Virginia IAD)</td>
                                 <td colspan="5"
-                                ><code>https://atom.prod.iad3.us.ci.rackspace.net/&lt;feed></code></td>
+                                ><code>https://atom.prod.iad3.us.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
-                        <td colspan="5"
-                                ><code>https://atom.prod.lon1.uk.ci.rackspace.net/&lt;feed></code></td>
+                        <td colspan="5"><code>https://atom.prod.lon1.uk.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
-                        <td colspan="5"
-                                ><code>https://atom.prod.syd2.us.ci.rackspace.net/&lt;feed></code></td>
+                        <td colspan="5"><code>https://atom.prod.syd2.us.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Hong Kong (HKG)</td>
-                        <td colspan="5"
-                                ><code>https://atom.prod.hkg1.us.ci.rackspace.net/&lt;feed></code></td>
+                        <td colspan="5"><code>https://atom.prod.hkg1.us.ci.rackspace.net</code></td>
                     </tr>
                 </tbody>
             </table>
@@ -1192,10 +1173,10 @@
             <section xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
                 <title>Filtering entries by the using the Marker parameter </title>
                 <para>You can use a marker to denote an entry that you have previously used. If you
-                    specify a marker in the <methodname>GET</methodname> request, you can also
-                    specify a value for the direction parameter. The value is either
-                        <code>forward</code> or <code>backward</code>. If you do not specify a value
-                    for the direction parameter, the default value of <code>forward </code>is used. </para>
+                    specify a marker in the <command>GET</command> request, you can also specify a
+                    value for the direction parameter. The value is either <code>forward</code> or
+                        <code>backward</code>. If you do not specify a value for the direction
+                    parameter, the default value of <code>forward </code>is used. </para>
                 <para><emphasis role="bold"
                     >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
                 <para><emphasis role="bold"
