@@ -6,6 +6,9 @@
     <description>
         Slice Action Event.
     </description>
+    <attribute name="nextGenId" type="string" use="optional">
+        The ID of the next generation server being upgraded to.
+    </attribute>
     <attribute name="rootPassword" type="string" use="optional" private="true">
     	The encrypted root password for a slice.
     </attribute>
