@@ -1,6 +1,13 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.59.0**  
+2014-07-18 | D-18880 - remove added tenanted search from next/previous links (Greg Sharek)  
+
+**usage-schema-1.58.1**  
+2014-07-15 | B-75861: hide /dedicatedvcloud from observers (Shinta Smith)  
+2014-07-14 | D-18456 - Update o-link to correctly generate summary samples (Greg Sharek)  
+
 **usage-schema-1.58.0**  
 2014-07-11 | D-18710: add check for role (Shinta Smith)  
 2014-07-11 | D-18710: filter out category with term=rid:... for Identity delete token event (Shinta Smith)  
