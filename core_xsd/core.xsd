@@ -231,6 +231,16 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="duration" type="xsd:duration" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                               Usage duration of the resource associated with this event. This is 
+                               primarily used for event with type=USAGE_SUMMARY.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <assert vc:minVersion="1.1" test="if (*:product/@resourceType) then @resourceId else true()"
                         xerces:message="If a resource type is specified then so should a resourceId"
                         saxon:message="If a resource type is specified then so should a resourceId"
@@ -460,6 +470,18 @@
                         <documentation>
                             <html:p>
                                 The region and datacenter must match!
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@type = 'USAGE_SUMMARY') then @duration else true()"
+                        xerces:message="If this event is of type USAGE_SUMMARY, then it should have duration attribute"
+                        saxon:message="If this event is of type USAGE_SUMMARY, then it should have duration attribute"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If this event is of type USAGE_SUMMARY, then it should have a duration attribute.
                             </html:p>
                         </documentation>
                     </annotation>

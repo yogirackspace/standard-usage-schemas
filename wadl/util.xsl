@@ -16,9 +16,22 @@
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
     exclude-result-prefixes="event"
-    version="1.0">
+    version="2.0">
 
     <xsl:output method="xml" encoding="UTF-8"/>
+
+    <!--
+       Get tenant id from request URL
+    -->
+    <xsl:template name="getTenantId">
+        <xsl:param name="uri"/>
+        <xsl:analyze-string select="$uri"
+                            regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
+            <xsl:matching-substring>
+                <xsl:value-of select="regex-group(2)"/>
+            </xsl:matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
 
     <!--
         Identity transform.
@@ -29,21 +42,7 @@
         </xsl:copy>
     </xsl:template>
 
-    <!--
-        addIDCategory:
-
-        Adds an atom category that uniquely identifies a product
-        event. The category has one of two possible formats:
-
-        {serviceCode}.{NSPart}.{resourceType}.{eventType}
-
-        and
-
-        {serviceCode}.{NSPart}.{eventType}
-
-        The product event is passed in the 'event' parameter.
-    -->
-    <xsl:template name="addIdCategory">
+    <xsl:template name="getEventType">
         <xsl:param name="event"/>
         <xsl:variable name="prod" select="$event/child::*[1]"/>
         <xsl:variable name="nsPart">
@@ -68,7 +67,7 @@
                 -->
                 <xsl:when test="$prod/@resourceType">
                     <xsl:value-of
-                        select="concat(translate($prod/@serviceCode, &UPPER_TO_LOWER;),'.',$nsPart,'.',
+                            select="concat(translate($prod/@serviceCode, &UPPER_TO_LOWER;),'.',$nsPart,'.',
                                 translate($prod/@resourceType, &UPPER_TO_LOWER;),'.',translate($event/@type, &UPPER_TO_LOWER;))" />
                 </xsl:when>
                 <!--
@@ -84,7 +83,7 @@
                 -->
                 <xsl:otherwise>
                     <xsl:value-of
-                        select="concat(translate($prod/@serviceCode, &UPPER_TO_LOWER;),'.',$nsPart,'.',translate($event/@type, &UPPER_TO_LOWER;))"/>
+                            select="concat(translate($prod/@serviceCode, &UPPER_TO_LOWER;),'.',$nsPart,'.',translate($event/@type, &UPPER_TO_LOWER;))"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -101,16 +100,43 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        <xsl:value-of select="$Id_2"/>
+    </xsl:template>
+
+    <!--
+        addIDCategory:
+
+        Adds an atom category that uniquely identifies a product
+        event. The category has one of two possible formats:
+
+        {serviceCode}.{NSPart}.{resourceType}.{eventType}
+
+        and
+
+        {serviceCode}.{NSPart}.{eventType}
+
+        The product event is passed in the 'event' parameter.
+    -->
+    <xsl:template name="addIdCategory">
+        <xsl:param name="event"/>
+
+        <xsl:variable name="eventType">
+            <xsl:call-template name="getEventType">
+                <xsl:with-param name="event" select="$event"/>
+            </xsl:call-template>
+        </xsl:variable>
+
         <xsl:call-template name="addCategory">
-            <xsl:with-param name="term" select="$Id_2"/>
+            <xsl:with-param name="term" select="$eventType"/>
         </xsl:call-template>
+
         <!--
            event type prefixed with 'type:' gets saved to its own eventtype DB column and enables
            quicker searches.  Saving eventtype in the generic categories column is preserved for
            backwards compatibility.
         -->
         <xsl:call-template name="addCategory">
-            <xsl:with-param name="term" select="$Id_2"/>
+            <xsl:with-param name="term" select="$eventType"/>
             <xsl:with-param name="prefix" select="'type:'"/>
         </xsl:call-template>
     </xsl:template>

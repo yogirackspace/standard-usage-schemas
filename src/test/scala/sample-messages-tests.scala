@@ -69,39 +69,43 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleFeedToFilePairs = sampleFiles.map(toFeedFile).flatten
 
-  sampleFeedToFilePairs.foreach { case(feed, fl) =>
-      test("Sample "+fl.getAbsolutePath+" should be valid against feed "+feed) {
-          printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
-          if ( fl.getAbsolutePath().indexOf("/identity/") != -1 ) {
-              atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-          } else {
-              atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-          }
+  sampleFeedToFilePairs.foreach {
+    case (feed, fl) => {
+
+      test("Sample " + fl.getAbsolutePath + " should be valid against feed " + feed) {
+        printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
+        if (fl.getAbsolutePath().indexOf("/identity/") != -1) {
+          atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+        } else {
+          atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
+        }
       }
+    }
   }
+
 
   sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed), response, chain)
+              atomValidator.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           }
       }
       test("Getting individual entry for feed " + feed + " should work") {
           if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
+              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           } else {
-              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4"), response, chain)
+              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
           }
       }
   }
 
-
   badSampleFiles.map(toFeedCodeMessagesFile).filter(_ != None).map(_.get).foreach(f => {
-    test("Sample "+f._4.getAbsolutePath+" should fail in the expected way when posted on feed "+f._1) {
-      printf("Checking %s against feed %s\n",  f._4.getAbsolutePath, f._1)
-      if ( f._4.getAbsolutePath().indexOf("/identity/") != -1 ) {
+
+    test("Sample " + f._4.getAbsolutePath + " should fail in the expected way when posted on feed " + f._1) {
+      printf("Checking %s against feed %s\n", f._4.getAbsolutePath, f._1)
+      if (f._4.getAbsolutePath().indexOf("/identity/") != -1) {
         val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
       } else {
         val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
@@ -117,7 +121,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
     if (feedAttr.isEmpty()) {
       List()
     } else {
-      feedAttr.split(' ').toList.map { feed =>
+      feedAttr.split(" ").toList.map { feed =>
           (feed, f)
       }
     }

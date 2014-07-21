@@ -1,0 +1,28 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/support/account/slarequest"
+               serviceCode="Support"
+               version="1" resourceTypes="ACCOUNT_SUPPORT" 
+               type="CREATE UPDATE">
+    <description>
+        Events for when a customer/Racker requests a service level change that will be processed by another system. 
+    </description>
+    <attribute name="currentServiceLevel" type="Name" use="required"
+               allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
+        The current serviceLevel for this account
+    </attribute>
+    <attribute name="currentServiceType" type="Name" use="required"
+                   allowedValues="SYSOPS DEVOPS LEGACY">
+        The current serviceType for this account
+    </attribute>
+    <attribute name="requestedServiceLevel" type="Name" use="required"
+               allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
+        The requested serviceLevel for this account
+    </attribute>
+    <attribute name="requestedServiceType" type="Name" use="required"
+                   allowedValues="SYSOPS DEVOPS">
+        The requested serviceType for this account
+    </attribute>
+    <attribute name="accountPlanRequestURI" type="anyURI" use="required">
+        The account plan's request URI
+    </attribute>
+</productSchema>

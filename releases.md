@@ -1,11 +1,62 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.58.0**  
+2014-07-11 | D-18710: add check for role (Shinta Smith)  
+2014-07-11 | D-18710: filter out category with term=rid:... for Identity delete token event (Shinta Smith)  
+2014-07-10 | B-74692 - Hide certain events from external observers (Greg Sharek)  
+
+**usage-schema-1.57.1**  
+2014-07-08 | B-74332: also add AtomFeedAllowJson to feeds that can be fetched with format=json (Shinta Smith)  
+
+**usage-schema-1.57.0**  
+2014-07-07 | B-75319: add more attributes to be private, remove private feeds from Observer role (Shinta Smith)  
+2014-07-07 | B-75239 - Change allowable values for nova status attributes (Greg Sharek)  
+2014-07-03 | D-18332 - ensure events have clean categories (Greg Sharek)  
+
+**usage-schema-1.56.3**  
+2014-07-01 | D-18709: fix accidental filtering of resourceId on non-Identity delete token events when feed is unauthenticated (Shinta Smith)  
+2014-07-01 | D-16856 - external Cloud Feeds return incorrect Location, Link headers and atom:link elements (Greg Sharek)  
+
+**usage-schema-1.56.2**  
+
+**usage-schema-1.56.1**  
+2014-06-23 | D-18332 - taking out clean categories (Greg Sharek)  
+2014-06-23 | D-18332 - Ensure events have clean categories (Greg Sharek)  
+
+**usage-schema-1.56.0**  
+2014-06-20 | B-65259, B-73238: use rax roles to add observer, admin, and identity:user-admin roles to have the same privileges as cloudfeeds:observer (Shinta Smith)  
+2014-06-18 | D-18332 - Ensure events have clean categories (Greg Sharek)  
+2014-06-17 | B-65026: add xlate filter to hide token from delete token (Shinta Smith)  
+
+**usage-schema-1.55.0**  
+2014-06-16 | B-74589: correct typo accountPlanRequestedURI to accountPlanRequestURI (Shinta Smith)  
+2014-06-10 | B-63879 - Add validation for /usagerecovery (Greg Sharek)  
+
+**usage-schema-1.54.0**  
+2014-06-05 | B-73863: update requested by support team (Shinta Smith)  
+2014-06-05 | B-73855: add duration with type xsd:duration to usage summary events (Shinta Smith)  
+2014-06-05 | B-73863: add new event for /support feed for sla request (Shinta Smith)  
+
+**usage-schema-1.53.0**  
+2014-06-03 | B-71737 - Generate sample summary entries & responses (Greg Sharek)  
+2014-05-30 | B-70587: disable JSON content on some feeds (Shinta Smith)  
+
+**usage-schema-1.52.1**  
+2014-05-28 | B-73068: add payment resource to /functest1 (Shinta Smith)  
+2014-05-28 | B-73447 modified bigdata-bigdata-hadoop_hdp1_1-usage-v1-entry.xml to include functest1/events usagetest9/events (sreesurendran)  
+
+**usage-schema-1.52.0**  
+2014-05-27 | B-73447 re-generated message samples for bigdata in message_samples/bigdata (sreesurendran)  
+2014-05-27 | B-73456: add 2 new support events: roles and sla (Shinta Smith)  
+2014-05-27 | B-73068: add /payment feed (Shinta Smith)  
+2014-05-19 | B-65812: enable enums to start with digit (Shinta Smith)  
+
 **usage-schema-1.51.0**  
 2014-05-13 | B-71281: generate usage.xsd as part of mvn build (Shinta Smith)  
-2014-05-12 | B-59299 - Categories Refactoring (Greg Sharek)  
 
 **usage-schema-1.50.0**  
+2014-05-12 | B-59299 - Categories Refactoring (Greg Sharek)  
 2014-05-09 | B-72611: add new validated /encore feed (Shinta Smith)  
 2014-05-05 | B-66281: update WADLs for feedscatalog app (Shinta Smith)  
 

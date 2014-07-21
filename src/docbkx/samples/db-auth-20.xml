@@ -1,7 +1,7 @@
 HTTP/1.1 200 OK
-Content-Type: application/xml; charset=UTF-8
-Content-Length: 477
-Date: Thu, 12 Apr 2012 18:50:20 GMT
+Server: nginx
+Date: Mon, 14 Jul 2014 20:52:05 GMT
+Content-Type: application/xml
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <access xmlns:os-ksadm="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0"
@@ -12,7 +12,7 @@ Date: Thu, 12 Apr 2012 18:50:20 GMT
   xmlns:ksgrp="http://docs.rackspace.com/identity/api/ext/RAX-KSGRP/v1.0"
   xmlns:rax-kscatalog="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
   xmlns:atom="http://www.w3.org/2005/Atom">
-  <token id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" expires="2011-12-08T22:51:02.000-06:00"/>
+  <token id="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" expires="2014-07-15T20:43:49.576Z"/>
   <user id="123456" name="jsmith" rax-auth:defaultRegion="DFW">
     <roles>
       <role id="identity:admin" name="identity:admin" description="Admin Role."/>

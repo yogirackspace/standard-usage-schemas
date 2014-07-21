@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="backup/events"?> <!-- ignore <?atom..?>, used for testing -->
 <atom:entry xmlns="http://docs.rackspace.com/core/event"
             xmlns:cb-lic="http://docs.rackspace.com/usage/cloudbackup/license"
             xmlns:atom="http://www.w3.org/2005/Atom">
@@ -8,8 +7,8 @@
     <atom:category term="rgn:DFW" />
     <atom:category term="dc:DFW1" />
     <atom:category term="rid:3863d42a-ec9a-11e1-8e12-df8baa3ca440" />
-    <atom:category term="cloudbackup.license.agent.usage" />
-    <atom:category term="type:cloudbackup.license.agent.usage" />
+    <atom:category term="cloudbackup.license.agent.usage_snapshot" />
+    <atom:category term="type:cloudbackup.license.agent.usage_snapshot" />
     <atom:content type="application/xml">
         <event eventTime="2014-01-24T10:19:52Z"
                region="DFW" dataCenter="DFW1" type="USAGE_SNAPSHOT"

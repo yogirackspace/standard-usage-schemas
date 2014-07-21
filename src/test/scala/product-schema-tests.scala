@@ -170,8 +170,16 @@ class ProductSchemaSuite extends BaseUsageSuite {
   //  Converts a file / directory to a ProcStepList
   //
   private def toProcStepList(f : File) : NodeSeq = {
+
     if (!f.isDirectory) {
-      <file name={f.getAbsolutePath.substring(1)} />
+      // this directory is generated only to test our generated samples ability
+      // don't include this in the wadl test
+      if( f.getPath().matches( "^message_samples/usagetest6/.*" ) ) {
+        new Comment( "generate samples test only:" + f.getAbsolutePath.substring(1) )
+      }
+      else {
+        <file name={f.getAbsolutePath.substring(1)} />
+      }
     } else {
       <directory xmlns="http://www.w3.org/ns/xproc-step" name={f.getName}>
           {f.listFiles.map(toProcStepList)}

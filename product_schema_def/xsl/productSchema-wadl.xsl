@@ -8,6 +8,7 @@
     xmlns:chk="http://www.rackspace.com/repose/wadl/checker"
     xmlns:sch="http://docs.rackspace.com/core/usage/schema"
     xmlns:rax="http://docs.rackspace.com/api"
+    xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:error="http://docs.rackspace.com/core/error"
     xmlns:atom="http://www.w3.org/2005/Atom"
@@ -88,9 +89,10 @@
         <xsl:if test="not(empty($currentSchemas))">
             <resource_type id="{$id}">
                 <method id="add{$id}Entry" name="POST">
-                    <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>
+                    <xsl:text>&#x0a;         </xsl:text>
+                    <xsl:comment><xsl:text> GENERATED FILE! Do Not Hand Edit! </xsl:text></xsl:comment>
+                    <xsl:text>&#x0a;         </xsl:text>
                     <wadl:doc title="Add {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
-                        <xsl:comment>GENERATED FILE! Do Not Hand Edit!</xsl:comment>
                         <para role="shortdesc">Add <xsl:value-of select="sch:lookupServiceCode($serviceCode)"/>
                         <xsl:if test="$summaryOnly"> Summary </xsl:if> event.</para>
                         <!-- TODO: write out product schema tables here -->
@@ -104,7 +106,6 @@
                     </wadl:doc>
                     <request>
                         <representation mediaType="application/atom+xml" element="atom:entry">
-
                             <xsl:call-template name="sch:cross-check-params">
                                 <xsl:with-param name="schemas" select="$currentSchemas"/>
                                 <xsl:with-param name="summaryOnly" select="$summaryOnly"/>
@@ -219,7 +220,10 @@
                 <xsl:variable name="opencurly">{</xsl:variable>
                 <xsl:variable name="closecurly">}</xsl:variable>
                 <resource path="entries/{$opencurly}id{$closecurly}" id="getEntry_{$id}">
-                    <param name="id" type="xs:anyURI" style="template"> <!-- Have to add wadl: prefix to doc to make test pass. Canonicalization seems to be messing up --><wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc></param>
+                    <param name="id" type="xs:anyURI" style="template"> 
+                        <!-- Have to add wadl: prefix to doc to make test pass. Canonicalization seems to be messing up --> 
+                        <wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc>
+                    </param>
                     <method id="getEntry{$id}" name="GET">
                         <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
                             <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
@@ -231,6 +235,14 @@
                                 </xsl:apply-templates>
                             </xsl:if>
                         </wadl:doc>
+                        <xsl:if test="$id != 'CloudMonitoring' and $id != 'CloudServersOpenStack' and $id != 'CloudServers'">
+                        <request>
+                            <!-- Restrict representation to application/atom+xml. Means JSON not allowed -->
+                            <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
+                                rax:message="getEntry{$id}: Accept header contains unsupported media types: application/*json"
+                                name="ACCEPT"/>
+                        </request>
+                        </xsl:if>
                         <response status="200">
                             <representation mediaType="application/atom+xml"/>
                         </response>

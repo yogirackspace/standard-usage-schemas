@@ -14,7 +14,10 @@
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
 		xmlns:httpx="http://openrepose.org/repose/httpx/v1.0">
-  
+
+  <!-- Import utility templates -->
+  <xsl:import href="util.xsl" />
+
   <xsl:output method="xml"/>
   
   <xsl:param name="input-headers-uri" />
@@ -65,15 +68,7 @@
     </xsl:call-template>      
   </xsl:variable>
 
-  <xsl:template name="getTenantId">
-    <xsl:param name="uri"/>        
-    <xsl:analyze-string select="$uri"
-			regex="(.*/events/)([^/?]+)(/entries/[^/?]+)?/?(\?.*)?">
-      <xsl:matching-substring>
-	<xsl:value-of select="regex-group(2)"/>
-      </xsl:matching-substring>
-    </xsl:analyze-string>                      
-  </xsl:template>
+
 
   
   <xsl:template name="getEntries">
@@ -134,7 +129,7 @@
 	<xsl:apply-templates/>    
 	<xsl:if test="not( httpx:parameter[@name='search'] ) and $entries = ''">
 	  <parameter name="search">
-            <xsl:attribute name="value">(cat=tid:<xsl:value-of select="$tenantId"/>)</xsl:attribute>
+            <xsl:attribute name="value">(AND(cat=tid:<xsl:value-of select="$tenantId"/>)(NOT(cat=cloudfeeds:private)))</xsl:attribute>
 	  </parameter>
 	</xsl:if>
       </parameters>
@@ -143,23 +138,23 @@
   
   <xsl:template match="httpx:parameter">
     <xsl:if test="@name = 'search' and $entries = ''">
-      <xsl:element name="httpx:parameter">
-	<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
-	<xsl:attribute name="value">
-	  <xsl:text>(AND(cat=tid:</xsl:text>
-	  <xsl:value-of select="$tenantId"/>
-	  <xsl:text>)</xsl:text>
-	  <xsl:value-of select="@value"/>
-	  <xsl:text>)</xsl:text>
-	</xsl:attribute>
-      </xsl:element>
-    </xsl:if>            
+        <xsl:element name="httpx:parameter">
+            <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+            <xsl:attribute name="value">
+                <xsl:text>(AND(AND(cat=tid:</xsl:text>
+                <xsl:value-of select="$tenantId"/>
+                <xsl:text>)(NOT(cat=cloudfeeds:private)))</xsl:text>
+                <xsl:value-of select="@value"/>
+                <xsl:text>)</xsl:text>
+            </xsl:attribute>
+        </xsl:element>
+    </xsl:if>
     <xsl:if test="@name != 'search'">
-      <xsl:element name="httpx:parameter">
-	<xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
-	<xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
-      </xsl:element>
+        <xsl:element name="httpx:parameter">
+            <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+            <xsl:attribute name="value"><xsl:value-of select="@value"/></xsl:attribute>
+        </xsl:element>
     </xsl:if>            
   </xsl:template>
-  
+
 </xsl:stylesheet>

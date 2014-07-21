@@ -16,7 +16,7 @@
         </attribute>
 
         <attribute name="flavorName" type="string"
-                   maxLength="300" minLength="1"
+                   maxLength="255" minLength="1"
                    use="required"
                    groupBy="true">
             The flavor name of the cluster.
@@ -64,7 +64,7 @@
     </attribute>
 
     <attribute name="flavorName" type="string"
-               maxLength="300" minLength="1"
+               maxLength="255" minLength="1"
                use="required"
                groupBy="true">
         The flavor name of the cluster.
