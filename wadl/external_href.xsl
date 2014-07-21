@@ -13,7 +13,6 @@
     <xsl:param name="output-headers-uri" />
     
     <xsl:variable name="inputHeaderDoc" select="doc($input-headers-uri)"/>
-    <xsl:variable name="outputHeaderDoc" select="doc($input-headers-uri)"/>
     <xsl:variable name="requestDoc" select="doc($input-request-uri)"/>
 
     <xsl:template match="/">
@@ -64,6 +63,7 @@
         </xsl:variable>
         
         <xsl:choose>
+            <!-- if there is a tenant id in the URL, we need to remove the tenanted-feed generated search terms -->
             <xsl:when test="$tenantId != ''">
                 <xsl:variable name="tenant_url">
                     <xsl:value-of select="replace( $external_url, '/events', concat( '/events/', $tenantId ) )"/>
