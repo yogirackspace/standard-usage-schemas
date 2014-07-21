@@ -48,7 +48,7 @@ class BigDataSuite extends BaseUsageSuite {
                             <atom:content type="application/xml">
                                 <event xmlns="http://docs.rackspace.com/core/event"
                                        xmlns:bigdata="http://docs.rackspace.com/usage/bigdata"
-                                       version="2" tenantId="2888"
+                                       version="1" tenantId="2888"
                                        id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
                                        resourceId="56"
                                        resourceName="My Big Data Cluster"
