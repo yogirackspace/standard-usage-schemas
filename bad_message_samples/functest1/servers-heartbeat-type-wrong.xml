@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="functest1/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="The version and namespace of the event you submitted does not correspond with events of type down" ?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:title>QB Heartbeat</atom:title>
+    <atom:author><atom:name>${entryAuthor}</atom:name></atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test" />
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:cs="http://docs.rackspace.com/event/servers/heartbeat"
+               version="1"
+               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+               resourceId="56"
+               type="DOWN" dataCenter="DFW1" region="DFW"
+               eventTime="2012-09-15T11:51:11Z">
+            <cs:product version="1" serviceCode="CloudServers"
+                        resourceType="QB"/>
+        </event>
+    </atom:content>
+</atom:entry>
