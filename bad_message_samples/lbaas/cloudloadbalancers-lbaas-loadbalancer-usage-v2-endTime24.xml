@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="lbaas/events"?> <!-- ignore <?atom..?>, used for testing -->
-<?expect code="400" message="avgConcurrentConnectionsSum"?>
+<?expect code="400" message="midnight"?>
 <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:lbaas="http://docs.rackspace.com/usage/lbaas">
     <atom:title type="text">LBAAS</atom:title>
@@ -12,7 +12,6 @@
                            bandWidthInSsl="364646770" bandWidthOut="3460346" bandWidthIn="43456346"
                            avgConcurrentConnectionsSsl="4566.0"
                            avgConcurrentConnections="30000.0" 
-                           avgConcurrentConnectionsSum="34566.0" 
                            serviceCode="CloudLoadBalancers"
                            resourceType="LOADBALANCER" status="ACTIVE"
                            version="1"/>
