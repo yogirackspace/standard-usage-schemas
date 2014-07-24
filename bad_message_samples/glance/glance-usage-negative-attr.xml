@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="glance/events"?> <!-- ignore <?atom..?>, used for testing -->
-<?expect code="400" message="must not span more than 1"?>
+<?expect code="400" message="storage"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
@@ -12,11 +12,11 @@
                version="1"
                tenantId="1234"
                startTime="2013-03-15T11:51:11Z"
-               endTime="2013-03-17T11:51:11Z"
+               endTime="2013-03-16T11:51:11Z"
                type="USAGE"
                dataCenter="DFW1"
                region="DFW">
-            <sample:product serviceCode="Glance" version="1" storage="2199023255552"/>
+            <sample:product serviceCode="Glance" version="1" storage="-1"/>
         </event>
     </atom:content>
 </atom:entry>
