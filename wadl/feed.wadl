@@ -151,7 +151,7 @@
         </response>
     </method>
 
-    <method id="addPlainUnvalidatedEntry" name="POST">
+    <method id="addPlainUnvalidatedEntry" name="POST" security="internal">
         <wadl:doc xml:lang="EN" title="Adding an event." xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">Adding an event for this particular product.</para> 
            

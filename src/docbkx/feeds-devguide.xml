@@ -83,45 +83,45 @@
             Cloud Feeds uses the following technologies:</para>
         <itemizedlist spacing="compact">
             <listitem>
-                <para>Atom Hopper (for more information see, <link
-                        xlink:href="http://atomhopper.org">Atom Hopper </link></para>
+                <para>Atom Hopper (for more information, see <link
+                        xlink:href="http://atomhopper.org">Atom Hopper </link>)</para>
             </listitem>
             <listitem>
-                <para>Apache Abdera (for more information see, <link
+                <para>Apache Abdera (for more information, see <link
                         xlink:href="http://abdera.apache.org">Apache Abdera</link>)</para>
             </listitem>
             <listitem>
-                <para>RFC 5023 (for more information see, <link
+                <para>The Atom Publishing Protocol, RFC 5023 (for more information, see <link
                         xlink:href="http://www.ietf.org/rfc/rfc5023.txt">RFC 5023</link>)</para>
             </listitem>
             <listitem>
-                <para>RC 5005 (for more information see,<link
+                <para>Feed Paging and Archiving, RFC 5005 (for more information, see<link
                         xlink:href="http://www.ietf.org/rfc/rfc5005.txt">RC 5005</link> )</para>
             </listitem>
             <listitem>
-                <para>RESTful web services (for more information see, <link
+                <para>RESTful web services (for more information, see <link
                         xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
                         >RESTful web services</link>)</para>
             </listitem>
             <listitem>
-                <para>HTTP/1.1 protocol (for more information see, <link
+                <para>HTTP/1.1 protocol (for more information, see <link
                         xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1
                         protocol</link>)</para>
             </listitem>
             <listitem>
-                <para>JSON and XML data serialization formats (for more information see, <link
+                <para>JSON and XML data serialization formats (for more information, see <link
                         xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html">JSON
                         and XML</link>)</para>
             </listitem>
             <listitem>
-                <para>Atom Syndication Format RFC 4287 (for more information see, <link
+                <para>Atom Syndication Format, RFC 4287 (for more information, see <link
                         xlink:href="http://www.rfc-base.org/rfc-4287.html">JRFC 4287</link></para>
             </listitem>
         </itemizedlist>
         <section xml:id="Document_Change_History">
             <title>Document change history</title>
             <para>This version of the guide replaces and obsoletes all previous versions. The most
-                recent changes are described in the table below:</para>
+                recent changes are described in the following table:</para>
             <?rax revhistory?>
         </section>
         <section xml:id="Additional_Resources">
@@ -129,30 +129,43 @@
             <para>For information about getting started with the API, see the <citetitle>Cloud Feeds
                     Getting Started Guide</citetitle> at <link
                     xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>. The
-                Getting Started guide contains a subset of the information that is provided in the
-                Developer guide. All you need to start using Cloud Feeds is the Getting Started
-                guide, the Developer guide, your Rackspace Cloud account, and at least one cloud
+                getting started guide contains a subset of the information that is provided in the
+                Developer guide. All you need to start using Cloud Feeds is the getting started
+                guide, the developer guide, your Rackspace Cloud account, and at least one cloud
                 server.</para>
             <para>Visit the <link
                     xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                    >Product Feedback Forum</link> to let us know what you think about Cloud
+                    >Product Feedback Forum</link> to tell us what you think about Cloud
                 Feeds.</para>
-            <para>You can also follow Rackspace updates and announcements via Twitter at: <link
+            <para>You can also follow Rackspace updates and announcements via Twitter at <link
                     xlink:href="http://www.twitter.com/rackspace"
                     >http://www.twitter.com/rackspace</link>. </para>
-            <para>This API uses standard HTTP/1.1 response codes as documented at: <link
+            <para>This API uses standard HTTP/1.1 response codes as documented at <link
                     xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
                     >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
         </section>
+        <section xml:id="Early_Access" security="external"><title>Early Access Program</title><para>Cloud Feeds is now available
+                to customers through an Early Access program. At the launch of the Early Access
+                program (at the end of July 2014), Cloud Feeds supports limited functionality and
+                event notifications. As the service progresses towards General Availability,
+                additional features and event notifications will be added, and it’s possible that
+                existing implementations and formats might change. The Early Access program is an
+                opportunity for customers to work in partnership with Rackspace to ensure that the
+                implemented features align with business needs and can be used with maximum
+                efficiency.   Existing Rackspace Cloud customers are eligible to participate in the
+                Cloud Feeds Early Access program. The Cloud Feeds Early Access program is provided
+                to customers subject to the Test Terms located at <link
+                    xlink:href="http://www.rackspace.com/information/legal/cloud/tos "
+                    >http://www.rackspace.com/information/legal/cloud/tos</link>.</para></section>
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and service level</title>
             <para>Pricing and service level agreement (SLA) information for Cloud Feeds is as
                 follows:</para>
             <itemizedlist>
                 <listitem>
-                    <para><emphasis role="bold">Pricing</emphasis>: Currently, Cloud feeds is
-                        available at no cost for Rackspace service admins who are using the public
-                        cloud. </para>
+                    <para><emphasis role="bold">Pricing</emphasis>: Currently, Cloud Feeds is
+                        available at no cost for Rackspace service administrators who are using the
+                        public cloud. </para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
@@ -160,9 +173,8 @@
                     <para><emphasis role="bold">SLA</emphasis>: The Cloud Feeds SLA is for
                         publishers and subscribers. The SLA provides a support model that uses Nova
                         as the first product to send events through Cloud Feeds. For detailed
-                        information on the amount of requests that can be made per role, see <link
-                            linkend="Rate_limits_per_role">Rate limits per role per
-                        role</link>.</para>
+                        information about the number of requests that can be made per role, see
+                            <link linkend="Rate_limits_per_role">Rate limits</link>.</para>
                 </listitem>
             </itemizedlist>
             <itemizedlist>
@@ -180,7 +192,7 @@
         <title>General API information</title>
         <para>The Cloud Feeds API is implemented using a RESTful web service interface. Like other
             products in the Rackspace Cloud suite, the Cloud Feeds service shares a common
-            token-based authentication system that allows seamless access between products and
+            token-based authentication system that enables seamless access among products and
             services. </para>
         <note>
             <para> All requests to authenticate against and operate the service are performed by
@@ -191,7 +203,7 @@
             <para>Every REST request against the Cloud Feeds service requires the inclusion of a
                 specific authorization token, supplied by the <code>X-Auth-Token</code> HTTP header.
                 Users obtain this token by first using the Rackspace Cloud Identity Service (for
-                more information see, <link
+                more information, see <link
                     xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html"
                     >Cloud Identity Service</link>) and supplying a valid username and API access
                 key. </para>
@@ -275,7 +287,7 @@
                 </para>
             </section>
             <section xml:id="RBAC-Resolving-Conflicts-d1e001" version="5.0"
-                xmlns:wadl="http://wadl.dev.java.net/2009/02">
+                xmlns:wadl="http://wadl.dev.java.net/2009/02" security="internal">
                 <title>Resolving conflicts between multiproduct and product-specific roles</title>
                 <para>The account owner can set roles for both multiproduct and Cloud Feeds scope,
                     and it is important to understand how any potential conflicts among these roles
@@ -332,10 +344,10 @@
                         > the Knowledge Center article</link>.</para>
             </section>
             <section xml:id="Rate_limits_per_role">
-                <title>Rate limits per role<?sbr?><?sbr?><?sbr?></title>
-                <para>Cloud Feeds limits the amount of requests that can be made within a specific
+                <title>Rate limits <?sbr?><?sbr?><?sbr?></title>
+                <para security="internal">Cloud Feeds limits the amount of requests that can be made within a specific
                     time frame per role. </para>
-                <para>The following table lists the number of transactions per role and feed
+                <para security="internal">The following table lists the number of transactions per role and feed
                     type.</para>
                 <para security="internal">
                     <table>
@@ -353,62 +365,43 @@
                         <tbody>
                             <tr>
                                 <td>cloudfeeds:observer</td>
-                                <td>all feeds</td>
-                                <td>10/minute (<command>GET</command> requests)</td>
+                                <td>All feeds</td>
+                                <td>10 per minute (<command>GET</command> requests)</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds: service-admin</td>
                                 <td>Files feed</td>
-                                <td>300/second (<command>POST</command> requests)</td>
+                                <td>300 per second (<command>POST</command> requests)</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds: service-admin</td>
                                 <td>Sites feed</td>
-                                <td>675/second (<command>POST</command> request)</td>
+                                <td>675 per second (<command>POST</command> requests)</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds: service-admin</td>
-                                <td>all other feeds (except of Files and Sites)</td>
-                                <td>200/second(<command>POST</command> requests)</td>
+                                <td>All other feeds (except for Files and Sites)</td>
+                                <td>200 per second(<command>POST</command> requests)</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds: service-admin</td>
-                                <td>all feeds</td>
-                                <td>350/second (<command>GET</command> requests)</td>
+                                <td>All feeds</td>
+                                <td>350 per second (<command>GET</command> requests)</td>
                             </tr>
                         </tbody>
                     </table>
                 </para>
-                <para security="external">
-                    <table>
-                        <caption>Transactions per role</caption>
-                        <col width="33%"/>
-                        <col width="33%"/>
-                        <col width="33%"/>
-                        <thead>
-                            <tr>
-                                <th>Role</th>
-                                <th>Feed type</th>
-                                <th>Number of transactions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>cloudfeeds:observer</td>
-                                <td>all feeds</td>
-                                <td>10/minute (<command>GET</command> requests)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </para>
+                <para security="external">Customers with the cloudfeeds:observer role can perform 10
+                        <command>GET</command> requests per minutes on all feeds they are authorized
+                    for.</para>
             </section>
             <section xml:id="Geographic_Endpoints">
                 <title>Geographic endpoints</title>
                 <para> Rackspace Cloud Identity Service serves as the entry point to all Rackspace
-                    Cloud APIs and is itself a ReSTful web service. </para>
+                    Cloud APIs and is itself a RESTful web service. </para>
                 <para security="internal"> You can use either of the following endpoints to access
-                    the authentication service, depending whether you use a staging or a production
-                    environment: </para>
+                    the authentication service, depending on whether you use a staging or a
+                    production environment: </para>
                 <itemizedlist spacing="compact" security="internal">
                     <listitem>
                         <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
@@ -427,7 +420,7 @@
                         <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
                     </listitem>
                 </itemizedlist>
-                <para security="external"> Your account might be based in either the US or the UK;
+                <para security="external"> our account might be based in either the US or the UK;
                     this is not determined by your physical location but by the location of the
                     Rackspace retail site which was used to create your account: </para>
                 <itemizedlist spacing="compact" security="external">
@@ -477,14 +470,14 @@
                 <para>To use the Cloud Feeds API, you must generate an authentication token, whether
                     you use cURL or a REST client to interact with the Cloud Feeds API. You provide
                     this token in the X-Auth-Token header in each Cloud Feeds API request. </para>
-                <para>The examples below demonstrate how to use cURL to obtain the authentication
-                    token and your account number. You must provide both when making subsequent
-                    Cloud Feeds API requests.</para>
+                <para>The following examples demonstrate how to use cURL to obtain the
+                    authentication token and your account number. You must provide both when making
+                    subsequent Cloud Feeds API requests.</para>
                 <para>Remember to replace the placeholder names in the following authentication
                     request examples with your information:<itemizedlist spacing="compact">
                         <listitem>
                             <para security="external"><emphasis role="italic"
-                                    >yourUserName</emphasis> &mdash; Your common Rackspace Cloud
+                                    >yourUserName</emphasis> &mdash; Your common Rackspace cloud
                                 username, as supplied during registration.</para>
                             <para security="internal"><emphasis role="italic"
                                     >yourUserName</emphasis> &mdash; Your common Cloud username as
@@ -493,7 +486,7 @@
                         <listitem>
                             <para><emphasis role="italic">yourApiKey</emphasis> &mdash; Your API
                                 access key.</para>
-                            <para security="external"> You can obtain the key from the Rackspace
+                            <para security="external">You can obtain the key from the Rackspace
                                     <link xlink:href="http://mycloud.rackspace.com/">Cloud Control
                                     Panel</link>) by accessing selecting <emphasis role="bold"
                                     >Account Settings</emphasis> from the <emphasis role="italic"
@@ -501,69 +494,6 @@
                                 window. </para>
                         </listitem>
                     </itemizedlist></para>
-                <para security="internal"> You can use either of the following endpoints to access
-                    the authentication service, depending whether you use a staging or a production
-                    environment: </para>
-                <itemizedlist spacing="compact" security="internal">
-                    <listitem>
-                        <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
-                    </listitem>
-                    <listitem>
-                        <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external"> You can use either of the following endpoints to access
-                    the Authentication Service, regardless of US or UK identities: </para>
-                <itemizedlist spacing="compact" security="external">
-                    <listitem>
-                        <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
-                    </listitem>
-                    <listitem>
-                        <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external"> Your account might be based in either the US or the UK;
-                    this is not determined by your physical location but by the location of the
-                    Rackspace retail site which was used to create your account: </para>
-                <itemizedlist spacing="compact" security="external">
-                    <listitem>
-                        <para> If your account was created via <link
-                                xlink:href="http://www.rackspacecloud.com"
-                                >http://www.rackspacecloud.com</link>, it is a US-based account.
-                        </para>
-                    </listitem>
-                    <listitem>
-                        <para> If your account was created via <link
-                                xlink:href="http://www.rackspace.co.uk"
-                                >http://www.rackspace.co.uk</link>, it is a UK-based account.
-                        </para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external">Notice that you authenticate by using a special URL for
-                    the Cloud authentication service. For example, you may use
-                        <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> as shown in
-                    the following Authenticate Request examples. Note that the <code>v2.0</code>
-                    component in the URL indicates that you are using version 2.0 of the Cloud
-                    Authentication API.</para>
-                <para security="internal">Notice that you authenticate by using a special URL for
-                    the Cloud authentication service. For example, you may use
-                        <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code> or
-                        <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code> as
-                    shown in the following Authenticate Request examples. Note that the
-                        <code>v2.0</code> component in the URL indicates that you are using version
-                    2.0 of the Cloud Authentication API.</para>
-                <note security="external">
-                    <para>For UK-based accounts, you may decide to use
-                            <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
-                        instead.</para>
-                </note>
-                <note security="internal">
-                    <para>For UK-based accounts, you may decide to use
-                            <code>'https://lon.identity-internal.api.rackspacecloud.com/v2.0/tokens'</code>
-                        or
-                            <code>'https://lon.staging.identity.api.rackspacecloud.com/v2.0/tokens'</code>
-                        instead.</para>
-                </note>
                 <example security="external">
                     <title>cURL authenticate request: XML</title>
                     <?dbfo keep-together="always"?>
@@ -642,10 +572,12 @@
                         </listitem>
                     </itemizedlist>
                 </note>
-                <para>You can view the role for which you are enabled in the successful response to
-                    an authentication request. The example below shows a port of the successfull
-                    authentication response for a tenant who has been enabled for the <emphasis
-                        role="italic">service-admin</emphasis> role. </para>
+                <para>In a successful response to an authentication request, you can also view the
+                    role for which you are enabled. The following example shows a part of the
+                    successful authentication response for a tenant who has been enabled for the
+                    service-admin role. For more information about roles, see <link
+                        linkend="AuthRoles-d1e699">Authorization roles required for Cloud Feeds
+                        access</link>.</para>
                 <para>
                     <programlisting>
   "user": {
@@ -758,17 +690,17 @@
             <note>
                 <itemizedlist>
                     <listitem>
-                        <para>Choose the endpoint for the data center where your Cloud resources are
+                        <para>Choose the endpoint for the data center where your cloud resources are
                             located.</para>
                     </listitem>
                     <listitem>
-                        <para>The Cloud Server that you use must be located in the same datacenter
+                        <para>The cloud server that you use must be located in the same data center
                             where your database resides.</para>
                     </listitem>
                     <listitem>
                         <para>All examples in this guide assume that you are operating against the
-                            DFW data center, however, if you are using a different datacenter, be
-                            sure to use the associated endpoint from the table instead.</para>
+                            DFW data center. If you are using a different datacenter, be sure to use
+                            the associated endpoint from the table instead.</para>
                     </listitem>
                     <listitem>
                         <para>The endpoints provided in this sections are the base URL for accessing
@@ -858,8 +790,9 @@
             <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
             <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
             <para>This operation returns a list of supported feeds as shown in the following
-                example</para>
-            <programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+                example:</para>
+            <programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+            <programlisting language="xml" security="external"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting>
         </section>
         <section xml:id="CloudFeedsConcepts">
             <title>Cloud Feeds concepts</title>
@@ -914,38 +847,48 @@
                 </para>
                 <section xml:id="Atom_Feed_Element">
                     <title>Atom feed element</title>
-                    <para>An Atom Feed element is a representation of an Atom feed, including
-                        metadata about the feed, and some or all of the entries associated with it. </para>
+                    <para>An Atom <code>feed</code> element is a representation of an Atom feed,
+                        including metadata about the feed, and some or all of the entries associated
+                        with it. </para>
                     <para>The Atom Feed element represents the top-level element of an Atom Feed
                         Document. It functions as a container for metadata and data associated with
                         the feed. Its element children consist of metadata elements that are
                         followed by zero or more Atom Entry child elements. </para>
-                    <para>Following is an example of an entire Atom Feed element.</para>
-                    <example>
-                        <title>Atom feed element</title>
+                    <para>Following is an example of an entire Atom <code>feed</code>
+                        element:</para>
+                    <example security = "internal">
+                        <title>Atom feed element</title>                      
                         <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
+                    </example>
+                    <example security = "external">
+                        <title>Atom feed element</title>                      
+                        <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.xml" parse="text"/></programlisting>
                     </example>
                 </section>
                 <section xml:id="Atom_Entry_Element">
                     <title>Atom entry element</title>
-                    <para>The Atom Entry element represents exactly one Atom entry, outside of the
-                        context of an Atom feed. It functions as a container for metadata and data
-                        associated with the entry. This element can appear as a child of the Atom
-                        Feed element, or it can appear as the top-level element of a stand-alone
-                        Atom Entry Document. </para>
-                    <para>Following is an example of an Atom Entry element.</para>
-                    <example>
+                    <para>The Atom <code>entry</code> element represents exactly one Atom entry,
+                        outside of the context of an Atom feed. It functions as a container for
+                        metadata and data associated with the entry. This element can appear as a
+                        child of the Atom Feed element, or it can appear as the top-level element of
+                        a stand-alone Atom entry Document. </para>
+                    <para>Following is an example of an Atom <code>entry</code> element:</para>
+                    <example security ="internal">
                         <title>Atom entry element</title>
                         <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
+                    </example>
+                    <example security = "external">
+                        <title>Atom entry element</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.xml" parse="text"/></programlisting>
                     </example>
                 </section>
                 <section xml:id="Atom_Content-Element">
                     <title>Atom content element</title>
-                    <para>The Atom Content element either contains or links to the content of an
-                        entry. The type attribute specifies the MIME media
+                    <para>The Atom <code>content</code> element either contains or links to the
+                        content of an entry. The type attribute specifies the MIME media
                             <parameter>type</parameter>. If no <parameter>type</parameter> attribute
                         is present, the content is treated as <parameter>text</parameter>. </para>
-                    <para>Following is an example of an Atom Content element.</para>
+                    <para>Following is an example of an Atom <code>content </code>element:</para>
                     <para>
                         <example>
                             <title>Atom content element</title>
@@ -956,14 +899,14 @@
             </section>
             <section xml:id="CloudFeedsProductEvents">
                 <title>Cloud Feeds Product Events</title>
-                <para>Cloud Feeds places product events inside the Atom Content element. The
-                        <tag>event</tag> element contains the product events as shown in the
-                    following example. </para>
-                <example>
+                <para>Cloud Feeds places product events inside the Atom <code>content</code>
+                    element. The <tag>event</tag> element contains the product events as shown in
+                    the following example:</para>
+                <example security = "internal">
                     <title>Cloud feeds product events</title>
                     <programlisting>&lt;atom:entry>
     &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
-    &lt;atom:category term="tid:65909bc5" />
+    &lt;atom:category term="tid:123456" />
     &lt;atom:category term="rgn:DFW" />
     &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
     &lt;atom:category term="widget.widget.gadget.usage" />
@@ -972,13 +915,38 @@
     &lt;atom:content type="application/xml">
       &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
           id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
-          startTime="2012-03-12T11:51:11Z" tenantId="65909bc5" type="USAGE" version="1">
+          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
         &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
           mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
           serviceCode="Widget" time="11:51:11Z" version="2" />
       &lt;/event>
     &lt;/atom:content>
     &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
+    &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
+    &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
+  &lt;/atom:entry>
+</programlisting>
+                </example>
+                <example security = "external">
+                    <title>Cloud feeds product events</title>
+                    <programlisting>&lt;atom:entry>
+    &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
+    &lt;atom:category term="tid:123456" />
+    &lt;atom:category term="rgn:DFW" />
+    &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
+    &lt;atom:category term="widget.widget.gadget.usage" />
+    &lt;atom:category term="type:widget.widget.gadget.usage" />
+    &lt;atom:category term="dc:DFW1" />
+    &lt;atom:content type="application/xml">
+      &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
+          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
+          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
+        &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
+          mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
+          serviceCode="Widget" time="11:51:11Z" version="2" />
+      &lt;/event>
+    &lt;/atom:content>
+    &lt;atom:link href="https://dfw.feeds.api.rackspacecloud.com/functest1/events/123456/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
     &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
     &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
   &lt;/atom:entry>
@@ -1000,25 +968,18 @@
                 <title>Date and time format</title>
                 <para> For the display and consumption of date and time values, the Cloud Feeds
                     service uses a date format that complies with ISO 8601. </para>
-                <para>The following table lists the format of a Cloud Feeds Date/Time and an
-                    example. An example of the Date/Time follows: </para>
                 <example>
                     <title>Cloud Feeds date and time format example </title>
-                    <programlisting>The Date/Time Format yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+                    <programlisting>yyyy-MM-dd'T'HH:mm:ss.SSSZ</programlisting>
+                    <para>For example, September 5, 2013 at 2:50:46:904 P.M., Universal Time, would
+                        have the following format:</para>
                     <para>
-                        <programlisting>&lt;feed xmlns="http://www.w3.org/2005/Atom">
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="current" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/" rel="self" />
-    &lt;id>urn:uuid:28c08dce-f0d9-4710-9657-c5cd35b48018&lt;/id>
-    &lt;title type="text">glance/events&lt;/title>
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.send/fb5aa437-03fd-4a0a-80a5-668e34b8764d/&amp;limit=25&amp;search=&amp;direction=forward" rel="previous" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=tag:127.0.0.1:/image.activate/33bdaeca-94f9-4c47-ad1f-6ecce25bb773/&amp;limit=25&amp;search=&amp;direction=backward" rel="next" />
-    &lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/glance/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
-    &lt;updated><emphasis role="bold">2013-09-05T14:50:46.904Z</emphasis>&lt;/updated></programlisting>
+                        <programlisting>2013-09-05T14:50:46.904Z</programlisting>
                     </para>
                 </example>
+                <para>The following table describes the date and time format codes.</para>
                 <table rules="all">
-                    <caption>Explanation of date/time format codes</caption>
+                    <caption>Explanation of date and time format codes</caption>
                     <thead>
                         <tr>
                             <td>Code</td>
@@ -1028,78 +989,87 @@
                     <tbody>
                         <tr>
                             <td>yyyy</td>
-                            <td>Four digit year</td>
+                            <td>Four-digit year</td>
                         </tr>
                         <tr>
                             <td>MM</td>
-                            <td>Two digit month</td>
+                            <td>Two-digit month</td>
                         </tr>
                         <tr>
                             <td>dd</td>
-                            <td>Two digit day of month</td>
+                            <td>Two-digit day of the month</td>
                         </tr>
                         <tr>
                             <td>T</td>
-                            <td>Separator for date/time</td>
+                            <td>Separator for date and time</td>
                         </tr>
                         <tr>
                             <td>HH</td>
-                            <td>Two digit hour of day (00-23)</td>
+                            <td>Two-digit hour of the day (00-23)</td>
                         </tr>
                         <tr>
                             <td>mm</td>
-                            <td>Two digit minutes of hour</td>
+                            <td>Two-digit minutes of the hour</td>
                         </tr>
                         <tr>
                             <td>ss</td>
-                            <td>Two digit seconds of the minute</td>
+                            <td>Two-digit seconds of the minute</td>
                         </tr>
                         <tr>
                             <td>SSS</td>
-                            <td>Three digit milliseconds of the second</td>
+                            <td>Three-digit milliseconds of the second</td>
                         </tr>
                         <tr>
                             <td>Z</td>
-                            <td>RFC-822 timezone</td>
+                            <td>RFC-822 time zone</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             <section xml:id="pagination">
                 <title>Pagination</title>
-                <para>To reduce load on the service, list operations return a maximum of 25 entries
-                    at a time. However, you can use the limit parameter in the
-                        <command>GET</command> request to allow up to 1,000 entries per page.
-                    Specifying the number of entries to return is referred to as pagination. If a
-                    request supplies no limit or one that exceeds the configured default limit, the
-                    default value is used instead.</para>
+                <para>To reduce the load on the service, list operations return a maximum of 25
+                    entries at a time. However, you can use the <parameter>limit</parameter>
+                    parameter in the <command>GET</command> request to allow up to 1,000 entries per
+                    page. Specifying the number of entries to return is referred to as <emphasis
+                        role="italic">pagination</emphasis>. If a request supplies no limit or one
+                    that exceeds the configured default limit, the default value is used
+                    instead.</para>
                 <para>Pagination provides the ability to limit the size of the returned data and
                     retrieve a specified subset of a large data set. Pagination has the following
-                    key concepts: limit and marker. <emphasis>Limit</emphasis> is the restriction on
-                    the maximum number of items for that type that can be returned.
-                        <emphasis>Marker</emphasis> is the ID of the last item in the previous list
-                    returned. For example, a query could request the next 10 instances after the
-                    instance "1234" as follows: <code>?limit=10&amp;marker=1234</code>. Items are
-                    displayed sorted by ID. </para>
+                    key concepts: limit and marker. </para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><emphasis>Limit</emphasis> is the restriction on the maximum
+                                number of items for that type that can be returned.</para>
+                        </listitem>
+                        <listitem>
+                            <para><emphasis>Marker</emphasis> is the ID of the last item in the
+                                previous list returned. For example, a query could request the next
+                                10 instances after the instance 1234 as follows:
+                                    <code>?limit=10&amp;marker=1234</code>. Items are displayed
+                                sorted by ID. </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
                 <para>If the content returned by a request is paginated, the response includes a
-                    structured link that are similar to instance item's links, with the basic
-                    structure <code>{"href": "&lt;url>", "rel": "next"}</code>. Any response that is
-                    truncated by pagination will have a <emphasis>next</emphasis> link, which points
-                    to the next item in the collection. If there are no more items, no
-                        <emphasis>next</emphasis> link is returned.</para>
+                    structured link with the basic structure <code>{"href": "&lt;url>", "rel":
+                        "next"}</code>. Any response that is truncated by pagination will have a
+                        <emphasis>next</emphasis> link, which points to the next item in the
+                    collection. If there are no more items, no <emphasis>next</emphasis> link is
+                    returned.</para>
             </section>
             <section xml:id="Rules_CF_PS">
-                <title>Rules for Cloud Feeds publishers and subscribers</title>
-                <para><emphasis role="bold">Rules for Subscribers</emphasis></para>
-                <para>Subscribers may receive the following responses:</para>
+                <title>Response codes for Cloud Feeds publishers and subscribers</title>
                 <para>
                     <table>
-                        <caption>Rules for subscribers</caption>
+                        <caption>Response codes for subscribers</caption>
                         <col width="20%"/>
                         <col width="20%"/>
                         <col width="20%"/>
                         <col width="20%"/>
-                        <col width="2p%"/>
+                        <col width="20%"/>
                         <thead>
                             <tr>
                                 <th>Code category</th>
@@ -1157,13 +1127,14 @@
                         </tbody>
                     </table>
                 </para>
+                <para security="internal"></para>
                 <table security="internal">
-                    <caption>Rules for publishers</caption>
+                    <caption>Response codes for publishers</caption>
                     <col width="16%"/>
                     <col width="16%"/>
                     <col width="16%"/>
                     <col width="16%"/>
-                    <col width="17%"/>
+                    <col width="18%"/>
                     <col width="16%"/>
                     <thead>
                         <tr>
@@ -1187,15 +1158,15 @@
                                 is needed</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>400</td>
                             <td>None</td>
                             <td><command>POST</command> request with schema validation error </td>
-                            <td>Schema validation errors have content in the message body.</td>
+                            <td>Schema validation errors have content in the message bofy</td>
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>401</td>
                             <td>None</td>
                             <td><command>POST</command> request with a missing, expired, or invalid
@@ -1204,7 +1175,7 @@
                             <td>Retry with a valid token.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>403</td>
                             <td>None</td>
                             <td><command>POST</command> forbidden (i.e.: tenant trying to access
@@ -1213,7 +1184,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>404</td>
                             <td>None</td>
                             <td>Not found </td>
@@ -1221,7 +1192,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>405</td>
                             <td>None</td>
                             <td>Used a <command>PUT</command> request instead of a
@@ -1230,7 +1201,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>409</td>
                             <td>None</td>
                             <td><command>POST</command> that is a duplicate (conflict). All feeds
@@ -1245,7 +1216,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>415</td>
                             <td>None</td>
                             <td><command>POST</command> request that is in an unsupported format
@@ -1254,7 +1225,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. Can be an error with the event.</td>
                             <td>422</td>
                             <td>None</td>
                             <td>Typically this error occurs when malformed Atom XML is passed to
@@ -1263,7 +1234,7 @@
                             <td>Fix entry and re-post.</td>
                         </tr>
                         <tr>
-                            <td>Client Error</td>
+                            <td>Client Error. The request is rate limited.</td>
                             <td>429</td>
                             <td>Rate Limited</td>
                             <td>Cloud Feeds is set to 500 <command>POST</command> requests per
@@ -1302,21 +1273,14 @@
                             to the business rules included in the validation schema. </para>
                     </listitem>
                 </itemizedlist>
-                <para>If the content returned by a request is paginated, the response includes a
-                    structured link that are similar to instance item's links, with the basic
-                    structure <code>{"href": "&lt;url>", "rel": "next"}</code>. Any response that is
-                    truncated by pagination will have a <emphasis>next</emphasis> link, which points
-                    to the next item in the collection. If there are no more items, no
-                        <emphasis>next</emphasis> link is returned.</para>
             </section>
         </section>
     </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
         <title>Using Cloud Feeds</title>
-        <para>To use Cloud Feeds you need to have a basic understanding of REST APIs. In this
-            section you learn how to use the Cloud Feeds REST API to perform basic API
-            operations.</para>
-        <para>
+        <para>To use Cloud Feeds you need to have a basic understanding of REST APIs. This section
+            describes how to use the Cloud Feeds REST API to perform basic API operations.</para>
+        <para security="internal">
             <note>
                 <para><code>tid:</code>, <code>rgn:</code>, <code>dc:</code>, <code>rid:</code>, and
                         <code>type:</code> are prefixed categories that are added by Cloud Feeds and
@@ -1326,18 +1290,20 @@
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303" security="internal">
             <title>Adding a new Atom event</title>
             <para>You can use a <command>POST </command>request to insert new Atom entries into Atom
-                Hopper. To insert a new Atom event in a feed you first need to create an Atom entry
-                and save it in the same directory where you are making your request from.</para>
+                Hopper. </para>
+            <para>The following example shows what the content of an Atom entry can look
+                like:</para>
+            <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+            <para>To insert a new Atom event in a feed, you first need to create an Atom entry and
+                save it in the same directory from which you are making your request.</para>
                 <para>You then make a <command>POST</command> request with the specified feed URL
-                and a pointer to the Atom entry you want to submit using the following
-                syntax:</para>
+                and a pointer to the Atom entry that you want to submit by using the following
+                syntax.  <emphasis role="italic">inputFile</emphasis> specifies the path to the file
+                that contains the Atom entry.</para>
                 <para>
                     <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
                 </para>
-                <para>&lt;<emphasis role="italic">inputFile</emphasis>> specifies the path to a file
-                    that contains an atom entry. </para>
-                <para>The following example shows what a payload for an Atom entry can look like. </para>
-                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+ 
                 <para>The following example shows how to add a new Atom entry by providing a pointer
                     to the entry:</para>
                 <para>
@@ -1346,19 +1312,17 @@
                 <para>
                     <important>
                         <para>When making the <command>POST</command> request, make sure to set the
-                        HTTP Header to <emphasis>Content-Type: application/atom+xml
-                        </emphasis></para>
+                        HTTP Header to Content-Type: application/atom+xml.</para>
                     </important>
                 </para>
                 <para>After you have successfully posted the Atom XML to the correct endpoint you
-                    will receive an <code>HTTP 201</code> status code as a response. The response
-                    body contains the Atom XML you posted in the request body, as well as category
-                    information for the entry, as shown in the following example:</para>
+                receive an <code>HTTP 201</code> status code as a response. The response body
+                contains the Atom XML that you posted in the request body, as well as category
+                information for the entry, as shown in the following example:</para>
                 <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
-                <para>You  notice when the Atom feed is returned that each Atom entry has a
-                self-referencing link. The appearance of your self-referencing Atom entry links
-                varies depending on whether you use an HTTPS <command>POST</command> request or
-                not.</para>
+                <para>In the response, each Atom entry has a self-referencing link. The appearance
+                of your self-referencing Atom entry varies depending on whether you use an HTTPS
+                    <command>POST</command> request or not.</para>
                 <para>With an HTTPS <command>POST</command> request, the link looks as
                 follows:<programlisting>&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/entries/urn:uuid:9b850562-d357-4cf8-8811-048a6730e869" rel="self" />
 </programlisting></para>
@@ -1366,11 +1330,11 @@
             <title>Adding one or more categories</title>
             <para>The <code>category</code> element provides category information for a feed and is
                     case sensitive. The <code>category</code> element can appear anywhere as child
-                    of the <code>atom:entry</code> element. To add categories to an Atom entry you
-                    must include the <code>category</code> element along with a <code>term</code>
+                    of the <code>atom:entry</code> element. To add categories to an Atom entry, you
+                    must include the <code>category</code> element with a <code>term</code>
                     attribute as shown here:</para>
             <programlisting>&lt;category term="mycategory1" /></programlisting>
-            <para>You can also add multiple categories using the following syntax:</para>
+            <para>You can also add multiple categories by using the following syntax:</para>
             <programlisting>&lt;category term="mycategory1" />
 &lt;category term="mycategory2" /></programlisting>
             <note>
@@ -1382,7 +1346,7 @@
         <section xml:id="Get_Atom_Entry">
             <title>Reading a feed</title>
             <para>To retrieve an Atom feed or an Atom entry that was posted, submit a
-                    <command>GET</command> request using the following syntax:</para>
+                    <command>GET</command> request by using the following syntax:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
@@ -1411,9 +1375,9 @@
                         </tr>
                         <tr align="left">
                             <td><emphasis role="italic">feedName</emphasis></td>
-                            <td>Specifies the name of the feeds you are trying to fetch events for.
-                                An example of a feed name is: nova, servers, queues, files,
-                                etc.</td>
+                            <td>Specifies the name of the feeds for which you are trying to fetch
+                                events. Examples of a feed names are: nova, servers, queues,
+                                files.</td>
                         </tr>
                         <tr align="left" security="external">
                             <td><emphasis role="italic">tenantID</emphasis></td>
@@ -1422,14 +1386,14 @@
                     </tbody>
                 </table>
             </para>
-            <para>The following is an example for a request for a feed:</para>
+            <para>following is an example of a request for a feed:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
             </para>
-            <para>This request returns 25 of the latest events in the Next Generation Cloud Server
-                feed from the DFW data center. To make the formatting of the returned events more
-                readable, you can submit the following request:</para>
+            <para>This request returns 25 of the latest events in the nova feed from the DFW data
+                center. To make the formatting of the returned events more readable, you can submit
+                the following request:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
@@ -1442,12 +1406,12 @@
             <section xml:id="Navigating_through_feeds">
                 <title>Navigating through feeds</title>
             <para>A successful response to a <command>GET</command> request to obtain a feed returns
-                links that help you navigate to the Atom entries of your feed. The following links
+                links that help you navigate to the Atom entries in the feed. The following links
                 are returned in the Cloud Feeds responses:</para>
             <itemizedlist>
                 <listitem>
-                    <para>The <emphasis role="bold">current</emphasis> link node goes to the current
-                        feed.</para>
+                    <para>Use the <emphasis role="bold">current</emphasis> link node to go to the
+                        current feed.</para>
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">last</emphasis> links to go to the last page
@@ -1458,22 +1422,22 @@
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">self</emphasis> link to bring back the entry
-                        that you are currently viewing. Note that in the example above, the feeds
-                        are being hit with no options; as a result, if any new Atom entries have
-                        been entered, then those will appear as well.</para>
+                        that you are currently viewing. If the feeds are being hit with no options,
+                        any new Atom entries have been entered, then those entries also
+                        appear.</para>
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">next</emphasis> link to navigate by page to
                         the next page of Atom entries. When you get to the end of the feed, this
-                        link will not be present.</para>
+                        link is not be present.</para>
                 </listitem>
                 <listitem>
                     <para>Use the <emphasis role="bold">previous</emphasis> link to navigate by page
                         to the previous page of Atom entries. Sometimes the link is in the feed
-                        header; however, the link will not be in the feed header if the feed is
-                        empty. If you are at the top of the feed and you follow this link, an empty
-                        feed is returned unless new entries have occurred since you last polled. In
-                        a feed, the entries are shown in order from newest to oldest. </para>
+                        header; however, the link is not be in the feed header if the feed is empty.
+                        If you are at the top of the feed and you follow this link, an empty feed is
+                        returned unless new entries have occurred since you last polled. In a feed,
+                        the entries are shown in order from newest to oldest. </para>
                     <para>The following diagram shows how pagination works with Cloud Feeds:</para>
                 </listitem>
             </itemizedlist>
@@ -1488,38 +1452,33 @@
                 xmlns:m="http://www.w3.org/1998/Math/MathML"
                 xmlns:html="http://www.w3.org/1999/xhtml">
                 <para>When viewed in a web browser or web tool such as Chrome Poster, each <emphasis
-                        role="bold">&amp;</emphasis> characters in a link returns as an HTML
+                        role="bold">&amp;</emphasis> character in a link returns as an HTML
                     ampersand character code. To follow the link in a web browser or web tool such
                     as Poster, you must change each HTML ampersand character (&amp;amp;) to
                         <emphasis role="bold">&amp;</emphasis>. For example, when viewed in a web
                     browser, the feed returns the following link: </para>
             </important>
-            <programlisting security="external">&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+            <programlisting security="external">&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
                 <programlisting security = "internal">&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
             <para>To follow the link from a web browser, you must change each instance of &amp;amp;
-                to &amp;, as shown in the following example. The &amp;amp in this example</para>
-            <programlisting security = "external">https://ord.feeds.api.rackspacecloud.com/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
-</programlisting>
-                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed//events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward
-</programlisting>
-            <para>must be changed to: </para>
-            <programlisting security = "external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+                to &amp;, as follows:</para>
+            <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
                 <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
-            <para>This issue should not be a concern when using an XML Parser. </para></section>
+            <para>This issue should not be a concern when you are using an XML Parser. </para></section>
             <section xml:id="Cloud_Query_Pardle0001">
             <title>Cloud Feeds query parameters</title>
             <para>You can use query parameters to customize the entries and their order within a
                 feed. Query parameters are part of the URL that is passed to the server as part of
                 an API request. When you add query parameters to an API request, you modify the
-                results in ways, such as refining your query or sorting the output. </para>
-            <para>A typical URL that contains a query parameter looks like the following:</para>
+                results in specific ways, such as refining your query or sorting the output. </para>
+            <para>A typical URL that contains a query parameter looks like the following URL:</para>
             <para><code>http://server/program/path/?query_string</code></para>
-            <para>The query string is composed of one or more field value pairs using the following
-                format:</para>
+            <para>The query string is composed of one or more field value pairs that use the
+                following format:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -1527,8 +1486,8 @@
                             by an equals sign (<emphasis role="italic">=</emphasis>).</para>
                     </listitem>
                     <listitem>
-                        <para>The series of pairs is separated by and ampersand (&amp;) as shown in
-                            the following example:</para>
+                        <para>Pairs in series are separated by ampersand (&amp;), as shown in the
+                            following example:</para>
                         <para><code>field1=value1&amp;field2=value2&amp;field3=value3...</code></para>
                     </listitem>
                 </itemizedlist>
@@ -1551,14 +1510,14 @@
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-                            <td>Specifies a uuid that exists in the Cloud Feeds system.</td>
-                            <td>Must be a valid uuid that exists in the Cloud Feeds, system, for
+                            <td>Specifies a UUI that exists in the Cloud Feeds system.</td>
+                            <td>Must be a valid UUI that exists in the Cloud Feeds system, for
                                 example
                                 <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
-                            <td>Specifies the direction from which to return entries starting from
+                            <td>Specifies the direction from which to return entries, starting from
                                 the current marker or entry.</td>
                             <td>Can be either <code>forward</code> or <code>backward</code>.</td>
                         </tr>
@@ -1566,8 +1525,8 @@
                             <td><parameter>limit</parameter></td>
                             <td>Specifies the number of entries to be returned. If the entered limit
                                 is greater than the actual number of entries, the actual number of
-                                entries will be used.</td>
-                            <td>Must be an integer between 1 and 1000 inclusive.</td>
+                                entries is used.</td>
+                            <td>Must be an integer from 1 to 1000.</td>
                         </tr>
                         <tr>
                             <td><parameter>search</parameter></td>
@@ -1579,7 +1538,7 @@
                         <tr>
                             <td><parameter>startingAt</parameter></td>
                             <td>Allows filtering for a number of entries that start at a specified
-                                timestamp.</td>
+                                time stamp.</td>
                             <td>Must be in ISO 8601 Date and Time format, and must contain a time
                                 zone, for example: 2014-03-10T06:00:00.000Z. For more information,
                                 see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
@@ -1590,7 +1549,7 @@
             </para>
             <para>
                 <note>
-                    <para>The <parameter>startingAt</parameter> parameter can not be used together
+                    <para>The <parameter>startingAt</parameter> parameter cannot be used together
                         with the <parameter>marker</parameter> parameter. If the
                             <parameter>startingAt</parameter> parameter is used without a
                             <parameter>direction</parameter> parameter, then forward direction is
@@ -1604,92 +1563,90 @@
             <para>You can use the <parameter>marker</parameter> parameter to denote an entry that
                 you have previously used. If you specify a marker in the <command>GET</command>
                 request, you can also specify a value for the <parameter>direction</parameter>
-                parameter. The value is either <code>forward</code> or <code>backward</code>. If you
-                do not specify a value for the <parameter>direction</parameter> parameter, the
-                default value of <code>forward</code> is used. </para>
+                parameter. If you do not specify a value for the <parameter>direction</parameter>
+                parameter, the default value of <code>forward</code> is used. </para>
             <para>The following example shows a <parameter>marker</parameter> parameter specified
                 and the <parameter>direction</parameter> parameter set to
-                    <parameter>forward</parameter>.</para>
+                    <parameter>forward</parameter>:</para>
             <para>
                 <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
-                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
             </para>
             <para>The following example shows a <parameter>marker</parameter> parameter specified
                 and the <parameter>direction</parameter> parameter set to
-                    <parameter>backward</parameter>.</para>
+                    <parameter>backward</parameter>:</para>
             <para>
                 <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
-                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
             </para>
-            <para>You can use the <parameter>limit</parameter>
-                parameter to specify the number of entries to return.
-                By default the limit is set to 25. The minimum limit
-                is one and the maximum is 1,000.</para>
+            <para>You can use the <parameter>limit</parameter> parameter to specify the number of
+                entries to return. By default the limit is set to 25. The minimum limit is 1 and the
+                maximum limit is 1,000.</para>
             <para>The following example shows the <parameter>marker</parameter> parameter specified
                 and the <parameter>limit</parameter> parameter set to 50, paging forward.</para>
             <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
-            <programlisting security = "external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+            <programlisting security="external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <para>The following example shows a marker set and the
                 limit set to 50, paging backward.</para>
             <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
-            <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+            <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
         </section>
         <section xml:id="Filter_Entries_by_Category_d1e1315">
             <title>Filtering entries by categories <?sbr?></title>
             <para>You can use a <command>GET</command> request to filter for certain types of events
-                you would like to obtain from a feed by defining a specific <emphasis role="italic"
-                    >search category</emphasis>. You specify the search categories by adding
+                you want to obtain from a feed by defining a specific <emphasis role="italic">search
+                    category</emphasis>. You specify the search categories by adding
                     <parameter>search</parameter> as the URL parameter at the end of the feeds URL
-                and then specifying the category or item you want to search for. The following
+                and then specifying the category or item for which you want to search. The following
                 example shows how to get all event types that fall under the
-                    <emphasis>cloudsites.metered.site.usage</emphasis> category:</para>
+                cloudsites.metered.site.usage category:</para>
             <para>
                 <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
                 <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
             </para>
             <section xml:id="Filtering_using_AND_OR_NOT">
-                <title>Advanced filtering using AND, OR, and NOT</title>
-                        <para>Cloud Feeds supports advanced filters using the AND, OR, and NOT
-                            operators and their combinations. </para>
-                        <para>The following example shows how to filter for multiple categories
-                            using an AND statement:</para>
+                <title>Advanced filtering by using AND, OR, and NOT</title>
+                        <para>Cloud Feeds supports advanced filters by using the AND, OR, and NOT
+                    operators and their combinations. </para>
+                        <para>The following example shows how to filter for multiple categories by
+                    using an AND statement:</para>
                         <para>
                             <example security="internal">
-                                <title>Filtering for multiple categories using an AND
-                                    statement</title>
+                                <title>Filtering for multiple categories by using an AND
+                            statement</title>
                                 <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
                             </example>
                             <example security="external">
-                                <title>Filtering for multiple categories using an AND
-                                    statement</title>
-                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                                <title>Filtering for multiple categories by using an AND
+                            statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
                             </example>
                         </para>
-                        <para>The following example shows how to filter for multiple categories
-                            using an OR statement:</para>
+                        <para>The following example shows how to filter for multiple categories by
+                    using an OR statement:</para>
                         <para>
                             <example security="internal">
-                                <title>Filtering for multiple categories using an OR
-                                    statement</title>
+                                <title>Filtering for multiple categories by using an OR
+                            statement</title>
                                 <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
                             </example>
                             <example security="external">
-                                <title>Filtering for multiple categories using an OR
-                                    statement</title>
-                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+                                <title>Filtering for multiple categories by using an OR
+                            statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
                             </example>
                         </para>
                         <para>The following example shows how to filter for a category that is
-                            entered as not <emphasis role="bold">CAT1</emphasis> using a NOT
-                            statement:</para>
+                    entered as not <emphasis role="bold">CAT1</emphasis> by using a NOT
+                    statement:</para>
                         <para>
                             <example security="internal">
                                 <title>Filtering for a single category using a NOT statement</title>
@@ -1697,7 +1654,7 @@
                             </example>
                             <example security="external">
                                 <title>Filtering for a single category using a NOT statement</title>
-                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(NOT(cat=CAT1)) </programlisting>
                             </example>
                         </para>
                         <para>You can also use the AND, OR, and NOT operators to filter for multiple
@@ -1706,46 +1663,49 @@
                             entered as CAT1 and ( CAT2 or CAT3 ) but not CAT4:</para>
                         <para>
                             <example security="internal">
-                                <title>Filtering for multiple categories using AND statement</title>
+                                <title>Filtering for multiple categories using an AND
+                            statement</title>
                                 <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
                             </example>
                             <example security="external">
-                                <title>Filtering for multiple categories using AND statement</title>
-                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                                <title>Filtering for multiple categories using an AND
+                            statement</title>
+                                <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
                             </example>
                         </para>
                     </section>
             </section>
-        <section xml:id="Filtering_by_timestamp"><title>Filtering by timestamp</title>
+        <section xml:id="Filtering_by_timestamp"><title>Filtering by time stamp</title>
             <para>You can use the <parameter>startingAt</parameter> query parameter to filter for
-                feed entries starting at a certain timestamp. The parameter takes an ISO 8601 Date
-                and Time format (see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                feed entries that start at a certain time stamp. The parameter takes an ISO 8601
+                Date and Time format (see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
                     >http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone, such
                 as such as 2014-03-10T06:00:00.000Z.</para>
-            <para>The following URL shows how to fetch entries with a timestamp that is newer than
+            <para>The following URL shows how to fetch entries with a time stamp that is newer than
                 2014-03-10 00:00:00.000 UTC:</para>
             <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
-            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
-            <para>The following URL shows how to fetch entries with a timestamp that older than
+            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+            <para>The following URL shows how to fetch entries with a time stamp that older than
                 2014-03-10 00:00:00.000 UTC by setting the <parameter>direction</parameter>
                 parameter to <emphasis role="italic">backward</emphasis>:</para>
             <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
-            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
             <para>
                 <note>
                     <para>The <parameter>startingAt</parameter> parameter can not be used together
-                        with the marker parameter.</para>
+                        with the <parameter>marker</parameter> parameter.</para>
                     <para>If the <parameter>startingAt</parameter> parameter is used without a
-                            <parameter>direction</parameter> parameter, then direction <emphasis
-                            role="italic">forward </emphasis> is assumed. If you want to fetch feeds
-                        from a time period before the time specified in the timestamp, you need to
-                        use the <parameter>direction</parameter> parameter and then the <emphasis
-                            role="italic">backward </emphasis> description, like the
-                            following:<emphasis role="italic"> direction=backward.</emphasis></para>
+                            <parameter>direction</parameter> parameter, then the <emphasis
+                            role="italic">forward </emphasis> direction is assumed. If you want to
+                        fetch feeds from a time period before the time specified in the time stamp,
+                        you need to use the <parameter>direction</parameter> parameter and then the
+                            <emphasis role="italic">backward </emphasis> description, like the
+                        following: <parameter>direction</parameter> set to <emphasis role="italic"
+                            >backward</emphasis>.</para>
                 </note>
             </para></section>
         <section xml:id="Weak_ETag_Support_d1e1321">
-            <title>Support for weak ETag </title>
+            <title>Support for weak ETags </title>
             <para>Cloud Feeds supports weak entity tags (ETags). An
                 ETag identifies a specific feed version. When the
                 content of the feed changes, a different ETag is
@@ -1753,23 +1713,23 @@
                 whether a previously processed feed has changed. Weak
                 ETags are sent back in the HTTP header with a name of
                 ETag.</para>
-            <para>Following is an example of weak ETag for a feed
-                containing more than one Atom entry:</para>
+            <para>Following is an example of weak ETag for a feed that contains more than one Atom
+                entry:</para>
             <programlisting>W/"4ec07c96e1399298d48db885c014703b"</programlisting>
-            <para>ETags are not returned in the following situations:<orderedlist>
+            <para>ETags are not returned in the following situations:<itemizedlist>
                     <listitem>
                         <para>The feed is empty.</para>
                     </listitem>
                     <listitem>
-                        <para>You use the <parameter>marker</parameter> parameter, specify the
+                        <para>You use the <parameter>marker</parameter> parameter, you specify the
                             direction as <emphasis role="italic">forward</emphasis>, and no entries
                             exist after that marker.</para>
                     </listitem>
-                </orderedlist></para>
+                </itemizedlist></para>
         </section>
         <section xml:id="Cloudfeedsbestpractices"><title>Cloud Feeds best practices</title><para>
         </para>
-        <section xml:id="Bestpracticespublishers"><title>Best Practices for publishers</title><para>Cloud Feeds offers recommendation actions for publishers that are based on a specific return
+        <section xml:id="Bestpracticespublishers" security="internal"><title>Best Practices for publishers</title><para>Cloud Feeds offers recommendation actions for publishers that are based on a specific return
                     code that is obtained when publishing an entry. The following table shows a list
                     of recommended actions based on return code.</para>
                 <para>
@@ -1806,14 +1766,16 @@
                             <tr>
                                 <td>404</td>
                                 <td>No authorization for the action upon the URI, or URI does not
-                                    exist.  Determine that your role has authorization to POST to
-                                    Cloud Feeds.  Ensure that your URI is valid.</td>
+                                    exist.  Determine that your role has authorization to issue
+                                        <command>POST</command> requests to Cloud Feeds.  Ensure
+                                    that your URI is valid.</td>
                             </tr>
                             <tr>
                                 <td>405</td>
                                 <td>No authorization for the action upon the URI, or URI does not
-                                    exist.  Determine that your role has authorization to POST to
-                                    Cloud Feeds.  Ensure that your URI is valid.</td>
+                                    exist.  Determine that your role has authorization to
+                                        <command>POST</command> to Cloud Feeds.  Ensure that your
+                                    URI is valid.</td>
                             </tr>
                             <tr>
                                 <td>409</td>
@@ -1823,16 +1785,15 @@
                             <tr>
                                 <td>429</td>
                                 <td>The user id has been rate-limited.  Resubmit when your user id
-                                    is issuing fewer POST requests.</td>
+                                    is issuing fewer <command>POST</command> requests.</td>
                             </tr>
                             <tr>
                                 <td>500</td>
-                                <td> Repose is restarting, retry with exponential backoff. </td>
+                                <td>Repose is restarting, retry with exponential backoff. </td>
                             </tr>
                             <tr>
                                 <td>503</td>
-                                <td> Cloud Feeds internal error, retry with exponential
-                                    backoff.</td>
+                                <td>Cloud Feeds internal error, retry with exponential backoff.</td>
                             </tr>
                         </tbody>
                     </table>
