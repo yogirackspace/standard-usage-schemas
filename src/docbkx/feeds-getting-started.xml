@@ -124,6 +124,21 @@
                 xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
                 >Product Feedback Forum</link> and tell us what you
             think about Cloud Feeds.</para>
+        <section xml:id="EarlyAccessProgram" security = "external">
+            <title>Early Access Program</title>
+            <para>Cloud Feeds is now available to customers through an Early Access program. At the
+                launch of the Early Access program (at the end of July 2014), Cloud Feeds supports
+                limited functionality and event notifications. As the service progresses towards
+                General Availability, additional features and event notifications will be added, and
+                it’s possible that existing implementations and formats might change. The Early
+                Access program is an opportunity for customers to work in partnership with Rackspace
+                to ensure that the implemented features align with business needs and can be used
+                with maximum efficiency.   Existing Rackspace Cloud customers are eligible to
+                participate in the Cloud Feeds Early Access program. The Cloud Feeds Early Access
+                program is provided to customers subject to the Test Terms located at <link
+                    xlink:href="http://www.rackspace.com/information/legal/cloud/tos "
+                    >http://www.rackspace.com/information/legal/cloud/tos</link>.</para>
+        </section>
         <section xml:id="Prerequisites_Examples">
             <title>Prerequisites for running examples</title>
             <para>In order to run the examples in this guide, you must
@@ -559,10 +574,8 @@
                 <tbody>
                     <tr>
                         <td>cloudfeeds:service-admin</td>
-                        <td>This role can see all tenant IDs that have
-                            been enabled for Cloud feeds. The
-                            service-admin can perform
-                                <command>POST</command>, as well as
+                        <td>This role can see all tenant IDs that have been enabled for Cloud Feeds.
+                            The service-admin can perform <command>POST</command>, as well as
                                 <command>GET</command> requests.</td>
                     </tr>
                     <tr>
@@ -671,9 +684,8 @@
                         where your Cloud resources are located.</para>
                 </listitem>
                 <listitem>
-                    <para>The Cloud Server that you use must be
-                        located in the same datacenter where your
-                        database resides.</para>
+                    <para>The Cloud server that you use must be located in the same datacenter where
+                        your database resides.</para>
                 </listitem>
                 <listitem>
                     <para>All examples in this guide assume that you are operating against the DFW
@@ -841,11 +853,14 @@
                     the feed. Its element children consist of metadata
                     elements that are followed by zero or more Atom
                     Entry child elements. </para>
-                <para>Following is an example of an entire Atom Feed
-                    element.</para>
-                <example>
-                    <title>Atom feed element</title>
+                <para>Following is an example of an entire Atom Feed element.</para>
+                <example security = "internal">
+                    <title>Atom feed element</title>                      
                     <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
+                </example>
+                <example security = "external">
+                    <title>Atom feed element</title>                      
+                    <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.xml" parse="text"/></programlisting>
                 </example>
             </section>
             <section xml:id="Atom_Entry_Element">
@@ -857,11 +872,14 @@
                     appear as a child of the Atom Feed element, or it
                     can appear as the top-level element of a
                     stand-alone Atom Entry Document. </para>
-                <para>Following is an example of an Atom Entry
-                    element.</para>
-                <example>
+                <para>Following is an example of an Atom Entry element.</para>
+                <example security ="internal">
                     <title>Atom entry element</title>
                     <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
+                </example>
+                <example security = "external">
+                    <title>Atom entry element</title>
+                    <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.xml" parse="text"/></programlisting>
                 </example>
             </section>
             <section xml:id="Atom_Content-Element">
@@ -889,11 +907,11 @@
             <para>Cloud Feed places product events inside the Atom
                 Content element. The <tag>event</tag> element contains
                 the product events as shown in the following example. </para>
-            <example>
+            <example security = "internal">
                 <title>Cloud feeds product events</title>
                 <programlisting>&lt;atom:entry>
     &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
-    &lt;atom:category term="tid:65909bc5" />
+    &lt;atom:category term="tid:123456" />
     &lt;atom:category term="rgn:DFW" />
     &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
     &lt;atom:category term="widget.widget.gadget.usage" />
@@ -902,13 +920,38 @@
     &lt;atom:content type="application/xml">
       &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
           id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
-          startTime="2012-03-12T11:51:11Z" tenantId="65909bc5" type="USAGE" version="1">
+          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
         &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
           mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
           serviceCode="Widget" time="11:51:11Z" version="2" />
       &lt;/event>
     &lt;/atom:content>
     &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
+    &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
+    &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
+  &lt;/atom:entry>
+</programlisting>
+            </example>
+            <example security = "external">
+                <title>Cloud feeds product events</title>
+                <programlisting>&lt;atom:entry>
+    &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
+    &lt;atom:category term="tid:123456" />
+    &lt;atom:category term="rgn:DFW" />
+    &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
+    &lt;atom:category term="widget.widget.gadget.usage" />
+    &lt;atom:category term="type:widget.widget.gadget.usage" />
+    &lt;atom:category term="dc:DFW1" />
+    &lt;atom:content type="application/xml">
+      &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
+          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
+          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
+        &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
+          mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
+          serviceCode="Widget" time="11:51:11Z" version="2" />
+      &lt;/event>
+    &lt;/atom:content>
+    &lt;atom:link href="https://dfw.feeds.api.rackspacecloud.com/functest1/events/123456/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
     &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
     &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
   &lt;/atom:entry>
@@ -1121,13 +1164,10 @@
                         </tr>
                         <tr>
                             <td><parameter>limit</parameter></td>
-                            <td>Specifies the number of entries to be
-                                returned. If the entered limit is
-                                greater than the actual number of
-                                entries, the actual number of entries
-                                will be used.</td>
-                            <td>Must be an integer between 1 and 1000
-                                inclusive.</td>
+                            <td>Specifies the number of entries to be returned. If the entered limit
+                                is greater than the actual number of entries, the actual number of
+                                entries is used.</td>
+                            <td>Must be an integer from 1 to 1000.</td>
                         </tr>
                         <tr>
                             <td><parameter>search</parameter></td>
@@ -1140,9 +1180,8 @@
                         </tr>
                         <tr>
                             <td><parameter>startingAt</parameter></td>
-                            <td>Allows filtering for a number of
-                                entries that start at a specified
-                                timestamp.</td>
+                            <td>Allows filtering for a number of entries that start at a specified
+                                time stamp.</td>
                             <td>Must be in ISO 8601 Date and Time
                                 format, and must contain a time zone,
                                 for example: 2014-03-10T06:00:00.000Z.
@@ -1155,14 +1194,11 @@
             </para>
             <para>
                 <note>
-                    <para>The <parameter>startingAt</parameter>
-                        parameter can not be used together with the
-                            <parameter>marker</parameter> parameter.
-                        If the <parameter>startingAt</parameter>
-                        parameter is used without a
-                            <parameter>direction</parameter>
-                        parameter, then forward direction is
-                        assumed.</para>
+                    <para>The <parameter>startingAt</parameter> parameter can not be used together
+                        with the <parameter>marker</parameter> parameter. If the
+                            <parameter>startingAt</parameter> parameter is used without a
+                            <parameter>direction</parameter> parameter, then <code>forward</code>
+                        direction is assumed.</para>
                 </note>
             </para>
             <para>For more information, see <olink
@@ -1171,28 +1207,46 @@
                 >“Filtering Entries by Categories
                 ”</olink>.</para>
             <section xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
-                <title>Filtering entries by the using the Marker parameter </title>
-                <para>You can use a marker to denote an entry that you have previously used. If you
-                    specify a marker in the <command>GET</command> request, you can also specify a
-                    value for the direction parameter. The value is either <code>forward</code> or
-                        <code>backward</code>. If you do not specify a value for the direction
-                    parameter, the default value of <code>forward </code>is used. </para>
-                <para><emphasis role="bold"
-                    >Forward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting></para>
-                <para><emphasis role="bold"
-                    >Backward</emphasis>:<programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
-</programlisting></para>
-                <para>You can use the <parameter>limit</parameter> parameter to specify the number
-                    of entries to return. By default the limit is set to 25. The minimum limit is
-                    one and the maximum is 1,000.</para>
-                <para>The following example shows a marker specified and the limit set to 50, paging
-                    forward.</para>
-                <programlisting> https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+                <title>Filtering entries by the using the marker parameter </title>
+                    <para>You can use the <parameter>marker</parameter> parameter to denote an entry
+                        that you have previously used. If you specify a marker in the
+                            <command>GET</command> request, you can also specify a value for the
+                            <parameter>direction</parameter> parameter. If you do not specify a
+                        value for the <parameter>direction</parameter> parameter, the default value
+                        of <code>forward</code> is used. </para>
+                    <para>The following example shows a <parameter>marker</parameter> parameter
+                        specified and the <parameter>direction</parameter> parameter set to
+                            <parameter>forward</parameter>:</para>
+                    <para>
+                        <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                        <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                    </para>
+                    <para>The following example shows a <parameter>marker</parameter> parameter
+                        specified and the <parameter>direction</parameter> parameter set to
+                            <parameter>backward</parameter>:</para>
+                    <para>
+                        <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
-                <para>The following example shows a marker set and the limit set to 50, paging
-                    backward.</para>
-                <programlisting>https://atom.myserver.com/feedname/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+                        <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
+                    </para>
+                    <para>You can use the <parameter>limit</parameter> parameter to specify the
+                        number of entries to return. By default the limit is set to 25. The minimum
+                        limit is 1 and the maximum limit is 1,000.</para>
+                    <para>The following example shows the <parameter>marker</parameter> parameter
+                        specified and the <parameter>limit</parameter> parameter set to 50, paging
+                        forward.</para>
+                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+</programlisting>
+                    <programlisting security="external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+</programlisting>
+                    <para>The following example shows a marker set and the limit set to 50, paging
+                        backward.</para>
+                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+</programlisting>
+                    <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+</programlisting>
+                
             </section>
             <section xml:id="Filter_by_Search_Category">
                 <title>Filtering by search category</title>
@@ -1226,7 +1280,7 @@
                         <example security="external">
                             <title>Filtering for multiple categories using
                                 an AND statement</title>
-                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
                         </example>
                     </para>
                     <para>The following example shows how to filter for
@@ -1241,7 +1295,7 @@
                         <example security="external">
                             <title>Filtering for multiple categories using
                                 an OR statement</title>
-                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
                         </example>
                     </para>
@@ -1258,7 +1312,7 @@
                         <example security="external">
                             <title>Filtering for a single category using a
                                 NOT statement</title>
-                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(NOT(cat=CAT1)) </programlisting>
                         </example>
                     </para>
                     <para>You can also use the AND, OR, and NOT operators
@@ -1268,53 +1322,46 @@
                         CAT2 or CAT3 ) but not CAT4:</para>
                     <para>
                         <example security="internal">
-                            <title>Filtering for multiple categories using
-                                AND statement</title>
+                            <title>Filtering for multiple categories using an AND statement</title>
                             <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
                         </example>
                         <example security="external">
-                            <title>Filtering for multiple categories using
-                                AND statement</title>
-                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
+                            <title>Filtering for multiple categories using an AND statement</title>
+                            <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
                         </example>
                     </para>
                     
                 </section>
             </section>
             <section xml:id="Filter_by_timestamp">
-                <title>Filtering by
-                    timestamp<?sbr?><?sbr?><?sbr?></title>
+                <title>Filtering by time stamp<?sbr?><?sbr?><?sbr?></title>
                 <para>You can use the <parameter>startingAt</parameter> query parameter to filter
-                    for feed entries starting at a certain timestamp. The parameter takes an ISO
-                    8601 Date and Time format  (see <link
+                    for feed entries that start at a certain time stamp. The parameter takes an ISO
+                    8601 Date and Time format (see <link
                         xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
                         >http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone,
                     such as such as 2014-03-10T06:00:00.000Z.</para>
-            <para>The following URL shows how to fetch entries with a
-                    timestamp that is newer than 2014-03-10
-                    00:00:00.000 UTC:</para>
-            <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
-            <programlisting security = "external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
-            <para>The following URL shows how to fetch entries with a
-                timestamp that older than 2014-03-10 00:00:00.000 UTC
-                by setting the <parameter>direction</parameter>
-                parameter to <emphasis role="italic"
-                    >backward</emphasis>:</para>
-            <programlisting security = "internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
-            <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+                <para>The following URL shows how to fetch entries with a time stamp that is newer
+                    than 2014-03-10 00:00:00.000 UTC:</para>
+                <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+                <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?startingAt=2014-03-10T00:00:00.000Z</programlisting>
+                <para>The following URL shows how to fetch entries with a time stamp that older than
+                    2014-03-10 00:00:00.000 UTC by setting the <parameter>direction</parameter>
+                    parameter to <emphasis role="italic">backward</emphasis>:</para>
+                <programlisting security="internal">http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
+                <programlisting security="external">http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?startingAt=2014-03-10T00:00:00.000Z&amp;direction=backward</programlisting>
                 <para>
                     <note>
-                        <para>The <emphasis role="bold">startingAt</emphasis> parameter can not be
-                            used together with the <emphasis role="bold">marker</emphasis>
-                            parameter.</para>
-                        <para>If the <emphasis role="bold">startingAt</emphasis> parameter is used
-                            without a <emphasis role="bold">direction</emphasis> parameter, then
-                            direction FORWARD is assumed. If you want to fetch feeds from a time
-                            period before the time specified in the timestamp, you need to use the
-                                <emphasis role="bold">direction</emphasis> parameter and then the
-                                <emphasis role="bold">backward</emphasis> description, like the
-                                following:<emphasis role="italic">
-                            direction=backward.</emphasis></para>
+                        <para>The <parameter>startingAt</parameter> parameter can not be used
+                            together with the <parameter>marker</parameter> parameter.</para>
+                        <para>If the <parameter>startingAt</parameter> parameter is used without a
+                                <parameter>direction</parameter> parameter, then the <emphasis
+                                role="italic">forward </emphasis> direction is assumed. If you want
+                            to fetch feeds from a time period before the time specified in the time
+                            stamp, you need to use the <parameter>direction</parameter> parameter
+                            and then the <emphasis role="italic">backward </emphasis> description,
+                            like the following: <parameter>direction</parameter> set to <emphasis
+                                role="italic">backward</emphasis>.</para>
                     </note>
                 </para>    
             </section>
