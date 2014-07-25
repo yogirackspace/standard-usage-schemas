@@ -1,7 +1,13 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.60.0**  
+2014-07-24 | B-75241: restrict endTime to not have 24:00:00 (Shinta Smith)  
+2014-07-21 | B-74443: non USAGE_SUMMARY events can not have duration attribute (Shinta Smith)  
+2014-07-21 | B-75673 - Add attribute to server-slice-action event (Greg Sharek)  
+
 **usage-schema-1.59.0**  
+2014-07-21 | B-75241: add assertions for event version=2's endTime to not span midnight (Shinta Smith)  
 2014-07-18 | D-18880 - remove added tenanted search from next/previous links (Greg Sharek)  
 
 **usage-schema-1.58.1**  
