@@ -87,6 +87,46 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:if test="not(empty($currentSchemas))">
+            <resource_type id="{$id}Tenant">
+                <xsl:variable name="opencurly">{</xsl:variable>
+                <xsl:variable name="closecurly">}</xsl:variable>
+                <resource path="{$opencurly}tid{$closecurly}/entries/{$opencurly}id{$closecurly}" id="getEntry_{$id}Tenant">
+                    <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+                    <param name="id" type="xs:anyURI" style="template">
+                        <!-- Have to add wadl: prefix to doc to make test pass. Canonicalization seems to be messing up -->
+                        <wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc>
+                    </param>
+                    <method id="getEntry{$id}Tenant" name="GET">
+                    <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                        <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
+                        <!-- TODO: Adjust samples to work with usage summaries -->
+                        <xsl:if test="not($summaryOnly)">
+                            <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
+                                <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
+                                <xsl:with-param name="context">getEntry</xsl:with-param>
+                                <xsl:with-param name="security">external</xsl:with-param>
+                            </xsl:apply-templates>
+                        </xsl:if>
+                    </wadl:doc>
+                        <xsl:if test="$id != 'CloudMonitoring' and $id != 'CloudServersOpenStack' and $id != 'CloudServers'">
+                            <request>
+                                <!-- Restrict representation to application/atom+xml. Means JSON not allowed -->
+                                <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
+                                       rax:message="getEntry{$id}: Accept header contains unsupported media types: application/*json"
+                                       name="ACCEPT"/>
+                            </request>
+                        </xsl:if>
+                        <response status="200">
+                            <representation mediaType="application/atom+xml"/>
+                        </response>
+                        <!-- On Error -->
+                        <response status="400 401 409 500 503">
+                            <representation mediaType="application/xml"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource_type>
+
             <resource_type id="{$id}">
                 <method id="add{$id}Entry" name="POST">
                     <xsl:text>&#x0a;         </xsl:text>
@@ -101,6 +141,7 @@
                             <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                 <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                 <xsl:with-param name="context">addEntry</xsl:with-param>
+                                <xsl:with-param name="security">internal</xsl:with-param>
                             </xsl:apply-templates>
                         </xsl:if>
                     </wadl:doc>
@@ -232,6 +273,7 @@
                                 <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                     <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                     <xsl:with-param name="context">getEntry</xsl:with-param>
+                                    <xsl:with-param name="security">internal</xsl:with-param>
                                 </xsl:apply-templates>
                             </xsl:if>
                         </wadl:doc>
@@ -795,12 +837,12 @@
         <sch:messages>
             <xsl:for-each select="$dir//c:directory[@name = 'message_samples' and not(ancestor::c:directory/@name = 'target')]//c:file[ends-with(lower-case(@name), '.xml')]">
                 <xsl:sort select="@name"/>
-                <sch:message 
-                    path="{resolve-uri(@name,base-uri(.))}" 
-                    namespace="{namespace-uri(document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product'])}"
-                    version="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@version}"
-                    serviceCode="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@serviceCode}"
-                    type="{if(document(resolve-uri(@name,base-uri(.)))/atom:entry/atom:id) then 'getEntry' else 
+                <sch:message
+                        path="{resolve-uri(@name,base-uri(.))}"
+                        namespace="{namespace-uri(document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product'])}"
+                        version="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@version}"
+                        serviceCode="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@serviceCode}"
+                        type="{if(document(resolve-uri(@name,base-uri(.)))/atom:entry/atom:id) then 'getEntry' else
                            if(document(resolve-uri(@name,base-uri(.)))/atom:entry) then 'addEntry' else 'event'}"/>
             </xsl:for-each>
         </sch:messages>
@@ -849,6 +891,7 @@
     <xsl:template match="sch:productSchema" mode="wadlDoc" xmlns="http://docbook.org/ns/docbook">
         <xsl:param name="sampleMessages"/>
         <xsl:param name="context"/>
+        <xsl:param name="security"/>
         <xsl:variable
             name="content"
             select="unparsed-text(resolve-uri(
@@ -856,7 +899,7 @@
                     @type = $context and
                     @namespace = current()/@namespace and
                     @version = current()/@version and 
-                    @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>        
+                    @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>
         <example>
             <title><xsl:value-of select="replace(normalize-space(./sch:description),'^(.+)\.$','$1')"/>, version <xsl:value-of select="@version"/></title>
             <xsl:if test="sch:attribute|sch:attributeGroup">
@@ -876,8 +919,12 @@
                             </row>                
                         </thead>
                         <tbody>
-                            <xsl:apply-templates select="sch:attribute" mode="wadlDoc"/>
-                            <xsl:apply-templates select="sch:attributeGroup" mode="wadlDoc"/>
+                            <xsl:apply-templates select="sch:attribute" mode="wadlDoc">
+                                <xsl:with-param name="security" select="$security"/>
+                            </xsl:apply-templates>
+                            <xsl:apply-templates select="sch:attributeGroup" mode="wadlDoc">
+                                <xsl:with-param name="security" select="$security"/>
+                            </xsl:apply-templates>
                         </tbody>
                     </tgroup>               
                 </informaltable>
@@ -887,25 +934,29 @@
     </xsl:template>   
     
     <xsl:template match="sch:attribute" mode="wadlDoc"  xmlns="http://docbook.org/ns/docbook">
-        <row>
-            <entry>
-                <para><code><xsl:value-of select="@name"/></code></para>
-            </entry>
-            <entry>
-                <para><xsl:value-of select="."/></para>
-                <xsl:if test="@allowedValues"><formalpara><title>Allowed Values:</title>
-                    <para><xsl:for-each select="sch:stringList(@allowedValues)"><code><xsl:value-of select="."/></code><xsl:if test="not(position() = last())">, </xsl:if></xsl:for-each></para></formalpara></xsl:if>
-            </entry>
-            <entry>
-                <para><xsl:value-of select="@type"/></para>
-            </entry>
-            <entry>
-                <para><xsl:value-of select="if(@use = 'optional') then 'Optional' else 'Required'"/></para>
-            </entry>
-        </row>
+        <xsl:param name="security"/>
+        <xsl:if test="$security = 'internal' or not(@private and @private = 'true')">
+          <row>
+              <entry>
+                  <para><code><xsl:value-of select="@name"/></code></para>
+              </entry>
+              <entry>
+                  <para><xsl:value-of select="."/></para>
+                  <xsl:if test="@allowedValues"><formalpara><title>Allowed Values:</title>
+                      <para><xsl:for-each select="sch:stringList(@allowedValues)"><code><xsl:value-of select="."/></code><xsl:if test="not(position() = last())">, </xsl:if></xsl:for-each></para></formalpara></xsl:if>
+              </entry>
+              <entry>
+                  <para><xsl:value-of select="@type"/></para>
+              </entry>
+              <entry>
+                  <para><xsl:value-of select="if(@use = 'optional') then 'Optional' else 'Required'"/></para>
+              </entry>
+          </row>
+        </xsl:if>
     </xsl:template>
     
     <xsl:template match="sch:attributeGroup" mode="wadlDoc"  xmlns="http://docbook.org/ns/docbook">
+        <xsl:param name="security"/>
         <xsl:variable name="frequency">
             <xsl:choose>
                 <xsl:when test="@minOccurs =  @maxOccurs">must occur exactly <xsl:value-of select="@minOccurs"/> times</xsl:when>
@@ -922,7 +973,9 @@
                     takes the following attributes:</para>
             </entry>
         </row>
-        <xsl:apply-templates select="sch:attribute" mode="wadlDoc"/>
+        <xsl:apply-templates select="sch:attribute" mode="wadlDoc">
+            <xsl:with-param name="security" select="$security"/>
+        </xsl:apply-templates>
     </xsl:template>
     
 </xsl:stylesheet>
