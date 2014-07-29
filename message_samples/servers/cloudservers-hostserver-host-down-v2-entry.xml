@@ -23,7 +23,7 @@
       <event xmlns="http://docs.rackspace.com/core/event"
              xmlns:sample="http://docs.rackspace.com/event/servers/hostserver"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-             version="1"
+             version="2"
              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
              eventTime="2013-03-15T11:51:11Z"
              type="DOWN"

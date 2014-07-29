@@ -30,9 +30,9 @@
              region="DFW">
          <sample:product serviceCode="EmailAppsMSService"
                          version="1"
-                         key="a"
-                         productType="sampleString"
-                         operation="sampleString"
+                         key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
+                         productType="lync"
+                         operation="UPDATE"
                          status="COMPLETED"
                          request="a">
             <sample:dependent key="a"/>
