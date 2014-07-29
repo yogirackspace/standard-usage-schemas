@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="glance/events"?>
+<?expect code="400" message="If the event has a startTime then it cannot have an eventTime and it must have an endTime"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+   <atom:title>Glance</atom:title>
+   <atom:content type="application/xml">
+      <event xmlns="http://docs.rackspace.com/core/event"
+             xmlns:sample="http://docs.rackspace.com/usage/glance"
+             id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+             version="1"
+             tenantId="1234"
+             startTime="2013-03-15T11:51:11Z"
+             type="USAGE"
+             dataCenter="DFW1"
+             region="DFW">
+         <sample:product serviceCode="Glance" version="1" storage="2199023255552"/>
+      </event>
+   </atom:content>
+</atom:entry>
