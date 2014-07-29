@@ -12,7 +12,7 @@
             <cb-lic:product resourceType="AGENT" serverID="9445" serviceCode="CloudBackup" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632aa890" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/backup/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632aa890" rel="self" />
     <atom:updated>2013-02-28T19:33:10.075Z</atom:updated>
     <atom:published>2013-02-28T19:33:10.075Z</atom:published>
 </atom:entry>

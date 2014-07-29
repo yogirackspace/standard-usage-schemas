@@ -13,7 +13,7 @@
       <lbaas:product avgConcurrentConnections="30000.0" avgConcurrentConnectionsSsl="4566.0" avgConcurrentConnectionsSum="34566" bandWidthIn="43456346" bandWidthInSsl="364646770" bandWidthOut="3460346" bandWidthOutSsl="345345346" hasSSLConnection="true" numPolls="10" numVips="44" publicBandWidthInSum="408103116" publicBandWidthOutSum="348805692" resourceType="LOADBALANCER" serviceCode="CloudLoadBalancers" sslMode="MIXED" status="ACTIVE" version="1" vipType="PUBLIC"/>
     </event>
   </atom:content>
-  <atom:link href="https://localhost/lbaas/events/entries/urn:uuid:131f0fdc-bab0-11e3-979e-14109fdffead" rel="self"/>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:131f0fdc-bab0-11e3-979e-14109fdffead" rel="self"/>
   <atom:updated>2014-04-02T21:45:16.273Z</atom:updated>
   <atom:published>2014-04-02T21:45:16.273Z</atom:published>
 </atom:entry>

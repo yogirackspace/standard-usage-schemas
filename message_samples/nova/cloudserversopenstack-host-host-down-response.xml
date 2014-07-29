@@ -12,7 +12,7 @@
       <nhost:product checkStatus="CRITICAL" checkType="PING" collector="nagios01.c0001.dfw.ohthree.com" description="Some description here" resourceType="HOST" serviceCode="CloudServersOpenStack" version="1"/>
     </event>
   </atom:content>
-  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/nova/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815" rel="self"/>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/nova/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815" rel="self"/>
   <atom:updated>2013-06-18T15:38:35.900Z</atom:updated>
   <atom:published>2013-06-18T15:38:35.900Z</atom:published>
 </atom:entry>

@@ -14,7 +14,7 @@
             <lb:product networkItemId="25" resourceType="ACCESS_LIST" serviceCode="CloudLoadBalancers" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
     <atom:updated>2014-03-03T16:23:03.200Z</atom:updated>
     <atom:published>2014-03-03T16:23:03.200Z</atom:published>
 </atom:entry>

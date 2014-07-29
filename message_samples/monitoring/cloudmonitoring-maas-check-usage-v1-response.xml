@@ -13,7 +13,7 @@
             <maas:product checkType="remote.http" monitoringZones="3" resourceType="CHECK" serviceCode="CloudMonitoring" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:a2869958-a020-11e1-b15c-a38f4c3d83a9" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/monitoring/events/entries/urn:uuid:a2869958-a020-11e1-b15c-a38f4c3d83a9" rel="self" />
     <atom:updated>2013-02-28T14:21:45.604Z</atom:updated>
     <atom:published>2013-02-28T14:21:45.604Z</atom:published>
 </atom:entry>

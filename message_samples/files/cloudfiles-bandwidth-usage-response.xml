@@ -11,7 +11,7 @@
             <cf-b:product bandwidthIn="192998" bandwidthOut="39993882" serviceCode="CloudFiles" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/files/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89" rel="self" />
     <atom:updated>2013-02-28T19:40:39.120Z</atom:updated>
     <atom:published>2013-02-28T19:40:39.120Z</atom:published>
 </atom:entry>

@@ -22,7 +22,7 @@
                             serviceCode="DomainRegistration" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d588888" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/domain/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d588888" rel="self" />
     <atom:updated>2013-04-09T13:22:41.701Z</atom:updated>
     <atom:published>2013-04-09T13:22:41.701Z</atom:published>
 </atom:entry>

@@ -10,7 +10,7 @@
     <atom:title type="text">Slice Action</atom:title>
     <atom:content type="application/xml">
         <event xmlns="http://docs.rackspace.com/core/event" xmlns:csd="http://docs.rackspace.com/event/servers/slice" dataCenter="DFW1" environment="PROD" eventTime="2012-09-15T11:51:11Z" id="560490c6-6c63-11e1-adfe-27851d5aed13" region="DFW" resourceId="4116" tenantId="555" type="INFO" version="1">
-            <csd:product action="RESIZE" createdAt="2011-05-15T11:51:11Z" customerId="100" dns1="1.1.1.1" dns2="1.1.1.1" flavorId="101" huddleId="202" imageId="101" imageName="Name" managed="false" rootPassword="xy9gh2z" options="5" privateIp="1.1.1.1" publicIp="1.1.1.1" resourceType="SLICE" serverId="10" serviceCode="CloudServers" sliceType="CLOUD" status="BUILD" version="1">
+            <csd:product action="RESIZE" createdAt="2011-05-15T11:51:11Z" dns1="1.1.1.1" dns2="1.1.1.1" imageId="101" imageName="Name" managed="false" publicIp="1.1.1.1" resourceType="SLICE" serviceCode="CloudServers" status="BUILD" version="1">
                 <csd:sliceMetaData key="key1" value="value1" />
                 <csd:sliceMetaData key="key2" value="value2" />
                 <csd:additionalPublicAddress dns1="1.1.1.1" dns2="1.1.1.1" ip="1.1.1.1" />
@@ -18,7 +18,7 @@
             </csd:product>
         </event>
     </atom:content>
-    <atom:link href="https://ord.feeds.api.rackspacecloud.com/servers/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
     <atom:updated>2013-02-27T21:37:24.323Z</atom:updated>
     <atom:published>2013-02-27T21:37:24.323Z</atom:published>
 </atom:entry>

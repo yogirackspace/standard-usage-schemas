@@ -14,7 +14,7 @@
             <lbhm:product attemptsBeforeDeactivation="9" bodyRegex="foobar" delay="40" monitorStatusRegex="3.." path="/foo/bar" resourceType="HEALTH_MONITOR" serviceCode="CloudLoadBalancers" timeout="300" type="CONNECT" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a" rel="self" />
     <atom:updated>2014-03-03T15:53:39.186Z</atom:updated>
     <atom:published>2014-03-03T15:53:39.186Z</atom:published>
 </atom:entry>

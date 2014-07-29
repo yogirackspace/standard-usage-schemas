@@ -14,7 +14,7 @@
             <id:product displayName="testUser" groups="group1 group2 group3" migrated="false" multiFactorEnabled="false" resourceType="USER" roles="admin RAX:admin role3" serviceCode="CloudIdentity" updatedAttributes="GROUPS ROLES PASSWORD" version="2" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/identity/events/entries/urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/identity/events/entries/urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" rel="self" />
     <atom:updated>2014-03-03T15:22:06.199Z</atom:updated>
     <atom:published>2014-03-03T15:22:06.199Z</atom:published>
 </atom:entry>

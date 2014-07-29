@@ -15,27 +15,30 @@
       - Does not process the 'withEventType' and 'withResource' attributes.
 -->
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
-            xmlns:usage="http://docs.rackspace.com/core/usage"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
-   <atom:category term="rgn:ORD"/>
-   <atom:category term="dc:ORD1"/>
+   <atom:category term="rgn:DFW"/>
+   <atom:category term="dc:DFW1"/>
    <atom:category term="paymentservice.payment.update"/>
    <atom:category term="type:paymentservice.payment.update"/>
    <atom:title>PaymentService</atom:title>
    <atom:content type="application/xml">
       <event xmlns="http://docs.rackspace.com/core/event"
-             xmlns:payment="http://docs.rackspace.com/event/payment"
+             xmlns:sample="http://docs.rackspace.com/event/payment"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
-             tenantId="020-5821915"
              eventTime="2013-03-15T11:51:11Z"
              type="UPDATE"
-             dataCenter="ORD1"
-             region="ORD">
-         <payment:product serviceCode="PaymentService"
+             dataCenter="DFW1"
+             region="DFW">
+         <sample:product serviceCode="PaymentService"
                          version="1"
                          methodId="6e8bc430-9c3a-11d9-9669-0800200c9a66"/>
       </event>
-   </atom:content>
+   </atom:content>   
+   <atom:link href="https://ord.feeds.api.rackspacecloud.com/payment/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
+              rel="self"/>
+   <atom:updated>2013-03-01T19:42:35.507Z</atom:updated>
+   <atom:published>2013-03-01T19:42:35.507</atom:published>
 </atom:entry>

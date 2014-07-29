@@ -18,7 +18,7 @@
                         serviceCode="CloudIdentity" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/identity/events/entries/urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929" rel="self" />
     <atom:updated>2013-02-28T19:48:28.301Z</atom:updated>
     <atom:published>2013-02-28T19:48:28.301Z</atom:published>
 </atom:entry>

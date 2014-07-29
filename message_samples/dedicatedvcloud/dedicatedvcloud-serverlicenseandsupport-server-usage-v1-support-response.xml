@@ -16,7 +16,7 @@
                             support="MSSQL_2008_WEB" vCPUCount="6" vRAM="1048576" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:47b574c4-1421-11e2-b19d-7b8e208cade0" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/dedicatedvcloud/events/entries/urn:uuid:47b574c4-1421-11e2-b19d-7b8e208cade0" rel="self" />
     <atom:updated>2014-04-14T13:45:14.657Z</atom:updated>
     <atom:published>2014-04-14T13:45:14.657Z</atom:published>
 </atom:entry>

@@ -26,7 +26,7 @@
                            memory="16" storage="64"/>
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/dbaas/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
     <atom:updated>2013-03-01T19:42:35.507Z</atom:updated>
     <atom:published>2013-03-01T19:42:35.507Z</atom:published>
 </atom:entry>

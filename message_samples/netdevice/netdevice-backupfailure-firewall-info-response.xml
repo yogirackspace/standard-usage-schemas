@@ -12,7 +12,7 @@
       <fail:product resourceType="FIREWALL" serviceCode="NetDevice" url="https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127" failureType="CONNECTION_TIMEOUT" version="1"/>
     </event>
   </atom:content>
-  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/netdevice/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38" rel="self"/>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/netdevice/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38" rel="self"/>
   <atom:updated>2014-01-20T15:08:55.227Z</atom:updated>
   <atom:published>2014-01-20T15:08:55.227Z</atom:published>
 </atom:entry>

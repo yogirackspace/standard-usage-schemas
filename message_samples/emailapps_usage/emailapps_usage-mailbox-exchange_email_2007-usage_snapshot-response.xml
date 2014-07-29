@@ -22,7 +22,7 @@
                                storage="10"/>
         </event>
     </atom:content>
-    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/emailapps_usage/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/emailapps_usage/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
                rel="self" />
     <atom:updated>2014-02-28T19:48:32.802Z</atom:updated>
     <atom:published>2014-02-28T19:48:32.802Z</atom:published>

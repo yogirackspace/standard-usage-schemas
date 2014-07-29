@@ -22,7 +22,7 @@
         </event>
     </atom:content>
     <atom:link
-        href="https://atom.test.ord1.us.ci.rackspace.net/usagetest5/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
+        href="https://ord.feeds.api.rackspacecloud.com/usagetest5/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13"
         rel="self"/>
     <atom:updated>2013-05-23T14:25:40.507Z</atom:updated>
     <atom:published>2013-05-23T14:25:40.507Z</atom:published>

@@ -12,7 +12,7 @@
       <queues:product requestCount="1000" serviceCode="CloudQueues" version="1"/>
     </event>
   </atom:content>
-  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/queues/events/entries/urn:uuid:f53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self"/>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/queues/events/entries/urn:uuid:f53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self"/>
   <atom:updated>2013-11-08T19:31:49.248Z</atom:updated>
   <atom:published>2013-11-08T19:31:49.248Z</atom:published>
 </atom:entry>
