@@ -13,6 +13,6 @@
             <sitesn:product groupName="foo" numFiles="1028" serviceCode="CloudSites" storage="1888272" version="1" volume="c" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/sites/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0" rel="self" />
     <atom:published>2013-02-28T19:15:01.419Z</atom:published>
 </atom:entry>

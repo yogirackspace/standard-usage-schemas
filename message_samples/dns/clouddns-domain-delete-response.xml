@@ -13,4 +13,7 @@
       <clouddns:product version="1" serviceCode="CloudDNS" resourceType="DOMAIN"/>
     </event>
   </atom:content>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/dns/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self"/>
+  <atom:updated>2014-01-28T18:00:46.405Z</atom:updated>
+  <atom:published>2014-01-28T18:00:46.405Z</atom:published>
 </atom:entry>

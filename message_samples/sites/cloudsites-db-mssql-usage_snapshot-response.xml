@@ -14,6 +14,6 @@
             <db:product resourceType="MSSQL" serviceCode="CloudSites" storage="3939" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/sites/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0" rel="self" />
     <atom:published>2013-02-28T18:54:54.003Z</atom:published>
 </atom:entry>

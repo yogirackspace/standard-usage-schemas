@@ -25,11 +25,11 @@
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
-             tenantId="12883"
-             eventTime="2014-03-15T11:51:11Z"
+             tenantId="1234"
+             eventTime="2013-03-15T11:51:11Z"
              type="USAGE_SNAPSHOT"
-             dataCenter="ORD1"
-             region="ORD">
+             dataCenter="DFW1"
+             region="DFW">
          <sample:product serviceCode="CloudSites"
                          version="1"
                          resourceType="SITES_EMAIL"

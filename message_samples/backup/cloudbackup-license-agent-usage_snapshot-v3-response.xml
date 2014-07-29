@@ -22,7 +22,7 @@
                             resourceType="AGENT"/>
         </event>
     </atom:content>
-    <atom:link href="https://localhost/backup/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632aa890" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/backup/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632aa890" rel="self" />
     <atom:updated>2014-02-03T10:33:10.075Z</atom:updated>
     <atom:published>2014-02-03T10:33:10.075Z</atom:published>
 </atom:entry>

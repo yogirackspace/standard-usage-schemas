@@ -13,7 +13,7 @@
       <vcloud:product guestOSLicenseType="CENTOS" hostOSLicenseTypes="WINDOWS CENTOS" resourceType="SERVER" serviceCode="DedicatedVCloud" powerStatus="ON" coreStatus="REACTIVATION" vCPUCount="6" vRAM="1048576" version="1"/>
     </event>
   </atom:content>
-  <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0" rel="self"/>
+  <atom:link href="https://ord.feeds.api.rackspacecloud.com/dedicatedvcloud/events/entries/urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0" rel="self"/>
   <atom:updated>2014-01-28T18:00:46.405Z</atom:updated>
   <atom:published>2014-01-28T18:00:46.405Z</atom:published>
 </atom:entry>

@@ -38,10 +38,14 @@
                          version="1"
                          resourceType="ACCOUNT_SUPPORT"
                          currentServiceLevel="MANAGED"
-                         currentServiceType="DEVOPS"
-                         requestedServiceLevel="INTENSIVE"
+                         currentServiceType="SYSOPS"
+                         requestedServiceLevel="MANAGED"
                          requestedServiceType="SYSOPS"
-                         accountPlanRequestURI="https://dfw.support.encore.rackspace.com/v1/support-accounts/6045502/plan_request/1"/>
+                         accountPlanRequestURI="http://rackspace.com"/>
       </event>
-   </atom:content>
+   </atom:content>   
+   <atom:link href="https://ord.feeds.api.rackspacecloud.com/support/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
+              rel="self"/>
+   <atom:updated>2013-03-01T19:42:35.507Z</atom:updated>
+   <atom:published>2013-03-01T19:42:35.507</atom:published>
 </atom:entry>

@@ -111,7 +111,7 @@
       </p:input>
     </p:xslt>
 
-    <p:xslt name="genResp">
+    <p:xslt name="genCat">
       <p:input port="source">
         <p:pipe step="genLbaas" port="result"/>
       </p:input>
@@ -120,6 +120,18 @@
       </p:input>
       <p:input port="parameters">
         <p:empty/>
+      </p:input>
+    </p:xslt>
+
+    <p:xslt name="genResp">
+      <p:input port="source">
+        <p:pipe step="genCat" port="result"/>
+      </p:input>
+      <p:input port="stylesheet">
+        <p:document href="../../product_schema_def/xsl/productSchema-samplesResp.xsl" />
+      </p:input>
+      <p:input port="parameters">
+        <p:pipe step="genSamples" port="parameters"/>
       </p:input>
     </p:xslt>
 

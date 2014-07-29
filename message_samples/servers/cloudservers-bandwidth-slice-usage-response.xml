@@ -13,7 +13,7 @@
             <cs:product bandwidthIn="1001" bandwidthOut="19992" resourceType="SLICE" serviceCode="CloudServers" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/servers/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" />
     <atom:updated>2013-02-27T21:41:57.298Z</atom:updated>
     <atom:published>2013-02-27T21:41:57.298Z</atom:published>
 </atom:entry>

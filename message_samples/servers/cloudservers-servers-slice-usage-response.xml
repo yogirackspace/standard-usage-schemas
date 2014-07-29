@@ -13,7 +13,7 @@
             <cs:product extraPrivateIPs="0" extraPublicIPs="0" flavor="10" isMSSQL="false" isMSSQLWeb="false" isManaged="false" isRedHat="true" isSELinux="false" isWindows="false" resourceType="SLICE" serviceCode="CloudServers" version="1" />
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/usagetest6/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/servers/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814" rel="self" />
     <atom:updated>2013-02-27T21:45:01.550Z</atom:updated>
     <atom:published>2013-02-27T21:45:01.550Z</atom:published>
 </atom:entry>

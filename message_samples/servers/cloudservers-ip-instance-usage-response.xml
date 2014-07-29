@@ -15,7 +15,7 @@
                          serverId="7acb5696-6666-11e2-9c2e-db3bb6302f1f"/>
         </event>
     </atom:content>
-    <atom:link href="https://atom.staging.ord1.us.ci.rackspace.net/servers/events/entries/urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/servers/events/entries/urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db" rel="self" />
     <atom:updated>2013-02-28T19:57:55.723Z</atom:updated>
     <atom:published>2013-02-28T19:57:55.723Z</atom:published>
 </atom:entry>
