@@ -1905,5 +1905,8 @@
                 </para></section>
         </section>
     </chapter>
-    <xi:include href="api-operations.xml"/>
-</book>
+
+    <xi:include href="api-operations-external.xml"/>
+    <xi:include href="api-operations-internal.xml"/>
+
+    </book>

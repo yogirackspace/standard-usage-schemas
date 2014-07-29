@@ -660,14 +660,15 @@
                         <transformationSet>
                             <dir>${basedir}/src/docbkx</dir>
                             <includes>
-                                <include>api-operations.xml</include>
+                                <include>api-operations-internal.xml</include>
+                                <include>api-operations-external.xml</include>
                             </includes>
                             <outputDir>${project.build.directory}/generated-resources/feed-table</outputDir>
                             <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
                             <fileMappers>
                                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-                                    <pattern>api-operations.xml</pattern>
-                                    <replacement>feed-table.xml</replacement>
+                                    <pattern>api-operations-(.+).xml</pattern>
+                                    <replacement>feed-table-$1.xml</replacement>
                                 </fileMapper>
                             </fileMappers>
                         </transformationSet>
