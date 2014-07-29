@@ -5,38 +5,38 @@
                    version="1"
                    resourceTypes="HOST" type="DOWN">
         <description>
-            Server down event.
+            Specifies a server down event.
         </description>
         <attribute name="coreID" type="int" use="required" private="true">
-            The CORE ID for the HOST.
+            Specifies the core Id for the host.
         </attribute>
         <attribute name="serverID" type="int" use="required">
-            The Server ID  for the HOST.
+            Specifies the server Id for the host.
         </attribute>
         <attribute name="huddleID" type="int" use="required" private="true">
-            The huddle ID.
+            Specifies the huddle Id.
         </attribute>
         <attribute name="backstageURL" type="string" use="required" private="true">
-            The backstage URL to access the host.
+            Specifies the backstage URL to access the host.
         </attribute>
         <attribute name="hostIP" type="string" use="required">
-            The ip of the host.
+            Specifies the IP address of the host.
         </attribute>
         <attribute name="eventType" type="string" use="required">
-            The type of monitoring event.
+            Specifies the type of monitoring event.
         </attribute>
         <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
             <description>
-                A list of slices.
+                Specifies a list of slices.
             </description>
             <attribute name="name" type="string" use="required">
-                The name of the slice.
+                Specifies the name of the slice.
             </attribute>
             <attribute name="id" type="int" use="required">
-                The id of the slice.
+                Specifies the Id of the slice.
             </attribute>
             <attribute name="ip" type="string" use="required">
-                The IP of the slice.
+                Specifies the IP address of the slice.
             </attribute>
         </attributeGroup>
     </productSchema>
@@ -46,39 +46,39 @@
                    version="2"
                    resourceTypes="HOST" type="DOWN">
         <description>
-            Server down event.
+            Specifies a server down event.
         </description>
         <attribute name="coreID" type="int" use="required" private="true">
-            The CORE ID for the HOST.
+            Specifies the core Id for the host.
         </attribute>
         <attribute name="serverID" type="unsignedInt" max="4294967295" use="required">
-            The Server ID  for the HOST.
+            Specifies the server Id for the host.
         </attribute>
         <attribute name="huddleID" type="int" use="required" private="true">
-            The huddle ID.
+            Specifies the huddle Id.
         </attribute>
         <attribute name="backstageURL" type="string" use="required" private="true">
-            The backstage URL to access the host.
+            Specifies the backstage URL to access the host.
         </attribute>
         <attribute name="hostIP" type="string" use="required">
-            The ip of the host.
+            Specifies the IP address of the host.
         </attribute>
         <attribute name="eventType" type="Name" use="required"
                    allowedValues="GENERIC HIGH_LOAD PING_NO_SSH UNREACHABLE UPTIME_RESET">
-            The type of monitoring event.
+            Specifies the type of monitoring event.
         </attribute>
         <attributeGroup name="slice" minOccurs="0" maxOccurs="unbounded">
             <description>
-                A list of slices.
+                Specifies a list of slices.
             </description>
             <attribute name="name" type="string" use="required">
-                The name of the slice.
+                Specifies the name of the slice.
             </attribute>
             <attribute name="id" type="int" use="required">
-                The id of the slice.
+                Specifies the Id of the slice.
             </attribute>
             <attribute name="ip" type="string" use="required">
-                The IP of the slice.
+                Specifies the IP address of the slice.
             </attribute>
         </attributeGroup>
     </productSchema>

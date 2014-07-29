@@ -5,42 +5,42 @@
                    serviceCode="Widget"
                    resourceTypes="WIDGET GADGET">
         <description>
-            Widget specific user fields
+            Specifies widget-specific user fields
         </description>
         <attribute name="label" type="string" use="required">
-            Human readable name.
+            Specifies a human readable name.
         </attribute>
         <attribute name="mid" type="UUID" use="required">
-            An example of an UUID.
+           Specifies an example of a UUID.
         </attribute>
         <attribute name="str" type="string" use="optional">
-            An optional string.
+            Specifies an optional string.
         </attribute>
         <attribute name="widget_id_list" type="int*" use="optional"
                    aggregateFunction="SUM" unitOfMeasure="COUNT">
-            A list of integers.
+            Specifies a list of integers.
         </attribute>
         <attribute name="same_int" type="int" use="optional"
                    aggregateFunction="LAST" unitOfMeasure="COUNT">
-            An integer of some kind.  Only the last value is taken into
+            Specifies an integer of some kind.  Only the last value is taken into
             account.
         </attribute>
         <attribute name="num_checks" type="int" use="required">
-            A single integer.
+            Specifies a single integer.
         </attribute>
         <attribute name="disabled" type="boolean" use="optional" default="false"
                    displayName="Disabled">
-            A boolean.
+            Specifies a boolean value.
         </attribute>
         <attribute name="time" type="utcTime" use="required">
-            A time in UTC.
+            Specifies a time in UTC.
         </attribute>
         <attribute name="dateTime" type="utcDateTime" use="required">
-            A datetime in UTC.
+            Specifies a date and time in UTC.
         </attribute>
         <attribute name="enumList" type="Name*"
                    allowedValues="BEST BETTER WORST" use="required">
-            A list of enumertation strings.
+            Specifies a list o enumeration strings.
         </attribute>
     </productSchema>
     <productSchema 
@@ -49,7 +49,7 @@
         serviceCode="Widget"
         resourceTypes="WIDGET GADGET THINGY">
         <description>
-            Widget specific user fields.
+            Specifies widget-specific user fields.
 
             Changes from version 1 message:
             
@@ -61,44 +61,44 @@
         </description>
         <attribute name="label" type="string" use="required"
                    groupBy="false">
-            Human readable name.
+            Specifies a human readable name.
         </attribute>
         <attribute name="mid" type="UUID" use="required">
-            An example of an UUID.
+            Specifies an example of a UUID.
         </attribute>
         <attribute name="str" type="string" use="optional" searchable="true">
-            An optional string.
+            Specifies an optional string.
         </attribute>
         <attribute name="widget_id_list" type="long*" use="optional"
                    aggregateFunction="SUM" unitOfMeasure="COUNT">
-            A list of integers.
+            Specifies a list of integers.
         </attribute>
         <attribute name="same_int" type="int" use="optional" max="22000"
                    aggregateFunction="LAST" unitOfMeasure="COUNT">
-            An integer of some kind.  Only the last value is taken into
+            Specifies an integer of some kind.  Only the last value is taken into
             account.
         </attribute>
         <attribute name="num_checks" type="int" use="required" unitOfMeasure="COUNT"
                    aggregateFunction="AVG">
-            A single integer.
+            Specifies a single integer.
         </attribute>
         <attribute name="disabled" type="boolean" use="optional" default="false"
                    displayName="Disabled">
-            A boolean.
+            Specifies a boolean value.
         </attribute>
         <attribute name="time" type="utcTime" use="required">
-            A time in UTC.
+            Specifiles time in UTC.
         </attribute>
         <attribute name="dateTime" type="utcDateTime" use="required">
-            A datetime in UTC.
+            Specifies a date and time in UTC.
         </attribute>
         <attribute name="enumList" type="Name*"
                    allowedValues="BEST BETTER WORST BAD" use="required" groupBy="true">
-            A list of enumertation strings.
+            Specifies a list of enumeration strings.
         </attribute>
         <attribute name="myAttribute" type="string"
                    use="optional">
-            An attribute that is not private
+            Specifies an attribute that is not private.
         </attribute>
     </productSchema>
 </alternatives>

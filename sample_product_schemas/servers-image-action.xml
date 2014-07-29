@@ -4,16 +4,16 @@
                version="1"
                resourceTypes="IMAGE" type="INFO">
     <description>
-        Image Action Event.
+       Specifies an image action event.
     </description>
     <attribute name="sliceId" type="int" use="required">
-        The slice ID.
+        Specifies the slice Id.
     </attribute>
     <attribute name="action" type="string" use="required"
                allowedValues="SERVICE_LEVEL_CHANGE_SNAP_KILLED SNAPSHOT SERVICE_LEVEL_CHANGE_SNAP_SUCCESSFUL">
-        The action.
+       Specifies the action.
     </attribute>
     <attribute name="imageName" type="string" use="required">
-        The name of the image
+        Specifies the name of the image.
     </attribute>
 </productSchema>

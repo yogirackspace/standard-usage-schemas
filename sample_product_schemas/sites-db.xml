@@ -4,7 +4,7 @@
                version="1" type="USAGE_SNAPSHOT"
                resourceTypes="MYSQL MSSQL">
     <description>
-        Total usage for sites db.
+        Specifies the total usage for Sites DB.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT24H</aggregationPeriod>
@@ -12,7 +12,7 @@
     <attribute name="storage" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="AVG"
                min="0" max="644245094400">
-        The amount of disk storage.
+        Specifies the amount of disk storage.
     </attribute>
     <!--
         Since we can only have a single MAX value, we set the MSSQL
@@ -21,6 +21,6 @@
     <xpathAssertion test="if (@resourceType = 'MYSQL') then (@storage &lt;= 483183820800)
                           else true()">
         The storage cannot exceed 483183820800 bytes if the
-        resourceType is MYSQL.
+        resourceType is set to MYSQL.
     </xpathAssertion>
 </productSchema>

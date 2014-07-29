@@ -5,58 +5,58 @@
     type="UPDATE DELETE"
     resourceTypes="WIDGET GADGET THINGY">
     <description>
-        Test changing the message type.
+        This is a test for changing the message type.
     </description>
     <attribute name="label" type="string" use="required" searchable="true">
-        Human readable name.
+        Specifies a human readable name.
     </attribute>
     <attribute name="mid" type="UUID" use="required">
-        An example of an UUID.
+        Specifies an example of a UUID.
     </attribute>
     <attribute name="delReqAttribute" type="string" use="required"
                withEventType="DELETE">
-        An example attribute requried only on DELETE events.
+       Specifies an example attribute that is required only for DELETE events.
     </attribute>
     <attribute name="delOptionalAttribute" type="string" use="optional"
                withEventType="DELETE">
-        An example attribute optional only on DELETE events.
+        Specifies an example attribute that is optional only for DELETE events.
     </attribute>
     <attribute name="widgetOnlyAttribute" type="string" use="required"
                withResource="WIDGET">
-        A widget only attribute.
+        Specifies a widget-only attribute.
     </attribute>
     <attribute name="privateAttribute1" type="string" use="optional"
                private="true">
-        A private attribute that is not supposed to be shown to public
+        Specifies a private attribute that is not supposed to be shown to the public.
     </attribute>
     <attribute name="myAttribute" type="" use="optional" private="true">
-        An attribute that needs to be private here, but not in sub elements.
+        Specifies an attribute that needs to be private here, but not in sub elements.
     </attribute>
     <attribute name="privateAttribute3" type="Name" use="optional"
                allowedValues="W1 W2 W3"
                private="true">
-        Another private attribute that is not supposed to be shown to public
+        Specifies another private attribute that is not supposed to be shown to the public.
     </attribute>
     <attributeGroup name="metaData" minOccurs="0" maxOccurs="unbounded">
         <description>
-            A list key/value meta data.
+            Specifies a list of key/value meta data.
         </description>
         <attribute name="key" type="string" use="required" searchable="true">
-            The key
+            Specifies the key.
         </attribute>
         <attribute name="value" type="string" use="required" private="true">
-            The value
+            Specifies the value.
         </attribute>
     </attributeGroup>
     <attributeGroup name="mixPublicPrivateAttributes" minOccurs="0" maxOccurs="5">
         <description>
-            A list of mixed public and private attributes
+            Specifies a list of mixed public and private attributes.
         </description>
         <attribute name="privateAttribute3" type="int" use="optional" private="true">
-            The 3rd private attribute but this time it is part of attributeGroup
+            Specifies the third private attribute, but this time it is part of attributeGroup.
         </attribute>
         <attribute name="myAttribute" type="string" use="optional" private="false">
-            An attribute that needs to be public here, but not inside product
+            Specifies an attribute that needs to be public here, but not inside the product
             element.
         </attribute>
     </attributeGroup>

@@ -4,30 +4,30 @@
                version="1" resourceTypes="HOST"
                type="UP DOWN">
     <description>
-        UP / DOWN messages for Nova. The HOST resourceTypes is a physical machine upon which live multiple virtual servers.
+        Specifies and UP and DOWN messages for Nova. The HOST resourceTypes is a physical machine on which multiple virtual servers reside.
     </description>
     <attribute name="collector" type="string"
                use="required">
-        The hostname of the collector.
+        Specifies the host name of the collector.
     </attribute>
     <attribute name="checkType" type="string"
                use="required" allowedValues="PING">
-        The check type.
+        Specifies the check type.
     </attribute>
     <attribute name="checkStatus" type="string"
                use="required" allowedValues="CRITICAL OK">
-        The check status.
+        Specifies the check status.
     </attribute>
     <attribute name="description" type="string"
                use="required">
-        The description
+        Specifies the description
     </attribute>
 
     <xpathAssertion test="if ($event/@type = 'UP') then $product/@checkStatus != 'CRITICAL' else true()" scope="entry">
-        If message is UP type then checkStatus cannot be CRITICAL.
+        If the message is of type UP, then the checkStatus cannot be set to CRITICAL.
     </xpathAssertion>
 
     <xpathAssertion test="if ($event/@type = 'DOWN') then $product/@checkStatus != 'OK' else true()" scope="entry">
-        If message is DOWN type then checkStatus cannot be OK.
+        If the message is of type DOWN, then the checkStatus attribute cannot be OK.
     </xpathAssertion>
 </productSchema>

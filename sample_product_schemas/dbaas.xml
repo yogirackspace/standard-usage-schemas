@@ -6,17 +6,17 @@
                    resourceTypes="MYSQL"
                    ranEnrichmentStrategy="INTEGER_RANGE">
         <description>
-            Dbaas specific user fields.
+            Specifies the user fields that are specific to Dbaas.
         </description>
         <attribute name="memory" type="int" use="required"
                    min="0" max="131072"
                    unitOfMeasure="MB" groupBy="true">
-            Memory provisioned for this database.
+            Specifies the memory that has been provisioned for this database.
         </attribute>
         <attribute name="storage" type="int" use="required"
                    min="0" max="3072"
                    unitOfMeasure="GB" groupBy="true">
-            The provisioned size of the storage volume for this database.
+            Specifies the provisioned size of the storage volume for this database.
         </attribute>
     </productSchema>
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
@@ -26,23 +26,23 @@
                    resourceTypes="MYSQL PERCONA MARIADB REDIS MONGODB MEMCACHED CASSANDRA POSTGRESSQL"
                    ranEnrichmentStrategy="INTEGER_RANGE">
         <description>
-            Dbaas specific user fields.
+            Specifies the Dbaas-specific user fields.
         </description>
 
         <attribute name="memory" type="int" use="required"
                    min="0" max="131072"
                    unitOfMeasure="MB" groupBy="true">
-            Memory provisioned for this database.
+            Specifies the memory that has been provisioned for this database.
         </attribute>
 
         <attribute name="storage" type="int" use="optional"
                    min="0" max="3072"
                    unitOfMeasure="GB" groupBy="true">
-            The provisioned size of the storage volume for this database.
+            Specifies the provisioned size of the storage volume for this database.
         </attribute>
 
         <attribute name="dbVersion" type="string" use="required" groupBy="true">
-            The version of the database.
+            Specifies the version of the database.
         </attribute>
 
 
@@ -50,7 +50,7 @@
                                    or @resourceType = 'MONGODB'
                                    or @resourceType = 'MEMCACHED'
                                    or @resourceType = 'CASSANDRA') then not( @storage ) else @storage">
-            Storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.
+            The storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.
         </xpathAssertion>
     </productSchema>
 </alternatives>

@@ -5,15 +5,15 @@
                resourceTypes="VOLUME"
                ranEnrichmentStrategy="INTEGER_RANGE">
     <description>
-        CBS specific usage fields related to the volume.
+       Specifies the usage fields specific to Cloud Block Storage that are related to the volume.
     </description>
     <attribute name="type" type="string" use="required"
                allowedValues="SATA SSD" groupBy="true">
-        Describes the type of volume used.  SSD is high performance
-        based.  SATA is standard.
+        Describes the type of volume used. A value of SSD is high-performance
+        based.  SATA is standard is the standard value.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
                unitOfMeasure="GB" min="0" max="1024" groupBy="true">
-        The amount of storage provisioned for the volume.
+        Specifies the amount of storage that is provisioned for the volume.
     </attribute>
 </productSchema>

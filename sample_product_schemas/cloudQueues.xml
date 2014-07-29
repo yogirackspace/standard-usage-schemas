@@ -4,11 +4,11 @@
                version="1"
                groupByResource="false">
     <description>
-        Usage message for queue request count.
+        Specifies the usage message for a queue request count.
     </description>
     <attribute name="requestCount" type="unsignedLong" use="required" aggregateFunction="SUM"
             min="0" max="3000000" unitOfMeasure="COUNT">
-        The number of requests.  Max is 3,000,000.
+        Specifies the number of requests.  The maximum value is 3,000,000.
     </attribute>
 
 </productSchema>

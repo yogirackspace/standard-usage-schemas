@@ -4,31 +4,31 @@
                version="1" type="USAGE_SNAPSHOT"
                resourceTypes="SSL_SUBSCRIPTION">
     <description>
-        Subscription event for SSL.
+        Specifies the subscription event for SSL.
     </description>
     <attribute name="action" type="Name"
                allowedValues="REGISTRATION RENEWAL REVOKE REISSUE" use="required">
-        The action being taken with this SSL subscription.
+        Specifies the action that is being taken with this SSL subscription.
     </attribute>
     <attribute name="certificateAuthority" type="Name"
                allowedValues="SYM TAW GEO RAP" use="required">
-        The Certificate Authority used for this SSL subscription.
+        Specifies the Certificate Authority that is used for this SSL subscription.
     </attribute>
     <attribute name="quality" type="Name"
                allowedValues="GEO_BID_EV GEO_BID GEO_BID_WC GEO_QCK_PRE GEO_QCK RAP_SSL RAP_WC TAW_SGC TAW_SSL TAW_SSL_EV TAW_SSL_123 SYM_PRO_EV SYM_SS_EV SYM_SS_PRO SYM_SS_WC SYM_SS_SSL" use="required">
-        The action being taken.  
+        Specifies the action that is being taken.  
     </attribute>
     <attribute name="sanLicenseCount" type="int" use="optional" default="0">
-        A count of SAN (subject alternate name) certificate. These are additional licenses on the certificate.
+        Specifies a count of a SAN (subject alternate name) certificate. These are additional licenses on the certificate.
     </attribute>
     <attribute name="purchaseTenure" type="int" use="required"
                unitOfMeasure="COUNT" min="1" max="10">
-        Purchase tenure in years.
+        Specifies the purchase tenure, in years.
     </attribute>
     <attribute name="expirationDate" type="utcDateTime" use="required">
-        The date the certificate expires.
+        Specifies the date when the certificate expires.
     </attribute>
     <attribute name="isAutoRenew" type="boolean" use="optional" default="false"> 
-        A boolean indicating that a user has selected to auto-renew.
+        Specifies a boolean value that indicates whether a user has selected to auto-renew.
     </attribute>
 </productSchema>

@@ -5,32 +5,32 @@
                resourceTypes="NODE"
                type="CREATE UPDATE DELETE">
     <description>
-        LbaaS Node events.
+        Specifies the LbaaS node events.
     </description>
 
     <attribute name="address" type="string"
                use="optional"
                withEventType="CREATE UPDATE">
-        Address of the node.
+        Specifies the address of the node.
     </attribute>
 
     <attribute name="port" type="int" max="65535" min="1"
                use="optional"
                withEventType="CREATE UPDATE">
-        Port number of the service being load balanced.
+        Specifies the port number of the service that is being load balanced.
     </attribute>
 
     <attribute name="condition" type="string"
                use="optional"
                allowedValues="ENABLED DISABLED DRAINING"
                withEventType="CREATE UPDATE">
-        If the node is 'ENABLED', 'DISABLED', or DRAINING.
+        Specifies whether the node is 'ENABLED', 'DISABLED', or DRAINING.
     </attribute>
 
     <attribute name="weight" type="int" max="100" min="1"
                use="optional"
                withEventType="CREATE UPDATE">
-        Used by the 'WEIGHTED_LEAST_CONNECTION' and
+        This value is used by the 'WEIGHTED_LEAST_CONNECTION' and
         'WEIGHTED_ROUND_ROBIN' algorithms.
     </attribute>
 

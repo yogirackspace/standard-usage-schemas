@@ -4,7 +4,7 @@
                version="1" type="USAGE"
                resourceTypes="SITE">
     <description>
-        Metered usage for a site.
+        Specifies the metered usage for a site.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT24H</aggregationPeriod>
@@ -12,18 +12,18 @@
     <attribute name="bandWidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM"
                min="0" max="2199023255552">
-        The amount of bandwidth out in bytes.
+        Specifies the amount of outbound bandwidth, in bytes.
     </attribute>
     <attribute name="requestCount" type="unsignedInt" use="required"
                unitOfMeasure="COUNT" 
                min="0" max="50000000">
-        The request count for the site.
+        Specifies the request count for the site.
     </attribute>
     <attribute name="computeCycles" type="double"
                use="optional" default="0"
                unitOfMeasure="COUNT"
                aggregateFunction="SUM"
                min="0" max="12500">
-        The compute cycles for the site.
+        Specifies the compute cycles for the site.
     </attribute>
 </productSchema>

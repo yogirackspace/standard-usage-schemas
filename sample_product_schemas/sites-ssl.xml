@@ -4,13 +4,13 @@
                version="1" type="USAGE_SNAPSHOT"
                resourceTypes="SITE">
     <description>
-        SSL usage for a site.
+        Specifies the SSL usage for a site.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT24H</aggregationPeriod>
     </aggregationPeriods>
     <attribute name="SSLenabled" type="boolean" use="required"
                unitOfMeasure="COUNT" aggregateFunction="MAX">
-        Was SSL usage enabled.
+        Specifies whether SSL usage is enabled.
     </attribute>
 </productSchema>

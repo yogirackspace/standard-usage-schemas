@@ -6,40 +6,40 @@
                ranEnrichmentStrategy="HYBRID_TO_CORE_RAN"
                type="USAGE">
     <description>
-        Usage message for a Dedicated vCloud server OS license.
+        Specifies the usage message for a Dedicated vCloud server OS license.
     </description>   
     <attribute name="vCPUCount" type="unsignedInt" use="required"
                min="0" max="1000"
                unitOfMeasure="COUNT" groupBy="true">
-        The number of vCPUs.
+        Specifies the number of vCPUs.
     </attribute>   
     <attribute name="vRAM" type="unsignedInt" use="required"
                min="0" max="20971520"
                unitOfMeasure="MB" groupBy="true">
-        Memory provisioned for this server.
+        Specifies the memory that has been provisioned for this server.
     </attribute>
     <attribute name="powerStatus" type="Name"
                use="required"
                allowedValues="ON SUSPENDED"
                groupBy="true">
-        The power status of the device. Usage events will not be sent for servers with a powerStatus of OFF.
+        Specifies the power status of the device. Usage events will not be sent for servers with a powerStatus that is set to OFF.
     </attribute> 
     <attribute name="coreStatus" type="Name"
                use="required"
                allowedValues="ONLINE_COMPLETE UNDER_REPAIR REKICK MIGRATION_SERVER REACTIVATION COMPROMISED SUSPENDED_VM SUSPENDED_VM_REPLICATION"
                groupBy="true">
-        The status of the device in CORE system. Usage events will not be sent for servers with a coreStatus not in this list of allowedValues.
+        Specifies the status of the device in CORE system. Usage events will not be sent for servers with a coreStatus that is not in the list of allowedValues.
     </attribute>
     <attribute name="hostOSLicenseTypes" type="Name*"
                use="required"
                allowedValues="WINDOWS RHEL CENTOS UBUNTU"
                groupBy="true">
-        The Host OS license type(s) for this server. A single host server may have multiple OS licenses.
+        Specifies the Host OS license type(s) for this server. A single host server may have multiple OS licenses.
     </attribute>
     <attribute name="guestOSLicenseType" type="Name"
                use="required"
                allowedValues="WINDOWS RHEL CENTOS UBUNTU"
                groupBy="true">
-        The Guest OS license for this server.
+        Specifies the Guest OS license for this server.
     </attribute> 
 </productSchema>

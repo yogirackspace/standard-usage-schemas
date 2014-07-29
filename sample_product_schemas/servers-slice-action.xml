@@ -4,88 +4,88 @@
                version="1"
                resourceTypes="SLICE" type="INFO">
     <description>
-        Slice Action Event.
+        Specifies a slice action event.
     </description>
     <attribute name="nextGenId" type="string" use="optional">
-        The ID of the next generation server being upgraded to.
+        Specifies the Id of the next generation server that the server is being upgraded to.
     </attribute>
     <attribute name="rootPassword" type="string" use="optional" private="true">
-    	The encrypted root password for a slice.
+    	Specifies the encrypted root password for a slice.
     </attribute>
     <attribute name="managed" type="boolean" use="required">
-        Is slice Managed.
+        Specifies whether the slice is managed.
     </attribute>
     <attribute name="imageId" type="int" use="required">
-        The Image ID for the Slice.
+        Specifies the image Id for the slice.
     </attribute>
     <attribute name="options" type="int" use="required" private="true">
-        The Options for the Slice, used for billing purposes.
+        Specifies the options for the slice, which are used for billing purposes.
     </attribute>
     <attribute name="huddleId" type="int" use="required" private="true">
-        The huddle ID.
+        Specifies the huddle Id.
     </attribute>
     <attribute name="serverId" type="int" use="required" private="true">
-        The Server ID for the Slice. This is the host ID.
+        Specifies the server Id for the slice. This is the host ID.
     </attribute>
     <attribute name="action" type="string" use="required" searchable="true"
                allowedValues="ADD_IP RESIZE REBOOT PASSWORD_RESET_DONE ADD_ALTERNATE_IP RENAME KERNEL_UP_TO_DATE HARD_REBOOT DELETE_IP BUILD DESTROY ADD_IP_NO_CONFIG DELETE_IP_NO_CONFIG KERNEL_UPDATE_FAILED UPGRADE_DEVICE_SERVICE_LEVEL DOWNGRADE_DEVICE_SERVICE_LEVEL">
-        The action that caused this event to be created.
+        Specifies the action that caused this event to be created.
     </attribute>
     <attribute name="imageName" type="string" use="required">
-        The name of the image
+        Specifies the name of the image
     </attribute>
     <attribute name="customerId" type="int" use="required" private="true">
-        The Customer ID for the Slice. This may be the same as the tenantId or may be the internal nucleus customer_id.
+       Specifies the customer Id for the slice. This value may be the same as the tenantId or may be the internal nucleus customer_id.
     </attribute>
     <attribute name="flavorId" type="int" use="required" private="true">
-        The Flavor ID for the Slice.
+        Specifies the flavor Id for the slice.
     </attribute>
     <attribute name="status" type="string" use="required" searchable="true"
                allowedValues="BUILD ACTIVE DELETED QUEUE_RESIZE PREP_RESIZE RESIZE VERIFY_RESIZE QUEUE_MOVE PREP_MOVE MOVE VERIFY_MOVE ERROR ERROR_ASYNC RESCUE SUSPENDED PENDING MAINTENANCE CLONE">
-        The status.
+       Specifies the status.
     </attribute>
     <attribute name="sliceType" type="string" use="required" private="true"
                allowedValues="CLOUD SLICE">
-        The slice type. This was used when we had Slicehost and Rackspace customers; now all are Rackspace customers and sliceType is always 'CLOUD'.
+        Specifies the slice type. Note: This value was used when there were Slicehost and Rackspace customers; now all customers are Rackspace and sliceType is always 'CLOUD'.
     </attribute>
     <attribute name="privateIp" type="string" use="required" private="true">
-        The private IP of the slice
+        Specifies the private IP of the slice.
     </attribute>
     <attribute name="publicIp" type="string" use="required">
-        The public IP of the slice
+        Specifies the public IP of the slice
     </attribute>
     <attribute name="dns1" type="string" use="required">
-        The dns1 of the slice
+        Specifies the dns1 value for the slice.
     </attribute>
     <attribute name="dns2" type="string" use="required">
-        The dns2 of the slice
+        Specifies the dns2 value for the slice.
     </attribute>
     <attribute name="createdAt" type="utcDateTime" use="required">
-        The date the slice was created.
+        Specifies the date the slice was created.
     </attribute>
     <attributeGroup name="sliceMetaData" minOccurs="0" maxOccurs="unbounded">
         <description>
-            A list key/value meta data.
+            Specifies a list of key/value meta data.
         </description>
         <attribute name="key" type="string" use="required">
-            The key
+            Specifies the key.
         </attribute>
         <attribute name="value" type="string" use="required">
-            The value
+            Specifies the value.
         </attribute>
     </attributeGroup>
     <attributeGroup name="additionalPublicAddress" minOccurs="0" maxOccurs="unbounded">
         <description>
-            A list of public addresses
+            Specifies a list of public addresses.
         </description>
         <attribute name="ip" type="string" use="required">
-            The IP
+            Specifis the IP address.
         </attribute>
         <attribute name="dns1" type="string" use="required">
-            The dns1
+            Specifies the dns1 value.
         </attribute>
         <attribute name="dns2" type="string" use="required">
-            The dns1
+            Specifies the dns2 value.
         </attribute>
     </attributeGroup>
 </productSchema>

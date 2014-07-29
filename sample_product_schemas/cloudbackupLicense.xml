@@ -6,10 +6,10 @@
         resourceTypes="AGENT"
         ranEnrichmentStrategy="INTEGER_RANGE">
             <description>
-                Cloud Backup periodic license event.
+                Specifies the periodic license event for Cloud Backup.
             </description>
             <attribute name="serverID" type="int UUID" use="required" groupBy="true">
-                Server ID, where the agent in installed.
+                Specifies the Id of the server where the agent is installed.
             </attribute>
     </productSchema>
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
@@ -20,19 +20,19 @@
         resourceTypes="AGENT"
         ranEnrichmentStrategy="INTEGER_RANGE">
             <description>
-                Cloud Backup periodic license event (version 2).
+                Specifies the periodic license event (version 2) for Cloud Backup.
             </description>
             <attribute name="serverID" type="int UUID" use="optional" groupBy="true">
-                Server ID, where the agent in installed.
+                Specifies the Id of the server where the agent is installed.
             </attribute>
             <attribute name="serverName" type="string" use="required">
-                Server Name, where the agent is installed
+                Specifies the name of the server where the agent is installed
             </attribute>
             <attribute name="external" type="boolean" use="optional" default="false">
-                True if the server where the agent is installed is external to Rackspace
+                If this value is set to true, the server where the agent is installed is external to Rackspace.
             </attribute>
             <xpathAssertion test="if (not(xsd:boolean(@external))) then @serverID else true()">
-                If the server is NOT external, then serverID is required.
+                If the server is NOT external, then the serverID attribute is required.
             </xpathAssertion>
     </productSchema>
 </alternatives>

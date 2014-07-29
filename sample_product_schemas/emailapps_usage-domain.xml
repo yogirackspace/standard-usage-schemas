@@ -5,14 +5,14 @@
                resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013"
                ranEnrichmentStrategy="NONE">
     <description>
-        Email and Apps number of email boxes per domain.
+        Specifies the number of email boxes per domain for Email and Apps.
     </description>
     <attribute name="maxNumberOfMailboxes" type="int" use="optional"
                min="0" max="75000" unitOfMeasure="COUNT" aggregateFunction="LAST">
-        Max number of email boxes the user has contracted for this domain at this point in time.
+        Specifies the maximum number of email boxes the user has contracted for this domain at this point in time.
     </attribute>
     <attribute name="currentNumberOfMailboxes" type="int" use="required"
                min="0" max="75000" unitOfMeasure="COUNT" aggregateFunction="LAST">
-        Current number of email boxes for this domain at this point in time.
+        Specifies the current number of email boxes for this domain at this point in time.
     </attribute>
 </productSchema>
