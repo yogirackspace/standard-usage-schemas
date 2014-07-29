@@ -344,7 +344,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE') then xsd:dateTime(@endTime) le (xsd:dateTime(@startTime) + xsd:dayTimeDuration('P1D')) else true()"
+                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE' and @endTime and @startTime) then xsd:dateTime(@endTime) le (xsd:dateTime(@startTime) + xsd:dayTimeDuration('P1D')) else true()"
                         xerces:message="Usage events must not span more than 1 Day."
                         saxon:message="Usage events must not span more than 1 Day.">
                     <annotation>
