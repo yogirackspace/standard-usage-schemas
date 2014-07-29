@@ -33,8 +33,8 @@
          <sample:product serviceCode="CloudSites"
                          version="1"
                          resourceType="SITES_EMAIL"
-                         numberOfMailboxes="0"
-                         boxSize="0"/>
+                         numberOfMailboxes="20"
+                         boxSize="512"/>
       </event>
    </atom:content>
 </atom:entry>

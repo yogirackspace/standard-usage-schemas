@@ -39,8 +39,8 @@
          <sample:product serviceCode="CloudSites"
                          version="1"
                          resourceType="SITES_EMAIL"
-                         numberOfMailboxes="0"
-                         boxSize="0"/>
+                         numberOfMailboxes="20"
+                         boxSize="512"/>
       </event>
    </atom:content>   
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/sites/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"

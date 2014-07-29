@@ -18,6 +18,7 @@
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
+   <atom:category term="tid:020-5821915"/>
    <atom:category term="rgn:DFW"/>
    <atom:category term="dc:DFW1"/>
    <atom:category term="paymentservice.payment.update"/>
@@ -29,6 +30,7 @@
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
              eventTime="2013-03-15T11:51:11Z"
+             tenantId="020-5821915"
              type="UPDATE"
              dataCenter="DFW1"
              region="DFW">

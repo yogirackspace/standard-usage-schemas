@@ -34,8 +34,10 @@
                          productType="lync"
                          operation="UPDATE"
                          status="COMPLETED"
-                         request="a">
-            <sample:dependent key="a"/>
+                         request="HTTP GET"
+                         response="200">
+           <sample:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
+           <sample:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
          </sample:product>
       </event>
    </atom:content>
