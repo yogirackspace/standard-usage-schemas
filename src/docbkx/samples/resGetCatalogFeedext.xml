@@ -1,0 +1,8 @@
+<feedCatalog>
+    <version> 1.58.1  </version>
+    <feed id="backup_events_obs">
+        <endpoint region="DFW" tenantId="709286" publicURL="https://dfw.feeds.api.rackspacecloud.com/backup/events/709286" />
+    </feed>
+    …
+    
+</feedCatalog>
