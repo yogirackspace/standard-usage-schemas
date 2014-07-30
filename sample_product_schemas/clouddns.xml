@@ -5,6 +5,6 @@
                resourceTypes="DOMAIN"
                type="CREATE DELETE">
     <description>
-        Cloud DNS system events 
+        Specifies the Cloud DNS system events.
     </description>
 </productSchema>

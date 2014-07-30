@@ -4,24 +4,24 @@
                type="CREATE UPDATE DELETE"
                version="1">
     <description>
-        Update to the business unit to team mapping.
+        Specifies the team mapping to the business unit.
     </description>
     <attribute name="businessUnit" type="string" use="required" maxLength="150">
-        Business unit name.
+        Specifies the business unit name.
     </attribute>
 
     <attribute name="description" type="string" use="required" maxLength="255">
-        Description of the event.
+        Specifies the description of the event.
     </attribute>
     <attributeGroup name="team" minOccurs="0" maxOccurs="unbounded">
         <description>
-            Team name and number which belongs to the listed business number.
+            Specifies the team name and number which belongs to the listed business number.
         </description>
         <attribute name="name" type="string" use="required" maxLength="255">
-            Team name.
+            Specifes the team name.
         </attribute>
         <attribute name="number" type="string" use="required" maxLength="150">
-            Team number.
+            Specifies the team number.
         </attribute>
     </attributeGroup>
 </productSchema>

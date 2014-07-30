@@ -4,16 +4,16 @@
                version="1"
                groupByResource="false">
     <description>
-        CloudFiles account bandwidth usage information.
+        Specifies the bandwidth usage information for the Cloud Files account.
     </description>
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM"
                max="109951162777600">
-        The amount of bandwidth in, in bytes.
+        Specifies the amount of inbound bandwidth, in bytes.
     </attribute>
     <attribute name="bandwidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM"
                max="109951162777600">
-        The amount of bandwidth out in bytes.
+        Specifies the amount of outbound bandwidth, in bytes.
     </attribute>
 </productSchema>

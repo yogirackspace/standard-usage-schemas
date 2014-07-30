@@ -4,24 +4,24 @@
                version="1" type="USAGE_SNAPSHOT"
                resourceTypes="DOMAIN_SUBSCRIPTION">
     <description>
-        Subscription event for Domain Registration.
+        Specifies the subscription event for domain registration.
     </description>
     <attribute name="action" type="Name"
         allowedValues="REDEMPTION REGISTRATION RENEWAL TRANSFER" use="required">
-        The action being taken with this domain registration.   
+        Specifies the action that is being taken with this domain registration.   
     </attribute>
     <attribute name="purchaseTenure" type="int" use="required"
         unitOfMeasure="COUNT" min="1" max="10">
-        Purchase tenure in years.
+        Specifies the purchase tenure in years.
     </attribute>
     <attribute name="expirationDate" type="utcDateTime" use="required">
-        The date the domain registration expires.
+        Specifies the date when the domain registration expires.
     </attribute>
     <attribute name="isAutoRenew" type="boolean" use="optional" default="false"
         displayName="Auto-renew">
-        A boolean indicating that a user has selected to auto-renew this site.
+        If this value is set to true, a user has selected to auto-renew this site.
     </attribute>
     <attribute name="endUserTenantId" type="string" use="optional">
-        The endUser tenantId associated with this domain registration.
+        Specifies the end user tenant Id that has been associated with this domain registration.
     </attribute>
 </productSchema>

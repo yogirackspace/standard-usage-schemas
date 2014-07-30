@@ -4,15 +4,15 @@
         serviceCode="CloudSites" type="USAGE_SNAPSHOT"
         resourceTypes="SITES_SUBSCRIPTION">
     <description>
-        Subscription to Cloud Sites.
+        Specifies a subscription to Cloud Sites.
     </description>
     <attribute name="action" type="string" use="required" allowedValues="SUBSCRIBE CANCEL UPDATE REVERT_CANCEL CANCEL_CONFIRM">
-        The action that caused this event to be created.
+        Specifies the action that caused this event to be created.
     </attribute>
     <attribute name="isNewAccount" type="boolean" use="optional" default="false"
                displayName="Is new account">
-        A boolean. Should be true if the date the plan is added is the same UTC date the account was created. 
-        For events originating from Sign Up Facade, this is always true.
-        For events originating from Cloud Control, this may be true or false.
+        Specifies a boolean value. This value sould be set to true if the date the plan is added is the same UTC date when the account was created. 
+        For events originating from Sign Up Facade, this value is always true.
+        For events originating from Cloud Control, this value may be true or false.
     </attribute>
 </productSchema>

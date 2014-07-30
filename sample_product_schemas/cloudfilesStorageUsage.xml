@@ -4,18 +4,18 @@
                version="1"
                groupByResource="false">
     <description>
-      CloudFiles account storage information.
+      Specifies the storage information for the Cloud Files account.
     </description>
     <attribute name="disk" type="unsignedLong" use="required" aggregateFunction="WEIGHTED_AVG"
                unitOfMeasure="B" max="112589990684262400">
-        The amount of disk usage in bytes.
+        Specifies the amount of disk usage, in bytes.
     </attribute>
     <attribute name="freeops" type="unsignedInt" use="required" aggregateFunction="SUM" unitOfMeasure="COUNT"
                min="0" max="2000000000">
-        The number of free operations.
+        Specifies the number of free operations.
     </attribute>
     <attribute name="costops" type="unsignedInt" use="required" aggregateFunction="SUM" unitOfMeasure="COUNT"
                min="0" max="2000000000">
-        The number of cost operations
+        Specifies the number of operations that accrue a cost.
     </attribute>
 </productSchema>

@@ -4,33 +4,33 @@
                serviceCode="EmailAppsMSService" type="INFO"
                >
     <description>
-        Email and Apps Microsoft Service events
+        Specifies events for the Email and Apps Microsoft Service.
     </description>
     <attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
-        The key of the object that this event corresponds to
+        Specifies the key of the object that this event corresponds to.
     </attribute>
     <attribute name="productType" type="string" use="required">
-        The MS Service product that this event corresponds to
+        Specifies the MS Service product that this event corresponds to.
     </attribute>
     <attribute name="operation" type="string" use="required">
-        The operation performed on the resource that this event corresponds to.
+        Specifies the operation that is performed on the resource that this event corresponds to.
     </attribute>
     <attribute name="status" type="Name" allowedValues="COMPLETED ERROR" use="required">
-        The status of the operation performed on the resource that this event corresponds to.
+        Specifies the status of the operation that is performed on the resource that this event corresponds to.
     </attribute>
     <attribute name="request" type="string" minLength="1" maxLength="20000" use="required">
-        The request that this event corresponds to.
+        Specifies the request that this event corresponds to.
     </attribute>
     <attribute name="response" type="string" minLength="1" maxLength="20000" use="optional">
-        The response for the request above.
+        Specifies the response for the above request.
     </attribute>
     <attributeGroup name="dependent" minOccurs="0" maxOccurs="unbounded">
         <description>
-            The list of all dependent objects for an event. For example, in mailbox related events, since mailbox
+            Specifies the list of all dependent objects for an event. For example, in mailbox-related events, since the mailbox
             has to be under a domain, a domain object can be listed as one of the dependents.
         </description>
         <attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
-            The key of the dependent objects
+            Specifies the key of the dependent objects.
         </attribute>
     </attributeGroup>
 </productSchema>

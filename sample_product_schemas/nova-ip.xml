@@ -4,23 +4,23 @@
                version="1" resourceTypes="INSTANCE"
                type="USAGE">
     <description>
-        Cloud Server OpenStack Additional IP Usage Event.
+        Specifies a usage event associating an additional IP with a Cloud Server in OpenStack.
     </description>
 
     <attribute name="ip" type="string" use="required">
-        IP address of the Cloud Server.
+        Specifies the IP address of the Cloud Server.
     </attribute>
 
     <attribute name="serverId" type="int UUID" use="optional">
-        The serverId that this IP is associated to.
+        Specifies the serverId that this IP is associated to.
     </attribute>
     
     <attribute name="serverName" type="string" use="optional">
-        The name of the server that this IP is associated to.
+        Specifies the name of the server that this IP is associated to.
     </attribute>
     
     <attribute name="reserved" type="boolean" use="optional" default="false">
-        A flag to indicate whether the IP is reserved or not. 
+        Specifies a flag that indicates whether the IP is reserved or not. 
     </attribute>
          
 </productSchema>

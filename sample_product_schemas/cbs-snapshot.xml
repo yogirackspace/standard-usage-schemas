@@ -5,10 +5,10 @@
                resourceTypes="VOLUME"
                ranEnrichmentStrategy="INTEGER_RANGE">
     <description>
-        CBS specific usage fields related to the snapshot.
+        Specifies the usage fields that are specific to Cloud Block Storage related to the snapshot.
     </description>
     <attribute name="snapshot" type="double" use="required"
                unitOfMeasure="GB" min="0" max="1048576" groupBy="true">
-        The amount of backup (snapshot) storage used for the volume.
+        Specifies the amount of backup storage that is used for the volume.
     </attribute>
 </productSchema>

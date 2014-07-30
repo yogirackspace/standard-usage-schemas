@@ -4,10 +4,10 @@
                version="1"
                groupByResource="false">
     <description>
-        CloudFiles account CDN usage information.
+        Specifies the CDN usage information for the Cloud Files account.
     </description>
     <attribute name="cdnBandwidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" max="1099511627776000">
-        The amount of bandwidth out in bytes.
+        Specifies the amount of outband bandwidth, in bytes.
     </attribute>
 </productSchema>

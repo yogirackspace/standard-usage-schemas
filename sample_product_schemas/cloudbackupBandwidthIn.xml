@@ -4,14 +4,14 @@
                version="1"
                resourceTypes="AGENT">
     <description>
-        Cloud Backup bandwith in usage information.
+        Specifies usage information for the inbound Cloud Backup bandwith.
     </description>
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                min="0" max="18446744073709551615"
                unitOfMeasure="B" aggregateFunction="SUM">
-        The amount of bandwidth in, in bytes.
+        Specifies the amount of inbound bandwidth, in bytes.
     </attribute>
     <attribute name="serverID" type="int UUID" use="required">
-        Server ID, where the agent in installed.
+        Specifies the Id of the server where the agent is installed.
     </attribute>
 </productSchema>

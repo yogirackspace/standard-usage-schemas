@@ -4,14 +4,14 @@
                version="1"
                resourceTypes="AGENT">
     <description>
-        Cloud Backup cloud files storage.
+        Specifies the Cloud Files storage for Cloud Backup.
     </description>
     <attribute name="storage" type="unsignedLong" use="required"
                min="0" max="18446744073709551615"
                unitOfMeasure="B">
-        The amount of storage consumed by the cloud files container.
+        Specifies the amount of storage that is consumed by the Cloud Files container.
     </attribute>
     <attribute name="serverID" type="int UUID" use="required">
-        Server ID, where the agent in installed.
+        Specifies the Id of the server where the agent is installed.
     </attribute>
 </productSchema>

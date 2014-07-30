@@ -4,19 +4,19 @@
                version="1" resourceTypes="INSTANCE"
                type="USAGE">
     <description>
-        First Gen Cloud Server Additional IP Usage Event.
+       Specifies a usage event to associate an additional IP with a First Generation Cloud Server.
     </description>
 
     <attribute name="ip" type="string" use="required">
-        The IP address.
+        Specifies the IP address.
     </attribute>
 
     <attribute name="serverId" type="int UUID" use="required">
-        The serverId that this IP is associated to.
+        Specifies the serverId that this IP is associated to.
     </attribute>
     
     <attribute name="reserved" type="boolean" use="optional" default="false">
-        A flag to indicate whether the IP is reserved or not. 
+        Specifies a flag that indicates whether the IP is reserved or not. 
     </attribute>
          
 </productSchema>

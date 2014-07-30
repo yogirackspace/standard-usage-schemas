@@ -8,6 +8,6 @@
         captures changes in the payment methods. 
     </description>
     <attribute name="methodId" type="UUID" use="required">
-        The method ID associated with a customer's payment
+        Specifies the method Id that is associated with a customer's payment
     </attribute>
 </productSchema>

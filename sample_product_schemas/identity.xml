@@ -5,29 +5,27 @@
                    version="1" resourceTypes="USER"
                    type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
         <description>
-            Identity user messages.
+            Specifies the identity user messages.
         </description>
         <attribute name="displayName" type="string"
                    use="required">
-            The display name of the user.
+            Specifies the display name of the user.
         </attribute>
         <attribute name="groups" type="string*"
                    use="optional">
-            The list of group IDs currently associated with a user.
+            Specifies the list of group Ids that are currently associated with a user.
         </attribute>
         <attribute name="roles" type="string*"
                    use="optional">
-            The list of roles currently associated with a user.
+            Specifies the list of roles that are currently associated with a user.
         </attribute>
         <attribute name="migrated" type="boolean"
                    use="optional" default="false">
-            True if the user has been migrated to global auth, false
-            otherwise.  The default is false.
+            If this value is set to true, the user has been migrated to global authentication. The default value is false.
         </attribute>
         <attribute name="multiFactorEnabled" type="boolean"
                    use="optional" default="false">
-            True if the user has turn on multi-factor authentication, false
-            otherwise.  The default is false.
+            If this value is true, the user has turned on multi-factor authentication. The default value is false.
         </attribute>
     </productSchema>
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
@@ -36,40 +34,38 @@
                    version="2" resourceTypes="USER"
                    type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
         <description>
-            Identity user messages.
+            Specifies the identity user messages.
         </description>
         <attribute name="displayName" type="string"
                    use="required">
-            The display name of the user.
+            Specifies the display name of the user.
         </attribute>
         <attribute name="groups" type="string*"
                    use="optional">
-            The list of group IDs currently associated with a user.
+            Specifies the list of group Ids that are currently associated with a user.
         </attribute>
         <attribute name="roles" type="string*"
                    use="optional">
-            The list of roles currently associated with a user.
+            Specifies the list of roles that are currently associated with a user.
         </attribute>
         <attribute name="migrated" type="boolean"
                    use="optional" default="false">
-            True if the user has been migrated to global auth, false
-            otherwise.  The default is false.
+            If this value is set to true, the user has been migrated to global authentication. The default value is false.
         </attribute>
         <attribute name="multiFactorEnabled" type="boolean"
                    use="optional" default="false">
-            True if the user has turn on multi-factor authentication, false
-            otherwise.  The default is false.
+            If this value is set to true, the user has turned on multi-factor authentication. The default value is false.
         </attribute>
         <attribute name="updatedAttributes" type="Name*"
                    use="optional" allowedValues="PASSWORD ROLES GROUPS FIRSTNAME"
                    searchable="true">
-            The attributes that have been updated.
+            Specifies the attributes that have been updated.
         </attribute>
         <xpathAssertion test="if ($event/@type = 'UPDATE') then $product/@updatedAttributes else true()" scope="entry">
-            For version 2 and type is UPDATE, the updatedAttributes attribute is required.
+            For version 2 and type is set to UPDATE, the updatedAttributes attribute is required.
         </xpathAssertion>
         <xpathAssertion test="if ($event/@type != 'UPDATE') then not($product/@updatedAttributes) else true()" scope="entry">
-            For version 2 and type is other than UPDATE, the updatedAttributes attribute should not be used.
+            For version 2 and type is set to a value other than UPDATE, the updatedAttributes attribute should not be used.
         </xpathAssertion>
     </productSchema>
 </alternatives>

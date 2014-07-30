@@ -3,9 +3,9 @@
                serviceCode="AtomHopper" version="1"
                resourceTypes="FEED" type="UPDATE">
     <description>
-        A count on the number of items in the feed.
+        Specifies the number of items in the feed.
     </description>
     <attribute name="count" type="unsignedInt" use="required">
-        The number of items in the feed.
+        Specifies the number of items in the feed.
     </attribute>
 </productSchema>

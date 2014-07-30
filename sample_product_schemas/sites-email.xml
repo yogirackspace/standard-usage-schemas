@@ -4,15 +4,15 @@
                serviceCode="CloudSites" type="USAGE_SNAPSHOT"
                resourceTypes="SITES_EMAIL">
     <description>
-        Cloud Sites number of email boxes per account ID.
+        Specifies the number of Cloud Sites email boxes per account Id.
     </description>
     <attribute name="numberOfMailboxes" type="int" use="required" 
         min="0" max="1000" unitOfMeasure="COUNT" aggregateFunction="AVG"
         displayName="Number of Email Boxes">
-        Number of email boxes for this tenant at this point in time.
+        Specifies the number of email boxes for this tenant at this point in time.
     </attribute>
     <attribute name="boxSize" type="int" use="required" 
         unitOfMeasure="MB" min="0" max="2048">
-        The size of the email box in MB
+        Specifies the size of the email box, in MB.
     </attribute>
 </productSchema>

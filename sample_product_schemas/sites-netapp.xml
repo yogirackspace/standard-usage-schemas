@@ -4,25 +4,25 @@
                version="1" type="USAGE_SNAPSHOT"
                groupByResource="false">
     <description>
-        Total netapp for a particular tenant.
+        Specifies the total Netapp usage for a particular tenant.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT24H</aggregationPeriod>
     </aggregationPeriods>
     <attribute name="groupName" type="string" use="required">
-        The group name that corresponds to what Netapp uses to identify user accounts.
+        Specifies the group name that corresponds to what Netapp uses to identify user accounts.
     </attribute>
     <attribute name="storage" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="AVG"
                min="0" max="13194139533312">
-        The amount of storage bytes.
+        Specifies the amount of storage, in bytes.
     </attribute>
     <attribute name="numFiles" type="unsignedLong" use="required"
                unitOfMeasure="COUNT" 
                min="0" max="300000000">
-        The number of files.
+        Specifies the number of files.
     </attribute>
     <attribute name="volume" type="string" use="required">
-       The volume that corresponds to the location in Netapp where the usage originates.
+       Specifies the volume that corresponds to the location in Netapp where the usage originates.
     </attribute>
 </productSchema>

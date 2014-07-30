@@ -4,10 +4,10 @@
                groupByResource="false"
                version="1">
     <description>
-        Server image storage for a tenant.
+        Specifies the storage of a server image for a tenant.
     </description>
     <attribute name="storage" type="unsignedLong" use="required"
                unitOfMeasure="B" max="2199023255552" aggregateFunction="SUM">
-        The amount of storage consumed by images for this tenant.
+        Specifies the amount of storage that is consumed by images for this tenant.
     </attribute>
 </productSchema>

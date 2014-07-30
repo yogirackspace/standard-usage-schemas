@@ -6,17 +6,17 @@
                    resourceTypes="CHECK"
                    ranEnrichmentStrategy="INTEGER_RANGE">
         <description>
-            MaaS specific usage fields.
+            Specifies the usage fields that are specific to MaaS.
         </description>
         <attribute name="monitoringZones" type="int"
                    use="required" unitOfMeasure="COUNT"
                    min="0" max="8"
                    groupBy="true">
-            The number of monitoring zones.
+            Speciifes the number of monitoring zones.
         </attribute>
         <attribute name="checkType" type="string"
                    use="optional">
-            The type of check being performed.
+            Specifies the type of check that is being performed.
         </attribute>
     </productSchema>
     <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
@@ -26,25 +26,25 @@
                    resourceTypes="CHECK"
                    ranEnrichmentStrategy="INTEGER_RANGE">
         <description>
-            MaaS specific usage fields.
+            Specifies the MaaS-specific usage fields.
         </description>
         <attribute name="monitoringZones" type="int"
                    use="required" unitOfMeasure="COUNT"
                    min="0" max="8"
                    groupBy="true">
-            The number of monitoring zones.
+            Specifies the number of monitoring zones.
         </attribute>
         <attribute name="checkType" type="string"
                    use="optional">
-            The type of check being performed.
+            Specifies the type of check that is being performed.
         </attribute>
         <attribute name="product" type="Name"
                    allowedValues="CLOUD_DATABASE CLOUD_SERVER"
                    use="required">
-            The product that the check is intended to be used for.
+            Specifies the product that the check is intended to be used for.
         </attribute>
         <attribute name="productInstanceId" type="UUID" use="required">
-            The instanceId of the product that the check is intended to be used for.
+            Specifies the instanceId of the product that the check is intended to be used for.
         </attribute>
     </productSchema>
 </alternatives>

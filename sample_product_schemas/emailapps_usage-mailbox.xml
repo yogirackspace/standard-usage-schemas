@@ -5,10 +5,10 @@
                resourceTypes="EXCHANGE_EMAIL_2007 EXCHANGE_EMAIL_2010 EXCHANGE_EMAIL_2013"
                ranEnrichmentStrategy="NONE">
     <description>
-        Email and Apps number of email boxes per account ID.
+        Specifes the number of email boxes per account Id for Email and Apps.
     </description>
     <attribute name="storage" type="int" use="required"
                unitOfMeasure="GB" min="0" max="100">
-        The max size of the email box in GB for the individual mailbox.
+        Specifies the maximum size of the email box for the individual mailbox, in GB.
     </attribute>
 </productSchema>

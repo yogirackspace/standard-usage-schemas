@@ -5,6 +5,6 @@
                resourceTypes="LOADBALANCER"
                type="DELETE">
     <description>
-        Delete event for lbaas loadbalancers.
+        Deletes an event for LbaaS load balancers.
     </description>
 </productSchema>

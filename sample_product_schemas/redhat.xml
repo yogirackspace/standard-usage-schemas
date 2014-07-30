@@ -5,13 +5,13 @@
                version="1"
                groupByResource="false">
     <description>
-        Usage message for RedHat License
+        Specifies the usage message for a Red Hat License.
     </description>
     <attribute name="used" type="boolean"
                use="optional" default="true"
                unitOfMeasure="COUNT"
                aggregateFunction="MAX_CONCURRENT">
-        The attribute is used to hold metadata about the message.  In
+        This attribute is used to hold metadata about the message. In
         this case it is used to count a single RHEL license.
     </attribute>
     <xpathAssertion test="xsd:boolean(@used)">
