@@ -9,7 +9,7 @@
     <attribute name="flavor" type="unsignedInt"
                use="required" min="0" max="25"
                groupBy="true">
-        Specifies the flavor id of the slice.
+        Specifies the flavor Id of the slice.
     </attribute>
     <attribute name="extraPublicIPs" type="unsignedInt"
                use="optional" unitOfMeasure="COUNT"

@@ -4,7 +4,7 @@
         serviceCode="Widget"
         resourceTypes="WIDGET GADGET">
     <description>
-        Specifies widget-specific user fields
+        Specifies widget-specific user fields.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT5H</aggregationPeriod>
@@ -21,7 +21,7 @@
     </attribute>
     <attribute name="widget_id_list" type="int*" use="optional"
                aggregateFunction="SUM" unitOfMeasure="COUNT">
-        Specifies list of integers.
+        Specifies a list of integers.
     </attribute>
     <attribute name="same_int" type="int" use="optional"
                aggregateFunction="LAST" unitOfMeasure="COUNT">

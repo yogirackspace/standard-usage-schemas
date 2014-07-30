@@ -4,7 +4,7 @@
         serviceCode="Widget"
         resourceTypes="WIDGET GADGET">
     <description>
-        Specifies widget-specifc user fields
+        Specifies widget-specifc user fields.
     </description>
     <aggregationPeriods>
         <aggregationPeriod>PT24H</aggregationPeriod>

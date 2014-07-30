@@ -30,7 +30,7 @@
             has to be under a domain, a domain object can be listed as one of the dependents.
         </description>
         <attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
-            Specifies the key of the dependent objects
+            Specifies the key of the dependent objects.
         </attribute>
     </attributeGroup>
 </productSchema>

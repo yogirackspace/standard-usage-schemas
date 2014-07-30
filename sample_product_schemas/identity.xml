@@ -5,7 +5,7 @@
                    version="1" resourceTypes="USER"
                    type="CREATE SUSPEND UNSUSPEND UPDATE DELETE">
         <description>
-            Specifies the ientity user messages.
+            Specifies the identity user messages.
         </description>
         <attribute name="displayName" type="string"
                    use="required">
@@ -13,7 +13,7 @@
         </attribute>
         <attribute name="groups" type="string*"
                    use="optional">
-            Specifies teh list of group Ids that are currently associated with a user.
+            Specifies the list of group Ids that are currently associated with a user.
         </attribute>
         <attribute name="roles" type="string*"
                    use="optional">
@@ -62,10 +62,10 @@
             Specifies the attributes that have been updated.
         </attribute>
         <xpathAssertion test="if ($event/@type = 'UPDATE') then $product/@updatedAttributes else true()" scope="entry">
-            If version 2 and type are set to UPDATE, the updatedAttributes attribute is required.
+            For version 2 and type is set to UPDATE, the updatedAttributes attribute is required.
         </xpathAssertion>
         <xpathAssertion test="if ($event/@type != 'UPDATE') then not($product/@updatedAttributes) else true()" scope="entry">
-            If version 2 and type is set to a value other than UPDATE, the updatedAttributes attribute should not be used.
+            For version 2 and type is set to a value other than UPDATE, the updatedAttributes attribute should not be used.
         </xpathAssertion>
     </productSchema>
 </alternatives>

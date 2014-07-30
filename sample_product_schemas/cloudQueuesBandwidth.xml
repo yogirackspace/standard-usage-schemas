@@ -8,21 +8,21 @@
     <attribute name="bandwidthInPublic" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
                max="6597069766656">
-        Specifies the amount of inbound public bandwidth, in bytes. The maximum value is 6TB.
+        Specifies the amount of inbound public bandwidth, in bytes. The maximum value is 6 TB.
     </attribute>
     <attribute name="bandwidthInServiceNet" type="unsignedLong" use="required"
                unitOfMeasure="B" min="0"
                max="6597069766656">
-        Specifies the amount of inbound bandwidth on Service Net, in bytes. The maximum value is 6TB.
+        Specifies the amount of inbound bandwidth on Service Net, in bytes. The maximum value is 6 TB.
     </attribute>
     <attribute name="bandwidthOutPublic" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
                max="6597069766656">
-        Specifies teh amount of public outbound bandwidth, in bytes. The maximum value is 6TB.
+        Specifies the amount of public outbound bandwidth, in bytes. The maximum value is 6 TB.
     </attribute>
     <attribute name="bandwidthOutServiceNet" type="unsignedLong" use="required"
                unitOfMeasure="B" min="0"
                max="6597069766656">
-        Specifies the amount of outbound bandwidth on Service Net, in bytes. The maximum value is 6TB.
+        Specifies the amount of outbound bandwidth on Service Net, in bytes. The maximum value is 6 TB.
     </attribute>
 </productSchema>

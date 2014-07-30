@@ -12,6 +12,6 @@
         Specifies the amount of outbound bandwidth, in bytes.
     </attribute>
     <attribute name="serverID" type="int UUID" use="required">
-        Specifies the Id of the server where the agent in installed.
+        Specifies the Id of the server where the agent is installed.
     </attribute>
 </productSchema>

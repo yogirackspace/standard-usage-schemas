@@ -50,7 +50,7 @@
                                    or @resourceType = 'MONGODB'
                                    or @resourceType = 'MEMCACHED'
                                    or @resourceType = 'CASSANDRA') then not( @storage ) else @storage">
-            The storage attribute is required for all dbs save for REDIS, MONGODB, MEMCACHED and CASSANDRA.
+            The storage attribute is required for all databases except for REDIS, MONGODB, MEMCACHED and CASSANDRA.
         </xpathAssertion>
     </productSchema>
 </alternatives>

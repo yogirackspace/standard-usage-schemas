@@ -4,7 +4,7 @@
                version="1" resourceTypes="ACCOUNT_SUPPORT" 
                type="CREATE UPDATE">
     <description>
-       Specifies the events that describe changes in service level for a supported account
+       Specifies the events that describe changes in service level for a supported account.
     </description>
     <attribute name="serviceLevel" type="Name" use="required"
                allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 

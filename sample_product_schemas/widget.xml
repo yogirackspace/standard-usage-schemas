@@ -5,7 +5,7 @@
                    serviceCode="Widget"
                    resourceTypes="WIDGET GADGET">
         <description>
-            Specifies widget-specific user fields
+            Specifies widget-specific user fields.
         </description>
         <attribute name="label" type="string" use="required">
             Specifies a human readable name.

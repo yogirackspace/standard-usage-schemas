@@ -19,7 +19,7 @@
     </attribute>
     <attribute name="isAutoRenew" type="boolean" use="optional" default="false"
         displayName="Auto-renew">
-        If this value is set to true, it indicates that a user has selected to auto-renew this site.
+        If this value is set to true, a user has selected to auto-renew this site.
     </attribute>
     <attribute name="endUserTenantId" type="string" use="optional">
         Specifies the end user tenant Id that has been associated with this domain registration.

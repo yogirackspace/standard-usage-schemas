@@ -8,7 +8,7 @@
     </description>
     <attributeGroup name="team" minOccurs="0" maxOccurs="30">
         <description>
-            Specifies a list of teams who are associated with this account
+            Specifies a list of teams who are associated with this account.
         </description>
         <attribute name="teamType" type="string"
                    use="required" allowedValues="SUPPORT REVENUE"> 

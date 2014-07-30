@@ -10,7 +10,7 @@
     <attribute name="type" type="string" use="required"
                allowedValues="SATA SSD" groupBy="true">
         Describes the type of volume used. A value of SSD is high-performance
-        based.  SATA is standard is the standard value.
+        based.  SATA is the standard value.
     </attribute>
     <attribute name="provisioned" type="int" use="required"
                unitOfMeasure="GB" min="0" max="1024" groupBy="true">

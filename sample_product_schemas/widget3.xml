@@ -5,7 +5,7 @@
     type="UPDATE DELETE"
     resourceTypes="WIDGET GADGET THINGY">
     <description>
-        This is a test for changing the message type.
+        Specifies a test for changing the message type.
     </description>
     <attribute name="label" type="string" use="required" searchable="true">
         Specifies a human readable name.

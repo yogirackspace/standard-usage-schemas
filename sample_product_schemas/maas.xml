@@ -32,7 +32,7 @@
                    use="required" unitOfMeasure="COUNT"
                    min="0" max="8"
                    groupBy="true">
-            Specifies teh number of monitoring zones.
+            Specifies the number of monitoring zones.
         </attribute>
         <attribute name="checkType" type="string"
                    use="optional">

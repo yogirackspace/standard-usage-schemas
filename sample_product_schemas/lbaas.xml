@@ -4,7 +4,7 @@
                version="1"
                resourceTypes="LOADBALANCER">
     <description>
-        Specifies the usage fields for Cloud Load Balancer.
+        Specifies the usage fields for the Cloud Load Balancer.
     </description>
     <attribute name="avgConcurrentConnections" type="double" use="required"
                unitOfMeasure="COUNT" min="0" max="1000000">
@@ -12,7 +12,7 @@
     </attribute>
     <attribute name="avgConcurrentConnectionsSsl" type="double" use="required"
                unitOfMeasure="COUNT" min="0" max="1000000">
-        Specifies teh amount of concurrent SSL connections.
+        Specifies the amount of concurrent SSL connections.
     </attribute>
     <attribute name="avgConcurrentConnectionsSum" type="double" use="synthesized"
                aggregateFunction="WEIGHTED_AVG"

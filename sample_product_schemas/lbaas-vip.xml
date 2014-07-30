@@ -5,7 +5,7 @@
                resourceTypes="VIP"
                type="CREATE DELETE">
     <description>
-        Specifies the Lbaas virtual IP events.
+        Specifies the LbaaS virtual IP events.
     </description>
 
     <attribute name="address" type="string"
@@ -30,11 +30,11 @@
     </xpathAssertion>
 
     <xpathAssertion test="if ($product/@IPversion = 'IPV4') then xs:integer($event/@resourceId) &gt;= 1 and xs:integer($event/@resourceId) &lt; 9000000 else true()" scope="entry">
-        The resourceId for a VIP (IPV4) should be between 1 and 8999999.
+        The resourceId for a vip (IPV4) should be between 1 and 8999999.
     </xpathAssertion>
 
     <xpathAssertion test="if ($product/@IPversion = 'IPV6') then xs:integer($event/@resourceId) &gt;= 9000000 else true()" scope="entry">
-        The resourceId for a VIP (IPV6) should be greater than or equal to 9000000.
+        The resourceId for a vip (IPV6) should be greater than or equal to 9000000.
     </xpathAssertion>
 
 </productSchema>
