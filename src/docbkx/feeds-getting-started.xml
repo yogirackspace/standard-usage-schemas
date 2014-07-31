@@ -64,7 +64,7 @@
         <raxm:metadata
             xmlns:raxm="http://docs.rackspace.com/api/metadata">
             <raxm:displayname>Getting Started Guide</raxm:displayname>
-            <raxm:product version="v1.0">feeds</raxm:product>
+            <raxm:product version="v1.0">cloud-feeds</raxm:product>
             <raxm:priority>10</raxm:priority>
         </raxm:metadata>
     </info>

@@ -50,7 +50,7 @@
     </revhistory>
     <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
       <raxm:displayname>Release Notes</raxm:displayname>
-      <raxm:product version="v1.0">cdb</raxm:product>
+      <raxm:product version="v1.0">cloud-feeds</raxm:product>
       <raxm:priority>50</raxm:priority>
     </raxm:metadata> 
   </info>
