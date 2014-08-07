@@ -36,7 +36,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   private val prepocExtract = new File("src/test/resources/procinst-extract.xslt")
   private val preprocAHop   = new File("wadl/atom_hopper_pre.xsl")
-  private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString))
+  private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString), true)
   private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
   private val preproc_template = TransformerFactory.newInstance("org.apache.xalan.xsltc.trax.TransformerFactoryImpl",null).newTemplates(new StreamSource(preprocAHop))
 
