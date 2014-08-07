@@ -783,9 +783,11 @@
         </section>
         <section xml:id="Feeds_Catalog">
             <title>Feeds catalog</title>
-            <para>Cloud Feeds supports a catalog of different feeds that are published. These feeds
-                are listed using the Atom Syndication Format that is described in <link
-                    xlink:href="http://tools.ietf.org/html/rfc4287">RFC 4287</link>.</para>
+            <para>Cloud Feeds supports a catalog of different feeds that are published.  Cloud Feeds
+                supports publishing this list of feeds in Atom Service Document format as described
+                in the Atom Publishing Protocol, RFC 5023. For more information, see <link
+                    xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
+                    >http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
             <para> You can obtain a list of all the feeds that are available by submitting a
                     <command>GET</command> request against the Cloud Feeds endpoint as shown in the
                 following example:</para>
