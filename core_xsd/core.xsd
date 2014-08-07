@@ -356,7 +356,7 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE' and xsd:integer(@version) ge 2) then xsd:date(@endTime) eq xsd:date(@startTime) and not(contains(@endTime, 'T24:')) else true()"
+                <assert vc:minVersion="1.1" test="if (@type eq 'USAGE' and xsd:integer(@version) ge 2) then xsd:date(@endTime) eq xsd:date(@startTime) else true()"
                         xerces:message="Usage events must not span beyond midnight."
                         saxon:message="Usage events must not span beyond midnight.">
                     <annotation>
