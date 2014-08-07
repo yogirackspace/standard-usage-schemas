@@ -80,7 +80,7 @@
     <!-- METHODS -->
     <method id="getFeed" name="GET">
         <wadl:doc xml:lang="EN" title="Get Feed" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Fetch the most recent events for this product's feed.</para>            
+            <para role="shortdesc">This operation obtains the most recent events for this product's feed.</para>            
         </wadl:doc>
         <request>
             <param name="ACCEPT" style="header" type="cldfeeds:AcceptHeaderType" repeating="true" required="true"
@@ -91,7 +91,7 @@
             <param name="limit"  style="query" type="xs:int" required="false"/>
             <param name="direction" style="query" type="xs:string" required="false">
                 <wadl:doc xmlns="http//docbook.org/ns/dockbook">
-                        Valid values are either backward or forward.
+                        Valid values for this parameter are either backward or forward.
                 </wadl:doc>
             </param>
         </request>
@@ -106,14 +106,14 @@
 
     <method id="getFeedAllowJson" name="GET">
         <wadl:doc xml:lang="EN" title="Get Feed" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Fetch the most recent events for this product's feed.</para>            
+            <para role="shortdesc">This operation obtains the most recent events for this product's feed.</para>            
         </wadl:doc>
         <request>
             <param name="marker" style="query" type="xs:anyURI" required="false"/>            
             <param name="limit"  style="query" type="xs:int" required="false"/>
             <param name="direction" style="query" type="xs:string" required="false">
                 <wadl:doc xmlns="http//docbook.org/ns/dockbook">
-                        Valid values are either backward or forward.
+                        Valid values for this parameter are either backward or forward.
                 </wadl:doc>
             </param>
         </request>
@@ -128,7 +128,7 @@
 
     <method id="getEntry" name="GET">
         <wadl:doc xml:lang="EN" title="Get Event ID" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
+            <para role="shortdesc">This operation obtains one particular event whose Id is listed in the URI.</para>
 
         </wadl:doc>
         <request>
@@ -148,7 +148,7 @@
 
     <method id="addPlainUnvalidatedEntry" name="POST" security="internal">
         <wadl:doc xml:lang="EN" title="Adding an event." xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Adding an event for this particular product.</para> 
+            <para role="shortdesc">This operation adds an event for this particular product.</para> 
            
         </wadl:doc>
         <request rax:ignoreXSD="true">
@@ -167,7 +167,7 @@
 
     <method id="addPlainEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Adding an event for this particular product.</para>
+            <para role="shortdesc">This operation adds an event for this particular product.</para>
         </wadl:doc>
         <request>
             <representation mediaType="application/atom+xml" element="atom:entry">
@@ -238,9 +238,9 @@
     
     <method id="addUsageDeadLetter" name="POST">
         <wadl:doc xml:lang="EN" title="Add Usage Dead Letter" xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">Adding a usage dead letter event.</para>
+            <para role="shortdesc">This operation adds a usage dead letter event.</para>
             <para>When a messaging system determines that it cannot or should not deliver a message, it may elect to 
-                  move the message to a Usage Dead Letter Channel.  This method allows errors to be posted to a dead letter
+                  move the message to a Usage Dead Letter Channel. This operation allows errors to be posted to a dead letter
                   atom feed.</para>
         </wadl:doc>
         <request>
