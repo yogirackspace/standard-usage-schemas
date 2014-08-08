@@ -751,7 +751,7 @@
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
-                        <td colspan="5"><code>https://atom.prod.lon1.uk.ci.rackspace.net</code></td>
+                        <td colspan="5"><code>https://atom.prod.lon3.uk.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">Sydney (SYD)</td>
@@ -767,17 +767,20 @@
     </chapter>
     <chapter xml:id="Cloud_Feeds_Catalog">
         <title>Cloud Feeds catalog</title>
-        <para>Cloud Feeds supports a catalog of different feeds that
-            are published.</para>
+        <para>Cloud Feeds supports a catalog of different feeds that are published.  Cloud Feeds
+            supports publishing this list of feeds in Atom Service Document format as described in
+            the Atom Publishing Protocol, RFC 5023. For more information, see <link
+                xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
+                >http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
         <para> You can obtain a list of all the feeds that are
             available by submitting a <command>GET</command> request
             against the Cloud Feeds endpoint as shown in the following
             example:</para>
         <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
         <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
-    <para>This operation returns a list of supported feeds as shown in
-            the following example</para>
-        <programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+    <para>This operation returns a list of supported feeds as shown in the following example:</para>
+        <programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+        <programlisting language="xml" security="external"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting>
     </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds concepts</title>

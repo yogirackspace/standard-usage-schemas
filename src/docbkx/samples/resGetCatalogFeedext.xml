@@ -1,8 +1,23 @@
-<feedCatalog>
-    <version> 1.58.1  </version>
-    <feed id="backup_events_obs">
-        <endpoint region="DFW" tenantId="709286" publicURL="https://dfw.feeds.api.rackspacecloud.com/backup/events/709286" />
-    </feed>
-    …
-    
-</feedCatalog>
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+    <workspace>
+        <atom:title>backup_events_obs</atom:title>
+        <collection href="https://ord.feeds.api.rackspacecloud.com/backup/events/8492382">
+            <atom:title>backup_events_obs</atom:title>
+        </collection>
+    </workspace>
+    <workspace>
+        <atom:title>bigdata_events_obs</atom:title>
+        <collection href="https://ord.feeds.api.rackspacecloud.com/bigdata/events/8492382">
+            <atom:title>bigdata_events_obs</atom:title>
+        </collection>
+    </workspace>
+    ...
+    <workspace>
+        <atom:title>ssl_usagesummary_events_obs</atom:title>
+        <collection href="https://ord.feeds.api.rackspacecloud.com/usagesummary/ssl/events/8492382">
+            <atom:title>ssl_usagesummary_events_obs</atom:title>
+        </collection>
+    </workspace>
+    <!-- Generated from schema version 1.60.1 -->
+</service>
