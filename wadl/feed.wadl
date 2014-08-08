@@ -34,7 +34,7 @@
         </wadl:doc>
         <method href="#addPlainUnvalidatedEntry"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
@@ -48,7 +48,7 @@
         </wadl:doc>
         <method href="#addPlainEntry"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
@@ -61,7 +61,7 @@
         </wadl:doc>
         <method href="#addUsageDeadLetter"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
@@ -91,9 +91,7 @@
 
             <param name="marker" style="query" type="xs:anyURI" required="false"> 
             <wadl:doc xmlns="http//docbook.org/ns/dockbook">
-               Specifies an entry that you have previously used. If
-                you specify a marker in the GET request, you can also specify a value for the direction
-                parameter. If no value is specified for the direction parameter, forward is used by default.
+                Specifies the entry from which the feed is read. If no value is specified, forward is used by default.
             </wadl:doc></param>
             
             <param name="limit"  style="query" type="xs:int" required="false">  <wadl:doc xmlns="http//docbook.org/ns/dockbook">
@@ -121,9 +119,7 @@
         </wadl:doc>
         <request>
             <param name="marker" style="query" type="xs:anyURI" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
-                Specifies an entry that you have previously used. If
-                you specify a marker in the GET request, you can also specify a value for the direction
-                parameter. If no value is specified for the direction parameter, forward is used by default.
+                Specifies the entry from which the feed is read. If no value is specified, forward is used by default
             </wadl:doc></param>            
             <param name="limit"  style="query" type="xs:int" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
                 Specifies the number of entries to return. By default
