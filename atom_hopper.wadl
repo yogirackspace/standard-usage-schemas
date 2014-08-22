@@ -112,7 +112,7 @@
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="usagesummaryrecovery_events"
                   path="usagesummaryrecovery/events"
-                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
 
         <!-- Feeds Catalog -->
         <resource id="feedscatalog"
