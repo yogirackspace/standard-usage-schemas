@@ -41,7 +41,7 @@
                     <xsl:when test="/chapter/@security = 'external'">
                         <xsl:variable name="feed">
                             <xsl:analyze-string select="substring-after(.//wadl:resource[1]/@href,'#')"
-                                regex="rax-(.+)+-events-.+">
+                                regex="(.+)+_events_obs_tenanted_feed">
                                 <xsl:matching-substring>
                                     <xsl:value-of select="regex-group(1)"/>
                                 </xsl:matching-substring>
