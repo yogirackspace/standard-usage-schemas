@@ -388,9 +388,9 @@
             <id>Rackspace Research Repositories</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
-        <property>
-          <name>generate.docs</name>
-        </property>
+                <property>
+                    <name>generate.docs</name>
+                </property>
             </activation>
             <repositories>
                 <repository>
@@ -636,7 +636,7 @@
         </profile>
     <profile>
       <id>generate-docs</id>
-          <activation>
+        <activation>
         <property>
           <name>generate.docs</name>
         </property>
