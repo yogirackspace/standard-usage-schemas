@@ -37,7 +37,7 @@ class DisableJSONSuite extends BaseUsageSuite {
         }
 
         test("Getting /identity feed JSON Content with Accept: application/vnd.collection+json should fail with 406") {
-            assertResultFailed(atomValidatorIdentity.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/vnd.collection+json")) ), response, chain), 406 )
+            assertResultFailed(atomValidator.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/vnd.collection+json")) ), response, chain), 406 )
         }
 
         test("Getting /monitoring feed JSON Content as observer with Accept: application/json should fail with 406") {
@@ -69,7 +69,7 @@ class DisableJSONSuite extends BaseUsageSuite {
         }
 
         test("Getting /identity feed with Accept application/atom+xml should succeed") {
-            atomValidatorIdentity.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/atom+xml")) ), response, chain)
+            atomValidator.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/atom+xml")) ), response, chain)
         }
 
         test("Getting /ssl feed as observer with Accept application/atom+xml should succeed") {

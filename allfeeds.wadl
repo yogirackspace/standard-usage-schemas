@@ -17,7 +17,7 @@
         <!-- identity:admin is added to preserve backwards compat with internal nodes
              Remove it after B-72471 is done
         -->
-        <resource id="service-admin" path="/" rax:roles="cloudfeeds:service-admin identity:admin">
+        <resource id="service-admin" path="/" rax:roles="cloudfeeds:service-admin">
             
             <!-- product events -->
             <resource id="automation_events"
