@@ -12,7 +12,7 @@
     <!-- Resource Types -->
     <resource_type id="TenantAtomFeed">
         <resource path="{tid}/" id="tenanted_feed">
-            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+            <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant Id.</doc></param>
             <method href="#getFeed" />
         </resource>
     </resource_type>
@@ -34,7 +34,7 @@
         </wadl:doc>
         <method href="#addPlainUnvalidatedEntry"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
@@ -48,7 +48,7 @@
         </wadl:doc>
         <method href="#addPlainEntry"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
@@ -61,14 +61,14 @@
         </wadl:doc>
         <method href="#addUsageDeadLetter"/>
         <resource path="entries/{id}">
-            <param name="id" type="xs:anyURI" style="template"> <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
 
     <resource_type id="TenantFeedsCatalog">
         <resource path="{tid}">
-            <param name="tid" type="xs:string" style="template"><doc>tenant ID</doc></param>
+            <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant id.</doc></param>
             <method name="GET"/>
         </resource>
     </resource_type>
@@ -85,10 +85,19 @@
         <request>
             <param name="ACCEPT" style="header" type="cldfeeds:AcceptHeaderType" repeating="true" required="true"
                 rax:message="getFeed: Accept header contains unsupported media types: application/*json"
-                rax:code="406"/>
+                rax:code="406"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                    Specifies the type of Accept header to be used in the request.
+                </wadl:doc></param>
 
-            <param name="marker" style="query" type="xs:anyURI" required="false"/>            
-            <param name="limit"  style="query" type="xs:int" required="false"/>
+            <param name="marker" style="query" type="xs:anyURI" required="false"> 
+            <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                Specifies the entry from which the feed is read. If no value is specified, forward is used by default.
+            </wadl:doc></param>
+            
+            <param name="limit"  style="query" type="xs:int" required="false">  <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                Specifies the number of entries to return. By default
+                the limit is set to 25. The minimum limit is 1 and the maximum limit is 1,000.
+            </wadl:doc></param>
             <param name="direction" style="query" type="xs:string" required="false">
                 <wadl:doc xmlns="http//docbook.org/ns/dockbook">
                         Valid values for this parameter are either backward or forward.
@@ -109,8 +118,13 @@
             <para role="shortdesc">This operation obtains the most recent events for this product's feed.</para>            
         </wadl:doc>
         <request>
-            <param name="marker" style="query" type="xs:anyURI" required="false"/>            
-            <param name="limit"  style="query" type="xs:int" required="false"/>
+            <param name="marker" style="query" type="xs:anyURI" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                Specifies the entry from which the feed is read. If no value is specified, forward is used by default
+            </wadl:doc></param>            
+            <param name="limit"  style="query" type="xs:int" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                Specifies the number of entries to return. By default
+                the limit is set to 25. The minimum limit is 1 and the maximum limit is 1,000.
+            </wadl:doc></param>
             <param name="direction" style="query" type="xs:string" required="false">
                 <wadl:doc xmlns="http//docbook.org/ns/dockbook">
                         Valid values for this parameter are either backward or forward.
@@ -134,7 +148,9 @@
         <request>
             <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
                 rax:message="getEntry: Accept header contains unsupported media types: application/*json"
-                name="ACCEPT"/>
+                name="ACCEPT"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                    Specifies the type of Accept header to be used in the request.
+                </wadl:doc></param>
         </request>
                
         <response status="200">
@@ -146,7 +162,7 @@
         </response>
     </method>
 
-    <method id="addPlainUnvalidatedEntry" name="POST" security="internal">
+    <method id="addPlainUnvalidatedEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Adding an event." xmlns="http://docbook.org/ns/docbook">
             <para role="shortdesc">This operation adds an event for this particular product.</para> 
            

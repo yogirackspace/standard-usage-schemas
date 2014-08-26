@@ -68,13 +68,6 @@
             <raxm:priority>10</raxm:priority>
         </raxm:metadata>
     </info>
-    <chapter xml:id="Feeds_Doc_Change_History">
-        <title>Document change history</title>
-        <para>This version of the getting started guide replaces and
-            obsoletes all previous versions. The most recent changes
-            are described in the table below:</para>
-        <?rax revhistory?>
-    </chapter>
     <chapter xml:id="Feeds_Overview">
         <title>Overview</title>
         <para>This Getting Started Guide provides an introduction of

@@ -338,10 +338,121 @@
                     only. RBAC enables Rackspace Cloud customers to specify which account users of
                     their Cloud account have access to which Cloud Feeds API service capabilities,
                     based on roles defined by Rackspace.</para>
-                <para>API operations for Cloud Feeds may or may not be available to all roles. To
-                    see which operations are permitted to invoke which calls, please review <link
-                        xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac"
-                        > the Knowledge Center article</link>.</para>
+                <para>The following table shows the RBAC role matrix for Cloud Feeds:</para>
+                <para>
+                    <table frame="void">
+                        <caption>RBAC Role Matrix</caption>
+                        <col width="36%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <col width="8%"/>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th colspan="2">internal/identity</th>
+                                <th colspan="2">internal - all other feeds</th>
+                                <th colspan="2">external - selected feeds</th>
+                                <th colspan="2">external - all other feeds</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td/>
+                                <td><command>GET</command></td>
+                                <td><command>POST</command></td>
+                                <td><command>GET</command></td>
+                                <td><command>POST</command></td>
+                                <td><command>GET</command></td>
+                                <td><command>POST</command></td>
+                                <td><command>GET</command></td>
+                                <td><command>POST</command></td>
+                            </tr>
+                            <tr>
+                                <td>identity:user-admin</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>admin</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>observer</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:observer</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>YES</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>cloudfeeds:service-admin</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                                <td>YES</td>
+                            </tr>
+                            <tr>
+                                <td>identity:admin</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>any other users with a valid token, irrespective of the
+                                    role</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </para>
             </section>
             <section xml:id="Rate_limits_per_role">
                 <title>Rate limits <?sbr?><?sbr?><?sbr?></title>
