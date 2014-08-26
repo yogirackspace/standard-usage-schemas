@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="backup/events"?> <!-- ignore <?atom..?>, used for testing -->
+<?expect code="400" message="span more than 1 Day"?>
+<atom:entry xmlns="http://docs.rackspace.com/core/event"
+            xmlns:cb-store="http://docs.rackspace.com/usage/cloudbackup/storage"
+            xmlns:atom="http://www.w3.org/2005/Atom">
+    <atom:content type="application/xml">
+        <event startTime="2014-07-14T22:19:52Z"
+               endTime="2014-07-16T24:00:00Z" 
+               region="DFW" dataCenter="DFW1" type="USAGE"
+               id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+               resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+               tenantId="1234" version="2">
+            <cb-store:product version="1" serviceCode="CloudBackup"
+                              serverID="9445"
+                              storage="99992827882" resourceType="AGENT"/>
+        </event>
+    </atom:content>
+</atom:entry>
