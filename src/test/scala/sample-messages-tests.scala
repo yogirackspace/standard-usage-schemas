@@ -74,11 +74,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
       test("Sample " + fl.getAbsolutePath + " should be valid against feed " + feed) {
         printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
-        if (fl.getAbsolutePath().indexOf("/identity/") != -1) {
-          atomValidatorIdentity.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-        } else {
           atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl)), response, chain)
-        }
       }
     }
   }
@@ -86,18 +82,10 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {
-          if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
-          } else {
-              atomValidator.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
-          }
+        atomValidator.validate(request("GET", feed, "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
       }
       test("Getting individual entry for feed " + feed + " should work") {
-          if ( feed.startsWith("identity/") ) {
-              atomValidatorIdentity.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
-          } else {
-              atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
-          }
+        atomValidator.validate(request("GET", feed + "/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*"))), response, chain)
       }
   }
 
@@ -105,11 +93,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
     test("Sample " + f._4.getAbsolutePath + " should fail in the expected way when posted on feed " + f._1) {
       printf("Checking %s against feed %s\n", f._4.getAbsolutePath, f._1)
-      if (f._4.getAbsolutePath().indexOf("/identity/") != -1) {
-        val r = assertResultFailed(atomValidatorIdentity.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
-      } else {
         val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4)), response, chain), f._2, f._3)
-      }
     }
   })
 
