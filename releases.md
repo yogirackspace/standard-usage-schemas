@@ -1,6 +1,21 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.64.0**  
+2014-09-02 | B-72471: remove unused atom_hopper.wadl (Shinta Smith)  
+2014-08-27 | B-77707 - Add new allowed "action" value to servers/slice events (Greg Sharek)  
+2014-08-26 | B-77693: accept endTime being 00:00:00 (Shinta Smith)  
+
+**usage-schema-1.63.0**  
+2014-08-25 | B-76935: add id to tenanted feed resources, so we get more predictable IDs (Shinta Smith)  
+2014-08-22 | B-75557: make usagesummaryrecovery/events unvalidated, similar to usagerecovery/events (Shinta Smith)  
+
+**usage-schema-1.61.0**  
+2014-08-07 | D-19077: correct validation on endTime not spanning beyond midnight (Shinta Smith)  
+
+**usage-schema-1.60.1**  
+2014-07-29 | D-18983: tighten assert so you only check for 1 Day span, if you have startTime and endTime (Shinta Smith)  
+
 **usage-schema-1.60.0**  
 2014-07-24 | B-75241: restrict endTime to not have 24:00:00 (Shinta Smith)  
 2014-07-21 | B-74443: non USAGE_SUMMARY events can not have duration attribute (Shinta Smith)  
