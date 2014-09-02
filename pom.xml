@@ -532,9 +532,6 @@
                         <configuration>true</configuration>
                         <sources>
                         <source>
-                            <location>atom_hopper.wadl</location>
-                        </source>
-                        <source>
                             <location>allfeeds.wadl</location>
                         </source>
                         <source>
