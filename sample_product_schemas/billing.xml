@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema" 
+               namespace="http://docs.rackspace.com/event/billing/consolidation" 
+               serviceCode="BillingService" type="UPDATE" version="1">
+    <description>
+        Specifies the events related to Billing Account Consolidations.
+    </description>
+    <attribute name="ran" type="string" use="required" maxLength="255">
+       Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="invoicedInExternalBillingSystem" type="boolean" use="required">
+       Specifies whether the account is invoiced in external billing system.
+    </attribute>
+    <attribute name="externalBillingSystemName" type="string" use="optional" maxLength="500">
+        Specifies the external billing system name.
+    </attribute>
+    <attribute name="externalAccountNumber" type="string" use="optional" maxLength="255">
+       Specifies the external billing system account number.
+    </attribute>
+</productSchema>

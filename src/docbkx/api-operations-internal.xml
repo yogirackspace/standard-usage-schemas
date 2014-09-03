@@ -56,6 +56,13 @@
       <resource href="../../allfeeds.wadl#bigdata_events_getEntry_BigData"/>
     </resources>
   </section>
+  <section xml:id="billing.product">
+    <title>Billing Service</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../allfeeds.wadl#billing_events"/>
+      <resource href="../../allfeeds.wadl#billing_events_getEntry_BillingService"/>
+    </resources>
+  </section>
   <section xml:id="cbs.product">
     <title>Cloud Block Storage</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">

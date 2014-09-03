@@ -32,6 +32,9 @@
             <resource id="bigdata_events"
                       path="bigdata/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData"/>
+            <resource id="billing_events"
+                      path="billing/events" 
+                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BillingService"/>
             <resource id="cbs_events"
                       path="cbs/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage"/>
