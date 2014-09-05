@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE book [
+    <!DOCTYPE book[
 <!-- Some useful entities borrowed from HTML -->
         <!ENTITY ndash "&#x2013;">
         <!ENTITY mdash "&#x2014;">
@@ -17,10 +17,7 @@
         <!ENTITY ENDPOINT-US-20 "https://identity.api.rackspacecloud.com/v2.0/">
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 ]>
-<book xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
-    version="5.0-extension RaxBook-2.0">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide" version="5.0-extension RaxBook-2.0">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Rackspace Cloud Feeds Developer Guide</title>
     <?rax status.bar.text.font.size="40px"
@@ -68,8 +65,7 @@
                 </revdescription>
             </revision>
         </revhistory>
-        <raxm:metadata
-            xmlns:raxm="http://docs.rackspace.com/api/metadata">
+        <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
             <raxm:displayname>API Developer Guide</raxm:displayname>
             <raxm:product version="v1.0">cloud-feeds</raxm:product>
             <raxm:priority>20</raxm:priority>
@@ -83,39 +79,30 @@
             Cloud Feeds uses the following technologies:</para>
         <itemizedlist spacing="compact">
             <listitem>
-                <para>Atom Hopper (for more information, see <link
-                        xlink:href="http://atomhopper.org">Atom Hopper </link>)</para>
+                <para>Atom Hopper (for more information, see <link xlink:href="http://atomhopper.org">Atom Hopper </link>)</para>
             </listitem>
             <listitem>
-                <para>Apache Abdera (for more information, see <link
-                        xlink:href="http://abdera.apache.org">Apache Abdera</link>)</para>
+                <para>Apache Abdera (for more information, see <link xlink:href="http://abdera.apache.org">Apache Abdera</link>)</para>
             </listitem>
             <listitem>
-                <para>The Atom Publishing Protocol, RFC 5023 (for more information, see <link
-                        xlink:href="http://www.ietf.org/rfc/rfc5023.txt">RFC 5023</link>)</para>
+                <para>The Atom Publishing Protocol, RFC 5023 (for more information, see <link xlink:href="http://www.ietf.org/rfc/rfc5023.txt">RFC 5023</link>)</para>
             </listitem>
             <listitem>
-                <para>Feed Paging and Archiving, RFC 5005 (for more information, see<link
-                        xlink:href="http://www.ietf.org/rfc/rfc5005.txt">RC 5005</link> )</para>
+                <para>Feed Paging and Archiving, RFC 5005 (for more information, see<link xlink:href="http://www.ietf.org/rfc/rfc5005.txt">RC 5005</link> )</para>
             </listitem>
             <listitem>
-                <para>RESTful web services (for more information, see <link
-                        xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
-                        >RESTful web services</link>)</para>
+                <para>RESTful web services (for more information, see <link xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful web services</link>)</para>
             </listitem>
             <listitem>
-                <para>HTTP/1.1 protocol (for more information, see <link
-                        xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1
+                <para>HTTP/1.1 protocol (for more information, see <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1
                         protocol</link>)</para>
             </listitem>
             <listitem>
-                <para>JSON and XML data serialization formats (for more information, see <link
-                        xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html">JSON
+                <para>JSON and XML data serialization formats (for more information, see <link xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html">JSON
                         and XML</link>)</para>
             </listitem>
             <listitem>
-                <para>Atom Syndication Format, RFC 4287 (for more information, see <link
-                        xlink:href="http://www.rfc-base.org/rfc-4287.html">JRFC 4287</link></para>
+                <para>Atom Syndication Format, RFC 4287 (for more information, see <link xlink:href="http://www.rfc-base.org/rfc-4287.html">JRFC 4287</link></para>
             </listitem>
         </itemizedlist>
         <section xml:id="Document_Change_History">
@@ -127,22 +114,15 @@
         <section xml:id="Additional_Resources">
             <title>Additional resources</title>
             <para>For information about getting started with the API, see the <citetitle>Cloud Feeds
-                    Getting Started Guide</citetitle> at <link
-                    xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>. The
+                    Getting Started Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>. The
                 getting started guide contains a subset of the information that is provided in the
                 Developer guide. All you need to start using Cloud Feeds is the getting started
                 guide, the developer guide, your Rackspace Cloud account, and at least one cloud
                 server.</para>
-            <para>Visit the <link
-                    xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                    >Product Feedback Forum</link> to tell us what you think about Cloud
+            <para>Visit the <link xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases">Product Feedback Forum</link> to tell us what you think about Cloud
                 Feeds.</para>
-            <para>You can also follow Rackspace updates and announcements via Twitter at <link
-                    xlink:href="http://www.twitter.com/rackspace"
-                    >http://www.twitter.com/rackspace</link>. </para>
-            <para>This API uses standard HTTP/1.1 response codes as documented at <link
-                    xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
-                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
+            <para>You can also follow Rackspace updates and announcements via Twitter at <link xlink:href="http://www.twitter.com/rackspace">http://www.twitter.com/rackspace</link>. </para>
+            <para>This API uses standard HTTP/1.1 response codes as documented at <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
         </section>
         <section xml:id="Early_Access" security="external"><title>Early Access Program</title><para>Cloud Feeds is now available
                 to customers through an Early Access program. At the launch of the Early Access
@@ -154,9 +134,7 @@
                 implemented features align with business needs and can be used with maximum
                 efficiency.   Existing Rackspace Cloud customers are eligible to participate in the
                 Cloud Feeds Early Access program. The Cloud Feeds Early Access program is provided
-                to customers subject to the Test Terms located at <link
-                    xlink:href="http://www.rackspace.com/information/legal/cloud/tos "
-                    >http://www.rackspace.com/information/legal/cloud/tos</link>.</para></section>
+                to customers subject to the Test Terms located at <link xlink:href="http://www.rackspace.com/information/legal/cloud/tos ">http://www.rackspace.com/information/legal/cloud/tos</link>.</para></section>
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and service level</title>
             <para>Pricing and service level agreement (SLA) information for Cloud Feeds is as
@@ -203,9 +181,7 @@
             <para>Every REST request against the Cloud Feeds service requires the inclusion of a
                 specific authorization token, supplied by the <code>X-Auth-Token</code> HTTP header.
                 Users obtain this token by first using the Rackspace Cloud Identity Service (for
-                more information, see <link
-                    xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html"
-                    >Cloud Identity Service</link>) and supplying a valid username and API access
+                more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html">Cloud Identity Service</link>) and supplying a valid username and API access
                 key. </para>
             <section xml:id="AuthRoles-d1e699">
                 <title>Authorization roles required for Cloud Feeds access</title>
@@ -265,11 +241,6 @@
                                         (GET/POST).</entry>
                                 </row>
                                 <row>
-                                    <entry>identity:admin</entry>
-                                    <entry>The same capabilities as cloudfeeds:service-admin.
-                                    </entry>
-                                </row>
-                                <row>
                                     <entry>identity:user-admin </entry>
                                     <entry>The same capabilities as cloudfeeds:observer.</entry>
                                 </row>
@@ -286,52 +257,7 @@
                     </table>
                 </para>
             </section>
-            <section xml:id="RBAC-Resolving-Conflicts-d1e001" version="5.0"
-                xmlns:wadl="http://wadl.dev.java.net/2009/02" security="internal">
-                <title>Resolving conflicts between multiproduct and product-specific roles</title>
-                <para>The account owner can set roles for both multiproduct and Cloud Feeds scope,
-                    and it is important to understand how any potential conflicts among these roles
-                    are resolved. When two roles appear to conflict, the role that provides the more
-                    extensive permissions takes precedence. Therefore, admin roles take precedence
-                    over observer and creator roles, because admin roles provide more permissions. </para>
-                <para>The following table shows two examples of how potential conflicts between user
-                    roles in the Control Panel are resolved: </para>
-                <para>
-                    <informaltable rules="all">
-                        <thead>
-                            <tr align="center">
-                                <td>Permission configuration</td>
-                                <td>View of permission in the Control Panel </td>
-                                <td>Can the User Perform Product Admin Functions in the Control
-                                    Panel?</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>User is assigned the following roles: multiproduct <emphasis
-                                        role="bold">observer</emphasis> and Cloud Feeds <emphasis
-                                        role="bold">admin</emphasis></td>
-                                <td>Appears that the user has only the multiproduct <emphasis
-                                        role="bold">observer</emphasis> role</td>
-                                <td>Yes, for Cloud Feeds only. The user has the <emphasis
-                                        role="bold">observer</emphasis> role for the rest of the
-                                    products.</td>
-                            </tr>
-                            <tr>
-                                <td>User is assigned the following roles: multiproduct <emphasis
-                                        role="bold">admin</emphasis> and Cloud Feeds <emphasis
-                                        role="bold">observer</emphasis></td>
-                                <td>Appears that the user has only the multiproduct <emphasis
-                                        role="bold">admin</emphasis> role</td>
-                                <td>Yes, for all of the products. The Cloud Feeds <emphasis
-                                        role="bold">observer</emphasis> role is ignored.</td>
-                            </tr>
-                        </tbody>
-                    </informaltable>
-                </para>
-            </section>
-            <section xml:id="RBAC-Permissions-Cross-Ref-d1e001" version="5.0"
-                xmlns:wadl="http://wadl.dev.java.net/2009/02">
+            <section xml:id="RBAC-Permissions-Cross-Ref-d1e001" version="5.0" xmlns:wadl="http://wadl.dev.java.net/2009/02">
                 <title>RBAC permissions cross-reference to Cloud Feeds API operations</title>
                 <para>Role Based Access Control (RBAC) restricts access to the capabilities of
                     Rackspace Cloud services, including the Cloud Feeds API, to authorized users
@@ -340,119 +266,58 @@
                     based on roles defined by Rackspace.</para>
                 <para>The following table shows the RBAC role matrix for Cloud Feeds:</para>
                 <para>
-                    <table frame="void">
+                    <table>
                         <caption>RBAC Role Matrix</caption>
-                        <col width="36%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
-                        <col width="8%"/>
+                        <col width="40%"/>
+                        <col width="30%"/>
+                        <col width="30%"/>
                         <thead>
                             <tr>
-                                <th>Role</th>
-                                <th colspan="2">internal/identity</th>
-                                <th colspan="2">internal - all other feeds</th>
-                                <th colspan="2">external - selected feeds</th>
-                                <th colspan="2">external - all other feeds</th>
+                                <th/>
+                                <th colspan="2" align="center">Method</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td/>
+                                <td><emphasis role="bold">Role</emphasis></td>
                                 <td><command>GET</command></td>
                                 <td><command>POST</command></td>
-                                <td><command>GET</command></td>
-                                <td><command>POST</command></td>
-                                <td><command>GET</command></td>
-                                <td><command>POST</command></td>
-                                <td><command>GET</command></td>
-                                <td><command>POST</command></td>
-                            </tr>
-                            <tr>
-                                <td>identity:user-admin</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
                             </tr>
                             <tr>
                                 <td>admin</td>
                                 <td>YES</td>
                                 <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td>identity:user-admin</td>
                                 <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
                                 <td>observer</td>
                                 <td>YES</td>
                                 <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds:observer</td>
                                 <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>YES</td>
-                                <td>NO</td>
-                                <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
                                 <td>cloudfeeds:service-admin</td>
                                 <td>YES</td>
                                 <td>YES</td>
-                                <td>YES</td>
-                                <td>YES</td>
-                                <td>YES</td>
-                                <td>YES</td>
-                                <td>YES</td>
-                                <td>YES</td>
                             </tr>
                             <tr>
-                                <td>identity:admin</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                            </tr>
-                            <tr>
-                                <td>any other users with a valid token, irrespective of the
-                                    role</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
-                                <td>NO</td>
+                                <td>any other roles</td>
                                 <td>NO</td>
                                 <td>NO</td>
                             </tr>
                         </tbody>
                     </table>
                 </para>
+                <para>For more information about RBAC, read the <link xlink:href="http://www.rackspace.com/knowledge_center/article/detailed-permissions-matrix-for-cloud-feeds">Detailed Permissions Matrix for Cloud Feeds</link> and <link xlink:href="http://www.rackspace.com/knowledge_center/article/permissions-matrix-for-role-based-access-control-rbac">Permission Matrix for Role-Based Access Control</link> articles on the
+                    Rackspace Knowledge Center.</para>
             </section>
             <section xml:id="Rate_limits_per_role">
                 <title>Rate limits <?sbr?><?sbr?><?sbr?></title>
@@ -536,15 +401,11 @@
                     Rackspace retail site which was used to create your account: </para>
                 <itemizedlist spacing="compact" security="external">
                     <listitem>
-                        <para> If your account was created via <link
-                                xlink:href="http://www.rackspacecloud.com"
-                                >http://www.rackspacecloud.com</link>, it is a US-based account.
+                        <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com">http://www.rackspacecloud.com</link>, it is a US-based account.
                         </para>
                     </listitem>
                     <listitem>
-                        <para> If your account was created via <link
-                                xlink:href="http://www.rackspace.co.uk"
-                                >http://www.rackspace.co.uk</link>, it is a UK-based account.
+                        <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk">http://www.rackspace.co.uk</link>, it is a UK-based account.
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -574,9 +435,7 @@
                         instead.</para>
                 </note>
             </section>
-            <section xml:id="Retrieving_Auth_Token" xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:m="http://www.w3.org/1998/Math/MathML"
-                xmlns:html="http://www.w3.org/1999/xhtml">
+            <section xml:id="Retrieving_Auth_Token" xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
                 <title>Retrieving the authentication token</title>
                 <para>To use the Cloud Feeds API, you must generate an authentication token, whether
                     you use cURL or a REST client to interact with the Cloud Feeds API. You provide
@@ -587,11 +446,9 @@
                 <para>Remember to replace the placeholder names in the following authentication
                     request examples with your information:<itemizedlist spacing="compact">
                         <listitem>
-                            <para security="external"><emphasis role="italic"
-                                    >yourUserName</emphasis> &mdash; Your common Rackspace cloud
+                            <para security="external"><emphasis role="italic">yourUserName</emphasis> &mdash; Your common Rackspace cloud
                                 username, as supplied during registration.</para>
-                            <para security="internal"><emphasis role="italic"
-                                    >yourUserName</emphasis> &mdash; Your common Cloud username as
+                            <para security="internal"><emphasis role="italic">yourUserName</emphasis> &mdash; Your common Cloud username as
                                 supplied to you.</para>
                         </listitem>
                         <listitem>
@@ -599,9 +456,7 @@
                                 access key.</para>
                             <para security="external">You can obtain the key from the Rackspace
                                     <link xlink:href="http://mycloud.rackspace.com/">Cloud Control
-                                    Panel</link>) by accessing selecting <emphasis role="bold"
-                                    >Account Settings</emphasis> from the <emphasis role="italic"
-                                    >yourAccount</emphasis> menu in the top-right corner of the
+                                    Panel</link>) by accessing selecting <emphasis role="bold">Account Settings</emphasis> from the <emphasis role="italic">yourAccount</emphasis> menu in the top-right corner of the
                                 window. </para>
                         </listitem>
                     </itemizedlist></para>
@@ -686,8 +541,7 @@
                 <para>In a successful response to an authentication request, you can also view the
                     role for which you are enabled. The following example shows a part of the
                     successful authentication response for a tenant who has been enabled for the
-                    service-admin role. For more information about roles, see <link
-                        linkend="AuthRoles-d1e699">Authorization roles required for Cloud Feeds
+                    service-admin role. For more information about roles, see <link linkend="AuthRoles-d1e699">Authorization roles required for Cloud Feeds
                         access</link>.</para>
                 <para>
                     <programlisting>
@@ -744,8 +598,7 @@
                         have found the service type attribute to be useful in parsing the service
                         catalog. For additional information on Auth 2.0 (also known as the Cloud
                         Identity Service), refer to the <citetitle>Cloud Identity Client Developer
-                            Guide</citetitle> at <link xlink:href="http://docs.rackspace.com"
-                            >http://docs.rackspace.com/</link>.</para>
+                            Guide</citetitle> at <link xlink:href="http://docs.rackspace.com">http://docs.rackspace.com/</link>.</para>
                 </tip>
             </section>
         </section>
@@ -834,14 +687,12 @@
                     <tbody>
                         <tr align="left">
                             <td colspan="2">US</td>
-                            <td colspan="5"
-                                    ><code>https://atom.staging.ord1.us.ci.rackspace.net</code>
+                            <td colspan="5"><code>https://atom.staging.ord1.us.ci.rackspace.net</code>
                             </td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">UK</td>
-                            <td colspan="5"
-                                    ><code>https://atom.staging.ord1.uk.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.staging.ord1.uk.ci.rackspace.net</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -860,33 +711,27 @@
                     <tbody>
                         <tr align="left">
                             <td colspan="2">Chicago (ORD)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.ord1.us.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.ord1.us.ci.rackspace.net</code></td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">Dallas/Ft. Worth (DFW)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.dfw1.us.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.dfw1.us.ci.rackspace.net</code></td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">Northern Virginia IAD)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.iad3.us.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.iad3.us.ci.rackspace.net</code></td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">London (LON)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.lon3.uk.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.lon3.uk.ci.rackspace.net</code></td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">Sydney (SYD)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.syd2.us.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.syd2.us.ci.rackspace.net</code></td>
                         </tr>
                         <tr align="left">
                             <td colspan="2">Hong Kong (HKG)</td>
-                            <td colspan="5"
-                                ><code>https://atom.prod.hkg1.us.ci.rackspace.net</code></td>
+                            <td colspan="5"><code>https://atom.prod.hkg1.us.ci.rackspace.net</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -896,9 +741,7 @@
             <title>Feeds catalog</title>
             <para>Cloud Feeds supports a catalog of different feeds that are published.  Cloud Feeds
                 supports publishing this list of feeds in Atom Service Document format as described
-                in the Atom Publishing Protocol, RFC 5023. For more information, see <link
-                    xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
-                    >http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
+                in the Atom Publishing Protocol, RFC 5023. For more information, see <link xlink:href="http://tools.ietf.org/html/rfc5023#section-8">http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
             <para> You can obtain a list of all the feeds that are available by submitting a
                     <command>GET</command> request against the Cloud Feeds endpoint as shown in the
                 following example:</para>
@@ -936,10 +779,8 @@
                     </listitem>
                 </orderedlist>
             </para>
-            <para>To read the official documentation for the Atom Syndication Format, see <link
-                    xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>.
-                For more information about AtomPub, visit <link xlink:href="http://atompub.org/"
-                    >http://atompub.org/</link>.</para>
+            <para>To read the official documentation for the Atom Syndication Format, see <link xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>.
+                For more information about AtomPub, visit <link xlink:href="http://atompub.org/">http://atompub.org/</link>.</para>
             <section xml:id="Container_Elements">
                 <title>Container elements</title>
                 <para>An Atom feed consists of a series of container elements, which contain
@@ -971,11 +812,11 @@
                         followed by zero or more Atom Entry child elements. </para>
                     <para>Following is an example of an entire Atom <code>feed</code>
                         element:</para>
-                    <example security = "internal">
+                    <example security="internal">
                         <title>Atom feed element</title>                      
                         <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
                     </example>
-                    <example security = "external">
+                    <example security="external">
                         <title>Atom feed element</title>                      
                         <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.xml" parse="text"/></programlisting>
                     </example>
@@ -988,11 +829,11 @@
                         child of the Atom Feed element, or it can appear as the top-level element of
                         a stand-alone Atom entry Document. </para>
                     <para>Following is an example of an Atom <code>entry</code> element:</para>
-                    <example security ="internal">
+                    <example security="internal">
                         <title>Atom entry element</title>
                         <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
                     </example>
-                    <example security = "external">
+                    <example security="external">
                         <title>Atom entry element</title>
                         <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.xml" parse="text"/></programlisting>
                     </example>
@@ -1017,7 +858,7 @@
                 <para>Cloud Feeds places product events inside the Atom <code>content</code>
                     element. The <tag>event</tag> element contains the product events as shown in
                     the following example:</para>
-                <example security = "internal">
+                <example security="internal">
                     <title>Cloud feeds product events</title>
                     <programlisting>&lt;atom:entry>
     &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
@@ -1042,7 +883,7 @@
   &lt;/atom:entry>
 </programlisting>
                 </example>
-                <example security = "external">
+                <example security="external">
                     <title>Cloud feeds product events</title>
                     <programlisting>&lt;atom:entry>
     &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
@@ -1146,8 +987,7 @@
                 <para>To reduce the load on the service, list operations return a maximum of 25
                     entries at a time. However, you can use the <parameter>limit</parameter>
                     parameter in the <command>GET</command> request to allow up to 1,000 entries per
-                    page. Specifying the number of entries to return is referred to as <emphasis
-                        role="italic">pagination</emphasis>. If a request supplies no limit or one
+                    page. Specifying the number of entries to return is referred to as <emphasis role="italic">pagination</emphasis>. If a request supplies no limit or one
                     that exceeds the configured default limit, the default value is used
                     instead.</para>
                 <para>Pagination provides the ability to limit the size of the returned data and
@@ -1242,7 +1082,7 @@
                         </tbody>
                     </table>
                 </para>
-                <para security="internal"></para>
+                <para security="internal"/>
                 <table security="internal">
                     <caption>Response codes for publishers</caption>
                     <col width="16%"/>
@@ -1563,11 +1403,8 @@
                     </imageobject>
                 </mediaobject>
             </informalfigure>
-            <important xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:m="http://www.w3.org/1998/Math/MathML"
-                xmlns:html="http://www.w3.org/1999/xhtml">
-                <para>When viewed in a web browser or web tool such as Chrome Poster, each <emphasis
-                        role="bold">&amp;</emphasis> character in a link returns as an HTML
+            <important xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+                <para>When viewed in a web browser or web tool such as Chrome Poster, each <emphasis role="bold">&amp;</emphasis> character in a link returns as an HTML
                     ampersand character code. To follow the link in a web browser or web tool such
                     as Poster, you must change each HTML ampersand character (&amp;amp;) to
                         <emphasis role="bold">&amp;</emphasis>. For example, when viewed in a web
@@ -1575,13 +1412,13 @@
             </important>
             <programlisting security="external">&lt;link href="https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
-                <programlisting security = "internal">&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
+                <programlisting security="internal">&lt;link href="https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;amp;limit=25&amp;amp;search=&amp;amp;direction=forward" rel="previous" />
 </programlisting>
             <para>To follow the link from a web browser, you must change each instance of &amp;amp;
                 to &amp;, as follows:</para>
             <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
-                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
+                <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f&amp;limit=25&amp;search=&amp;direction=forward
 </programlisting>
             <para>This issue should not be a concern when you are using an XML Parser. </para></section>
             <section xml:id="Cloud_Query_Pardle0001">
@@ -1656,8 +1493,7 @@
                                 time stamp.</td>
                             <td>Must be in ISO 8601 Date and Time format, and must contain a time
                                 zone, for example: 2014-03-10T06:00:00.000Z. For more information,
-                                see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
-                                    >http://en.wikipedia.org/wiki/ISO_8601</link>.</td>
+                                see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601">http://en.wikipedia.org/wiki/ISO_8601</link>.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1672,8 +1508,7 @@
                 </note>
             </para>
         </section>
-        <section
-            xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
+        <section xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
             <title>Filtering entries by the using the marker parameter </title>
             <para>You can use the <parameter>marker</parameter> parameter to denote an entry that
                 you have previously used. If you specify a marker in the <command>GET</command>
@@ -1684,14 +1519,14 @@
                 and the <parameter>direction</parameter> parameter set to
                     <parameter>forward</parameter>:</para>
             <para>
-                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
                 <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
             </para>
             <para>The following example shows a <parameter>marker</parameter> parameter specified
                 and the <parameter>direction</parameter> parameter set to
                     <parameter>backward</parameter>:</para>
             <para>
-                <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+                <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
                 <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
@@ -1701,13 +1536,13 @@
                 maximum limit is 1,000.</para>
             <para>The following example shows the <parameter>marker</parameter> parameter specified
                 and the <parameter>limit</parameter> parameter set to 50, paging forward.</para>
-            <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+            <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <programlisting security="external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
             <para>The following example shows a marker set and the
                 limit set to 50, paging backward.</para>
-            <programlisting security = "internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+            <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
             <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
@@ -1793,8 +1628,7 @@
         <section xml:id="Filtering_by_timestamp"><title>Filtering by time stamp</title>
             <para>You can use the <parameter>startingAt</parameter> query parameter to filter for
                 feed entries that start at a certain time stamp. The parameter takes an ISO 8601
-                Date and Time format (see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
-                    >http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone, such
+                Date and Time format (see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601">http://en.wikipedia.org/wiki/ISO_8601</link>) and must contain a timezone, such
                 as such as 2014-03-10T06:00:00.000Z.</para>
             <para>The following URL shows how to fetch entries with a time stamp that is newer than
                 2014-03-10 00:00:00.000 UTC:</para>
@@ -1810,13 +1644,11 @@
                     <para>The <parameter>startingAt</parameter> parameter can not be used together
                         with the <parameter>marker</parameter> parameter.</para>
                     <para>If the <parameter>startingAt</parameter> parameter is used without a
-                            <parameter>direction</parameter> parameter, then the <emphasis
-                            role="italic">forward </emphasis> direction is assumed. If you want to
+                            <parameter>direction</parameter> parameter, then the <emphasis role="italic">forward </emphasis> direction is assumed. If you want to
                         fetch feeds from a time period before the time specified in the time stamp,
                         you need to use the <parameter>direction</parameter> parameter and then the
                             <emphasis role="italic">backward </emphasis> description, like the
-                        following: <parameter>direction</parameter> set to <emphasis role="italic"
-                            >backward</emphasis>.</para>
+                        following: <parameter>direction</parameter> set to <emphasis role="italic">backward</emphasis>.</para>
                 </note>
             </para></section>
         <section xml:id="Weak_ETag_Support_d1e1321">
@@ -1921,9 +1753,7 @@
                             usually result in success.  In the case where this doesn't work,
                             retrying with successive longer and longer waits will prevent Cloud
                             Feeds (and your own system) from needless execution.  This is
-                                called <link
-                                xlink:href="http://en.wikipedia.org/wiki/Exponential_backoff"
-                                >Exponential backoff</link>.  </para>
+                                called <link xlink:href="http://en.wikipedia.org/wiki/Exponential_backoff">Exponential backoff</link>.  </para>
                     </note>
                 </para></section>
         <section xml:id="Bestpracticesforconsumers"><title>Best practices for consumers</title><para>The following list describes a number of best practices consumers can adhere to when reading a

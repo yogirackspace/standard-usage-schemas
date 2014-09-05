@@ -726,6 +726,20 @@
                       <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
                     </configuration>
                   </execution>
+                    <execution>
+                        <id>publishers-guide-inernal</id>
+                        <goals>
+                            <goal>generate-webhelp</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <includes>feeds-publishers-guide.xml</includes>
+                            <security>internal</security>
+                            <enableDisqus>intranet</enableDisqus>
+                            <enableGoogleAnalytics>0</enableGoogleAnalytics>
+                            <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-publishers-guide/content</canonicalUrlBase>
+                        </configuration>            
+                    </execution>
                   <execution>
                     <id>releasenotes</id>
                     <goals>
