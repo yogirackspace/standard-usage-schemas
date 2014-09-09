@@ -1,6 +1,8 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.65.0**  
+
 **usage-schema-1.64.0**  
 2014-09-02 | B-72471: remove unused atom_hopper.wadl (Shinta Smith)  
 2014-08-27 | B-77707 - Add new allowed "action" value to servers/slice events (Greg Sharek)  
