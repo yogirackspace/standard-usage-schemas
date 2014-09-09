@@ -85,7 +85,7 @@
                         <xsl:choose>
                             <xsl:when test="$sample_type = 'USAGE'">
                                 <xsl:attribute name="startTime">2013-03-15T11:51:11Z</xsl:attribute>
-                                <xsl:attribute name="endTime">2013-03-15T23:59:59Z</xsl:attribute>
+                                <xsl:attribute name="endTime">2013-03-16T00:00:00Z</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:attribute name="eventTime">2013-03-15T11:51:11Z</xsl:attribute>
