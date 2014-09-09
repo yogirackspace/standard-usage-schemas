@@ -73,7 +73,7 @@
                     <event xmlns="http://docs.rackspace.com/core/event">
                         <xsl:namespace name="sample" select="$product_namespace"/>
                         <xsl:attribute name="id">e53d007a-fc23-11e1-975c-cfa6b29bb814</xsl:attribute>
-                        <xsl:attribute name="version">1</xsl:attribute>
+                        <xsl:attribute name="version">2</xsl:attribute>
 
                         <xsl:if test="@resourceTypes">
                             <xsl:attribute name="resourceId">4a2b42f4-6c63-11e1-815b-7fcbcf67f549</xsl:attribute>
