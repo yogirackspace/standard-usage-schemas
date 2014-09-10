@@ -144,7 +144,7 @@
                       type="wadl/feed.wadl#AtomFeed
                       wadl/product.wadl#AtomHopper
                       wadl/product.wadl#BigData wadl/product.wadl#BigDataSummary
-		      wadl/product.wadl#BillingService
+                      wadl/product.wadl#BillingService
                       wadl/product.wadl#CloudBackup wadl/product.wadl#CloudBackupSummary
                       wadl/product.wadl#CloudBlockStorage wadl/product.wadl#CloudBlockStorageSummary
                       wadl/product.wadl#CloudDatabase wadl/product.wadl#CloudDatabaseSummary
