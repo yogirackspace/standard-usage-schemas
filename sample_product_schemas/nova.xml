@@ -41,12 +41,12 @@
     </attribute>    
     <attribute name="bandwidthIn" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
-               max="6480000000000">
+               max="6635520000000">
         Specifies the amount of inbound bandwidth, in bytes.
     </attribute>
     <attribute name="bandwidthOut" type="unsignedLong" use="required"
                unitOfMeasure="B" aggregateFunction="SUM" min="0"
-               max="6480000000000">
+               max="6635520000000">
         Specifies the amount of outbound bandwidth, in bytes.
     </attribute>
     <xpathAssertion test="if ( @applicationLicense = 'MSSQL_WEB' or @applicationLicense = 'MSSQL' ) then
