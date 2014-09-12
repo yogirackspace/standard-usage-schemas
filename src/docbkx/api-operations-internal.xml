@@ -249,10 +249,125 @@
       <resource href="../../allfeeds.wadl#usagerecovery_events"/>
     </resources>
   </section>
-  <section xml:id="usagesummaryrecovery.product">
+
+    <section xml:id="usagesummarybackup.product">
+        <title>Usage Summary Cloud Backup</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#backup_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#backup_usagesummary_events_getEntry_CloudBackupSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarybigdata.product">
+        <title>Usage Summary Cloud Big Data</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#bigdata_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#bigdata_usagesummary_events_getEntry_BigDataSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarycbs.product">
+        <title>Usage Summary Cloud Block Storage</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#cbs_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#cbs_usagesummary_events_getEntry_CloudBlockStorageSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarydbaas.product">
+        <title>Usage Summary Cloud Databases</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#dbaas_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#dbaas_usagesummary_events_getEntry_CloudDatabaseSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryfiles.product">
+        <title>Usage Summary Cloud Files</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#files_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#files_usagesummary_events_getEntry_CloudFilesSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarylbaas.product">
+        <title>Usage Summary Cloud Load Balancers</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#lbaas_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#lbaas_usagesummary_events_getEntry_CloudLoadBalancersSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarymonitoring.product">
+        <title>Usage Summary Cloud Monitoring</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#monitoring_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#monitoring_usagesummary_events_getEntry_CloudMonitoringSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryqueues.product">
+        <title>Usage Summary Cloud Queues</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#queues_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#queues_usagesummary_events_getEntry_CloudQueuesSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryservers.product">
+        <title>Usage Summary Cloud Servers Legacy</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#servers_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#servers_usagesummary_events_getEntry_CloudServersSummary"/>
+            <resource href="../../allfeeds.wadl#servers_usagesummary_events_getEntry_RHELSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarynova.product">
+        <title>Usage Summary Cloud Servers Open Stack</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#nova_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#nova_usagesummary_events_getEntry_CloudServersOpenStackSummary"/>
+            <resource href="../../allfeeds.wadl#nova_usagesummary_events_getEntry_RHELSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarysites.product">
+        <title>Usage Summary Cloud Sites</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#sites_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#sites_usagesummary_events_getEntry_CloudSitesSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummarydedicatedvcloud.product">
+        <title>Usage Summary Dedicated vCloud</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#dedicatedvcloud_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#dedicatedvcloud_usagesummary_events_getEntry_DedicatedVCloudSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryglance.product">
+        <title>Usage Summary Glance</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#glance_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#glance_usagesummary_events_getEntry_GlanceSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryrecovery.product">
     <title>Usage Summary Recovery</title>
-    <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../allfeeds.wadl#usagesummaryrecovery_events"/>
-    </resources>
+      <resources xmlns="http://wadl.dev.java.net/2009/02">
+          <resource href="../../allfeeds.wadl#usagesummaryrecovery_events"/>
+      </resources>
   </section>
+
+    <section xml:id="usagesummaryssl.product">
+        <title>Usage Summary SSL</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#ssl_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#ssl_usagesummary_events_getEntry_SslSummary"/>
+        </resources>
+    </section>
 </chapter>

@@ -141,7 +141,7 @@
                           type="wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudServersSummaryTenant wadl/product.wadl#RHELSummaryTenant"/>
                 <resource id="ssl_usagesummary_events_obs"
                           path="ssl/events"
-                          type="wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#SslTenant"/>
+                          type="wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#SslSummaryTenant"/>
             </resource>
         </resource>
     </resources>

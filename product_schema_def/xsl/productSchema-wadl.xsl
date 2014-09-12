@@ -16,8 +16,11 @@
     xmlns:maas="http://docs.rackspace.com/usage/maas"
     xmlns:sitesSubscription="http://docs.rackspace.com/usage/sites/subscription"
     xmlns:xslout="http://www.rackspace.com/repose/wadl/checker/Transform"
+    xmlns:sum="http://docs.rackspace.com/core/usage/schema/summary"
     exclude-result-prefixes="sch c"
     version="2.0">
+
+    <xsl:import href="productSchema-summary-util.xsl"/>
 
     <xsl:namespace-alias stylesheet-prefix="xslout" result-prefix="xsl"/>
     <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
@@ -68,6 +71,12 @@
         <xsl:param name="sampleMessages" as="node()"/>
         <xsl:param name="filteredSampleMessages" as="node()"/>
         <xsl:param name="productSchemas" as="node()"/>
+        <xsl:variable name="eventName">
+            <xsl:choose>
+                <xsl:when test="$summaryOnly">Usage Summary <xsl:value-of select="sch:lookupServiceCode($serviceCode)"/> Event</xsl:when>
+                <xsl:otherwise><xsl:value-of select="sch:lookupServiceCode($serviceCode)"/> Event</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:variable name="id" as="xs:string">
             <xsl:choose>
                 <xsl:when test="$summaryOnly">
@@ -100,17 +109,15 @@
                         <wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc>
                     </param>
                     <method id="getEntry{$id}Tenant" name="GET">
-                    <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                    <wadl:doc xml:lang="EN" title="Get {$eventName}" xmlns="http://docbook.org/ns/docbook">
                         <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
-                        <!-- TODO: Adjust samples to work with usage summaries -->
-                        <xsl:if test="not($summaryOnly)">
                             <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                 <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                 <xsl:with-param name="filteredSampleMessages" select="$filteredSampleMessages"/>
                                 <xsl:with-param name="context">getEntry</xsl:with-param>
                                 <xsl:with-param name="security">external</xsl:with-param>
+                                <xsl:with-param name="summary" select="$summaryOnly"/>
                             </xsl:apply-templates>
-                        </xsl:if>
                     </wadl:doc>
                         <xsl:if test="$id != 'CloudMonitoring' and $id != 'CloudServersOpenStack' and $id != 'CloudServers'">
                             <request>
@@ -136,19 +143,16 @@
                     <xsl:text>&#x0a;         </xsl:text>
                     <xsl:comment><xsl:text> GENERATED FILE! Do Not Hand Edit! </xsl:text></xsl:comment>
                     <xsl:text>&#x0a;         </xsl:text>
-                    <wadl:doc title="Add {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                    <wadl:doc title="Add {$eventName}" xmlns="http://docbook.org/ns/docbook">
                         <para role="shortdesc">Add <xsl:value-of select="sch:lookupServiceCode($serviceCode)"/>
                         <xsl:if test="$summaryOnly"> Summary </xsl:if> event.</para>
-                        <!-- TODO: write out product schema tables here -->
-                        <!-- TODO: adjust message samples to handle summaries -->
-                        <xsl:if test="not($summaryOnly)">
                             <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                 <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                 <xsl:with-param name="filteredSampleMessages" select="$filteredSampleMessages"/>
                                 <xsl:with-param name="context">addEntry</xsl:with-param>
                                 <xsl:with-param name="security">internal</xsl:with-param>
+                                <xsl:with-param name="summary" select="$summaryOnly"/>
                             </xsl:apply-templates>
-                        </xsl:if>
                     </wadl:doc>
                     <request>
                         <representation mediaType="application/atom+xml" element="atom:entry">
@@ -271,17 +275,15 @@
                         <wadl:doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</wadl:doc>
                     </param>
                     <method id="getEntry{$id}" name="GET">
-                        <wadl:doc xml:lang="EN" title="Get {sch:lookupServiceCode($serviceCode)} Event" xmlns="http://docbook.org/ns/docbook">
+                        <wadl:doc xml:lang="EN" title="Get {$eventName}" xmlns="http://docbook.org/ns/docbook">
                             <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
-                            <!-- TODO: Adjust samples to work with usage summaries -->
-                            <xsl:if test="not($summaryOnly)">
                                 <xsl:apply-templates select="$currentSchemas" mode="wadlDoc">
                                     <xsl:with-param name="sampleMessages" select="$sampleMessages"/>
                                     <xsl:with-param name="filteredSampleMessages" select="$filteredSampleMessages"/>
                                     <xsl:with-param name="context">getEntry</xsl:with-param>
                                     <xsl:with-param name="security">internal</xsl:with-param>
+                                    <xsl:with-param name="summary" select="$summaryOnly"/>
                                 </xsl:apply-templates>
-                            </xsl:if>
                         </wadl:doc>
                         <xsl:if test="$id != 'CloudMonitoring' and $id != 'CloudServersOpenStack' and $id != 'CloudServers'">
                         <request>
@@ -864,7 +866,8 @@
                         version="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@version}"
                         serviceCode="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@serviceCode}"
                         type="{if(document(resolve-uri(@name,base-uri(.)))/atom:entry/atom:id) then 'getEntry' else
-                           if(document(resolve-uri(@name,base-uri(.)))/atom:entry) then 'addEntry' else 'event'}"/>
+                           if(document(resolve-uri(@name,base-uri(.)))/atom:entry) then 'addEntry' else 'event'}"
+                        summary="{contains(document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'event']/@type, 'SUMMARY')}"/>
             </xsl:for-each>
         </sch:messages>
     </xsl:function>
@@ -914,6 +917,7 @@
         <xsl:param name="filteredSampleMessages"/>
         <xsl:param name="context"/>
         <xsl:param name="security"/>
+        <xsl:param name="summary"/>
         <xsl:variable name="content">
             <xsl:choose>
                 <xsl:when test="$security = 'external'">
@@ -925,7 +929,8 @@
                                 @type = $context and
                                 @namespace = current()/@namespace and
                                 @version = current()/@version and
-                                @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>
+                                @serviceCode = current()/@serviceCode and
+                                @summary = $summary]/@path)[1], base-uri()))"/>
                         <xsl:variable
                             name="filtered"
                             select="unparsed-text(resolve-uri(
@@ -933,7 +938,8 @@
                                 @type = $context and
                                 @namespace = current()/@namespace and
                                 @version = current()/@version and
-                                @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>
+                                @serviceCode = current()/@serviceCode and
+                                @summary = $summary]/@path)[1], base-uri()))"/>
                         <xsl:choose>
                             <xsl:when test="$filtered != ''">
                                 <xsl:value-of select="$filtered"/>
@@ -952,7 +958,8 @@
                             @type = $context and
                             @namespace = current()/@namespace and
                             @version = current()/@version and
-                            @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>
+                            @serviceCode = current()/@serviceCode and
+                            @summary = $summary]/@path)[1], base-uri()))"/>
 
                     <!-- get tenant Id -->
                     <xsl:variable name="tenantId">
@@ -974,7 +981,8 @@
                             @type = $context and
                             @namespace = current()/@namespace and
                             @version = current()/@version and
-                            @serviceCode = current()/@serviceCode]/@path)[1], base-uri()))"/>
+                            @serviceCode = current()/@serviceCode and
+                            @summary = $summary]/@path)[1], base-uri()))"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -999,9 +1007,11 @@
                         <tbody>
                             <xsl:apply-templates select="sch:attribute" mode="wadlDoc">
                                 <xsl:with-param name="security" select="$security"/>
+                                <xsl:with-param name="summary" select="$summary"/>
                             </xsl:apply-templates>
                             <xsl:apply-templates select="sch:attributeGroup" mode="wadlDoc">
                                 <xsl:with-param name="security" select="$security"/>
+                                <xsl:with-param name="summary" select="$summary"/>
                             </xsl:apply-templates>
                         </tbody>
                     </tgroup>               
@@ -1009,10 +1019,11 @@
             </xsl:if>
             <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
         </example>
-    </xsl:template>   
-    
+    </xsl:template>
+
     <xsl:template match="sch:attribute" mode="wadlDoc"  xmlns="http://docbook.org/ns/docbook">
         <xsl:param name="security"/>
+        <xsl:param name="summary"/>
         <xsl:if test="$security = 'internal' or not(@private and @private = 'true')">
           <row>
               <entry>
@@ -1024,10 +1035,10 @@
                       <para><xsl:for-each select="sch:stringList(@allowedValues)"><code><xsl:value-of select="."/></code><xsl:if test="not(position() = last())">, </xsl:if></xsl:for-each></para></formalpara></xsl:if>
               </entry>
               <entry>
-                  <para><xsl:value-of select="@type"/></para>
+                  <para><xsl:value-of select="sum:getTypeDoc( @type, $summary, @aggregateFunction)"/></para>
               </entry>
               <entry>
-                  <para><xsl:value-of select="if(@use = 'optional') then 'Optional' else 'Required'"/></para>
+                  <para><xsl:value-of select="sum:getOptionalityDoc( @use, $summary, @aggregateFunction, @groupBy )"/></para>
               </entry>
           </row>
         </xsl:if>
@@ -1035,6 +1046,7 @@
     
     <xsl:template match="sch:attributeGroup" mode="wadlDoc"  xmlns="http://docbook.org/ns/docbook">
         <xsl:param name="security"/>
+        <xsl:param name="summary"/>
         <xsl:variable name="frequency">
             <xsl:choose>
                 <xsl:when test="@minOccurs =  @maxOccurs">must occur exactly <xsl:value-of select="@minOccurs"/> times</xsl:when>
@@ -1053,6 +1065,7 @@
         </row>
         <xsl:apply-templates select="sch:attribute" mode="wadlDoc">
             <xsl:with-param name="security" select="$security"/>
+            <xsl:with-param name="summary" select="$summary"/>
         </xsl:apply-templates>
     </xsl:template>
     

@@ -235,7 +235,7 @@
                 <resource id="dbaas_usagesummary_events"
                           path="dbaas/events"
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabaseSummary"/>
-                <resource id="dedicatedvcloud_sum_events"
+                <resource id="dedicatedvcloud_usagesummary_events"
                           path="dedicatedvcloud/events"
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DedicatedVCloudSummary"/>
                 <resource id="files_usagesummary_events"
@@ -262,9 +262,9 @@
                 <resource id="sites_usagesummary_events"
                           path="sites/events"
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSitesSummary"/>
-                <resource id="ssl_usagesummary_events_obs"
+                <resource id="ssl_usagesummary_events"
                           path="ssl/events"
-                          type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Ssl"/>
+                          type="wadl/feed.wadl#AtomFeed wadl/product.wadl#SslSummary"/>
                 <resource id="usagetest6_usagesummary_events"
                           path="usagetest6/events" 
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#WidgetSummary"/>
