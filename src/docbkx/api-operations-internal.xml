@@ -2,13 +2,13 @@
 <chapter xml:id="api-operations"
 	 xmlns="http://docbook.org/ns/docbook"
 	 xmlns:xi="http://www.w3.org/2001/XInclude"
-	 xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
 	 xmlns:wadl="http://wadl.dev.java.net/2009/02"
 	 version="5.0-extension RaxBook-2.0"
 	 role="api-reference"
      security="internal">
   <title>API Operations </title>
-  <!-- 
+  <!--
       This feed does not exist yet
   <section xml:id="accountstatus.product">
     <title>Account Status</title>
@@ -255,4 +255,11 @@
       <resource href="../../allfeeds.wadl#usagesummaryrecovery_events"/>
     </resources>
   </section>
+    <section xml:id="newrelic.product">
+        <title>New Relic</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#newrelic_events"/>
+            <resource href="../../allfeeds.wadl#newrelic_events_getEntry_NewRelic"/>
+        </resources>
+    </section>
 </chapter>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/newrelic/alert"
+               serviceCode="NewRelic"
+               type="CREATE UPDATE"
+               version="1">
+    <description>
+        Specifies the events related to New Relic alerts.
+    </description>
+    <attribute name="supportTeam" type="string" use="required">
+        Specifies the support team name.
+    </attribute>
+    <attribute name="message" type="string" use="required">
+        Specifies the message for the support team.
+    </attribute>
+    <attribute name="severity" type="string" use="required">
+        Specifies the severity of the issue.
+    </attribute>
+</productSchema>

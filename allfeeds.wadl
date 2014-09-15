@@ -89,7 +89,10 @@
             <resource id="netdevice_events"
                       path="netdevice/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NetDevice"/>
-            <resource id="nova_events"
+	    <resource id="newrelic_events"
+                      path="newrelic/events"
+	              type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NewRelic"/>  
+	    <resource id="nova_events"
                       path="nova/events" 
                       type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
             <resource id="payment_events"
