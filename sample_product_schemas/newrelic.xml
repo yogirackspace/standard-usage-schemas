@@ -13,7 +13,7 @@
     <attribute name="message" type="string" use="required">
         Specifies the message for the support team.
     </attribute>
-    <attribute name="createdAt" type="dateTime" use="required">
+    <attribute name="createdAt" type="utcDateTime" use="required">
         Specifies the created time.
     </attribute>
     <attribute name="accountName" type="string" use="required">

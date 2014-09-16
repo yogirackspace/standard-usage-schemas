@@ -165,8 +165,9 @@
                       wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService
                       wadl/product.wadl#EmailAppsUsage
                       wadl/product.wadl#Glance wadl/product.wadl#GlanceSummary
-                      wadl/product.wadl#NetDevice
-                      wadl/product.wadl#PaymentService
+		      wadl/product.wadl#NetDevice
+		      wadl/product.wadl#NewRelic
+		      wadl/product.wadl#PaymentService
                       wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
                       wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
             <resource id="functest2_events"
