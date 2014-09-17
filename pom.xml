@@ -258,7 +258,7 @@
                             <parameters>
                                 <parameter>
                                     <name>input_dir</name>
-                                    <value>${basedir}/sample_product_schemas</value>
+                                    <value>${project.baseUri}/sample_product_schemas</value>
                                 </parameter>
                             </parameters>
                             <fileMappers>
