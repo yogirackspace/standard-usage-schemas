@@ -128,7 +128,7 @@
     <section xml:id="usagesummarybackup.product">
         <title>Usage Summary Cloud Backup</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#backup_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#backup_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#backup_usagesummary_events_obs_getEntry_CloudBackupSummaryTenant"/>
         </resources>
     </section>
@@ -136,7 +136,7 @@
     <section xml:id="usagesummarybigdata.product">
         <title>Usage Summary Cloud Big Data</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#bigdata_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#bigdata_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#bigdata_usagesummary_events_obs_getEntry_BigDataSummaryTenant"/>
         </resources>
     </section>
@@ -144,7 +144,7 @@
     <section xml:id="usagesummarycbs.product">
         <title>Usage Summary Cloud Block Storage</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#cbs_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#cbs_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#cbs_usagesummary_events_obs_getEntry_CloudBlockStorageSummaryTenant"/>
         </resources>
     </section>
@@ -152,7 +152,7 @@
     <section xml:id="usagesummarydbaas.product">
         <title>Usage Summary Cloud Databases</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#dbaas_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#dbaas_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#dbaas_usagesummary_events_obs_getEntry_CloudDatabaseSummaryTenant"/>
         </resources>
     </section>
@@ -160,7 +160,7 @@
     <section xml:id="usagesummaryfiles.product">
         <title>Usage Summary Cloud Files</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#files_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#files_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#files_usagesummary_events_obs_getEntry_CloudFilesSummaryTenant"/>
         </resources>
     </section>
@@ -168,7 +168,7 @@
     <section xml:id="usagesummarylbaas.product">
         <title>Usage Summary Cloud Load Balancers</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#lbaas_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#lbaas_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#lbaas_usagesummary_events_obs_getEntry_CloudLoadBalancersSummaryTenant"/>
         </resources>
     </section>
@@ -176,7 +176,7 @@
     <section xml:id="usagesummarymonitoring.product">
         <title>Usage Summary Cloud Monitoring</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#monitoring_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#monitoring_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#monitoring_usagesummary_events_obs_getEntry_CloudMonitoringSummaryTenant"/>
         </resources>
     </section>
@@ -184,7 +184,7 @@
     <section xml:id="usagesummaryqueues.product">
         <title>Usage Summary Cloud Queues</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#queues_usagesummary_events_obs"/>
+            <resource href="../../allfeeds_observer.wadl#queues_usagesummary_events_obs_tenanted_feed"/>
             <resource href="../../allfeeds_observer.wadl#queues_usagesummary_events_obs_getEntry_CloudQueuesSummaryTenant"/>
         </resources>
     </section>
@@ -192,7 +192,7 @@
         <section xml:id="usagesummaryservers.product">
             <title>Usage Summary Cloud Servers Legacy</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs"/>
+                <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_tenanted_feed"/>
                 <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_getEntry_CloudServersSummaryTenant"/>
                 <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_getEntry_RHELSummaryTenant"/>
             </resources>
@@ -201,7 +201,7 @@
         <section xml:id="usagesummarynova.product">
             <title>Usage Summary Cloud Servers Open Stack</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs"/>
+                <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_tenanted_feed"/>
                 <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_getEntry_CloudServersOpenStackSummaryTenant"/>
                 <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_getEntry_RHELSummaryTenant"/>
             </resources>
@@ -210,7 +210,7 @@
         <section xml:id="usagesummaryglance.product">
             <title>Usage Summary Glance</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#glance_usagesummary_events_obs"/>
+                <resource href="../../allfeeds_observer.wadl#glance_usagesummary_events_obs_tenanted_feed"/>
                 <resource href="../../allfeeds_observer.wadl#glance_usagesummary_events_obs_getEntry_GlanceSummaryTenant"/>
             </resources>
         </section>
@@ -218,7 +218,7 @@
         <section xml:id="usagesummaryssl.product">
             <title>Usage Summary SSL</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#ssl_usagesummary_events_obs"/>
+                <resource href="../../allfeeds_observer.wadl#ssl_usagesummary_events_obs_tenanted_feed"/>
                 <resource href="../../allfeeds_observer.wadl#ssl_usagesummary_events_obs_getEntry_SslSummaryTenant"/>
             </resources>
         </section>
