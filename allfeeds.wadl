@@ -89,7 +89,10 @@
             <resource id="netdevice_events"
                       path="netdevice/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NetDevice"/>
-            <resource id="nova_events"
+	    <resource id="newrelic_events"
+                      path="newrelic/events"
+	              type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NewRelic"/>  
+	    <resource id="nova_events"
                       path="nova/events" 
                       type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#RHEL"/>
             <resource id="payment_events"
@@ -144,6 +147,7 @@
                       type="wadl/feed.wadl#AtomFeed
                       wadl/product.wadl#AtomHopper
                       wadl/product.wadl#BigData wadl/product.wadl#BigDataSummary
+                      wadl/product.wadl#BillingService
                       wadl/product.wadl#CloudBackup wadl/product.wadl#CloudBackupSummary
                       wadl/product.wadl#CloudBlockStorage wadl/product.wadl#CloudBlockStorageSummary
                       wadl/product.wadl#CloudDatabase wadl/product.wadl#CloudDatabaseSummary
@@ -161,8 +165,9 @@
                       wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService
                       wadl/product.wadl#EmailAppsUsage
                       wadl/product.wadl#Glance wadl/product.wadl#GlanceSummary
-                      wadl/product.wadl#NetDevice
-                      wadl/product.wadl#PaymentService
+		      wadl/product.wadl#NetDevice
+		      wadl/product.wadl#NewRelic
+		      wadl/product.wadl#PaymentService
                       wadl/product.wadl#RHEL wadl/product.wadl#Ssl wadl/product.wadl#Support wadl/feed.wadl#UsageDeadLetter
                       wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
             <resource id="functest2_events"

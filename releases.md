@@ -1,7 +1,16 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.66.0**  
+2014-09-16 | \[B-78336\] Changed createdAt to utcDateTime. Added feed to functest1 (Chandra Addala)  
+2014-09-16 | \[B-78336\] New relic feed - additional fields (Chandra Addala)  
+2014-09-15 | \[B-78336\] New relic feed (Chandra Addala)  
+
+**usage-schema-1.65.1**  
+2014-09-09 | B-76207 - Generate samples of events with event version="2" (Greg Sharek)  
+
 **usage-schema-1.65.0**  
+2014-09-05 | B-78358: update bandwidth to be 1024 * original value to convert from KB to B (Shinta Smith)  
 
 **usage-schema-1.64.0**  
 2014-09-02 | B-72471: remove unused atom_hopper.wadl (Shinta Smith)  

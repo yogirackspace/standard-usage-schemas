@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.66.0-SNAPSHOT</version>
+    <version>1.67.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -258,7 +258,7 @@
                             <parameters>
                                 <parameter>
                                     <name>input_dir</name>
-                                    <value>${basedir}/sample_product_schemas</value>
+                                    <value>${project.baseUri}/sample_product_schemas</value>
                                 </parameter>
                             </parameters>
                             <fileMappers>

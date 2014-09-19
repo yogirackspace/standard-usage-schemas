@@ -7,7 +7,7 @@
        Specifies the events that describe changes in service level for a supported account.
     </description>
     <attribute name="serviceLevel" type="Name" use="required"
-               allowedValues="MANAGED INFRASTRUCTURE INTENSIVE"> 
+               allowedValues="DEVELOPERPLUS INFRASTRUCTURE MANAGED">
         Specifies the service level for this account.
     </attribute>
     <attribute name="serviceType" type="Name" use="required"

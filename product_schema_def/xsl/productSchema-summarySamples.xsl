@@ -73,7 +73,7 @@
                     <event xmlns="http://docs.rackspace.com/core/event">
                         <xsl:namespace name="sample" select="$product_namespace"/>
                         <xsl:attribute name="id">e53d007a-fc23-11e1-975c-cfa6b29bb814</xsl:attribute>
-                        <xsl:attribute name="version">1</xsl:attribute>
+                        <xsl:attribute name="version">2</xsl:attribute>
 
                         <xsl:if test="@resourceTypes">
                             <xsl:attribute name="resourceId">4a2b42f4-6c63-11e1-815b-7fcbcf67f549</xsl:attribute>
@@ -81,7 +81,7 @@
     
                         <xsl:attribute name="tenantId">123456</xsl:attribute>
                         <xsl:attribute name="startTime">2013-03-15T11:51:11Z</xsl:attribute>
-                        <xsl:attribute name="endTime">2013-03-15T23:59:59Z</xsl:attribute>
+                        <xsl:attribute name="endTime">2013-03-16T00:00:00Z</xsl:attribute>
                         <xsl:attribute name="duration">PT20M</xsl:attribute>
                         <xsl:attribute name="type">USAGE_SUMMARY</xsl:attribute>
                         <xsl:attribute name="dataCenter">DFW1</xsl:attribute>
