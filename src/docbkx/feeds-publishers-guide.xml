@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE book [
+<!-- Some useful entities borrowed from HTML -->
+        <!ENTITY ndash "&#x2013;">
+        <!ENTITY mdash "&#x2014;">
+        <!ENTITY hellip "&#x2026;">
+
+        <!-- Useful for describing APIs -->
+        <!ENTITY GET '<command xmlns="http://docbook.org/ns/docbook">GET</command>'>
+        <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
+        <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
+        <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
+        
+        <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
+        <!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
+        <!ENTITY ENDPOINT-US-20 "https://identity.api.rackspacecloud.com/v2.0/">
+        <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
+]>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
+    version="5.0-extension RaxBook-2.0">
+    <?rax title.font.size="35px" subtitle.font.size="20px"?>
+    <title>Rackspace Cloud Feeds Publishers Guide</title>
+    <?rax status.bar.text.font.size="40px"
+          status.bar.text="Early Availability"?>
+    <info>
+        <author>
+            <personname>
+                <firstname/>
+                <surname/>
+            </personname>
+            <affiliation>
+                <orgname>Rackspace Cloud</orgname>
+            </affiliation>
+        </author>
+        <copyright>
+            <year>2014</year>
+            <holder>Rackspace US, Inc.</holder>
+        </copyright>
+        <releaseinfo>API v1.0</releaseinfo>
+        <productname>Rackspace Cloud Feeds</productname>
+        <pubdate/>
+        <legalnotice role="rs-api">
+            <annotation>
+                <remark>Copyright details are filled in by the template.</remark>
+            </annotation>
+        </legalnotice>
+        <abstract>
+            <para>This document is intended for customers of Cloud Feeds who want to submit a feed to be published through the Cloud Feeds engine. </para>
+        </abstract>
+        <revhistory>
+            <revision>
+                <date>2014-09-01</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Created first draft of the Cloud Feeds Publishers Guide</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+        </revhistory>
+        <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+            <raxm:displayname>API Developer Guide</raxm:displayname>
+            <raxm:product version="v1.0">cloud-feeds</raxm:product>
+            <raxm:priority>20</raxm:priority>
+        </raxm:metadata>
+    </info>
+    <chapter xml:id="overview">
+        <title>Overview</title>
+        <para>Rackspace Cloud Feeds enables customers on the public cloud to access near real-time
+            usage and system events that can be used for analysis, monitoring, and automation.
+            Internal customers also have the ability to publish feeds through the Cloud Feeds
+            framework for usage by customers. This guide aims at providing guidelines for Cloud
+            Feeds publishers to prepare feeds for publication through the Cloud Feeds engine.</para>
+        <para>To understand Cloud Feeds, users should know the following:</para>
+        <itemizedlist spacing="compact">
+            <listitem>
+                <para>Atom Hopper (for more information, see <link
+                        xlink:href="http://atomhopper.org">Atom Hopper </link>)</para>
+            </listitem>
+            <listitem>
+                <para>Apache Abdera (for more information, see <link
+                        xlink:href="http://abdera.apache.org">Apache Abdera</link>)</para>
+            </listitem>
+            <listitem>
+                <para>The Atom Publishing Protocol, RFC 5023 (for more information, see <link
+                        xlink:href="http://www.ietf.org/rfc/rfc5023.txt">RFC 5023</link>)</para>
+            </listitem>
+            <listitem>
+                <para>Feed Paging and Archiving, RFC 5005 (for more information, see<link
+                        xlink:href="http://www.ietf.org/rfc/rfc5005.txt">RC 5005</link> )</para>
+            </listitem>
+            <listitem>
+                <para>RESTful web services (for more information, see <link
+                        xlink:href="http://en.wikipedia.org/wiki/Representational_state_transfer"
+                        >RESTful web services</link>)</para>
+            </listitem>
+            <listitem>
+                <para>HTTP/1.1 protocol (for more information, see <link
+                        xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">HTTP/1.1
+                        protocol</link>)</para>
+            </listitem>
+            <listitem>
+                <para>JSON and XML data serialization formats (for more information, see <link
+                        xlink:href="http://docs.dhtmlx.com/gantt/desktop__serialization.html">JSON
+                        and XML</link>)</para>
+            </listitem>
+            <listitem>
+                <para>Atom Syndication Format, RFC 4287 (for more information, see <link
+                        xlink:href="http://www.rfc-base.org/rfc-4287.html">JRFC 4287</link></para>
+            </listitem>
+        </itemizedlist>
+        <section xml:id="Document_Change_History">
+            <title>Document change history</title>
+            <para>This version of the guide replaces and obsoletes all previous versions. The most
+                recent changes are described in the following table:</para>
+            <?rax revhistory?>
+        </section>
+        <section xml:id="Additional_Resources">
+            <title>Additional resources</title>
+            <para>For information about getting started with the API, see the <citetitle>Cloud Feeds
+                    Getting Started Guide</citetitle> at <link
+                    xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>. For
+                more detailed information about using the Cloud Feeds API, see the <emphasis
+                    role="italic">Cloud Feeds Developer Guide</emphasis> at <link
+                    xlink:href="http://docs.rackspace.com/">http://docs.rackspace.com/</link>. </para>
+            <para>Visit the <link
+                    xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
+                    >Product Feedback Forum</link> to tell us what you think about Cloud
+                Feeds.</para>
+            <para>You can also follow Rackspace updates and announcements via Twitter at <link
+                    xlink:href="http://www.twitter.com/rackspace"
+                    >http://www.twitter.com/rackspace</link>. </para>
+            <para>This API uses standard HTTP/1.1 response codes as documented at <link
+                    xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
+                    >http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
+        </section>
+    </chapter>
+    <chapter xml:id="General_API_Information-d1e633">
+        <title>Overview</title>
+        <para>Cloud Feeds uses AtomPub to publish different types of feeds. Feeds are composed of a
+            number of items called <emphasis role="italic">entries</emphasis>. Each entry has an
+            extensible set of attached metadata. </para>
+        <para>AtomPub together with the Atom Syndication Format (ASF) provides a format for
+            implementing web feeds. Web feeds provide users with frequently updated content. AtomPub
+            is based on an HTTP transfer of Atom-formatted representations. The Atom format is
+            documented in the Atom Syndication Format.</para>
+        <para>Cloud Feeds is an open-source AtomPub server for accessing, processing, and
+            aggregating Atom entries. Cloud Feeds was designed to make it easy to build both
+            generalized and specialized persistence mechanisms for Atom XML data, based on the Atom
+            Syndication Format and the Atom Publishing Protocol.</para>
+        <para>Cloud Feeds works the following way:</para>
+        <para>
+            <orderedlist>
+                <listitem>
+                    <para>Events are generated by a publisher and added to the database as entries.
+                        Events can be usage events, system events or billing events.</para>
+                </listitem>
+                <listitem>
+                    <para>Entries exist in Cloud Feeds for three days. After that time period they
+                        are deleted.</para>
+                </listitem>
+            </orderedlist>
+        </para>
+        <para>To read the official documentation for the Atom Syndication Format, see <link
+                xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>. For
+            more information about AtomPub, visit <link xlink:href="http://atompub.org/"
+                >http://atompub.org/</link>.</para>
+        <para> </para>
+    </chapter>
+    <chapter xml:id="Element_of_an_atom_entry"><title>Event node</title>
+            <para>AtomHopper events must be defined using the Common Event Format (CEF). UMS (Usage
+            Measurement Service) utilizes CEF for tracking purposes, but CEF can be also used for
+            other events and by third-party event publishers. The Common event format supports
+            versioning of the event and product nodes through the version attribute. This allows
+            products to release new versions of their schema.</para>
+        <para>The Event node is the main element of a Cloud Feeds usage event entry.</para>
+        <para>The Event node contains the following elements:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Event node attributes (all these attributes are pre-defined</para>
+                </listitem>
+                <listitem>
+                    <para>Product node</para>
+                </listitem>
+            </itemizedlist>
+            </para><para>Following is an example of an event node.</para>
+        <para>
+            <programlisting>&lt;event <emphasis role="bold">startTime</emphasis>="2014-07-14T22:19:52Z"
+      <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z" 
+      <emphasis role="bold">region</emphasis>="DFW" <emphasis role="bold">dataCenter</emphasis>="DFW1" <emphasis role="bold">type</emphasis>="USAGE"
+      <emphasis role="bold">id</emphasis>="8d89673c-c989-11e1-895a-0b3d632a8a89"
+      <emphasis role="bold">resourceId</emphasis>="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+      <emphasis role="bold">tenantId</emphasis>="1234" <emphasis role="bold">version</emphasis>="2">
+        &lt;cb-store:product version="1" serviceCode="CloudBackup"
+           serverID="9445"
+           storage="99992827882" resourceType="AGENT"/>
+        &lt;/event></programlisting>
+        </para>
+        <section xml:id="Event_node">
+            <title>Event node attributes<?sbr?></title>
+            <para>The attributes in the event node are already pre-defined and cannot be changed.
+                The event node consists of the following attributes:</para>
+            <para>
+                <table frame="void">
+                    <caption>Attributes in event node</caption>
+                    <col width="21%"/>
+                    <col width="46%"/>
+                    <col width="33%"/>
+                    <thead>
+                        <tr>
+                            <th>Attributes</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>startTime</code></td>
+                            <td>Specifies the start time of the event, the time format must be:
+                                    <emphasis role="italic"
+                                >yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis></td>
+                            <td>2014-07-14T22:19:52Z</td>
+                        </tr>
+                        <tr>
+                            <td><code>endTime</code></td>
+                            <td>Specifies the end time of the event, the time format must be:
+                                    <emphasis role="italic"
+                                >yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis></td>
+                            <td>2013-09-05T14:50:46.904Z</td>
+                        </tr>
+                        <tr>
+                            <td><code>region</code></td>
+                            <td>Specifies the region</td>
+                            <td>DFW</td>
+                        </tr>
+                        <tr>
+                            <td><code>dataCenter</code></td>
+                            <td>Specifies the data center</td>
+                            <td>DFW</td>
+                        </tr>
+                        <tr>
+                            <td><code>type</code></td>
+                            <td>Specifies the feed type</td>
+                            <td>USAGE</td>
+                        </tr>
+                        <tr>
+                            <td><code>id</code></td>
+                            <td>Specifies the id of the event</td>
+                            <td>8d89673c-c989-11e1-895a-0b3d632a8a89</td>
+                        </tr>
+                        <tr>
+                            <td><code>resourceId</code></td>
+                            <td>Specifies the id of the resource</td>
+                            <td>3863d42a-ec9a-11e1-8e12-df8baa3ca440</td>
+                        </tr>
+                        <tr>
+                            <td><code>resourceName</code></td>
+                            <td>Specifies the name of the resource</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>tenantId</code></td>
+                            <td>Specifies the tenant id of the publisher</td>
+                            <td>12345</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+        </section>
+        <section xml:id="Product_node">
+            <title>Product node</title>
+            <para>The product node is located inside of an event node. The product node is custom
+                and differs for every product. Product nodes are defined by using a sample product
+                schema. This information contains product-stpecifc content and is generated from a
+                sample product schema. The product node can contain one or more attribute groups.
+                Each attribute group contains a specific set of attributes which can be
+                repeated.</para>
+            <para>The product node identifies the product to which the feed refers. It also provides
+                product-specific information and details about rhe resources.</para>
+            <para>Following is an example of a product node:</para>
+            <para>
+                <programlisting>&lt;dbaas:product version="2" serviceCode="CloudDatabase"
+       resourceType="MYSQL"
+       dbVersion="1.0.0.0.0.0.0.0"
+       memory="16" storage="64"/></programlisting>
+            </para>
+        </section></chapter>
+    <chapter xml:id="sample_product_schema">
+            <title>Sample Product schema</title>
+            <para>The product schema is an xml configuration file that describes a product node. </para>
+            <para>When the product schema is run through the internal build process, a product XSD
+            file is generated. The product schema consists of one or more attribute groups, each of
+            which can contain custom attributes.</para>
+        <para>The following example shows a sample product schema with multiple attributes:</para>
+        <programlisting language="xml" security="internal"><xi:include href="./samples/emailapps_msservice.xml" parse="text"/></programlisting>
+        <section xml:id="Attribute_node">
+            <title>Attribute node</title>
+            <para>The attribute node declares an attribute for a product. Attributes are defined in
+                the product schema. The attribute node is a child of the product node. Attribute
+                groups can be repeated within a product schema.</para>
+            <para>Attributes elements can consist of different data types, such as strings or
+                integeres. Attributes can vary but they usually contain the following
+                elements:</para>
+            <para>
+                <table frame="void">
+                    <caption>Common Attribute node elements</caption>
+                    <col width="33%"/>
+                    <col width="33%"/>
+                    <col width="33%"/>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>name</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>minLength</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>maxLength</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>use</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>unitOfMeasure</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>aggregateFunction</td>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td/>
+                            <td/>
+                            <td/>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+        <section xml:id="Attribute_group">
+            <title>Attribute group<?sbr?></title>
+            <para> A product schema can contain one or more attribute groups. </para>
+                <para>Following is an example of an attribute group for a product schema.</para>
+                <para>
+                    <programlisting>    &lt;attributeGroup name="additionalPublicAddress" minOccurs="0" maxOccurs="unbounded">
+        &lt;description>
+            A list public addresses
+        &lt;/description>
+        &lt;attribute name="ip" type="string" use="required">
+            The ip
+        &lt;/attribute>
+        &lt;attribute name="dns1" type="string" use="required">
+            The dns1
+        &lt;/attribute>
+        &lt;attribute name="dns2" type="string" use="required">
+            The dns1
+        &lt;/attribute>
+    &lt;/attributeGroup></programlisting>
+                </para></section>
+            <section xml:id="Versions">
+                <title>Versions<?sbr?><?sbr?></title>
+                <para>The product node can be versioned. You can determine the version of a product
+                    by setting the version attribute in the event node and/or the product
+                    node.</para></section>
+        </section>   
+    </chapter>
+    <chapter xml:id="Using_Cloud_Feeds">
+        <title>Defining an event</title>
+        <section xml:id="Get_Atom_Entry">
+            <title>Defining the product node fields</title>
+            <para>When you define the fields that you want to go into a product node, you need to go
+                through the following decision-making steps:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Decide the data that needs to be part of the product node </para>
+                    </listitem>
+                    <listitem>
+                        <para>Determine the type of the data </para>
+                    </listitem>
+                    <listitem>
+                        <para>Determine the type of attributes you want in your feed</para>
+                    </listitem>
+                    <listitem>
+                        <para>Define the attribute groups</para>
+                    </listitem>
+                    <listitem>
+                        <para>Create a sample product schema</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <note>
+                <para>The product node can be versioned.</para>
+            </note>
+        </section>
+        <section xml:id="Defining_product_nodes">
+            <title>Defining product nodes for usage events</title>
+            <para>&lt;need to add more information here></para>
+        </section>
+        <section xml:id="Creating_message_samples">
+            <title>Creating message samples</title>
+            <para>You can create samples of atom entries that can be used in Cloud Feeds API
+                requests and responses.</para>
+            <para>Following is an example of a response to a Cloud Feeds API request to post an Atom
+                entry.</para>
+            <programlisting language="xml" security="internal"><xi:include href="./samples/clouddatabase-dbaas-mysql-usage-response.xml" parse="text"/></programlisting>
+            <para/>
+        </section>
+    </chapter>
+</book>
