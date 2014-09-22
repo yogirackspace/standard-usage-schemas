@@ -103,7 +103,7 @@
         </simpleContent>
     </complexType>
 
-    <simpleType name="emailType">gs
+    <simpleType name="emailType">
         <annotation>
             <documentation>
                 Schema definition for an email address.

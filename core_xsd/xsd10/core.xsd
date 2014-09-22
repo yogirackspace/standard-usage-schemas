@@ -229,7 +229,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="accountNumber" type="event:NonEmptyString" use="optional">
+                <attribute name="rackspaceAccountNumber" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
