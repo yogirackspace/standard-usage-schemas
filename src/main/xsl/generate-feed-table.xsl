@@ -37,22 +37,26 @@
         </td>
         <td>
             <para>
+                <xsl:variable name="summary_path">
+                    <xsl:if test="contains(substring-after(.//wadl:resource[1]/@href,'#'), '_usagesummary_')">usagesummary/</xsl:if>
+                </xsl:variable>
+
                 <xsl:choose>
                     <xsl:when test="/chapter/@security = 'external'">
                         <xsl:variable name="feed">
                             <xsl:analyze-string select="substring-after(.//wadl:resource[1]/@href,'#')"
-                                regex="(.+)+_events_obs_tenanted_feed">
+                                regex="(.+)+_events_obs(_tenanted_feed)?">
                                 <xsl:matching-substring>
                                     <xsl:value-of select="regex-group(1)"/>
                                 </xsl:matching-substring>
                             </xsl:analyze-string>
                         </xsl:variable>
                         <xsl:variable name="id" select="concat( $feed, '_events_obs')"/>
-                        https://<replaceable>endpoint</replaceable>/<xsl:value-of select="doc(resolve-uri($wadl,base-uri(.)))//wadl:resource[@id = $id]/@path"/>/<replaceable>tenantId</replaceable>
+                        https://<replaceable>endpoint</replaceable>/<xsl:value-of select="$summary_path"/><xsl:value-of select="doc(resolve-uri($wadl,base-uri(.)))//wadl:resource[@id = $id]/@path"/>/<replaceable>tenantId</replaceable>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:variable name="id" select="substring-after(.//wadl:resource[1]/@href,'#')"/>
-                        https://<replaceable>endpoint</replaceable>/<xsl:value-of select="doc(resolve-uri($wadl,base-uri(.)))//wadl:resource[@id = $id]/@path"/>
+                        https://<replaceable>endpoint</replaceable>/<xsl:value-of select="$summary_path"/><xsl:value-of select="doc(resolve-uri($wadl,base-uri(.)))//wadl:resource[@id = $id]/@path"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </para>

@@ -8,8 +8,11 @@
     xmlns:saxon="http://saxon.sf.net/"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:sum="http://docs.rackspace.com/core/usage/schema/summary"
     exclude-result-prefixes="schema"
     version="2.0">
+
+    <xsl:import href="productSchema-summary-util.xsl"/>
 
     <xsl:output method="xml" indent="yes"/>
     
@@ -395,20 +398,20 @@
             <xsl:when test="$type='Name'">
                 <xsl:value-of select="'p:Name'"/>
             </xsl:when>
-            <xsl:when test="$usage-summary and $attribute/@aggregateFunction='SUM' and $type=('int', 'long', 'short', 'byte')">
-                <xsl:value-of select="'xsd:integer'"/>
-            </xsl:when>
-            <xsl:when test="$usage-summary and $attribute/@aggregateFunction='SUM' and $type=('unsignedInt', 'unsignedLong', 'unsignedShort', 'unsignedByte')">
-                <xsl:value-of select="'xsd:nonNegativeInteger'"/>
-            </xsl:when>
-            <xsl:when test="$attribute/@min or $attribute/@max">
-                <xsl:value-of select="usage:minMaxType($vname,true(),$usage-summary and $attribute/@aggregateFunction=('AVG','WEIGHTED_AVG'))"/>
-            </xsl:when>
-            <xsl:when test="$usage-summary and $attribute/@aggregateFunction=('AVG','WEIGHTED_AVG')">
-                <xsl:value-of select="'xsd:double'"/>
-            </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="concat('xsd:',$type)"/>
+                <xsl:choose>
+                    <!--
+                       The following test is XSD specific in regards to defining specialized types which accomadate
+                       min and max values.  Since this doesn't impact the base type, it doesn't impact documenation
+                       and isn't included in productSchema-summary-util.xsl
+                     -->
+                    <xsl:when test="($attribute/@min or $attribute/@max) and not($usage-summary and $attribute/@aggregateFunction = 'SUM' and $type = ('int', 'long', 'short', 'byte', 'unsignedInt', 'unsignedLong', 'unsignedShort', 'unsignedByte'))">
+                        <xsl:value-of select="usage:minMaxType($vname,true(),$usage-summary and $attribute/@aggregateFunction=('AVG','WEIGHTED_AVG'))"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="sum:getTypeXSD( $type, $usage-summary, $attribute/@aggregateFunction )"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
@@ -430,11 +433,8 @@
                     <xsl:when test="@use='required' and (@withEventType or @withResource)">
                        <xsl:attribute name="use">optional</xsl:attribute>
                     </xsl:when>
-                    <xsl:when test="@use='required' and $usage-summary and @aggregateFunction='NONE' and @groupBy=false()">
-                       <xsl:attribute name="use">optional</xsl:attribute>
-                    </xsl:when>
                     <xsl:otherwise>
-                        <xsl:attribute name="use" select="@use"/>
+                        <xsl:attribute name="use" select="sum:getOptionality(@use, $usage-summary, @aggregateFunction, @groupBy)"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
