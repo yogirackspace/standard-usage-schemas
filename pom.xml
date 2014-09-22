@@ -253,7 +253,7 @@
                             <includes>
                                 <include>pom.xml</include>
                             </includes>
-                            <outputDir>${basedir}/core_xsd</outputDir>
+                            <outputDir>${basedir}/target/generated/core_xsd/xsd10</outputDir>
                             <stylesheet>${basedir}/src/main/xsl/generate-usagexsd.xsl</stylesheet>
                             <parameters>
                                 <parameter>
