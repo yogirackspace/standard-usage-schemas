@@ -11,7 +11,7 @@
                id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
                version="1"
                tenantId="123456"
-               accountNumber="020-123456"
+               rackspaceAccountNumber="020-123456"
                startTime="2013-03-15T11:51:11Z"
                endTime="2013-03-16T11:51:11Z"
                type="USAGE_SUMMARY"

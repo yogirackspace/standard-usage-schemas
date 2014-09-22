@@ -242,7 +242,7 @@
                         </documentation>
                     </annotation>
                 </attribute>
-                <attribute name="accountNumber" type="event:NonEmptyString" use="optional">
+                <attribute name="rackspaceAccountNumber" type="event:NonEmptyString" use="optional">
                     <annotation>
                         <documentation>
                             <html:p>
@@ -521,26 +521,26 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type = 'USAGE_SUMMARY') then @accountNumber else true()"
-                        xerces:message="If this event is of type USAGE_SUMMARY, then it should have accountNumber attribute"
-                        saxon:message="If this event is of type USAGE_SUMMARY, then it should have accountNumber attribute"
+                <assert vc:minVersion="1.1" test="if (@type = 'USAGE_SUMMARY') then @rackspaceAccountNumber else true()"
+                        xerces:message="If this event is of type USAGE_SUMMARY, then it should have rackspaceAccountNumber attribute"
+                        saxon:message="If this event is of type USAGE_SUMMARY, then it should have rackspaceAccountNumber attribute"
                         >
                     <annotation>
                         <documentation>
                             <html:p>
-                                If this event is of type USAGE_SUMMARY, then it should have an accountNumber attribute.
+                                If this event is of type USAGE_SUMMARY, then it should have a rackspaceAccountNumber attribute.
                             </html:p>
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@type != 'USAGE_SUMMARY') then not(exists(@accountNumber)) else true()"
-                        xerces:message="If this event is not of type USAGE_SUMMARY, then it should not have accountNumber attribute"
-                        saxon:message="If this event is not of type USAGE_SUMMARY, then it should not have accountNumber attribute"
+                <assert vc:minVersion="1.1" test="if (@type != 'USAGE_SUMMARY') then not(exists(@rackspaceAccountNumber)) else true()"
+                        xerces:message="If this event is not of type USAGE_SUMMARY, then it should not have rackspaceAccountNumber attribute"
+                        saxon:message="If this event is not of type USAGE_SUMMARY, then it should not have rackspaceAccountNumber attribute"
                         >
                     <annotation>
                         <documentation>
                             <html:p>
-                                If this event is not of type USAGE_SUMMARY, then it should not have an accountNumber attribute.
+                                If this event is not of type USAGE_SUMMARY, then it should not have an rackspaceAccountNumber attribute.
                             </html:p>
                         </documentation>
                     </annotation>

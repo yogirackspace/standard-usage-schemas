@@ -26,7 +26,7 @@
              version="2"
              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
              tenantId="123456"
-             accountNumber="020-123456"
+             rackspaceAccountNumber="020-123456"
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T11:51:11Z"
              duration="PT20M"
