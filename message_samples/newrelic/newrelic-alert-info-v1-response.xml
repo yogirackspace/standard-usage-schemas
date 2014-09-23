@@ -34,14 +34,24 @@
              region="DFW">
          <sample:product serviceCode="NewRelic"
                          version="1"
-                         messageType="alert"
-                         message="Unable to ping 104.130.7.221"
-                         createdAt="2014-03-04T14:31:35+00:00"
                          accountName="Rackspace DevOps"
-                         severity="critical"
-                         shortDescription="Short description about alert"
+                         alertPolicyName="Application Check"
+                         alertUrl="http://somedomain.com/myapp/alertId"
+                         applicationName="My Awesome Web App"
+                         createdAt="2014-03-04T14:31:35+00:00"
                          longDescription="Long description about alert"
-                         supportTeam="Team A9"/>
+                         message="Unable to ping 104.130.7.221"
+                         messageType="alert"
+                         serverEvents="[list, of, server, events]"
+                         servers="[list, of, servers]"
+                         shortDescription="Short description about alert"
+                         supportCategory="3"
+                         supportGroup="Hybrid - SMB"
+                         supportSubCategory="12"
+                         supportTeam="Team A9"
+                         tenantId="634739"
+                         ticketPriority="high"
+                         ticketSeverity="Urgent"/>
       </event>
    </atom:content>
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/newrelic/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"

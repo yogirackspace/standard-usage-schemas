@@ -7,29 +7,8 @@
     <description>
         Specifies the events related to New Relic alerts.
     </description>
-    <attribute name="messageType" type="string" use="required">
-        Specifies the message type.
-    </attribute>
-    <attribute name="message" type="string" use="required">
-        Specifies the message for the support team.
-    </attribute>
-    <attribute name="createdAt" type="utcDateTime" use="required">
-        Specifies the created time.
-    </attribute>
     <attribute name="accountName" type="string" use="required">
         Specifies the account name.
-    </attribute>
-    <attribute name="severity" type="string" use="required">
-        Specifies the severity of the issue with values like 'critical', 'downtime', 'caution'.
-    </attribute>
-    <attribute name="shortDescription" type="string" use="required">
-        Specifies the short description about alert.
-    </attribute>
-    <attribute name="longDescription" type="string" use="required">
-        Specifies the long description about alert.
-    </attribute>
-    <attribute name="supportTeam" type="string" use="required">
-        Specifies the support team name.
     </attribute>
     <attribute name="alertPolicyName" type="string" use="optional">
         Specifies the alert policy name.
@@ -40,10 +19,46 @@
     <attribute name="applicationName" type="string" use="optional">
         Specifies the application name.
     </attribute>
+    <attribute name="createdAt" type="utcDateTime" use="required">
+        Specifies the created time.
+    </attribute>
+    <attribute name="longDescription" type="string" use="required">
+        Specifies the long description about alert.
+    </attribute>
+    <attribute name="message" type="string" use="required">
+        Specifies the message for the support team.
+    </attribute>
+    <attribute name="messageType" type="string" use="required">
+        Specifies the message type.
+    </attribute>
+    <attribute name="serverEvents" type="string" use="optional">
+        Specifies the server events related to the alert.
+    </attribute>
     <attribute name="servers" type="string" use="optional">
         Specifies the servers related to the alert.
     </attribute>
-    <attribute name="serverEvents" type="string" use="optional">
-        Specifies the server events.
+    <attribute name="shortDescription" type="string" use="required">
+        Specifies the short description about alert.
+    </attribute>
+    <attribute name="supportCategory" type="int" use="optional">
+        Specifies the support category number.
+    </attribute>
+    <attribute name="supportGroup" type="string" use="optional">
+        Specifies the support Group name like 'Hybrid - SMB'.
+    </attribute>
+    <attribute name="supportSubCategory" type="int" use="optional">
+        Specifies the support sub category number.
+    </attribute>
+    <attribute name="supportTeam" type="string" use="required">
+        Specifies the support team name like 'Team A9'.
+    </attribute>
+    <attribute name="tenantId" type="string" use="required">
+        Specifies the customer's tenant ID.
+    </attribute>
+    <attribute name="ticketPriority" type="string" use="optional">
+        Specifies the severity of the issue with values like 'low', 'normal', 'high', 'urgent'.
+    </attribute>
+    <attribute name="ticketSeverity" type="string" use="optional">
+        Specifies the severity of the issue with values like 'Standard', 'Urgent', 'Emergency'.
     </attribute>
 </productSchema>
