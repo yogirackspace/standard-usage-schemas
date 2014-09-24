@@ -62,9 +62,9 @@
             </revision>
         </revhistory>
         <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-            <raxm:displayname>API Developer Guide</raxm:displayname>
+            <raxm:displayname>Cloud Feeds Publisher Guide</raxm:displayname>
             <raxm:product version="v1.0">cloud-feeds</raxm:product>
-            <raxm:priority>20</raxm:priority>
+            <raxm:priority>30</raxm:priority>
         </raxm:metadata>
     </info>
     <chapter xml:id="overview">
@@ -140,17 +140,18 @@
     </chapter>
     <chapter xml:id="General_API_Information-d1e633">
         <title>Overview</title>
-        <para>Cloud Feeds uses AtomPub to publish different types of feeds. Feeds are composed of a
-            number of items called <emphasis role="italic">entries</emphasis>. Each entry has an
-            extensible set of attached metadata. </para>
-        <para>AtomPub together with the Atom Syndication Format (ASF) provides a format for
-            implementing web feeds. Web feeds provide users with frequently updated content. AtomPub
-            is based on an HTTP transfer of Atom-formatted representations. The Atom format is
-            documented in the Atom Syndication Format.</para>
-        <para>Cloud Feeds is an open-source AtomPub server for accessing, processing, and
-            aggregating Atom entries. Cloud Feeds was designed to make it easy to build both
-            generalized and specialized persistence mechanisms for Atom XML data, based on the Atom
-            Syndication Format and the Atom Publishing Protocol.</para>
+        <para>Cloud Feeds supports the publication of <emphasis role="bold">events </emphasis>that
+            are collected in a <emphasis role="bold">feed</emphasis>. There is a specific format for
+            the events, and you can have multiple types of events in a single feed.</para>
+        <para>Cloud Feeds uses AtomPub to publish different types of feeds. AtomPub is based on an
+            HTTP transfer of Atom-formatted representations. The Atom format is documented in the
+            Atom Syndication Format.</para>
+        <para>AtomHopper events must be defined using the Common Event Format (CEF). UMS (Usage
+            Measurement Service) utilizes CEF for tracking purposes, but CEF can be also used for
+            other events and by third-party event publishers. The Common event format supports
+            versioning of the event and product nodes through the <emphasis role="italic"
+                >version</emphasis> attribute. This allows products to release new versions of their
+            schema.</para>
         <para>Cloud Feeds works the following way:</para>
         <para>
             <orderedlist>
@@ -168,14 +169,21 @@
                 xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>. For
             more information about AtomPub, visit <link xlink:href="http://atompub.org/"
                 >http://atompub.org/</link>.</para>
-        <para> </para>
+<section xml:id="Event_Types"><title>Event types</title><para>Cloud Feeds was originally implemented to gather <emphasis role="bold">usage events</emphasis>
+                and pass those on to our billing teams so they could charge customers appropriately.
+                However, Cloud Feeds now supports a number of additional use cases as well.
+                    <emphasis role="bold">System events</emphasis> are published to notify
+                subscribers about changes in their environments - a server has been provisioned, an
+                IP address has been released, there is an error state in a VM, and so on. <emphasis
+                    role="bold">User access events</emphasis> are generated when a user attempts to
+                access a specific API (for example, if a user requests that a server be shut down).
+                These events are highly useful for troubleshooting and for compliance
+                auditing.</para>
+            <para/></section>
+<section xml:id="Event_format"><title>Event format</title>
+<para></para></section>
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry"><title>Event node</title>
-            <para>AtomHopper events must be defined using the Common Event Format (CEF). UMS (Usage
-            Measurement Service) utilizes CEF for tracking purposes, but CEF can be also used for
-            other events and by third-party event publishers. The Common event format supports
-            versioning of the event and product nodes through the version attribute. This allows
-            products to release new versions of their schema.</para>
         <para>The Event node is the main element of a Cloud Feeds usage event entry.</para>
         <para>The Event node contains the following elements:</para>
         <para>
@@ -208,65 +216,170 @@
                 <table frame="void">
                     <caption>Attributes in event node</caption>
                     <col width="21%"/>
-                    <col width="46%"/>
-                    <col width="33%"/>
+                    <col width="13%"/>
+                    <col width="29%"/>
+                    <col width="15%"/>
+                    <col width="18%"/>
+                    <col width="40px"/>
                     <thead>
                         <tr>
                             <th>Attributes</th>
+                            <th>Type</th>
                             <th>Description</th>
+                            <th>Use</th>
                             <th>Example</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><code>startTime</code></td>
-                            <td>Specifies the start time of the event, the time format must be:
-                                    <emphasis role="italic"
-                                >yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis></td>
+                            <td>event:UTCDateTime</td>
+                            <td>Specifies the start time of the event, the time format must be in
+                                ISO format: <emphasis role="italic"
+                                    >yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis>. The startTime is for the
+                                UTC time zone. startTime is inclusive, which means the event
+                                occurred starting at the startTime, not after.</td>
+                            <td>optional</td>
                             <td>2014-07-14T22:19:52Z</td>
                         </tr>
                         <tr>
                             <td><code>endTime</code></td>
+                            <td>event:UTCDateTime</td>
                             <td>Specifies the end time of the event, the time format must be:
-                                    <emphasis role="italic"
-                                >yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis></td>
+                                    <emphasis role="italic">yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis>.
+                                UTC, ISO Format end time. For an EXISTs event, the startTime and
+                                endTime reflect the event duriation for the resource instance.
+                                endTime is exclusive (i.e. the event occurred up to, but not during
+                                the endTime). endTime must come after startTime.</td>
+                            <td>optional </td>
+                            <td>2013-09-05T14:50:46.904Z</td>
+                        </tr>
+                        <tr>
+                            <td><code>eventTime</code></td>
+                            <td>event:UTCDateTime</td>
+                            <td> UTC, ISO Format event time. The time when an event occured. Use
+                                instead of startTime and endTime in cases where the event does not
+                                have a range.</td>
+                            <td>optional</td>
                             <td>2013-09-05T14:50:46.904Z</td>
                         </tr>
                         <tr>
                             <td><code>region</code></td>
-                            <td>Specifies the region</td>
+                            <td>event:Region</td>
+                            <td>Specifies the region. If this attribute is not specified, GLOBAL
+                                will be assumed.</td>
+                            <td>optional</td>
                             <td>DFW</td>
                         </tr>
                         <tr>
                             <td><code>dataCenter</code></td>
-                            <td>Specifies the data center</td>
-                            <td>DFW</td>
+                            <td>event:DC</td>
+                            <td>Specifies the datacenter of the event. The attribute is optional, if
+                                it is not specified GLOBAL will be assumed.</td>
+                            <td>optional</td>
+                            <td>DFW3</td>
                         </tr>
                         <tr>
                             <td><code>type</code></td>
-                            <td>Specifies the feed type</td>
+                            <td>event:EventType</td>
+                            <td>Specifies the type of event. If one of the existing event types
+                                don't feed set this type to EXTENDED and add an eventType attribute
+                                to your product schema.</td>
+                            <td>required</td>
                             <td>USAGE</td>
                         </tr>
                         <tr>
                             <td><code>id</code></td>
-                            <td>Specifies the id of the event</td>
+                            <td>event:UUID</td>
+                            <td>Specifies the unique UUID for the event record. This value should be
+                                UUID Version 1, 2, or 4. For more information, see
+                                http://en.wikipedia.org/wiki/Universally_unique_identifier. </td>
+                            <td>required</td>
                             <td>8d89673c-c989-11e1-895a-0b3d632a8a89</td>
                         </tr>
                         <tr>
                             <td><code>resourceId</code></td>
-                            <td>Specifies the id of the resource</td>
+                            <td>event:NonEmptyString</td>
+                            <td>Specifies the id of the resource.</td>
+                            <td>optional</td>
                             <td>3863d42a-ec9a-11e1-8e12-df8baa3ca440</td>
                         </tr>
                         <tr>
                             <td><code>resourceName</code></td>
-                            <td>Specifies the name of the resource</td>
+                            <td>event:NonEmptyString"</td>
+                            <td>Specifies the customer-defined name for the resource.</td>
+                            <td>optional</td>
                             <td/>
                         </tr>
                         <tr>
                             <td><code>tenantId</code></td>
-                            <td>Specifies the tenant id of the publisher</td>
+                            <td>event:NonEmptyString</td>
+                            <td>Specifies the tenant id of the publishers</td>
+                            <td>optional</td>
                             <td>12345</td>
                         </tr>
+                        <tr>
+                            <td><code>version</code></td>
+                            <td>event:NonEmptyString</td>
+                            <td>Specifies the version of the event record.</td>
+                            <td>required</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>clientUsername</code></td>
+                            <td>event:Username</td>
+                            <td>Specifies the user name for the sub-account, when applicable.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>agentUsername</code></td>
+                            <td>event:Username</td>
+                            <td>Specifies the Rackspace agent who is taking action on account of the
+                                user.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>resourceURI</code></td>
+                            <td>xsd:anyURI</td>
+                            <td>Specifies a URI that uniquely identitfies the resource.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>referenceId</code></td>
+                            <td>event:UUID</td>
+                            <td>Specifies a GUID identifying the event record, that this record is
+                                updating. This is optional, and this should be used if this event is
+                                correcting another event.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>rootAction</code></td>
+                            <td>event:NonEmptyString</td>
+                            <td>Specifies the action that caused the event.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td><code>severity</code></td>
+                            <td>event:Severity</td>
+                            <td>Specifies the severity of the event. Valid values are INFO, WARNING,
+                                CRITICAL. This is only valid for system events, not usage
+                                events.</td>
+                            <td>optional</td>
+                            <td>CRITICAL</td>
+                        </tr>
+                        <tr>
+                            <td><code>environment</code></td>
+                            <td>event:ENVIRONMENT</td>
+                            <td>Specifies the environment where the message originated from. If this
+                                attribute is not specified, PROD will be assumed.</td>
+                            <td>optional</td>
+                            <td/>
+                        </tr>                  
                     </tbody>
                 </table>
             </para>
@@ -280,13 +393,20 @@
                 Each attribute group contains a specific set of attributes which can be
                 repeated.</para>
             <para>The product node identifies the product to which the feed refers. It also provides
-                product-specific information and details about rhe resources.</para>
+                product-specific information and details about the resources.</para>
             <para>Following is an example of a product node:</para>
             <para>
-                <programlisting>&lt;dbaas:product version="2" serviceCode="CloudDatabase"
-       resourceType="MYSQL"
-       dbVersion="1.0.0.0.0.0.0.0"
-       memory="16" storage="64"/></programlisting>
+                <programlisting>&lt;sample:product serviceCode="EmailAppsMSService"
+          version="1"
+           key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
+           productType="lync"
+           operation="UPDATE"
+           status="COMPLETED"
+           request="HTTP GET"
+           response="200">
+     &lt;sample:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
+     &lt;sample:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
+ &lt;/sample:product></programlisting>
             </para>
         </section></chapter>
     <chapter xml:id="sample_product_schema">
@@ -305,15 +425,18 @@
             <para>Attributes elements can consist of different data types, such as strings or
                 integeres. Attributes can vary but they usually contain the following
                 elements:</para>
+            <para>&lt;need to fill in this information></para>
             <para>
                 <table frame="void">
                     <caption>Common Attribute node elements</caption>
-                    <col width="33%"/>
-                    <col width="33%"/>
-                    <col width="33%"/>
+                    <col width="24%"/>
+                    <col width="19%"/>
+                    <col width="36%"/>
+                    <col width="24%"/>
                     <thead>
                         <tr>
                             <th>Attribute</th>
+                            <th>Type</th>
                             <th>Description</th>
                             <th>Example</th>
                         </tr>
@@ -323,9 +446,11 @@
                             <td>name</td>
                             <td/>
                             <td/>
+                            <td/>
                         </tr>
                         <tr>
                             <td>type</td>
+                            <td/>
                             <td/>
                             <td/>
                         </tr>
@@ -333,9 +458,11 @@
                             <td>minLength</td>
                             <td/>
                             <td/>
+                            <td/>
                         </tr>
                         <tr>
                             <td>maxLength</td>
+                            <td/>
                             <td/>
                             <td/>
                         </tr>
@@ -343,9 +470,11 @@
                             <td>use</td>
                             <td/>
                             <td/>
+                            <td/>
                         </tr>
                         <tr>
                             <td>unitOfMeasure</td>
+                            <td/>
                             <td/>
                             <td/>
                         </tr>
@@ -353,8 +482,16 @@
                             <td>aggregateFunction</td>
                             <td/>
                             <td/>
+                            <td/>
                         </tr>
                         <tr>
+                            <td>request</td>
+                            <td/>
+                            <td/>
+                            <td/>
+                        </tr>
+                        <tr>
+                            <td>response</td>
                             <td/>
                             <td/>
                             <td/>
@@ -384,9 +521,15 @@
                 </para></section>
             <section xml:id="Versions">
                 <title>Versions<?sbr?><?sbr?></title>
-                <para>The product node can be versioned. You can determine the version of a product
-                    by setting the version attribute in the event node and/or the product
-                    node.</para></section>
+                <para>The event and product nodes are version-controlled. Cloud Feeds can support
+                    events containing different definitions for the event and product nodes
+                    simultaneously. This allows publishers to define a new event without breaking
+                    older events that have not yet adopted the new definition. The event and product
+                    versions are independent of each other.</para>
+                <para>For example, if you specify &lt;event version="2"&gt; then Cloud Feeds will
+                    apply different rules to startTime and endTime that if you specify &lt;event
+                    version="1"&gt;. But you can use either version with any &lt;product
+                    version="..."&gt;.</para></section>
         </section>   
     </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
@@ -426,10 +569,11 @@
             <title>Creating message samples</title>
             <para>You can create samples of atom entries that can be used in Cloud Feeds API
                 requests and responses.</para>
-            <para>Following is an example of a response to a Cloud Feeds API request to post an Atom
+            <para>Following is an example of an Atom entry:</para>
+            <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-entry.xml" parse="text"/></programlisting>
+            <para>Following is an example of a response to a Cloud Feeds request to post an Atom
                 entry.</para>
-            <programlisting language="xml" security="internal"><xi:include href="./samples/clouddatabase-dbaas-mysql-usage-response.xml" parse="text"/></programlisting>
-            <para/>
+            <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-response.xml" parse="text"/></programlisting>
         </section>
     </chapter>
 </book>
