@@ -353,6 +353,14 @@
                             </includes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
+                        <fileset>
+                            <directory>${basedir}/wadl</directory>
+                            <includes>
+                                <include>filter_private_attrs.xsl</include>
+                                <include>rm_private_attrs_for_obs.xsl</include>
+                                <include>product.wadl</include>
+                            </includes>
+                        </fileset>
                     </filesets>
                 </configuration>
             </plugin>

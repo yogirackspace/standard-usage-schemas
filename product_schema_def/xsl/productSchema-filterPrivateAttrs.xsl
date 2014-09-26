@@ -31,9 +31,6 @@
             
             <xslout:output method="xml" indent="yes" encoding="UTF-8"/>
             
-            <xslout:param name="input-headers-uri"/>
-            <xslout:variable name="headerDoc" select="doc($input-headers-uri)"/>
-                      
             <xslout:template match="@*|node()">
                 <xslout:copy>
                     <xslout:apply-templates select="@*|node()"/>
@@ -54,19 +51,13 @@
             <xsl:text>&#x0a;   </xsl:text>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
                              match="event:event/@resourceId">
-                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and 
-                                                                               (@value = 'cloudfeeds:service-admin' or
-                                                                                @value = 'identity:admin')]) or
-                                 not(parent::node()/identity:product)">
+                <xslout:if test="not(parent::node()/identity:product)">
                    <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
                              match="atom:entry/atom:category[starts-with(@term, 'rid:')]">
-                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and 
-                                                                               (@value = 'cloudfeeds:service-admin' or
-                                                                                @value = 'identity:admin')]) or
-                                 not(parent::node()/atom:content/event:event/identity:product)">
+                <xslout:if test="not(parent::node()/atom:content/event:event/identity:product)">
                     <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
@@ -101,9 +92,6 @@
 
         <xslout:template match="pf:product[@version='{$version}']/@*[some $x in ({$private_attrs}) satisfies $x eq local-name(.)]">
             <xsl:namespace name="pf" select="$namespace"/>
-            <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-                <xslout:copy-of select="."/>
-            </xslout:if>
         </xslout:template>
 
         <xsl:for-each select="sch:attributeGroup[sch:attribute/@private]">
@@ -117,9 +105,6 @@
             </xsl:variable>
             <xslout:template match="pf:product[@version='{$version}']/pf:{@name}/@*[some $x in ({$private_attr_group_attrs}) satisfies $x eq local-name(.)]">
                 <xsl:namespace name="pf" select="$namespace"/>
-                <xslout:if test="exists($headerDoc//httpx:request/httpx:header[@name = 'x-roles' and @value = 'cloudfeeds:service-admin'])">
-                    <xslout:copy-of select="."/>
-                </xslout:if>
             </xslout:template>
             
         </xsl:for-each>
