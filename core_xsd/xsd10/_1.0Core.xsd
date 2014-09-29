@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:event="http://docs.rackspace.com/core/event" xmlns:xerces="http://xerces.apache.org" xmlns:saxon="http://saxon.sf.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://docs.rackspace.com/core/event">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:event="http://docs.rackspace.com/core/event" xmlns:xerces="http://xerces.apache.org" xmlns:saxon="http://saxon.sf.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://docs.rackspace.com/core/event">
 
     <complexType name="EventBase" abstract="true">
         <annotation>
@@ -219,6 +219,48 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="duration" type="xsd:duration" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Usage duration of the resource associated with this event. This is
+                                primarily used for event with type=USAGE_SUMMARY.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="rackspaceAccountNumber" type="event:NonEmptyString" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Usage account number of the resource associated with this event. This is
+                                primarily used for event with type=USAGE_SUMMARY.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </extension>
         </complexContent>
@@ -283,6 +325,7 @@
             <enumeration value="CREATE"/>
             <enumeration value="USAGE"/>
             <enumeration value="USAGE_SNAPSHOT"/>
+            <enumeration value="USAGE_SUMMARY"/>
             <enumeration value="UPDATE"/>
             <enumeration value="DELETE"/>
             <enumeration value="SUSPEND"/>

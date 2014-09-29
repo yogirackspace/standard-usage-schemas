@@ -10,7 +10,7 @@
                eventTime="2012-06-14T10:19:52Z"
                id="47b574c4-0400-11e2-b19d-7b8e208cade1"
                dataCenter="ORD1" region="ORD"
-               tenantId="12883" version="1">
+               tenantId="12883" rackspaceAccountNumber="020-12883" version="1">
             <email:product serviceCode="CloudSites" version="1"
                        resourceType="SITES_EMAIL"
                        numberOfMailboxes="1000.345"/>

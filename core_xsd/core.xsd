@@ -190,8 +190,8 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                UTC, ISO Format start time. startTime is 
-                                inclusive (i.e. the event occurred starting 
+                                UTC, ISO Format start time. startTime is
+                                inclusive (i.e. the event occurred starting
                                 at the startTime, not after).
                             </html:p>
                         </documentation>
@@ -203,7 +203,7 @@
                             <html:p>
                                 UTC, ISO Format end time.  For an EXISTs
                                 event, the startTime and endTime reflect the
-                                event duriation for the resource instance. 
+                                event duriation for the resource instance.
                                 endTime is exclusive (i.e. the event occurred
                                 up to, but not during the endTime).
                                 endTime must come after startTime.
@@ -236,8 +236,18 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                               Usage duration of the resource associated with this event. This is 
+                               Usage duration of the resource associated with this event. This is
                                primarily used for event with type=USAGE_SUMMARY.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="rackspaceAccountNumber" type="event:NonEmptyString" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Usage account number of the resource associated with this event. This is
+                                primarily used for event with type=USAGE_SUMMARY.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -507,6 +517,30 @@
                         <documentation>
                             <html:p>
                                 If this event is not of type USAGE_SUMMARY, then it should not have a duration attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@type = 'USAGE_SUMMARY') then @rackspaceAccountNumber else true()"
+                        xerces:message="If this event is of type USAGE_SUMMARY, then it should have rackspaceAccountNumber attribute"
+                        saxon:message="If this event is of type USAGE_SUMMARY, then it should have rackspaceAccountNumber attribute"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If this event is of type USAGE_SUMMARY, then it should have a rackspaceAccountNumber attribute.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </assert>
+                <assert vc:minVersion="1.1" test="if (@type != 'USAGE_SUMMARY') then not(exists(@rackspaceAccountNumber)) else true()"
+                        xerces:message="If this event is not of type USAGE_SUMMARY, then it should not have rackspaceAccountNumber attribute"
+                        saxon:message="If this event is not of type USAGE_SUMMARY, then it should not have rackspaceAccountNumber attribute"
+                        >
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                If this event is not of type USAGE_SUMMARY, then it should not have an rackspaceAccountNumber attribute.
                             </html:p>
                         </documentation>
                     </annotation>

@@ -25,6 +25,7 @@
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
              version="1"
              tenantId="1234"
+             rackspaceAccountNumber="020-1234"
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T11:51:11Z"
              duration="PT10M"

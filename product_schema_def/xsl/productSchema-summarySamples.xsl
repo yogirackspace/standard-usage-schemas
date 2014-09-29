@@ -80,6 +80,7 @@
                         </xsl:if>
     
                         <xsl:attribute name="tenantId">123456</xsl:attribute>
+                        <xsl:attribute name="rackspaceAccountNumber">020-123456</xsl:attribute>
                         <xsl:attribute name="startTime">2013-03-15T11:51:11Z</xsl:attribute>
                         <xsl:attribute name="endTime">2013-03-16T00:00:00Z</xsl:attribute>
                         <xsl:attribute name="duration">PT20M</xsl:attribute>
