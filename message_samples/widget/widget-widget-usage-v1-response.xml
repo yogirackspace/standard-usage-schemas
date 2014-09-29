@@ -12,7 +12,7 @@
             <widget:product dateTime="2012-05-16T06:42:44Z" disabled="false" enumList="BETTER WORST" label="Test Label" mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="3" resourceType="WIDGET" serviceCode="Widget" str="Test Type" time="06:42:44Z" version="1" widget_id_list="1 2 3 4 5" />
         </event>
     </atom:content>
-    <atom:link href="https://ord.feeds.api.rackspacecloud.com/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/widgettest/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
     <atom:updated>2013-02-28T19:26:19.783Z</atom:updated>
     <atom:published>2013-02-28T19:26:19.783Z</atom:published>
 </atom:entry>

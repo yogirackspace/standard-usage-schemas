@@ -2,7 +2,7 @@
 .idea/
 
 ## used to verify sample generation
-message_samples/usagetest6/
+message_samples/widgettest/
 
 *~
 *.DS_Store

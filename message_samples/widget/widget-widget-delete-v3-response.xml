@@ -17,7 +17,7 @@
             </widget:product>
         </event>
     </atom:content>
-    <atom:link href="https://ord.feeds.api.rackspacecloud.com/usagetest6/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/widgettest/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13" rel="self" />
     <atom:updated>2014-03-03T19:19:08.422Z</atom:updated>
     <atom:published>2014-03-03T19:19:08.422Z</atom:published>
 </atom:entry>

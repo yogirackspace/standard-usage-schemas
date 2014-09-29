@@ -177,7 +177,7 @@ class ProductSchemaSuite extends BaseUsageSuite {
     if (!f.isDirectory) {
       // this directory is generated only to test our generated samples ability
       // don't include this in the wadl test
-      if( f.getPath().matches( "^message_samples/usagetest6/.*" ) ) {
+      if( f.getPath().matches( "^message_samples/widgettest/.*" ) ) {
         new Comment( "generate samples test only:" + f.getAbsolutePath.substring(1) )
       }
       else {

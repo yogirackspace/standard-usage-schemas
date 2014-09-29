@@ -152,7 +152,7 @@
                             </inputs>
                             <parameters>
                                 <parameters>
-                                    base_feed_name=usagetest6
+                                    base_feed_name=widgettest
                                     input_path=sample_product_schemas/widget.xml
                                 </parameters>
                             </parameters>
@@ -171,7 +171,7 @@
                             </inputs>
                             <parameters>
                                 <parameters>
-                                    base_feed_name=usagetest6
+                                    base_feed_name=widgettest
                                     input_path=sample_product_schemas/widget-with-explicit-aggreation-period.xml
                                 </parameters>
                             </parameters>
@@ -190,7 +190,7 @@
                             </inputs>
                             <parameters>
                                 <parameters>
-                                    base_feed_name=usagetest6
+                                    base_feed_name=widgettest
                                     input_path=sample_product_schemas/widget-with-mulitple-aggregation-periods.xml
                                 </parameters>
                             </parameters>
