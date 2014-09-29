@@ -50,7 +50,7 @@
                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                    namespace="http://docs.rackspace.com/usage/bigdata"
                    serviceCode="BigData"
-                   version="2" resourceTypes="HADOOP_HDP2_1 HADOOP_HDP1_3 HBASE_HDP2_1 HBASE_HDP1_3">
+                   version="2" resourceTypes="HADOOP_HDP2_1 HADOOP_HDP1_3 HBASE_HDP2_1 HBASE_HDP1_3 SPARK">
     <description>
         Specifies the usage message for a big data cluster.
     </description>
@@ -58,7 +58,7 @@
     <attribute name="flavorId" type="string"
                maxLength="50" minLength="1"
                use="required"
-               allowedValues="hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60"
+               allowedValues="hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60 onmetal-io1"
                groupBy="true">
         Specifies the flavor Id of the cluster.
     </attribute>
@@ -93,76 +93,5 @@
                max="16000000000000">
         Specifies the outbound bandwidth, in bytes.
     </attribute>
-    </productSchema>
-    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   namespace="http://docs.rackspace.com/usage/bigdata"
-                   serviceCode="BigData"
-                   version="3" resourceTypes="CLOUD_BIG_DATA_CLUSTER">
-        <description>
-            Usage message for a big data cluster.
-        </description>
-
-        <attributeGroup name="serverGroup" minOccurs="1" maxOccurs="50">
-          <description>
-              A group of servers of a particular flavor.
-          </description>
-          <attribute name="flavorId" type="string"
-                     maxLength="50" minLength="1"
-                     use="required"
-                     allowedValues="hadoop1-2 hadoop1-4 hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60 onmetal-io1 onmetal-storage1"
-                     groupBy="true">
-              The flavor id of the group.
-          </attribute>
-
-          <attribute name="flavorName" type="string"
-                     maxLength="300" minLength="1"
-                     use="required"
-                     groupBy="true">
-              The flavor name of the group.
-          </attribute>
-
-          <attribute name="numberServersInGroup" type="unsignedInt"
-                     use="required" min="1" max="3000"
-                     groupBy="true">
-              This is the number of nodes in the group.
-          </attribute>
-
-          <attribute name="aggregatedGroupDuration" type="unsignedLong"
-                     use="synthesized" unitOfMeasure="S"
-                     aggregateFunction="SUM">
-              This is the sum of the durations in seconds of all nodes of the group.
-          </attribute>
-        </attributeGroup>
-
-        <attribute name="bandwidthIn" type="unsignedLong" use="required"
-                   unitOfMeasure="B" aggregateFunction="SUM" min="0"
-                   max="16000000000000">
-            The amount of bandwidth in for the entire cluster, in bytes.
-        </attribute>
-
-        <attribute name="bandwidthOut" type="unsignedLong" use="required"
-                   unitOfMeasure="B" aggregateFunction="SUM" min="0"
-                   max="16000000000000">
-            The amount of bandwidth out for the entire cluster, in bytes.
-        </attribute>
-
-        <attributeGroup name="attachedStorage" minOccurs="0" maxOccurs="2">
-          <description>
-              A list of attached storage devices.
-          </description>
-          <attribute name="storageType" type="string"
-                     maxLength="50" minLength="1"
-                     use="required"
-                     allowedValues="SATA SSD"
-                     groupBy="true">
-              The type of attached storage.
-          </attribute>
-          <attribute name="storageSize" type="int" use="optional"
-                     unitOfMeasure="GB" min="0"
-                     max="1000000000">
-              The amount of this type of storage used for the entire cluster, in gigabytes.
-          </attribute>
-        </attributeGroup>
     </productSchema>
 </alternatives>
