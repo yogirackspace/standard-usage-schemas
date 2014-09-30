@@ -518,6 +518,27 @@
                         </sources>
                     </mapping>
                     <mapping>
+                        <directory>/etc/cloudfeeds/translation</directory>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>755</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                    </mapping>
+                    <mapping>
+                        <directory>/etc/cloudfeeds/translation</directory>
+                        <username>repose</username>
+                        <groupname>repose</groupname>
+                        <!-- Modify file permissions as needed -->
+                        <filemode>644</filemode>
+                        <configuration>true</configuration>
+                        <directoryIncluded>true</directoryIncluded>
+                        <sources>
+                            <source>
+                                <location>wadl/rm_private_attrs_for_obs.xsl</location>
+                            </source>
+                        </sources>
+                    </mapping>
+                    <mapping>
                         <directory>/etc/repose/usage-schema/core_xsd</directory>
                         <username>repose</username>
                         <groupname>repose</groupname>

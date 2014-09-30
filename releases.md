@@ -1,10 +1,15 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.67.0**  
+2014-09-26 | B-77841: adjust private attrs XSLT to be consumed by servlet filters (Shinta Smith)  
+2014-09-18 | \[B-78566\] Add new 'action' values to servers-slice-action (Chandra Addala)  
+
 **usage-schema-1.66.0**  
 2014-09-16 | \[B-78336\] Changed createdAt to utcDateTime. Added feed to functest1 (Chandra Addala)  
 2014-09-16 | \[B-78336\] New relic feed - additional fields (Chandra Addala)  
 2014-09-15 | \[B-78336\] New relic feed (Chandra Addala)  
+2014-09-12 | B-76837 - Need to add usagesummary feeds to the documentation (Greg Sharek)  
 
 **usage-schema-1.65.1**  
 2014-09-09 | B-76207 - Generate samples of events with event version="2" (Greg Sharek)  
@@ -103,8 +108,9 @@
 2014-04-29 | B-72221: update sample messages (Shinta Smith)  
 
 **usage-schema-1.48.2**  
-**usage-schema-1.48.1**  
 2014-04-29 | B-71279: fix issues with xpl not removing old generated XSDs and generating new XSDs in the wrong place (Shinta Smith)  
+
+**usage-schema-1.48.1**  
 2014-04-28 | B-53820: add 2 feeds for nooverridestest and overridestest (Shinta Smith)  
 
 **usage-schema-1.48.0**  
