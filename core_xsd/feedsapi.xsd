@@ -15,6 +15,12 @@
         </restriction>
     </simpleType>
 
+    <simpleType name="usagetestPathType">
+        <restriction base="xsd:string">
+              <pattern value="usagetest\d{1,2}"/>
+        </restriction>
+    </simpleType>
+
     <!-- The following is for testing only
     <element name="root" type="cldfeeds:rootType"/>
     

@@ -270,6 +270,10 @@ class ValidatorSuite extends BaseUsageSuite {
     </atom:entry>), response, chain), 400)
   }
 
+  test( "should fail when validating the usagetest feed request with 404" ) {
+    assertResultFailed(atomValidator.validate( request( "GET", "/usagetest100/events/", "plain/text", "foo"), response, chain), 404)
+  }
+
   // verify that prefix categories are not allowed to be posted to validated and product feeds
 
   List( "tid:", "rgn:", "dc:", "rid:", "type:" ).foreach( prefix => {
