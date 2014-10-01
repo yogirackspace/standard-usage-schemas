@@ -526,10 +526,8 @@
                     </mapping>
                     <mapping>
                         <directory>/etc/cloudfeeds/translation</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
                         <!-- Modify file permissions as needed -->
-                        <filemode>644</filemode>
+                        <filemode>755</filemode>
                         <configuration>true</configuration>
                         <directoryIncluded>true</directoryIncluded>
                         <sources>
