@@ -2,6 +2,7 @@
 <application xmlns="http://wadl.dev.java.net/2009/02"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:rax="http://docs.rackspace.com/api"
+             xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
              xmlns:atom="http://www.w3.org/2005/Atom">
     <doc title="Feeds Catalog"/>
     <grammars>
@@ -188,24 +189,7 @@
             <resource id="perftest2_events"
                       path="perftest2/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest1_events"
-                      path="usagetest1/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest2_events"
-                      path="usagetest2/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest3_events"
-                      path="usagetest3/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest4_events"
-                      path="usagetest4/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest5_events"
-                      path="usagetest5/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-            <resource id="usagetest6_events"
-                      path="usagetest6/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+
             <resource id="usagetest7_events"
                       path="usagetest7/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
@@ -221,12 +205,18 @@
             <resource id="usagetest11_events"
                       path="usagetest11/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
-            <resource id="usagetest12_events"
-                      path="usagetest12/events" 
-                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+
             <resource id="widgettest_events"
                       path="widgettest/events"
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Widget"/>
+
+            <resource id="usagetest_events"
+                      path="{usagetestid}/events"
+                      type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated">
+                <param name="usagetestid" style="template" type="cldfeeds:usagetestPathType"/>
+             </resource>
+
+
             <!-- end of Test related feeds -->
     
             <!-- Summary Feeds -->
