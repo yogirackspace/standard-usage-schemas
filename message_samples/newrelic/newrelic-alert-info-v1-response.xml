@@ -49,9 +49,7 @@
                          supportGroup="Hybrid - SMB"
                          supportSubCategory="12"
                          supportTeam="Team A9"
-                         tenantId="634739"
-                         ticketPriority="high"
-                         ticketSeverity="Urgent"/>
+                         tenantId="634739"/>
       </event>
    </atom:content>
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/newrelic/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"

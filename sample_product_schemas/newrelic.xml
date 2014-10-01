@@ -55,10 +55,4 @@
     <attribute name="tenantId" type="string" use="required">
         Specifies the customer's tenant ID.
     </attribute>
-    <attribute name="ticketPriority" type="string" use="optional">
-        Specifies the severity of the issue with values like 'low', 'normal', 'high', 'urgent'.
-    </attribute>
-    <attribute name="ticketSeverity" type="string" use="optional">
-        Specifies the severity of the issue with values like 'Standard', 'Urgent', 'Emergency'.
-    </attribute>
 </productSchema>

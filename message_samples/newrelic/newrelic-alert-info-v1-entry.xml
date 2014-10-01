@@ -45,9 +45,7 @@
                          supportGroup="Hybrid - SMB"
                          supportSubCategory="12"
                          supportTeam="Team A9"
-                         tenantId="634739"
-                         ticketPriority="high"
-                         ticketSeverity="Urgent"/>
+                         tenantId="634739"/>
       </event>
    </atom:content>
 </atom:entry>
