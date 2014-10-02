@@ -278,6 +278,68 @@ class ValidatorSuite extends BaseUsageSuite {
     assertResultFailed(atomValidator.validate(request("POST", "/usagetest8/events", "plain/text", "foo"), response, chain), 415)
   }
 
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest2/events)") {
+      atomValidator.validate(request("POST", "/usagetest2/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest3/events)") {
+      atomValidator.validate(request("POST", "/usagetest3/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest4/events)") {
+      atomValidator.validate(request("POST", "/usagetest4/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest5/events)") {
+      atomValidator.validate(request("POST", "/usagetest5/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest6/events)") {
+      atomValidator.validate(request("POST", "/usagetest6/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+
   val validBigDataMessage = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
                                         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                                         xmlns="http://www.w3.org/2001/XMLSchema">
