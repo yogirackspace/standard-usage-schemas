@@ -52,9 +52,6 @@
     <attribute name="supportSubCategory" type="int" use="optional">
         Specifies the support sub category number.
     </attribute>
-    <attribute name="supportTeam" type="string" use="required">
-        Specifies the support team name like 'Team A9'.
-    </attribute>
     <attribute name="tenantId" type="string" use="required">
         Specifies the customer's tenant ID.
     </attribute>
