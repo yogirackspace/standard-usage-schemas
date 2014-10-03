@@ -278,58 +278,8 @@ class ValidatorSuite extends BaseUsageSuite {
     assertResultFailed(atomValidator.validate(request("POST", "/usagetest8/events", "plain/text", "foo"), response, chain), 415)
   }
 
-
-  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest2/events)") {
-      atomValidator.validate(request("POST", "/usagetest2/events", "application/atom+xml",
-        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-          <atom:title>Foo Atom Data</atom:title>
-          <atom:content type="application/xml">
-            <foo xmlns="fooBar.com">
-            </foo>
-          </atom:content>
-        </atom:entry>), response, chain)
-  }
-
-
-
-  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest3/events)") {
-      atomValidator.validate(request("POST", "/usagetest3/events", "application/atom+xml",
-        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-          <atom:title>Foo Atom Data</atom:title>
-          <atom:content type="application/xml">
-            <foo xmlns="fooBar.com">
-            </foo>
-          </atom:content>
-        </atom:entry>), response, chain)
-  }
-
-
-  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest4/events)") {
-      atomValidator.validate(request("POST", "/usagetest4/events", "application/atom+xml",
-        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-          <atom:title>Foo Atom Data</atom:title>
-          <atom:content type="application/xml">
-            <foo xmlns="fooBar.com">
-            </foo>
-          </atom:content>
-        </atom:entry>), response, chain)
-  }
-
-  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest5/events)") {
-      atomValidator.validate(request("POST", "/usagetest5/events", "application/atom+xml",
-        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-          <atom:title>Foo Atom Data</atom:title>
-          <atom:content type="application/xml">
-            <foo xmlns="fooBar.com">
-            </foo>
-          </atom:content>
-        </atom:entry>), response, chain)
-  }
-
-
-
-  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest6/events)") {
-      atomValidator.validate(request("POST", "/usagetest6/events", "application/atom+xml",
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest72/events)") {
+      atomValidator.validate(request("POST", "/usagetest72/events", "application/atom+xml",
         <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
           <atom:title>Foo Atom Data</atom:title>
           <atom:content type="application/xml">
@@ -369,16 +319,8 @@ class ValidatorSuite extends BaseUsageSuite {
                             </atom:entry>
 
 
-  test("Posting valid usage entry should succeed on a validated feed (usagetest9/events)") {
+  test("Posting valid usage entry for bigdata atom feed)") {
     atomValidator.validate(request("POST", "/usagetest9/events", "application/atom+xml", validBigDataMessage), response, chain)
-  }
-
-  test("Posting valid usage entry should succeed on a validated feed (usagetest10/events)") {
-    atomValidator.validate(request("POST", "/usagetest10/events", "application/atom+xml", validBigDataMessage), response, chain)
-  }
-
-  test("Posting valid usage entry should succeed on a validated feed (usagetest11/events)") {
-    atomValidator.validate(request("POST", "/usagetest11/events", "application/atom+xml", validBigDataMessage), response, chain)
   }
 
   var validLbassMessage = <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
@@ -403,16 +345,8 @@ class ValidatorSuite extends BaseUsageSuite {
                             </atom:content>
                             </atom:entry>
 
-  test("Posting valid usage entry should succeed on a validated feed (usagetest-9/events)") {
-    atomValidator.validate(request("POST", "/usagetest9/events", "application/atom+xml", validLbassMessage), response, chain)
-  }
-
-  test("Posting valid usage entry should succeed on a validated feed (usagetest-10/events)") {
-    atomValidator.validate(request("POST", "/usagetest10/events", "application/atom+xml", validLbassMessage), response, chain)
-  }
-
-  test("Posting valid usage entry should succeed on a validated feed (usagetest-11/events)") {
-    atomValidator.validate(request("POST", "/usagetest11/events", "application/atom+xml", validLbassMessage), response, chain)
+  test("Posting valid usage entry for cloud load balancers") {
+    atomValidator.validate(request("POST", "/usagetest98/events", "application/atom+xml", validLbassMessage), response, chain)
   }
 
   // verify that prefix categories are not allowed to be posted to validated and product feeds
