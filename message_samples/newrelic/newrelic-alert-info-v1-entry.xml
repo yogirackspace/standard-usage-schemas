@@ -40,6 +40,7 @@
                          messageType="alert"
                          serverEvents="[list, of, server, events]"
                          servers="[list, of, servers]"
+                         severity="downtime"
                          shortDescription="Short description about alert"
                          supportCategory="3"
                          supportGroup="Hybrid - SMB"
