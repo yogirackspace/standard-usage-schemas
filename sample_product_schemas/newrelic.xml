@@ -7,7 +7,7 @@
     <description>
         Specifies the events related to New Relic alerts.
     </description>
-    <attribute name="accountName" type="string" use="required">
+    <attribute name="accountName" type="string" use="optional">
         Specifies the account name.
     </attribute>
     <attribute name="alertPolicyName" type="string" use="optional">
