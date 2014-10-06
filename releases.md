@@ -1,6 +1,13 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.68.0**  
+2014-10-03 | B-78838 - fixed the review comments. (Naresh Kurapati)  
+2014-10-02 | B-78838 - added more testcases for usagetest feeds (Naresh Kurapati)  
+2014-10-02 | B-78838 - added test case for usagetest 8,9,10,11 (Naresh Kurapati)  
+
+**usage-schema-1.67.1**  
+
 **usage-schema-1.67.0**  
 2014-09-26 | B-77841: adjust private attrs XSLT to be consumed by servlet filters (Shinta Smith)  
 2014-09-18 | \[B-78566\] Add new 'action' values to servers-slice-action (Chandra Addala)  
@@ -108,9 +115,8 @@
 2014-04-29 | B-72221: update sample messages (Shinta Smith)  
 
 **usage-schema-1.48.2**  
-2014-04-29 | B-71279: fix issues with xpl not removing old generated XSDs and generating new XSDs in the wrong place (Shinta Smith)  
-
 **usage-schema-1.48.1**  
+2014-04-29 | B-71279: fix issues with xpl not removing old generated XSDs and generating new XSDs in the wrong place (Shinta Smith)  
 2014-04-28 | B-53820: add 2 feeds for nooverridestest and overridestest (Shinta Smith)  
 
 **usage-schema-1.48.0**  
