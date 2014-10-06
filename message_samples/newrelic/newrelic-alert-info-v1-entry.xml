@@ -40,14 +40,12 @@
                          messageType="alert"
                          serverEvents="[list, of, server, events]"
                          servers="[list, of, servers]"
+                         severity="downtime"
                          shortDescription="Short description about alert"
                          supportCategory="3"
                          supportGroup="Hybrid - SMB"
                          supportSubCategory="12"
-                         supportTeam="Team A9"
-                         tenantId="634739"
-                         ticketPriority="high"
-                         ticketSeverity="Urgent"/>
+                         tenantId="634739"/>
       </event>
    </atom:content>
 </atom:entry>
