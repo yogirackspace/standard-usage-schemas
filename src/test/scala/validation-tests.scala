@@ -270,6 +270,85 @@ class ValidatorSuite extends BaseUsageSuite {
     </atom:entry>), response, chain), 400)
   }
 
+  test( "should fail when validating the usagetest feed request with 404" ) {
+    assertResultFailed(atomValidator.validate( request( "GET", "/usagetest100/events/", "plain/text", "foo"), response, chain), 404)
+    }
+
+  test("Posting text on an unvalidated feed (usagetest8/events) should fail with 415") {
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest8/events", "plain/text", "foo"), response, chain), 415)
+  }
+
+  test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest72/events)") {
+      atomValidator.validate(request("POST", "/usagetest72/events", "application/atom+xml",
+        <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>Foo Atom Data</atom:title>
+          <atom:content type="application/xml">
+            <foo xmlns="fooBar.com">
+            </foo>
+          </atom:content>
+        </atom:entry>), response, chain)
+  }
+
+
+  val validBigDataMessage = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+                                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                        xmlns="http://www.w3.org/2001/XMLSchema">
+                                <atom:title>BigData</atom:title>
+                                <atom:content type="application/xml">
+                                <event xmlns="http://docs.rackspace.com/core/event"
+                                        xmlns:sample="http://docs.rackspace.com/usage/bigdata"
+                                        id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+                                        version="1"
+                                        resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+                                        tenantId="1234"
+                                        startTime="2013-03-15T11:51:11Z"
+                                        endTime="2013-03-15T23:59:59Z"
+                                        type="USAGE"
+                                        dataCenter="DFW1"
+                                        region="DFW">
+                                            <sample:product serviceCode="BigData"
+                                                  version="1"
+                                                  resourceType="HADOOP_HDP1_1"
+                                                  flavorId="a"
+                                                  flavorName="a"
+                                                  numberServersInCluster="1"
+                                                  bandwidthIn="0"
+                                                  bandwidthOut="0"/>
+                                </event>
+                                </atom:content>
+                            </atom:entry>
+
+
+  test("Posting valid usage entry for bigdata atom feed)") {
+    atomValidator.validate(request("POST", "/usagetest9/events", "application/atom+xml", validBigDataMessage), response, chain)
+  }
+
+  var validLbassMessage = <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
+                                      xmlns:lbhm="http://docs.rackspace.com/event/lbaas/health-monitor">
+                            <atom:title type="text">Health Monitor Create</atom:title>
+                            <atom:summary type="text">Health Monitor Created.</atom:summary>
+
+                            <atom:content type="application/xml">
+                                   <event resourceName="My Health Monitor"
+                                          resourceId="65"
+                                          resourceURI="http://dfw1.lbaas.rackspace.com/path/to/monitor/65"
+                                          severity="INFO"
+                                          eventTime="2012-06-15T10:19:52Z" region="DFW" dataCenter="DFW1" type="CREATE"
+                                          id="7ba76892-4058-11e3-806b-002500a28a7a"
+                                          tenantId="1223" version="1">
+                                    <lbhm:product version="1" resourceType="HEALTH_MONITOR"
+                                                  serviceCode="CloudLoadBalancers"
+                                                  type="HTTP" delay="20"
+                                                  timeout="39" attemptsBeforeDeactivation="3"
+                                                  path="/foo" monitorStatusRegex="2.." bodyRegex="Okay"/>
+                                    </event>
+                            </atom:content>
+                            </atom:entry>
+
+  test("Posting valid usage entry for cloud load balancers") {
+    atomValidator.validate(request("POST", "/usagetest98/events", "application/atom+xml", validLbassMessage), response, chain)
+  }
+
   // verify that prefix categories are not allowed to be posted to validated and product feeds
 
   List( "tid:", "rgn:", "dc:", "rid:", "type:" ).foreach( prefix => {
