@@ -56,6 +56,15 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="parentTenantId" type="event:NonEmptyString" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Identifies the parent tenant ID.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="clientUsername" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
