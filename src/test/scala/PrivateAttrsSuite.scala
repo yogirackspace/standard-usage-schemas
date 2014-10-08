@@ -16,7 +16,7 @@ class PrivateAttrsSuite extends BaseUsageSuite {
 
   register ("csd","http://docs.rackspace.com/event/servers/slice")
 
-  private val remove_private_attrs_xslt = new File("src/test/resources/rm_private_attrs_for_obs.xsl")
+  private val remove_private_attrs_xslt = new File("wadl/rm_private_attrs_for_obs.xsl")
   private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(remove_private_attrs_xslt))
 
   private val serversSliceActionResponse =
