@@ -24,5 +24,5 @@
         </p:input>
     </p:xslt>
     <p:store method="xml" indent="true" encoding="UTF-8"
-        omit-xml-declaration="false" href="../../wadl/rm_private_attrs_for_obs.xsl"/>
+        omit-xml-declaration="false" href="../../wadl/rm_private_attrs_for_obs_helper.xsl"/>
 </p:declare-step>

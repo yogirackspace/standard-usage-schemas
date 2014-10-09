@@ -15,7 +15,7 @@ target
 .settings
 wadl/product.wadl
 wadl/filter_private_attrs.xsl
-wadl/rm_private_attrs_for_obs.xsl
+wadl/rm_private_attrs_for_obs_helper.xsl
 generated_product_xsds/*
 core_xsd/usage.xsd
 TODO.org

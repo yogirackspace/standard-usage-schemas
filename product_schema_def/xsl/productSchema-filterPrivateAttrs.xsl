@@ -31,9 +31,9 @@
             
             <xslout:output method="xml" indent="yes" encoding="UTF-8"/>
             
-            <xslout:template match="@*|node()">
+            <xslout:template match="@*|node()" mode="rm_priv">
                 <xslout:copy>
-                    <xslout:apply-templates select="@*|node()"/>
+                    <xslout:apply-templates select="@*|node()" mode="rm_priv"/>
                 </xslout:copy>
             </xslout:template>
             
@@ -50,13 +50,15 @@
             <xsl:comment>For product: CloudIdentity</xsl:comment>
             <xsl:text>&#x0a;   </xsl:text>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
-                             match="event:event/@resourceId">
+                             match="event:event/@resourceId"
+                             mode="rm_priv">
                 <xslout:if test="not(parent::node()/identity:product)">
                    <xslout:copy-of select="."/>
                 </xslout:if>
             </xslout:template>
             <xslout:template xmlns:identity="http://docs.rackspace.com/event/identity/token"
-                             match="atom:entry/atom:category[starts-with(@term, 'rid:')]">
+                             match="atom:entry/atom:category[starts-with(@term, 'rid:')]"
+                             mode="rm_priv">
                 <xslout:if test="not(parent::node()/atom:content/event:event/identity:product)">
                     <xslout:copy-of select="."/>
                 </xslout:if>
@@ -90,7 +92,8 @@
             </xsl:for-each>
         </xsl:variable>
 
-        <xslout:template match="pf:product[@version='{$version}']/@*[some $x in ({$private_attrs}) satisfies $x eq local-name(.)]">
+        <xslout:template match="pf:product[@version='{$version}']/@*[some $x in ({$private_attrs}) satisfies $x eq local-name(.)]"
+                         mode="rm_priv">
             <xsl:namespace name="pf" select="$namespace"/>
         </xslout:template>
 
@@ -103,7 +106,8 @@
                     <xsl:text>'</xsl:text>
                 </xsl:for-each>
             </xsl:variable>
-            <xslout:template match="pf:product[@version='{$version}']/pf:{@name}/@*[some $x in ({$private_attr_group_attrs}) satisfies $x eq local-name(.)]">
+            <xslout:template match="pf:product[@version='{$version}']/pf:{@name}/@*[some $x in ({$private_attr_group_attrs}) satisfies $x eq local-name(.)]"
+                             mode="rm_priv">
                 <xsl:namespace name="pf" select="$namespace"/>
             </xslout:template>
             
