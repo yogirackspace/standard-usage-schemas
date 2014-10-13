@@ -246,7 +246,8 @@
         </para>
         <para>Following is an example of an event node.</para>
         <para>
-            <programlisting>&lt;event <emphasis role="bold">startTime</emphasis>="2014-07-14T22:19:52Z"
+            <programlisting>&lt;event 
+      <emphasis role="bold">startTime</emphasis>="2014-07-14T22:19:52Z"
       <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z" 
       <emphasis role="bold">region</emphasis>="DFW" <emphasis role="bold">dataCenter</emphasis>="DFW1" <emphasis role="bold">type</emphasis>="USAGE"
       <emphasis role="bold">id</emphasis>="8d89673c-c989-11e1-895a-0b3d632a8a89"
@@ -255,7 +256,7 @@
         &lt;cb-store:product version="1" serviceCode="CloudBackup"
            serverID="9445"
            storage="99992827882" resourceType="AGENT"/>
-        &lt;/event></programlisting>
+&lt;/event></programlisting>
         </para>
         <section xml:id="Event_node">
             <title>Event node attributes<?sbr?></title>
@@ -286,7 +287,16 @@
                                     <code>startTime</code> is for the UTC time zone.
                                     <code>startTime</code> is inclusive, which means the event
                                 occurred starting at the <code>startTime</code>, not after.</td>
-                            <td>Optional. Has to be defined for events of type USAGE.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Optional. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Required for events of type USAGE.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>endTime</code></td>
@@ -297,9 +307,23 @@
                                 endTime reflect the event duriation for the resource instance.
                                 endTime is exclusive (i.e. the event occurred up to, but not during
                                 the endTime). endTime must come after startTime.</td>
-                            <td>Optional. Has to be defined for events of type USAGE. The startTime
-                                attribute must also be specified. The event   can't span 24
-                                hours</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Optional. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Required for events of type USAGE.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para> The startTime attribute must also be
+                                            specified.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para> The event can't span 24 hours</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>eventTime</code></td>
@@ -307,7 +331,16 @@
                             <td> UTC, ISO Format event time. The time when an event occured. Use
                                 instead of startTime and endTime in cases where the event does not
                                 have a range.</td>
-                            <td>Optional. Cannot coexist with startTme or endTime</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Optional. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Cannot coexist with startTme or endTime</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>region</code></td>
@@ -315,7 +348,8 @@
                             <td>Specifies the region in which the event is located. If this
                                 attribute is not specified, GLOBAL will be assumed. GLOBAL implies
                                 that the resoure is regionless. For a list of possible values, see
-                                    <link linkend="Region_Attribute">Region attribute</link>.</td>
+                                    <link linkend="Event_node_attributes">Event node
+                                    attributes</link>.</td>
                             <td>Optional</td>
                         </tr>
                         <tr>
@@ -324,9 +358,19 @@
                             <td>Specifies the datacenter of the event. The attribute is optional, if
                                 it is not specified GLOBAL will be assumed. GLOBAL implies that the
                                 resource is regionless. For a list of possible values, see <link
-                                    linkend="dataCenter_Attribute">dataCenter attribute</link>.</td>
-                            <td>Optional. However, for most cases, this attribute must be defined
-                                and cannot default to GLOBAL.</td>
+                                    linkend="Event_node_attributes">Event node
+                                attributes</link>.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Optional.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>For most cases, this attribute must be defined and
+                                            cannot default to GLOBAL.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>type</code></td>
@@ -350,8 +394,17 @@
                             <td><code>resourceId</code></td>
                             <td>event:NonEmptyString</td>
                             <td>Specifies the id of the resource.</td>
-                            <td>Optional. Must be specified if the <code>resourceType</code>
-                                attribute is specified.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Optional. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Required if the <code>resourceType</code> attribute is
+                                            specified.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>resourceName</code></td>
@@ -369,9 +422,18 @@
                             <td><code>version</code></td>
                             <td>event:NonEmptyString</td>
                             <td>Specifies the version of the event record.</td>
-                            <td>Required. If this attribute is set to 2, the event cannot span
-                                beyond midnight as defined in <code>startTime</code> and
-                                    <code>endTime</code>.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>Required. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>If this attribute is set to 2, the event cannot span
+                                            beyond midnight as defined in <code>startTime</code> and
+                                                <code>endTime</code>.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>clientUsername</code></td>
@@ -419,114 +481,95 @@
                             <td>event:ENVIRONMENT</td>
                             <td>Specifies the environment where the message originated from. If this
                                 attribute is not specified, PROD will be assumed. For a list of
-                                possible values, see <link linkend="Environment_Attribute"
-                                    >Environment attribute</link>.</td>
+                                possible values, see <link linkend="Event_node_attributes">Event
+                                    node attributes</link>.</td>
                             <td>Optional</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
-            <section xml:id="Environment_Attribute">
-                <title>Environment attribute</title>
-            <para>Valid values for the <code>environment</code> attribute are:</para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>PROD</para>
-                    </listitem>
-                    <listitem>
-                        <para>PREPROD</para>
-                    </listitem>
-                    <listitem>
-                        <para>STAGE</para>
-                    </listitem>
-                    <listitem>
-                        <para>QA</para>
-                    </listitem>
-                    <listitem>
-                        <para>DEV</para>
-                    </listitem>
-                    <listitem>
-                        <para>UAT</para>
-                    </listitem>
-                    <listitem>
-                        <para>LOCAL</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
+            <section xml:id="Event_node_attributes">
+                <title>Attribute values for event node</title>
+                <para>The followign table lists the possible values for the <code>dataCenter</code>,
+                        <code>environment</code>, and <code>region</code> attributes.</para>
+                <para>
+                    <table frame="border">
+                        <caption>Attribute values</caption>
+                        <col width="33%"/>
+                        <col width="33%"/>
+                        <col width="33%"/>
+                        <thead>
+                            <tr>
+                                <th>dataCenter attribute</th>
+                                <th>environment attribute</th>
+                                <th>region attribute</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GLOBAL</td>
+                                <td>PROD</td>
+                                <td>GLOBAL</td>
+                            </tr>
+                            <tr>
+                                <td>DFW1</td>
+                                <td>PREPROD</td>
+                                <td>DFW</td>
+                            </tr>
+                            <tr>
+                                <td>DFW2</td>
+                                <td>STAGE</td>
+                                <td>HKG</td>
+                            </tr>
+                            <tr>
+                                <td>DFW3</td>
+                                <td>QA</td>
+                                <td>IAD</td>
+                            </tr>
+                            <tr>
+                                <td>HKG1</td>
+                                <td>UAT</td>
+                                <td>LON</td>
+                            </tr>
+                            <tr>
+                                <td>IAD1</td>
+                                <td>LOCAL</td>
+                                <td>ORD</td>
+                            </tr>
+                            <tr>
+                                <td>IAD2</td>
+                                <td/>
+                                <td>SYD</td>
+                            </tr>
+                            <tr>
+                                <td>IAD2</td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td>LON1</td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td>LOND3</td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td>ORD1</td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td>SYD3</td>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </para>
             </section>
-            <section xml:id="Region_Attribute">
-                <title>Region attribute</title>
-            <para>Valid values for the <code>region</code> attribute are:</para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>GLOBAL</para>
-                    </listitem>
-                    <listitem>
-                        <para>DFW</para>
-                    </listitem>
-                    <listitem>
-                        <para>HKG</para>
-                    </listitem>
-                    <listitem>
-                        <para>IAD</para>
-                    </listitem>
-                    <listitem>
-                        <para>LON</para>
-                    </listitem>
-                    <listitem>
-                        <para>ORD</para>
-                    </listitem>
-                    <listitem>
-                        <para>SYD</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            </section>
-            <section xml:id="dataCenter_Attribute">
-            <title>dataCenter attribute</title>
-            <para>Valid values for the <code>dataCenter</code> attribute are: </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>GLOBAL</para>
-                    </listitem>
-                    <listitem>
-                        <para>DFW1</para>
-                    </listitem>
-                    <listitem>
-                        <para>DFW2</para>
-                    </listitem>
-                    <listitem>
-                        <para>DFW3</para>
-                    </listitem>
-                    <listitem>
-                        <para>HKG1</para>
-                    </listitem>
-                    <listitem>
-                        <para>IAD1</para>
-                    </listitem>
-                    <listitem>
-                        <para>IAD2</para>
-                    </listitem>
-                    <listitem>
-                        <para>IAD3</para>
-                    </listitem>
-                    <listitem>
-                        <para>LON1</para>
-                    </listitem>
-                    <listitem>
-                        <para>LON3</para>
-                    </listitem>
-                    <listitem>
-                        <para>ORD1</para>
-                    </listitem>
-                    <listitem>
-                        <para>SYD3</para>
-                    </listitem>
-                </itemizedlist>
-            </para></section>
             <section xml:id="Event_types">
                 <title>Event types</title>
                 <para>Cloud Feeds supports a set of different event types that are specified in the
@@ -695,12 +738,12 @@
             <para>The following table lists the required attributes for the productSchema
                 node:</para>
             <para>
-                <table frame="border" width="1082">
+                <table frame="border">
                     <caption>productSchema node</caption>
-                    <col width="15%"/>
-                    <col width="15%"/>
+                    <col width="20%"/>
+                    <col width="29%"/>
                     <col width="40%"/>
-                    <col width="30%"/>
+                    <col width="20%"/>
                     <thead>
                         <tr>
                             <th>Attribute</th>
@@ -787,8 +830,6 @@
             <programlisting language="xml" security="internal"><xi:include href="./samples/emailapps_msservice.xml" parse="text"/></programlisting>
             <section xml:id="Attribute_node">
                 <title>Attribute node</title>
-                <para>The product node can contain zero or more attribute groups. Each attribute
-                    group contains a specific set of attributes which can be repeated.</para>
                 <para>The attribute node declares an attribute for a product. Attributes are defined
                     in the product schema. The attribute node is a child of the product node.
                     Attribute groups can be repeated within a product schema.</para>
@@ -874,18 +915,6 @@
                                 <td>Optional</td>
                             </tr>
                             <tr>
-                                <td><code>request</code></td>
-                                <td/>
-                                <td/>
-                                <td/>
-                            </tr>
-                            <tr>
-                                <td><code>response</code></td>
-                                <td/>
-                                <td/>
-                                <td/>
-                            </tr>
-                            <tr>
                                 <td><code>min</code></td>
                                 <td>schema:MinMaxType</td>
                                 <td>Specifies the minimum value allowed in the numeric type. The
@@ -942,12 +971,6 @@
                                     GADGET". The items on this list must be referenced in the
                                     resourceTypes attribute.</td>
                                 <td>Optional</td>
-                            </tr>
-                            <tr>
-                                <td><code>text</code></td>
-                                <td/>
-                                <td>Provides a description of the attribute.</td>
-                                <td/>
                             </tr>
                         </tbody>
                     </table>
@@ -1040,10 +1063,10 @@
                 <para/>
                 <table>
                     <caption>Attribute Group</caption>
-                    <col width="15%"/>
+                    <col width="20%"/>
                     <col width="20%"/>
                     <col width="40%"/>
-                    <col width="25%"/>
+                    <col width="20%"/>
                     <thead>
                         <tr>
                             <th>Attribute</th>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="xs3p.xsl"?><schema
+<schema
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
     xmlns="http://www.w3.org/2001/XMLSchema"
@@ -522,10 +521,11 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                The name of the attribute. The name
-                                must be a single word.  It cannot
-                                contain namespaces, it must not start
-                                with a number.
+                                If the attribute has a default value,
+                                then the default value should be
+                                specified here.  Note that only
+                                optional attributes can have default
+                                values.
                             </html:p>
                         </documentation>
                     </annotation>
