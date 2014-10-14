@@ -228,6 +228,8 @@
                     </tbody>
                 </table>
             </para>
+               
+            
         </section>
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry">
@@ -253,9 +255,9 @@
       <emphasis role="bold">id</emphasis>="8d89673c-c989-11e1-895a-0b3d632a8a89"
       <emphasis role="bold">resourceId</emphasis>="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
       <emphasis role="bold">tenantId</emphasis>="1234" <emphasis role="bold">version</emphasis>="2">
-        &lt;cb-store:product version="1" serviceCode="CloudBackup"
-           serverID="9445"
-           storage="99992827882" resourceType="AGENT"/>
+        &lt;cb-store:<emphasis role="bold">product version</emphasis>="1" <emphasis role="bold">serviceCode</emphasis>="CloudBackup"
+           <emphasis role="bold">serverID</emphasis>="9445"
+           <emphasis role="bold">storage</emphasis>="99992827882" <emphasis role="bold">resourceType</emphasis>="AGENT"/>
 &lt;/event></programlisting>
         </para>
         <section xml:id="Event_node">
@@ -1550,11 +1552,8 @@
             <title>Creating message samples</title>
             <para>You can create samples of atom entries that can be used in Cloud Feeds API
                 requests and responses.</para>
-            <para>Following is an example of an Atom entry:</para>
-            <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-entry.xml" parse="text"/></programlisting>
-            <para>Following is an example of a response to a Cloud Feeds request to post an Atom
-                entry:</para>
-            <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-response.xml" parse="text"/></programlisting>
+            <para>Following is an example of a feed entry:</para>
+            <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-entry.xml" parse="text"/></programlisting>                
         </section>
     </chapter>
 </book>
