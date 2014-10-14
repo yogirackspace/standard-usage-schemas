@@ -522,7 +522,7 @@
                         <documentation>
                             <html:p>
                                 The name of the attribute. The name
-                                must be a single word.  It cannot
+                                must be a single word. It cannot
                                 contain namespaces, it must not start
                                 with a number.
                             </html:p>

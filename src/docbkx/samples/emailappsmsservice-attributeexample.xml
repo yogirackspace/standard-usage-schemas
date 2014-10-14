@@ -1,0 +1,65 @@
+<attribute name="version" type="xsd:string" use="required" fixed="1"/>
+<attribute name="serviceCode"
+   use="required"
+   type="xsd:Name"
+   fixed="EmailAppsMSService"/>
+<attribute name="key" use="required" type="p:string1_1024">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the key of the object that this event corresponds to.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
+<attribute name="productType" use="required" type="p:string">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the MS Service product that this event corresponds to.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
+<attribute name="operation" use="required" type="p:string">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the operation that is performed on the resource that this event corresponds to.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
+<attribute name="status" use="required" type="p:statusEnum">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the status of the operation that is performed on the resource that this event corresponds to.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
+<attribute name="request" use="required" type="p:string1_20000">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the request that this event corresponds to.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
+<attribute name="response" use="optional" type="p:string1_20000">
+   <annotation>
+      <documentation>
+         <html:p>Specifies the response for the above request.</html:p>
+      </documentation>
+      <appinfo>
+         <usage:attributes/>
+      </appinfo>
+   </annotation>
+</attribute>
