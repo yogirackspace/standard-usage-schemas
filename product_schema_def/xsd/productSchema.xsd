@@ -521,11 +521,10 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                If the attribute has a default value,
-                                then the default value should be
-                                specified here.  Note that only
-                                optional attributes can have default
-                                values.
+                                The name of the attribute. The name
+                                must be a single word. It cannot
+                                contain namespaces, it must not start
+                                with a number.
                             </html:p>
                         </documentation>
                     </annotation>

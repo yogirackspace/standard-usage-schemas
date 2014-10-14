@@ -290,10 +290,11 @@
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Optional. </para>
+                                        <para>This attribute is optional. </para>
                                     </listitem>
                                     <listitem>
-                                        <para>Required for events of type USAGE.</para>
+                                        <para>This attribute is required for events of type
+                                                <emphasis role="bold">USAGE</emphasis>.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -303,24 +304,28 @@
                             <td>event:UTCDateTime</td>
                             <td>Specifies the end time of the event, the time format must be:
                                     <emphasis role="italic">yyyy-MM-dd'T'HH:mm:ss.SSSZ</emphasis>.
-                                UTC, ISO Format end time. For an EXISTs event, the startTime and
-                                endTime reflect the event duriation for the resource instance.
-                                endTime is exclusive (i.e. the event occurred up to, but not during
-                                the endTime). endTime must come after startTime.</td>
+                                UTC, ISO Format end time. For an event of type <emphasis role="bold"
+                                    >EXIST</emphasis>, the <code>startTime</code> and
+                                    <code>endTime</code> reflect the event duration for the resource
+                                instance. <code>endTime</code> is exclusive (i.e. the event occurred
+                                up to, but not during the <code>endTime</code>).
+                                    <code>endTime</code> must occur after
+                                <code>startTime</code>.</td>
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Optional. </para>
+                                        <para>This attribute is optional. </para>
                                     </listitem>
                                     <listitem>
-                                        <para>Required for events of type USAGE.</para>
+                                        <para>This attribute is required for events of type
+                                                <emphasis role="bold">USAGE</emphasis>.</para>
                                     </listitem>
                                     <listitem>
-                                        <para> The startTime attribute must also be
+                                        <para> The <code>startTime</code> attribute must also be
                                             specified.</para>
                                     </listitem>
                                     <listitem>
-                                        <para> The event can't span 24 hours</para>
+                                        <para> The event cannot span 24 hours</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -328,16 +333,19 @@
                         <tr>
                             <td><code>eventTime</code></td>
                             <td>event:UTCDateTime</td>
-                            <td> UTC, ISO Format event time. The time when an event occured. Use
-                                instead of startTime and endTime in cases where the event does not
-                                have a range.</td>
+                            <td>Specifies the time of the event for the UTC time zone, using ISO
+                                format. Use this attribute instead of <code>startTime</code> and
+                                    <code>endTime</code> in cases where the event does not have a
+                                range.</td>
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Optional. </para>
+                                        <para>This attribute is optional. </para>
                                     </listitem>
                                     <listitem>
-                                        <para>Cannot coexist with startTme or endTime</para>
+                                        <para>This attribute cannot coexist with the
+                                                <code>startTime</code> or <code>endTime</code>
+                                            attributes.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -346,28 +354,31 @@
                             <td><code>region</code></td>
                             <td>event:Region</td>
                             <td>Specifies the region in which the event is located. If this
-                                attribute is not specified, GLOBAL will be assumed. GLOBAL implies
-                                that the resoure is regionless. For a list of possible values, see
+                                attribute is not specified, <emphasis role="bold">GLOBAL</emphasis>
+                                will be assumed. <emphasis role="bold">GLOBAL</emphasis> implies
+                                that the resource is region less. For a list of possible values, see
                                     <link linkend="Event_node_attributes">Event node
                                     attributes</link>.</td>
-                            <td>Optional</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>dataCenter</code></td>
                             <td>event:DC</td>
                             <td>Specifies the datacenter of the event. The attribute is optional, if
-                                it is not specified GLOBAL will be assumed. GLOBAL implies that the
-                                resource is regionless. For a list of possible values, see <link
+                                it is not specified <emphasis role="bold">GLOBAL</emphasis> will be
+                                assumed. <emphasis role="bold">GLOBAL</emphasis> implies that the
+                                resource is region less. For a list of possible values, see <link
                                     linkend="Event_node_attributes">Event node
                                 attributes</link>.</td>
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Optional.</para>
+                                        <para>This attribute is optional.</para>
                                     </listitem>
                                     <listitem>
                                         <para>For most cases, this attribute must be defined and
-                                            cannot default to GLOBAL.</para>
+                                            cannot default to <emphasis role="bold"
+                                                >GLOBAL</emphasis>.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -375,20 +386,21 @@
                         <tr>
                             <td><code>type</code></td>
                             <td>event:EventType</td>
-                            <td>Specifies the type of event. Identifies the type of event. If one of
-                                the existing event types fail to produce any feeds, set this type to
-                                EXTENDED and add an <code>eventType</code> attribute to your product
-                                schema.For more information, see <link linkend="Event_types">Event
-                                    types</link>.</td>
-                            <td>Required</td>
+                            <td>Specifies the type of event. If one of the existing event types fail
+                                to produce any feeds, set this type to <emphasis role="bold"
+                                    >EXTENDED</emphasis> and add an <code>eventType</code> attribute
+                                to your product schema. For more information, see <link
+                                    linkend="Event_types">Event types</link>.</td>
+                            <td>This attribute is required.</td>
                         </tr>
                         <tr>
                             <td><code>id</code></td>
                             <td>event:UUID</td>
                             <td>Specifies the unique UUID for the event record. This value should be
-                                UUID Version 1, 2, or 4. For more information, see
-                                http://en.wikipedia.org/wiki/Universally_unique_identifier. </td>
-                            <td>Required</td>
+                                UUID Version 1, 2, or 4. For more information, see <link
+                                    xlink:href="http://en.wikipedia.org/wiki/Universally_unique_identifier"
+                                    >http://en.wikipedia.org/wiki/Universally_unique_identifier</link>. </td>
+                            <td>This attribute is required.</td>
                         </tr>
                         <tr>
                             <td><code>resourceId</code></td>
@@ -397,10 +409,11 @@
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Optional. </para>
+                                        <para>This attribute is optional. </para>
                                     </listitem>
                                     <listitem>
-                                        <para>Required if the <code>resourceType</code> attribute is
+                                        <para>This attribute is required if the
+                                                <code>resourceType</code> attribute is
                                             specified.</para>
                                     </listitem>
                                 </itemizedlist>
@@ -409,14 +422,14 @@
                         <tr>
                             <td><code>resourceName</code></td>
                             <td>event:NonEmptyString"</td>
-                            <td>Specifies the customer-defined name for the resource.</td>
-                            <td>Optional</td>
+                            <td>Specifies the customer-defined name of the resource.</td>
+                            <td>This attribute is optional</td>
                         </tr>
                         <tr>
                             <td><code>tenantId</code></td>
                             <td>event:NonEmptyString</td>
-                            <td>Specifies the tenant id of the publishers</td>
-                            <td>Optional</td>
+                            <td>Specifies the tenant id of the publishers.</td>
+                            <td>This attribute is optional</td>
                         </tr>
                         <tr>
                             <td><code>version</code></td>
@@ -425,7 +438,7 @@
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>Required. </para>
+                                        <para>This attribute is required. </para>
                                     </listitem>
                                     <listitem>
                                         <para>If this attribute is set to 2, the event cannot span
@@ -439,20 +452,20 @@
                             <td><code>clientUsername</code></td>
                             <td>event:Username</td>
                             <td>Specifies the user name for the sub-account, when applicable.</td>
-                            <td>Optional</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>agentUsername</code></td>
                             <td>event:Username</td>
                             <td>Specifies the Rackspace agent who is taking action on account of the
                                 user.</td>
-                            <td>Optional</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>resourceURI</code></td>
                             <td>xsd:anyURI</td>
-                            <td>Specifies a URI that uniquely identitfies the resource.</td>
-                            <td>Optional</td>
+                            <td>Specifies a URI that uniquely identifies the resource.</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>referenceId</code></td>
@@ -460,37 +473,40 @@
                             <td>Specifies a GUID identifying the event record, that this record is
                                 updating. This is optional, and this should be used if this event is
                                 correcting another event.</td>
-                            <td>Optional</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>rootAction</code></td>
                             <td>event:NonEmptyString</td>
                             <td>Specifies the action that caused the event.</td>
-                            <td>Optional</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>severity</code></td>
                             <td>event:Severity</td>
-                            <td>Specifies the severity of the event. Valid values are INFO, WARNING,
-                                CRITICAL. This is only valid for system events, not usage
-                                events.</td>
-                            <td>Optional</td>
+                            <td>Specifies the severity of the event. Valid values are <emphasis
+                                    role="bold">INFO</emphasis>, <emphasis role="bold"
+                                    >WARNING</emphasis>, and <emphasis role="bold"
+                                    >CRITICAL</emphasis>. This is only valid for system events, not
+                                usage events.</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>environment</code></td>
                             <td>event:ENVIRONMENT</td>
                             <td>Specifies the environment where the message originated from. If this
-                                attribute is not specified, PROD will be assumed. For a list of
-                                possible values, see <link linkend="Event_node_attributes">Event
-                                    node attributes</link>.</td>
-                            <td>Optional</td>
+                                attribute is not specified, <emphasis role="bold">PROD</emphasis>
+                                will be assumed. For a list of possible values, see <link
+                                    linkend="Event_node_attributes">Event node
+                                attributes</link>.</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
             <section xml:id="Event_node_attributes">
                 <title>Attribute values for event node</title>
-                <para>The followign table lists the possible values for the <code>dataCenter</code>,
+                <para>The following table lists the possible values for the <code>dataCenter</code>,
                         <code>environment</code>, and <code>region</code> attributes.</para>
                 <para>
                     <table frame="border">
@@ -591,69 +607,72 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>CREATE</td>
-                                <td/>
-                                <td/>
-                            </tr>
-                            <tr>
-                                <td>DELETE</td>
-                                <td/>
+                                <td><emphasis role="bold">CREATE</emphasis></td>
+                                <td>Specifies an event which creates a resource.</td>
                                 <td/>
                             </tr>
                             <tr>
-                                <td>DOWN</td>
-                                <td/>
-                                <td/>
-                            </tr>
-                            <tr>
-                                <td>EXTENDED</td>
-                                <td/>
-                                <td>If the event type attribute is equal to EXTENDED, the product
-                                    attributes should contain an <code>eventType</code> attribute,
-                                    which will contain the actual event type.</td>
-                            </tr>
-                            <tr>
-                                <td>INFO</td>
-                                <td/>
+                                <td><emphasis role="bold">DELETE</emphasis></td>
+                                <td>Specifies an event which deletes a resource.</td>
                                 <td/>
                             </tr>
                             <tr>
-                                <td>SUSPEND</td>
-                                <td/>
-                                <td/>
-                            </tr>
-                            <tr>
-                                <td>UNSUSPEND</td>
-                                <td/>
+                                <td><emphasis role="bold">DOWN</emphasis></td>
+                                <td>Specifies an event which announces that a resource is down.</td>
                                 <td/>
                             </tr>
                             <tr>
-                                <td>UP</td>
-                                <td/>
+                                <td><emphasis role="bold">EXTENDED</emphasis></td>
+                                <td>Specifies a product-defined event type.</td>
+                                <td>If the event type attribute is equal to <emphasis role="bold"
+                                        >EXTENDED</emphasis>, the product attributes should contain
+                                    an <code>eventType</code> attribute, which will contain the
+                                    actual event type.</td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="bold">INFO</emphasis></td>
+                                <td>Specifies an information event related to a specific
+                                    resource.</td>
                                 <td/>
                             </tr>
                             <tr>
-                                <td>UPDATE</td>
-                                <td/>
+                                <td><emphasis role="bold">SUSPEND</emphasis></td>
+                                <td>Specifies an event that suspends a resource.</td>
                                 <td/>
                             </tr>
                             <tr>
-                                <td>USAGE</td>
-                                <td>This is the default type value</td>
-                                <td>see <link linkend="USAGE_event_type_requirements">Requirements
+                                <td><emphasis role="bold">UNSUSPEND</emphasis></td>
+                                <td>Specifies an event that unsuspends a resource.</td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="bold">UP</emphasis></td>
+                                <td>Specifies an event that announces that a resource is up.</td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="bold">UPDATE</emphasis></td>
+                                <td>Specifies an event which updates a resource.</td>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="bold">USAGE</emphasis></td>
+                                <td>Specifies a usage event. This is the default type value.</td>
+                                <td>See <link linkend="USAGE_event_type_requirements">Requirements
                                         for USAGE event type</link></td>
                             </tr>
                             <tr>
-                                <td>USAGE_SNAPSHOT</td>
-                                <td/>
-                                <td>see <link linkend="USAGE_SNAPSHOT_event_type_requirements"
+                                <td><emphasis role="bold">USAGE_SNAPSHOT</emphasis></td>
+                                <td>Specifies an instantaneous usage event.</td>
+                                <td>See <link linkend="USAGE_SNAPSHOT_event_type_requirements"
                                         >Requirements for USAGE_SNAPSHOT event type</link></td>
                             </tr>
                             <tr>
-                                <td>USAGE_SUMMARY</td>
-                                <td>This is automatically generated for any event of type USAGE and
-                                    USAGE_SNAPSHOT</td>
-                                <td>see <link linkend="USAGE_SUMMARY_event_type_requirements"
+                                <td><emphasis role="bold">USAGE_SUMMARY</emphasis></td>
+                                <td>This is automatically generated for any event of type <emphasis
+                                        role="bold">USAGE</emphasis> and <emphasis role="bold"
+                                        >USAGE_SNAPSHOT</emphasis>.</td>
+                                <td>See <link linkend="USAGE_SUMMARY_event_type_requirements"
                                         >Requirements for USAGE_SUMMARY event type</link></td>
                             </tr>
                         </tbody>
@@ -721,16 +740,16 @@
         <para>Following is an example of a product node:</para>
         <para>
             <programlisting>&lt;sample:product serviceCode="EmailAppsMSService"
-          version="1"
-           key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
-           productType="lync"
-           operation="UPDATE"
-           status="COMPLETED"
-           request="HTTP GET"
-           response="200">
-     &lt;sample:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
-     &lt;sample:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
- &lt;/sample:product></programlisting>
+       version="1"
+       key="(domain=5002_domain_2.com)|(service=5002_domain_2.com)"
+       productType="lync"
+       operation="UPDATE"
+       status="COMPLETED"
+       request="HTTP GET"
+       response="200">
+       &lt;sample:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
+       &lt;sample:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
+&lt;/sample:product></programlisting>
         </para>
         <section xml:id="sample_product_schema">
             <title>productSchema node</title>
@@ -741,7 +760,7 @@
                 <table frame="border">
                     <caption>productSchema node</caption>
                     <col width="20%"/>
-                    <col width="29%"/>
+                    <col width="20%"/>
                     <col width="40%"/>
                     <col width="20%"/>
                     <thead>
@@ -759,65 +778,98 @@
                             <td>Specifies the version of this particular product schema. Any sort of
                                 version string is allowed. Each product schema must have a unique
                                 version.</td>
-                            <td>Required</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>type</code></td>
                             <td>usage:TypeList</td>
                             <td>Specifies the types of messages that are applicable to this schema,
-                                for example "USAGE_SUMMARY." Default is USAGE.</td>
-                            <td>Optional For more information, see <link linkend="Event_Types">Event
-                                    Types</link>.</td>
+                                for example <emphasis role="bold">USAGE_SUMMARY</emphasis>. Default
+                                is <emphasis role="bold">USAGE</emphasis>.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>This attribute is optional.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>For more information, see <link linkend="Event_Types"
+                                                >Event Types</link>.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>namespace</code></td>
                             <td>xsd:anyURI</td>
                             <td>Specifies the namespace for the schema. The namespace must be unique
                                 for each product. The same namespace may be used between product
-                                schema versions.
-                                "http://docs.rackspace.com/event/emailapps_msservice"</td>
-                            <td>Required</td>
+                                schema versions.</td>
+                            <td>This attribute is required.</td>
                         </tr>
                         <tr>
                             <td><code>resourceTypes</code></td>
                             <td>schema:NameList</td>
                             <td>Contains a whitespace-separated list of resource types. A product
-                                schema &lt;html:strong>must&lt;/html:strong> specify at least one
-                                resource type if the groupByResource attribute is true.Specifies the
+                                schema must specify at least one resource type if the
+                                    <code>groupByResource</code> attribute is true. Specifies the
                                 type of resource that is defined in the product schema, for example
-                                "SITES_EMAIL".</td>
-                            <td>Optional</td>
+                                    <emphasis role="bold">SITES_EMAIL</emphasis>.</td>
+                            <td>This attribute is optional.</td>
                         </tr>
                         <tr>
                             <td><code>serviceCode</code></td>
                             <td>xsd:Name</td>
                             <td>Specifies the name of the product or service. Should be a single
-                                word, no white-spaces are allowed. Example names "nova", "MaaS",
+                                word, no whitespaces are allowed. Example names are "nova", "MaaS",
                                 etc. The name should uniquely identify the product or service. The
                                 name is used to construct atom categories for events of this type.
                                 For example: "EmailAppsMSService"</td>
-                            <td>Required.  Each product schema must define a service code attribute
-                                that uniquely identifies the product.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>This attribute is required.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>Each product schema must define a service code
+                                            attribute that uniquely identifies the product.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>groupByResource</code></td>
                             <td>BOOLEAN</td>
-                            <td>This attribute is required for all event types of type USAGE</td>
-                            <td>If this attribute is set to true, the <code>resourceTypes</code>
-                                attribute must be defined. This is required for event types of type
-                                USAGE.</td>
+                            <td>This attribute is required for all event types of type <emphasis
+                                    role="bold">USAGE</emphasis>.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>If this attribute is set to true, the
+                                                <code>resourceTypes</code> attribute must be
+                                            defined. </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>This attribute is required for event types of type
+                                                <emphasis role="bold">USAGE</emphasis>.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>ranEnrichmentStrategy</code></td>
                             <td/>
-                            <td>This attribute is required for all event types of type USAGE</td>
-                            <td>This is required for event types of type USAGE.</td>
+                            <td>This attribute is required for all event types of type <emphasis
+                                    role="bold">USAGE</emphasis>.</td>
+                            <td>This attribute is required for event types of type <emphasis
+                                    role="bold">USAGE</emphasis>.</td>
                         </tr>
                         <tr>
                             <td><code>aggregationPeriods</code></td>
                             <td/>
-                            <td>This attribute is required for all event types of type USAGE</td>
-                            <td>This is required for event types of type USAGE.</td>
+                            <td>This attribute is required for all event types of type <emphasis
+                                    role="bold">USAGE</emphasis>.</td>
+                            <td>This attribute is required for event types of type <emphasis
+                                    role="bold">USAGE</emphasis>.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -834,7 +886,7 @@
                     in the product schema. The attribute node is a child of the product node.
                     Attribute groups can be repeated within a product schema.</para>
                 <para>Attributes elements can consist of different data types, such as strings or
-                    integeres. Attributes can vary but they usually contain the following
+                    integers. Attributes can vary but they usually contain the following
                     elements:</para>
                 <para>
                     <table frame="border">
@@ -858,28 +910,49 @@
                                 <td>Specifies the name of the attribute.  If the attribute has a
                                     default value, then the default value should be specified here.
                                     Note that only optional attributes can have default values.</td>
-                                <td>Required</td>
+                                <td>This attribute is required.</td>
                             </tr>
                             <tr>
                                 <td><code>type</code></td>
                                 <td>schema:TypeList</td>
                                 <td>Specifies the types applicable to this attribute.</td>
-                                <td>Required</td>
+                                <td>This attribute is required.</td>
                             </tr>
                             <tr>
                                 <td><code>minLength</code></td>
                                 <td>xsd:integer</td>
                                 <td>Specifies the minimum length of a string. It can be used only
                                     for string types. Default value, if not specified is 0..</td>
-                                <td>This is for STRING types only. If this attribute is defined,
-                                    maxLength is required as well. This attribute is optional.</td>
+                                <td>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>This attribute is for STRING types only. </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>If this attribute is defined,
+                                                  <code>maxLength</code> is required as well.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>This attribute is optional.</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </td>
                             </tr>
                             <tr>
                                 <td><code>maxLength</code></td>
                                 <td>xsd:integer</td>
                                 <td>Specifies the maximum length of a string. It can be used only
                                     for string types. </td>
-                                <td>This is for STRING types only. This attribute is optional.</td>
+                                <td>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>This attribute is for STRING types only. </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>This attribute is optional.</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </td>
                             </tr>
                             <tr>
                                 <td><code>use</code></td>
@@ -887,46 +960,64 @@
                                 <td>Specifies if the attribute optional, required, or synthesized.
                                     The use attribute is optional, if not specified the attribute
                                     will be labeled as optional.</td>
-                                <td>Required</td>
+                                <td>This attribute is required.</td>
                             </tr>
                             <tr>
                                 <td><code>fixed</code></td>
                                 <td>STRING</td>
                                 <td>If the attribute always has a fixed value, the value should be
                                     specified here.</td>
-                                <td>Optional</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>displayName</code></td>
                                 <td>STRING</td>
-                                <td>Specifies human readable name for the attribute that can be used
-                                    for reports, invoices, etc. The display name does not have the
-                                    same constraints as the name attribute..it can contain spaces.
-                                    "displayName" is an optional attribute. If it is not specified
-                                    the "name" attribute will be used in reports, invoices,
-                                    etc.</td>
-                                <td>Optional</td>
+                                <td>Specifies the human readable name for the attribute that can be
+                                    used for reports, invoices, etc. The display name does not have
+                                    the same constraints as the name attribute. This attribute can
+                                    contain spaces. <code>displayName</code> is an optional
+                                    attribute. If it is not specified the <code>name</code>
+                                    attribute will be used in reports, invoices, etc.</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>allowedValues</code></td>
                                 <td>schema:TokenList</td>
                                 <td>Specifies an optional whitespace separated list of allowed
                                     values.</td>
-                                <td>Optional</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>min</code></td>
                                 <td>schema:MinMaxType</td>
                                 <td>Specifies the minimum value allowed in the numeric type. The
                                     value is inclusive.</td>
-                                <td>This is for numeric types only. Optional</td>
+                                <td>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>This attribute is for numeric types only.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>This attribute is optional</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </td>
                             </tr>
                             <tr>
                                 <td><code>max</code></td>
                                 <td>schema:MinMaxType</td>
                                 <td>Specifies thee minimum value allowed in the numeric type. The
                                     value is inclusive.</td>
-                                <td>This is for numeric types only. Optional</td>
+                                <td>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>This attribute is for numeric types only.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>This attribute is optional</para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </td>
                             </tr>
                             <tr>
                                 <td><code>default</code></td>
@@ -934,7 +1025,7 @@
                                 <td>If the attribute has a default value, then the default value is
                                     specified here. Note that only optional attributes can have
                                     default values.</td>
-                                <td>Optional</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>searchable</code></td>
@@ -942,35 +1033,44 @@
                                 <td>If this attribute is set to true then there should be an index
                                     set so that you can search by this attribute. The default value
                                     is FALSE.</td>
-                                <td>Optional. From a practical perspective this means that an atom
-                                    hopper category will be set automatically with this attribute
-                                    value.</td>
+                                <td>This attribute is optional. </td>
                             </tr>
                             <tr>
                                 <td><code>private</code></td>
                                 <td>BOOLEAN</td>
                                 <td>If this attribute is set to true then the attribute value is not
                                     shown to the public. The default value is set to FALSE.</td>
-                                <td>Optional</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>withEventType</code></td>
                                 <td>usage:TypeList</td>
-                                <td>This attribute is only valid with events of this type. This is a
-                                    whitespace seperated list "USAGE CREATE DELETE". Currently
-                                    extended event types are not supported. This attribute should
-                                    reference a type from the 'types' attribute.</td>
-                                <td>This attribute cannot have the value EXTENDED. This attribute is
-                                    optional</td>
+                                <td>This attribute is only valid with events of the following type:
+                                        <emphasis role="bold">USAGE</emphasis>, <emphasis
+                                        role="bold">CREATE</emphasis>, <emphasis role="bold"
+                                        >DELETE</emphasis>. Currently extended event types are not
+                                    supported. This attribute should reference a type from the
+                                        <code>type</code> attribute.</td>
+                                <td>
+                                    <itemizedlist>
+                                        <listitem>
+                                            <para>This attribute is optional. </para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>This attribute cannot have the value <emphasis
+                                                  role="bold">EXTENDED</emphasis>. </para>
+                                        </listitem>
+                                    </itemizedlist>
+                                </td>
                             </tr>
                             <tr>
                                 <td><code>withResource</code></td>
                                 <td>schema:NameList</td>
                                 <td>The attribute is only valid with events that reference this type
-                                    of resource. This is a whitespace seperated list "WIDGET
+                                    of resource. This is a whitespace separated list "WIDGET
                                     GADGET". The items on this list must be referenced in the
-                                    resourceTypes attribute.</td>
-                                <td>Optional</td>
+                                        <code>resourceType</code> attribute.</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1008,21 +1108,21 @@
                                 <td><code>name</code></td>
                                 <td>xsd: Name</td>
                                 <td>Specifies the name of the attribute group.</td>
-                                <td>Required</td>
+                                <td>This attribute is required.</td>
                             </tr>
                             <tr>
                                 <td><code>minOccurs</code></td>
                                 <td>schema:MinOccurs</td>
                                 <td>Specifies the minimum occurrence of the attribute group.
-                                    Defaults to "1"</td>
-                                <td>Optional</td>
+                                    Defaults to "1".</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                             <tr>
                                 <td><code>maxOccurs</code></td>
                                 <td>schema:MaxOccurs</td>
                                 <td>Specifies the maximum occurrence of the attribute group.
                                     Defaults to "1".</td>
-                                <td>Optional</td>
+                                <td>This attribute is optional.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1058,9 +1158,14 @@
                     'atom' is bound to the atom namespace and 'event' is bound to the event
                     namespace. Finally, the prefix 'xs' is bound tho the XML Schema
                     namespace.</para>
-                <para> Note that when the scope is product, you cannot use .. to access parent
-                    elements -- use the entry scope instead.</para>
-                <para/>
+                <para>
+                    <note>
+                        <para>When the scope is <emphasis role="italic">product</emphasis>, you
+                            cannot use .. to access parent elements. Use the <emphasis role="italic"
+                                >entry</emphasis> scope instead.</para>
+                    </note>
+                </para>
+                <para> Note that </para>
                 <table>
                     <caption>Attribute Group</caption>
                     <col width="20%"/>
@@ -1085,31 +1190,37 @@
                                     >entry</emphasis>. The default value for this attribute is
                                 product</td>
                             <td>
-                                <para>When the scope is entry, the variables $entry, $event, and
-                                    $product are defined, each pointing to the respective part of
-                                    the message.</para>
+                                <para>When the scope is <emphasis role="italic">entry</emphasis>,
+                                    the variables <emphasis role="italic">$entry</emphasis>,
+                                        <emphasis role="italic">$event</emphasis>, and <emphasis
+                                        role="italic">$product</emphasis> are defined, each pointing
+                                    to the respective part of the message.</para>
                             </td>
                         </tr>
                         <tr>
                             <td><code>test</code></td>
                             <td>xsd:string</td>
-                            <td>This attribute is required. Specifies the XPath test.</td>
-                            <td>Required</td>
+                            <td>Specifies the XPath test.</td>
+                            <td>This attribute is required.</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             <section xml:id="Versions">
                 <title>Versions<?sbr?><?sbr?></title>
-                <para>The event and product nodes are version-controlled. Cloud Feeds can support
+                <para>The <emphasis role="italic">event</emphasis> and <emphasis role="italic"
+                        >product</emphasis> nodes are version-controlled. Cloud Feeds can support
                     events containing different definitions for the event and product nodes
                     simultaneously. This allows publishers to define a new event without breaking
                     older events that have not yet adopted the new definition. The event and product
                     versions are independent of each other.</para>
+                <para>You can define multiple versions for a specific product within a schema as
+                    shown in the following example:</para>
+                <programlisting language="xml" security="internal"><xi:include href="./samples/BigDataVersioningExample.xml" parse="text"/></programlisting>
                 <para>For example, if you specify &lt;event version="2"&gt; then Cloud Feeds will
-                    apply different rules to startTime and endTime that if you specify &lt;event
-                    version="1"&gt;. But you can use either version with any &lt;product
-                    version="..."&gt;.</para>
+                    apply different rules to <code>startTime</code> and <code>endTime</code> that if
+                    you specify &lt;event version="1"&gt;. But you can use either version with any
+                    &lt;product version="..."&gt;.</para>
             </section>
         </section>
         <section xml:id="Allowed_types">
@@ -1267,18 +1378,19 @@
                                 hours; or 3 years, 7 months, 2 days, 8 hours, 32 minutes, and 12
                                 seconds. It does not have a specific beginning or end, just a
                                 length. Durations are represented using the ISO-8601 standard format
-                                PnYnMnDTnHnMnS. nY gives the number of years, nM the number of
-                                months, nD the number of days, nH the number of hours, nM the number
-                                of minutes, and nS the number of seconds. The number of years,
-                                months, days, hours, minutes, and seconds are all given as
-                                nonnegative integers. The number of seconds is a decimal number with
-                                as many places after the decimal point as necessary. For example, in
-                                this format, 3 years, 7 months, 2 days, 8 hours, 32 minutes, and 12
-                                seconds is written as P3Y7M2DT8H32M12S. Any values that are zero can
-                                be omitted. Thus, a duration of 2 years and 2 minutes can be written
-                                as P2YT2M. If there are no hours, minutes, or seconds, then the T is
-                                omitted. Thus, a duration of two years is written as P2Y. A leading
-                                minus sign before the P indicates a negative duration.</td>
+                                    <emphasis role="italic">PnYnMnDTnHnMnS</emphasis>. nY gives the
+                                number of years, nM the number of months, nD the number of days, nH
+                                the number of hours, nM the number of minutes, and nS the number of
+                                seconds. The number of years, months, days, hours, minutes, and
+                                seconds are all given as nonnegative integers. The number of seconds
+                                is a decimal number with as many places after the decimal point as
+                                necessary. For example, in this format, 3 years, 7 months, 2 days, 8
+                                hours, 32 minutes, and 12 seconds is written as P3Y7M2DT8H32M12S.
+                                Any values that are zero can be omitted. Thus, a duration of 2 years
+                                and 2 minutes can be written as P2YT2M. If there are no hours,
+                                minutes, or seconds, then the T is omitted. Thus, a duration of two
+                                years is written as P2Y. A leading minus sign before the P indicates
+                                a negative duration.</td>
                         </tr>
                         <tr>
                             <td>date</td>
@@ -1290,12 +1402,12 @@
                             <td>dateTime</td>
                             <td>The dateTime type represents a specific moment in history, such as
                                 3:32 P.M., September 26, 2003. Date-times are written in the form
-                                CCYY-MM-DDThh:mm:ss. An optional time zone indicator in the form
-                                ±hh:mm may be suffixed to provide a time zone as an offset from
-                                Coordinated Universal Time (Greenwich Mean Time, UTC). For example,
-                                2003-09-26T15:32:00-05:00 is 3:32 P.M., September 26, 2003 in the
-                                U.S. Eastern time zone. A Z can be used instead to indicate UTC:
-                                1999-12-31T00:00:00Z.</td>
+                                    <replaceable>CCYY-MM-DDThh:mm:ss.</replaceable> An optional time
+                                zone indicator in the form ±hh:mm may be suffixed to provide a time
+                                zone as an offset from Coordinated Universal Time (Greenwich Mean
+                                Time, UTC). For example, 2003-09-26T15:32:00-05:00 is 3:32 P.M.,
+                                September 26, 2003 in the U.S. Eastern time zone. A Z can be used
+                                instead to indicate UTC: 1999-12-31T00:00:00Z.</td>
                         </tr>
                         <tr>
                             <td>utcDateTime</td>
@@ -1441,7 +1553,7 @@
             <para>Following is an example of an Atom entry:</para>
             <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-entry.xml" parse="text"/></programlisting>
             <para>Following is an example of a response to a Cloud Feeds request to post an Atom
-                entry.</para>
+                entry:</para>
             <programlisting language="xml" security="internal"><xi:include href="./samples/emailappsmsservice-emailapps_msservice-info-v1-response.xml" parse="text"/></programlisting>
         </section>
     </chapter>

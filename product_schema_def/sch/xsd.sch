@@ -42,9 +42,9 @@
                 You must use a standard schema type when the aggregate-function whole value != NONE.
             </assert>
             <assert test="local-name-from-QName($qn) = ('decimal','integer','nonPositiveInteger',
-                'negativeInteger','nonNegativeInteger', 'long',
-                'positiveInteger', 'unsignedLong',
-                'int', 'unsignedInt', 'short', 'unsignedShort', 'byte', 'unsignedByte')">
+                    'negativeInteger','nonNegativeInteger', 'long',
+                    'positiveInteger', 'unsignedLong',
+                     'int', 'unsignedInt', 'short', 'unsignedShort', 'byte', 'unsignedByte')">
                 Type for aggregate-function attribute should be standard XSD numeric type.
             </assert>
         </rule>
