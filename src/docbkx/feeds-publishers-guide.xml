@@ -1230,7 +1230,7 @@
             <para>The following table provides a list of allowed data types for product schema
                 definitions:</para>
             <para>
-                <table frame="border">
+                <table frame="border" width="1012">
                     <caption>Allowed types</caption>
                     <col width="25%"/>
                     <col width="75%"/>
@@ -1242,276 +1242,308 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>string*</td>
-                            <td>Specifies  any sequence of characters.</td>
+                            <td><code>string</code>*</td>
+                            <td>Specifies any sequence of characters.</td>
                         </tr>
                         <tr>
-                            <td>Name</td>
-                            <td>Specifies a valid name. That is a string that consist exclusively of
-                                letters, digits, ideographs, and the underscore, hyphen, period, and
-                                colon. Digits, the hyphen, and the period may not be used to start a
-                                name, although they may be used inside the name.</td>
+                            <td><code>Name</code></td>
+                            <td>Specifies a valid name. This must be a string that consist
+                                exclusively of letters, digits, ideographs, underscore, hyphen,
+                                period, and colon. Digits, hyphens, and periods may not be used to
+                                start a name, although they may be used inside the name.</td>
                         </tr>
                         <tr>
-                            <td>string*</td>
+                            <td><code>string</code>*</td>
                             <td>Specifies a list of strings.</td>
                         </tr>
                         <tr>
-                            <td>Name*</td>
+                            <td><code>Name</code>*</td>
                             <td>Specifies a list of names.</td>
                         </tr>
                         <tr>
-                            <td>integer</td>
+                            <td><code>integer</code></td>
                             <td>Specifies an integer value of arbitrary size.</td>
                         </tr>
                         <tr>
-                            <td>long</td>
+                            <td><code>long</code></td>
                             <td>Specifies a signed integer that can be represented by eight bytes.
                                 The minimum value of a long is 9223372036854775807, the maximum
                                 value is -9223372036854775808.</td>
                         </tr>
                         <tr>
-                            <td>int</td>
+                            <td><code>int</code></td>
                             <td>Specifies a signed integer that can be represented by four bytes.
                                 The minimum value of an int is -2147483648, the maximum value is
                                 2147483647.</td>
                         </tr>
                         <tr>
-                            <td>short</td>
+                            <td><code>short</code></td>
                             <td>Specifies a signed integer that can be represented by two bytes. The
                                 minimum value of a short is -32768, the maximum value is 32767.</td>
                         </tr>
                         <tr>
-                            <td>byte</td>
+                            <td><code>byte</code></td>
                             <td>Specifies a signed integer that can be represented by a single byte.
                                 The minimum value of a byte is -128, the maximum value is 127.</td>
                         </tr>
                         <tr>
-                            <td>unsignedLong</td>
+                            <td><code>unsignedLong</code></td>
                             <td>Specifies an unsigned integer that can be represented by eight
-                                bytes. The minimum value of a unsignedLong is 0, the maximum value
+                                bytes. The minimum value of an unsignedLong is 0, the maximum value
                                 is 18446744073709551615.</td>
                         </tr>
                         <tr>
-                            <td>unsignedInt</td>
+                            <td><code>unsignedInt</code></td>
                             <td>Specifies an unsigned integer that can be represented by four bytes.
                                 The minimum value of an unsignedInt is 0, the maximum value is
                                 4294967295.</td>
                         </tr>
                         <tr>
-                            <td>unsignedShort</td>
+                            <td><code>unsignedShort</code></td>
                             <td>Specifies an unsigned integer that can be represented by two bytes.
                                 The minimum value of an unsignedShort is 0, the maximum value is
                                 65535.</td>
                         </tr>
                         <tr>
-                            <td>unsignedByte</td>
+                            <td><code>unsignedByte</code></td>
                             <td>Specifies an unsigned integer that can be represented by a single
                                 byte. The minimum value of a byte is 0, the maximum value is
                                 255.</td>
                         </tr>
                         <tr>
-                            <td>double</td>
-                            <td>Specifies a  A decimal value that can be represented by an eight
-                                byte floating-point number in IEEE 754 format. Values such as INF
-                                (infinity) and NaN (not a number) are allowed.</td>
-                        </tr>
-                        <tr>
-                            <td>float</td>
-                            <td>Specifies a decimal value that can be represented by a four byte
+                            <td><code>double</code></td>
+                            <td>Specifies a decimal value that can be represented by an eight-byte
                                 floating-point number in IEEE 754 format. Values such as INF
                                 (infinity) and NaN (not a number) are allowed.</td>
                         </tr>
                         <tr>
-                            <td>integer*</td>
-                            <td>Specifies a whitespace separated list of integer values.</td>
+                            <td><code>float</code></td>
+                            <td>Specifies a decimal value that can be represented by a four-byte
+                                floating-point number in IEEE 754 format. Values such as INF
+                                (infinity) and NaN (not a number) are allowed.</td>
                         </tr>
                         <tr>
-                            <td>long*</td>
-                            <td>Specifies a  whitespace separated list of long values.</td>
+                            <td><code>integer</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>integer</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>int*</td>
-                            <td>Specifies a whitespace separated list of int values.</td>
+                            <td><code>long</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>long</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>short*</td>
-                            <td>Specifies a whitespace separated list of short values.</td>
+                            <td><code>int</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>int</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>byte*</td>
-                            <td>Specifies a whitespace separated list of byte values.</td>
+                            <td><code>short</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>short</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>unsignedLong*</td>
-                            <td>Specifies a whitespace separated list of unsignedLong values.</td>
+                            <td><code>byte</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>byte</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>unsignedInt*</td>
-                            <td>Specifies whitespace separated list of unsignedInt values.</td>
+                            <td><code>unsignedLong</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>unsignedLong</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>unsignedShort*</td>
-                            <td>Specifies a whitespace separated list of unsignedShort values.</td>
+                            <td><code>unsignedInt</code>*</td>
+                            <td>Specifies whitespace-separated list of <code>unsignedInt</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>unsignedByte*</td>
-                            <td>Specifies a whitespace separated list of unsignedByte values.</td>
+                            <td><code>unsignedShort</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>unsignedShort</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>double*</td>
-                            <td>Specifies a  whitespace separated list of double values.</td>
+                            <td><code>unsignedByte</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>unsignedByte</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>float*</td>
-                            <td>Specifies a whitespace separated list of float values.</td>
+                            <td><code>double</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>double</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>boolean</td>
+                            <td><code>float</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>float</code>
+                                values.</td>
+                        </tr>
+                        <tr>
+                            <td><code>boolean</code></td>
                             <td>Specifies a boolean value.</td>
                         </tr>
                         <tr>
-                            <td>boolean*</td>
-                            <td>Specifies a whitespace separated list of boolean values.</td>
+                            <td><code>boolean</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>boolean</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>duration</td>
-                            <td>The duration type represents a length of time such as 15 minutes; 2
-                                hours; or 3 years, 7 months, 2 days, 8 hours, 32 minutes, and 12
-                                seconds. It does not have a specific beginning or end, just a
-                                length. Durations are represented using the ISO-8601 standard format
-                                    <emphasis role="italic">PnYnMnDTnHnMnS</emphasis>. nY gives the
-                                number of years, nM the number of months, nD the number of days, nH
-                                the number of hours, nM the number of minutes, and nS the number of
-                                seconds. The number of years, months, days, hours, minutes, and
-                                seconds are all given as nonnegative integers. The number of seconds
-                                is a decimal number with as many places after the decimal point as
-                                necessary. For example, in this format, 3 years, 7 months, 2 days, 8
-                                hours, 32 minutes, and 12 seconds is written as P3Y7M2DT8H32M12S.
-                                Any values that are zero can be omitted. Thus, a duration of 2 years
-                                and 2 minutes can be written as P2YT2M. If there are no hours,
-                                minutes, or seconds, then the T is omitted. Thus, a duration of two
-                                years is written as P2Y. A leading minus sign before the P indicates
-                                a negative duration.</td>
+                            <td><code>duration</code></td>
+                            <td>The <code>duration</code> type represents a length of time, such as
+                                15 minutes; 2 hours; or 3 years, 7 months, 2 days, 8 hours, 32
+                                minutes, and 12 seconds. This value does not have a specific
+                                beginning or end. For more information see the note below. </td>
                         </tr>
                         <tr>
-                            <td>date</td>
-                            <td>The date type represents a specific day in history such as September
-                                26, 2005. Dates are written in the form CCYY-MM-DD. For example,
-                                September 26, 2005 is written as 2005-09-26.</td>
+                            <td><code>date</code></td>
+                            <td>The <code>date</code> type represents a specific day in history such
+                                as September 26, 2005. Dates are written in the form <emphasis
+                                    role="italic">CCYY-MM-DD</emphasis>. For example, September 26,
+                                2005 is written as 2005-09-26.</td>
                         </tr>
                         <tr>
-                            <td>dateTime</td>
-                            <td>The dateTime type represents a specific moment in history, such as
-                                3:32 P.M., September 26, 2003. Date-times are written in the form
-                                    <replaceable>CCYY-MM-DDThh:mm:ss.</replaceable> An optional time
-                                zone indicator in the form ±hh:mm may be suffixed to provide a time
-                                zone as an offset from Coordinated Universal Time (Greenwich Mean
-                                Time, UTC). For example, 2003-09-26T15:32:00-05:00 is 3:32 P.M.,
-                                September 26, 2003 in the U.S. Eastern time zone. A Z can be used
-                                instead to indicate UTC: 1999-12-31T00:00:00Z.</td>
+                            <td><code>dateTime</code></td>
+                            <td>The <code>dateTime</code> type represents a specific moment in
+                                history, such as 3:32 P.M., September 26, 2003. Date-time
+                                expressions are written in the form <emphasis role="italic"
+                                    >CCYY-MM-DDThh:mm:ss</emphasis>. An optional time zone indicator
+                                in the form ±hh:mm may be suffixed to provide a time zone as an
+                                offset from Coordinated Universal Time (Greenwich Mean Time, UTC).
+                                For example, 2003-09-26T15:32:00-05:00 is 3:32 P.M., September 26,
+                                2003 in the U.S. Eastern time zone. A Z can be used instead to
+                                indicate UTC: 1999-12-31T00:00:00Z.</td>
                         </tr>
                         <tr>
-                            <td>utcDateTime</td>
-                            <td>Specifies a dateTime constraint to be in the UTC timezone. That is
-                                the timezone offset must be 0 OR the value must end with Z.</td>
+                            <td><code>utcDateTime</code></td>
+                            <td>Specifies a <code>dateTime</code> constraint to be in the UTC
+                                timezone. That is the timezone offset must be 0 OR the value must
+                                end with Z.</td>
                         </tr>
                         <tr>
-                            <td>time</td>
-                            <td>The time type represents a specific time of day on no particular
-                                day, such as 3:32 P.M. Times are written in the form ±hh:mm:ss.xxx
-                                using a 24-hour clock and as many fractions of a second as
-                                necessary. An optional time zone indicator in the form ±hh:mm may be
-                                suffixed to provide a time zone as an offset from Coordinated
-                                Universal Time (Greenwich Mean Time, UTC). For example,
+                            <td><code>time</code></td>
+                            <td>The <code>time</code> type represents a specific time of day on no
+                                particular day, such as 3:32 P.M. Times are written in the form
+                                ±hh:mm:ss.xxx using a 24-hour clock and as many fractions of a
+                                second as necessary. An optional time zone indicator in the form
+                                ±hh:mm may be suffixed to provide a time zone as an offset from
+                                Coordinated Universal Time (Greenwich Mean Time, UTC). For example,
                                 15:32:00-05:00 is 3:32 P.M., in the U.S. Eastern time zone. A Z can
                                 be used instead to indicate UTC: 00:00:00Z.</td>
                         </tr>
                         <tr>
-                            <td>utcTime</td>
-                            <td>Specifies a  time constraint to be in the UTC timezone. That is the
-                                timezone offset must be 0 OR the value must end with Z.</td>
+                            <td><code>utcTime</code></td>
+                            <td>Specifies a time constraint for the UTC timezone. The timezone
+                                offset must be 0 OR the value must end with Z.</td>
                         </tr>
                         <tr>
-                            <td>duration*</td>
-                            <td>Specifies a whitespace separated list of duration values.</td>
+                            <td><code>duration</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>duration</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>date*</td>
-                            <td>Specifies a whitespace separated list of date values.</td>
+                            <td><code>date</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>date</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>dateTime*</td>
-                            <td>Specifies a whitespace separated list of dateTime values.</td>
+                            <td><code>dateTime</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>dateTime</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>utcDateTime*</td>
-                            <td>Specifies a whitespace separated list of utcDateTime values.</td>
+                            <td><code>utcDateTime</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>utcDateTime</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>time*</td>
-                            <td>Specifies a whitespace separated list of time values.</td>
+                            <td><code>time</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>time</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>utcTime*</td>
-                            <td>Specifies a whitespace separated list of utcTime values.</td>
+                            <td><code>utcTime</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>utcTime</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>gDay*</td>
-                            <td>Specifies a whitespace separated list of gDay values.</td>
+                            <td><code>gDay</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>gDay</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>gMonth*</td>
-                            <td>Specifies a whitespace separated list of gMonth values.</td>
+                            <td><code>gMonth</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>gMonth</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>gYear*</td>
-                            <td>Specifies a whitespace separated list of gYear values.</td>
+                            <td><code>gYear</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>gYear</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>gMonthDay*</td>
-                            <td>Specifies a whitespace separated list of gMonthDay values.</td>
+                            <td><code>gMonthDay</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>gMonthDay</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>gMonthYear*</td>
-                            <td>Specifies a  whitespace separated list of gMonthYear values.</td>
+                            <td><code>gMonthYear</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>gMonthYear</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>base64Binary</td>
+                            <td><code>base64Binary</code></td>
                             <td>Specifies an arbitrary sequence of bytes that has been encoded in
-                                ASCII characters using the Base-64 algorithm defined in RFC 2045,
-                                &lt;html:i>Multi-purpose Internet Mail Extensions (MIME) Part One:
-                                Format of Internet Message Bodies&lt;/html:i>. The letters A–Z and
-                                a–z, the digits 0–9, and the punctuation marks + and / are used to
-                                encode data according to an algorithm that maps four of these
-                                characters to three arbitrary bytes. The equals sign is used to pad
-                                data at the end if necessary.</td>
+                                ASCII characters using the Base-64 algorithm defined in <link
+                                    xlink:href="https://www.ietf.org/rfc/rfc2045.txt">RFC
+                                    2045</link>. The letters A–Z and a–z, the digits 0–9, and the
+                                punctuation marks + and / are used to encode data according to an
+                                algorithm that maps four of these characters to three arbitrary
+                                bytes. The equal sign is used to pad data at the end if
+                                necessary.</td>
                         </tr>
                         <tr>
-                            <td>anyURI</td>
-                            <td>The anyURI type indicates a Uniform Resource Identifier. This
-                                includes not only Uniform Resource Locators (URLs), but also Uniform
-                                Resource Names (URNs). Both relative and absolute URLs are
-                                allowed.</td>
+                            <td><code>anyURI</code></td>
+                            <td>The <code>anyURI</code> type indicates a Uniform Resource
+                                Identifier. This includes not only Uniform Resource Locators (URLs),
+                                but also Uniform Resource Names (URNs). Both relative and absolute
+                                URLs are allowed.</td>
                         </tr>
                         <tr>
-                            <td>UUID</td>
-                            <td> A Universally unique identifier in its canonical form: 32
+                            <td><code>UUID</code></td>
+                            <td>Specifies a universally unique identifier in its canonical form: 32
                                 hexadecimal digits, displayed in five groups separated by hyphens,
                                 in the form 8-4-4-4-12 for a total of 36 characters (32 digits and
                                 four hyphens). For example:
                                 7eadda6a-9f3e-11e1-9ef4-77b6922f8866.</td>
                         </tr>
                         <tr>
-                            <td>anyURI*</td>
-                            <td>Specifies a whitespace separated list of anyURI values.</td>
+                            <td><code>anyURI</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>anyURI</code>
+                                values.</td>
                         </tr>
                         <tr>
-                            <td>UUID*</td>
-                            <td>Specifies a whitespace separated list of UUIDs values.</td>
+                            <td><code>UUID</code>*</td>
+                            <td>Specifies a whitespace-separated list of <code>UUID</code>
+                                values.</td>
                         </tr>
                     </tbody>
                 </table>
+            </para>
+            <para>
+                <note>
+                    <para>Durations are represented using the ISO-8601 standard format <emphasis
+                            role="italic">PnYnMnDTnHnMnS</emphasis>. nY specifies the number of
+                        years, nM the number of months, nD the number of days, nH the number of
+                        hours, nM the number of minutes, and nS the number of seconds. The number of
+                        years, months, days, hours, minutes, and seconds are all specified as
+                        nonnegative integers. The number of seconds is a decimal number with as many
+                        places after the decimal point as necessary. For example, in this format, 3
+                        years, 7 months, 2 days, 8 hours, 32 minutes, and 12 seconds is written as
+                        P3Y7M2DT8H32M12S. Any values that are zero can be omitted. A duration of 2
+                        years and 2 minutes can be written as P2YT2M. If there are no hours,
+                        minutes, or seconds, then the T is omitted. A duration of two years is
+                        written as P2Y. A leading minus sign before the P indicates a negative
+                        duration.</para>
+                </note>
             </para>
         </section>
     </chapter>
@@ -1540,7 +1572,8 @@
                         <para>Create a sample product schema</para>
                     </listitem>
                     <listitem>
-                        <para>Create a sample message</para>
+                        <para><link linkend="Creating_message_samples">Create a message
+                                sample</link></para>
                     </listitem>
                 </itemizedlist>
             </para>
