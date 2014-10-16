@@ -10,25 +10,25 @@ import BaseUsageSuite._
 class ObserverSuite extends BaseUsageSuite{
   test( "Getting an entry on a non-existent Observer feed should always fail" ) {
 
-    assertResultFailed(atomValidatorObserver.validate(request("GET", "/usagetest10/events/12334", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain), 404 )
+    assertResultFailed(atomValidator.validate(request("GET", "/usagetest10/events/12334", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain), 404 )
   }
 
   test( "Getting an entry on a Validated Observer feed with no tenant ID should always fail" ) {
 
-    assertResultFailed(atomValidatorObserver.validate(request("GET", "/bigdata/events", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain), 405 )
+    assertResultFailed(atomValidator.validate(request("GET", "/bigdata/events", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain), 405 )
   }
 
   test( "Getting an entry on a Validated Observer feed should always succeed" ) {
 
-    atomValidatorObserver.validate(request("GET", "/bigdata/events/12334", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
+    atomValidator.validate(request("GET", "/bigdata/events/12334", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
   }
 
   test( "Getting an entry on a Validated Observer feed with UUID should always succeed" ) {
 
-    atomValidatorObserver.validate(request("GET", "/bigdata/events/12334/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
+    atomValidator.validate(request("GET", "/bigdata/events/12334/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
   }
 
   test("A GET on /buildinfo should always succeed") {
-    atomValidatorObserver.validate(request("GET", "/buildinfo"), response, chain)
+    atomValidator.validate(request("GET", "/buildinfo"), response, chain)
   }
 }

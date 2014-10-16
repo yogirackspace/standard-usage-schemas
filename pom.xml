@@ -616,9 +616,6 @@
                         <source>
                             <location>allfeeds.wadl</location>
                         </source>
-                        <source>
-                            <location>allfeeds_observer.wadl</location>
-                        </source>
                         </sources>
                     </mapping>
                     <mapping>
