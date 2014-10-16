@@ -10,8 +10,8 @@
              xmlns:event="http://docs.rackspace.com/core/event">
 
     <!-- Resource Types -->
-    <resource_type id="TenantAtomFeed" rax:roles="cloudfeeds:observer admin observer identity:user-admin">
-        <resource path="{tid}/" id="tenanted_feed">
+    <resource_type id="TenantAtomFeed">
+        <resource path="{tid}/" id="tenanted_feed"  rax:roles="cloudfeeds:observer admin observer identity:user-admin">
             <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant Id.</doc></param>
             <method href="#getFeed" />
         </resource>
