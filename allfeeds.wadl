@@ -33,7 +33,7 @@
             <resource id="bigdata_events"
                       path="bigdata/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#BigDataTenant"/>
-            <resource id="billing_events"
+            <!--<resource id="billing_events"
                       path="billing/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BillingService"/>
             <resource id="cbs_events"
@@ -123,7 +123,7 @@
             <resource id="usagedeadletter_events"
                       path="usagedeadletter/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
-            <!-- usagerecovery is validated as BigData & CloudLoadBalancers have synthesized attributes -->
+            &lt;!&ndash; usagerecovery is validated as BigData & CloudLoadBalancers have synthesized attributes &ndash;&gt;
             <resource id="usagerecovery_events"
                       path="usagerecovery/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
@@ -131,12 +131,12 @@
                       path="usagesummaryrecovery/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
             
-            <!-- Feeds Catalog -->
+            &lt;!&ndash; Feeds Catalog &ndash;&gt;
             <resource id="feedscatalog"
                       path="feedscatalog/catalog" 
                       type="wadl/feed.wadl#FeedsCatalog"/>
             
-            <!-- Test related feeds -->
+            &lt;!&ndash; Test related feeds &ndash;&gt;
             <resource id="demo_events"
                       path="demo/events" 
                       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
@@ -217,9 +217,9 @@
              </resource>
 
 
-            <!-- end of Test related feeds -->
+            &lt;!&ndash; end of Test related feeds &ndash;&gt;
     
-            <!-- Summary Feeds -->
+            &lt;!&ndash; Summary Feeds &ndash;&gt;
             <resource path="/usagesummary/">
                 <resource id="backup_usagesummary_events"
                           path="backup/events"
@@ -266,7 +266,7 @@
                 <resource id="widgettest_usagesummary_events"
                           path="widgettest/events"
                           type="wadl/feed.wadl#AtomFeed wadl/product.wadl#WidgetSummary"/>
-            </resource>
+            </resource>-->
         </resource>
     </resources>
 </application>

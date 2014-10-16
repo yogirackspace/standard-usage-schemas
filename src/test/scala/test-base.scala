@@ -54,12 +54,13 @@ object BaseUsageSuite {
     usageConfig.checkHeaders = true
     usageConfig.preserveRequestBody = true
     usageConfig.resultHandler = assertHandler
+    usageConfig.enableRaxRolesExtension = true
 
     //
     //  The atom hopper validator
     //
     val atomValidator = Validator(new StreamSource(new File("allfeeds.wadl")), usageConfig)
-    val atomValidatorObserver = Validator(new StreamSource(new File("allfeeds_observer.wadl")), usageConfig)
+    // val atomValidatorObserver = Validator(new StreamSource(new File("allfeeds_observer.wadl")), usageConfig)
 
     //
     //  Convenience function to get to the XML of a request

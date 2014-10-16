@@ -40,9 +40,11 @@ class DisableJSONSuite extends BaseUsageSuite {
             assertResultFailed(atomValidator.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/vnd.collection+json")) ), response, chain), 406 )
         }
 
+/*
         test("Getting /monitoring feed JSON Content as observer with Accept: application/json should fail with 406") {
             assertResultFailed(atomValidatorObserver.validate(request("GET", "/monitoring/events/12345", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
         }
+*/
 
         test("Getting /functest1 feed JSON Content with Accept: application/json should fail with 406") {
             assertResultFailed(atomValidator.validate(request("GET", "/functest1/events", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406 )
@@ -72,9 +74,9 @@ class DisableJSONSuite extends BaseUsageSuite {
             atomValidator.validate(request("GET", "/identity/events", "", "", false, Map("ACCEPT"->List("application/atom+xml")) ), response, chain)
         }
 
-        test("Getting /ssl feed as observer with Accept application/atom+xml should succeed") {
+/*        test("Getting /ssl feed as observer with Accept application/atom+xml should succeed") {
             atomValidatorObserver.validate(request("GET", "/ssl/events/12345", "", "", false, Map("ACCEPT"->List("application/atom+xml")) ), response, chain)
-        }
+        }*/
 
     }
 
@@ -95,8 +97,8 @@ class DisableJSONSuite extends BaseUsageSuite {
         }
 
         // observer entry
-        test("Getting a single /ssl entry JSON Content as observer with Accept application/json should fail with 406") {
+/*        test("Getting a single /ssl entry JSON Content as observer with Accept application/json should fail with 406") {
             assertResultFailed(atomValidatorObserver.validate(request("GET", "/ssl/events/12345/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89", "", "", false, Map("ACCEPT"->List("application/json")) ), response, chain), 406)
-        }
+        }*/
     }
 }
