@@ -75,4 +75,20 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
     register("event", "http://docs.rackspace.com/core/event")
     register("cldfeeds", "http://docs.rackspace.com/api/cloudfeeds")
 
+    def getSampleXMLFiles(dir: File) : List[File] = {
+
+        def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
+            case List() => List()
+            case fi :: rest => if (!fi.isDirectory() && fi.getName().endsWith(".xml")) {
+                fi :: getSampleXMLFiles(rest)
+            } else if (fi.isDirectory()) {
+                getSampleXMLFiles(rest ++ fi.listFiles().toList)
+            } else {
+                getSampleXMLFiles(rest)
+            }
+        }
+
+        getSampleXMLFiles(dir.listFiles().toList)
+    }
+
 }

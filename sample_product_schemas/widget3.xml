@@ -29,7 +29,7 @@
                private="true">
         Specifies a private attribute that is not supposed to be shown to the public.
     </attribute>
-    <attribute name="myAttribute" type="" use="optional" private="true">
+    <attribute name="myAttribute" type="string" use="optional" private="true">
         Specifies an attribute that needs to be private here, but not in sub elements.
     </attribute>
     <attribute name="privateAttribute3" type="Name" use="optional"
