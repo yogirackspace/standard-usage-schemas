@@ -9,11 +9,14 @@
                 xmlns="http://wadl.dev.java.net/2009/02"
                 version="2.0">
    <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+
    <xsl:template name="main">
       <xsl:apply-templates mode="rm_priv"/>
    </xsl:template>
-   <xsl:template name="rm_priv">
-      <xsl:param name="atomDoc"/>
+
+   <!--The productSchema-wadl.xsl call-template this one-->
+   <xsl:template name="rmPrivAttrsTemplate">
+      <xsl:param name="atomDoc" as="node()*"/>
       <xsl:apply-templates select="$atomDoc" mode="rm_priv"/>
    </xsl:template>
    <xsl:template match="@*|node()" mode="rm_priv">

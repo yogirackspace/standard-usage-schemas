@@ -921,11 +921,8 @@
                                 @summary = $summary]/@path)[1], base-uri()) )"/>
 
                         <xsl:variable name="sampleFiltered">
-                            <!--<xsl:apply-templates select="$sampleDoc" mode="rm_priv"/>-->
-                            <xsl:call-template name="rm_priv">
-                                <xsl:with-param name="atomDoc">
-                                    <xsl:value-of select="$sampleDoc"/>
-                                </xsl:with-param>
+                            <xsl:call-template name="rmPrivAttrsTemplate">
+                                <xsl:with-param name="atomDoc" select="$sampleDoc"/>
                             </xsl:call-template>
                         </xsl:variable>
 
