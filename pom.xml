@@ -356,7 +356,7 @@
                         <fileset>
                             <directory>${basedir}/wadl</directory>
                             <includes>
-                                <include>rm_private_attrs_for_obs_helper.xsl</include>
+                                <include>rm_private_attrs_for_obs.xsl</include>
                                 <include>product.wadl</include>
                             </includes>
                         </fileset>
@@ -532,9 +532,6 @@
                         <sources>
                             <source>
                                 <location>wadl/rm_private_attrs_for_obs.xsl</location>
-                            </source>
-                            <source>
-                                <location>wadl/rm_private_attrs_for_obs_helper.xsl</location>
                             </source>
                         </sources>
                     </mapping>

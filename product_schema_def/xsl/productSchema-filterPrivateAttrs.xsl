@@ -30,7 +30,21 @@
             version="2.0">
             
             <xslout:output method="xml" indent="yes" encoding="UTF-8"/>
+
+            <xsl:text>&#x0a;&#x0a;</xsl:text>
+            <xslout:template name="main">
+                <xslout:apply-templates mode="rm_priv"/>
+            </xslout:template>
+
+            <xsl:text>&#x0a;&#x0a;</xsl:text>
+            <xsl:comment>The productSchema-wadl.xsl call-template this one</xsl:comment>
+            <xsl:text>&#x0a;   </xsl:text>
+            <xslout:template name="rmPrivAttrsTemplate">
+                <xslout:param name="atomDoc" as="node()*"/>
+                <xslout:apply-templates select="$atomDoc" mode="rm_priv"/>
+            </xslout:template>
             
+            <xsl:text>&#x0a;&#x0a;</xsl:text>
             <xslout:template match="@*|node()" mode="rm_priv">
                 <xslout:copy>
                     <xslout:apply-templates select="@*|node()" mode="rm_priv"/>
