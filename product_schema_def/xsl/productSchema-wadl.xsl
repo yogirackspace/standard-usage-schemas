@@ -22,7 +22,7 @@
     version="2.0">
 
     <xsl:import href="productSchema-summary-util.xsl"/>
-    <xsl:import href="../../wadl/rm_private_attrs_for_obs_helper.xsl"/>
+    <xsl:import href="../../wadl/rm_private_attrs_for_obs.xsl"/>
 
     <!-- for samples -->
     <xsl:template match="comment()" mode="rm_priv"/>
@@ -921,7 +921,12 @@
                                 @summary = $summary]/@path)[1], base-uri()) )"/>
 
                         <xsl:variable name="sampleFiltered">
-                            <xsl:apply-templates select="$sampleDoc" mode="rm_priv"/>
+                            <!--<xsl:apply-templates select="$sampleDoc" mode="rm_priv"/>-->
+                            <xsl:call-template name="rm_priv">
+                                <xsl:with-param name="atomDoc">
+                                    <xsl:value-of select="$sampleDoc"/>
+                                </xsl:with-param>
+                            </xsl:call-template>
                         </xsl:variable>
 
                         <xsl:value-of select="saxon:serialize( $sampleFiltered, 'sample' )"/>

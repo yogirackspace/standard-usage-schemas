@@ -30,6 +30,15 @@
             version="2.0">
             
             <xslout:output method="xml" indent="yes" encoding="UTF-8"/>
+
+            <xslout:template name="main">
+                <xslout:apply-templates mode="rm_priv"/>
+            </xslout:template>
+
+            <xslout:template name="rm_priv">
+                <xslout:param name="atomDoc"/>
+                <xslout:apply-templates select="$atomDoc" mode="rm_priv"/>
+            </xslout:template>
             
             <xslout:template match="@*|node()" mode="rm_priv">
                 <xslout:copy>
