@@ -4,6 +4,7 @@ import java.util
 import javax.xml.transform.stream.{StreamResult, StreamSource}
 import javax.xml.transform.TransformerFactory
 import javax.xml.xpath.{XPathConstants, XPathFactory}
+import net.sf.saxon.Controller
 import net.sf.saxon.lib.NamespaceConstant
 import net.sf.saxon.tree.tiny.TinyNodeImpl
 import org.junit.runner.RunWith
@@ -37,10 +38,10 @@ class Xml2JsonSuite extends BaseUsageSuite {
     // load all sample XML files and translate them to JSON
     sampleFiles.foreach ( f => {
         test("Transforming sample " + f.getAbsolutePath + " to JSON ") {
-            printf("Checking %s\n",f.getAbsolutePath)
+            printf("Transforming %s to JSON\n",f.getAbsolutePath)
 
             val jsonResult = transform(new StreamSource(f))
-            println(jsonResult)
+            //println(jsonResult)
 
             val jsonObjects = JSON.parseFull(jsonResult).get.asInstanceOf[Map[String,Any]]
             assert(jsonObjects.get("entry").get != null, "  should have an entry")
@@ -63,6 +64,7 @@ class Xml2JsonSuite extends BaseUsageSuite {
         val writer = new StringWriter()
 
         trans.setParameter("schemaDirectory", "./../../../sample_product_schemas")
+        trans.asInstanceOf[Controller].setInitialTemplate("main")
         trans.transform(inputXML, new StreamResult(writer))
 
         writer.toString()

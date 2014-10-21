@@ -17,9 +17,9 @@
     <!-- this nonStringAttrs.xsl is generated -->
     <xsl:include href="nonStringAttrs.xsl"/>
     
-    <xsl:template match="/*[node()]">
+    <xsl:template name="main">
         <xsl:text>{</xsl:text>
-        <xsl:apply-templates select="." mode="detect" />
+        <xsl:apply-templates select="/*[node()]" mode="detect" />
         <xsl:text>}</xsl:text>
     </xsl:template>
  
