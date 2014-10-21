@@ -44,6 +44,7 @@
                 <xslout:apply-templates select="$atomDoc" mode="rm_priv"/>
             </xslout:template>
             
+            <xsl:text>&#x0a;&#x0a;</xsl:text>
             <xslout:template match="@*|node()" mode="rm_priv">
                 <xslout:copy>
                     <xslout:apply-templates select="@*|node()" mode="rm_priv"/>
