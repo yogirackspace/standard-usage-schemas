@@ -44,6 +44,15 @@
                         </documentation>
                     </annotation>
                 </attribute>
+                <attribute name="parentTenantId" type="event:NonEmptyString" use="optional">
+                    <annotation>
+                        <documentation>
+                            <html:p>
+                                Identifies the parent tenant ID.
+                            </html:p>
+                        </documentation>
+                    </annotation>
+                </attribute>
                 <attribute name="clientUsername" type="event:Username" use="optional">
                     <annotation>
                         <documentation>
@@ -223,8 +232,8 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                Usage duration of the resource associated with this event. This is
-                                primarily used for event with type=USAGE_SUMMARY.
+                               Usage duration of the resource associated with this event. This is
+                               primarily used for event with type=USAGE_SUMMARY.
                             </html:p>
                         </documentation>
                     </annotation>
@@ -239,29 +248,29 @@
                         </documentation>
                     </annotation>
                 </attribute>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </extension>
         </complexContent>
     </complexType>
@@ -295,7 +304,7 @@
             </documentation>
         </annotation>
         <restriction base="xsd:dateTime" vc:minVersion="1.0" vc:maxVersion="1.1"/>
-
+        
     </simpleType>
 
     <simpleType name="Severity">
@@ -377,7 +386,7 @@
                 <html:p>
                     Note that the source of truth for this is in the
                     <html:a href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
-                        Portal</html:a>.
+                    Portal</html:a>.
                 </html:p>
             </documentation>
         </annotation>
@@ -403,7 +412,7 @@
                 <html:p>
                     Note that the source of truth for this is in the
                     <html:a href="https://dcwiki.rackspace.com/wiki/Main_Page">DC
-                        Portal</html:a>.
+                    Portal</html:a>.
                 </html:p>
             </documentation>
         </annotation>
