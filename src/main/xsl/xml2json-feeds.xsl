@@ -12,7 +12,9 @@
     <!-- we always put these nodes in an array, even though they may only
          have one element -->
     <xsl:variable name="arrayNodesInEntry" select="tokenize('category link', ' ')"/>
-    <xsl:variable name="printNamespaceOnNodes" select="tokenize('event product', ' ')"/>
+    <xsl:variable name="printNamespaceOnNodes" select="tokenize('event product error eventError', ' ')"/>
+    <!-- rax schema nodes must have @version attribute -->
+    <xsl:variable name="raxSchemaNodes" select="tokenize('event product', ' ')"/>
     
     <!-- this nonStringAttrs.xsl is generated -->
     <xsl:include href="nonStringAttrs.xsl"/>
@@ -55,7 +57,7 @@
         <xsl:text>{</xsl:text>
             <xsl:if test="exists(index-of($printNamespaceOnNodes, local-name()))"><xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text></xsl:if>
             <xsl:choose>
-                <xsl:when test="exists(index-of($printNamespaceOnNodes, local-name()))">
+                <xsl:when test="exists(index-of($raxSchemaNodes, local-name()))">
                     <xsl:variable name="namespace" select="string(namespace-uri())" as="xs:string"/>
                     <xsl:variable name="version"   select="@version"                as="xs:string"/>
 
