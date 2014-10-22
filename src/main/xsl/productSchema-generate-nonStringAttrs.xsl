@@ -22,20 +22,6 @@
          of supported types are in the productSchema.xsd.
      -->
     <xsl:variable name="nonStringTypes" select="tokenize('integer,int,short,byte,unsignedLong,unsignedInt,unsignedShort,unsignedByte,double,float,duration,boolean', ',')"/>
-    <!--
-        Treat a list of non-string types as string
-    <xsl:variable name="nonStringTypesList">
-        <xsl:for-each select="$baseTypes">
-            <xsl:value-of select="current()"/>
-            <xsl:value-of select="','"/>
-            <xsl:value-of select="concat(current(), '*')"/>
-            <xsl:if test="position() ne last()">
-                <xsl:value-of select="','"/>
-            </xsl:if>
-        </xsl:for-each>        
-    </xsl:variable>
-    <xsl:variable name="nonStringTypes"  select="tokenize($nonStringTypesList, ',')"/>
-    -->
 
     <xsl:variable name="productSchemas" select="collection(concat($schemaDirectory, '?select=*.xml;recurse=yes'))"/>
     
