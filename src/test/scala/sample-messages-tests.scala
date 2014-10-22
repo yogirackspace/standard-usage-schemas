@@ -40,22 +40,6 @@ class SampleMessagesSuite extends BaseUsageSuite {
   private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
   private val preproc_template = TransformerFactory.newInstance("org.apache.xalan.xsltc.trax.TransformerFactoryImpl",null).newTemplates(new StreamSource(preprocAHop))
 
-  def getSampleXMLFiles(dir: File) : List[File] = {
-
-    def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
-      case List() => List()
-      case fi :: rest => if (!fi.isDirectory() && fi.getName().endsWith(".xml")) {
-        fi :: getSampleXMLFiles(rest)
-      } else if (fi.isDirectory()) {
-        getSampleXMLFiles(rest ++ fi.listFiles().toList)
-      } else {
-        getSampleXMLFiles(rest)
-      }
-    }
-
-    getSampleXMLFiles(dir.listFiles().toList)
-  }
-
   sampleFiles.foreach ( f => {
     test("Sample "+f.getAbsolutePath+" should be valid according to the product schema ") {
       printf("Checking %s\n",f.getAbsolutePath)

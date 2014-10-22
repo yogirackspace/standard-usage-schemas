@@ -229,6 +229,31 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-xml2json-xslt</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/xslt-artifacts</outputDirectory>
+                            <resources>          
+                                <resource>
+                                    <directory>src/main/xsl</directory>
+                                    <includes>
+                                        <include>xml2json-feeds.xsl</include>
+                                    </includes>
+                                </resource>
+                            </resources>              
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>xml-maven-plugin</artifactId>
                 <version>1.0</version>
@@ -265,6 +290,31 @@
                                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                     <pattern>pom.xml</pattern>
                                     <replacement>usage.xsd</replacement>
+                                </fileMapper>
+                            </fileMappers>
+                        </transformationSet>
+                        <transformationSet>
+                            <dir>${basedir}</dir>
+                            <!-- Note that we're not actually transforming this file,
+                                 This is only to fool this plugin which requires input
+                                 file. This particular XSLT reads all xml file in the
+                                 directory specified as input_dir parameter
+                            -->
+                            <includes>
+                                <include>pom.xml</include>
+                            </includes>
+                            <outputDir>${basedir}/target/xslt-artifacts</outputDir>
+                            <stylesheet>${basedir}/src/main/xsl/productSchema-generate-nonStringAttrs.xsl</stylesheet>
+                            <parameters>
+                                <parameter>
+                                    <name>schemaDirectory</name>
+                                    <value>${project.baseUri}/sample_product_schemas</value>
+                                </parameter>
+                            </parameters>
+                            <fileMappers>
+                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                    <pattern>pom.xml</pattern>
+                                    <replacement>nonStringAttrs.xsl</replacement>
                                 </fileMapper>
                             </fileMappers>
                         </transformationSet>
@@ -532,6 +582,8 @@
                         <sources>
                             <source>
                                 <location>wadl/rm_private_attrs_for_obs.xsl</location>
+                                <location>target/xslt-artifacts/nonStringAttrs.xsl</location>
+                                <location>target/xslt-artifacts/xml2json-feeds.xsl</location>
                             </source>
                         </sources>
                     </mapping>
