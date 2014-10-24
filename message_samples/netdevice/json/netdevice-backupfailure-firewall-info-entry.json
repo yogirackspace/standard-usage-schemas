@@ -1,0 +1,29 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "agentUsername": "System",
+                "dataCenter": "DFW1",
+                "endTime": "2014-01-19T10:30:52Z",
+                "id": "b79cc3de-b399-3883-b555-61829bbccd38",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/netdevice/backupfailure",
+                    "failureType": "CONNECTION_TIMEOUT",
+                    "resourceType": "FIREWALL",
+                    "serviceCode": "NetDevice",
+                    "url": "https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "123456",
+                "resourceName": "FW123456.DFW1",
+                "startTime": "2014-01-18T10:30:52Z",
+                "type": "INFO",
+                "version": "1"
+            }
+        },
+        "title": "Failure Event"
+    }
+}

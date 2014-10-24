@@ -1,0 +1,28 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-09-15T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/servers/image",
+                    "action": "SNAPSHOT",
+                    "imageName": "Name",
+                    "resourceType": "IMAGE",
+                    "serviceCode": "CloudServers",
+                    "sliceId": 578,
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "4116",
+                "tenantId": "555",
+                "type": "INFO",
+                "version": "1"
+            }
+        },
+        "title": "Image Action"
+    }
+}

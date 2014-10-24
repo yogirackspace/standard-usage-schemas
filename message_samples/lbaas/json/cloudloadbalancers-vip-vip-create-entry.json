@@ -1,0 +1,37 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-06-15T10:19:52Z",
+                "id": "7ba76892-4058-11e3-806b-002500a28a7a",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/vip",
+                    "IPversion": "IPV4",
+                    "address": "100.10.10.50",
+                    "resourceType": "VIP",
+                    "serviceCode": "CloudLoadBalancers",
+                    "type": "PUBLIC",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "3833",
+                "resourceName": "My Node",
+                "severity": "INFO",
+                "tenantId": "1223",
+                "type": "CREATE",
+                "version": "1"
+            }
+        },
+        "summary": {
+            "@text": "Created vip.",
+            "type": "text"
+        },
+        "title": {
+            "@text": "VIP Create",
+            "type": "text"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2013-03-16T11:51:11Z",
+                "id": "f53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/queues",
+                    "requestCount": 1000,
+                    "serviceCode": "CloudQueues",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "startTime": "2013-03-15T11:51:11Z",
+                "tenantId": "2888",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "title": "Cloud Queues"
+    }
+}

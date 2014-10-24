@@ -1,0 +1,31 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-03-12T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/domain",
+                    "action": "REGISTRATION",
+                    "endUserTenantId": "9876543210",
+                    "expirationDate": "2014-03-12T11:51:11Z",
+                    "isAutoRenew": false,
+                    "purchaseTenure": 2,
+                    "resourceType": "DOMAIN_SUBSCRIPTION",
+                    "serviceCode": "DomainRegistration",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "my.site.com",
+                "resourceName": "my.site.com",
+                "tenantId": "12334",
+                "type": "USAGE_SNAPSHOT",
+                "version": "1"
+            }
+        },
+        "title": "Domain Registration"
+    }
+}

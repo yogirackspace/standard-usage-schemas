@@ -1,0 +1,60 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:12882"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:12882:mysqldb"
+            },
+            {
+                "term": "cloudsites.db.mysql.usage_snapshot"
+            },
+            {
+                "term": "type:cloudsites.db.mysql.usage_snapshot"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "environment": "PROD",
+                "eventTime": "2012-06-14T10:19:52Z",
+                "id": "47b574c4-0400-11e2-b19d-7b8e208cade0",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/db",
+                    "resourceType": "MYSQL",
+                    "serviceCode": "CloudSites",
+                    "storage": 393993883,
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "12882:mysqldb",
+                "resourceName": "mysqldb",
+                "tenantId": "12882",
+                "type": "USAGE_SNAPSHOT",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/sites/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-02-28T19:12:19.271Z",
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        },
+        "updated": "2013-02-28T19:12:19.271Z"
+    }
+}

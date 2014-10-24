@@ -847,6 +847,7 @@
                 <xsl:sort select="@name"/>
                 <sch:message
                         path="{resolve-uri(@name,base-uri(.))}"
+                        json_path="{replace(resolve-uri(@name,base-uri(.)), 'xml', 'json')}"
                         namespace="{namespace-uri(document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product'])}"
                         version="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@version}"
                         serviceCode="{document(resolve-uri(@name,base-uri(.)))//*[local-name(.) = 'product']/@serviceCode}"
@@ -955,6 +956,16 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        <xsl:variable name="json_content">
+            <xsl:value-of
+                    select=" unparsed-text(resolve-uri(
+                    ($sampleMessages//sch:message[
+                    @type = $context and
+                    @namespace = current()/@namespace and
+                    @version = current()/@version and
+                    @serviceCode = current()/@serviceCode and
+                    @summary = $summary]/@json_path)[1], base-uri()))"/>
+        </xsl:variable>
         <example>
             <title><xsl:value-of select="replace(normalize-space(./sch:description),'^(.+)\.$','$1')"/>, version <xsl:value-of select="@version"/></title>
             <xsl:if test="sch:attribute|sch:attributeGroup">
@@ -987,6 +998,7 @@
                 </informaltable>
             </xsl:if>
             <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
+            <programlisting language="json"><xsl:copy-of select="replace($json_content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
         </example>
     </xsl:template>
 

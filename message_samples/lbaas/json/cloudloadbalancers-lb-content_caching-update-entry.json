@@ -1,0 +1,35 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-06-15T10:19:52Z",
+                "id": "7ba76892-4058-11e3-806b-002500a28a7a",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/lb",
+                    "contentCachingEnabled": false,
+                    "resourceType": "CONTENT_CACHING",
+                    "serviceCode": "CloudLoadBalancers",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "887765",
+                "resourceName": "My LB",
+                "severity": "INFO",
+                "tenantId": "1223",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "summary": {
+            "@text": "Update content cache.",
+            "type": "text"
+        },
+        "title": {
+            "@text": "Update Content Cache",
+            "type": "text"
+        }
+    }
+}

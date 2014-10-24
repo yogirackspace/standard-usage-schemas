@@ -1,0 +1,25 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2013-05-12T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/clouddns",
+                    "resourceType": "DOMAIN",
+                    "serviceCode": "CloudDNS",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "resourceName": "mydomain.mycompany.com",
+                "type": "DELETE",
+                "version": "1"
+            }
+        },
+        "title": "Cloud DNS System Events"
+    }
+}

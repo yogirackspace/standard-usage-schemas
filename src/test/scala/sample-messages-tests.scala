@@ -17,6 +17,7 @@ import BaseUsageSuite._
 import javax.xml.transform._
 import javax.xml.transform.stream.StreamSource
 import javax.xml.transform.stream.StreamResult
+import scala.util.parsing.json.JSON
 
 //
 //  Test to make sure that all sample messages are valid against the
@@ -29,6 +30,7 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
   val sampleDir   = new File("message_samples")
   val sampleFiles = getSampleXMLFiles(sampleDir)
+  val sampleJsonFiles = getSampleJsonFiles(sampleDir)
   val badSampleDir = new File("bad_message_samples")
   val badSampleFiles = getSampleXMLFiles(badSampleDir)
 
@@ -51,6 +53,37 @@ class SampleMessagesSuite extends BaseUsageSuite {
     }
   })
 
+  sampleJsonFiles.foreach ( f => {
+    test("Json Sample "+f.getAbsolutePath+" should be valid ") {
+      printf("Checking %s\n",f.getAbsolutePath)
+      val json_sample = scala.io.Source.fromFile(f.getAbsolutePath).mkString
+
+      // parse and assert valid json
+      val jsonObjects = JSON.parseFull(json_sample).get.asInstanceOf[Map[String,Any]]
+      assert(jsonObjects != null, " valid json objects")
+
+      //assert entry element
+      val entryObject = jsonObjects.get("entry").get.asInstanceOf[Map[String,Any]]
+      assert(entryObject != null, "  should have an entry")
+
+      //assert content element
+      var eventParent = entryObject.get("content").get.asInstanceOf[Map[String,Any]]
+      assert(eventParent != null, "  entry should have a content")
+
+      //assert event element
+      if ( f.getAbsolutePath().contains("usagedeadletter") ) {
+        // special handling for usagedeadletter
+        eventParent = eventParent.get("eventError").get.asInstanceOf[Map[String,Any]]
+        assert(eventParent != null, "  content should have an eventError")
+      }
+
+      val eventObject = eventParent.get("event").get.asInstanceOf[Map[String,Any]]
+      assert(eventObject != null, "  content should have an event")
+      assert(eventObject.get("id") != null, "  event should have an id")
+      assert(eventObject.get("type") != null, "  event should have a type")
+    }
+  })
+
   val sampleFeedToFilePairs = sampleFiles.map(toFeedFile).flatten
 
   sampleFeedToFilePairs.foreach {
@@ -62,7 +95,6 @@ class SampleMessagesSuite extends BaseUsageSuite {
       }
     }
   }
-
 
   sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {

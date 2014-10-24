@@ -1,0 +1,32 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "ORD1",
+                "duration": "PT10M",
+                "eventTime": "2012-06-14T10:19:52Z",
+                "id": "47b574c4-0400-11e2-b19d-7b8e208cade1",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/email",
+                    "numberOfMailboxes": 22.567,
+                    "resourceType": "SITES_EMAIL",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "rackspaceAccountNumber": "020-12883",
+                "region": "ORD",
+                "resourceId": "my.site.com",
+                "resourceName": "my.site.com",
+                "tenantId": "12883",
+                "type": "USAGE_SUMMARY",
+                "version": "1"
+            }
+        },
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        }
+    }
+}

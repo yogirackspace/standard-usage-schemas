@@ -1,0 +1,75 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:b79cc3de-b399-3883-b555-61829bbccd38"
+            },
+            {
+                "term": "cloudloadbalancers.lbaas.loadbalancer.usage"
+            },
+            {
+                "term": "type:cloudloadbalancers.lbaas.loadbalancer.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2012-06-15T10:19:52Z",
+                "environment": "PROD",
+                "id": "131f0fdc-bab0-11e3-979e-14109fdffead",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/lbaas",
+                    "avgConcurrentConnections": 30000.0,
+                    "avgConcurrentConnectionsSsl": 4566.0,
+                    "avgConcurrentConnectionsSum": 34566,
+                    "bandWidthIn": 43456346,
+                    "bandWidthInSsl": 364646770,
+                    "bandWidthOut": 3460346,
+                    "bandWidthOutSsl": 345345346,
+                    "hasSSLConnection": true,
+                    "numPolls": 10,
+                    "numVips": 44,
+                    "publicBandWidthInSum": 408103116,
+                    "publicBandWidthOutSum": 348805692,
+                    "resourceType": "LOADBALANCER",
+                    "serviceCode": "CloudLoadBalancers",
+                    "sslMode": "MIXED",
+                    "status": "ACTIVE",
+                    "version": "1",
+                    "vipType": "PUBLIC"
+                },
+                "region": "DFW",
+                "resourceId": "b79cc3de-b399-3883-b555-61829bbccd38",
+                "resourceName": "LoadBalancer",
+                "startTime": "2012-06-14T10:19:52Z",
+                "tenantId": "1",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:131f0fdc-bab0-11e3-979e-14109fdffead",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:131f0fdc-bab0-11e3-979e-14109fdffead",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-04-02T21:45:16.273Z",
+        "title": {
+            "@text": "LBAAS",
+            "type": "text"
+        },
+        "updated": "2014-04-02T21:45:16.273Z"
+    }
+}

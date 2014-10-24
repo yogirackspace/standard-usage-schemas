@@ -1,0 +1,33 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/widget",
+                    "delReqAttribute": "sampleString",
+                    "label": "sampleString",
+                    "metaData": {
+                        "key": "sampleString",
+                        "value": "sampleString"
+                    },
+                    "mid": "6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                    "mixPublicPrivateAttributes": "",
+                    "resourceType": "WIDGET",
+                    "serviceCode": "Widget",
+                    "version": "3",
+                    "widgetOnlyAttribute": "sampleString"
+                },
+                "region": "DFW",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "type": "UPDATE",
+                "version": "3"
+            }
+        },
+        "title": "Widget"
+    }
+}

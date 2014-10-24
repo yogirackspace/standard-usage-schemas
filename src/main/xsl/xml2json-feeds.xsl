@@ -32,7 +32,15 @@
         <xsl:apply-templates select="/*[node()]"  mode="others"/>
         <xsl:text>}</xsl:text>     
     </xsl:template>
-    
+
+    <!-- this template wrap the "sample" root node around the main template,
+         for xproc processing. -->
+    <xsl:template name="genSample">
+        <sample>
+            <xsl:call-template name="main"/>
+        </sample>
+    </xsl:template>
+
     <!-- A template that prints out the root 'feed' JSON object -->
     <xsl:template match="atom:feed"  mode="root">
         <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : {</xsl:text>

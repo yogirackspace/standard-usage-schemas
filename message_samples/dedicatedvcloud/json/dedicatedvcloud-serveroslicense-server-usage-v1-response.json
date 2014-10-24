@@ -1,0 +1,66 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:654321"
+            },
+            {
+                "term": "rgn:SYD"
+            },
+            {
+                "term": "dc:SYD2"
+            },
+            {
+                "term": "rid:560490c6-7c73-22e2-adfe-27851d5aed13"
+            },
+            {
+                "term": "dedicatedvcloud.serveroslicense.server.usage"
+            },
+            {
+                "term": "type:dedicatedvcloud.serveroslicense.server.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "SYD2",
+                "endTime": "2013-12-19T10:19:52Z",
+                "environment": "PROD",
+                "id": "47b574c4-1421-11e2-b19d-7b8e208cade0",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense",
+                    "coreStatus": "REACTIVATION",
+                    "guestOSLicenseType": "CENTOS",
+                    "hostOSLicenseTypes": "WINDOWS CENTOS",
+                    "powerStatus": "ON",
+                    "resourceType": "SERVER",
+                    "serviceCode": "DedicatedVCloud",
+                    "vCPUCount": 6,
+                    "vRAM": 1048576,
+                    "version": "1"
+                },
+                "region": "SYD",
+                "resourceId": "560490c6-7c73-22e2-adfe-27851d5aed13",
+                "resourceName": "my.site.com",
+                "startTime": "2013-12-18T10:19:52Z",
+                "tenantId": "654321",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/dedicatedvcloud/events/entries/urn:uuid:47b574c4-1411-11e2-b19d-7b8e208cade0",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-01-28T18:00:46.405Z",
+        "title": {
+            "@text": "Dedicated vCloud Server",
+            "type": "text"
+        },
+        "updated": "2014-01-28T18:00:46.405Z"
+    }
+}

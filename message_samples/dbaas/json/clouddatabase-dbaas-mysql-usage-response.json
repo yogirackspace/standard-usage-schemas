@@ -1,0 +1,48 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "reddwarf.instance.modify_volume"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2012-03-12T15:51:11Z",
+                "environment": "QA",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/dbaas",
+                    "memory": 16,
+                    "resourceType": "MYSQL",
+                    "serviceCode": "CloudDatabase",
+                    "storage": 64,
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "resourceName": "MyDatabase",
+                "rootAction": "reddwarf.instance.modify_volume",
+                "startTime": "2012-03-12T11:51:11Z",
+                "tenantId": "12334",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/dbaas/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-03-01T19:42:35.507Z",
+        "title": {
+            "@text": "DBaas Usage",
+            "type": "text"
+        },
+        "updated": "2013-03-01T19:42:35.507Z"
+    }
+}

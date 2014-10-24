@@ -1,0 +1,42 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-06-15T10:19:52Z",
+                "id": "7ba76892-4058-11e3-806b-002500a28a7a",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/health-monitor",
+                    "attemptsBeforeDeactivation": 9,
+                    "bodyRegex": "foobar",
+                    "delay": 40,
+                    "monitorStatusRegex": "3..",
+                    "path": "/foo/bar",
+                    "resourceType": "HEALTH_MONITOR",
+                    "serviceCode": "CloudLoadBalancers",
+                    "timeout": 300,
+                    "type": "CONNECT",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "65",
+                "resourceName": "My Health Monitor",
+                "resourceURI": "http://dfw1.lbaas.rackspace.com/path/to/monitor/65",
+                "severity": "INFO",
+                "tenantId": "1223",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "summary": {
+            "@text": "Health Monitor Updated.",
+            "type": "text"
+        },
+        "title": {
+            "@text": "Health Monitor UPDATE",
+            "type": "text"
+        }
+    }
+}

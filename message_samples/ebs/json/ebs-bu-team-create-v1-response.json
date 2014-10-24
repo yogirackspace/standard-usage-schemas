@@ -1,0 +1,51 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "ebs.bu-team.create"
+            },
+            {
+                "term": "type:ebs.bu-team.create"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/ebs/bu-team",
+                    "businessUnit": "a",
+                    "description": "a",
+                    "serviceCode": "EBS",
+                    "team": {
+                        "name": "a",
+                        "number": "a"
+                    },
+                    "version": "1"
+                },
+                "region": "DFW",
+                "type": "CREATE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/ebs/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-03-01T19:42:35.507",
+        "title": "EBS",
+        "updated": "2013-03-01T19:42:35.507Z"
+    }
+}

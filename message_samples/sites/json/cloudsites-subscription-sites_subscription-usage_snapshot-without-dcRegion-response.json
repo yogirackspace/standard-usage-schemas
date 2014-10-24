@@ -1,0 +1,55 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:12334"
+            },
+            {
+                "term": "rid:256638"
+            },
+            {
+                "term": "cloudsites.subscription.sites_subscription.usage_snapshot"
+            },
+            {
+                "term": "type:cloudsites.subscription.sites_subscription.usage_snapshot"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "GLOBAL",
+                "environment": "PROD",
+                "eventTime": "2012-03-12T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/subscription",
+                    "action": "SUBSCRIBE",
+                    "isNewAccount": true,
+                    "resourceType": "SITES_SUBSCRIPTION",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "region": "GLOBAL",
+                "resourceId": "256638",
+                "resourceName": "Mosso Standard Offering",
+                "tenantId": "12334",
+                "type": "USAGE_SNAPSHOT",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+        "link": [
+            {
+                "href": "https://localhost/sites/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-11-07T02:47:13.694Z",
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        },
+        "updated": "2013-11-07T02:47:13.694Z"
+    }
+}

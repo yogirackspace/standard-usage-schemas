@@ -1,0 +1,52 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1234"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "cloudfiles.bandwidth.usage"
+            },
+            {
+                "term": "type:cloudfiles.bandwidth.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2012-06-15T10:19:52Z",
+                "environment": "PROD",
+                "id": "8d89673c-c989-11e1-895a-0b3d632a8a89",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/cloudfiles/bandwidth",
+                    "bandwidthIn": 192998,
+                    "bandwidthOut": 39993882,
+                    "serviceCode": "CloudFiles",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "startTime": "2012-06-14T10:19:52Z",
+                "tenantId": "1234",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/files/events/entries/urn:uuid:8d89673c-c989-11e1-895a-0b3d632a8a89",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-02-28T19:40:39.120Z",
+        "updated": "2013-02-28T19:40:39.120Z"
+    }
+}

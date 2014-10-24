@@ -1,0 +1,68 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1223"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:3833"
+            },
+            {
+                "term": "cloudloadbalancers.node.node.update"
+            },
+            {
+                "term": "type:cloudloadbalancers.node.node.update"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "environment": "PROD",
+                "eventTime": "2012-06-15T10:19:52Z",
+                "id": "7ba76892-4058-11e3-806b-002500a28a7a",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/node",
+                    "address": "100.10.10.34",
+                    "condition": "ENABLED",
+                    "port": 2020,
+                    "resourceType": "NODE",
+                    "serviceCode": "CloudLoadBalancers",
+                    "version": "1",
+                    "weight": 10
+                },
+                "region": "DFW",
+                "resourceId": "3833",
+                "resourceName": "My Node",
+                "severity": "INFO",
+                "tenantId": "1223",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-03-03T16:49:19.435Z",
+        "summary": {
+            "@text": "updated node.",
+            "type": "text"
+        },
+        "title": {
+            "@text": "Node Update",
+            "type": "text"
+        },
+        "updated": "2014-03-03T16:49:19.435Z"
+    }
+}

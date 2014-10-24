@@ -96,21 +96,27 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
     request( method, url, "", "", false, Map("ACCEPT"->List("*/*"), "X-ROLES"->List( xRole ) ) )
   }
 
+  def getSampleJsonFiles(dir: File) : List[File] = {
+    getFiles(dir, ".json")
+  }
 
   def getSampleXMLFiles(dir: File) : List[File] = {
+    getFiles(dir, ".xml")
+  }
 
-        def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
-            case List() => List()
-            case fi :: rest => if (!fi.isDirectory() && fi.getName().endsWith(".xml")) {
-                fi :: getSampleXMLFiles(rest)
-            } else if (fi.isDirectory()) {
-                getSampleXMLFiles(rest ++ fi.listFiles().toList)
-            } else {
-                getSampleXMLFiles(rest)
-            }
-        }
+  def getFiles(dir: File, fileExtension: String) : List[File] = {
 
-        getSampleXMLFiles(dir.listFiles().toList)
+    def getFiles(fdir : List[File]) : List[File] = fdir match {
+      case List() => List()
+      case fi :: rest => if (!fi.isDirectory() && fi.getName().endsWith(fileExtension)) {
+        fi :: getFiles(rest)
+      } else if (fi.isDirectory()) {
+        getFiles(rest ++ fi.listFiles().toList)
+      } else {
+        getFiles(rest)
+      }
     }
 
+    getFiles(dir.listFiles().toList)
+  }
 }
