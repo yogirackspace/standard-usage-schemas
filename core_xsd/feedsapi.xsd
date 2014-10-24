@@ -10,7 +10,7 @@
     <simpleType name="AcceptHeaderType">
         <restriction base="xsd:string">
             <!--<pattern value=".*(\*/\*|application/\*|application/xml|application/atom\+xml).*"/>-->
-            <assertion test="not(matches($value, 'application/.*json'))"/>
+            <assertion test="matches($value, 'application/vnd\.rackspace\.atom\+json') or not(matches($value, 'application/.*json'))"/>
 
         </restriction>
     </simpleType>
