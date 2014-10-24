@@ -582,7 +582,11 @@
                         <sources>
                             <source>
                                 <location>wadl/rm_private_attrs_for_obs.xsl</location>
+                            </source>
+                            <source>
                                 <location>target/xslt-artifacts/nonStringAttrs.xsl</location>
+                            </source>
+                            <source>
                                 <location>target/xslt-artifacts/xml2json-feeds.xsl</location>
                             </source>
                         </sources>
