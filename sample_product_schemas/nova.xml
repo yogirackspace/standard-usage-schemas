@@ -12,7 +12,7 @@
                groupBy="true">
         Specifies the flavor Id of the server.
     </attribute>
-    <attribute name="flavorName" type="string" minLength="1" maxLength="300"
+    <attribute name="flavorName" type="string" minLength="1" maxLength="255"
                use="required"
                groupBy="true">
         Specifies the flavor name of the server.
