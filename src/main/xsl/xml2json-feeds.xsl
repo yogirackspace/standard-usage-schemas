@@ -12,7 +12,7 @@
     <!-- we always put these nodes in an array, even though they may only
          have one element -->
     <xsl:variable name="arrayNodesInEntry" select="tokenize('category link', ' ')"/>
-    <xsl:variable name="printNamespaceOnNodes" select="tokenize('event product error eventError', ' ')"/>
+    <xsl:variable name="printNamespaceOnNodes" select="tokenize('feed entry event product error eventError', ' ')"/>
     <!-- rax schema nodes must have @version attribute -->
     <xsl:variable name="raxSchemaNodes" select="tokenize('event product', ' ')"/>
     
