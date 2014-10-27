@@ -2,6 +2,7 @@ import com.rackspace.usage.BaseUsageSuite
 import java.io.{StringReader, StringWriter, File}
 import javax.xml.transform.stream.{StreamResult, StreamSource}
 import javax.xml.transform.TransformerFactory
+import net.sf.saxon.Controller
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import scala.xml.{NodeSeq, XML}
@@ -106,6 +107,7 @@ class PrivateAttrsSuite extends BaseUsageSuite {
     val trans = templates.newTransformer()
     val writer = new StringWriter()
 
+    trans.asInstanceOf[Controller].setInitialTemplate("main")
     trans.transform(new StreamSource(new StringReader(inputXML)), new StreamResult(writer))
     XML.loadString(writer.toString)
   }

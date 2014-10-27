@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.69.0-SNAPSHOT</version>
+    <version>1.71.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -205,16 +205,6 @@
                         <configuration>
                             <pipeline>src/xpl/generateXSDs.xpl</pipeline>
                         </configuration>
-                    </execution>        
-                    <execution>
-                        <id>generate-product-wadl</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>olink</goal>
-                        </goals>
-                        <configuration>
-                            <pipeline>src/xpl/generateWADL.xpl</pipeline>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>generate-filter-private-attrs</id>
@@ -224,6 +214,16 @@
                         </goals>
                         <configuration>
                             <pipeline>src/xpl/generateFilterPrivateAttrs.xpl</pipeline>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-product-wadl</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>olink</goal>
+                        </goals>
+                        <configuration>
+                            <pipeline>src/xpl/generateWADL.xpl</pipeline>
                         </configuration>
                     </execution>
                 </executions>
@@ -406,7 +406,6 @@
                         <fileset>
                             <directory>${basedir}/wadl</directory>
                             <includes>
-                                <include>filter_private_attrs.xsl</include>
                                 <include>rm_private_attrs_for_obs.xsl</include>
                                 <include>product.wadl</include>
                             </includes>
@@ -583,7 +582,11 @@
                         <sources>
                             <source>
                                 <location>wadl/rm_private_attrs_for_obs.xsl</location>
+                            </source>
+                            <source>
                                 <location>target/xslt-artifacts/nonStringAttrs.xsl</location>
+                            </source>
+                            <source>
                                 <location>target/xslt-artifacts/xml2json-feeds.xsl</location>
                             </source>
                         </sources>

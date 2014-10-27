@@ -1,6 +1,12 @@
 # Changelog for Usage Schema
 
 
+**usage-schema-1.70.0**  
+2014-10-21 | B-76841 - Automatically generate filtered samples & strip all comments (Greg Sharek)  
+2014-10-09 | B-76841 - Automatically generate filtered samples & strip all comments (Greg Sharek)  
+2014-10-08 | \[B-79308\] Removed src/test/resources/rm_private_attrs_for_obs.xsl and referred to this file from wadl directory (Chandra Addala)  
+2014-10-08 | \[B-79308\] Unit tests for private attrs filter (Chandra Addala)  
+
 **usage-schema-1.68.0**  
 2014-10-03 | B-78838 - fixed the review comments. (Naresh Kurapati)  
 2014-10-02 | B-78838 - added more testcases for usagetest feeds (Naresh Kurapati)  
