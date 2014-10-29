@@ -55,7 +55,9 @@
     </xsl:template>
     
     <xsl:template match="atom:content[@type='application/xml']" mode="obj-content">
-        <!-- skip the printing of type='application/xml' attribute for atom:content node -->
+        <!-- CF-154: skip the printing of type='application/xml' attribute for atom:content node.
+             This does assume that type is the only attribute allowed under atom:content.
+        -->
         <xsl:text>{</xsl:text>
         <xsl:apply-templates select="./*" mode="detect" />
         <xsl:text>}</xsl:text>
@@ -97,7 +99,9 @@
                     <xsl:when test="local-name() = 'content' and
                                     namespace-uri() = 'http://www.w3.org/2005/Atom' and
                                     @type = 'application/json'">
-                        <!-- this handles the mixed-content, JSON-in-XML -->
+                        <!-- CF-1554: this handles the mixed-content, JSON-in-XML.
+                             Just go ahead and print the text() value here.
+                        -->
                         <xsl:value-of select="text()"/>    
                     </xsl:when>
                     <xsl:otherwise>
