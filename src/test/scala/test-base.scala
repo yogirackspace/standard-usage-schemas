@@ -60,7 +60,10 @@ object BaseUsageSuite {
     //  The atom hopper validator
     //
     val atomValidator = Validator(new StreamSource(new File("allfeeds.wadl")), usageConfig)
+<<<<<<< HEAD
     // val atomValidatorObserver = Validator(new StreamSource(new File("allfeeds_observer.wadl")), usageConfig)
+=======
+>>>>>>> put back greg's branch to original state
 
     //
     //  Convenience function to get to the XML of a request
