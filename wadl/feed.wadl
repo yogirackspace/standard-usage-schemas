@@ -18,11 +18,11 @@
     </resource_type>
 
     <resource_type id="AtomFeed">
-        <method href="#getFeed"/>
+        <method href="#getFeed" rax:roles="cloudfeeds:service-admin"/>
     </resource_type>
 
     <resource_type id="AtomFeedAllowJson">
-        <method href="#getFeedAllowJson"/>
+        <method href="#getFeedAllowJson" rax:roles="cloudfeeds:service-admin"/>
     </resource_type>
 
     <resource_type id="Unvalidated">
@@ -32,8 +32,8 @@
                 feeds are currently not validated against.
             </para>
         </wadl:doc>
-        <method href="#addPlainUnvalidatedEntry"/>
-        <resource path="entries/{id}">
+        <method href="#addPlainUnvalidatedEntry" rax:roles="cloudfeeds:service-admin"/>
+        <resource path="entries/{id}" rax:roles="cloudfeeds:service-admin">
             <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
@@ -46,8 +46,8 @@
                 posts.
             </para>
         </wadl:doc>
-        <method href="#addPlainEntry"/>
-        <resource path="entries/{id}">
+        <method href="#addPlainEntry" rax:roles="cloudfeeds:service-admin"/>
+        <resource path="entries/{id}" rax:roles="cloudfeeds:service-admin">
             <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
@@ -59,22 +59,22 @@
                 Allow Usage DeadLetter events.
             </para>
         </wadl:doc>
-        <method href="#addUsageDeadLetter"/>
-        <resource path="entries/{id}">
+        <method href="#addUsageDeadLetter" rax:roles="cloudfeeds:service-admin"/>
+        <resource path="entries/{id}" rax:roles="cloudfeeds:service-admin">
             <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
             <method href="#getEntry"/>
         </resource>
     </resource_type>
 
     <resource_type id="TenantFeedsCatalog">
-        <resource path="{tid}">
+        <resource path="{tid}" rax:roles="cloudfeeds:observer admin observer identity:user-admin">
             <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant id.</doc></param>
             <method name="GET"/>
         </resource>
     </resource_type>
 
     <resource_type id="FeedsCatalog">
-        <method name="GET"/>
+        <method name="GET" rax:roles="cloudfeeds:service-admin"/>
     </resource_type>
 
     <!-- METHODS -->

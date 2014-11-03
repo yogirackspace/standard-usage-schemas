@@ -141,7 +141,7 @@
             </resource_type>
 
             <resource_type id="{$id}">
-                <method id="add{$id}Entry" name="POST">
+                <method id="add{$id}Entry" name="POST" rax:roles="cloudfeeds:service-admin">
                     <xsl:text>&#x0a;         </xsl:text>
                     <xsl:comment><xsl:text> GENERATED FILE! Do Not Hand Edit! </xsl:text></xsl:comment>
                     <xsl:text>&#x0a;         </xsl:text>
