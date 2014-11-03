@@ -4,6 +4,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
     xmlns:cf-nsattrs="http://docs.rackspace.com/api/cloudfeeds/non-string-attrs"
+    xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:saxon="http://saxon.sf.net/"
     exclude-result-prefixes="cldfeeds">
     
@@ -52,6 +53,15 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+    
+    <xsl:template match="atom:content[@type='application/xml']" mode="obj-content">
+        <!-- CF-154: skip the printing of type='application/xml' attribute for atom:content node.
+             This does assume that type is the only attribute allowed under atom:content.
+        -->
+        <xsl:text>{</xsl:text>
+        <xsl:apply-templates select="./*" mode="detect" />
+        <xsl:text>}</xsl:text>
+    </xsl:template>
  
     <xsl:template match="*" mode="obj-content">
         <xsl:text>{</xsl:text>
@@ -69,7 +79,7 @@
                         <xsl:with-param name="namespace" select="$namespace"/>
                         <xsl:with-param name="version" select="$version"/>
                         <xsl:with-param name="nonStringAttrs" select="$nonStringAttrs"/>
-                    </xsl:apply-templates>    
+                    </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="@*" mode="normalAttr" />    
@@ -84,18 +94,31 @@
         
             <!-- handles element that has both text child node and attributes -->
             <xsl:if test="count(child::*) = 0 and text() and @*">
-                <xsl:text>"@text" : "</xsl:text>
-                <xsl:call-template name="removeBreaks">
-                    <xsl:with-param name="pText" select="text()"/>
-                </xsl:call-template>
-                <xsl:text>"</xsl:text>
+                <xsl:text>"@text" : </xsl:text>
+                <xsl:choose>
+                    <xsl:when test="local-name() = 'content' and
+                                    namespace-uri() = 'http://www.w3.org/2005/Atom' and
+                                    @type = 'application/json'">
+                        <!-- CF-1554: this handles the mixed-content, JSON-in-XML.
+                             Just go ahead and print the text() value here.
+                        -->
+                        <xsl:value-of select="text()"/>    
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>"</xsl:text>
+                        <xsl:call-template name="removeBreaks">
+                            <xsl:with-param name="pText" select="text()"/>
+                        </xsl:call-template>
+                        <xsl:text>"</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
         <xsl:text>}</xsl:text>
         <xsl:if test="position() &lt; last()">, </xsl:if>
     </xsl:template>
 
     <xsl:template match="@*" mode="normalAttr">
-        <xsl:text>"</xsl:text><xsl:value-of select="name()"/>" : "<xsl:value-of select="."/><xsl:text>"</xsl:text>
+        <xsl:text>"</xsl:text><xsl:value-of select="name()"/>" : "<xsl:value-of select="."/><xsl:text>"</xsl:text> 
         <xsl:if test="position() &lt; last()">,</xsl:if>
     </xsl:template>
 
