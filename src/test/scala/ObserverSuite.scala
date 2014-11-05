@@ -23,6 +23,11 @@ class ObserverSuite extends BaseUsageSuite{
     atomValidator.validate(request("GET", "/bigdata/events/12334", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)
   }
 
+  test( "Getting an entry on a Validated Observer feed should always fail for service-admin" ) {
+
+    assertResultFailed( atomValidator.validate(requestRole("GET", "/bigdata/events/12334", SERVICE_ADMIN), response, chain), 403 )
+  }
+
   test( "Getting an entry on a Validated Observer feed with UUID should always succeed" ) {
 
     atomValidator.validate(request("GET", "/bigdata/events/12334/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain)

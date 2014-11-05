@@ -45,13 +45,13 @@
                     <xsl:when test="/chapter/@security = 'external'">
                         <xsl:variable name="feed">
                             <xsl:analyze-string select="substring-after(.//wadl:resource[1]/@href,'#')"
-                                regex="(.+)+_events_obs(_tenanted_feed)?">
+                                regex="(.+)+_events_tenanted_feed">
                                 <xsl:matching-substring>
                                     <xsl:value-of select="regex-group(1)"/>
                                 </xsl:matching-substring>
                             </xsl:analyze-string>
                         </xsl:variable>
-                        <xsl:variable name="id" select="concat( $feed, '_events_obs')"/>
+                        <xsl:variable name="id" select="concat( $feed, '_events')"/>
                         https://<replaceable>endpoint</replaceable>/<xsl:value-of select="$summary_path"/><xsl:value-of select="doc(resolve-uri($wadl,base-uri(.)))//wadl:resource[@id = $id]/@path"/>/<replaceable>tenantId</replaceable>
                     </xsl:when>
                     <xsl:otherwise>

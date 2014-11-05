@@ -8,15 +8,17 @@
 	 role="api-reference"
      security="external">
   <title>API Operations </title>
-  <!-- 
+  <!--
       This feed does not exist yet
   <section xml:id="accountstatus.product">
     <title>Account Status</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-      <resource href="../../allfeeds_observer.wadl#accountstatus_events_obs_obs"/>      
+      <resource href="../../allfeeds.wadl#accountstatus_events"/>      
     </resources>
   </section>
   -->
+
+
   <xi:include href="../../target/generated-resources/feed-table/feed-table-external.xml">
     <xi:fallback>
       <?rax fail?>
@@ -27,199 +29,199 @@
     <section xml:id="backup.product">
     <title>Cloud Backup</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
-        <resource href="../../allfeeds_observer.wadl#backup_events_obs_tenanted_feed"/>
-        <resource href="../../allfeeds_observer.wadl#backup_events_obs_getEntry_CloudBackupTenant"/>
+        <resource href="../../allfeeds.wadl#backup_events_tenanted_feed"/>
+        <resource href="../../allfeeds.wadl#backup_events_getEntry_CloudBackupTenant"/>
     </resources>
   </section>
     <section xml:id="bigdata.product">
         <title>Cloud Big Data</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#bigdata_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#bigdata_events_obs_getEntry_BigDataTenant"/>
+            <resource href="../../allfeeds.wadl#bigdata_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#bigdata_events_getEntry_BigDataTenant"/>
         </resources>
     </section>
     <section xml:id="cbs.product">
         <title>Cloud Block Storage</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#cbs_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#cbs_events_obs_getEntry_CloudBlockStorageTenant"/>
+            <resource href="../../allfeeds.wadl#cbs_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#cbs_events_getEntry_CloudBlockStorageTenant"/>
         </resources>
     </section>
     <section xml:id="dbaas.product">
         <title>Cloud Databases</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#dbaas_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#dbaas_events_obs_getEntry_CloudDatabaseTenant"/>
+            <resource href="../../allfeeds.wadl#dbaas_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#dbaas_events_getEntry_CloudDatabaseTenant"/>
         </resources>
     </section>
     <section xml:id="dns.product">
         <title>Cloud DNS</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#dns_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#dns_events_obs_getEntry_CloudDNSTenant"/>
+            <resource href="../../allfeeds.wadl#dns_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#dns_events_getEntry_CloudDNSTenant"/>
         </resources>
     </section>
     <section xml:id="files.product">
         <title>Cloud Files</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#files_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#files_events_obs_getEntry_CloudFilesTenant"/>
+            <resource href="../../allfeeds.wadl#files_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#files_events_getEntry_CloudFilesTenant"/>
         </resources>
     </section>
     <section xml:id="identity.product">
         <title>Cloud Identity</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#identity_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#identity_events_obs_getEntry_CloudIdentityTenant"/>
+            <resource href="../../allfeeds.wadl#identity_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#identity_events_getEntry_CloudIdentityTenant"/>
         </resources>
     </section>
     <section xml:id="lbaas.product">
         <title>Cloud Load Balancers</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#lbaas_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#lbaas_events_obs_getEntry_CloudLoadBalancersTenant"/>
+            <resource href="../../allfeeds.wadl#lbaas_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#lbaas_events_getEntry_CloudLoadBalancersTenant"/>
         </resources>
     </section>
     <section xml:id="monitoring.product">
         <title>Cloud Monitoring</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#monitoring_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#monitoring_events_obs_getEntry_CloudMonitoringTenant"/>
+            <resource href="../../allfeeds.wadl#monitoring_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#monitoring_events_getEntry_CloudMonitoringTenant"/>
         </resources>
     </section>
     <section xml:id="queues.product">
         <title>Cloud Queues</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#queues_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#queues_events_obs_getEntry_CloudQueuesTenant"/>
+            <resource href="../../allfeeds.wadl#queues_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#queues_events_getEntry_CloudQueuesTenant"/>
         </resources>
     </section>
     <section xml:id="servers.product">
         <title>Cloud Servers Legacy</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#servers_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#servers_events_obs_getEntry_CloudServersTenant"/>
-            <resource href="../../allfeeds_observer.wadl#servers_events_obs_getEntry_RHELTenant"/>
+            <resource href="../../allfeeds.wadl#servers_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#servers_events_getEntry_CloudServersTenant"/>
+            <resource href="../../allfeeds.wadl#servers_events_getEntry_RHELTenant"/>
         </resources>
     </section>
     <section xml:id="nova.product">
         <title>Cloud Servers Open Stack</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#nova_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#nova_events_obs_getEntry_CloudServersTenant"/>
-            <resource href="../../allfeeds_observer.wadl#nova_events_obs_getEntry_RHELTenant"/>
+            <resource href="../../allfeeds.wadl#nova_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#nova_events_getEntry_CloudServersTenant"/>
+            <resource href="../../allfeeds.wadl#nova_events_getEntry_RHELTenant"/>
         </resources>
     </section>
     <section xml:id="glance.product">
         <title>Glance</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#glance_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#glance_events_obs_getEntry_GlanceTenant"/>
+            <resource href="../../allfeeds.wadl#glance_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#glance_events_getEntry_GlanceTenant"/>
         </resources>
     </section>
     <section xml:id="ssl.product">
         <title>SSL</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#ssl_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#ssl_events_obs_getEntry_SslTenant"/>
+            <resource href="../../allfeeds.wadl#ssl_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#ssl_events_getEntry_SslTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarybackup.product">
         <title>Usage Summary Cloud Backup</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#backup_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#backup_usagesummary_events_obs_getEntry_CloudBackupSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#backup_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#backup_usagesummary_events_getEntry_CloudBackupSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarybigdata.product">
         <title>Usage Summary Cloud Big Data</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#bigdata_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#bigdata_usagesummary_events_obs_getEntry_BigDataSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#bigdata_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#bigdata_usagesummary_events_getEntry_BigDataSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarycbs.product">
         <title>Usage Summary Cloud Block Storage</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#cbs_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#cbs_usagesummary_events_obs_getEntry_CloudBlockStorageSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#cbs_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#cbs_usagesummary_events_getEntry_CloudBlockStorageSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarydbaas.product">
         <title>Usage Summary Cloud Databases</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#dbaas_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#dbaas_usagesummary_events_obs_getEntry_CloudDatabaseSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#dbaas_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#dbaas_usagesummary_events_getEntry_CloudDatabaseSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummaryfiles.product">
         <title>Usage Summary Cloud Files</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#files_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#files_usagesummary_events_obs_getEntry_CloudFilesSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#files_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#files_usagesummary_events_getEntry_CloudFilesSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarylbaas.product">
         <title>Usage Summary Cloud Load Balancers</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#lbaas_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#lbaas_usagesummary_events_obs_getEntry_CloudLoadBalancersSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#lbaas_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#lbaas_usagesummary_events_getEntry_CloudLoadBalancersSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummarymonitoring.product">
         <title>Usage Summary Cloud Monitoring</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#monitoring_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#monitoring_usagesummary_events_obs_getEntry_CloudMonitoringSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#monitoring_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#monitoring_usagesummary_events_getEntry_CloudMonitoringSummaryTenant"/>
         </resources>
     </section>
 
     <section xml:id="usagesummaryqueues.product">
         <title>Usage Summary Cloud Queues</title>
         <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds_observer.wadl#queues_usagesummary_events_obs_tenanted_feed"/>
-            <resource href="../../allfeeds_observer.wadl#queues_usagesummary_events_obs_getEntry_CloudQueuesSummaryTenant"/>
+            <resource href="../../allfeeds.wadl#queues_usagesummary_events_tenanted_feed"/>
+            <resource href="../../allfeeds.wadl#queues_usagesummary_events_getEntry_CloudQueuesSummaryTenant"/>
         </resources>
     </section>
 
         <section xml:id="usagesummaryservers.product">
             <title>Usage Summary Cloud Servers Legacy</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_tenanted_feed"/>
-                <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_getEntry_CloudServersSummaryTenant"/>
-                <resource href="../../allfeeds_observer.wadl#servers_usagesummary_events_obs_getEntry_RHELSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#servers_usagesummary_events_tenanted_feed"/>
+                <resource href="../../allfeeds.wadl#servers_usagesummary_events_getEntry_CloudServersSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#servers_usagesummary_events_getEntry_RHELSummaryTenant"/>
             </resources>
         </section>
 
         <section xml:id="usagesummarynova.product">
             <title>Usage Summary Cloud Servers Open Stack</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_tenanted_feed"/>
-                <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_getEntry_CloudServersOpenStackSummaryTenant"/>
-                <resource href="../../allfeeds_observer.wadl#nova_usagesummary_events_obs_getEntry_RHELSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#nova_usagesummary_events_tenanted_feed"/>
+                <resource href="../../allfeeds.wadl#nova_usagesummary_events_getEntry_CloudServersOpenStackSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#nova_usagesummary_events_getEntry_RHELSummaryTenant"/>
             </resources>
         </section>
 
         <section xml:id="usagesummaryglance.product">
             <title>Usage Summary Glance</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#glance_usagesummary_events_obs_tenanted_feed"/>
-                <resource href="../../allfeeds_observer.wadl#glance_usagesummary_events_obs_getEntry_GlanceSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#glance_usagesummary_events_tenanted_feed"/>
+                <resource href="../../allfeeds.wadl#glance_usagesummary_events_getEntry_GlanceSummaryTenant"/>
             </resources>
         </section>
 
         <section xml:id="usagesummaryssl.product">
             <title>Usage Summary SSL</title>
             <resources xmlns="http://wadl.dev.java.net/2009/02">
-                <resource href="../../allfeeds_observer.wadl#ssl_usagesummary_events_obs_tenanted_feed"/>
-                <resource href="../../allfeeds_observer.wadl#ssl_usagesummary_events_obs_getEntry_SslSummaryTenant"/>
+                <resource href="../../allfeeds.wadl#ssl_usagesummary_events_tenanted_feed"/>
+                <resource href="../../allfeeds.wadl#ssl_usagesummary_events_getEntry_SslSummaryTenant"/>
             </resources>
         </section>
 </chapter>

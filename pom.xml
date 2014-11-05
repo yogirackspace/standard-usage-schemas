@@ -613,9 +613,9 @@
                         <filemode>444</filemode>
                         <configuration>true</configuration>
                         <sources>
-                        <source>
-                            <location>allfeeds.wadl</location>
-                        </source>
+                            <source>
+                                <location>allfeeds.wadl</location>
+                            </source>
                         </sources>
                     </mapping>
                     <mapping>

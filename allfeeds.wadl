@@ -301,7 +301,7 @@
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSitesSummary"/>
             <resource id="ssl_usagesummary_events"
                       path="ssl/events"
-                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#SslSummary"/>
+                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#SslSummary wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#SslSummaryTenant"/>
             <resource id="widgettest_usagesummary_events"
                       path="widgettest/events"
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#WidgetSummary"/>
