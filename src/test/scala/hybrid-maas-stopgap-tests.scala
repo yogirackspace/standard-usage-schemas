@@ -55,25 +55,25 @@ class HybridMaasStopGapSuite extends BaseUsageSuite {
                                    </atom:entry>
 
   test("In a validated feed (usagetest1/events) a message with a hybrid event should have a category of a category term of {serviceCode}.{NSPart}.{resourceType}.{eventType}.hybrid") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithHybridTenant)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithHybridTenant, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudmonitoring.maas.check.usage.hybrid'")
   }
 
   test("In a validated feed (usagetest1/events) a message with a non-hybrid event should have a category of a category term of {serviceCode}.{NSPart}.{resourceType}.{eventType}") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithoutHybridTenant)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithoutHybridTenant, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudmonitoring.maas.check.usage'")
   }
 
   test("In a validated feed (usagetest1/events) a hybrid event should remove category term of monitoring.check.usage") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithHybridTenant)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithHybridTenant, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count (/atom:entry/atom:category[@term = 'monitoring.check.usage']) = 0")
   }
 
   test("In a validated feed (usagetest1/events) a hybrid event should NOT remove category term of monitoring.check.usage") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithoutHybridTenant)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasEventWithoutHybridTenant, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count (/atom:entry/atom:category[@term = 'monitoring.check.usage']) = 1")
   }

@@ -52,7 +52,7 @@ class ServersActionSuite extends BaseUsageSuite {
     </atom:entry>
 
   test("In a slice action event action and status should be added as categories") {
-    val req = request("POST", "/servers/events", "application/atom+xml", sliceAction)
+    val req = request("POST", "/servers/events", "application/atom+xml", sliceAction, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'action:RESIZE']) = 1")
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'status:BUILD']) = 1")

@@ -93,19 +93,19 @@ class WidgetVersionTransformSuite extends BaseUsageSuite {
     </atom:entry>
 
   test("The str attribute should be exposed as a category is version 2 messages") {
-    val req = request("POST", "widgettest/events", "application/atom+xml", widget2)
+    val req = request("POST", "widgettest/events", "application/atom+xml", widget2, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'str:Test Type']) = 1")
   }
 
   test("The str attribute should *not* be exposed as a category is version 1 messages") {
-    val req = request("POST", "widgettest/events", "application/atom+xml", widget1)
+    val req = request("POST", "widgettest/events", "application/atom+xml", widget1, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'str:Test Type']) = 0")
   }
 
   test("The label and metaData key attributes should be exposed as a categories in version 3 messages") {
-    val req = request("POST", "widgettest/events", "application/atom+xml", widget3)
+    val req = request("POST", "widgettest/events", "application/atom+xml", widget3, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'label:Test Label']) = 1")
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'metaData.key:foo']) = 1")

@@ -212,73 +212,73 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
 
   // #1
   test ("#1 - Datacenter should be added as a category on product feed (monitoring/events) for MaaS events with GLOBAL DC/Region") {
-    val req = request("POST", "/monitoring/events", "application/atom+xml", maasMessageWithGlobalDCRegion)
+    val req = request("POST", "/monitoring/events", "application/atom+xml", maasMessageWithGlobalDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:GLOBAL'")
   }
 
   // #2
   test ("#2 - Datacenter should be added as a category on product feed (monitoring/events) for MaaS events with ORD DC/Region") {
-    val req = request("POST", "/monitoring/events", "application/atom+xml", maaSMessageWithORDDCRegion)
+    val req = request("POST", "/monitoring/events", "application/atom+xml", maaSMessageWithORDDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:ORD1'")
   }
   
   // #3
   test ("#3 - GLOBAL Datacenter should be added as a category on product feed (monitoring/events) for MaaS events when the entry does not specify a datacenter") {
-    val req = request("POST", "/monitoring/events", "application/atom+xml", validMaaSMessageWithoutDCRegion)
+    val req = request("POST", "/monitoring/events", "application/atom+xml", validMaaSMessageWithoutDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:GLOBAL'")
   }
 
   // #3a
   test ("#3a - Monitoring non-standard events should be accepted on product feed (monitoring/events)") {
-    val req = request("POST", "/monitoring/events", "application/atom+xml", maasNonStandardMessage)
+    val req = request("POST", "/monitoring/events", "application/atom+xml", XML.loadString( maasNonStandardMessage ), SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }
 
   // #4
   test ("#4 - GLOBAL Datacenter should be not be allowed on product feed (cbs/events) for CBS events") {
-    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithGlobalDCRegion)
+    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithGlobalDCRegion, SERVICE_ADMIN)
     assertResultFailed(atomValidator.validate(req, response, chain))
   }
 
   // #5
   test ("#5 - Datacenter should be added as a category on product feed (cbs/events) for CBS events") {
-    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithDFWDcRegion)
+    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithDFWDcRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:DFW1'")
   }
 
   // #6
   test ("#6 - Events without Datacenter should be not be allowed on product feed (cbs/events) for CBS events") {
-    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithoutDCRegion)
+    val req = request("POST", "/cbs/events", "application/atom+xml", cbsMessageWithoutDCRegion, SERVICE_ADMIN)
     assertResultFailed(atomValidator.validate(req, response, chain))
   }
 
   // #6
   test ("#6 - Events without Datacenter should be not be allowed on product feed (sites/events) for Sites SSL events") {
-    val req = request("POST", "/sites/events", "application/atom+xml", sitesMessageWithoutDCRegion)
+    val req = request("POST", "/sites/events", "application/atom+xml", sitesMessageWithoutDCRegion, SERVICE_ADMIN)
     assertResultFailed(atomValidator.validate(req, response, chain))
   }
 
   // #7
   test ("#7 - Datacenter should be added as a category on validated feed (usagetest1/events) for MaaS events with GLOBAL DC/Region") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasMessageWithGlobalDCRegion)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maasMessageWithGlobalDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:GLOBAL'")
   }
 
   // #8
   test ("#8 - Datacenter should be added as a category on validated feed (usagetest1/events) for MaaS events with ORD DC/Region") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", maaSMessageWithORDDCRegion)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", maaSMessageWithORDDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:ORD1'")
   }
 
   // #9
   test ("#9 - GLOBAL Datacenter should be added as a category on validated feed (usagetest1/events) for MaaS events when the entry does not specify a datacenter") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validMaaSMessageWithoutDCRegion)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validMaaSMessageWithoutDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:GLOBAL'")
   }
@@ -293,7 +293,7 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
 
   // #11
   test ("#11 - Datacenter should be added as a category on validated feed (usagetest1/events) for CBS events") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", cbsMessageWithDFWDcRegion)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", cbsMessageWithDFWDcRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'dc:DFW1'")
   }
@@ -308,41 +308,41 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
 
   // #13
   test ("#13 - Datacenter should NOT be added as a category on non validated feed (usagetest7/events) for MaaS events with GLOBAL DC/Region") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", maasMessageWithGlobalDCRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", maasMessageWithGlobalDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'dc:GLOBAL']) = 0")
   }
 
   // #14
   test ("#14 - Datacenter should NOT be added as a category on non validated feed (usagetest7/events) for MaaS events with ORD DC/Region") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", maaSMessageWithORDDCRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", maaSMessageWithORDDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'dc:ORD1']) = 0")
   }
 
   // #15
   test ("#15 - GLOBAL Datacenter should NOT be added as a category on non validated feed (usagetest7/events) for MaaS events when the entry does not specify a datacenter") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validMaaSMessageWithoutDCRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validMaaSMessageWithoutDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'dc:GLOBAL']) = 0")
   }
 
   // #16
   test ("#16 - GLOBAL Datacenter should be be allowed on non validated feed (usagetest7/events) for CBS events") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithGlobalDCRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithGlobalDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }
 
   // #17
   test ("#17 - Datacenter should NOT be added as a category on non validated feed (usagetest7/events) for CBS events") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithDFWDcRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithDFWDcRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'dc:DFW1']) = 0")
   }
 
   // #18
   test ("#18 - Events without Datacenter should be allowed on non validated feed (usagetest7/events) for CBS events") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithoutDCRegion)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithoutDCRegion, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }
 }
