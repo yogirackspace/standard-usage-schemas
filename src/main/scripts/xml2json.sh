@@ -33,5 +33,6 @@ if [ ! -f $TRANSFORMER ]; then
     exit 3
 fi
 
-java -classpath $SAXON_JAR net.sf.saxon.Transform -s:$INPUT_FILE -xsl:$TRANSFORMER -it:main | python -mjson.tool 
+#java -classpath $SAXON_JAR net.sf.saxon.Transform -s:$INPUT_FILE -xsl:$TRANSFORMER -it:main | python -mjson.tool 
+java -classpath $SAXON_JAR net.sf.saxon.Transform -s:$INPUT_FILE -xsl:$TRANSFORMER -it:main
 exit $?

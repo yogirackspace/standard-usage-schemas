@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/" rel="current"/>
+  <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/" rel="self"/>
+  <id>urn:uuidaf791fe6-2d55-4249-b43e-d2af45f0d477</id>
+  <title type="text">dedicatedvcloud/events</title>
+  <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/?marker=urn:uuid:72a69179-8b12-5029-fc71-b428f9118b6d&amp;limit=25&amp;search=&amp;direction=forward" rel="previous"/>
+  <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/?marker=urn:uuid:51b6264a-d411-3c29-bb9a-c7ff5fa574d9&amp;limit=25&amp;search=&amp;direction=backward" rel="next"/>
+  <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last"/>
+  <updated>2014-11-07T16:26:45.836Z</updated>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:72a69179-8b12-5029-fc71-b428f9118b6d</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="72a69179-8b12-5029-fc71-b428f9118b6d" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:72a69179-8b12-5029-fc71-b428f9118b6d" rel="self"/>
+    <atom:updated>2014-11-06T19:53:06.340Z</atom:updated>
+    <atom:published>2014-11-06T19:53:06.340Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:32184266-3652-f965-323a-06bcaa31d5b7</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="32184266-3652-f965-323a-06bcaa31d5b7" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:32184266-3652-f965-323a-06bcaa31d5b7" rel="self"/>
+    <atom:updated>2014-11-06T19:53:05.594Z</atom:updated>
+    <atom:published>2014-11-06T19:53:05.594Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:abf1c552-808c-48a7-73a7-7dc7b9c14472</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="abf1c552-808c-48a7-73a7-7dc7b9c14472" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" support="MBU_MSSQL_AGENT_CLUSTERING" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:abf1c552-808c-48a7-73a7-7dc7b9c14472" rel="self"/>
+    <atom:updated>2014-11-06T19:53:05.209Z</atom:updated>
+    <atom:published>2014-11-06T19:53:05.209Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:cb877b62-982f-42fb-c09c-cb9728c6b089</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="cb877b62-982f-42fb-c09c-cb9728c6b089" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="REACTIVATION" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:cb877b62-982f-42fb-c09c-cb9728c6b089" rel="self"/>
+    <atom:updated>2014-11-06T19:52:56.364Z</atom:updated>
+    <atom:published>2014-11-06T19:52:56.364Z</atom:published>
+  </atom:entry>
+  <entry>
+    <title type="text">Feed Service Test</title>
+    <author>
+      <name>Feed Service Test Team</name>
+    </author>
+    <content type="text">Feed Service deployment test - check out https://github.com/rackerlabs/atom-hopper/wiki/Release-Notes or https://one.rackspace.com/display/CIT/Atom+Hopper+Deployment+-+Release+Notes</content>
+    <category term="Feed Service Post Test"/>
+    <id>urn:uuid:d47a0201-7762-4c2e-b454-be5311723731</id>
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:d47a0201-7762-4c2e-b454-be5311723731" rel="self"/>
+    <updated>2014-11-06T19:51:56.328Z</updated>
+    <published>2014-11-06T19:51:56.328Z</published>
+  </entry>
+  <entry>
+    <title type="text">Feed Service Test</title>
+    <author>
+      <name>Feed Service Test Team</name>
+    </author>
+    <content type="text">Feed Service deployment test - check out https://github.com/rackerlabs/atom-hopper/wiki/Release-Notes or https://one.rackspace.com/display/CIT/Atom+Hopper+Deployment+-+Release+Notes</content>
+    <category term="Feed Service Post Test"/>
+    <id>urn:uuid:7957b1e0-637a-4bdc-a29c-d897c3a1f15a</id>
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:7957b1e0-637a-4bdc-a29c-d897c3a1f15a" rel="self"/>
+    <updated>2014-11-06T19:51:55.821Z</updated>
+    <published>2014-11-06T19:51:55.821Z</published>
+  </entry>
+  <entry>
+    <title type="text">Atom Hopper Test</title>
+    <author>
+      <name>Atom Test</name>
+    </author>
+    <content type="text">Atom Hopper deployment test - check out
+                                  https://github.com/rackerlabs/atom-hopper/wiki/Release-Notes
+                                  or https://one.rackspace.com/display/CIT/Atom+Hopper+Deployment+-+Release+Notes
+                    </content>
+    <category term="Atomhopper Post Test"/>
+    <id>urn:uuid:067e40bf-0d9f-4b66-aacc-177552e78966</id>
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:067e40bf-0d9f-4b66-aacc-177552e78966" rel="self"/>
+    <updated>2014-11-06T19:51:36.391Z</updated>
+    <published>2014-11-06T19:51:36.391Z</published>
+  </entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:3c9d4224-1472-6301-c65a-a78dda8f42f0</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="3c9d4224-1472-6301-c65a-a78dda8f42f0" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="REACTIVATION" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:3c9d4224-1472-6301-c65a-a78dda8f42f0" rel="self"/>
+    <atom:updated>2014-11-06T19:51:23.515Z</atom:updated>
+    <atom:published>2014-11-06T19:51:23.515Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:cbcb0f7f-f62a-4303-338f-6bfd616ac1fd</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="cbcb0f7f-f62a-4303-338f-6bfd616ac1fd" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:cbcb0f7f-f62a-4303-338f-6bfd616ac1fd" rel="self"/>
+    <atom:updated>2014-11-06T19:51:20.390Z</atom:updated>
+    <atom:published>2014-11-06T19:51:20.390Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:4cd37312-52f9-cf38-d562-34fcfbc58981</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="4cd37312-52f9-cf38-d562-34fcfbc58981" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:4cd37312-52f9-cf38-d562-34fcfbc58981" rel="self"/>
+    <atom:updated>2014-11-06T19:51:19.426Z</atom:updated>
+    <atom:published>2014-11-06T19:51:19.426Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:f7512a1b-4074-7183-94fd-f8c6115c6fb9</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="f7512a1b-4074-7183-94fd-f8c6115c6fb9" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" support="MBU_MSSQL_AGENT_CLUSTERING" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:f7512a1b-4074-7183-94fd-f8c6115c6fb9" rel="self"/>
+    <atom:updated>2014-11-06T19:51:18.993Z</atom:updated>
+    <atom:published>2014-11-06T19:51:18.993Z</atom:published>
+  </atom:entry>
+  <entry>
+    <title type="text">Atom Hopper Test</title>
+    <author>
+      <name>Atom Test</name>
+    </author>
+    <content type="text">Atom Hopper deployment test - check out
+                                  https://github.com/rackerlabs/atom-hopper/wiki/Release-Notes
+                                  or https://one.rackspace.com/display/CIT/Atom+Hopper+Deployment+-+Release+Notes
+                    </content>
+    <category term="Atomhopper Post Test"/>
+    <id>urn:uuid:1e43fc8c-2032-463b-965f-1261bdc2f77c</id>
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:1e43fc8c-2032-463b-965f-1261bdc2f77c" rel="self"/>
+    <updated>2014-11-06T19:51:14.792Z</updated>
+    <published>2014-11-06T19:51:14.792Z</published>
+  </entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:84a72c88-525b-057c-9d06-fcff2dd847b4</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="84a72c88-525b-057c-9d06-fcff2dd847b4" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:84a72c88-525b-057c-9d06-fcff2dd847b4" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.904Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.904Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:53447b00-2993-1b94-162c-32126a96da99</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="53447b00-2993-1b94-162c-32126a96da99" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:53447b00-2993-1b94-162c-32126a96da99" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.791Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.791Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:3bca6015-90d3-5410-c1dc-500363fc7216</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="3bca6015-90d3-5410-c1dc-500363fc7216" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:3bca6015-90d3-5410-c1dc-500363fc7216" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.692Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.692Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:d83a076c-d4df-4c57-603b-9b7d1851f5cd</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="d83a076c-d4df-4c57-603b-9b7d1851f5cd" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:d83a076c-d4df-4c57-603b-9b7d1851f5cd" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.548Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.548Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:6591c3d3-988c-b1f7-4581-ad09cf155857</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="6591c3d3-988c-b1f7-4581-ad09cf155857" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:6591c3d3-988c-b1f7-4581-ad09cf155857" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.443Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.443Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:b2104248-1c50-ba05-71a0-7773f545b9d2</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="b2104248-1c50-ba05-71a0-7773f545b9d2" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:b2104248-1c50-ba05-71a0-7773f545b9d2" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.291Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.291Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcenter="http://docs.rackspace.com/usage/dedicatedvcloud/serveroslicense">
+    <atom:id>urn:uuid:f485052d-6b33-b92c-0bd1-abd6fc5bad46</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serveroslicense.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCenter Server</atom:title>
+    <atom:author>
+      <atom:name>Feed Service Test Team</atom:name>
+    </atom:author>
+    <atom:category label="atom-hopper-test" term="atom-hopper-test"/>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="f485052d-6b33-b92c-0bd1-abd6fc5bad46" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcenter:product coreStatus="UNDER_REPAIR" guestOSLicenseType="WINDOWS" hostOSLicenseTypes="WINDOWS UBUNTU" powerStatus="ON" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:f485052d-6b33-b92c-0bd1-abd6fc5bad46" rel="self"/>
+    <atom:updated>2014-11-06T18:35:01.183Z</atom:updated>
+    <atom:published>2014-11-06T18:35:01.183Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:878f0c22-169f-d940-2f72-d88f7b282dca</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="878f0c22-169f-d940-2f72-d88f7b282dca" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:878f0c22-169f-d940-2f72-d88f7b282dca" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.856Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.856Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:6617b093-f49c-c518-f9a2-3a2d731c72b7</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="6617b093-f49c-c518-f9a2-3a2d731c72b7" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:6617b093-f49c-c518-f9a2-3a2d731c72b7" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.712Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.712Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:3c701180-8660-323c-86b2-b1cb0b4abd90</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="3c701180-8660-323c-86b2-b1cb0b4abd90" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:3c701180-8660-323c-86b2-b1cb0b4abd90" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.599Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.599Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:6d6ff76f-0a24-2c3c-a2b4-6572f8c3598f</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="6d6ff76f-0a24-2c3c-a2b4-6572f8c3598f" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:6d6ff76f-0a24-2c3c-a2b4-6572f8c3598f" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.489Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.489Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:da384f11-4c87-214a-24fb-dccca7b2dbc7</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="da384f11-4c87-214a-24fb-dccca7b2dbc7" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:da384f11-4c87-214a-24fb-dccca7b2dbc7" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.379Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.379Z</atom:published>
+  </atom:entry>
+  <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://docs.rackspace.com/core/event" xmlns:vcloud="http://docs.rackspace.com/usage/dedicatedvcloud/serverlicenseandsupport">
+    <atom:id>urn:uuid:52482a59-d3da-7bbb-c5b7-c7af32d48a78</atom:id>
+    <atom:category term="tid:hybrid:654321"/>
+    <atom:category term="rgn:SYD"/>
+    <atom:category term="dc:SYD2"/>
+    <atom:category term="rid:560490c6-7c73-22e2-adfe-27851d5aed13"/>
+    <atom:category term="dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:category term="type:dedicatedvcloud.serverlicenseandsupport.server.usage.hybrid"/>
+    <atom:title type="text">Dedicated vCloud Server</atom:title>
+    <atom:content type="application/xml">
+      <event dataCenter="SYD2" endTime="2013-12-18T23:59:59Z" environment="PROD" id="52482a59-d3da-7bbb-c5b7-c7af32d48a78" region="SYD" resourceId="560490c6-7c73-22e2-adfe-27851d5aed13" resourceName="my.site.com" startTime="2013-12-18T00:00:00Z" tenantId="hybrid:654321" type="USAGE" version="1">
+        <vcloud:product applicationLicense="MSSQL_2008_WEB" coreStatus="ONLINE_COMPLETE" powerStatus="SUSPENDED" resourceType="SERVER" serviceCode="DedicatedVCloud" vCPUCount="6" vRAM="1048576" version="1"/>
+      </event>
+    </atom:content>
+    <atom:link href="https://atom.test.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:52482a59-d3da-7bbb-c5b7-c7af32d48a78" rel="self"/>
+    <atom:updated>2014-11-06T18:34:56.272Z</atom:updated>
+    <atom:published>2014-11-06T18:34:56.272Z</atom:published>
+  </atom:entry>
+</feed>

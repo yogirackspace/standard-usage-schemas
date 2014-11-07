@@ -10,59 +10,151 @@
     
     <xsl:output method="text" encoding="utf-8"/>
  
-    <!-- we always put these nodes in an array, even though they may only
-         have one element -->
-    <xsl:variable name="arrayNodesInEntry" select="tokenize('category link', ' ')"/>
+    <!-- atom namespace -->
+    <xsl:variable name="atomNs" select="'http://www.w3.org/2005/Atom'"/>
+    
+    <!-- nodes we must print namespace in '@type' string -->
     <xsl:variable name="printNamespaceOnNodes" select="tokenize('feed entry event product error eventError', ' ')"/>
+    
     <!-- rax schema nodes must have @version attribute -->
     <xsl:variable name="raxSchemaNodes" select="tokenize('event product', ' ')"/>
     
-    <!-- this nonStringAttrs.xsl is generated -->
+    <!-- this nonStringAttrs.xsl file is generated -->
     <xsl:include href="nonStringAttrs.xsl"/>
     
+    <!-- The "main" template". This is the entry point, or in Saxon's term,
+         the "initial template".
+    -->
     <xsl:template name="main">
         <xsl:text>{</xsl:text>
-        <xsl:apply-templates select="/*[node()]" mode="detect" />
+        <xsl:apply-templates select="/atom:entry" mode="root"/>
+        <xsl:apply-templates select="/atom:feed"  mode="root"/>
+        <xsl:apply-templates select="/*[node()]"  mode="others"/>
+        <xsl:text>}</xsl:text>     
+    </xsl:template>
+    
+    <!-- A template that prints out the root 'feed' JSON object -->
+    <xsl:template match="atom:feed"  mode="root">
+        <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : {</xsl:text>
+        <xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text>
+        <xsl:call-template name="atomList"> 
+            <xsl:with-param name="nodes" select="atom:link" as="node()*"/>
+            <xsl:with-param name="printComma" select="true()"/>
+        </xsl:call-template>
+        
+        <!-- print all the atom:entry elements -->
+        <xsl:if test="count(atom:entry) &gt; 0">           
+            <xsl:text>"entry" : [</xsl:text>
+            <xsl:for-each select="atom:entry">
+                <xsl:text>{</xsl:text>
+                <xsl:apply-templates select="current()" mode="entryObject" />
+                <xsl:text>}</xsl:text>
+                <xsl:if test="position() ne last()"><xsl:text>, </xsl:text></xsl:if>
+            </xsl:for-each>
+            <xsl:text>], </xsl:text>
+        </xsl:if>
+        
+        <!-- print the rest -->
+        <xsl:apply-templates select="./*" mode="others"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
+    
+    <!-- A template that handles the root 'entry' object -->
+    <xsl:template match="atom:entry" mode="root">
+        <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : {</xsl:text>
+        <xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text>
+        <xsl:apply-templates select="." mode="entryObject"/>      
+        <xsl:text>}</xsl:text>
+    </xsl:template>
+    
+    <!-- A template that prints out the 'entry' JSON object. This must
+         be called from another template that already prints out the 
+         curly braces {}.
+    -->
+    <xsl:template match="atom:entry" mode="entryObject">
+        <!-- prints the all the category elements -->
+        <xsl:call-template name="atomList"> 
+            <xsl:with-param name="nodes" select="atom:category" as="node()*"/>
+            <xsl:with-param name="printComma" select="true()"/>
+        </xsl:call-template>
+        
+        <!-- prints the all the link elements -->
+        <xsl:call-template name="atomList"> 
+            <xsl:with-param name="nodes" select="atom:link" as="node()*"/>
+            <xsl:with-param name="printComma" select="true()"/>
+        </xsl:call-template>
+        
+        <!-- print the rest -->
+        <xsl:apply-templates select="./*" mode="others"/>
+    </xsl:template>
+    
+    <!-- A no-op template for the atom nodes we have to handle in special ways
+        by using the above templates that specificly matches for those.
+    -->
+    <xsl:template match="atom:category | atom:link | atom:feed | atom:entry" mode="others"/>
  
-    <xsl:template match="*" mode="detect">
+    <!-- A generic template that basically operates on any XML nodes and detects whether
+         the nodes are to be printed as list, or normal JSON objects. 
+    -->
+    <xsl:template match="*" mode="others">                
         <xsl:choose>
+            <!-- handle the last item of a list object -->
             <xsl:when test="name(preceding-sibling::*[1]) = name(current()) and name(following-sibling::*[1]) != name(current())">
                 <xsl:apply-templates select="." mode="obj-content" />
                 <xsl:text>]</xsl:text>
                 <xsl:if test="count(following-sibling::*[name() != name(current())]) &gt; 0">, </xsl:if>
             </xsl:when>
+            
+            <!-- handle a single item (not the last one) of a list object -->
             <xsl:when test="name(preceding-sibling::*[1]) = name(current())">
-                <xsl:apply-templates select="." mode="obj-content" />
+                <xsl:apply-templates select="." mode="obj-content"/>
                 <xsl:if test="name(following-sibling::*[1]) = name(current())">, </xsl:if>
             </xsl:when>
-            <xsl:when test="exists(index-of($arrayNodesInEntry, local-name(current()))) or following-sibling::*[1][name() = name(current())]">
+            
+            <!-- handle the first item of a list object -->
+            <xsl:when test="following-sibling::*[1][name() = name(current())]">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : [</xsl:text>
-                <xsl:apply-templates select="." mode="obj-content" />
-                <xsl:if test="exists(index-of($arrayNodesInEntry, local-name(current()))) and following-sibling::*[1][name() != name(current())]"><xsl:text>]</xsl:text></xsl:if>
-                <xsl:text>, </xsl:text>
+                <xsl:apply-templates select="." mode="obj-content" /><xsl:text>, </xsl:text>
             </xsl:when>
+
+            <!-- handle nodes that have child nodes or attributes -->
             <xsl:when test="count(./child::*) > 0 or count(@*) > 0">
-                <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : <xsl:apply-templates select="." mode="obj-content" />
-                <xsl:if test="count(following-sibling::*) &gt; 0">, </xsl:if>
+                <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : <xsl:apply-templates select="." mode="obj-content"/>
+                <xsl:variable name="sibs" 
+                              select="following-sibling::*[not(self::atom:category) and
+                                                           not(self::atom:entry) and
+                                                           not(self::atom:feed) and
+                                                           not(self::atom:link)]"/>
+                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
             </xsl:when>
+            
+            <!-- handle nodes that have no child nodes -->
             <xsl:when test="count(./child::*) = 0">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:apply-templates select="."/><xsl:text>"</xsl:text>
-                <xsl:if test="count(following-sibling::*) &gt; 0">, </xsl:if>
+                <xsl:variable name="sibs" 
+                              select="following-sibling::*[not(self::atom:category) and
+                                                           not(self::atom:entry) and
+                                                           not(self::atom:feed) and
+                                                           not(self::atom:link)]"/>
+                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
     
+    <!-- A template to match atom:content with type="application/xml". For such
+         atom:content node, we want to skip printing the attribute (see CF-154).
+         This does assume that 'type' is the only attribute allowed under atom:content.
+    -->
     <xsl:template match="atom:content[@type='application/xml']" mode="obj-content">
-        <!-- CF-154: skip the printing of type='application/xml' attribute for atom:content node.
-             This does assume that type is the only attribute allowed under atom:content.
-        -->
         <xsl:text>{</xsl:text>
-        <xsl:apply-templates select="./*" mode="detect" />
+        <xsl:apply-templates select="./*" mode="others" />
         <xsl:text>}</xsl:text>
     </xsl:template>
  
+    <!-- A template that handles printing the JSON output of an XML that gets 
+         transformed into one single JSON object. This handles the printing
+         of non-string values for certain elements.
+    -->
     <xsl:template match="*" mode="obj-content">
         <xsl:text>{</xsl:text>
             <xsl:if test="exists(index-of($printNamespaceOnNodes, local-name()))"><xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text></xsl:if>
@@ -87,7 +179,10 @@
             </xsl:choose>
 
             <xsl:if test="count(@*) &gt; 0 and (count(child::*) &gt; 0 or text())">, </xsl:if>
-            <xsl:apply-templates select="./*" mode="detect" />
+        
+            <!-- here we recurse to child objects other than links and categories -->
+            <xsl:apply-templates select="./*" mode="others"/>
+        
             <xsl:if test="count(child::*) = 0 and text() and not(@*)">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:value-of select="text()"/><xsl:text>"</xsl:text>
             </xsl:if>
@@ -116,12 +211,46 @@
         <xsl:text>}</xsl:text>
         <xsl:if test="position() &lt; last()">, </xsl:if>
     </xsl:template>
+    
+    <!-- A template that handles the printing of 'link' and 'category'
+         elements. Link and category elements are handled in a special
+         way. The elements can appear anywhere inside <entry> or 
+         <feed> and they don't necessarily appear together next
+         to each other. So
+    -->
+    <xsl:template name="atomList">
+        <xsl:param name="nodes"/>
+        <xsl:param name="printComma"/>
+        
+        <xsl:if test="count($nodes) &gt; 0">           
+            <xsl:text>"</xsl:text><xsl:value-of select="$nodes[1]/local-name()"/><xsl:text>" : [</xsl:text>
+            <xsl:for-each select="$nodes">
+                <xsl:text>{</xsl:text>
+                <xsl:apply-templates select="@*" mode="normalAttr" />
+                <xsl:text>}</xsl:text>
+                <xsl:if test="position() ne last()"><xsl:text>, </xsl:text></xsl:if>
+            </xsl:for-each>
+            <xsl:text>]</xsl:text>
+            <xsl:if test="boolean($printComma)">
+                <xsl:text>,</xsl:text>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
 
+    <!-- A template to handle the printing of XML attributes
+         to normal JSON string-value pairs
+    -->
     <xsl:template match="@*" mode="normalAttr">
         <xsl:text>"</xsl:text><xsl:value-of select="name()"/>" : "<xsl:value-of select="."/><xsl:text>"</xsl:text> 
         <xsl:if test="position() &lt; last()">,</xsl:if>
     </xsl:template>
 
+    <!-- A template to handle Rackspace specific attributes. Specifically,
+        attributes of the 'event' and 'product' elements. They need
+        special handling because we are printing the non-string attributes
+        without surrounding them with quotes. Which attributes are non-string
+        are listed in the nonStringAttrs.xsl xsl:include-ed in this file.
+    -->
     <xsl:template match="@*" mode="raxAttr">
         <xsl:param name="namespace"/>
         <xsl:param name="version"/>
@@ -147,6 +276,8 @@
         <xsl:if test="position() &lt; last()">,</xsl:if>
     </xsl:template>
     
+    <!-- A template that removes line breaks from the value of TEXT node. 
+    -->
     <xsl:template match="node/@TEXT | text()" name="removeBreaks">
         <xsl:param name="pText" select="normalize-space(.)"/>
         <xsl:choose>
@@ -188,13 +319,11 @@
              This assumption needs to be held the same in the XSLT that generates the
              list of non-string attributes.
         -->
-        <!-- <xsl:for-each select="ancestor-or-self::*"> -->
             <xsl:if test="parent::node()/local-name() eq 'product'">
                 <xsl:value-of select="concat('product/@', local-name())"/>
             </xsl:if>
             <xsl:if test="parent::node()/parent::node()/local-name() eq 'product'">
                 <xsl:value-of select="concat(parent::node()/local-name(), '@', local-name())"/>
             </xsl:if>
-        <!--</xsl:for-each> -->
     </xsl:template>
 </xsl:stylesheet>
