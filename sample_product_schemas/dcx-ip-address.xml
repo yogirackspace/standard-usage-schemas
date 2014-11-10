@@ -1,0 +1,40 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+  namespace="http://docs.rackspace.com/event/dcx/ip-address-association"
+  serviceCode="DcxIpAdmin"
+  version="1"
+  type="UPDATE"
+  resourceTypes="IP_ADDRESS DEVICE">
+
+  <description>
+    IP address / device associations
+  </description>
+
+  <attribute name="action" type="string" use="required" allowedValues="ASSIGN UNASSIGN">
+    The event type
+  </attribute>
+
+  <attribute name="device" type="string" use="required">
+    The CORE device number associated
+  </attribute>
+
+  <attribute name="ipAddress" type="string" use="required">
+    The IP Address
+  </attribute>
+
+  <attribute name="ipVersion" type="string" use="required" allowedValues="4 6">
+    The version of the IP Address
+  </attribute>
+
+  <attribute name="routing" type="string" use="required" allowedValues="PUBLIC PRIVATE">
+    PUBLIC if the address is routed to the internet; PRIVATE otherwise
+  </attribute>
+
+  <attribute name="primary" type="boolean" use="required">
+    If the address is primary
+  </attribute>
+
+  <attribute name="networkSegmentService" type="string" use="optional">
+    The network segment service
+  </attribute>
+
+</productSchema>

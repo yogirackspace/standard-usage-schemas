@@ -39,6 +39,9 @@
         <resource id="customer_events"
                   path="customer/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="dcx_events"
+                  path="dcx/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DcxIpAdmin"/>
         <resource id="dbaas_events"
                   path="dbaas/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudDatabaseTenant"/>
