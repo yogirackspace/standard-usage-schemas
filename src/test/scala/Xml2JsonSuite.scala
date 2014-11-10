@@ -85,7 +85,7 @@ class Xml2JsonSuite extends BaseUsageSuite {
         assert(categoryObjects.exists ( category => {
                     category.get("term").get == "DataCenter:IAD3" || category.get("term").get == "dedicatedvcloud.server.create.vm"
               }),
-              "should have category term=DataCenter:IAD3")
+              "should have category term=DataCenter:IAD3 or term=dedicatedvcloud.server.create.vm")
     }
 
     val errorXmls = List(
