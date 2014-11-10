@@ -9,7 +9,7 @@
     IP address / device associations
   </description>
 
-  <attribute name="type" type="string" use="required" allowedValues="assign unassign">
+  <attribute name="type" type="string" use="required" allowedValues="ASSIGN UNASSIGN">
     The event type
   </attribute>
 
@@ -25,7 +25,7 @@
     The version of the IP Address
   </attribute>
 
-  <attribute name="routing" type="string" use="required" allowedValues="public private">
+  <attribute name="routing" type="string" use="required" allowedValues="PUBLIC PRIVATE">
     PUBLIC if the address is routed to the internet; PRIVATE otherwise
   </attribute>
 
