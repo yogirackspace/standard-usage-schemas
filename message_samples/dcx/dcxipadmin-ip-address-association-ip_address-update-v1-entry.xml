@@ -32,11 +32,11 @@
          <sample:product serviceCode="DcxIpAdmin"
                          version="1"
                          resourceType="IP_ADDRESS"
-                         type="assign"
+                         action="ASSIGN"
                          device="sampleString"
                          ipAddress="sampleString"
                          ipVersion="4"
-                         routing="public"
+                         routing="PUBLIC"
                          primary="true"/>
       </event>
    </atom:content>
