@@ -32,7 +32,7 @@ class Xml2JsonSuite extends BaseUsageSuite {
     val sampleFiles = getSampleXMLFiles(sampleDir)
 
     register("atom", "http://www.w3.org/2005/Atom")
-    val dedicatedvCloudMixedXml = "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
+    val dedicatedvCloudMixedNonAdjacentCategoryXml = "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
             "  <title type=\"text\">Dedicated vCloud event</title>" +
             "  <category term=\"dedicatedvcloud.server.create.vm\"/>" +
             "  <id>urn:uuid:1f1b37e2-503b-4f32-bc8b-6d1d054efc21</id>" +
@@ -45,8 +45,8 @@ class Xml2JsonSuite extends BaseUsageSuite {
             "  <link href=\"https://atom.staging.ord1.us.ci.rackspace.net/dedicatedvcloud/events/entries/urn:uuid:1f1b37e2-503b-4f32-bc8b-6d1d054efc21\" rel=\"self\" />" +
             "</entry>"
 
-    test("should transform /dedicatedvcloud event with mixed-content JSON inside XML properly") {
-        val jsonResult = transform(new StreamSource(new StringReader(dedicatedvCloudMixedXml)))
+    test("should transform /dedicatedvcloud event with mixed-content JSON inside XML and non-adjacent category properly") {
+        val jsonResult = transform(new StreamSource(new StringReader(dedicatedvCloudMixedNonAdjacentCategoryXml)))
         //println(jsonResult)
 
         // check for entry
@@ -82,6 +82,10 @@ class Xml2JsonSuite extends BaseUsageSuite {
         // check handling of categories
         val categoryObjects = entryObject.get("category").get.asInstanceOf[List[Map[String, Any]]]
         assert(categoryObjects.size == 2, "there are 2 category objects")
+        assert(categoryObjects.exists ( category => {
+                    category.get("term").get == "DataCenter:IAD3" || category.get("term").get == "dedicatedvcloud.server.create.vm"
+              }),
+              "should have category term=DataCenter:IAD3")
     }
 
     val errorXmls = List(
