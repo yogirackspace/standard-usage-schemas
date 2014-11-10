@@ -9,7 +9,7 @@
     IP address / device associations
   </description>
 
-  <attribute name="type" type="string" use="required" allowedValues="ASSIGN UNASSIGN">
+  <attribute name="action" type="string" use="required" allowedValues="ASSIGN UNASSIGN">
     The event type
   </attribute>
 
