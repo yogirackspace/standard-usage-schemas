@@ -19,6 +19,8 @@ import com.rackspace.cloud.api.wadl.test.XPathAssertions
 
 import org.w3c.dom.Document
 
+import scala.xml.NodeSeq
+
 
 object BaseUsageSuite {
     //
@@ -54,12 +56,12 @@ object BaseUsageSuite {
     usageConfig.checkHeaders = true
     usageConfig.preserveRequestBody = true
     usageConfig.resultHandler = assertHandler
+    usageConfig.enableRaxRolesExtension = true
 
     //
     //  The atom hopper validator
     //
     val atomValidator = Validator(new StreamSource(new File("allfeeds.wadl")), usageConfig)
-    val atomValidatorObserver = Validator(new StreamSource(new File("allfeeds_observer.wadl")), usageConfig)
 
     //
     //  Convenience function to get to the XML of a request
@@ -75,7 +77,27 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
     register("event", "http://docs.rackspace.com/core/event")
     register("cldfeeds", "http://docs.rackspace.com/api/cloudfeeds")
 
-    def getSampleXMLFiles(dir: File) : List[File] = {
+  val SERVICE_ADMIN = "cloudfeeds:service-admin"
+  val OBSERVER = "cloudfeeds:observer"
+
+  def request(method : String,
+              url : String,
+              contentType : String,
+              content : NodeSeq,
+              xRole : String ) : javax.servlet.http.HttpServletRequest = {
+
+    request( method, url, contentType, content, false, Map( "X-ROLES"->List( xRole ) ) )
+  }
+
+  def requestRole(method : String,
+              url : String,
+              xRole : String ) : javax.servlet.http.HttpServletRequest = {
+
+    request( method, url, "", "", false, Map("ACCEPT"->List("*/*"), "X-ROLES"->List( xRole ) ) )
+  }
+
+
+  def getSampleXMLFiles(dir: File) : List[File] = {
 
         def getSampleXMLFiles(fdir : List[File]) : List[File] = fdir match {
             case List() => List()

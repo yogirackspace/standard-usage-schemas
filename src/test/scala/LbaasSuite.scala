@@ -66,7 +66,7 @@ class LbaasSuite extends BaseUsageSuite {
                           </atom:entry>
 
   test ("LBaaS usage event should have synthesized attributes") {
-    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleEntry)
+    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleEntry, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     val doc = getProcessedXML(req)
     assert(doc, "/atom:entry/atom:content/event:event/lbaas:product/@avgConcurrentConnectionsSum = '34566'")
@@ -76,7 +76,7 @@ class LbaasSuite extends BaseUsageSuite {
   }
 
   test ("LBaaS usage event with vipMode=SERVICENET should have zero publicBandWidth* synthesized attributes") {
-    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleServiceNetEntry)
+    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleServiceNetEntry, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     val doc = getProcessedXML(req)
     assert(doc, "/atom:entry/atom:content/event:event/lbaas:product/@avgConcurrentConnectionsSum = '34566'")
@@ -86,7 +86,7 @@ class LbaasSuite extends BaseUsageSuite {
   }
 
   test ("LBaaS usage event with sslMode=OFF should have hasSSLConnection=false synthesized attribute") {
-    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleSSLOffEntry)
+    val req = request("POST", "/lbaas/events", "application/atom+xml", sampleSSLOffEntry, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     val doc = getProcessedXML(req)
     assert(doc, "/atom:entry/atom:content/event:event/lbaas:product/@avgConcurrentConnectionsSum = '30000'")
