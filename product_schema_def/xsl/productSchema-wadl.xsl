@@ -22,7 +22,7 @@
     version="2.0">
 
     <xsl:import href="productSchema-summary-util.xsl"/>
-    <xsl:import href="../../wadl/rm_private_attrs_for_obs.xsl"/>
+    <xsl:import href="../../target/xslt-artifacts/rm_private_attrs_for_obs.xsl"/>
 
     <!-- for samples -->
     <xsl:template match="comment()" mode="rm_priv"/>

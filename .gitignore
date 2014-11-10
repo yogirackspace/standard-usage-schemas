@@ -14,7 +14,6 @@ target
 .classpath
 .settings
 wadl/product.wadl
-wadl/rm_private_attrs_for_obs.xsl
 generated_product_xsds/*
 core_xsd/usage.xsd
 TODO.org
