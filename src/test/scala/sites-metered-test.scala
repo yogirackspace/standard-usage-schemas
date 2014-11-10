@@ -40,7 +40,7 @@ class SitesMeteredSuite extends BaseUsageSuite {
   </atom:entry>
 
   test("Sites metered usage: non existence of computeCycles should set computeCycles to 0") {
-    val req = request("POST", "/sites/events", "application/atom+xml", sitesMeteredWithNoComputeCycles)
+    val req = request("POST", "/sites/events", "application/atom+xml", sitesMeteredWithNoComputeCycles, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/m:product/@computeCycles = 0.0")
   }

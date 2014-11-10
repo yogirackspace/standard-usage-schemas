@@ -87,17 +87,18 @@ class BigDataSuite extends BaseUsageSuite {
 
 
   test ("A usage event should set aggregatedClusterDuration by calculating duration as endTime - startTime and multiplying by numberServersInCluster") {
-    val req = request("POST", "/bigdata/events", "application/atom+xml", beforeTransform)
+    val req = request("POST", "/bigdata/events",  "application/atom+xml", beforeTransform, SERVICE_ADMIN )
+
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/bigdata:product/@aggregatedClusterDuration = '43200000'")
    }
   test ("A usage event2 should set aggregatedClusterDuration by calculating duration as endTime - startTime and multiplying by numberServersInCluster") {
-    val req = request("POST", "/bigdata/events", "application/atom+xml", beforeTransform2)
+    val req = request("POST", "/bigdata/events", "application/atom+xml", beforeTransform2, SERVICE_ADMIN )
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/bigdata:product/@aggregatedClusterDuration = '43200000'")
    }
   test ("A usage event2_newResourceType_newFlavorId should set aggregatedClusterDuration by calculating duration as endTime - startTime and multiplying by numberServersInCluster") {
-    val req = request("POST", "/bigdata/events", "application/atom+xml", version2_newResourceType_newFlavorId)
+    val req = request("POST", "/bigdata/events", "application/atom+xml", version2_newResourceType_newFlavorId, SERVICE_ADMIN )
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:content/event:event/bigdata:product/@aggregatedClusterDuration = '43200000'")
    }

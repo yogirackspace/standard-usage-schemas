@@ -21,17 +21,17 @@ class ValidatorSuite extends BaseUsageSuite {
 
   test( "Getting an entry on a Validated feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*"))), response, chain )
+    atomValidator.validate( requestRole( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", SERVICE_ADMIN), response, chain )
   }
 
   test( "Getting an entry on an Unvalidated feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain )
+    atomValidator.validate( requestRole( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_ADMIN ), response, chain )
   }
 
   test( "Getting an entry on a product feed should always succeed" ) {
 
-    atomValidator.validate( request( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  "", "", false, Map("ACCEPT"->List("*/*")) ), response, chain )
+    atomValidator.validate( requestRole( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_ADMIN ), response, chain )
   }
 
   test("A GET on /buildinfo should always succeed") {
@@ -43,23 +43,23 @@ class ValidatorSuite extends BaseUsageSuite {
   }
 
   test("Posting text on a validated feed (usagetest1/events) should fail with 415") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "plain/text", "foo"), response, chain), 415)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "plain/text", "foo", false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 415)
   }
 
   test("Posting text on an unvalidated feed (usagetest7/events) should fail with 415") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest7/events", "plain/text", "foo"), response, chain), 415)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest7/events", "plain/text", "foo", false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 415)
   }
 
   test("Posting text on a validated product feed (cbs/events) should fail with 415") {
-    assertResultFailed(atomValidator.validate(request("POST", "/cbs/events", "plain/text", "foo"), response, chain), 415)
+    assertResultFailed(atomValidator.validate(request("POST", "/cbs/events", "plain/text", "foo", false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 415)
   }
 
   test("Posting non-atom XML on a validated feed (usagetest1/events) with content-type of application/atom+xml should fail with a 400") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />), response, chain), 400)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />, SERVICE_ADMIN), response, chain), 400)
   }
 
   test("Posting non-atom XML on an unvalidated feed (usagetest7/events) with content-type of application/atom+xml should fail with a 400") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />), response, chain), 400)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />, SERVICE_ADMIN), response, chain), 400)
   }
 
 
@@ -71,7 +71,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                              <foo xmlns="fooBar.com">
                                              </foo>
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) ) ), response, chain)
   }
 
   test("Posting valid entry with non-usage xml should succeed on a unvalidated feed (usagetest7/events)") {
@@ -82,7 +82,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                              <foo xmlns="fooBar.com">
                                              </foo>
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   test("Posting valid entry with non-usage xml should succeed on a validated product feed (cbs/events)") {
@@ -93,7 +93,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                              <foo xmlns="fooBar.com">
                                              </foo>
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   //
@@ -109,7 +109,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                          <atom:content type="application/json">
                                              {json}
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   test("Posting valid entry with non-usage json should succeed on an unvalidated feed (usagetest7/events)") {
@@ -119,7 +119,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                          <atom:content type="application/json">
                                              {json}
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   test("Posting valid entry with non-usage json should succeed on a validated product feed (cbs/events)") {
@@ -129,7 +129,7 @@ class ValidatorSuite extends BaseUsageSuite {
                                          <atom:content type="application/json">
                                              {json}
                                          </atom:content>
-                                    </atom:entry>), response, chain)
+                                    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   val validCBSMessage = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
@@ -174,31 +174,31 @@ class ValidatorSuite extends BaseUsageSuite {
                                    </atom:entry>
 
   test("Posting valid usage entry should succeed on a validated feed (usagetest1/events)") {
-    atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage), response, chain)
+    atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN), response, chain)
   }
 
   test("Posting valid usage entry should succeed on an unvalidated feed (usagetest7/events)") {
-    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage), response, chain)
+    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN), response, chain)
   }
 
   test("Posting valid usage entry should succeed on correct product feed (cbs/events)") {
-    atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", validCBSMessage), response, chain)
+    atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN), response, chain)
   }
 
   test("Posting an invalid usage entry should fail on a validated feed (usagetest1/events) with a 400") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", invalidCBSMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test("Posting invalid usage entry should succeed on an unvalidated feed (usagetest7/events)") {
-    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage), response, chain)
+    atomValidator.validate(request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   test("Posting an invalid usage entry should fail on correct product feed (cbs/events) with a 400") {
-    assertResultFailed(atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+    assertResultFailed(atomValidator.validate(request("POST", "/cbs/events", "application/atom+xml", invalidCBSMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test("Posting an valid usage entry should fail on incorrect product feed (files/events) with a 400") {
-    assertResultFailed(atomValidator.validate(request("POST", "/files/events", "application/atom+xml", invalidCBSMessage), response, chain), 400)
+    assertResultFailed(atomValidator.validate(request("POST", "/files/events", "application/atom+xml", invalidCBSMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test( "Posting username with bad character on feed fails with 400") {
@@ -221,7 +221,7 @@ class ValidatorSuite extends BaseUsageSuite {
                        provisioned="120"/>
         </event>
       </atom:content>
-    </atom:entry>), response, chain), 400)
+    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test( "Posting username which starts with a non-letter on feed fails with 400") {
@@ -244,7 +244,7 @@ class ValidatorSuite extends BaseUsageSuite {
                        provisioned="120"/>
         </event>
       </atom:content>
-    </atom:entry>), response, chain), 400)
+    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test( "Posting username of length 0 on feed fails with 400") {
@@ -267,15 +267,15 @@ class ValidatorSuite extends BaseUsageSuite {
                        provisioned="120"/>
         </event>
       </atom:content>
-    </atom:entry>), response, chain), 400)
+    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
   }
 
   test( "should fail when validating the usagetest feed request with 404" ) {
-    assertResultFailed(atomValidator.validate( request( "GET", "/usagetest100/events/", "plain/text", "foo"), response, chain), 404)
+    assertResultFailed(atomValidator.validate( request( "GET", "/usagetest100/events/", "plain/text", "foo", false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 404)
     }
 
   test("Posting text on an unvalidated feed (usagetest8/events) should fail with 415") {
-    assertResultFailed(atomValidator.validate(request("POST", "/usagetest8/events", "plain/text", "foo"), response, chain), 415)
+    assertResultFailed(atomValidator.validate(request("POST", "/usagetest8/events", "plain/text", "foo", false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 415)
   }
 
   test("Posting valid entry with non-usage xml should succeed on a validated feed (usagetest72/events)") {
@@ -286,7 +286,7 @@ class ValidatorSuite extends BaseUsageSuite {
             <foo xmlns="fooBar.com">
             </foo>
           </atom:content>
-        </atom:entry>), response, chain)
+        </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
 
@@ -320,7 +320,7 @@ class ValidatorSuite extends BaseUsageSuite {
 
 
   test("Posting valid usage entry for bigdata atom feed)") {
-    atomValidator.validate(request("POST", "/usagetest9/events", "application/atom+xml", validBigDataMessage), response, chain)
+    atomValidator.validate(request("POST", "/usagetest9/events", "application/atom+xml", validBigDataMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   var validLbassMessage = <atom:entry xmlns="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom"
@@ -346,7 +346,7 @@ class ValidatorSuite extends BaseUsageSuite {
                             </atom:entry>
 
   test("Posting valid usage entry for cloud load balancers") {
-    atomValidator.validate(request("POST", "/usagetest98/events", "application/atom+xml", validLbassMessage), response, chain)
+    atomValidator.validate(request("POST", "/usagetest98/events", "application/atom+xml", validLbassMessage, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain)
   }
 
   // verify that prefix categories are not allowed to be posted to validated and product feeds
@@ -377,7 +377,7 @@ class ValidatorSuite extends BaseUsageSuite {
                            provisioned="120"/>
             </event>
           </atom:content>
-        </atom:entry>), response, chain), 400)
+        </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
       }
     }
     )

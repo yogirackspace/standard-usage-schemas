@@ -98,82 +98,82 @@ class TransformSuite extends BaseUsageSuite {
                             </atom:entry>
 
   test("The generated event ID should become the entry ID on a validated feed (usagetest1/events)") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:id) = 1")
     assert(getProcessedXML(req), "/atom:entry/atom:id = 'urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13'")
   }
 
   test("The generated event ID should become the entry ID on a validated feed, existing ids should be overwirtten (usagetest1/events)") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessageWithID)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessageWithID, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:id) = 1")
     assert(getProcessedXML(req), "/atom:entry/atom:id = 'urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13'")
   }
 
   test("No IDs should be inserted on an unvalidated feed (usagetest7/events)") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:id) = 0")
   }
 
   test("Existing IDs should remain unchanged on an unvalidated feed (usagetest7/events)") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessageWithID)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessageWithID, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:id) = 1")
     assert(getProcessedXML(req), "/atom:entry/atom:id = 'urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a'")
   }
 
   test ("Tenant ID should be added as a category on a validated feed (usagetest1/events)") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'tid:12334'")
   }
 
   test ("Tenant ID should not be added as a category on an unvalidated feed (usagetest7/events)") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'tid:12334']) = 0")
   }
 
   test ("Resource ID should be added as a category on a validated feed (usagetest1/events)") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549'")
   }
 
   test ("Resource ID should not be added as a category on an validated feed (usagetest1/events) for a non-resource message") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCFCDNMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCFCDNMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[contains(@term,'rid:')]) = 0")
   }
 
   test ("Resource ID should not be added as a category on an unvalidated feed (usagetest7/events)") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549']) = 0")
   }
 
   test("In a validated feed (usagetest1/events) a message with a resource type should have a category term of {serviceCode}.{NSPart}.{resourceType}.{eventType}") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudblockstorage.cbs.volume.usage'")
   }
 
   test("In an unvalidated feed (usagetest7/events) a message with a resource type should NOT have a category term of {serviceCode}.{NSPart}.{resourceType}.{eventType}") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCBSMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'cloudblockstorage.cbs.volume.usage']) = 0")
   }
 
   test("In a validated feed (usagetest1/events) a message without a resource type should have a category term of {serviceCode}.{NSPart}.{eventType}") {
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCFCDNMessage)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", validCFCDNMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudfiles.cdnbandwidth.usage'")
   }
 
   test("In an unvalidated feed (usagetest7/events) a message with a resource type should NOT have a category term of {serviceCode}.{NSPart}.{eventType}") {
-    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCFCDNMessage)
+    val req = request("POST", "/usagetest7/events", "application/atom+xml", validCFCDNMessage, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'cloudfiles.cdnbandwidth.usage']) = 0")
   }
@@ -199,7 +199,7 @@ class TransformSuite extends BaseUsageSuite {
       </atom:content>
     </atom:entry>
 
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", body)
+    val req = request("POST", "/usagetest1/events", "application/atom+xml", body, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudfeeds:private'")
 
