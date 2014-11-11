@@ -6,7 +6,7 @@
   resourceTypes="IP_ADDRESS DEVICE">
 
   <description>
-    IP address / device associations
+    Events related to assigning and unassigning of devices to IP addresses. Publisher team: dcx_service@rackspace.com 
   </description>
 
   <attribute name="action" type="string" use="required" allowedValues="ASSIGN UNASSIGN">
