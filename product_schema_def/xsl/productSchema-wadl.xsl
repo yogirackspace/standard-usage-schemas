@@ -998,7 +998,7 @@
                 </informaltable>
             </xsl:if>
             <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
-            <programlisting language="json"><xsl:copy-of select="replace($json_content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
+            <programlisting language="json"><xsl:copy-of select="$json_content"/></programlisting>
         </example>
     </xsl:template>
 
