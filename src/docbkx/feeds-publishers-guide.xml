@@ -1500,7 +1500,8 @@
                             WADLs</link></para>
                 </listitem>
                 <listitem>
-                    <para><link linkend="Add_feed_to_wadl">Add your feed to the WADL</link></para>
+                    <para><link linkend="Add_feed_to_wadl">Add your feed to the allfeeds.wadl
+                            file</link></para>
                 </listitem>
                 <listitem>
                     <para><link linkend="Add_sample_files">Add message samples</link></para>
@@ -1523,15 +1524,39 @@
         <section xml:id="Define_product_schema">
             <title>Defining your product schema</title>
             <para>After you have forked the repository and created a branch, you need to create a
-                new XML file to generate the product-specific schema.</para>
-            <para>Using an XML editor, create a new file, and save the file using the <emphasis
+                new XML file to define the product-specific schema.</para>
+            <para>In a text editing program create a new file, and save the file using the <emphasis
                     role="bold">sample_product_schemas/&lt;new_product_name>.xml</emphasis> naming
-                convention, for example <emphasis role="italic">cloudfeedstest.xml</emphasis>. </para>
-            <para>After you have created the XML file, fill in the following information in the
-                product schema header:</para>
+                convention, for example <emphasis role="italic"
+                    >sample_product_schemas/nova.xml</emphasis>. </para>
+            <para>To define your product schema you need to complete the following steps:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>Read the <link linkend="Product_node">Product node</link>
+                            section.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Define the <code>productSchema</code> node.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Define the <code>description</code> node.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Add the attributes and attribute groups for your product.</para>
+                    </listitem>
+                </orderedlist>
+            </para>
+            <section xml:id="defining_product_schema_node"><title>Defining the productSchema node</title>
+   
+            <para>When you create your product schema, you first need to define the
+                        <code>productSchema</code> node. Defining the <code>productSchema</code>
+                    node requires that you <link linkend="Selecting_namespace">select a namespace
+                        for your product</link>.</para>
+                <para>The <code>productSchema</code> node has the following attributes.</para>
             <para>
                 <table frame="border">
-                    <caption>Product schema header attributes</caption>
+                    <caption>Product schema node attributes</caption>
                     <col width="26%"/>
                     <col width="74%"/>
                     <thead>
@@ -1567,50 +1592,17 @@
                     </tbody>
                 </table>
             </para>
-            <para> In addition, to the header, you also need to provide a description using the
-                    <code>description</code> node, as well as add the required attributes or
-                attribute groups. For more information about the <emphasis role="bold">product
-                    schema node</emphasis>, see <link linkend="product_schema_node">Product schema
-                    node</link>. For more information about <emphasis role="bold"
-                    >attributes</emphasis>, see <link linkend="Attribute_node">Attribute
-                node</link>. For more information about <emphasis role="bold">attribute
-                    groups</emphasis>, see <link linkend="Attribute_group">Attribute
-                groups</link>.</para>
-            <para>Following is an example of a completed product schema
-                file.<programlisting>&lt;productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                <para>Following is an example of a <code>productSchema</code>
+                    node.<programlisting>&lt;productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/event/ebs/bu-team"
                serviceCode="EBS"
                type="CREATE UPDATE DELETE"
-               version="1">
-    &lt;description>
-        Specifies the team mapping to the business unit.
-    &lt;/description>
-    &lt;attribute name="businessUnit" type="string" use="required"
-       maxLength="150">
-        Specifies the business unit name.
-    &lt;/attribute>
-    &lt;attribute name="description" type="string" use="required" 
-       maxLength="255">
-        Specifies the description of the event.
-    &lt;/attribute>
-    &lt;attributeGroup name="team" minOccurs="0" maxOccurs="unbounded">
-        &lt;description>
-            Specifies the team name and number which belongs 
-             to the listed business number.
-        &lt;/description>
-        &lt;attribute name="name" type="string" use="required" maxLength="255">
-            Specifes the team name.
-        &lt;/attribute>
-        &lt;attribute name="number" type="string" use="required" maxLength="150">
-            Specifies the team number.
-        &lt;/attribute>
-    &lt;/attributeGroup>
-&lt;/productSchema></programlisting>
-            </para>
+               version="1"></programlisting></para>
+            <para> </para>
         <section xml:id="Selecting_namespace">
             <title>Selecting a namespace</title>
-            <para>When you specify the product schema, you need to select an appropriate namespace
-                    for your product. </para>
+            <para>When you specify the <code>productSchema</code> node, you need to define an
+                        appropriate <code>namespace</code> attribute for your product. </para>
             <para>For <emphasis role="bold">usage</emphasis> events, use the following convention
                 for namespaces.</para>
             <programlisting>http://docs.rackspace.com/usage/{product}/{message_type} </programlisting>
@@ -1621,11 +1613,61 @@
                     namespace is as follows.</para>
             <programlisting>http://docs.rackspace.com/event/{product}/{message_type} </programlisting>
             <para>The following is an example of a namespace for a system event.</para>
-                <programlisting>http://docs.rackspace.com/event/lbaas/node</programlisting>
-        </section></section>
+                <programlisting>http://docs.rackspace.com/event/lbaas/node</programlisting></section></section>
+            <section xml:id="Adding_a_description"><title>Defining the description node </title>
+            <para>After you have defined the <code>productSchema</code> node, you need to add a
+                        <code>description</code> node. In the <code>description</code> node, you
+                    need to include a brief description of what kind of information is included in
+                    the event.</para>
+                <para>Following is an example of a <code>description</code>
+                    node.<programlisting>&lt;description>
+        Specifies the team mapping to the business unit.
+&lt;/description></programlisting></para>
+            </section>
+        <section xml:id="Defining_attributes_and_attribute_groups"><title>Defining the attributes and attribute groups</title><para>After you have defined the <code>productSchema</code> and <code>description</code> nodes, you
+                    need to add the appropriate <code>attibute</code> and
+                        <code>attributeGroup</code> nodes for your product. For more information
+                    about attributes an attribute groups, see <link linkend="Attribute_group"
+                        >Attribute node</link> and <link linkend="Attribute_group">Attribute
+                        group</link>.</para>
+                <para>Following is an example of a completed product schema file.</para>
+                <para>
+                    <programlisting>&lt;productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/ebs/bu-team"
+               serviceCode="EBS"
+               type="CREATE UPDATE DELETE"
+               version="1">
+    &lt;description>
+        Specifies the team mapping to the business unit.
+    &lt;/description>
+    &lt;attribute name="businessUnit" type="string" use="required"
+         maxLength="150">
+        Specifies the business unit name.
+    &lt;/attribute>
+
+    &lt;attribute name="description" type="string" use="required" 
+        maxLength="255">
+        Specifies the description of the event.
+    &lt;/attribute>
+    &lt;attributeGroup name="team" minOccurs="0" maxOccurs="unbounded">
+        &lt;description>
+            Specifies the team name and number which belongs to
+        the listed business number.
+        &lt;/description>
+        &lt;attribute name="name" type="string" use="required" 
+        maxLength="255">
+            Specifes the team name.
+        &lt;/attribute>
+        &lt;attribute name="number" type="string" use="required"
+       maxLength="150">
+            Specifies the team number.
+        &lt;/attribute>
+    &lt;/attributeGroup>
+&lt;/productSchema></programlisting>
+                </para></section></section>
         <section xml:id="Generate_schema_and_WADLs">
             <title>Generating schemas and WADL files</title>
-            <para>After you have added the sample product schema, you need to perform a build to
+            <para>After you have created the sample product schema, you need to perform a build to
                 generate the schemas and WADL files.</para>
             <para>The following items are generated during a build process.</para>
             <para>
@@ -1658,14 +1700,14 @@
             <para>To perform a build, at a command-line interface, type the following at a
                 command-line interface.</para>
      <para>
-                            <programlisting>$ mvn clean install</programlisting>
+                            <programlisting>$ mvn initialize</programlisting>
                         </para>
         </section>
         <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the WADL</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
                 appropriate WADL.</para>
             <para>If you want to make your feed available for <emphasis role="bold"
-                    >internal</emphasis> users only, open the allfeeds.wadl file and add the
-                following resource.</para>
+                    >internal</emphasis> users only, open the <code>allfeeds.wadl</code> file and
+                add the following resource.</para>
             <para>
                 <programlisting>&lt;resource id="new_product" 
    path="new_product/events"
@@ -1679,9 +1721,9 @@
                 <programlisting>&lt;resource id="new_product"
     path="new_product/events"
     type="wadl/feed.wadl#AtomFeed
-          wadl/product.wadl#[NewProductServiceCode]
+          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
           wadl/feed.wadl#TenantAtomFeed
-          wadl/products.wadl#NewProductServiceCodeTenant"/></programlisting>
+          wadl/products.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
             </para>
             <?sbr?></section>
         <section xml:id="Add_sample_files">
@@ -1806,7 +1848,7 @@
             </para>
             <para>You need to add a <code>section</code> node to the appropriate source file that
                 contains information specific to the feed, including a <code>title</code> attribute,
-                as well as the corresponding URL and th appropriate resource hrefs.</para>
+                as well as the corresponding URL and the appropriate resource hrefs.</para>
         <para>A <code>section</code> node for a new feed to be added to the <emphasis role="italic"
                     >api-operations-internal.xml</emphasis> source file should look like the
                 following example.
@@ -1830,7 +1872,7 @@
 &lt;/section></programlisting>
             </para></section>
         <section xml:id="Test_your_feed"><title>Testing the feed</title><para>After you have added all the appropriated resources for your feed, you can use Maven to test
-                your feed.</para>
+                your feed and events.</para>
             <para>To test your feed, type the following at a command-line interface.</para>
             <para>
                 <programlisting>mvn test</programlisting>
