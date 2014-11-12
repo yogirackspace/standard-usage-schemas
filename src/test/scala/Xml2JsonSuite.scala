@@ -28,9 +28,6 @@ class Xml2JsonSuite extends BaseUsageSuite {
     val xpathFactory = XPathFactory.newInstance(NamespaceConstant.OBJECT_MODEL_SAXON, "net.sf.saxon.xpath.XPathFactoryImpl", null)
     val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(xml2JsonXslt))
 
-    val sampleDir   = new File("message_samples")
-    val sampleFiles = getSampleXMLFiles(sampleDir)
-
     register("atom", "http://www.w3.org/2005/Atom")
     val dedicatedvCloudMixedNonAdjacentCategoryXml = "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
             "  <title type=\"text\">Dedicated vCloud event</title>" +
@@ -249,30 +246,6 @@ class Xml2JsonSuite extends BaseUsageSuite {
         assert(memory == 32768, "memory should be numeric and 32768")
 
     }
-
-    // load all sample XML files and translate them to JSON
-    sampleFiles.foreach ( f => {
-        test("Transforming sample " + f.getAbsolutePath + " to JSON ") {
-            printf("Transforming %s to JSON\n",f.getAbsolutePath)
-
-            val jsonResult = transform(new StreamSource(f))
-            //println(jsonResult)
-
-            val jsonObjects = JSON.parseFull(jsonResult).get.asInstanceOf[Map[String,Any]]
-            assert(jsonObjects.get("entry").get != null, "  should have an entry")
-            val entryObject = jsonObjects.get("entry").get.asInstanceOf[Map[String,Any]]
-            assert(entryObject.get("content").get != null, "  entry should have a content")
-            var eventParent = entryObject.get("content").get.asInstanceOf[Map[String,Any]]
-
-            // special handling for usagedeadletter
-            if ( f.getAbsolutePath().contains("usagedeadletter") ) {
-                    assert(eventParent.get("eventError").get != null, "  usagedeadletter's content should have an eventError")
-                    eventParent = eventParent.get("eventError").get.asInstanceOf[Map[String,Any]]
-            }
-
-            assert(eventParent.get("event").get != null, "  should have an event")
-        }
-    })
 
     def transform(inputXML: StreamSource) : String = {
         val trans = templates.newTransformer()
