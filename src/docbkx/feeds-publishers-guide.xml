@@ -19,57 +19,13 @@
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
-    version="5.0-extension RaxBook-2.0">
+    version="5.0-extension RaxBook-2.0" security="internal">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
-    <title>Rackspace Cloud Feeds Publishers Guide</title>
+    <title>Cloud Feeds Publishers Guide</title>
     <?rax status.bar.text.font.size="40px"
           status.bar.text="Early Availability"?>
-    <info>
-        <author>
-            <personname>
-                <firstname/>
-                <surname/>
-            </personname>
-            <affiliation>
-                <orgname>Rackspace Cloud</orgname>
-            </affiliation>
-        </author>
-        <copyright>
-            <year>2014</year>
-            <holder>Rackspace US, Inc.</holder>
-        </copyright>
-        <releaseinfo>API v1.0</releaseinfo>
-        <productname>Rackspace Cloud Feeds</productname>
-        <pubdate/>
-        <legalnotice role="rs-api">
-            <annotation>
-                <remark>Copyright details are filled in by the template.</remark>
-            </annotation>
-        </legalnotice>
-        <abstract>
-            <para>This document is intended for customers of Cloud Feeds who want to submit a feed
-                to be published through the Cloud Feeds engine. </para>
-        </abstract>
-        <revhistory>
-            <revision>
-                <date>2014-09-01</date>
-                <revdescription>
-                    <itemizedlist spacing="compact">
-                        <listitem>
-                            <para>Created first draft of the Cloud Feeds Publishers Guide</para>
-                        </listitem>
-                    </itemizedlist>
-                </revdescription>
-            </revision>
-        </revhistory>
-        <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
-            <raxm:displayname>Cloud Feeds Publisher Guide</raxm:displayname>
-            <raxm:product version="v1.0">cloud-feeds</raxm:product>
-            <raxm:priority>30</raxm:priority>
-        </raxm:metadata>
-    </info>
-    <chapter xml:id="General_API_Information-d1e633">
-        <title>Cloud Feeds Overview</title>
+    <chapter xml:id="Cloud_Feeds_Overview">
+        <title>Defining and publishing events</title>
         <para>Cloud Feeds supports the publication of <emphasis role="italic">events</emphasis> that
             are collected in a <emphasis role="italic">feed</emphasis>. Events have a specific
             format, and you can have multiple types of events in a single feed.</para>
@@ -92,9 +48,8 @@
                     <listitem>
                         <para><emphasis role="bold">Usage events</emphasis> record information about
                             how much a resource is being used over a specified time period. For
-                            example, bandwidth or the name of the resource that is being initialized
-                            or if a resource is being created, or the amount of disk space that is
-                            being used.</para>
+                            example, how much bandwidth, disk space or CPU cycles are being
+                            used.</para>
                     </listitem>
                     <listitem>
                         <para><emphasis role="bold">System events</emphasis> are published to notify
@@ -661,9 +616,8 @@
     <chapter xml:id="Product_node">
         <title>Product node</title>
         <para>The product node is located inside of an event node. The product node is custom and
-            differs for every product. The product node identifies the product to which the feed
-            refers. It also provides product-specific information and details about the resources.
-            Product nodes are defined by using a sample product schema. </para>
+            differs for every product. It provides product-specific information and details about
+            the resources. Product nodes are defined by using a sample product schema. </para>
         <para>Following is an example of a product node:</para>
         <para>
             <programlisting>&lt;sample:product serviceCode="EmailAppsMSService"
@@ -674,8 +628,10 @@
        status="COMPLETED"
        request="HTTP GET"
        response="200">
-       &lt;sample:dependent key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
-       &lt;sample:dependent key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
+       &lt;sample:dependent 
+          key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
+       &lt;sample:dependent 
+          key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
 &lt;/sample:product></programlisting>
         </para>
         <section xml:id="product_schema_node">
@@ -856,8 +812,8 @@
                 <para>
                     <table frame="border">
                         <caption>Common XML attributes for the attribute node</caption>
-                        <col width="24%"/>
-                        <col width="16%"/>
+                        <col width="20%"/>
+                        <col width="20%"/>
                         <col width="31%"/>
                         <col width="29%"/>
                         <thead>
@@ -963,7 +919,8 @@
                                         </listitem>
                                         <listitem>
                                             <para>If this attribute is defined, the
-                                                  <code>maxLength</code> is also required.</para>
+                                                  <code>maxLength</code> attribute is also
+                                                required.</para>
                                         </listitem>
                                         <listitem>
                                             <para>This attribute is optional.</para>
@@ -974,9 +931,7 @@
                             <tr>
                                 <td><code>name</code></td>
                                 <td>string</td>
-                                <td>Specifies the name of the attribute. If the attribute has a
-                                    default value, then the default value should be specified here.
-                                    Only optional attributes can have default values.</td>
+                                <td>Specifies the name of the attribute. </td>
                                 <td>This attribute is required.</td>
                             </tr>
                             <tr>
@@ -989,9 +944,9 @@
                             <tr>
                                 <td><code>searchable</code></td>
                                 <td>boolean</td>
-                                <td>If this attribute is set to true, then there should be an index
-                                    set so that you can search by this attribute. The default value
-                                    is false.</td>
+                                <td>If this attribute is set to true, then a category will be
+                                    generated for every event based on this attribute's value. The
+                                    default value is false.</td>
                                 <td>This attribute is optional. </td>
                             </tr>
                             <tr>
@@ -1005,9 +960,12 @@
                             <tr>
                                 <td><code>use</code></td>
                                 <td>schema:Use</td>
-                                <td>Specifies whether the product attribute is optional, required,
-                                    or synthesized. The use attribute is optional, but if it is not
-                                    specified, the product attribute is labeled as optional.</td>
+                                <td>Specifies whether the product attribute is <emphasis role="bold"
+                                        >optional</emphasis>, <emphasis role="bold"
+                                        >required</emphasis>, or <emphasis role="bold"
+                                        >synthesized</emphasis>. The use attribute is optional, but
+                                    if it is not specified, the product attribute is labeled as
+                                    optional.</td>
                                 <td>This attribute is required.</td>
                             </tr>
                             <tr>
@@ -1047,18 +1005,18 @@
             </section>
             <section xml:id="Attribute_group">
                 <title>Attribute group<?sbr?></title>
-                <para>A product schema can contain one or more attribute groups. An attribute group
+                <para>A product schema can contain zero or more attribute groups. An attribute group
                     allows related attributes to be collected in a single node. Several instances of
                     an attribute group may exist in a single product node, giving users the ability
-                    to create maps of object types. an attribute group can contain up to 50
+                    to create maps of object types. An attribute group can contain up to 50
                     attributes. </para>
                 <para>The following table lists the XML attributes that can be set in an attribute
                     group.</para>
                 <para>
                     <table frame="border">
                         <caption>Attribute group</caption>
-                        <col width="25%"/>
-                        <col width="15%"/>
+                        <col width="20%"/>
+                        <col width="20%"/>
                         <col width="35%"/>
                         <col width="25%"/>
                         <thead>
@@ -1101,7 +1059,10 @@
                 </para>
                 <para>Following is an example of an attribute group for a product schema.</para>
                 <para>
-                    <programlisting>&lt;attributeGroup name="additionalPublicAddress" minOccurs="0" maxOccurs="unbounded">
+                    <programlisting>&lt;attributeGroup 
+       name="additionalPublicAddress"
+       minOccurs="0"
+       maxOccurs="unbounded">
     &lt;description>A list public addresses&lt;/description>
         &lt;attribute name="ip" type="string" use="required">
             The ip
@@ -1121,32 +1082,33 @@
                     xPath assertions. </para>
                 <para>While the basic <code>attribute</code> and <code>attributeGroup</code> schema
                     definitions enable you to define most product events, you can create additional
-                    custom formats by using XPathAssertions and the Xpath language. For example,
+                    custom formats by using XPathAssertions and the XPath language. For example,
                     there may be a case when the <code>serverID</code> attribute of a product node
-                    is only required when the <code>external</code> condition evaluates to true.
-                    This case cannot be enumerated with the basic schema format, but it can be
-                    verified with an assertion as shown in the following example.</para>
+                    is only required when the <code>external</code> condition evaluates to <emphasis
+                        role="bold">true</emphasis>. This case cannot be enumerated with the basic
+                    schema format, but it can be verified with an assertion as shown in the
+                    following example.</para>
                 <para>
                     <programlisting>&lt;xpathAssertion test="if (not(xsd:boolean(@external))) then @serverID else true()">
     <emphasis role="italic">If the server is NOT external, then the serverID attribute is required.</emphasis>
 &lt;/xpathAssertion></programlisting>
                 </para>
-                <para>This assertion fails if the external value evaluates to false and the
-                        <code>serverID</code> attribute does not exist. If both conditions are met,
-                    the assertion passes.</para>
+                <para>This assertion fails if the <code>external</code> value evaluates to <emphasis
+                        role="bold">false</emphasis> and the <code>serverID</code> attribute does
+                    not exist. If both conditions are met, the assertion passes.</para>
                 <para>For more information about XPath, see <link
                         xlink:href="http://en.wikipedia.org/wiki/XPath"
                         >http://en.wikipedia.org/wiki/XPath</link>. </para>
-                <para>The XPath context is the root product element by default. You can change the
+                <para>The XPath context is the product element by default. You can change the
                     context of the root of the entry by setting the <code>scope</code> attribute. </para>
                 <para>The following table describes the attributes you can define for an XPath
                     assertion: </para>
                 <table frame="border">
-                    <caption>Attribute group</caption>
+                    <caption>XPath assertion attributes</caption>
                     <col width="20%"/>
                     <col width="20%"/>
-                    <col width="40%"/>
-                    <col width="20%"/>
+                    <col width="30%"/>
+                    <col width="30%"/>
                     <thead>
                         <tr>
                             <th>Attribute</th>
@@ -1161,13 +1123,13 @@
                             <td>schema:XPathScope</td>
                             <td>Specifies the scope of an XPath assertion. The scope determines what
                                 the context of the XPath assertion. The value can be either
-                                    <code>produc</code>t or <code>entry</code>. The default value
-                                for this attribute is <code>product</code>.</td>
-                            <td>
-                                <para>When the scope is <code>entry</code>, the variables
-                                        <code>$entry</code>, <code>$event,</code> and
+                                    <emphasis role="bold">product</emphasis> or <emphasis
+                                    role="bold">entry</emphasis>. The default value for this
+                                attribute is <emphasis role="bold">product</emphasis>.</td>
+                            <td>When the scope is <emphasis role="bold">entry</emphasis>, the
+                                    variables <code>$entry</code>, <code>$event</code>, and
                                         <code>$product</code> are defined, each pointing to the
-                                    respective part of the message.</para>
+                                    respective part of the message.
                             </td>
                         </tr>
                         <tr>
@@ -1180,17 +1142,16 @@
                 </table>
             </section>
             <section xml:id="Versions">
-                <title>Versions</title>
-                <para>The event and product nodes are version-controlled. Cloud Feeds can support
-                    events that contain different definitions for the event and product nodes
-                    simultaneously. This flexibility enables publishers to define a new event
-                    without breaking older events that have not yet adopted the new definition. The
-                    event and product versions are independent of each other.</para>
+                <title>Versioning</title>
+                <para>The <code>event</code> and <code>product</code> nodes are version-controlled.
+                    Cloud Feeds can support events that contain different definitions for the event
+                    and product nodes simultaneously. This flexibility enables publishers to define
+                    a new event without breaking older events that have not yet adopted the new
+                    definition. The event and product versions are independent of each other.</para>
                 <para>For example, if you specify <code>&lt;event version="2"></code>, Cloud Feeds
                     will apply different rules to the <code>startTime</code> and
                         <code>endTime</code> attributes than if you specify <code>&lt;event
-                        version="1"></code>. But you can use either version by specifying
-                        <code>&lt;product version="..."></code>.</para>
+                        version="1"></code>. </para>
                 <para>You can define multiple versions for a specific product within a schema as
                     shown in the following example.</para>
                 <example>
@@ -1270,8 +1231,8 @@
                         </tr>
                         <tr>
                             <td><code>dateTime</code></td>
-                            <td>Specifies a specific moment in history, such as 3:32 p.m.,
-                                September. An optional time zone indicator in the form ±hh:mm can be
+                            <td>Specifies a specific moment in history, such as 3:32 p.m., September
+                                26, 2003. An optional time zone indicator in the form ±hh:mm can be
                                 suffixed to provide a time example, 2003-09-26T15:32:00-05:00 is
                                 3:32 p.m., September 26, 2003 in the U.S. Eastern</td>
                         </tr>
@@ -1523,8 +1484,10 @@
     </chapter>
     <chapter xml:id="Using_Cloud_Feeds">
         <title>Preparing a feed for publication through Cloud Feeds</title>
-        <para>To define a custom event that you want published through Cloud Feeds, you need to go
-            through the following steps:</para>
+        <para>To define a new event, you need to submit a pull request on the <link
+                xlink:href="https://github.com/rackerlabs/standard-usage-schemas"
+                >https://github.com/rackerlabs/standard-usage-schemas</link> repository. </para>
+        <para>To submit this pull request, you first need to complete the following steps:</para>
         <para>
             <itemizedlist>
                 <listitem>
@@ -1559,11 +1522,11 @@
         </para>
         <section xml:id="Define_product_schema">
             <title>Defining your product schema</title>
-            <para>After you have created a Github account and created a new branch, you need to
-                createa a new XML file to generate the product-specific schema.</para>
+            <para>After you have forked the repository and created a branch, you need to create a
+                new XML file to generate the product-specific schema.</para>
             <para>Using an XML editor, create a new file, and save the file using the <emphasis
-                    role="italic">&lt;new_product_name>.xml</emphasis> naming convention, for
-                example cloudfeedstest.xml. </para>
+                    role="bold">sample_product_schemas/&lt;new_product_name>.xml</emphasis> naming
+                convention, for example <emphasis role="italic">cloudfeedstest.xml</emphasis>. </para>
             <para>After you have created the XML file, fill in the following information in the
                 product schema header:</para>
             <para>
@@ -1605,7 +1568,7 @@
                 </table>
             </para>
             <para> In addition, to the header, you also need to provide a description using the
-                    <code>description</code> attribute, as well as add the required attributes or
+                    <code>description</code> node, as well as add the required attributes or
                 attribute groups. For more information about the <emphasis role="bold">product
                     schema node</emphasis>, see <link linkend="product_schema_node">Product schema
                     node</link>. For more information about <emphasis role="bold"
@@ -1622,16 +1585,18 @@
     &lt;description>
         Specifies the team mapping to the business unit.
     &lt;/description>
-    &lt;attribute name="businessUnit" type="string" use="required" maxLength="150">
+    &lt;attribute name="businessUnit" type="string" use="required"
+       maxLength="150">
         Specifies the business unit name.
     &lt;/attribute>
-
-    &lt;attribute name="description" type="string" use="required" maxLength="255">
+    &lt;attribute name="description" type="string" use="required" 
+       maxLength="255">
         Specifies the description of the event.
     &lt;/attribute>
     &lt;attributeGroup name="team" minOccurs="0" maxOccurs="unbounded">
         &lt;description>
-            Specifies the team name and number which belongs to the listed business number.
+            Specifies the team name and number which belongs 
+             to the listed business number.
         &lt;/description>
         &lt;attribute name="name" type="string" use="required" maxLength="255">
             Specifes the team name.
@@ -1652,14 +1617,15 @@
             <para>The following are examples of namespaces for usage events.</para>
                 <programlisting>http://docs.rackspace.com/usage/sites/subscription</programlisting>
 <programlisting>http://docs.rackspace.com/usage/cloudbackup/storage</programlisting>
-            <para>For system events, the convention of the namespace is as follows.</para>
+            <para>For <emphasis role="bold">system</emphasis> events, the convention of the
+                    namespace is as follows.</para>
             <programlisting>http://docs.rackspace.com/event/{product}/{message_type} </programlisting>
-            <para>The following is an example of a namespace for a usage event.</para>
+            <para>The following is an example of a namespace for a system event.</para>
                 <programlisting>http://docs.rackspace.com/event/lbaas/node</programlisting>
         </section></section>
         <section xml:id="Generate_schema_and_WADLs">
             <title>Generating schemas and WADL files</title>
-            <para>After you have added the XML file the GitHub, you need to perform a build to
+            <para>After you have added the sample product schema, you need to perform a build to
                 generate the schemas and WADL files.</para>
             <para>The following items are generated during a build process.</para>
             <para>
@@ -1675,78 +1641,81 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Generated_product_xsds/*.xsd</td>
-                            <td>generated from sample product schemas</td>
+                            <td><emphasis role="bold">Generated_product_xsds/*.xsd</emphasis></td>
+                            <td>This file is generated from sample product schemas.</td>
                         </tr>
                         <tr>
-                            <td>core_xsd/usage.xsd</td>
-                            <td> enumerates all product xsd files which are generated</td>
+                            <td><emphasis role="bold">core_xsd/usage.xsd</emphasis></td>
+                            <td>This file enumerates all product xsd files which are generated.</td>
                         </tr>
                         <tr>
-                            <td>Wadl/product.wadl</td>
-                            <td> wadl resources for all generated product schemas</td>
-                        </tr>
-                        <tr>
-                            <td>Wadl/rm_private_attrs_for_obs.xsl </td>
-                            <td>used by Cloud Feeds to filter private attributes from events</td>
+                            <td><emphasis role="bold">Wadl/product.wadl</emphasis></td>
+                            <td> Contains the WADL resources for all generated product schemas.</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
-            <para>To perform a build, at a command-line inteface, type the following.</para>
+            <para>To perform a build, at a command-line interface, type the following at a
+                command-line interface.</para>
      <para>
-                            <programlisting>$ mvn initialize</programlisting>
+                            <programlisting>$ mvn clean install</programlisting>
                         </para>
         </section>
         <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the WADL</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
                 appropriate WADL.</para>
-            <para>Open the allfeeds.wadl file and add the following code.</para>
+            <para>If you want to make your feed available for <emphasis role="bold"
+                    >internal</emphasis> users only, open the allfeeds.wadl file and add the
+                following resource.</para>
             <para>
-                <programlisting>&lt;resource id="new_product" path="new_product/events" type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NewProductServiceCode"/&gt;  </programlisting>
+                <programlisting>&lt;resource id="new_product" 
+   path="new_product/events"
+   type="wadl/feed.wadl#AtomFeed
+         wadl/product.wadl#[NewProductServiceCode]"/>  </programlisting>
             </para>
-            <para>If you want to make your feed available to external users, you also need to add
-                the following line to the allfeeds_observer.wadl file:</para>
+            <para>Alternatively, if you want to make your feed available to <emphasis role="bold"
+                    >internal</emphasis> and <emphasis role="bold">external</emphasis> users, you
+                need to add the following resource.</para>
             <para>
-                <programlisting>&lt;resource id="new_product" path="new_product/events" type="wadl/feed.wadl#TenantAtomFeed wadl/products.wadl#NewProductServiceCodeTenant"/></programlisting>
+                <programlisting>&lt;resource id="new_product"
+    path="new_product/events"
+    type="wadl/feed.wadl#AtomFeed
+          wadl/product.wadl#[NewProductServiceCode]
+          wadl/feed.wadl#TenantAtomFeed
+          wadl/products.wadl#NewProductServiceCodeTenant"/></programlisting>
             </para>
             <?sbr?></section>
-        <section xml:id="Add_sample_files"><title>Adding samples</title><para>You can use Maven to generate sample responses and entries for each version of your product
-                schema. </para>
+        <section xml:id="Add_sample_files">
+            <title>Adding samples</title>
+            <para>You can use Maven to generate sample responses and entries for each version of
+                your product schema. </para>
             <para>To generate samples, type the following at a command line-interface in the
                 directory where your repo resides:</para>
             <para>
                 <programlisting> mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/[new_product.xml] -DfeedName=[feed_name] </programlisting>
             </para>
             <para>The sample files are generated under the <emphasis role="bold"
-                    >~/message_samples/[feed_name]</emphasis> directory and follow the following
+                    >message_samples/[feed_name]</emphasis> directory and follow the following
                 naming conventions:</para>
             <itemizedlist>
                 <listitem>
-                    <para>
-                        <emphasis role="italic">$serviceCode</emphasis>-<emphasis role="italic"
-                            >$nsPart</emphasis>-<emphasis role="italic"
-                        >$eventType</emphasis>-v$versionNum-entry.xml</para>
+                    <para><emphasis role="italic">
+                            $serviceCode-$nsPart-$eventType-v$versionNum-entry.xml</emphasis></para>
                 </listitem>
                 <listitem>
                     <para>
-                        <emphasis role="italic">$serviceCode</emphasis>-<emphasis role="italic"
-                            >$nsPart</emphasis>-<emphasis role="italic"
-                        >$eventType</emphasis>-v$versionNum-response.xml</para>
+                        <emphasis role="italic"
+                            >$serviceCode-$nsPart-$eventType-v$versionNum-response.xml</emphasis></para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="italic">$serviceCode</emphasis>-<emphasis role="italic"
-                            >$nsPart</emphasis>-<emphasis role="italic"
-                            >$resourceType</emphasis>-<emphasis role="italic"
-                        >$eventType</emphasis>-v$versionNum-entry.xml</para>
+                    <para><emphasis role="italic"
+                            >$serviceCode-$nsPart-$resourceType-$eventType-v$versionNum-entry.xml</emphasis></para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="italic">$serviceCode</emphasis>-<emphasis role="italic"
-                            >$nsPart</emphasis>-<emphasis role="italic"
-                            >$resourceType</emphasis>-<emphasis role="italic"
-                        >$eventType</emphasis>-v$versionNum-response.xml</para>
+                    <para><emphasis role="italic"
+                            >$serviceCode-$nsPart-$resourceType-$eventType-v$versionNum-response.xml</emphasis></para>
                 </listitem>
             </itemizedlist>
-        <para>The following table provides a breakdown of the different elements in the naming
+            <para>The following table provides a breakdown of the different elements in the naming
                 convention.</para>
             <para>
                 <table frame="border">
@@ -1761,24 +1730,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>$serviceCode</td>
+                            <td><emphasis role="italic">$serviceCode</emphasis></td>
                             <td>Specifies the value of the <code>serviceCode</code> attribute in the
                                 product schema.</td>
                         </tr>
                         <tr>
-                            <td>$nsPart</td>
+                            <td><emphasis role="italic">$nsPart</emphasis></td>
                             <td>Specifies the last path segment in the product namespace. For
                                 example, if the product namespace is
-                                http://docs.rackspace.com/usage/widget, then the <code>nsPart</code>
-                                segment should be named "widget".</td>
+                                http://docs.rackspace.com/usage/widget, then the <emphasis
+                                    role="italic">nsPart </emphasis>segment should be named
+                                "widget".</td>
                         </tr>
                         <tr>
-                            <td>$resourceType</td>
+                            <td><emphasis role="italic">$resourceType</emphasis></td>
                             <td>Specifies the value of the <code>resourceType</code> attribute in
                                 the sample event XML file</td>
                         </tr>
                         <tr>
-                            <td>$eventType</td>
+                            <td><emphasis role="italic">$eventType</emphasis></td>
                             <td>Specifies the value of the <code>type</code> attribute of the event
                                 element in the sample event XML file.</td>
                         </tr>
@@ -1788,17 +1758,18 @@
             <para>An example file name is <emphasis role="italic"
                     >support-account-account_support-create-v1-entry.xml</emphasis>.</para>
             <para>You may have to manually edit the generated samples to ensure they are valid and
-                semantically correct. For example, the product schema might contain XPath assertions
-                which might not be met by the generated samples.</para>
+                semantically correct. For example, the product schema may contain XPath assertions
+                that may not be met by the generated samples.</para>
             <para>For generated samples, the following assumptions are made:</para>
             <para>
                 <itemizedlist>
                     <listitem>
                         <para>If the product schema requires a <code>resourceId</code> attribute,
-                            its value is set to 4a2b42f4-6c63-11e1-815b-7fcbcf67f549.</para>
+                            its value is set to <emphasis role="italic"
+                                >4a2b42f4-6c63-11e1-815b-7fcbcf67f549</emphasis>.</para>
                     </listitem>
                     <listitem>
-                        <para>If the produc schema contains <code>xpathAssertion</code> nodes, the
+                        <para>If the product schema contains <code>xpathAssertion</code> nodes, the
                             assertions might not be satisfied by the generated content.</para>
                     </listitem>
                     <listitem>
@@ -1810,88 +1781,21 @@
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>The following optional attributes may be used by the feed and may have to be
-                manually added.</para>
-            <para>
-                <table frame="border">
-                    <caption>Optional attributes</caption>
-                    <col width="33%"/>
-                    <col width="33%"/>
-                    <col width="33%"/>
-                    <thead>
-                        <tr>
-                            <th>Attribute</th>
-                            <th>Type</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>agentUsername</code></td>
-                            <td>event:Username</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>clientUsername</code></td>
-                            <td>event:Username</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>environment</code></td>
-                            <td>event:Environment</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>referenceId</code></td>
-                            <td>eventUUID</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>resourceURI</code></td>
-                            <td>xsd:anyURI</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>resourceName</code></td>
-                            <td>event:NonEmptyStrig</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>rootAction</code></td>
-                            <td>event:NonEmptyString</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>severity</code></td>
-                            <td>event:Severity</td>
-                            <td>None.</td>
-                        </tr>
-                        <tr>
-                            <td><code>tenantId</code></td>
-                            <td>event:NonEmptyString</td>
-                            <td>This attribute is automatically generated for USAGE and
-                                USAGE_SNAPSHOT events. It must be manually added for other event
-                                types.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </para>
         </section>
         <section xml:id="Add_feed_to_the_document"><title>Adding the feed to the documentation</title><para>As a next step, you need to add your feed to the documentation source files to ensure that it
-                appears in the Cloud Feeds Developer Guide. </para>
-            <para>In GitHub, all the documentation-related files are located in the ~/docbkx
-                location. </para>
-            <para>You need to edited the following files depending on whether your feed is for
-                internal or external users:</para>
+                appears in the Cloud Feeds Developer Guide. These source files are located in the
+                    <emphasis role="bold">src/docbkx</emphasis> location.</para>
+            <para>You need to edit the following files depending on whether your feed is for
+                internal or external users.</para>
             <para>
                 <itemizedlist>
                     <listitem>
                         <para><emphasis role="italic">api-operations-internal.xml</emphasis> for
-                            internal users</para>
+                                <emphasis role="bold">internal</emphasis> users</para>
                     </listitem>
                     <listitem>
                         <para><emphasis role="italic">api-operations-external.xml</emphasis> for
-                            external users</para>
+                                <emphasis role="bold">external</emphasis> users</para>
                     </listitem>
                 </itemizedlist>
   </para>
@@ -1900,7 +1804,11 @@
                     <para>Different resources are required for internal and external feeds.</para>
                 </note>
             </para>
-        <para>A section for api-operations-internal.xml feed documentation should look like the
+            <para>You need to add a <code>section</code> node to the appropriate source file that
+                contains information specific to the feed, including a <code>title</code> attribute,
+                as well as the corresponding URL and th appropriate resource hrefs.</para>
+        <para>A <code>section</code> node for a new feed to be added to the <emphasis role="italic"
+                    >api-operations-internal.xml</emphasis> source file should look like the
                 following example.
                 <programlisting>&lt;section xml:id="bigdata.product">
    &lt;title>Cloud Big Data&lt;/title>
@@ -1909,24 +1817,30 @@
     &lt;resource href="../../allfeeds.wadl#bigdata_events_getEntry_BigData"/>
    &lt;/resources>
 &lt;/section></programlisting></para>
-            <para>A section for api-operations-external.xml feed documentation should look like the
-                following example. </para>
+            <para>A <code>section</code> node for a new feed to be added to the <emphasis
+                    role="italic">api-operations-external.xml</emphasis> source file should look
+                like the following example. </para>
             <para>
                 <programlisting>&lt;section xml:id="bigdata.product">
  &lt;title>Cloud Big Data&lt;/title>
  &lt;resources xmlns="http://wadl.dev.java.net/2009/02">
-  &lt;resource href="../../allfeeds_observer.wadl#bigdata_events_obs_tenanted_feed"/>
-  &lt;resource href="../../allfeeds_observer.wadl#bigdata_events_obs_getEntry_BigDataTenant"/>
+  &lt;resource href="../../allfeeds.wadl#bigdata_events_tenanted_feed"/>
+  &lt;resource href="../../allfeeds.wadl#bigddata_events_getEntry_BigDataTenant"/>
  &lt;/resources>
 &lt;/section></programlisting>
             </para></section>
-        <section xml:id="Test_your_feed"><title>Testing the feed</title><para>After you have added all the appropriated resources for your feed, you can use maven to test
+        <section xml:id="Test_your_feed"><title>Testing the feed</title><para>After you have added all the appropriated resources for your feed, you can use Maven to test
                 your feed.</para>
-            <para>To test your feed, type the following at a command-line interface:</para>
+            <para>To test your feed, type the following at a command-line interface.</para>
             <para>
                 <programlisting>mvn test</programlisting>
             </para>
             <para>Running this test notifies you if there are any issues with the product schema or
                 sample files.</para></section>
+        <section xml:id="Submit_Pull_Request"><title>Submitting a pull request</title>
+            <para>After you have completed all the steps for creating a feed, you need to submit a
+                pull request on the <link
+                    xlink:href="https://github.com/rackerlabs/standard-usage-schemas"
+                    >https://github.com/rackerlabs/standard-usage-schemas</link> repo.</para></section>
     </chapter>
 </book>
