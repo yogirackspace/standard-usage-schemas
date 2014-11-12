@@ -83,6 +83,13 @@
       <resource href="../../allfeeds.wadl#dbaas_events_getEntry_CloudDatabase"/>
     </resources>
   </section>
+  <section xml:id="dcx.product">
+    <title>Data Center X</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../allfeeds.wadl#dcx_events"/>
+      <resource href="../../allfeeds.wadl#dcx_events_getEntry_DcxIpAdmin"/>
+    </resources>
+  </section>
   <section xml:id="dns.product">
     <title>Cloud DNS</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
