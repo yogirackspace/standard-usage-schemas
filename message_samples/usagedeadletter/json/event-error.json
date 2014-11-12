@@ -1,0 +1,33 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "eventError": {
+                "@type": "http://docs.rackspace.com/core/error",
+                "description": "No corresponding Rackspace Account Number can be found for this tenant.",
+                "event": {
+                    "@type": "http://docs.rackspace.com/core/event",
+                    "dataCenter": "DFW1",
+                    "endTime": "2012-06-15T10:19:52Z",
+                    "id": "8d89673c-c989-11e1-895a-0b3d632a8a89",
+                    "product": {
+                        "@type": "http://docs.rackspace.com/usage/cloudbackup/bandwidthIn",
+                        "bandwidthIn": 192998,
+                        "resourceType": "AGENT",
+                        "serverID": "944576fa-ec99-11e1-bb8e-ebb21b47fa86",
+                        "serviceCode": "CloudBackup",
+                        "version": "1"
+                    },
+                    "region": "DFW",
+                    "resourceId": "3863d42a-ec9a-11e1-8e12-df8baa3ca440",
+                    "startTime": "2012-06-14T10:19:52Z",
+                    "tenantId": "1234",
+                    "type": "USAGE",
+                    "version": "1"
+                },
+                "type": "TENANT_NOT_FOUND"
+            }
+        },
+        "title": "Usage Dead letter error event"
+    }
+}

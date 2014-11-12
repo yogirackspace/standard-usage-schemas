@@ -37,6 +37,7 @@
     </distributionManagement>
 
     <properties>
+        <gmaven.version>1.5</gmaven.version>
         <scala.version>2.10.3</scala.version>
         <scala.test.version>2.0</scala.test.version>
         <junit.version>4.10</junit.version>
@@ -52,6 +53,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.codehaus.gmaven</groupId>
+            <artifactId>gmaven-plugin</artifactId>
+            <version>${gmaven.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -876,6 +882,30 @@
             </configuration>
           </execution>
         </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.gmaven</groupId>
+            <artifactId>gmaven-plugin</artifactId>
+            <version>${gmaven.version}</version>
+            <executions>
+              <execution>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>execute</goal>
+                </goals>
+                <configuration>
+                  <providerSelection>1.8</providerSelection>
+                  <source>
+                      import groovy.json.JsonOutput
+                      println "gmaven:  prettifying json samples in ${basedir}/message_samples/${feedName}/json/"
+                      new File("${basedir}/message_samples/${feedName}/json").eachFile() {
+                        file ->
+                          file.text = JsonOutput.prettyPrint(file.text)
+                      }
+                  </source>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>

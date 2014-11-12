@@ -1,0 +1,28 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "duration": "PT10M",
+                "endTime": "2013-03-16T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/subscription",
+                    "resourceType": "SITES_SUBSCRIPTION",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "rackspaceAccountNumber": "020-1234",
+                "region": "DFW",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "startTime": "2013-03-15T11:51:11Z",
+                "tenantId": "1234",
+                "type": "USAGE_SUMMARY",
+                "version": "1"
+            }
+        },
+        "title": "CloudSites Summary"
+    }
+}

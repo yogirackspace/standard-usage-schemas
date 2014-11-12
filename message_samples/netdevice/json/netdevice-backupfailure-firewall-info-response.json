@@ -1,0 +1,59 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:123456"
+            },
+            {
+                "term": "netdevice.backupfailure.firewall.info"
+            },
+            {
+                "term": "type:netdevice.backupfailure.firewall.info"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "agentUsername": "System",
+                "dataCenter": "DFW1",
+                "endTime": "2014-01-19T10:30:52Z",
+                "environment": "PROD",
+                "id": "b79cc3de-b399-3883-b555-61829bbccd38",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/netdevice/backupfailure",
+                    "failureType": "CONNECTION_TIMEOUT",
+                    "resourceType": "FIREWALL",
+                    "serviceCode": "NetDevice",
+                    "url": "https://torq.netsec.rackspace.net/devices/123456/events/52f0e4c4f851c21e4f0a1127",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "123456",
+                "resourceName": "FW123456.DFW1",
+                "startTime": "2014-01-18T10:30:52Z",
+                "type": "INFO",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/netdevice/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bbccd38",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-01-20T15:08:55.227Z",
+        "title": {
+            "@text": "Failure Event",
+            "type": "text"
+        },
+        "updated": "2014-01-20T15:08:55.227Z"
+    }
+}

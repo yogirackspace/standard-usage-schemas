@@ -1,0 +1,27 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2014-07-15T00:00:00Z",
+                "id": "8d89673c-c989-11e1-895a-0b3d632a8a89",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/cloudbackup/storage",
+                    "resourceType": "AGENT",
+                    "serverID": "9445",
+                    "serviceCode": "CloudBackup",
+                    "storage": 99992827882,
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "3863d42a-ec9a-11e1-8e12-df8baa3ca440",
+                "startTime": "2014-07-14T22:19:52Z",
+                "tenantId": "1234",
+                "type": "USAGE",
+                "version": "2"
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "IAD3",
+                "endTime": "2012-06-14T11:19:52Z",
+                "id": "47b574c4-0400-11e2-b19d-7b8e208cade0",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/metered",
+                    "bandWidthOut": 998798976,
+                    "computeCycles": 299,
+                    "requestCount": 40000000,
+                    "resourceType": "SITE",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "region": "IAD",
+                "resourceId": "my.site.com",
+                "resourceName": "my.site.com",
+                "startTime": "2012-06-14T10:19:52Z",
+                "tenantId": "12882",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        }
+    }
+}

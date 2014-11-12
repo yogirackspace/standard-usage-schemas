@@ -1,0 +1,46 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "cloudfiles.cdnbandwidth.usage_summary"
+            },
+            {
+                "term": "type:cloudfiles.cdnbandwidth.usage_summary"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "duration": "PT20M",
+                "endTime": "2013-03-16T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/cloudfiles/cdnbandwidth",
+                    "cdnBandwidthOut": 1000,
+                    "serviceCode": "CloudFiles",
+                    "summary": "true",
+                    "version": "1"
+                },
+                "rackspaceAccountNumber": "020-123456",
+                "region": "DFW",
+                "startTime": "2013-03-15T11:51:11Z",
+                "tenantId": "123456",
+                "type": "USAGE_SUMMARY",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "title": "CloudFiles Summary"
+    }
+}

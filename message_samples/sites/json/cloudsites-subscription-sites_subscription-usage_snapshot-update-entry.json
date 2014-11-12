@@ -1,0 +1,33 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "agentUsername": "racker1",
+                "clientUsername": "a1user",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-03-12T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/subscription",
+                    "action": "UPDATE",
+                    "isNewAccount": false,
+                    "resourceType": "SITES_SUBSCRIPTION",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "256638",
+                "resourceName": "Mosso Standard Offering",
+                "tenantId": "12334",
+                "type": "USAGE_SNAPSHOT",
+                "version": "1"
+            }
+        },
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        }
+    }
+}

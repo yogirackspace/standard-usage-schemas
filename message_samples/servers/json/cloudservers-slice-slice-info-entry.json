@@ -1,0 +1,64 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-09-15T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/servers/slice",
+                    "action": "RESIZE",
+                    "additionalPublicAddress": [
+                        {
+                            "dns1": "1.1.1.1",
+                            "dns2": "1.1.1.1",
+                            "ip": "1.1.1.1"
+                        },
+                        {
+                            "dns1": "1.1.1.2",
+                            "dns2": "1.1.1.2",
+                            "ip": "1.1.1.2"
+                        }
+                    ],
+                    "createdAt": "2011-05-15T11:51:11Z",
+                    "customerId": 100,
+                    "dns1": "1.1.1.1",
+                    "dns2": "1.1.1.1",
+                    "flavorId": 101,
+                    "huddleId": 202,
+                    "imageId": 101,
+                    "imageName": "Name",
+                    "managed": false,
+                    "options": 5,
+                    "privateIp": "1.1.1.1",
+                    "publicIp": "1.1.1.1",
+                    "resourceType": "SLICE",
+                    "rootPassword": "xy9gh2z",
+                    "serverId": 10,
+                    "serviceCode": "CloudServers",
+                    "sliceMetaData": [
+                        {
+                            "key": "key1",
+                            "value": "value1"
+                        },
+                        {
+                            "key": "key2",
+                            "value": "value2"
+                        }
+                    ],
+                    "sliceType": "CLOUD",
+                    "status": "BUILD",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "4116",
+                "tenantId": "555",
+                "type": "INFO",
+                "version": "1"
+            }
+        },
+        "title": "Slice Action"
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:020-5821915"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "paymentservice.payment.update"
+            },
+            {
+                "term": "type:paymentservice.payment.update"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/payment",
+                    "methodId": "6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                    "serviceCode": "PaymentService",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "tenantId": "020-5821915",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/payment/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-03-01T19:42:35.507",
+        "title": "PaymentService",
+        "updated": "2013-03-01T19:42:35.507Z"
+    }
+}

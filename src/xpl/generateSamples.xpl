@@ -79,12 +79,35 @@
     </p:iteration-source>
 
     <p:variable name="entry" select="p:base-uri()"/>
+
+    <!-- write -entry.xml and -summary-entry.xml -->
     <p:store method="xml" indent="true" encoding="UTF-8"
 	     omit-xml-declaration="false" name="entryStore">
 	     	     <p:input port="source">
          	       <p:pipe step="entryVersions" port="current"/>
          	     </p:input>
       <p:with-option name="href" select="$entry"/>
+    </p:store>
+
+    <!-- convert xml to JSON for entryVersions current -->
+    <p:xslt name="genEntryJson" template-name="genSample">
+      <p:input port="source">
+        <p:pipe step="entryVersions" port="current"/>
+      </p:input>
+      <p:input port="stylesheet">
+        <p:document href="../../target/xslt-artifacts/xml2json-feeds.xsl" />
+      </p:input>
+      <p:input port="parameters">
+        <p:empty/>
+      </p:input>
+    </p:xslt>
+
+    <!-- write -entry.json and -summary-entry.json -->
+    <p:store method="text" name="entryJsonStore">
+         <p:input port="source">
+           <p:pipe step="genEntryJson" port="result"/>
+         </p:input>
+      <p:with-option name="href" select="replace(replace($entry, 'xml/', 'json/'), '.xml$', '.json')"/>
     </p:store>
 
     <p:xslt name="genBigData">
@@ -135,6 +158,7 @@
       </p:input>
     </p:xslt>
 
+    <!-- write -response.xml and summary-response.xml -->
     <p:store method="xml" indent="true" encoding="UTF-8"
 	     omit-xml-declaration="false" name="respStore">
 	     <p:input port="source">
@@ -143,7 +167,27 @@
       <p:with-option name="href" select="replace($entry, '-entry.xml$', '-response.xml')"/>
     </p:store>
 
+    <!-- convert xml to JSON for response -->
+    <p:xslt name="genResponseJson" template-name="genSample">
+      <p:input port="source">
+        <p:pipe step="genResp" port="result"/>
+      </p:input>
+      <p:input port="stylesheet">
+        <p:document href="../../target/xslt-artifacts/xml2json-feeds.xsl" />
+      </p:input>
+      <p:input port="parameters">
+        <p:empty/>
+      </p:input>
+    </p:xslt>
+
+    <!-- write -response.json and summary-response.json -->
+    <p:store method="text" name="responseJsonStore">
+      <p:input port="source">
+        <p:pipe step="genResponseJson" port="result"/>
+      </p:input>
+      <p:with-option name="href" select="replace(replace($entry, 'xml/', 'json/'), '-entry.xml$', '-response.json')"/>
+    </p:store>
+
   </p:for-each>
   
 </p:declare-step>
-

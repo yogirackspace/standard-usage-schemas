@@ -1,0 +1,47 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "label": "loadBalancerUsage",
+                "scheme": "PLAIN",
+                "term": "term"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2012-06-15T10:19:52Z",
+                "environment": "PROD",
+                "id": "b79cc3de-b399-3883-b555-61829bb7f966",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/delete",
+                    "resourceType": "LOADBALANCER",
+                    "serviceCode": "CloudLoadBalancers",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "b79cc3de-b399-3883-b555-61829bbccd38",
+                "resourceName": "LoadBalancer",
+                "startTime": "2012-06-14T10:19:52Z",
+                "tenantId": "1",
+                "type": "DELETE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:b79cc3de-b399-3883-b555-61829bb7f966",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:b79cc3de-b399-3883-b555-61829bb7f966",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-05-01T17:16:12.090Z",
+        "title": {
+            "@text": "LBAAS",
+            "type": "text"
+        },
+        "updated": "2013-05-01T17:16:12.090Z"
+    }
+}

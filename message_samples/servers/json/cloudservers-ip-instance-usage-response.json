@@ -1,0 +1,61 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:27726"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:6acb5696-4a31-11e2-9c2e-db3bb6302f8d"
+            },
+            {
+                "term": "cloudservers.ip.instance.usage"
+            },
+            {
+                "term": "type:cloudservers.ip.instance.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2012-09-16T11:51:11Z",
+                "environment": "PROD",
+                "id": "5da1c590-4a31-11e2-ba50-67eebdd137db",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/servers/ip",
+                    "ip": "10.20.30.40",
+                    "resourceType": "INSTANCE",
+                    "serverId": "7acb5696-6666-11e2-9c2e-db3bb6302f1f",
+                    "serviceCode": "CloudServers",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "6acb5696-4a31-11e2-9c2e-db3bb6302f8d",
+                "startTime": "2012-09-15T11:51:11Z",
+                "tenantId": "27726",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/servers/events/entries/urn:uuid:5da1c590-4a31-11e2-ba50-67eebdd137db",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-02-28T19:57:55.723Z",
+        "title": {
+            "@text": "First Gen Cloud Server Additonal IP usage event",
+            "type": "text"
+        },
+        "updated": "2013-02-28T19:57:55.723Z"
+    }
+}

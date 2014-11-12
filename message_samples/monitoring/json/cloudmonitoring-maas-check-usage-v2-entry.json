@@ -1,0 +1,30 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "GLOBAL",
+                "endTime": "2012-04-30T03:27:36Z",
+                "id": "a2869958-a020-11e1-b15c-a38f4c3d83a9",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/maas",
+                    "checkType": "remote.http",
+                    "monitoringZones": 3,
+                    "product": "CLOUD_DATABASE",
+                    "productInstanceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                    "resourceType": "CHECK",
+                    "serviceCode": "CloudMonitoring",
+                    "version": "2"
+                },
+                "region": "GLOBAL",
+                "resourceId": "chAAAA",
+                "startTime": "2012-04-30T03:27:35Z",
+                "tenantId": "7777",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "title": "MaaSEvent"
+    }
+}

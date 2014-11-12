@@ -1,0 +1,31 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2012-09-19T11:11:11Z",
+                "id": "e29ac1ca-fd06-11e1-a80c-bb58fc4a6929",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/identity/user",
+                    "displayName": "testUser",
+                    "groups": "group1 group2 group3",
+                    "multiFactorEnabled": true,
+                    "resourceType": "USER",
+                    "roles": "admin RAX:admin role3",
+                    "serviceCode": "CloudIdentity",
+                    "updatedAttributes": "GROUPS ROLES PASSWORD",
+                    "version": "2"
+                },
+                "region": "DFW",
+                "resourceId": "10031728",
+                "resourceName": "testuser",
+                "tenantId": "123456",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "title": "Identity Event"
+    }
+}

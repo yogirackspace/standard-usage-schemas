@@ -1,0 +1,29 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "duration": "PT20M",
+                "endTime": "2013-03-15T23:59:59Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/cloudfiles/storage",
+                    "costops": 1000,
+                    "disk": 112589990684262400,
+                    "freeops": 1000,
+                    "serviceCode": "CloudFiles",
+                    "version": "1"
+                },
+                "rackspaceAccountNumber": "020-123456",
+                "region": "DFW",
+                "startTime": "2013-03-15T11:51:11Z",
+                "tenantId": "123456",
+                "type": "USAGE_SUMMARY",
+                "version": "1"
+            }
+        },
+        "title": "CloudFiles Summary"
+    }
+}

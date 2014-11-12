@@ -1,0 +1,66 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1223"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:887765"
+            },
+            {
+                "term": "cloudloadbalancers.lb.loadbalancer.update"
+            },
+            {
+                "term": "type:cloudloadbalancers.lb.loadbalancer.update"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "environment": "PROD",
+                "eventTime": "2012-06-15T10:19:52Z",
+                "id": "7ba76892-4058-11e3-806b-002500a28a7a",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/lbaas/lb",
+                    "algorithm": "ROUND_ROBIN",
+                    "resourceType": "LOADBALANCER",
+                    "serviceCode": "CloudLoadBalancers",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "887765",
+                "resourceName": "My LB",
+                "resourceURI": "http://dfw1.lbaas.rackspace.com/path/to/lb/6e688508-4058-11e3-851d-002500a28a7a",
+                "severity": "INFO",
+                "tenantId": "1223",
+                "type": "UPDATE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/lbaas/events/entries/urn:uuid:7ba76892-4058-11e3-806b-002500a28a7a",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-03-03T16:36:22.678Z",
+        "summary": {
+            "@text": "Load balancer updated.",
+            "type": "text"
+        },
+        "title": {
+            "@text": "Update LB",
+            "type": "text"
+        },
+        "updated": "2014-03-03T16:36:22.678Z"
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:10031728"
+            },
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "cloudidentity.user.user.suspend"
+            },
+            {
+                "term": "type:cloudidentity.user.user.suspend"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "environment": "PROD",
+                "eventTime": "2012-09-15T11:51:11Z",
+                "id": "e29ac1ca-fd06-11e1-a80c-bb58fc4a6929",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/identity/user",
+                    "displayName": "testUser",
+                    "migrated": true,
+                    "resourceType": "USER",
+                    "serviceCode": "CloudIdentity",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "10031728",
+                "resourceName": "testuser",
+                "tenantId": "123456",
+                "type": "SUSPEND",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/identity/events/entries/urn:uuid:e29ac1ca-fd06-11e1-a80c-bb58fc4a6929",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-02-28T19:48:28.301Z",
+        "title": {
+            "@text": "Identity Event",
+            "type": "text"
+        },
+        "updated": "2013-02-28T19:48:28.301Z"
+    }
+}

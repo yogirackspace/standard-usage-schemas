@@ -1,0 +1,51 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+            },
+            {
+                "term": "clouddns.clouddns.domain.delete"
+            },
+            {
+                "term": "type:clouddns.clouddns.domain.delete"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "eventTime": "2013-05-12T11:51:11Z",
+                "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/clouddns",
+                    "resourceType": "DOMAIN",
+                    "serviceCode": "CloudDNS",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "resourceName": "mydomain.mycompany.com",
+                "type": "DELETE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/dns/events/entries/urn:uuid:560490c6-6c63-11e1-adfe-27851d5aed13",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-01-28T18:00:46.405Z",
+        "title": "Cloud DNS System Events",
+        "updated": "2014-01-28T18:00:46.405Z"
+    }
+}

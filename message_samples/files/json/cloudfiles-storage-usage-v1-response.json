@@ -1,0 +1,53 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1234"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "cloudfiles.storage.usage"
+            },
+            {
+                "term": "type:cloudfiles.storage.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "endTime": "2013-03-15T23:59:59Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/cloudfiles/storage",
+                    "costops": 0,
+                    "disk": 112589990684262400,
+                    "freeops": 0,
+                    "serviceCode": "CloudFiles",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "startTime": "2013-03-15T11:51:11Z",
+                "tenantId": "1234",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/files/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-03-01T19:42:35.507",
+        "title": "CloudFiles",
+        "updated": "2013-03-01T19:42:35.507Z"
+    }
+}

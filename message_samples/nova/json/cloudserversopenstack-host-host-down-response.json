@@ -1,0 +1,59 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:10.24.25.92"
+            },
+            {
+                "term": "cloudserversopenstack.host.host.down"
+            },
+            {
+                "term": "type:cloudserversopenstack.host.host.down"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "DFW1",
+                "environment": "PROD",
+                "eventTime": "2012-09-15T11:51:11Z",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb815",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/nova/host",
+                    "checkStatus": "CRITICAL",
+                    "checkType": "PING",
+                    "collector": "nagios01.c0001.dfw.ohthree.com",
+                    "description": "Some description here",
+                    "resourceType": "HOST",
+                    "serviceCode": "CloudServersOpenStack",
+                    "version": "1"
+                },
+                "region": "DFW",
+                "resourceId": "10.24.25.92",
+                "resourceName": "compute-10-24-25-92",
+                "type": "DOWN",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/nova/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb815",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-06-18T15:38:35.900Z",
+        "title": {
+            "@text": "Nagios Event",
+            "type": "text"
+        },
+        "updated": "2013-06-18T15:38:35.900Z"
+    }
+}

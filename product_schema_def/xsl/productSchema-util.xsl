@@ -25,8 +25,8 @@
         <xsl:param name="sample_type"/>
 
         <xsl:choose>
-            <xsl:when test="$resource_type!=''">message_samples/<xsl:value-of select="$base_feed_name"/>/<xsl:value-of select="lower-case(@serviceCode)"/>-<xsl:value-of select="$nsPart"/>-<xsl:value-of select="lower-case( $resource_type )"/>-<xsl:value-of select="lower-case($sample_type)"/>-v<xsl:value-of select="@version"/></xsl:when>
-            <xsl:otherwise>message_samples/<xsl:value-of select="$base_feed_name"/>/<xsl:value-of select="lower-case(@serviceCode)"/>-<xsl:value-of select="$nsPart"/>-<xsl:value-of select="lower-case($sample_type)"/>-v<xsl:value-of select="@version"/></xsl:otherwise>
+            <xsl:when test="$resource_type!=''">message_samples/<xsl:value-of select="$base_feed_name"/>/xml/<xsl:value-of select="lower-case(@serviceCode)"/>-<xsl:value-of select="$nsPart"/>-<xsl:value-of select="lower-case( $resource_type )"/>-<xsl:value-of select="lower-case($sample_type)"/>-v<xsl:value-of select="@version"/></xsl:when>
+            <xsl:otherwise>message_samples/<xsl:value-of select="$base_feed_name"/>/xml/<xsl:value-of select="lower-case(@serviceCode)"/>-<xsl:value-of select="$nsPart"/>-<xsl:value-of select="lower-case($sample_type)"/>-v<xsl:value-of select="@version"/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 

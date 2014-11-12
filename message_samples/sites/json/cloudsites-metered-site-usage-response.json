@@ -1,0 +1,63 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:12882"
+            },
+            {
+                "term": "rgn:IAD"
+            },
+            {
+                "term": "dc:IAD3"
+            },
+            {
+                "term": "rid:my.site.com"
+            },
+            {
+                "term": "cloudsites.metered.site.usage"
+            },
+            {
+                "term": "type:cloudsites.metered.site.usage"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "dataCenter": "IAD3",
+                "endTime": "2012-06-14T11:19:52Z",
+                "environment": "PROD",
+                "id": "47b574c4-0400-11e2-b19d-7b8e208cade0",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/sites/metered",
+                    "bandWidthOut": 998798976,
+                    "computeCycles": 299,
+                    "requestCount": 1000,
+                    "resourceType": "SITE",
+                    "serviceCode": "CloudSites",
+                    "version": "1"
+                },
+                "region": "IAD",
+                "resourceId": "my.site.com",
+                "resourceName": "my.site.com",
+                "startTime": "2012-06-14T10:19:52Z",
+                "tenantId": "12882",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/sites/events/entries/urn:uuid:47b574c4-0400-11e2-b19d-7b8e208cade0",
+                "rel": "self"
+            }
+        ],
+        "published": "2013-02-28T19:08:46.881Z",
+        "title": {
+            "@text": "Sites",
+            "type": "text"
+        },
+        "updated": "2013-02-28T19:08:46.881Z"
+    }
+}
