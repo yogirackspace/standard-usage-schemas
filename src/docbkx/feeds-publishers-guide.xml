@@ -18,7 +18,7 @@
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 ]>
 <book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-devguide"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-pubguide"
     version="5.0-extension RaxBook-2.0" security="internal">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Cloud Feeds Publishers Guide</title>
@@ -233,8 +233,8 @@
                             <td>Specifies the environment from which the message originated. If this
                                 attribute is not specified, <emphasis role="bold">PROD</emphasis> is
                                 assumed. For a list of possible values, see <link
-                                    linkend="Event_node_attributes">Event node
-                                attributes</link>.</td>
+                                    linkend="Event_node_attributes"><emphasis role="bold">Event node
+                                        attributes</emphasis></link>.</td>
                             <td>This attribute is optional.</td>
                         </tr>
                         <tr>
@@ -281,8 +281,8 @@
                                 attribute is not specified, <emphasis role="bold">GLOBAL</emphasis>
                                 is assumed. <emphasis role="bold">GLOBAL</emphasis> implies that the
                                 resource is without an assigned region. For a list of possible
-                                values, see <link linkend="Event_node_attributes">Event node
-                                    attributes</link>.</td>
+                                values, see <link linkend="Event_node_attributes"><emphasis
+                                        role="bold">Event node attributes</emphasis></link>.</td>
                             <td>This attribute is optional.</td>
                         </tr>
                         <tr>
@@ -363,7 +363,8 @@
                                 fails to produce any feeds, set this type to <emphasis role="bold"
                                     >EXTENDED</emphasis> and add an <code>eventType</code> attribute
                                 to your product schema. For more information, see <link
-                                    linkend="Event_types">Event types</link>.</td>
+                                    linkend="Event_types"><emphasis role="bold">Event
+                                        types</emphasis></link>.</td>
                             <td>This attribute is required.</td>
                         </tr>
                         <tr>
@@ -540,14 +541,16 @@
                             <tr>
                                 <td><emphasis role="bold">USAGE</emphasis></td>
                                 <td>Specifies a usage event. This is the default type value.</td>
-                                <td>See <link linkend="USAGE_event_type_requirements">Requirements
-                                        for USAGE event type</link>.</td>
+                                <td>See <link linkend="USAGE_event_type_requirements"><emphasis
+                                            role="bold">Requirements for USAGE event
+                                        type</emphasis></link>.</td>
                             </tr>
                             <tr>
                                 <td><emphasis role="bold">USAGE_SNAPSHOT</emphasis></td>
                                 <td>Specifies an instantaneous usage event.</td>
                                 <td>See <link linkend="USAGE_SNAPSHOT_event_type_requirements"
-                                        >Requirements for USAGE_SNAPSHOT event type</link>.</td>
+                                            ><emphasis role="bold">Requirements for USAGE_SNAPSHOT
+                                            event type</emphasis></link>.</td>
                             </tr>
                             <tr>
                                 <td><emphasis role="bold">USAGE_SUMMARY</emphasis></td>
@@ -555,7 +558,8 @@
                                         role="bold">USAGE</emphasis> and <emphasis role="bold"
                                         >USAGE_SNAPSHOT</emphasis>.</td>
                                 <td>See <link linkend="USAGE_SUMMARY_event_type_requirements"
-                                        >Requirements for USAGE_SUMMARY event type</link>.</td>
+                                            ><emphasis role="bold">Requirements for USAGE_SUMMARY
+                                            event type</emphasis></link>.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -662,7 +666,8 @@
                 </itemizedlist>
             </para>
             <para>For more information on how to create the final product schema file, see <link
-                    linkend="Define_product_schema">Definining your product schema</link>.</para>
+                    linkend="Define_product_schema"><emphasis role="bold">Definining your product
+                        schema</emphasis></link>.</para>
             <para>The following table lists the required attributes for the product schema
                 node.</para>
             <para>
@@ -752,7 +757,8 @@
                             <td>Specifies the name that uniquely identifies the product or service.
                                 The value must be a single word; no whitespaces are allowed. The
                                 name is used to construct atom categories for events of this
-                                type—for example, EmailAppsMSService.</td>
+                                type—for example, <emphasis role="italic"
+                                    >EmailAppsMSService</emphasis>.</td>
                             <td>
                                 <itemizedlist>
                                     <listitem>
@@ -778,7 +784,8 @@
                                     </listitem>
                                     <listitem>
                                         <para>For more information, see <link linkend="Event_Types"
-                                                >Event Types</link>.</para>
+                                                  ><emphasis role="bold">Event
+                                                Types</emphasis></link>.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -1525,16 +1532,15 @@
             <title>Defining your product schema</title>
             <para>After you have forked the repository and created a branch, you need to create a
                 new XML file to define the product-specific schema.</para>
-            <para>In a text editing program create a new file, and save the file using the <emphasis
-                    role="bold">sample_product_schemas/&lt;new_product_name>.xml</emphasis> naming
-                convention, for example <emphasis role="italic"
-                    >sample_product_schemas/nova.xml</emphasis>. </para>
+            <para>Create a new file using the <emphasis role="bold"
+                    >sample_product_schemas/&lt;new_product_name>.xml</emphasis> naming convention,
+                for example <emphasis role="italic">sample_product_schemas/nova.xml</emphasis>. </para>
             <para>To define your product schema you need to complete the following steps:</para>
             <para>
                 <orderedlist>
                     <listitem>
-                        <para>Read the <link linkend="Product_node">Product node</link>
-                            section.</para>
+                        <para>Read the <link linkend="Product_node"><emphasis role="bold">Product
+                                    node</emphasis></link> section.</para>
                     </listitem>
                     <listitem>
                         <para>Define the <code>productSchema</code> node.</para>
@@ -1573,8 +1579,8 @@
                         <tr>
                             <td><code>namespace</code></td>
                             <td>Specifies the namespace for your product. For more information, see
-                                    <link linkend="Selecting_namespace">Selecting a
-                                namespace</link>.</td>
+                                        <link linkend="Selecting_namespace"><emphasis role="bold"
+                                            >Selecting a namespace</emphasis></link>.</td>
                         </tr>
                         <tr>
                             <td><code>serviceCode</code></td>
@@ -1628,8 +1634,9 @@
                     need to add the appropriate <code>attibute</code> and
                         <code>attributeGroup</code> nodes for your product. For more information
                     about attributes an attribute groups, see <link linkend="Attribute_group"
-                        >Attribute node</link> and <link linkend="Attribute_group">Attribute
-                        group</link>.</para>
+                            ><emphasis role="bold">Attribute node</emphasis></link> and <link
+                        linkend="Attribute_group"><emphasis role="bold">Attribute
+                        group</emphasis></link>.</para>
                 <para>Following is an example of a completed product schema file.</para>
                 <para>
                     <programlisting>&lt;productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
@@ -1683,7 +1690,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><emphasis role="bold">Generated_product_xsds/*.xsd</emphasis></td>
+                            <td><emphasis role="bold">generated_product_xsds/*.xsd</emphasis></td>
                             <td>This file is generated from sample product schemas.</td>
                         </tr>
                         <tr>
@@ -1691,20 +1698,20 @@
                             <td>This file enumerates all product xsd files which are generated.</td>
                         </tr>
                         <tr>
-                            <td><emphasis role="bold">Wadl/product.wadl</emphasis></td>
+                            <td><emphasis role="bold">wadl/product.wadl</emphasis></td>
                             <td> Contains the WADL resources for all generated product schemas.</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
-            <para>To perform a build, at a command-line interface, type the following at a
-                command-line interface.</para>
+            <para>To generate the necessary schema and WADL files, at a command-line interface, type
+                the following at a command-line interface.</para>
      <para>
                             <programlisting>$ mvn initialize</programlisting>
                         </para>
         </section>
-        <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the WADL</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
-                appropriate WADL.</para>
+        <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the allfeeds.wadl file</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to
+                allfeeds.wadl.</para>
             <para>If you want to make your feed available for <emphasis role="bold"
                     >internal</emphasis> users only, open the <code>allfeeds.wadl</code> file and
                 add the following resource.</para>
@@ -1730,8 +1737,7 @@
             <title>Adding samples</title>
             <para>You can use Maven to generate sample responses and entries for each version of
                 your product schema. </para>
-            <para>To generate samples, type the following at a command line-interface in the
-                directory where your repo resides:</para>
+            <para>To generate samples, type the following.</para>
             <para>
                 <programlisting> mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/[new_product.xml] -DfeedName=[feed_name] </programlisting>
             </para>
@@ -1882,7 +1888,9 @@
         <section xml:id="Submit_Pull_Request"><title>Submitting a pull request</title>
             <para>After you have completed all the steps for creating a feed, you need to submit a
                 pull request on the <link
-                    xlink:href="https://github.com/rackerlabs/standard-usage-schemas"
-                    >https://github.com/rackerlabs/standard-usage-schemas</link> repo.</para></section>
+                    xlink:href="https://github.com/rackerlabs/standard-usage-schemas"><emphasis
+                        role="bold"
+                    >https://github.com/rackerlabs/standard-usage-schemas</emphasis></link>
+                repo.</para></section>
     </chapter>
 </book>
