@@ -270,62 +270,62 @@
                         <goals>
                             <goal>transform</goal>
                         </goals>
+                        <configuration>
+                            <transformationSets>
+                                <transformationSet>
+                                    <dir>${basedir}</dir>
+                                    <!-- Note that we're not actually transforming this file,
+                                         This is only to fool this plugin which requires input
+                                         file. This particular XSLT reads all xml file in the
+                                         directory specified as input_dir parameter
+                                    -->
+                                    <includes>
+                                        <include>pom.xml</include>
+                                    </includes>
+                                    <outputDir>${basedir}/core_xsd</outputDir>
+                                    <stylesheet>${basedir}/src/main/xsl/generate-usagexsd.xsl</stylesheet>
+                                    <parameters>
+                                        <parameter>
+                                            <name>input_dir</name>
+                                            <value>${project.baseUri}/sample_product_schemas</value>
+                                        </parameter>
+                                    </parameters>
+                                    <fileMappers>
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                            <pattern>pom.xml</pattern>
+                                            <replacement>usage.xsd</replacement>
+                                        </fileMapper>
+                                    </fileMappers>
+                                </transformationSet>
+                                <transformationSet>
+                                    <dir>${basedir}</dir>
+                                    <!-- Note that we're not actually transforming this file,
+                                         This is only to fool this plugin which requires input
+                                         file. This particular XSLT reads all xml file in the
+                                         directory specified as input_dir parameter
+                                    -->
+                                    <includes>
+                                        <include>pom.xml</include>
+                                    </includes>
+                                    <outputDir>${basedir}/target/xslt-artifacts</outputDir>
+                                    <stylesheet>${basedir}/src/main/xsl/productSchema-generate-nonStringAttrs.xsl</stylesheet>
+                                    <parameters>
+                                        <parameter>
+                                            <name>schemaDirectory</name>
+                                            <value>${project.baseUri}/sample_product_schemas</value>
+                                        </parameter>
+                                    </parameters>
+                                    <fileMappers>
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                            <pattern>pom.xml</pattern>
+                                            <replacement>nonStringAttrs.xsl</replacement>
+                                        </fileMapper>
+                                    </fileMappers>
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <transformationSets>
-                        <transformationSet>
-                            <dir>${basedir}</dir>
-                            <!-- Note that we're not actually transforming this file,
-                                 This is only to fool this plugin which requires input
-                                 file. This particular XSLT reads all xml file in the
-                                 directory specified as input_dir parameter
-                            -->
-                            <includes>
-                                <include>pom.xml</include>
-                            </includes>
-                            <outputDir>${basedir}/core_xsd</outputDir>
-                            <stylesheet>${basedir}/src/main/xsl/generate-usagexsd.xsl</stylesheet>
-                            <parameters>
-                                <parameter>
-                                    <name>input_dir</name>
-                                    <value>${project.baseUri}/sample_product_schemas</value>
-                                </parameter>
-                            </parameters>
-                            <fileMappers>
-                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-                                    <pattern>pom.xml</pattern>
-                                    <replacement>usage.xsd</replacement>
-                                </fileMapper>
-                            </fileMappers>
-                        </transformationSet>
-                        <transformationSet>
-                            <dir>${basedir}</dir>
-                            <!-- Note that we're not actually transforming this file,
-                                 This is only to fool this plugin which requires input
-                                 file. This particular XSLT reads all xml file in the
-                                 directory specified as input_dir parameter
-                            -->
-                            <includes>
-                                <include>pom.xml</include>
-                            </includes>
-                            <outputDir>${basedir}/target/xslt-artifacts</outputDir>
-                            <stylesheet>${basedir}/src/main/xsl/productSchema-generate-nonStringAttrs.xsl</stylesheet>
-                            <parameters>
-                                <parameter>
-                                    <name>schemaDirectory</name>
-                                    <value>${project.baseUri}/sample_product_schemas</value>
-                                </parameter>
-                            </parameters>
-                            <fileMappers>
-                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-                                    <pattern>pom.xml</pattern>
-                                    <replacement>nonStringAttrs.xsl</replacement>
-                                </fileMapper>
-                            </fileMappers>
-                        </transformationSet>
-                    </transformationSets>
-                </configuration>
                 <dependencies>
                   <dependency>
                     <groupId>net.sf.saxon</groupId>
@@ -695,27 +695,27 @@
                         <goals>
                             <goal>transform</goal>
                         </goals>
+                        <configuration>
+                            <transformationSets>
+                                <transformationSet>
+                                    <dir>${basedir}/src/docbkx</dir>
+                                    <includes>
+                                        <include>api-operations-internal.xml</include>
+                                        <include>api-operations-external.xml</include>
+                                    </includes>
+                                    <outputDir>${project.build.directory}/generated-resources/feed-table</outputDir>
+                                    <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
+                                    <fileMappers>
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                            <pattern>api-operations-(.+).xml</pattern>
+                                            <replacement>feed-table-$1.xml</replacement>
+                                        </fileMapper>
+                                    </fileMappers>
+                                </transformationSet>
+                            </transformationSets>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <transformationSets>
-                        <transformationSet>
-                            <dir>${basedir}/src/docbkx</dir>
-                            <includes>
-                                <include>api-operations-internal.xml</include>
-                                <include>api-operations-external.xml</include>
-                            </includes>
-                            <outputDir>${project.build.directory}/generated-resources/feed-table</outputDir>
-                            <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
-                            <fileMappers>
-                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-                                    <pattern>api-operations-(.+).xml</pattern>
-                                    <replacement>feed-table-$1.xml</replacement>
-                                </fileMapper>
-                            </fileMappers>
-                        </transformationSet>
-                    </transformationSets>
-                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>net.sf.saxon</groupId>
