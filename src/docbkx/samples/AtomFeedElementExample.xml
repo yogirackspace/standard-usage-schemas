@@ -3,11 +3,13 @@
     <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/" rel="self" />
     <id>urn:uuidc3572b37-c3bf-447b-a359-851f7527c853</id>
     <title type="text">functest1/events</title>
-    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&limit=25&search=&direction=forward" rel="previous" />
-    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=urn:uuid:b84cd8cb-9895-4052-b719-0db1e388df53&limit=25&search=&direction=backward" rel="next" />
-    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=last&limit=25&search=&direction=backward" rel="last" />
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&amp;limit=25&amp;search=&amp;direction=forward" rel="previous" />
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=urn:uuid:b84cd8cb-9895-4052-b719-0db1e388df53&amp;limit=25&amp;search=&amp;direction=backward" rel="next" />
+    <link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
     <updated>2014-06-03T18:31:06.170Z</updated>
-    <atom:entry>
+    <atom:entry type="application/xml"
+                xmlns:atom="http://www.w3.org/2005/Atom"
+                xmlns="http://www.w3.org/2001/XMLSchema">
         <atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20</atom:id>
         <atom:category term="tid:123456" />
         <atom:category term="rgn:DFW" />
@@ -16,8 +18,9 @@
         <atom:category term="type:widget.widget.gadget.usage" />
         <atom:category term="dc:DFW1" />
         <atom:content type="application/xml">
-            <event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
-                id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW"resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
+            <event xmlns:widget="http://docs.rackspace.com/usage/widget"
+                dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD"
+                id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e"
                 startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
                 <widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
                     mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
@@ -28,7 +31,9 @@
         <atom:updated>2014-06-03T18:30:56.138Z</atom:updated>
         <atom:published>2014-06-03T18:30:56.138Z</atom:published>
     </atom:entry>
-    <atom:entry>
+    <atom:entry type="application/xml"
+                xmlns:atom="http://www.w3.org/2005/Atom"
+                xmlns="http://www.w3.org/2001/XMLSchema">
         <atom:id>urn:uuid:dccb6612-d07c-4456-a162-1daa5399fb48</atom:id>
         <atom:category term="tid:1232456" />
         <atom:category term="rgn:DFW" />
@@ -37,8 +42,9 @@
         <atom:category term="widget.widget.gadget.usage" />
         <atom:category term="type:widget.widget.gadget.usage" />
         <atom:content type="application/xml">
-            <event dataCenter="DFW3" endTime="2012-03-12T15:51:11Z" environment="PROD" 
-                id="dccb6612-d07c-4456-a162-1daa5399fb48" region="DFW"resourceId="6234faa9-8c58-43aa-b71e-72d340bd2612" 
+            <event xmlns:widget="http://docs.rackspace.com/usage/widget"
+                dataCenter="DFW3" endTime="2012-03-12T15:51:11Z" environment="PROD"
+                id="dccb6612-d07c-4456-a162-1daa5399fb48" region="DFW" resourceId="6234faa9-8c58-43aa-b71e-72d340bd2612"
                 startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
                 <widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
                     mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" 

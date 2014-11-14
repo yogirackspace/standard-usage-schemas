@@ -1,13 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
 HTTP/1.1 200 OK
 Server: nginx
 Date: Mon, 14 Jul 2014 20:52:05 GMT
 Content-Type: application/xml
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+-->
 <access xmlns:os-ksadm="http://docs.openstack.org/identity/api/ext/OS-KSADM/v1.0"
   xmlns="http://docs.openstack.org/identity/api/v2.0"
   xmlns:rax-kskey="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"
   xmlns:rax-ksqa="http://docs.rackspace.com/identity/api/ext/RAX-KSQA/v1.0"
+  xmlns:rax-auth="http://docs.rackspace.com/identity/api/ext/RAX-KSQA/v1.0"
   xmlns:common="http://docs.openstack.org/common/api/v1.0"
   xmlns:ksgrp="http://docs.rackspace.com/identity/api/ext/RAX-KSGRP/v1.0"
   xmlns:rax-kscatalog="http://docs.openstack.org/identity/api/ext/OS-KSCATALOG/v1.0"
