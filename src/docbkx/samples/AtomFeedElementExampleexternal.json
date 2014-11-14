@@ -1,0 +1,25 @@
+{
+    "feed": {
+        "@type": "",
+        "id": "urn:uuidc3572b37-c3bf-447b-a359-851f7527c853",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/functest1/events/123456/?marker=urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&limit=25&search=&direction=forward",
+                "rel": "previous"
+            },
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/functest1/events/123456/?marker=urn:uuid:b84cd8cb-9895-4052-b719-0db1e388df53&limit=25&search=&direction=backward",
+                "rel": "next"
+            },
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/functest1/events/123456/?marker=last&limit=25&search=&direction=backward",
+                "rel": "last"
+            }
+        ],
+        "title": {
+            "@text": "functest1/events",
+            "type": "text"
+        },
+        "updated": "2014-06-03T18:31:06.170Z"
+    }
+}

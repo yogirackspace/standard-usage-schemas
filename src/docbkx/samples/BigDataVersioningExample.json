@@ -1,0 +1,80 @@
+{
+    "feed": {
+        "@type": "",
+        "productSchema": [
+            {
+                "attribute": [
+                    {
+                        "@text": "Specifies the flavor Id of the cluster.",
+                        "groupBy": "true",
+                        "maxLength": "50",
+                        "minLength": "1",
+                        "name": "flavorId",
+                        "type": "string",
+                        "use": "required"
+                    },
+                    {
+                        "@text": "Specifies the flavor name of the cluster.",
+                        "groupBy": "true",
+                        "maxLength": "255",
+                        "minLength": "1",
+                        "name": "flavorName",
+                        "type": "string",
+                        "use": "required"
+                    },
+                    {
+                        "@text": "Specifies the number of data nodes that are in the cluster.",
+                        "groupBy": "true",
+                        "max": "3000",
+                        "min": "1",
+                        "name": "numberServersInCluster",
+                        "type": "unsignedInt",
+                        "use": "required"
+                    }
+                ],
+                "description": "Specifies the usage message for a big data cluster.",
+                "namespace": "http://docs.rackspace.com/usage/bigdata",
+                "resourceTypes": "HADOOP_HDP1_1 HADOOP_HDP1_3 HBASE_HDP1_1 HBASE_HDP1_3",
+                "serviceCode": "BigData",
+                "version": "1"
+            },
+            {
+                "attribute": [
+                    {
+                        "@text": "Specifies the flavor Id of the cluster.",
+                        "allowedValues": "hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60",
+                        "groupBy": "true",
+                        "maxLength": "50",
+                        "minLength": "1",
+                        "name": "flavorId",
+                        "type": "string",
+                        "use": "required"
+                    },
+                    {
+                        "@text": "Specifies the flavor name of the cluster.",
+                        "groupBy": "true",
+                        "maxLength": "255",
+                        "minLength": "1",
+                        "name": "flavorName",
+                        "type": "string",
+                        "use": "required"
+                    },
+                    {
+                        "@text": "Specifies the number of data nodes in cluster.",
+                        "groupBy": "true",
+                        "max": "3000",
+                        "min": "1",
+                        "name": "numberServersInCluster",
+                        "type": "unsignedInt",
+                        "use": "required"
+                    }
+                ],
+                "description": "Specifies the usage message for a big data cluster.",
+                "namespace": "http://docs.rackspace.com/usage/bigdata",
+                "resourceTypes": "HADOOP_HDP2_1 HADOOP_HDP1_3 HBASE_HDP2_1 HBASE_HDP1_3",
+                "serviceCode": "BigData",
+                "version": "2"
+            }
+        ]
+    }
+}
