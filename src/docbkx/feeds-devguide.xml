@@ -266,7 +266,7 @@
                     based on roles defined by Rackspace.</para>
                 <para>The following table shows the RBAC role matrix for Cloud Feeds:</para>
                 <para>
-                    <table>
+                    <table frame="border">
                         <caption>RBAC Role Matrix</caption>
                         <col width="40%"/>
                         <col width="30%"/>
@@ -326,7 +326,7 @@
                 <para security="internal">The following table lists the number of transactions per role and feed
                     type.</para>
                 <para security="internal">
-                    <table>
+                    <table frame="border">
                         <caption>Transactions per role</caption>
                         <col width="33%"/>
                         <col width="33%"/>
@@ -607,7 +607,7 @@
             <para>Cloud Feeds service is a regionalized service. Therefore, the user of the service
                 is responsible for appropriate replication, caching, and overall maintenance of
                 Cloud Feeds data across regional boundaries to other Cloud Feeds servers. </para>
-            <table rules="all" security="external">
+            <table frame="border" security="external">
                 <caption>Regionalized service endpoints</caption>
                 <col width="11%"/>
                 <col width="11%"/>
@@ -676,7 +676,7 @@
             <para security="internal">The following table summarizes the endpoints for a staging
                 environment to use for your Cloud Feeds API calls. </para>
             <para>
-                <table security="internal">
+                <table security="internal" frame="border">
                     <caption>Staging service endpoints </caption>
                     <thead>
                         <tr align="center">
@@ -700,7 +700,7 @@
             <para security="internal">The following table summarizes the endpoints for a production
                 enviroment for your Cloud Feeds API calls. </para>
             <para>
-                <table security="internal">
+                <table security="internal" frame="border">
                     <caption>Production service endpoints </caption>
                     <thead>
                         <tr align="center">
@@ -934,7 +934,7 @@
                     </para>
                 </example>
                 <para>The following table describes the date and time format codes.</para>
-                <table rules="all">
+                <table frame="border">
                     <caption>Explanation of date and time format codes</caption>
                     <thead>
                         <tr>
@@ -1018,7 +1018,7 @@
             <section xml:id="Rules_CF_PS">
                 <title>Response codes for Cloud Feeds publishers and subscribers</title>
                 <para>
-                    <table>
+                    <table frame="border">
                         <caption>Response codes for subscribers</caption>
                         <col width="20%"/>
                         <col width="20%"/>
@@ -1082,8 +1082,7 @@
                         </tbody>
                     </table>
                 </para>
-                <para security="internal"/>
-                <table security="internal">
+                <table security="internal" frame="border">
                     <caption>Response codes for publishers</caption>
                     <col width="16%"/>
                     <col width="16%"/>
@@ -1308,7 +1307,7 @@
             </para>
             <para>The placeholders are defined in the following table.</para>
             <para>
-                <table>
+                <table frame="border">
                     <caption>Syntax elements</caption>
                     <col width="30%"/>
                     <col width="70%"/>
@@ -1447,7 +1446,7 @@
             <para>The following table summarizes the query parameters you can specify for Cloud
                 Feeds:</para>
             <para>
-                <table>
+                <table frame="border">
                     <caption>Query parameters</caption>
                     <col width="15%"/>
                     <col width="34%"/>
@@ -1680,7 +1679,7 @@
                     code that is obtained when publishing an entry. The following table shows a list
                     of recommended actions based on return code.</para>
                 <para>
-                    <table>
+                    <table frame="border">
                         <caption>Actions based on return codes</caption>
                         <col width="25%"/>
                         <col width="75%"/>
@@ -1809,7 +1808,7 @@
                                 for cases when the searched-for category is rare in the feed. </para>
                             <para>The he following table shows the two category types:</para>
                             <para>
-                                <table>
+                                <table frame="border">
                                     <caption>Category prefixes</caption>
                                     <col width="15%"/>
                                     <col width="55%"/>
