@@ -198,7 +198,7 @@
             <para>The following cURL command-line options are used in
                 this guide to run the examples.</para>
             <para>
-                <table>
+                <table frame="border">
                     <caption>cURL Command-Line Options</caption>
                     <col width="31%"/>
                     <col width="69%"/>
@@ -554,7 +554,7 @@
         <para>To be able to obtain feeds, customers need to be enabled
             for one of the following roles:</para>
         <para>
-            <table frame="void">
+            <table frame="border">
                 <caption>Cloud Feeds Roles</caption>
                 <col width="29%"/>
                 <col width="71%"/>
@@ -626,7 +626,7 @@
         <para security="external">The following table summarizes the endpoints to use for
             your Cloud Feeds API calls.</para>
         <para>
-            <table rules="all" security="external">
+            <table frame="border" security="external">
                 <caption>Regionalized service endpoints</caption>
                 <col width="11%"/>
                 <col width="11%"/>
@@ -695,7 +695,7 @@
         <para security="internal">The following table summarizes the
             endpoints for a staging environment to use for your Cloud Feeds API calls. </para>
         <para>
-            <table security="internal">
+            <table security="internal" frame="border">
                 <caption>Staging service endpoints </caption>
                 <thead>
                     <tr align="center">
@@ -720,7 +720,7 @@
         <para security="internal">The following table summarizes the
             endpoints for a production enviroment for your Cloud Feeds API calls. </para>
         <para>
-            <table security="internal">
+            <table security="internal" frame="border">
                 <caption>Production service endpoints </caption>
                 <thead>
                     <tr align="center">
@@ -896,7 +896,6 @@
                     </example>
                 </para>
             </section>
-
         </section>
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
             <title>Cloud feeds product events</title>
@@ -1040,7 +1039,7 @@
             <para>The placeholders are defined in the following
                 table.</para>
             <para>
-                <table>
+                <table frame="border">
                     <caption>Syntax elements</caption>
                     <col width="30%"/>
                     <col width="70%"/>
@@ -1129,7 +1128,7 @@
             <para>The following table summarizes the query parameters
                 you can specify for Cloud Feeds:</para>
             <para>
-                <table>
+                <table frame="border">
                     <caption>Query parameters</caption>
                     <col width="15%"/>
                     <col width="34%"/>

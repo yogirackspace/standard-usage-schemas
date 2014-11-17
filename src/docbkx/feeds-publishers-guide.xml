@@ -1719,7 +1719,7 @@
                 <programlisting>&lt;resource id="new_product" 
    path="new_product/events"
    type="wadl/feed.wadl#AtomFeed
-         wadl/product.wadl#[NewProductServiceCode]"/>  </programlisting>
+         wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]"/>  </programlisting>
             </para>
             <para>Alternatively, if you want to make your feed available to <emphasis role="bold"
                     >internal</emphasis> and <emphasis role="bold">external</emphasis> users, you
@@ -1730,9 +1730,21 @@
     type="wadl/feed.wadl#AtomFeed
           wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
           wadl/feed.wadl#TenantAtomFeed
-          wadl/products.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
+          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
             </para>
-            <?sbr?></section>
+        <para>Also, to ensure that your feed can be tested, add the same resource types that you
+                added to allfeeds.wadl in the above steps to the <code>functest1_events</code> and
+                    <code>functest2_events</code> resources as shown in the following
+                example.</para>
+            <para>
+                <programlisting>   &lt;resource id="functest1_events"
+        path="functest1/events" 
+        type="wadl/feed.wadl#AtomFeed
+            wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
+            wadl/feed.wadl#TenantAtomFeed
+            wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
+            </para>    
+        </section>
         <section xml:id="Add_sample_files">
             <title>Adding samples</title>
             <para>You can use Maven to generate sample responses and entries for each version of
