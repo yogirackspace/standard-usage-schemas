@@ -1,1 +1,0 @@
-curl –H "X-Auth-Token: <authenticationToken>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events
