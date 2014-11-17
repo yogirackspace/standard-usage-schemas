@@ -1,0 +1,58 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/identity/trr/user"
+               serviceCode="CloudIdentity"
+               version="1" resourceTypes="TRR_USER"
+               type="DELETE">
+    <description>
+        Specifies the event surrounding the creation of a user token revocation record (TRR) in the Identity system. A
+        User TRR specifies a set of tokens that should be considered revoked for a user by describing characteristics of
+        a token. A token should be considered revoked when a token matches all these characteristics.
+
+        There are three attributes associated with a token that should be compared against a user TRR. If ALL of these
+        attributes match, that token should be considered revoked. The pseudo rules are:
+
+        1. token.userId = event.resourceId
+        2. token.createdDate &lt; event.tokenCreationDate
+        3. token.authenticatedBy == ONE OF (event.tokenAuthenticatedBy.values)
+
+        The last rule, 3, is applicable if, and only if, one or more event.tokenAuthenticatedBy elements are provided in
+        the User TRR event. If no event.tokenAuthenticatedBy element is provided in the TRR, then all tokens that match Rule 1 and
+        Rule 2 should be considered revoked.
+
+        If one or more event.tokenAuthenticatedBy elements are included in the User TRR event, then Rule 3 must be applied
+        to determine if the token should be revoked. A token contains the attribute 'authenticatedBy' which
+        is a SET of unordered authentication methods that were provided by the user in order to generate that token.
+        Each tokenAuthenticatedBy element in the User TRR event specifies a SET (unordered) of
+        authentication methods. A given token matches a given event.tokenAuthenticatedBy if, and only if, the sets are
+        equal (regadless of order).
+
+        For example,
+        token.authenticatedBy {A} = event.tokenAuthenticatedBy {A}
+        token.authenticatedBy {A} != event.tokenAuthenticatedBy {A, B}
+        token.authenticatedBy {A, B} != event.tokenAuthenticatedBy {A}
+        token.authenticatedBy {A, B} = event.tokenAuthenticatedBy {A, B}
+        token.authenticatedBy {A, B} = event.tokenAuthenticatedBy {B, A}
+    </description>
+
+    <attribute name="tenants" type="string*"
+               use="optional">
+        Specifies the space separated IDs of the tenant associated with this user, if any.
+    </attribute>
+
+    <attribute name="tokenCreationDate" type="utcDateTime" use="required">
+        Specifies the date to compare against a token's creation date. Tokens that were created before this date (and
+        match the other criteria in the TRR) should be considered revoked
+    </attribute>
+
+    <attributeGroup name="tokenAuthenticatedBy" minOccurs="0" maxOccurs="10">
+        <description>
+            Specifies a set of authentication method(s) against which to compare to a token's authenticatedBy attribute.
+            If no tokenAuthenticatedBy element is included in the TRR, then this attribute will not be used to limit
+            which tokens are considered revoked.
+        </description>
+        <attribute name="values" type="Name*" use="required"
+                   allowedValues="PASSWORD APIKEY PASSCODE RSAKEY FEDERATION">
+            The set of authentication method(s).
+        </attribute>
+    </attributeGroup>
+</productSchema>
