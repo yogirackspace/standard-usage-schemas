@@ -1,0 +1,27 @@
+{
+    "service": {
+        "workspace": [
+            {
+                "collection": {
+                    "href": "https://ord.feeds.api.rackspacecloud.com/backup/events/8492382",
+                    "title": "backup_events_obs"
+                },
+                "title": "backup_events_obs"
+            },
+            {
+                "collection": {
+                    "href": "https://ord.feeds.api.rackspacecloud.com/bigdata/events/8492382",
+                    "title": "bigdata_events_obs"
+                },
+                "title": "bigdata_events_obs"
+            },
+            {
+                "collection": {
+                    "href": "https://ord.feeds.api.rackspacecloud.com/usagesummary/ssl/events/8492382",
+                    "title": "ssl_usagesummary_events_obs"
+                },
+                "title": "ssl_usagesummary_events_obs"
+            }
+        ]
+    }
+}
