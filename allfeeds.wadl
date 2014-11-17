@@ -179,6 +179,7 @@
                         wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudServersOpenStackSummary
                         wadl/product.wadl#CloudServersOpenStackTenant wadl/product.wadl#CloudServersOpenStackSummaryTenant
                         wadl/product.wadl#CloudSites wadl/product.wadl#CloudSitesSummary
+                        wadl/product.wadl#DcxIpAdmin
                         wadl/product.wadl#DedicatedVCloud wadl/product.wadl#DedicatedVCloudSummary
                         wadl/product.wadl#DomainRegistration
                         wadl/product.wadl#EBS wadl/product.wadl#EmailAppsMSService
