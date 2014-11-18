@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.74.0-SNAPSHOT</version>
+    <version>1.74.0</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -899,7 +899,7 @@
                       import groovy.json.JsonOutput
                       println "gmaven:  prettifying json samples in ${basedir}/message_samples/${feedName}/json/"
                       new File("${basedir}/message_samples/${feedName}/json").eachFile() {
-                        file ->
+                        file -&gt;
                           file.text = JsonOutput.prettyPrint(file.text)
                       }
                   </source>
