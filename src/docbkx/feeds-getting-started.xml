@@ -1366,7 +1366,8 @@
         <title>Next steps</title>
         <para>To learn more aboud the Cloud Feeds API, read <olink targetdoc="cloudfeeds-devguide"
                 targetptr="Using_Cloud_Feeds">Using Cloud Feeds</olink> in the <emphasis
-                role="italic">Cloud Feeds Developer's Guide</emphasis>. To learn how to prepare a
+                role="italic">Cloud Feeds Developer's Guide</emphasis>. </para>
+            <para security="internal">To learn how to prepare a
             feed for publication through Cloud Feeds, read the <olink targetdoc="feeds-pubguide"
                 targetptr="feeds-pubguide"><emphasis role="bold">Cloud Feeds Publisher's
                     Guide</emphasis></olink>.</para>

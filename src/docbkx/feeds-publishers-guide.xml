@@ -17,13 +17,71 @@
         <!ENTITY ENDPOINT-US-20 "https://identity.api.rackspacecloud.com/v2.0/">
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 ]>
-<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-pubguide"
-    version="5.0-extension RaxBook-2.0" security="internal">
+
+
+<book version="5.0" xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook"
+    xml:id="feeds-pubguide">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
-    <title>Cloud Feeds Publishers Guide</title>
-    <?rax status.bar.text.font.size="40px"
-          status.bar.text="Early Availability"?>
+    <title>Cloud Feeds Publisher's Guide</title>
+    <?rax status.bar.text="RAX INTERNAL"?>
+
+
+    <info>
+        <author>
+            <personname>
+                <firstname/>
+                <surname/>
+            </personname>
+            <affiliation>
+                <orgname>Rackspace Cloud</orgname>
+            </affiliation>
+        </author>
+        <copyright>
+            <year>2014</year>
+            <holder>Rackspace US, Inc.</holder>
+        </copyright>
+        <releaseinfo>API v1.0</releaseinfo>
+        <productname>Rackspace Cloud Feeds</productname>
+        <pubdate/>
+        <legalnotice role="rs-api">
+            <annotation>
+                <remark>Copyright details are filled in by the
+                    template.</remark>
+            </annotation>
+        </legalnotice>
+        <abstract>
+            <para>This document is intended for Cloud Feeds customers who want to submit a feed to
+                be published by Cloud Feeds. </para>
+        </abstract>
+        <revhistory>
+            <revision>
+                <date>2014-10-10</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Published the initial internal release of the Cloud Feeds
+                                Publisher's Guide.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
+        </revhistory>
+        <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
+            <raxm:displayname>Cloud Feeds Publisher's Guide</raxm:displayname>
+            <raxm:product version="v1.0">cloud-feeds</raxm:product>
+            <raxm:priority>80</raxm:priority>
+        </raxm:metadata>
+    </info>
+
+
+
+
     <chapter xml:id="Cloud_Feeds_Overview">
         <title>Defining and publishing events</title>
         <para>Cloud Feeds supports the publication of <emphasis role="italic">events</emphasis> that

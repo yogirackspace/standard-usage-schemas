@@ -772,7 +772,7 @@
                     </configuration>
                   </execution>
                     <execution>
-                        <id>publishers-guide-inernal</id>
+                        <id>publishers-guide-internal</id>
                         <goals>
                             <goal>generate-webhelp</goal>
                         </goals>
