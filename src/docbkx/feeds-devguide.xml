@@ -810,15 +810,25 @@
                         Document. It functions as a container for metadata and data associated with
                         the feed. Its element children consist of metadata elements that are
                         followed by zero or more Atom Entry child elements. </para>
-                    <para>Following is an example of an entire Atom <code>feed</code>
-                        element:</para>
+                    <para>Following is an XML example of an entire Atom <code>feed</code>
+                        element.</para>
                     <example security="internal">
-                        <title>Atom feed element</title>                      
+                        <title>Atom feed element - XML example</title>                      
                         <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
                     </example>
                     <example security="external">
-                        <title>Atom feed element</title>                      
+                        <title>Atom feed element - XML example</title>                      
                         <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.xml" parse="text"/></programlisting>
+                    </example>
+                    <para>Following is a JSON  example of an entire Atom <code>feed</code>
+                        element.</para>
+                    <example security="internal">
+                        <title>Atom feed element  - JSON example</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.json" parse="text"/></programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Atom feed element - JSON example</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.json" parse="text"/></programlisting>
                     </example>
                 </section>
                 <section xml:id="Atom_Entry_Element">
@@ -826,16 +836,25 @@
                     <para>The Atom <code>entry</code> element represents exactly one Atom entry,
                         outside of the context of an Atom feed. It functions as a container for
                         metadata and data associated with the entry. This element can appear as a
-                        child of the Atom Feed element, or it can appear as the top-level element of
-                        a stand-alone Atom entry Document. </para>
-                    <para>Following is an example of an Atom <code>entry</code> element:</para>
+                        child of the Atom <code>feed</code> element, or it can appear as the
+                        top-level element of a stand-alone Atom Entry Document. </para>
+                    <para>Following is an XML example of an Atom <code>entry</code> element.</para>
                     <example security="internal">
-                        <title>Atom entry element</title>
+                        <title>Atom entry element - XML example</title>
                         <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
                     </example>
                     <example security="external">
-                        <title>Atom entry element</title>
+                        <title>Atom entry element - XML example</title>
                         <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.xml" parse="text"/></programlisting>
+                    </example>
+                    <para>Following is a JSON example of an Atom <code>entry</code> element.</para>
+                    <example security="internal">
+                        <title>Atom entry element - JSON example</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.json" parse="text"/></programlisting>
+                    </example>
+                    <example security="external">
+                        <title>Atom entry element - JSON example</title>
+                        <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.json" parse="text"/></programlisting>
                     </example>
                 </section>
                 <section xml:id="Atom_Content-Element">
@@ -844,69 +863,36 @@
                         content of an entry. The type attribute specifies the MIME media
                             <parameter>type</parameter>. If no <parameter>type</parameter> attribute
                         is present, the content is treated as <parameter>text</parameter>. </para>
-                    <para>Following is an example of an Atom <code>content </code>element:</para>
+                    <para>Following is an XML example of an Atom <code>content</code>
+                        element.</para>
                     <para>
                         <example>
-                            <title>Atom content element</title>
-                            <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
+                            <title>Atom content element - XML example</title>
+                            <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.json" parse="text"/></programlisting>
+                        </example>
+                    </para>
+                    <para>Following is a JSON example of an Atom <code>content</code>
+                        element.</para>
+                    <para>
+                        <example>
+                            <title>Atom content element - JSON example</title>
+                            <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.json" parse="text"/></programlisting>
                         </example>
                     </para>
                 </section>
             </section>
             <section xml:id="CloudFeedsProductEvents">
                 <title>Cloud Feeds Product Events</title>
-                <para>Cloud Feeds places product events inside the Atom <code>content</code>
-                    element. The <tag>event</tag> element contains the product events as shown in
-                    the following example:</para>
+                <para>Cloud Feed places product events inside the Atom Content element. The
+                        <tag>event</tag> element contains the product events as shown in the
+                    following example. </para>
                 <example security="internal">
-                    <title>Cloud feeds product events</title>
-                    <programlisting>&lt;atom:entry>
-    &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
-    &lt;atom:category term="tid:123456" />
-    &lt;atom:category term="rgn:DFW" />
-    &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
-    &lt;atom:category term="widget.widget.gadget.usage" />
-    &lt;atom:category term="type:widget.widget.gadget.usage" />
-    &lt;atom:category term="dc:DFW1" />
-    &lt;atom:content type="application/xml">
-      &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
-          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
-          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
-        &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
-          mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
-          serviceCode="Widget" time="11:51:11Z" version="2" />
-      &lt;/event>
-    &lt;/atom:content>
-    &lt;atom:link href="https://atom.test.ord1.us.ci.rackspace.net/functest1/events/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
-    &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
-    &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
-  &lt;/atom:entry>
-</programlisting>
+                    <title>Cloud feeds product events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
                 </example>
                 <example security="external">
-                    <title>Cloud feeds product events</title>
-                    <programlisting>&lt;atom:entry>
-    &lt;atom:id>urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20&lt;/atom:id>
-    &lt;atom:category term="tid:123456" />
-    &lt;atom:category term="rgn:DFW" />
-    &lt;atom:category term="rid:ce085f9c-c699-484f-8410-f58945ed839e" />
-    &lt;atom:category term="widget.widget.gadget.usage" />
-    &lt;atom:category term="type:widget.widget.gadget.usage" />
-    &lt;atom:category term="dc:DFW1" />
-    &lt;atom:content type="application/xml">
-      &lt;event dataCenter="DFW1" endTime="2012-03-12T15:51:11Z" environment="PROD" 
-          id="a531497b-433d-405e-b0d7-2082aa138d20" region="DFW" resourceId="ce085f9c-c699-484f-8410-f58945ed839e" 
-          startTime="2012-03-12T11:51:11Z" tenantId="123456" type="USAGE" version="1">
-        &lt;widget:product dateTime="2013-09-12T11:51:11Z" disabled="false" enumList="BETTER" label="Test Label" 
-          mid="94c61976-9f4c-11e1-bddf-ab57017a9899" num_checks="300" resourceType="GADGET" 
-          serviceCode="Widget" time="11:51:11Z" version="2" />
-      &lt;/event>
-    &lt;/atom:content>
-    &lt;atom:link href="https://dfw.feeds.api.rackspacecloud.com/functest1/events/123456/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20" rel="self" />
-    &lt;atom:updated>2014-06-03T18:30:56.138Z&lt;/atom:updated>
-    &lt;atom:published>2014-06-03T18:30:56.138Z&lt;/atom:published>
-  &lt;/atom:entry>
-</programlisting>
+                    <title>Cloud feeds product events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.xml" parse="text"/></programlisting>
                 </example>
                 <para security="internal">
                     <note>
@@ -1245,9 +1231,12 @@
             <title>Adding a new Atom event</title>
             <para>You can use a <command>POST </command>request to insert new Atom entries into Atom
                 Hopper. </para>
-            <para>The following example shows what the content of an Atom entry can look
+            <para>The following examples show what the content of an Atom entry can look
                 like:</para>
-            <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+            <example><title>Inserting a new Atom entry - XML example</title>
+                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting></example>
+            <example><title>Inserting a new Atom entry - JSON example</title>
+                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.json" parse="text"/></programlisting></example>
             <para>To insert a new Atom event in a feed, you first need to create an Atom entry and
                 save it in the same directory from which you are making your request.</para>
                 <para>You then make a <command>POST</command> request with the specified feed URL
@@ -1269,11 +1258,14 @@
                         HTTP Header to Content-Type: application/atom+xml.</para>
                     </important>
                 </para>
-                <para>After you have successfully posted the Atom XML to the correct endpoint you
-                receive an <code>HTTP 201</code> status code as a response. The response body
-                contains the Atom XML that you posted in the request body, as well as category
-                information for the entry, as shown in the following example:</para>
-                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
+                <para>After you have successfully posted the Atom content to the correct endpoint
+                you receive an <code>HTTP 201</code> status code as a response. The response body
+                contains the Atom content that you posted in the request body, as well as category
+                information for the entry, as shown in the following examples.</para>
+            <example><title>Response for adding an atom entry - XML</title>
+                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting></example>
+            <example><title>Response for adding an atom entry - JSON</title>
+                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.json" parse="text"/></programlisting></example>
                 <para>In the response, each Atom entry has a self-referencing link. The appearance
                 of your self-referencing Atom entry varies depending on whether you use an HTTPS
                     <command>POST</command> request or not.</para>
