@@ -1,0 +1,62 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "rid:ce085f9c-c699-484f-8410-f58945ed839e"
+            },
+            {
+                "term": "widget.widget.gadget.usage"
+            },
+            {
+                "term": "type:widget.widget.gadget.usage"
+            },
+            {
+                "term": "dc:DFW1"
+            }
+        ],
+        "content": {
+            "event": {
+                "@type": "http://www.w3.org/2001/XMLSchema",
+                "dataCenter": "DFW1",
+                "endTime": "2012-03-12T15:51:11Z",
+                "environment": "PROD",
+                "id": "a531497b-433d-405e-b0d7-2082aa138d20",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/widget",
+                    "dateTime": "2013-09-12T11:51:11Z",
+                    "disabled": false,
+                    "enumList": "BETTER",
+                    "label": "Test Label",
+                    "mid": "94c61976-9f4c-11e1-bddf-ab57017a9899",
+                    "num_checks": 300,
+                    "resourceType": "GADGET",
+                    "serviceCode": "Widget",
+                    "time": "11:51:11Z",
+                    "version": "2"
+                },
+                "region": "DFW",
+                "resourceId": "ce085f9c-c699-484f-8410-f58945ed839e",
+                "startTime": "2012-03-12T11:51:11Z",
+                "tenantId": "123456",
+                "type": "USAGE",
+                "version": "1"
+            }
+        },
+        "id": "urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20",
+        "link": [
+            {
+                "href": "https://dfw.feeds.api.rackspacecloud.com/functest1/events/123456/entries/urn:uuid:a531497b-433d-405e-b0d7-2082aa138d20",
+                "rel": "self"
+            }
+        ],
+        "published": "2014-06-03T18:30:56.138Z",
+        "updated": "2014-06-03T18:30:56.138Z"
+    }
+}
