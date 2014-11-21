@@ -923,16 +923,24 @@
         </section>
         <section xml:id="Usage_and_System_Event_Messages-d1e1362">
             <title>Cloud feeds product events</title>
-            <para>Cloud Feed places product events inside the Atom
-                Content element. The <tag>event</tag> element contains
-                the product events as shown in the following example. </para>
+            <para>Cloud Feed places product events inside the Atom Content element. The
+                    <tag>event</tag> element contains the product events as shown in the following
+                examples. </para>
             <example security = "internal">
                 <title>Cloud feeds product events - XML example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
             </example>
+            <example security = "internal">
+                <title>Cloud feeds product events - JSON example</title>
+                <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.json" parse="text"/></programlisting>
+            </example>
             <example security = "external">
                 <title>Cloud feeds product events - XML example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.xml" parse="text"/></programlisting>
+            </example>
+            <example security = "external">
+                <title>Cloud feeds product events - JSON example</title>
+                <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.json" parse="text"/></programlisting>
             </example>
             <para security = "internal">
                 <note>
