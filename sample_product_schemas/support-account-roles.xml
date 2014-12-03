@@ -20,7 +20,7 @@
         <attribute name="roleId" type="int" use="required">
            Specifies the role Id of the Rackspace employee.
         </attribute>
-        <attribute name="suppress_notifications" type="boolean" use="optional" default="false">
+        <attribute name="suppressNotifications" type="boolean" use="optional" default="false">
            Specifies if notifications should be suppressed.
         </attribute>
     </attributeGroup>
