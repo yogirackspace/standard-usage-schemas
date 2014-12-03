@@ -17,7 +17,7 @@
         <attribute name="teamNumber" type="int" use="required"> 
             Specifies the team number.
         </attribute>
-        <attribute name="suppress_notifications" type="boolean" use="optional" default="false">
+        <attribute name="suppressNotifications" type="boolean" use="optional" default="false">
            Specifies if notifications should be suppressed.
         </attribute>
     </attributeGroup>
