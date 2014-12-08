@@ -99,7 +99,7 @@
                 xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>. For
             more information about AtomPub, visit <link xlink:href="http://atompub.org/"
                 >http://atompub.org/</link>.</para>
-        <section xml:id="Event_Types">
+        <section xml:id="Event_Categories">
             <title>Event categories</title>
             <para>Cloud Feeds supports the following event categories:</para>
             <para>
@@ -298,7 +298,9 @@
                                 assumed. For a list of possible values, see <link
                                     linkend="Event_node_attributes"><emphasis role="bold">Attribute
                                         values for event node</emphasis></link>.</td>
-                            <td>This attribute is optional.</td>
+                            <td>This attribute is required for events of type <emphasis role="bold"
+                                    >USAGE_SNAPSHOT</emphasis>, but is optional for all other event
+                                types.</td>
                         </tr>
                         <tr>
                             <td><code>eventTime</code></td>
@@ -444,6 +446,19 @@
                     </tbody>
                 </table>
             </para>
+            <para>
+                <note>
+                    <para>The <emphasis role="bold">event: prefix</emphasis> in the preceding table
+                        denotes a specific namespace. For more information about namespaces, see
+                            <link linkend="Selecting_namespace">Selecting a namespace</link>.
+                            <emphasis role="bold">DC</emphasis> and <emphasis role="bold"
+                            >Username</emphasis> denote type attributes that are defined in the
+                            <emphasis role="bold">core.xsd</emphasis> schema file. <emphasis
+                            role="bold">Core.xsd</emphasis> is posted on GitHub at: <link
+                            xlink:href="https://github.com/rackerlabs/standard-usage-schemas/tree/master/core_xsd"
+                            >https://github.com/rackerlabs/standard-usage-schemas/tree/master/core_xsd</link>.</para>
+                </note>
+            </para>
             <section xml:id="Event_node_attributes">
                 <title>Attribute values for event node</title>
                 <para>The following table lists the possible values for the <code>dataCenter</code>,
@@ -559,7 +574,7 @@
                 <title>Event types</title>
                 <para>Cloud Feeds supports different event types that are specified in the event
                     node under the <code>type</code> attribute. Each event type has different
-                    conditions and requirements. </para>
+                    conditions and requirements.</para>
                 <para>The following table describes the most important event types.</para>
                 <para>
                     <table frame="border">
@@ -707,7 +722,7 @@
         <title>Product node</title>
         <para>The product node is located inside of an event node. The product node is custom and
             differs for every product. It provides product-specific information and details about
-            the resources. Product nodes are defined by using a sample product schema. </para>
+            the resources. Product nodes are defined by using a product schema. </para>
         <para>Following is an example of a product node.</para>
         <para>
             <example><title>Product node example</title>
@@ -1071,10 +1086,9 @@
                                 <td>Specifies whether the <code>product</code> attribute is
                                         <emphasis role="bold">optional</emphasis>, <emphasis
                                         role="bold">required</emphasis>, or <emphasis role="bold"
-                                        >synthesized</emphasis>. The <code>use</code> attribute is
-                                    optional, but if it is not specified, the <code>product</code>
-                                    attribute is labeled as optional.</td>
-                                <td>This attribute is required.</td>
+                                        >synthesized</emphasis>. </td>
+                                <td>This attribute is optional, but if it is not specified, the
+                                        <code>product</code> attribute is labeled as optional.</td>
                             </tr>
                             <tr>
                                 <td><code>withEventType</code></td>
@@ -1200,13 +1214,12 @@
                     xPath assertions. </para>
                 <para>While the basic <code>attribute</code> and <code>attributeGroup</code> schema
                     definitions enable you to define most product events, you can create additional
-                    custom formats by using XPath assertions and the XPath language. For example,
+                    custom rules by using XPath assertions and the XPath language. For example,
                     there might be a case when the <code>serverID</code> attribute of a product node
                     is required only when the <code>external</code> condition evaluates to <emphasis
                         role="bold">true</emphasis>. This case cannot be enumerated with the basic
                     schema format, but it can be verified with an assertion, as shown in the
                     following example.</para>
-                <para/>
                 <para>
                     <example><title>XPath Assertion example</title>
                     <programlisting>&lt;<emphasis role="bold">xpathAssertion</emphasis> test="if (not(xsd:boolean(@external))) then @serverID else true()">
@@ -1715,13 +1728,13 @@
                             <code>namespace</code> attribute for your product. </para>
             <para>For <emphasis role="bold">usage</emphasis> events, use the following convention
                         for namespaces:</para>
-            <programlisting>http://docs.rackspace.com/usage/<emphasis role="italic">product</emphasis>/<emphasis role="italic">message_type</emphasis>    </programlisting>
+            <programlisting>http://docs.rackspace.com/usage/<emphasis role="italic">product</emphasis>/<emphasis role="italic">resource</emphasis>    </programlisting>
             <para>Following are examples of namespaces for usage events:</para>
                 <programlisting>http://docs.rackspace.com/usage/sites/subscription</programlisting>
 <programlisting>http://docs.rackspace.com/usage/cloudbackup/storage</programlisting>
             <para>For <emphasis role="bold">system</emphasis> events, the convention of the
                         namespace is as follows:</para>
-            <programlisting>http://docs.rackspace.com/event/<emphasis role="italic">product</emphasis>/<emphasis role="italic">message_type</emphasis>   </programlisting>
+            <programlisting>http://docs.rackspace.com/event/<emphasis role="italic">product</emphasis>/<emphasis role="italic">resource</emphasis>   </programlisting>
             <para>Following is an example of a namespace for a system event:</para>
                 <programlisting>http://docs.rackspace.com/event/lbaas/node</programlisting></section></section>
             <section xml:id="Adding_a_description"><title>Defining the description node </title>
