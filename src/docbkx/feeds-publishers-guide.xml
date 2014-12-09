@@ -133,7 +133,7 @@
                 Protocol</link>. A feed has the following structure.</para>
             <example>
                 <title>Feed structure example</title>
-                <programlisting language="xml" security="internal"><xi:include href="./samples/feed_structure.xml" parse="text"/></programlisting>
+                <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
             </example>
             <para>The following table describes each element in a feed.</para>
             <para>
@@ -887,14 +887,13 @@
                                 for example, <emphasis role="bold">USAGE_SUMMARY</emphasis>. The
                                 default value is <emphasis role="bold">USAGE</emphasis>.</td>
                             <td>
-                                <itemizedlist>
+                                <itemizedlist linkend="Event_types">
                                     <listitem>
                                         <para>This attribute is optional.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>For more information, see <link linkend="Event_Types"
-                                                  ><emphasis role="bold">Event
-                                                types</emphasis></link>.</para>
+                                        <para>For more information, see <link linkend="Event_types"
+                                                >Event types</link>.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -921,7 +920,7 @@
                 or more attribute groups, each of which can contain custom attributes.</para>
             <para>The following example shows a sample product schema with multiple attributes and
                 an attribute group defined.</para>
-            <programlisting language="xml" security="internal"><xi:include href="./samples/emailapps_msservice.xml" parse="text"/></programlisting>
+            <programlisting language="xml"><xi:include href="./samples/emailapps_msservice.xml" parse="text"/></programlisting>
             <section xml:id="Attribute_node">
                 <title>Attribute node</title>
                 <para>The attribute node declares an attribute for a product., such as the name of
@@ -1188,24 +1187,46 @@
                         </tbody>
                     </table>
                 </para>
-                <para>Following is an example of an attribute group for a product schema.</para>
+                <para>Following is an example of a product schema that contains an attribute
+                    group.</para>
                 <para>
-                    <example><title>Attribute group example</title>
-                    <programlisting>&lt;<emphasis role="bold">attributeGroup</emphasis> 
-       name="additionalPublicAddress"
-       minOccurs="0"
-       maxOccurs="unbounded">
-    &lt;description>A list public addresses&lt;/description>
-        &lt;attribute name="ip" type="string" use="required">
-            The ip
+                    <example><title>Attribute group within product schema example</title>
+                    <programlisting>&lt;productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/emailapps_msservice"
+               version="1"
+               serviceCode="EmailAppsMSService" type="INFO"
+               >
+    &lt;description>
+        Specifies events for the Email and Apps Microsoft Service.
+    &lt;/description>
+    &lt;attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
+        Specifies the key of the object that this event corresponds to.
+    &lt;/attribute>
+    &lt;attribute name="productType" type="string" use="required">
+        Specifies the MS Service product that this event corresponds to.
+    &lt;/attribute>
+    &lt;attribute name="operation" type="string" use="required">
+        Specifies the operation that is performed on the resource that this event corresponds to.
+    &lt;/attribute>
+    &lt;attribute name="status" type="Name" allowedValues="COMPLETED ERROR" use="required">
+        Specifies the status of the operation that is performed on the resource that this event corresponds to.
+    &lt;/attribute>
+    &lt;attribute name="request" type="string" minLength="1" maxLength="20000" use="required">
+        Specifies the request that this event corresponds to.
+    &lt;/attribute>
+    &lt;attribute name="response" type="string" minLength="1" maxLength="20000" use="optional">
+        Specifies the response for the above request.
+    &lt;/attribute>
+    &lt;<emphasis role="bold">attributeGroup </emphasis>name="dependent" minOccurs="0" maxOccurs="unbounded">
+        &lt;description>
+            Specifies the list of all dependent objects for an event. For example, in mailbox-related events, since the mailbox
+            has to be under a domain, a domain object can be listed as one of the dependents.
+        &lt;/description>
+        &lt;attribute name="key" type="string" minLength="1" maxLength="1024" use="required">
+            Specifies the key of the dependent objects.
         &lt;/attribute>
-        &lt;attribute name="dns1" type="string" use="required">
-            The dns1
-        &lt;/attribute>
-        &lt;attribute name="dns2" type="string" use="required">
-            The dns1
-        &lt;/attribute>
-&lt;/<emphasis role="bold">attributeGroup</emphasis>></programlisting></example>
+    &lt;/<emphasis role="bold">attributeGroup</emphasis>>
+&lt;/productSchema></programlisting></example>
                 </para>
             </section>
             <section xml:id="x_path_assertion">

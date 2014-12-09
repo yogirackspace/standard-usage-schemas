@@ -4,8 +4,10 @@
                version="1" resourceTypes="TRR_USER"
                type="DELETE">
     <description>
-        Specifies the event surrounding the creation of a user token revocation record (TRR) in the Identity system. A
-        User TRR specifies a set of tokens that should be considered revoked for a user by describing characteristics of
+        Specifies the event surrounding the creation of a user token revocation record (TRR) in the Identity system.
+        <!-- 
+        Constanze Kratel: I'm commenting this section out as a temporary fix for JIRA BUG CF-351 (https://jira.rax.io/browse/CF-351). This content will be uncommented as soon as the actual issue is fixed" 
+        A User TRR specifies a set of tokens that should be considered revoked for a user by describing characteristics of
         a token. A token should be considered revoked when a token matches all these characteristics.
 
         There are three attributes associated with a token that should be compared against a user TRR. If ALL of these
@@ -31,7 +33,7 @@
         token.authenticatedBy {A} != event.tokenAuthenticatedBy {A, B}
         token.authenticatedBy {A, B} != event.tokenAuthenticatedBy {A}
         token.authenticatedBy {A, B} = event.tokenAuthenticatedBy {A, B}
-        token.authenticatedBy {A, B} = event.tokenAuthenticatedBy {B, A}
+        token.authenticatedBy {A, B} = event.tokenAuthenticatedBy {B, A}-->
     </description>
 
     <attribute name="tenants" type="string*"
