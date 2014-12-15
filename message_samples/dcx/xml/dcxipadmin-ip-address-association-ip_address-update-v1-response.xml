@@ -18,8 +18,8 @@
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
-   <atom:category term="rgn:DFW"/>
-   <atom:category term="dc:DFW1"/>
+   <atom:category term="rgn:GLOBAL"/>
+   <atom:category term="dc:GLOBAL"/>
    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
    <atom:category term="dcxipadmin.ip-address-association.ip_address.update"/>
    <atom:category term="type:dcxipadmin.ip-address-association.ip_address.update"/>
@@ -32,8 +32,8 @@
              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
              eventTime="2013-03-15T11:51:11Z"
              type="UPDATE"
-             dataCenter="DFW1"
-             region="DFW">
+             dataCenter="GLOBAL"
+             region="GLOBAL">
          <sample:product serviceCode="DcxIpAdmin"
                          version="1"
                          resourceType="IP_ADDRESS"

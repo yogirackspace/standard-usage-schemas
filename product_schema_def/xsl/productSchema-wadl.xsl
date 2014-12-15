@@ -12,6 +12,7 @@
     xmlns:event="http://docs.rackspace.com/core/event"
     xmlns:error="http://docs.rackspace.com/core/error"
     xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dcxIpAddress="http://docs.rackspace.com/event/dcx/ip-address-association"
     xmlns:domain="http://docs.rackspace.com/event/domain"
     xmlns:maas="http://docs.rackspace.com/usage/maas"
     xmlns:sitesSubscription="http://docs.rackspace.com/usage/sites/subscription"
@@ -222,9 +223,10 @@
                                     <rax:restrict-rules>
                                         <!-- For these resource and resource types, the dc and region must be GLOBAL-->
                                         <!-- The nsprefix must be declared at the top of this XSL for this to work! -->
-                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefix="maas"              resourceType="CHECK"/>
-                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefix="sitesSubscription" resourceType="SITES_SUBSCRIPTION"/>
-                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefix="domain"            resourceType="DOMAIN_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefix="maas"              resourceTypes="CHECK"/>
+                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefix="sitesSubscription" resourceTypes="SITES_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefix="domain"            resourceTypes="DOMAIN_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DcxIpAdmin"         nsprefix="dcxIpAddress"      resourceTypes="IP_ADDRESS DEVICE"/>
                                     </rax:restrict-rules>
                                 </xsl:with-param>
                             </xsl:call-template>
@@ -312,19 +314,19 @@
         <xsl:choose>
             <xsl:when test="not(empty($hitRules))">
                 <xsl:for-each select="$hitRules">
-                    <xsl:variable name="rtype" as="xs:string" select="./@resourceType"/>
+                    <xsl:variable name="rtypes" as="xs:string" select="./@resourceTypes"/>
                     <xsl:variable name="scode" as="xs:string" select="./@serviceCode"/>
                     <xsl:variable name="pfix"  as="xs:string" select="./@nsprefix"/>
-                    <param name="checkDatacenter_{$rtype}"
+                    <param name="checkDatacenter_{$scode}"
                            style="plain"
                            required="true"
-                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                           path="if (/atom:entry/atom:content/event:event and not( {sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))} ) and
                                     (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL') ) then false() else true()"
                            rax:message="For this type of {$scode} event, @dataCenter must be present and can not be GLOBAL."/>
-                    <param name="checkRegion_{$rtype}"
+                    <param name="checkRegion_{$scode}"
                            style="plain"
                            required="true"
-                           path="if (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/{$pfix}:product/@resourceType = '{$rtype}') and
+                           path="if (/atom:entry/atom:content/event:event and not( {sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))} ) and
                                  (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL') ) then false() else true()"
                            rax:message="For this type of {$scode} event, @region must be present and can not be GLOBAL."/>
                 </xsl:for-each>
@@ -661,6 +663,24 @@
             </param>
         </xsl:if>
     </xsl:template>
+    <xsl:function name="sch:rtypesCheck" as="xs:string">
+        <xsl:param name="pfix"/>
+        <xsl:param name="rtypes" as="xs:string*"/>
+        <xsl:variable name="checksList">
+            <xsl:for-each select="$rtypes">
+                <xsl:variable name="rtype" select="."/>
+                <xsl:text>/atom:entry/atom:content/event:event/</xsl:text>
+                <xsl:value-of select="$pfix"/>
+                <xsl:text>:product/@resourceType = '</xsl:text>
+                <xsl:value-of select="$rtype"/>
+                <xsl:text>' </xsl:text>
+                <xsl:if test="position() &lt; count( $rtypes )">
+                    <xsl:text>or </xsl:text>
+                </xsl:if>
+            </xsl:for-each>
+        </xsl:variable>
+        <xsl:value-of select="string-join( $checksList, '')"/>
+    </xsl:function>
     <xsl:function name="sch:selectEvent" as="xs:string">
         <xsl:param name="type" as="xs:string"/>
         <xsl:variable name="ret">
