@@ -99,7 +99,10 @@
                 <xsl:variable name="value" select="substring-after(@term, 'rgn:')"/>
                 <xsl:variable name="nsUri" select="namespace-uri(../atom:content/event:event/*)"/>
                 <xsl:choose>
-                    <xsl:when test="$nsUri = 'http://docs.rackspace.com/usage/maas' or $nsUri = 'http://docs.rackspace.com/usage/sites/subscription' or $nsUri = 'http://docs.rackspace.com/event/domain'">
+                    <xsl:when test="$nsUri = 'http://docs.rackspace.com/usage/maas'
+                                    or $nsUri = 'http://docs.rackspace.com/usage/sites/subscription'
+                                    or $nsUri = 'http://docs.rackspace.com/event/domain'
+                                    or $nsUri = 'http://docs.rackspace.com/event/dcx/ip-address-association'">
                         <xsl:choose>
                             <xsl:when test="/atom:entry/atom:content/event:event/@region = $value or 'GLOBAL' = $value">
                                 <xsl:copy>

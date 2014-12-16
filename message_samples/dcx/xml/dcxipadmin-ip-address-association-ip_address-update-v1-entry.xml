@@ -27,8 +27,8 @@
              resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
              eventTime="2013-03-15T11:51:11Z"
              type="UPDATE"
-             dataCenter="DFW1"
-             region="DFW">
+             dataCenter="GLOBAL"
+             region="GLOBAL">
          <sample:product serviceCode="DcxIpAdmin"
                          version="1"
                          resourceType="IP_ADDRESS"

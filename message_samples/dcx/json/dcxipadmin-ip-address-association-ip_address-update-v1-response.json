@@ -3,10 +3,10 @@
         "@type": "http://www.w3.org/2005/Atom",
         "category": [
             {
-                "term": "rgn:DFW"
+                "term": "rgn:GLOBAL"
             },
             {
-                "term": "dc:DFW1"
+                "term": "dc:GLOBAL"
             },
             {
                 "term": "rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
@@ -21,7 +21,6 @@
         "content": {
             "event": {
                 "@type": "http://docs.rackspace.com/core/event",
-                "dataCenter": "DFW1",
                 "eventTime": "2013-03-15T11:51:11Z",
                 "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
                 "product": {
@@ -36,7 +35,6 @@
                     "serviceCode": "DcxIpAdmin",
                     "version": "1"
                 },
-                "region": "DFW",
                 "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
                 "type": "UPDATE",
                 "version": "2"
