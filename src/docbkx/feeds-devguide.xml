@@ -285,17 +285,17 @@
                             </tr>
                             <tr>
                                 <td>admin</td>
-                                <td>YES</td>
+                                <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
                                 <td>identity:user-admin</td>
-                                <td>YES</td>
+                                <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
                                 <td>observer</td>
-                                <td>YES</td>
+                                <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
