@@ -28,7 +28,7 @@
       xmlns:db="http://docbook.org/ns/docbook"
     xml:id="feeds-pubguide">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
-    <title>Cloud Feeds Publisher's Guide</title>
+    <title>Rackspace Cloud Feeds™ Publisher's Guide</title>
     <?rax status.bar.text="RAX INTERNAL"?>
 
 
@@ -47,7 +47,7 @@
             <holder>Rackspace US, Inc.</holder>
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
-        <productname>Rackspace Cloud Feeds</productname>
+        <productname>Rackspace Cloud Feeds™</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
@@ -56,8 +56,8 @@
             </annotation>
         </legalnotice>
         <abstract>
-            <para>This document is intended for Cloud Feeds customers who want to submit a feed to
-                be published by Cloud Feeds. </para>
+            <para>This document is intended for Rackspace Cloud Feeds™ customers who want to submit
+                a feed to be published by Cloud Feeds. </para>
         </abstract>
         <revhistory>
             <revision>
@@ -84,9 +84,10 @@
 
     <chapter xml:id="Cloud_Feeds_Overview">
         <title>Defining and publishing events</title>
-        <para>Cloud Feeds supports the publication of <emphasis role="italic">events</emphasis> that
-            are collected in a <emphasis role="italic">feed</emphasis>. Events have a specific
-            format, and you can have multiple types of events in a single feed.</para>
+        <para>Rackspace Cloud Feeds™ supports the publication of <emphasis role="italic"
+                >events</emphasis> that are collected in a <emphasis role="italic">feed</emphasis>.
+            Events have a specific format, and you can have multiple types of events in a single
+            feed.</para>
         <para>Cloud Feeds uses AtomPub to publish different types of feeds. AtomPub is based on an
             HTTP transfer of Atom-formatted representations. The Atom format is documented in the
             Atom Syndication Format.</para>

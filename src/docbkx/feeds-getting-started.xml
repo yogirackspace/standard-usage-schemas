@@ -22,7 +22,7 @@
     xmlns:xi="http://www.w3.org/2001/XInclude"
     xml:id="feeds-getting-started" version="5.0-extension RaxBook-2.0">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
-    <title>Rackspace Cloud Feeds Getting Started Guide</title>
+    <title>Rackspace Cloud Feeds™ Getting Started Guide</title>
     <?rax status.bar.text.font.size="40px"
           status.bar.text="Early Availability"?>   
     <info>
@@ -31,7 +31,7 @@
             <holder>Rackspace US, Inc.</holder>
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
-        <productname>Rackspace Cloud Feeds</productname>
+        <productname>Rackspace Cloud Feeds™</productname>
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
@@ -70,10 +70,9 @@
     </info>
     <chapter xml:id="Feeds_Overview">
         <title>Overview</title>
-        <para>This Getting Started Guide provides an introduction of
-            the Cloud Feeds product. It also teaches how to use the
-            Cloud Feeds API and to perform simple API operations. In
-            this document, you will learn the following:</para>
+        <para>This Getting Started Guide provides an introduction of the Rackspace Cloud Feeds™
+            product. It also teaches how to use the Rackspace Cloud Feeds API and to perform simple
+            API operations. In this document, you will learn the following:</para>
         <para>
             <itemizedlist>
                 <listitem>
