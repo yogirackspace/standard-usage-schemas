@@ -1,0 +1,33 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               namespace="http://docs.rackspace.com/event/autoscale"
+               version="1" type="INFO" serviceCode="autoscale">
+    <description>
+        Specifies the actions Autoscale takes on behalf of the user
+    </description>
+    <attribute name="scalingGroupId" type="string" minLength="36" maxLength="36"
+               use="required" groupBy="true" searchable="true">
+        Specifies the Scaling group ID on which the action is taken
+    </attribute>
+    <attribute name="policyId" type="string" minLength="36" maxLength="36"
+               use="optional">
+        Specifies the policy ID whose execution caused this action
+    </attribute>
+    <attribute name="webhookId" type="string" minLength="36" maxLength="36"
+               use="optional">
+        Specifies the webhook ID whose execution caused this action
+    </attribute>
+    <attribute name="desiredCapacity" type="unsignedInt" min=0 max=1000
+               use="required">
+        Specifies the desired capacity of the group
+    </attribute>
+    <attribute name="userId" type="string" use="optional">
+        Specifies the user ID in the tenant being used to execute actions
+    </attribute>
+    <attribute name="isError" type="boolean" use="optional" default="false">
+        Specifies whether this message is an error
+    </attribute>    
+    <attribute name="message" type="string" use="required">
+        Specifies the detailed message w.r.t this event
+    </attribute>    
+</productSchema>
