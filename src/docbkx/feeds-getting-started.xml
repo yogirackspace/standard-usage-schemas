@@ -988,7 +988,7 @@
                 the Atom entry you want to submit using the following
                 syntax:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events -d@<replaceable>inputFile </replaceable></programlisting>
             </para>
             <para>&lt;<emphasis role="italic">inputFile</emphasis>>
                 specifies the path to a file that contains an atom
@@ -1002,7 +1002,7 @@
             <para>The following example shows how to add a new Atom
                 entry by providing a pointer to the entry:</para>
             <para>
-                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
+                <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events -d@./cloudfiles-bandwidth-usage.xml</programlisting>
             </para>
             <para>
                 <important>
