@@ -1252,13 +1252,13 @@
                 syntax.  <emphasis role="italic">inputFile</emphasis> specifies the path to the file
                 that contains the Atom entry.</para>
                 <para>
-                    <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events –d@<replaceable>inputFile </replaceable></programlisting>
+                    <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events -d@<replaceable>inputFile </replaceable></programlisting>
                 </para>
  
                 <para>The following example shows how to add a new Atom entry by providing a pointer
                     to the entry:</para>
                 <para>
-                    <programlisting>curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events –d@./cloudfiles-bandwidth-usage.xml</programlisting>
+                    <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events -d@./cloudfiles-bandwidth-usage.xml</programlisting>
                 </para>
                 <para>
                     <important>
@@ -1302,8 +1302,8 @@
             <para>To retrieve an Atom feed or an Atom entry that was posted, submit a
                     <command>GET</command> request by using the following syntax:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
             </para>
             <para>The placeholders are defined in the following table.</para>
             <para>
@@ -1342,15 +1342,15 @@
             </para>
             <para>following is an example of a request for a feed:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
             </para>
             <para>This request returns 25 of the latest events in the nova feed from the DFW data
                 center. To make the formatting of the returned events more readable, you can submit
                 the following request:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
             </para>
             <note>
                 <para>Control and illegal characters must be escaped in the URL.</para>
@@ -1556,8 +1556,8 @@
                 example shows how to get all event types that fall under the
                 cloudsites.metered.site.usage category:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
             </para>
             <section xml:id="Filtering_using_AND_OR_NOT">
                 <title>Advanced filtering by using AND, OR, and NOT</title>
