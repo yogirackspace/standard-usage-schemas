@@ -26,8 +26,8 @@
     </attribute>
     <attribute name="isError" type="boolean" use="optional" default="false">
         Specifies whether this message is an error
-    </attribute>    
+    </attribute>
     <attribute name="message" type="string" use="required">
         Specifies the detailed message w.r.t this event
-    </attribute>    
+    </attribute>
 </productSchema>
