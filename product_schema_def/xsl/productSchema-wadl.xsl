@@ -1017,8 +1017,14 @@
                     </tgroup>               
                 </informaltable>
             </xsl:if>
-            <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
-            <programlisting language="json"><xsl:copy-of select="$json_content"/></programlisting>
+
+            <para><emphasis role="bold">XML Sample</emphasis>
+                <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
+            </para>
+            <para><emphasis role="bold">JSON Sample</emphasis>
+                <programlisting language="json"><xsl:copy-of select="$json_content"/></programlisting>
+            </para>
+
         </example>
     </xsl:template>
 
