@@ -7,27 +7,39 @@
     </description>
     <attribute name="scalingGroupId" type="string" minLength="36" maxLength="36"
                use="required" groupBy="true" searchable="true">
-        Specifies the Scaling group ID on which the action is taken
+        The Scaling group ID on which the action is taken
     </attribute>
     <attribute name="policyId" type="string" minLength="36" maxLength="36"
                use="optional">
-        Specifies the policy ID whose execution caused this action
+        The policy ID whose execution caused this action
     </attribute>
+    <attribute name="scheduledTime" type="utcDateTime" use="optional">
+        If this message is about executing scheduled policy then this will contain
+        the scheduled time of the execution
     <attribute name="webhookId" type="string" minLength="36" maxLength="36"
                use="optional">
-        Specifies the webhook ID whose execution caused this action
+        The webhook ID whose execution caused this action
     </attribute>
+    <!-- The max=1000 in desired and current can change later -->
     <attribute name="desiredCapacity" type="unsignedInt" min=0 max=1000
                use="required">
-        Specifies the desired capacity of the group
+        The desired number of servers in the group
+    </attribute>
+    <attribute name="currentCapacity" type="unsignedInt" min=0 max=1000
+               use="optional">
+        The current number of servers in the group
     </attribute>
     <attribute name="userId" type="string" use="optional">
-        Specifies the user ID in the tenant being used to execute actions
+        The user ID in the tenant being used to execute actions
     </attribute>
     <attribute name="isError" type="boolean" use="optional" default="false">
-        Specifies whether this message is an error
+        Is this message an error?
+    </attribute>
+    <attribute name="error" type="string" use="optional">
+        <!-- Is isError above necessary as one can check existence of this attribute? -->
+        Contains detail of any error represented in this message
     </attribute>
     <attribute name="message" type="string" use="required">
-        Specifies the detailed message w.r.t this event
+        The detailed message w.r.t this event
     </attribute>
 </productSchema>
