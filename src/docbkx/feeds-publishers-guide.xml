@@ -1815,6 +1815,14 @@
             <title>Generating schemas and WADL files</title>
             <para>After you have created the sample product schema, you need to perform a build to
                 generate the schemas and WADL files.</para>
+            <para>
+                <important>
+                    <para>To perform a build to generate the schemas and WADL files, you need to
+                        obtain a Saxon license and install it on your computer. You can obtain a
+                        Saxon license by contacting the Cloud Feeds team at
+                        cloudfeeds@Rackspace.com.</para>
+                </important>
+            </para>
             <para>The following items are generated during a build process.</para>
             <para>
                 <table frame="border">
@@ -1844,11 +1852,47 @@
                     </tbody>
                 </table>
             </para>
-            <para>To generate the necessary schema and WADL files, type the following command at a
-                command-line interface.</para>
-     <para>
+            <para>To generate the necessary schema and WADL files, complete the following
+                steps:</para>
+            <para>
+                <orderedlist>
+                    <listitem>
+                        <para>Install the Saxon license on your computer by setting the
+                                <code>SAXON_HOME</code> environment variable. For example, type the
+                            following at a command-line interrface:</para>
+                        <para>
+                            <programlisting>EXPORT SAXON_HOME=&lt;<replaceable>your_home_directory</replaceable>>/saxon-license. </programlisting>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>Copy the "saxon-license.lic" file that have obtained from the Cloud
+                            Feeds team to the <emphasis role="italic"
+                                >your-home-directory/saxon-license</emphasis> directory on your
+                            computer.</para>
+                        <para>
+                            <note>
+                                <para>If you encounter any errors with your build, you can also copy
+                                    the Saxon license to the <emphasis role="italic"
+                                        >saxon-ee</emphasis> directory, within your <emphasis
+                                        role="bold">.m2</emphasis> repository on your computer, for
+                                    example: <emphasis role="italic"
+                                        >~/.m2/repository/net/sf/saxon/saxon-ee/9.4.0.6/</emphasis><emphasis
+                                        role="bold">saxon-license.lic</emphasis>. For more
+                                    information, see the <link
+                                        xlink:href="https://github.com/rackerlabs/standard-usage-schemas/wiki/Developer-Set-Up-Guide"
+                                        >Developer Set Up Guide</link> on the Wiki.</para>
+                            </note>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>To start the build process, type the following command at a
+                            command-line interface.</para>
+                        <para>
                             <programlisting>$ mvn initialize</programlisting>
                         </para>
+                    </listitem>
+                </orderedlist>
+            </para>
         </section>
         <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the allfeeds.wadl file</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
                     <emphasis role="bold">allfeeds.wadl</emphasis> file.</para>
