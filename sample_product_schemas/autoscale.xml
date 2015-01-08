@@ -5,20 +5,17 @@
     <description>
         Specifies the actions Autoscale takes on behalf of the user
     </description>
-    <attribute name="scalingGroupId" type="string" minLength="36" maxLength="36"
-               use="required" groupBy="true" searchable="true">
+    <attribute name="scalingGroupId" type="UUID" use="required" searchable="true">
         The Scaling group ID on which the action is taken
     </attribute>
-    <attribute name="policyId" type="string" minLength="36" maxLength="36"
-               use="optional">
+    <attribute name="policyId" type="UUID" use="optional">
         The policy ID whose execution caused this action
     </attribute>
     <attribute name="scheduledTime" type="utcDateTime" use="optional">
         If this message is about executing scheduled policy then this will contain
         the scheduled time of the execution
     </attribute>
-    <attribute name="webhookId" type="string" minLength="36" maxLength="36"
-               use="optional">
+    <attribute name="webhookId" type="UUID" use="optional">
         The webhook ID whose execution caused this action
     </attribute>
     <!-- The max=1000 in desired and current can change later -->
