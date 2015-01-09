@@ -1857,31 +1857,27 @@
             <para>
                 <orderedlist>
                     <listitem>
-                        <para>Install the Saxon license on your computer by setting the
-                                <code>SAXON_HOME</code> environment variable. For example, type the
-                            following at a command-line interrface:</para>
+                        <para>Create a folder for the Saxon license that is named <emphasis
+                                role="italic">saxon-license</emphasis> on the home directory of your
+                            computer:</para>
                         <para>
-                            <programlisting>EXPORT SAXON_HOME=&lt;<replaceable>your_home_directory</replaceable>>/saxon-license. </programlisting>
+                            <programlisting>mkdir ~/saxon-license</programlisting>
                         </para>
                     </listitem>
                     <listitem>
-                        <para>Copy the "saxon-license.lic" file that have obtained from the Cloud
-                            Feeds team to the <emphasis role="italic"
-                                >your-home-directory/saxon-license</emphasis> directory on your
-                            computer.</para>
+                        <para>Copy the <emphasis role="italic">saxon-license.lic</emphasis> file
+                            that you have obtained from the Clouf Feeds team to the <emphasis
+                                role="italic">your-home-directory/saxon-license</emphasis>
+                            directory:</para>
                         <para>
-                            <note>
-                                <para>If you encounter any errors with your build, you can also copy
-                                    the Saxon license to the <emphasis role="italic"
-                                        >saxon-ee</emphasis> directory, within your <emphasis
-                                        role="bold">.m2</emphasis> repository on your computer, for
-                                    example: <emphasis role="italic"
-                                        >~/.m2/repository/net/sf/saxon/saxon-ee/9.4.0.6/</emphasis><emphasis
-                                        role="bold">saxon-license.lic</emphasis>. For more
-                                    information, see the <link
-                                        xlink:href="https://github.com/rackerlabs/standard-usage-schemas/wiki/Developer-Set-Up-Guide"
-                                        >Developer Set Up Guide</link> on the Wiki.</para>
-                            </note>
+                            <programlisting>cp &lt;<replaceable>path to saxon-license.lic</replaceable>> ~/saxon-license</programlisting>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para> Export the <code>SAXON_HOME</code> environment variable by typing the
+                            following at a command-line interrface:</para>
+                        <para>
+                            <programlisting>EXPORT SAXON_HOME=&lt;<replaceable>your_home_directory</replaceable>>/saxon-license. </programlisting>
                         </para>
                     </listitem>
                     <listitem>
@@ -1890,8 +1886,21 @@
                         <para>
                             <programlisting>$ mvn initialize</programlisting>
                         </para>
+                    
                     </listitem>
                 </orderedlist>
+            </para>
+            <para>
+                <note>
+                    <para>If you encounter any errors with your build, you can also copy the Saxon
+                        license to the saxon-ee director in the <emphasis role="italic"
+                            >.m2</emphasis> repository on your computer, for example: <emphasis
+                            role="italic"
+                            >~/.m2/repository/net/sf/saxon/saxon-ee/9.4.0.6/saxon-license.lic</emphasis>.
+                        For more information, see the <link
+                            xlink:href="https://github.com/rackerlabs/standard-usage-schemas/wiki/Developer-Set-Up-Guide"
+                            >Developer Set Up Guide</link> on the Wiki.</para>
+                </note>
             </para>
         </section>
         <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the allfeeds.wadl file</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
