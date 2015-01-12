@@ -539,8 +539,6 @@
        -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting></example>
                             </listitem>
                         </itemizedlist></para>
-                    <para>For more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> in the 
-                        <citetitle>Rackspace Cloud Developer Guide</citetitle>.</para>
                 </listitem>
                 <listitem>
                     <para>The token, user, and service catalog information that you receive in your
