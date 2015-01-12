@@ -1,0 +1,48 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "autoscale.autoscale.info"
+            },
+            {
+                "term": "type:autoscale.autoscale.info"
+            }
+        ],
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/autoscale/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "rel": "self"
+            }
+        ],
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "title": "autoscale",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "type": "INFO",
+                "dataCenter": "DFW1",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/autoscale",
+                    "serviceCode": "autoscale",
+                    "version": "1",
+                    "scalingGroupId": "6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                    "desiredCapacity": 0,
+                    "message": "sampleString"
+                }
+            }
+        },
+        "updated": "2013-03-01T19:42:35.507Z",
+        "published": "2013-03-01T19:42:35.507"
+    }
+}
