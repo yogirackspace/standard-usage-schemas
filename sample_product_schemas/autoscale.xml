@@ -30,10 +30,7 @@
     <attribute name="username" type="string" use="optional">
         The username in the tenant being used to execute actions
     </attribute>
-    <attribute name="error" type="string" use="optional">
-        Contains detail of any error represented in this message
-    </attribute>
     <attribute name="message" type="string" use="required">
-        The detailed message w.r.t this event
+        The human-readable detailed message w.r.t this event
     </attribute>
 </productSchema>
