@@ -27,8 +27,8 @@
                use="optional">
         The current number of servers in the group
     </attribute>
-    <attribute name="userId" type="string" use="optional">
-        The user ID in the tenant being used to execute actions
+    <attribute name="username" type="string" use="optional">
+        The username in the tenant being used to execute actions
     </attribute>
     <attribute name="error" type="string" use="optional">
         Contains detail of any error represented in this message
