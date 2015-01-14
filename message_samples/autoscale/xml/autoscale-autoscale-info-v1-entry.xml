@@ -33,7 +33,7 @@
                          scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
                          desiredCapacity="5"
                          currentCapacity="3"
-                         message="Lauching 2 servers"/>
+                         message="Launching 2 servers"/>
       </event>
    </atom:content>
 </atom:entry>

@@ -35,8 +35,9 @@
          <sample:product serviceCode="autoscale"
                          version="1"
                          scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                         desiredCapacity="0"
-                         message="sampleString"/>
+                         desiredCapacity="5"
+                         currentCapacity="3"
+                         message="Launching 2 servers"/>
       </event>
    </atom:content>   
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/autoscale/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
