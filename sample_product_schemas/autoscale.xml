@@ -18,13 +18,10 @@
     <attribute name="webhookId" type="UUID" use="optional">
         The webhook ID whose execution caused this action
     </attribute>
-    <!-- The max=1000 in desired and current can change later -->
-    <attribute name="desiredCapacity" type="unsignedInt" min="0" max="1000"
-               use="required">
+    <attribute name="desiredCapacity" type="unsignedInt" min="0" use="optional">
         The desired number of servers in the group
     </attribute>
-    <attribute name="currentCapacity" type="unsignedInt" min="0" max="1000"
-               use="optional">
+    <attribute name="currentCapacity" type="unsignedInt" min="0" use="optional">
         The current number of servers in the group
     </attribute>
     <attribute name="username" type="string" use="optional">
