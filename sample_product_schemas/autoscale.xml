@@ -5,7 +5,7 @@
     <description>
         Specifies the actions Autoscale takes on behalf of the user
     </description>
-    <attribute name="scalingGroupId" type="UUID" use="required" searchable="true">
+    <attribute name="scalingGroupId" type="UUID" use="optional" searchable="true">
         The Scaling group ID on which the action is taken
     </attribute>
     <attribute name="policyId" type="UUID" use="optional">
