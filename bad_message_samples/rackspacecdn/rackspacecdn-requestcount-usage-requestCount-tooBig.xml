@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="rackspacecdn/events"?>
+<!--
+    This example has been generated using
+    'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/rackspaceCDNRequestCount.xml -DfeedName=rackspacecdn' call.
+    Some assumptions have been made when generating this and might not be correct.  Manual modification
+    might be required for the unit tests to pass.
+
+    The assumptions:
+
+      - If the productSchema requires a 'resourceId' attribute, its value is set to
+        '4a2b42f4-6c63-11e1-815b-7fcbcf67f549'.
+      - If the productSchema has <xpathAssertion> nodes, the assertions might not be satisfied
+        by the generated content.
+      - No optional nodes or attributes are generated.
+      - Does not process the 'withEventType' and 'withResource' attributes.
+-->
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+   <atom:title>RackspaceCDN</atom:title>
+   <atom:content type="application/xml">
+      <event xmlns="http://docs.rackspace.com/core/event"
+             xmlns:sample="http://docs.rackspace.com/usage/rackspacecdn/requestcount"
+             id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+             version="2"
+             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+             tenantId="1234"
+             startTime="2013-03-15T11:51:11Z"
+             endTime="2013-03-16T00:00:00Z"
+             type="USAGE"
+             dataCenter="DFW1"
+             region="DFW">
+         <sample:product serviceCode="RackspaceCDN"
+                         version="1"
+                         resourceType="HOSTNAME"
+                         requestCount="5000000"
+                         offerModel="CDN"
+                         edgeLocation="NORTH_AMERICA"
+                         sslEnabled="true"/>
+      </event>
+   </atom:content>
+</atom:entry>
