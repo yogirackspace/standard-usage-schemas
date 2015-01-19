@@ -34,9 +34,9 @@
          <sample:product serviceCode="RackspaceCDN"
                          version="1"
                          resourceType="HOSTNAME"
-                         requestCount="5000000"
+                         requestCount="50"
                          offerModel="CDN"
-                         edgeLocation="NORTH_AMERICA"
+                         edgeLocation="invalid"
                          sslEnabled="true"/>
       </event>
    </atom:content>
