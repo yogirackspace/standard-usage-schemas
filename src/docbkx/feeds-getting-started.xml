@@ -125,7 +125,7 @@
                 it’s possible that existing implementations and formats might change. The Early
                 Access program is an opportunity for customers to work in partnership with Rackspace
                 to ensure that the implemented features align with business needs and can be used
-                with maximum efficiency.   Existing Rackspace Cloud customers are eligible to
+                with maximum efficiency. Existing Rackspace Cloud customers are eligible to
                 participate in the Cloud Feeds Early Access program. The Cloud Feeds Early Access
                 program is provided to customers subject to the Test Terms located at <link
                     xlink:href="http://www.rackspace.com/information/legal/cloud/tos "
@@ -389,9 +389,8 @@
                         in the top-right corner of the window.</para>
                 </listitem>
             </itemizedlist></para>
-        <para security="internal">
-            You can use either of the following endpoints to access the authentication service, depending whether you use a staging or a production environment:
-        </para>
+        <para security="internal">You can use either of the following endpoints to access the
+            authentication service, depending whether you use a staging or a production environment: </para>
         <itemizedlist spacing="compact" security="internal">
             <listitem>
                 <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para></listitem>
@@ -411,10 +410,9 @@
                         >&ENDPOINT-UK-20;</link></para>
             </listitem>
         </itemizedlist>
-        <para security="external"> Your account might be based in either the US or the UK;
-            this is not determined by your physical location but by
-            the location of the Rackspace retail site which was used
-            to create your account: </para>
+        <para security="external">Your account might be based in either the US or the UK; this is
+            not determined by your physical location but by the location of the Rackspace retail
+            site which was used to create your account: </para>
         <itemizedlist spacing="compact" security="external">
             <listitem>
                 <para> If your account was created via <link
@@ -509,13 +507,37 @@
         <para>The authentication token <code>id</code> is returned
             along with an <code>expires</code> attribute that
             specifies when the token expires. </para>
-        <note>
+        <note><title>Notes</title>
             <itemizedlist spacing="compact">
                 <listitem>
-                    <para>The values that you receive in your
-                        responses vary from the examples shown in this
-                        document because they are specific to your
-                        account.</para>
+                    <para>If the authentication response returns a 401 response with a request for
+                        additional credentials, your account requires multi-factor authentication.
+                        To complete the authentication process, submit a second POST token request
+                        with these multi-factor authentication credentials: <itemizedlist>
+                            <listitem>
+                                <para>The session ID value returned in the <code>WWW-Authenticate: OS-MF
+                                    sessionId</code> header parameter included in the 
+                                    response to the initial authentication
+                                    request.</para>
+                            </listitem>
+                            <listitem>
+                                <para>The passcode from the mobile phone
+                                    associated with your user account.</para>
+                                <example><title>Authentication request with multi-factor authentication credentials</title>
+                                    <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
+       -X POST \
+       -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
+       -H "X-SessionId: $SESSION_ID" \
+       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting></example>
+                            </listitem>
+                        </itemizedlist></para>
+                    <para>For more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> in the 
+                        <citetitle>Rackspace Cloud Identity Client Developer Guide</citetitle>.</para>
+                </listitem>
+                <listitem>
+                    <para>The token, user, and service catalog information that you receive in your
+                        responses vary from the examples shown in this document because they are
+                        specific to your account.</para>
                 </listitem>
                 <listitem>
                     <para>The information shown in the authentication
@@ -537,10 +559,20 @@
                         token until it expires.</para>
                 </listitem>
                 <listitem>
-                    <para>Applications should be designed to
-                        re-authenticate after receiving a 401
-                        (Unauthorized) response from a service
-                        endpoint.</para>
+                    <para>Applications should be designed to re-authenticate after receiving a 401
+                        (Unauthorized) response from a service endpoint.</para>
+                </listitem>
+                <listitem security="internal">
+                    <para>For more detailed authentication instructions, see the <link
+                            xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                            > Quick Start</link> in the <citetitle>Identity Client Developer
+                            Guide</citetitle>.</para>
+                </listitem>
+                <listitem security="external">
+                    <para>For more detailed authentication instructions and examples, see the <link
+                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                        >Quick Start</link> in the <citetitle>Identity Client Developer
+                        Guide</citetitle>.</para>
                 </listitem>
             </itemizedlist>
         </note>

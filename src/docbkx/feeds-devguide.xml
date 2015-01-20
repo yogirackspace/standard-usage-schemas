@@ -510,8 +510,33 @@
                 </example>
                 <para>The authentication token <code>id</code> is returned along with an
                         <code>expires</code> attribute that specifies when the token expires. </para>
-                <note security="external">
+                <note security="external"><title>Notes</title>
                     <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>If the authentication response returns a 401 response with a request for
+                                additional credentials, your account requires multi-factor authentication.
+                                To complete the authentication process, submit a second POST token request
+                                with these multi-factor authentication credentials: <itemizedlist>
+                                    <listitem>
+                                        <para>The session ID value returned in the <code>WWW-Authenticate: OS-MF
+                                            sessionId</code> header parameter included in the 
+                                            response to the initial authentication
+                                            request.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>The passcode from the mobile phone
+                                            associated with your user account.</para>
+                                        <example><title>Authentication request with multi-factor authentication credentials</title>
+                                            <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
+       -X POST \
+       -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
+       -H "X-SessionId: $SESSION_ID" \
+       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting></example>
+                                    </listitem>
+                                </itemizedlist></para>
+                            <para>For more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> in the 
+                            <citetitle>Rackspace Cloud Developer Guide</citetitle>.</para>
+                        </listitem>
                         <listitem>
                             <para>The values that you receive in your responses vary from the
                                 examples shown in this document because they are specific to your
@@ -868,7 +893,7 @@
                     <para>
                         <example>
                             <title>Atom content element - XML example</title>
-                            <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.json" parse="text"/></programlisting>
+                            <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
                         </example>
                     </para>
                     <para>Following is a JSON example of an Atom <code>content</code>
