@@ -1,7 +1,7 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                namespace="http://docs.rackspace.com/event/autoscale"
-               version="1" type="INFO" serviceCode="autoscale">
+               version="1" type="INFO ERROR" serviceCode="autoscale">
     <description>
         Specifies the actions Autoscale takes on behalf of the user
     </description>
