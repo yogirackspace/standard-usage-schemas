@@ -185,39 +185,11 @@
                 key. </para>
             <section xml:id="AuthRoles-d1e699">
                 <title>Authorization roles required for Cloud Feeds access</title>
-                <para>
-                    <table frame="all" security="external">
-                        <title>Roles</title>
-                        <tgroup cols="2">
-                            <colspec colname="c1" colnum="1" colwidth="1*"/>
-                            <colspec colname="c2" colnum="2" colwidth="2.57*"/>
-                            <thead>
-                                <row>
-                                    <entry>Role name</entry>
-                                    <entry>Access</entry>
-                                </row>
-                            </thead>
-                            <tbody>
-                                <row>
-                                    <entry>cloudfeeds:observer </entry>
-                                    <entry>Able to read Cloud Feeds data for a single tenant
-                                        (GET).</entry>
-                                </row>
-                                <row>
-                                    <entry>identity:user-admin </entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
-                                </row>
-                                <row>
-                                    <entry>admin</entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
-                                </row>
-                                <row>
-                                    <entry>observer</entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
-                                </row>
-                            </tbody>
-                        </tgroup>
-                    </table>
+                <para security="external">To read Cloud Feeds data for a single tenant (<command>GET
+                    </command>operations), a user must be assigned the <emphasis role="italic"
+                        >cloudfeeds:observer role</emphasis>.</para>    
+    <para security="internal">The following table lists the authorization roles that are required
+                    for Cloud Feeds access for internal customers.</para>
                     <table frame="all" security="internal">
                         <title>Roles</title>
                         <tgroup cols="2">
@@ -231,31 +203,21 @@
                             </thead>
                             <tbody>
                                 <row>
-                                    <entry>cloudfeeds:observer </entry>
+                                    <entry><emphasis role="italic">cloudfeeds:observer</emphasis>
+                                </entry>
                                     <entry>Able to read Cloud Feeds data for a single tenant
-                                        (GET).</entry>
+                                        (<command>GET</command>).</entry>
                                 </row>
                                 <row>
-                                    <entry>cloudfeeds:service-admin</entry>
+                                    <entry><emphasis role="italic"
+                                        >cloudfeeds:service-admin</emphasis></entry>
                                     <entry>Able to read and write Cloud Feeds data for all tenants
-                                        (GET/POST).</entry>
-                                </row>
-                                <row>
-                                    <entry>identity:user-admin </entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
-                                </row>
-                                <row>
-                                    <entry>admin</entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
-                                </row>
-                                <row>
-                                    <entry>observer</entry>
-                                    <entry>The same capabilities as cloudfeeds:observer.</entry>
+                                        (<command>GET</command>/<command>POST</command>).</entry>
                                 </row>
                             </tbody>
                         </tgroup>
                     </table>
-                </para>
+                
             </section>
             <section xml:id="RBAC-Permissions-Cross-Ref-d1e001" version="5.0" xmlns:wadl="http://wadl.dev.java.net/2009/02">
                 <title>RBAC permissions cross-reference to Cloud Feeds API operations</title>
@@ -284,27 +246,27 @@
                                 <td><command>POST</command></td>
                             </tr>
                             <tr>
-                                <td>admin</td>
+                                <td><emphasis role="italic">admin</emphasis></td>
                                 <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
-                                <td>identity:user-admin</td>
+                                <td><emphasis role="italic">identity:user-admin</emphasis></td>
                                 <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
-                                <td>observer</td>
+                                <td><emphasis role="italic">observer</emphasis></td>
                                 <td>NO</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
-                                <td>cloudfeeds:observer</td>
+                                <td><emphasis role="italic">cloudfeeds:observer</emphasis></td>
                                 <td>YES</td>
                                 <td>NO</td>
                             </tr>
                             <tr>
-                                <td>cloudfeeds:service-admin</td>
+                                <td><emphasis role="italic">cloudfeeds:service-admin</emphasis></td>
                                 <td>YES</td>
                                 <td>YES</td>
                             </tr>
