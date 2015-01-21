@@ -156,7 +156,7 @@
                   path="functest1/events" 
                   type="wadl/feed.wadl#AtomFeed
                         wadl/product.wadl#AtomHopper wadl/feed.wadl#TenantAtomFeed
-                        wadl/product.wadl#autoscale wadl/product.wadl#autoscaleTenant
+                        wadl/product.wadl#Autoscale wadl/product.wadl#AutoscaleTenant
                         wadl/product.wadl#BigData wadl/product.wadl#BigDataSummary
                         wadl/product.wadl#BigDataTenant wadl/product.wadl#BigDataSummaryTenant
                         wadl/product.wadl#BillingService
@@ -205,7 +205,7 @@
                   type="wadl/feed.wadl#AtomFeed 
                         wadl/feed.wadl#Validated
                         wadl/feed.wadl#TenantAtomFeed
-                        wadl/product.wadl#autoscale wadl/product.wadl#autoscaleTenant
+                        wadl/product.wadl#Autoscale wadl/product.wadl#AutoscaleTenant
                         wadl/product.wadl#BigDataTenant wadl/product.wadl#BigDataSummaryTenant
                         wadl/product.wadl#CloudBackupTenant wadl/product.wadl#CloudBackupSummaryTenant
                         wadl/product.wadl#CloudBlockStorage wadl/product.wadl#CloudBlockStorageSummaryTenant
