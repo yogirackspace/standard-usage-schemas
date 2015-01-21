@@ -343,6 +343,7 @@
             <enumeration value="DOWN"/>
             <enumeration value="INFO"/>
             <enumeration value="EXTENDED"/>
+            <enumeration value="ERROR"/>
         </restriction>
     </simpleType>
 

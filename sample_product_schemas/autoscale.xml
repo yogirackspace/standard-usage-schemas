@@ -1,0 +1,33 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               namespace="http://docs.rackspace.com/event/autoscale"
+               version="1" type="INFO ERROR" serviceCode="Autoscale">
+    <description>
+        Specifies the actions Autoscale takes on behalf of the user
+    </description>
+    <attribute name="scalingGroupId" type="UUID" use="optional" searchable="true">
+        The Scaling group ID on which the action is taken
+    </attribute>
+    <attribute name="policyId" type="UUID" use="optional">
+        The policy ID whose execution caused this action
+    </attribute>
+    <attribute name="scheduledTime" type="utcDateTime" use="optional">
+        If this message is about executing scheduled policy then this will contain
+        the scheduled time of the execution
+    </attribute>
+    <attribute name="webhookId" type="UUID" use="optional">
+        The webhook ID whose execution caused this action
+    </attribute>
+    <attribute name="desiredCapacity" type="unsignedInt" min="0" use="optional">
+        The desired number of servers in the group
+    </attribute>
+    <attribute name="currentCapacity" type="unsignedInt" min="0" use="optional">
+        The current number of servers in the group
+    </attribute>
+    <attribute name="username" type="string" use="optional">
+        The username in the tenant being used to execute actions
+    </attribute>
+    <attribute name="message" type="string" use="required">
+        The human-readable detailed message w.r.t this event
+    </attribute>
+</productSchema>
