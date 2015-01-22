@@ -103,6 +103,9 @@
         <resource id="payment_events"
                   path="payment/events"  
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#PaymentService"/>
+        <resource id="rackspacecdn_events"
+                  path="rackspacecdn/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDN"/>
         <resource id="queues_events"
                   path="queues/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesTenant"/>
@@ -193,6 +196,7 @@
                         wadl/product.wadl#NetDevice
                         wadl/product.wadl#NewRelic
                         wadl/product.wadl#PaymentService
+                        wadl/product.wadl#RackspaceCDN wadl/product.wadl#RackspaceCDNSummary
                         wadl/product.wadl#RHEL
                         wadl/product.wadl#RHELTenant
                         wadl/product.wadl#Ssl
@@ -298,6 +302,9 @@
                       path="nova/events"
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersOpenStackSummary wadl/product.wadl#RHELSummary
                             wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudServersOpenStackSummaryTenant wadl/product.wadl#RHELSummaryTenant"/>
+            <resource id="rackspacecdn_usagesummary_events"
+                      path="rackspacecdn/events"
+                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDNSummary"/>
             <resource id="queues_usagesummary_events"
                       path="queues/events"
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueuesSummary wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesSummaryTenant"/>

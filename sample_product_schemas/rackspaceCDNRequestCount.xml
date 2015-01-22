@@ -1,0 +1,36 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/usage/rackspacecdn/requestcount"
+               serviceCode="RackspaceCDN"
+               version="1"
+               resourceTypes="HOSTNAME">
+    <description>
+        Specifies the CDN requests usage information.
+    </description>
+    <attribute name="requestCount"
+               type="unsignedLong"
+               use="required"
+               aggregateFunction="SUM"
+               unitOfMeasure="COUNT">
+        Specifies the amount of CDN requests.
+    </attribute>
+    <attribute name="offerModel"
+               type="string"
+               use="required"
+               groupBy="true"
+               allowedValues="CDN CDN_PLUS">
+        Specifies the offer model.
+    </attribute>
+    <attribute name="edgeLocation"
+               type="string"
+               use="required"
+               groupBy="true"
+               allowedValues="NORTH_AMERICA EMEA APAC INDIA JAPAN AUSTRALIA SOUTH_AMERICA">
+        Specifies the edge location.
+    </attribute>
+    <attribute name="sslEnabled"
+               type="boolean"
+               use="required"
+               groupBy="true">
+        Was SSL usage enabled.
+    </attribute>
+</productSchema>

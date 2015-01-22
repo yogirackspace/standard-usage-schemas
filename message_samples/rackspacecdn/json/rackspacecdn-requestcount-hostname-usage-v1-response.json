@@ -1,0 +1,59 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:1234"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+            },
+            {
+                "term": "rackspacecdn.requestcount.hostname.usage"
+            },
+            {
+                "term": "type:rackspacecdn.requestcount.hostname.usage"
+            }
+        ],
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/rackspacecdn/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "rel": "self"
+            }
+        ],
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
+        "title": "RackspaceCDN",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "tenantId": "1234",
+                "startTime": "2013-03-15T11:51:11Z",
+                "endTime": "2013-03-16T00:00:00Z",
+                "type": "USAGE",
+                "dataCenter": "DFW1",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/rackspacecdn/requestcount",
+                    "serviceCode": "RackspaceCDN",
+                    "version": "1",
+                    "resourceType": "HOSTNAME",
+                    "requestCount": 44,
+                    "offerModel": "CDN",
+                    "edgeLocation": "NORTH_AMERICA",
+                    "sslEnabled": true
+                }
+            }
+        },
+        "updated": "2013-03-01T19:42:35.507Z",
+        "published": "2013-03-01T19:42:35.507"
+    }
+}

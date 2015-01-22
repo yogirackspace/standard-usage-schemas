@@ -224,6 +224,13 @@
             <resource href="../../allfeeds.wadl#payment_events_getEntry_PaymentService"/>
         </resources>
     </section>
+    <section xml:id="rackspacecdn.product">
+        <title>RackspaceCDN</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#rackspacecdn_events"/>
+            <resource href="../../allfeeds.wadl#rackspacecdn_events_getEntry_RackspaceCDN"/>
+        </resources>
+    </section>
     <section xml:id="ssl.product">
       <title>SSL</title>
       <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -360,6 +367,14 @@
         <resources xmlns="http://wadl.dev.java.net/2009/02">
             <resource href="../../allfeeds.wadl#glance_usagesummary_events"/>
             <resource href="../../allfeeds.wadl#glance_usagesummary_events_getEntry_GlanceSummary"/>
+        </resources>
+    </section>
+
+    <section xml:id="usagesummaryrackspacecdn.product">
+        <title>Usage Summary RackspaceCDN</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#rackspacecdn_usagesummary_events"/>
+            <resource href="../../allfeeds.wadl#rackspacecdn_usagesummary_events_getEntry_RackspaceCDNSummary"/>
         </resources>
     </section>
 
