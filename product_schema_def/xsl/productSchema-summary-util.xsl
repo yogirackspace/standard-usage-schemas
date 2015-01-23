@@ -24,7 +24,7 @@
         <xsl:param name="groupBy"/>
 
         <xsl:choose>
-            <xsl:when test="$summary and $use = 'required'">
+            <xsl:when test="$summary and ($use = 'required' or $use = 'synthesized')">
                 <xsl:value-of select="if(($aggregate = 'NONE' or not($aggregate)) and ($groupBy = false() or not($groupBy)) ) then 'optional' else 'required'" />
             </xsl:when>
             <xsl:otherwise>

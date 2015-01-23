@@ -43,8 +43,12 @@
                          serviceCode="CloudLoadBalancers"
                          version="1"
                          resourceType="LOADBALANCER"
+                         avgConcurrentConnectionsSum="1"
+                         publicBandWidthInSum="1000"
                          bandWidthOut="1000"
-                         bandWidthOutSsl="1000"/>
+                         bandWidthOutSsl="1000"
+                         publicBandWidthOutSum="1000"
+                         hasSSLConnection="true"/>
       </event>
    </atom:content>
 </atom:entry>

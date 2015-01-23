@@ -14,7 +14,7 @@
 
     <xsl:output method="xml" encoding="UTF-8"/>
 
-    <xsl:template match="bigdata:product">
+    <xsl:template match="bigdata:product[parent::node()[@type = 'USAGE']]">
         <xsl:copy>
             <xsl:attribute name="aggregatedClusterDuration"
                            select="xsd:integer((xsd:dateTime(../@endTime) - xsd:dateTime(../@startTime))

@@ -369,7 +369,7 @@
             <param name="checkSynthesized_{$attributeName}_{$version}"
                    style="plain"
                    required="true"
-                   path="not(/atom:entry/atom:content/event:event/{$ns}:product[@version='{$version}']/@{$attributeName})"
+                   path="not(/atom:entry/atom:content/event:event[@type='USAGE']/{$ns}:product[@version='{$version}']/@{$attributeName})"
                    rax:message="The synthesized attribute '{$attributeName}' should not be included in the original event."/>
         </xsl:for-each>
     </xsl:template>

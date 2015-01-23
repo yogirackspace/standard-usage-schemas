@@ -94,7 +94,7 @@
                             <xsl:if test="$resource_type!=''">
                                 <xsl:attribute name="resourceType"><xsl:value-of select="$resource_type"/></xsl:attribute>
                             </xsl:if>
-                            <xsl:apply-templates select="schema:attribute[not(@groupBy=false() and @aggregateFunction='NONE') and @use='required']"/>
+                            <xsl:apply-templates select="schema:attribute[not(@groupBy=false() and @aggregateFunction='NONE') and (@use='required' or @use='synthesized')]"/>
                             <xsl:apply-templates select="schema:attributeGroup">
                                 <xsl:with-param name="namespace" select="$product_namespace"/>
                             </xsl:apply-templates>
@@ -120,7 +120,7 @@
         </xsl:for-each>
     </xsl:template>
 
-    <xsl:template match="schema:attribute[not(@groupBy=false() and @aggregateFunction='NONE') and @use='required']">
+    <xsl:template match="schema:attribute[not(@groupBy=false() and @aggregateFunction='NONE') and  (@use='required' or @use='synthesized')]">
         <xsl:variable name="type" select="@type[1]"/>
         
         <xsl:attribute name="{@name}">
