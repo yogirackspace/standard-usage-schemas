@@ -14,7 +14,7 @@
 
     <xsl:output method="xml" encoding="UTF-8"/>
 
-    <xsl:template match="lbaas:product">
+    <xsl:template match="lbaas:product[parent::node()[@type = 'USAGE']]">
         <xsl:copy>
             <xsl:attribute name="avgConcurrentConnectionsSum"
                            select="xsd:double(@avgConcurrentConnections) + xsd:double(@avgConcurrentConnectionsSsl)"/>

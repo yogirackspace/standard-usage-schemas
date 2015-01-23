@@ -427,8 +427,11 @@
             <xsl:attribute name="name" select="@name"/>
             <xsl:if test="@use">
                 <xsl:choose>
-                    <xsl:when test="@use='synthesized'">
-                       <xsl:attribute name="use">optional</xsl:attribute>
+                    <xsl:when test="@use='synthesized' and not($usage-summary)">
+                        <xsl:attribute name="use">optional</xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="@use='synthesized' and $usage-summary">
+                        <xsl:attribute name="use">required</xsl:attribute>
                     </xsl:when>
                     <xsl:when test="@use='required' and (@withEventType or @withResource)">
                        <xsl:attribute name="use">optional</xsl:attribute>

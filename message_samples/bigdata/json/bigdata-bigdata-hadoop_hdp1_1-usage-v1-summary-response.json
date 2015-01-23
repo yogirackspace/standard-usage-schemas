@@ -21,44 +21,44 @@
                 "term": "type:bigdata.bigdata.hadoop_hdp1_1.usage_summary"
             }
         ],
-        "content": {
-            "event": {
-                "@type": "http://docs.rackspace.com/core/event",
-                "dataCenter": "DFW1",
-                "duration": "PT20M",
-                "endTime": "2013-03-15T23:59:59Z",
-                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
-                "product": {
-                    "@type": "http://docs.rackspace.com/usage/bigdata",
-                    "aggregatedClusterDuration": 43728,
-                    "bandwidthIn": 1000,
-                    "bandwidthOut": 1000,
-                    "flavorId": "a",
-                    "flavorName": "a",
-                    "numberServersInCluster": 1,
-                    "resourceType": "HADOOP_HDP1_1",
-                    "serviceCode": "BigData",
-                    "summary": "true",
-                    "version": "1"
-                },
-                "rackspaceAccountNumber": "020-123456",
-                "region": "DFW",
-                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
-                "startTime": "2013-03-15T11:51:11Z",
-                "tenantId": "123456",
-                "type": "USAGE_SUMMARY",
-                "version": "1"
-            }
-        },
-        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
         "link": [
             {
                 "href": "https://ord.feeds.api.rackspacecloud.com/bigdata/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
                 "rel": "self"
             }
         ],
-        "published": "2013-03-01T19:42:35.507",
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
         "title": "BigData Summary",
-        "updated": "2013-03-01T19:42:35.507Z"
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "tenantId": "123456",
+                "rackspaceAccountNumber": "020-123456",
+                "startTime": "2013-03-15T11:51:11Z",
+                "endTime": "2013-03-16T00:00:00Z",
+                "duration": "PT20M",
+                "type": "USAGE_SUMMARY",
+                "dataCenter": "DFW1",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/bigdata",
+                    "summary": "true",
+                    "serviceCode": "BigData",
+                    "version": "1",
+                    "resourceType": "HADOOP_HDP1_1",
+                    "flavorId": "a",
+                    "flavorName": "a",
+                    "numberServersInCluster": 1,
+                    "aggregatedClusterDuration": 1000,
+                    "bandwidthIn": 1000,
+                    "bandwidthOut": 1000
+                }
+            }
+        },
+        "updated": "2013-03-01T19:42:35.507Z",
+        "published": "2013-03-01T19:42:35.507"
     }
 }
