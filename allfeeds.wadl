@@ -105,10 +105,12 @@
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#PaymentService"/>
         <resource id="rackspacecdn_events"
                   path="rackspacecdn/events"
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDN"/>
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDN 
+                        wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#RackspaceCDNTenant"/>
         <resource id="queues_events"
                   path="queues/events" 
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesTenant"/>
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues 
+                        wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesTenant"/>
         <resource id="servers_events"
                   path="servers/events" 
                   type="wadl/feed.wadl#AtomFeedAllowJson 
@@ -197,6 +199,7 @@
                         wadl/product.wadl#NewRelic
                         wadl/product.wadl#PaymentService
                         wadl/product.wadl#RackspaceCDN wadl/product.wadl#RackspaceCDNSummary
+                        wadl/product.wadl#RackspaceCDNTenant wadl/product.wadl#RackspaceCDNSummaryTenant
                         wadl/product.wadl#RHEL
                         wadl/product.wadl#RHELTenant
                         wadl/product.wadl#Ssl
@@ -304,10 +307,12 @@
                             wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudServersOpenStackSummaryTenant wadl/product.wadl#RHELSummaryTenant"/>
             <resource id="rackspacecdn_usagesummary_events"
                       path="rackspacecdn/events"
-                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDNSummary"/>
+                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDNSummary
+                            wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#RackspaceCDNSummaryTenant"/>
             <resource id="queues_usagesummary_events"
                       path="queues/events"
-                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueuesSummary wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesSummaryTenant"/>
+                      type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueuesSummary 
+                            wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesSummaryTenant"/>
             <resource id="servers_usagesummary_events"
                       path="servers/events"
                       type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudServersSummary wadl/product.wadl#RHELSummary
