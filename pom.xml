@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
@@ -120,18 +121,13 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.log4j.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <parent>
-        <groupId>com.rackspace.cloud.api</groupId>
-        <artifactId>rackspace-docs-parent</artifactId>
-        <version>1.0.0</version>
-    </parent>
     <build>
         <resources>
             <resource>
@@ -149,7 +145,6 @@
                        Execute sample generation for widget as a unit test for
                        sample generation
                     -->
-
                     <execution>
                         <id>generate-samples-test-1</id>
                         <phase>generate-sources</phase>
@@ -252,14 +247,14 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${basedir}/target/xslt-artifacts</outputDirectory>
-                            <resources>          
+                            <resources>
                                 <resource>
                                     <directory>src/main/xsl</directory>
                                     <includes>
                                         <include>xml2json-feeds.xsl</include>
                                     </includes>
                                 </resource>
-                            </resources>              
+                            </resources>
                         </configuration>
                     </execution>
                 </executions>
@@ -296,7 +291,8 @@
                                         </parameter>
                                     </parameters>
                                     <fileMappers>
-                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                        <fileMapper
+                                                implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                             <pattern>pom.xml</pattern>
                                             <replacement>usage.xsd</replacement>
                                         </fileMapper>
@@ -313,7 +309,8 @@
                                         <include>pom.xml</include>
                                     </includes>
                                     <outputDir>${basedir}/target/xslt-artifacts</outputDir>
-                                    <stylesheet>${basedir}/src/main/xsl/productSchema-generate-nonStringAttrs.xsl</stylesheet>
+                                    <stylesheet>${basedir}/src/main/xsl/productSchema-generate-nonStringAttrs.xsl
+                                    </stylesheet>
                                     <parameters>
                                         <parameter>
                                             <name>schemaDirectory</name>
@@ -321,7 +318,8 @@
                                         </parameter>
                                     </parameters>
                                     <fileMappers>
-                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                        <fileMapper
+                                                implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                             <pattern>pom.xml</pattern>
                                             <replacement>nonStringAttrs.xsl</replacement>
                                         </fileMapper>
@@ -332,11 +330,11 @@
                     </execution>
                 </executions>
                 <dependencies>
-                  <dependency>
-                    <groupId>net.sf.saxon</groupId>
-                    <artifactId>Saxon-HE</artifactId>
-                    <version>9.4.0.6</version>
-                  </dependency>
+                    <dependency>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>Saxon-HE</artifactId>
+                        <version>9.4.0.6</version>
+                    </dependency>
                 </dependencies>
             </plugin>
             <plugin>
@@ -512,96 +510,96 @@
                             <description>Standard Usage Schema</description>
                             <prefix>/etc/repose</prefix>
                             <release>1</release>
-                    <mappings>
-                    <mapping>
-                        <directory>/etc/repose/usage-schema</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/repose/usage-schema/wadl</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                        <sources>
-                           <source>
-                            <location>wadl</location>
-                        </source>
-                        </sources>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/cloudfeeds/translation</directory>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/cloudfeeds/translation</directory>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                        <sources>
-                            <source>
-                                <location>target/xslt-artifacts/rm_private_attrs_for_obs.xsl</location>
-                            </source>
-                            <source>
-                                <location>target/xslt-artifacts/nonStringAttrs.xsl</location>
-                            </source>
-                            <source>
-                                <location>target/xslt-artifacts/xml2json-feeds.xsl</location>
-                            </source>
-                        </sources>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/repose/usage-schema/core_xsd</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                        <sources>
-                        <source>
-                            <location>core_xsd</location>
-                        </source>
-                        </sources>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/repose/usage-schema</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>444</filemode>
-                        <configuration>true</configuration>
-                        <sources>
-                            <source>
-                                <location>allfeeds.wadl</location>
-                            </source>
-                        </sources>
-                    </mapping>
-                    <mapping>
-                        <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
-                        <username>repose</username>
-                        <groupname>repose</groupname>
-                        <!-- Modify file permissions as needed -->
-                        <filemode>755</filemode>
-                        <configuration>true</configuration>
-                        <directoryIncluded>true</directoryIncluded>
-                        <sources>
-                        <source>
-                            <location>generated_product_xsds</location>
-                        </source>
-                        </sources>
-                    </mapping>
+                            <mappings>
+                                <mapping>
+                                    <directory>/etc/repose/usage-schema</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/repose/usage-schema/wadl</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                    <sources>
+                                        <source>
+                                            <location>wadl</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/cloudfeeds/translation</directory>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/cloudfeeds/translation</directory>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                    <sources>
+                                        <source>
+                                            <location>target/xslt-artifacts/rm_private_attrs_for_obs.xsl</location>
+                                        </source>
+                                        <source>
+                                            <location>target/xslt-artifacts/nonStringAttrs.xsl</location>
+                                        </source>
+                                        <source>
+                                            <location>target/xslt-artifacts/xml2json-feeds.xsl</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/repose/usage-schema/core_xsd</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                    <sources>
+                                        <source>
+                                            <location>core_xsd</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/repose/usage-schema</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>444</filemode>
+                                    <configuration>true</configuration>
+                                    <sources>
+                                        <source>
+                                            <location>allfeeds.wadl</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
+                                    <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>755</filemode>
+                                    <configuration>true</configuration>
+                                    <directoryIncluded>true</directoryIncluded>
+                                    <sources>
+                                        <source>
+                                            <location>generated_product_xsds</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
                             </mappings>
                             <!-- Not sure we want to blow away this dir everytime
                             <postremoveScriptlet>
@@ -612,33 +610,6 @@
                                 <require>repose</require>
                             </requires>
                         </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>checkin-release-notes</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId> 
-                        <artifactId>maven-scm-plugin</artifactId> 
-                        <version>1.8.1</version> 
-                        <executions>
-                            <execution>
-                                <id>checkin-release-notes</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>checkin</goal> 
-                                </goals>
-                                <configuration>
-                                    <connectionType>connection</connectionType>
-                                    <message>update release notes</message> 
-                                    <includes>${basedir}/releases.md</includes>
-                                    <pushChanges>true</pushChanges>
-                                </configuration>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
@@ -681,228 +652,238 @@
                 </plugins>
             </build>
         </profile>
-    <profile>
-      <id>generate-docs</id>
-        <activation>
-        <property>
-          <name>generate.docs</name>
-        </property>
-          </activation>
-      <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>xml-maven-plugin</artifactId>
-                <version>1.0</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>transform</goal>
-                        </goals>
+        <profile>
+            <id>generate-docs</id>
+            <activation>
+                <property>
+                    <name>generate.docs</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>xml-maven-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>transform</goal>
+                                </goals>
+                                <configuration>
+                                    <transformationSets>
+                                        <transformationSet>
+                                            <dir>${basedir}/src/docbkx</dir>
+                                            <includes>
+                                                <include>api-operations-internal.xml</include>
+                                                <include>api-operations-external.xml</include>
+                                            </includes>
+                                            <outputDir>${project.build.directory}/generated-resources/feed-table
+                                            </outputDir>
+                                            <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
+                                            <fileMappers>
+                                                <fileMapper
+                                                        implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                                    <pattern>api-operations-(.+).xml</pattern>
+                                                    <replacement>feed-table-$1.xml</replacement>
+                                                </fileMapper>
+                                            </fileMappers>
+                                        </transformationSet>
+                                    </transformationSets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.sf.saxon</groupId>
+                                <artifactId>Saxon-HE</artifactId>
+                                <version>9.4.0.6</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.rackspace.cloud.api</groupId>
+                        <artifactId>rackspace-docs-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>devguide-external</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <includes>feeds-devguide.xml</includes>
+                                    <security>external</security>
+                                    <enableDisqus>internet</enableDisqus>
+                                    <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                                    <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-devguide/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>devguide-internal</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <includes>feeds-devguide.xml</includes>
+                                    <security>internal</security>
+                                    <enableDisqus>intranet</enableDisqus>
+                                    <enableGoogleAnalytics>0</enableGoogleAnalytics>
+                                    <canonicalUrlBase>
+                                        http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>publishers-guide-internal</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <includes>feeds-publishers-guide.xml</includes>
+                                    <security>internal</security>
+                                    <enableDisqus>intranet</enableDisqus>
+                                    <enableGoogleAnalytics>0</enableGoogleAnalytics>
+                                    <canonicalUrlBase>
+                                        http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-publishers-guide/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>releasenotes</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <!--        <phase>generate-sources</phase>-->
+                                <configuration>
+                                    <includes>feeds-releasenotes.xml</includes>
+                                    <canonicalUrlBase>
+                                        http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>gettingstarted-external</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <includes>feeds-getting-started.xml</includes>
+                                    <security>external</security>
+                                    <enableDisqus>internet</enableDisqus>
+                                    <enableGoogleAnalytics>1</enableGoogleAnalytics>
+                                    <canonicalUrlBase>
+                                        http://docs.rackspace.com/feeds/api/v1.0/feeds-getting-started/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>gettingstarted-internal</id>
+                                <goals>
+                                    <goal>generate-webhelp</goal>
+                                </goals>
+                                <phase>generate-sources</phase>
+                                <configuration>
+                                    <includes>feeds-getting-started.xml</includes>
+                                    <security>internal</security>
+                                    <enableDisqus>intranet</enableDisqus>
+                                    <enableGoogleAnalytics>0</enableGoogleAnalytics>
+                                    <canonicalUrlBase>
+                                        http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content
+                                    </canonicalUrlBase>
+                                </configuration>
+                            </execution>
+                        </executions>
                         <configuration>
-                            <transformationSets>
-                                <transformationSet>
-                                    <dir>${basedir}/src/docbkx</dir>
-                                    <includes>
-                                        <include>api-operations-internal.xml</include>
-                                        <include>api-operations-external.xml</include>
-                                    </includes>
-                                    <outputDir>${project.build.directory}/generated-resources/feed-table</outputDir>
-                                    <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
-                                    <fileMappers>
-                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
-                                            <pattern>api-operations-(.+).xml</pattern>
-                                            <replacement>feed-table-$1.xml</replacement>
-                                        </fileMapper>
-                                    </fileMappers>
-                                </transformationSet>
-                            </transformationSets>
+                            <branding>rackspace</branding>
+                            <feedbackEmail>constanze.kratel@rackspace.com</feedbackEmail>
+                            <showXslMessages>true</showXslMessages>
                         </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sf.saxon</groupId>
-                        <artifactId>Saxon-HE</artifactId>
-                        <version>9.4.0.6</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-          <plugin>
-        <groupId>com.rackspace.cloud.api</groupId>
-        <artifactId>olink-maven-plugin</artifactId>
-          </plugin>
-          <plugin>
-                <groupId>com.rackspace.cloud.api</groupId>
-                <artifactId>rackspace-docs-maven-plugin</artifactId>
-                <executions>
-                  <execution>
-                    <id>devguide-external</id>
-                    <goals>
-                      <goal>generate-webhelp</goal>
-                    </goals>
-                    <phase>generate-sources</phase>
-                    <configuration>
-                      <includes>feeds-devguide.xml</includes>
-              <security>external</security>
-              <enableDisqus>internet</enableDisqus>
-              <enableGoogleAnalytics>1</enableGoogleAnalytics>
-                      <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
-                    </configuration>            
-                  </execution>
-                  <execution>
-                    <id>devguide-internal</id>
-                    <goals>
-                      <goal>generate-webhelp</goal>
-                    </goals>
-                    <phase>generate-sources</phase>
-                    <configuration>
-                      <includes>feeds-devguide.xml</includes>
-              <security>internal</security>
-              <enableDisqus>intranet</enableDisqus>
-              <enableGoogleAnalytics>0</enableGoogleAnalytics>
-                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-devguide/content</canonicalUrlBase>
-                    </configuration>
-                  </execution>
-                    <execution>
-                        <id>publishers-guide-internal</id>
-                        <goals>
-                            <goal>generate-webhelp</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>2.3</version>
                         <configuration>
-                            <includes>feeds-publishers-guide.xml</includes>
-                            <security>internal</security>
-                            <enableDisqus>intranet</enableDisqus>
-                            <enableGoogleAnalytics>0</enableGoogleAnalytics>
-                            <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-publishers-guide/content</canonicalUrlBase>
-                        </configuration>            
-                    </execution>
-                  <execution>
-                    <id>releasenotes</id>
-                    <goals>
-                      <goal>generate-webhelp</goal>
-                    </goals>
-            <!--        <phase>generate-sources</phase>-->
-                    <configuration>
-                      <includes>feeds-releasenotes.xml</includes>
-                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-releasenotes/content</canonicalUrlBase>
-                    </configuration>
-                  </execution>
-                  <execution>
-                    <id>gettingstarted-external</id>
-                    <goals>
-                      <goal>generate-webhelp</goal>
-                    </goals>
-                    <phase>generate-sources</phase>
-                    <configuration>
-                      <includes>feeds-getting-started.xml</includes>
-              <security>external</security>
-              <enableDisqus>internet</enableDisqus>
-              <enableGoogleAnalytics>1</enableGoogleAnalytics>
-                      <canonicalUrlBase>http://docs.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
-                    </configuration>
-                  </execution>
-                  <execution>
-                    <id>gettingstarted-internal</id>
-                    <goals>
-                      <goal>generate-webhelp</goal>
-                    </goals>
-                    <phase>generate-sources</phase>
-                    <configuration>
-                      <includes>feeds-getting-started.xml</includes>
-                        <security>internal</security>
-                        <enableDisqus>intranet</enableDisqus>
-              <enableGoogleAnalytics>0</enableGoogleAnalytics>
-                      <canonicalUrlBase>http://docs-internal.rackspace.com/feeds/api/v1.0/feeds-getting-started/content</canonicalUrlBase>
-                    </configuration>
-                  </execution>
-                </executions>
-                <configuration>
-                  <branding>rackspace</branding>
-                  <feedbackEmail>constanze.kratel@rackspace.com</feedbackEmail>
-          <showXslMessages>true</showXslMessages>
-                </configuration>
-          </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/assembly/includewars.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>assembly</id>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <phase>process-sources</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>generate-samples</id>
-      <build>
-        <plugins>
-          <plugin>
-        <groupId>com.rackspace.cloud.api</groupId>
-        <artifactId>olink-maven-plugin</artifactId>
-        <version>${olink-maven-plugin.version}</version>
-        <executions>
-          <execution>
+                            <descriptors>
+                                <descriptor>src/assembly/includewars.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>assembly</id>
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                                <phase>process-sources</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>generate-samples</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>olink</goal>
-            </goals>
-            <configuration>
-              <pipeline>src/xpl/generateSamples.xpl</pipeline>
-              <inputs>
-                  <source>${productSchema}</source>
-              </inputs>
-              <parameters>
-                  <parameters>
-                      base_feed_name=${feedName}
-                      input_path=${productSchema}
-                  </parameters>
-              </parameters>
-            </configuration>
-          </execution>
-        </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.codehaus.gmaven</groupId>
-            <artifactId>gmaven-plugin</artifactId>
-            <version>${gmaven.version}</version>
-            <executions>
-              <execution>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>execute</goal>
-                </goals>
-                <configuration>
-                  <providerSelection>1.8</providerSelection>
-                  <source>
-                      import groovy.json.JsonOutput
-                      println "gmaven:  prettifying json samples in ${basedir}/message_samples/${feedName}/json/"
-                      new File("${basedir}/message_samples/${feedName}/json").eachFile() {
-                        file -&gt;
-                          file.text = JsonOutput.prettyPrint(file.text)
-                      }
-                  </source>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-      </profiles>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.rackspace.cloud.api</groupId>
+                        <artifactId>olink-maven-plugin</artifactId>
+                        <version>${olink-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>generate-samples</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>olink</goal>
+                                </goals>
+                                <configuration>
+                                    <pipeline>src/xpl/generateSamples.xpl</pipeline>
+                                    <inputs>
+                                        <source>${productSchema}</source>
+                                    </inputs>
+                                    <parameters>
+                                        <parameters>
+                                            base_feed_name=${feedName}
+                                            input_path=${productSchema}
+                                        </parameters>
+                                    </parameters>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.gmaven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>${gmaven.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <providerSelection>1.8</providerSelection>
+                                    <source>
+                                        import groovy.json.JsonOutput
+
+                                        println "gmaven:  prettifying json samples in ${basedir}/message_samples/${feedName}/json/"
+                                        new File("${basedir}/message_samples/${feedName}/json").eachFile() {
+                                            file -&gt;
+                                                file.text = JsonOutput.prettyPrint(file.text)
+                                        }
+                                    </source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
