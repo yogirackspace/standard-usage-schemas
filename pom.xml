@@ -127,11 +127,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <parent>
-        <groupId>com.rackspace.cloud.api</groupId>
-        <artifactId>rackspace-docs-parent</artifactId>
-        <version>1.0.0</version>
-    </parent>
     <build>
         <resources>
             <resource>
