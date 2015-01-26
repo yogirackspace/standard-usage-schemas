@@ -127,6 +127,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <parent>
+        <groupId>com.rackspace.cloud.api</groupId>
+        <artifactId>rackspace-docs-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
     <build>
         <resources>
             <resource>
@@ -727,21 +732,10 @@
           <plugin>
         <groupId>com.rackspace.cloud.api</groupId>
         <artifactId>olink-maven-plugin</artifactId>
-        <version>${olink-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>generate-olink-db</id>
-            <phase>initialize</phase>
-            <goals>
-              <goal>olink</goal>
-            </goals>
-          </execution>
-        </executions>
           </plugin>
           <plugin>
                 <groupId>com.rackspace.cloud.api</groupId>
-                <artifactId>clouddocs-maven-plugin</artifactId>
-                <version>2.1.2</version>
+                <artifactId>rackspace-docs-maven-plugin</artifactId>
                 <executions>
                   <execution>
                     <id>devguide-external</id>
