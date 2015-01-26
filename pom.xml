@@ -1,9 +1,8 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.rackspace.usage</groupId>
     <artifactId>usage-schema</artifactId>
-    <version>1.79.0-SNAPSHOT</version>
+    <version>1.79.0</version>
     <packaging>jar</packaging>
 
     <name>Usage Schema</name>
@@ -291,8 +290,7 @@
                                         </parameter>
                                     </parameters>
                                     <fileMappers>
-                                        <fileMapper
-                                                implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                             <pattern>pom.xml</pattern>
                                             <replacement>usage.xsd</replacement>
                                         </fileMapper>
@@ -318,8 +316,7 @@
                                         </parameter>
                                     </parameters>
                                     <fileMappers>
-                                        <fileMapper
-                                                implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                        <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                             <pattern>pom.xml</pattern>
                                             <replacement>nonStringAttrs.xsl</replacement>
                                         </fileMapper>
@@ -683,8 +680,7 @@
                                             </outputDir>
                                             <stylesheet>${basedir}/src/main/xsl/generate-feed-table.xsl</stylesheet>
                                             <fileMappers>
-                                                <fileMapper
-                                                        implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
                                                     <pattern>api-operations-(.+).xml</pattern>
                                                     <replacement>feed-table-$1.xml</replacement>
                                                 </fileMapper>
