@@ -172,6 +172,43 @@
                 </table>
             </para>
         </section>
+            <section xml:id="Feed_Validation"><title>Feed validation</title><para>Cloud Feeds supports validation of a feed against a specified schema. You configure the
+                validation settings when you add your feed to the allfeeds.wadl file. For more
+                information, see <link linkend="Add_feed_to_wadl">Adding the feed to the
+                    allfeeds.wadl file</link>.</para>
+            <para>You can specify the following validation settings for a feed.</para>
+            <para>
+                <table frame="border">
+                    <caption>Validation settings for a feed</caption>
+                    <col width="20%"/>
+                    <col width="70%"/>
+                    <thead>
+                        <tr>
+                            <th>Validation setting</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>validated</td>
+                            <td>This setting implies that the entire Atom entry is validated by
+                                using an XML schema. If no XML schema exists for the
+                                    <code>atom:content</code> node, the content is verified to be
+                                well-formed XML.</td>
+                        </tr>
+                        <tr>
+                            <td>product feed</td>
+                            <td>This setting implies that a specific product schema is allowed for
+                                this feed and used for validation, in addition to verification that
+                                the feed content is valid XML. The content node only allows event
+                                nodes that have a specific product schema associated with them. Only
+                                the listed product schemas are allowed. For more information, see
+                                    <link linkend="Define_product_schema">Defining your product
+                                    schema</link>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para></section>   
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry">
         <title>Event node</title>
@@ -1672,8 +1709,7 @@
         <para>
             <itemizedlist>
                 <listitem>
-                    <para><link linkend="Define_product_schema">Define your XML product
-                            schema</link>. </para>
+                    <para><link linkend="Define_product_schema">Define your product schema</link>. </para>
                 </listitem>
                 <listitem>
                     <para><link linkend="Generate_schema_and_WADLs">Generate schemas and
@@ -1937,6 +1973,20 @@
             wadl/feed.wadl#TenantAtomFeed
             wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
             </para>    
+            <para>Next, specify, whether your feed is a validated feed or a product feed.</para>
+            <para>To mark a feed to be <emphasis role="bold">validated</emphasis>, add
+                    <code>#Validated</code> in the <code>type</code> section as shown in the
+                following example:</para>
+            <para>
+                <programlisting>  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"</programlisting>
+            </para>
+            <para>To mark a feed as a <emphasis role="bold">product</emphasis> feed, <code>add
+                        wadl/product.wadl#&lt;<replaceable>product_name</replaceable>></code> in the
+                    <code>type</code> section as shown in the following example:</para>
+            <para>
+                <programlisting>type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BillingService"</programlisting>
+            </para>
+            <para>For more information about feed types, see </para>
         </section>
         <section xml:id="Add_sample_files">
             <title>Adding samples</title>
