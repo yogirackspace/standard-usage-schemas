@@ -732,18 +732,18 @@
             <para> You can obtain a list of all the feeds that are available by submitting a
                 <command>GET</command> request against the Cloud Feeds endpoint as shown in the
                 following examples:</para>
-            <example><title>Retrieve feeds catalog request - XML example</title>
-                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-            <example><title>Retrieve feeds catalog request - XML example</title><programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
-            <example><title>Retrieve feeds catalog request - JSON example</title>
-                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-            <example><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+            <example security="internal"><title>Retrieve feeds catalog request - XML example</title>
+                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+            <example security="external"><title>Retrieve feeds catalog request - XML example</title><programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+            <example security="internal"><title>Retrieve feeds catalog request - JSON example</title>
+                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+            <example security="external"><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
             <para>This operation returns a list of supported feeds as shown in the following
                 examples:</para>
-            <example><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
-            <example><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting></example>
-            <example><title>Retrieve feeds catalog response - JSON example</title><programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting></example>
-            <example><title>Retrieve feeds catalog response - JSON example</title><programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting></example>
+            <example security="internal"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
+            <example security="external"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting></example>
+            <example security="internal"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting></example>
+            <example security="external"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting></example>
         </section>
         <section xml:id="CloudFeedsConcepts">
             <title>Cloud Feeds concepts</title>
