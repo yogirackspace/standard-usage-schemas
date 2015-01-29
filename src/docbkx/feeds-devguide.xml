@@ -1842,6 +1842,7 @@
                 </para></section>
         </section>
     </chapter>
+    <chapter xml:id="Archiving"><title>Cloud Feeds Archiving</title><para></para></chapter>
 
     <xi:include href="api-operations-external.xml"/>
     <xi:include href="api-operations-internal.xml"/>
