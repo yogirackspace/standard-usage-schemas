@@ -76,32 +76,28 @@
         <para>
             <itemizedlist>
                 <listitem>
-                    <para>Chapter 3 describes how to send requests to
-                        the Rackspace API using cURL.</para>
+                    <para>Chapter 2 describes how to send requests to the Rackspace API using
+                        cURL.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 4 shows how to obtain an
-                        authentication token to be used with the Cloud
-                        Feeds API.</para>
+                    <para>Chapter 3 shows how to obtain an authentication token to be used with the
+                        Cloud Feeds API.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 5 provides information on how to
-                        access the Cloud Feeds service through the
-                        service endpoints.</para>
+                    <para>Chapter 4 provides information on how to access the Cloud Feeds service
+                        through the service endpoints.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 6 shows how to obtain a lists of
-                        Cloud Feeds that are available to you throught
-                        the Cloud Feeds catalog.</para>
+                    <para>Chapter 5 shows how to obtain a lists of Cloud Feeds that are available to
+                        you through the Cloud Feeds catalog.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 7 introduces general concepts about
-                        Cloud Feeds, including Atom events.</para>
+                    <para>Chapter 6 introduces general concepts about Cloud Feeds, including Atom
+                        events.</para>
                 </listitem>
                 <listitem>
-                    <para>Chapter 8 provides a set of steps on how you
-                        can use the Cloud Feeds API to retrieve
-                        feeds.</para>
+                    <para>Chapter 7 provides a set of steps on how you can use the Cloud Feeds API
+                        to retrieve feeds.</para>
                 </listitem>
             </itemizedlist>
         </para>
@@ -796,15 +792,21 @@
             the Atom Publishing Protocol, RFC 5023. For more information, see <link
                 xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
                 >http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
-        <para> You can obtain a list of all the feeds that are
-            available by submitting a <command>GET</command> request
-            against the Cloud Feeds endpoint as shown in the following
-            example:</para>
-        <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
-        <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
-    <para>This operation returns a list of supported feeds as shown in the following example:</para>
-        <programlisting language="xml" security="internal"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
-        <programlisting language="xml" security="external"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting>
+        <para> You can obtain a list of all the feeds that are available by submitting a
+                <command>GET</command> request against the Cloud Feeds endpoint as shown in the
+            following examples:</para>
+        <example security="internal"><title>Retrieve feeds catalog request - XML example</title>
+            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog request - XML example</title><programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+        <example security="internal"><title>Retrieve feeds catalog request - JSON example</title>
+            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+    <para>This operation returns a list of supported feeds as shown in the following
+            examples:</para>
+        <example security="internal"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting></example>
+        <example security="internal"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting></example>
     </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds concepts</title>
@@ -1110,8 +1112,8 @@
             <para>The following is an example for a request for a
                 feed:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
             </para>
             <para>This request returns 25 of the latest events in the
                 Next Generation Cloud Server feed from the DFW data
@@ -1119,8 +1121,8 @@
                 more readable, you can submit the following
                 request:</para>
             <para>
-                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
-                <programlisting security="internal">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" –X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
+                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
             </para>
         </section>
         <section xml:id="Filter_Atom_Entries">

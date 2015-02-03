@@ -172,6 +172,43 @@
                 </table>
             </para>
         </section>
+            <section xml:id="Feed_Validation"><title>Feed validation</title><para>Cloud Feeds supports validation of a feed against a specified schema. You configure the
+                validation settings when you add your feed to the allfeeds.wadl file. For more
+                information, see <link linkend="Add_feed_to_wadl">Adding the feed to the
+                    allfeeds.wadl file</link>.</para>
+            <para>You can specify the following validation settings for a feed.</para>
+            <para>
+                <table frame="border">
+                    <caption>Validation settings for a feed</caption>
+                    <col width="20%"/>
+                    <col width="70%"/>
+                    <thead>
+                        <tr>
+                            <th>Validation setting</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>validated</td>
+                            <td>This setting implies that the entire Atom entry is validated by
+                                using an XML schema. If no XML schema exists for the
+                                    <code>atom:content</code> node, the content is verified to be
+                                well-formed XML.</td>
+                        </tr>
+                        <tr>
+                            <td>product feed</td>
+                            <td>This setting implies that a specific product schema is allowed for
+                                this feed and used for validation, in addition to verification that
+                                the feed content is valid XML. The content node only allows event
+                                nodes that have a specific product schema associated with them. Only
+                                the listed product schemas are allowed. For more information, see
+                                    <link linkend="Define_product_schema">Defining your product
+                                    schema</link>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para></section>   
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry">
         <title>Event node</title>
@@ -1672,8 +1709,7 @@
         <para>
             <itemizedlist>
                 <listitem>
-                    <para><link linkend="Define_product_schema">Define your XML product
-                            schema</link>. </para>
+                    <para><link linkend="Define_product_schema">Define your product schema</link>. </para>
                 </listitem>
                 <listitem>
                     <para><link linkend="Generate_schema_and_WADLs">Generate schemas and
@@ -1905,38 +1941,79 @@
         </section>
         <section xml:id="Add_feed_to_wadl"><title>Adding the feed to the allfeeds.wadl file</title><para>After you have generated the appropriate schemas and WADLs, you need to add your feed to the
                     <emphasis role="bold">allfeeds.wadl</emphasis> file.</para>
-            <para>If you want to make your feed available for <emphasis role="bold"
-                    >internal</emphasis> users only, open the <emphasis role="bold">allfeeds.wadl
-                </emphasis> file and add the following resource:</para>
-            <para>
-                <programlisting>&lt;resource id="new_product" 
-   path="new_product/events"
+            <para>Before adding your feed, you need to determine the validation mode of your feed: <itemizedlist>
+                    <listitem>
+                        <para>product feed</para>
+                    </listitem>
+                    <listitem>
+                        <para>validated feed</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para>For more information about the validation modes, read <link
+                    linkend="Feed_Validation">Feed validation</link>.</para>
+            <section xml:id="Adding_resource_product_feed"><title>Adding a resource for a product feed</title>
+            <para>To add a resource for a <emphasis role="bold">product feed</emphasis>, complete
+                    the following steps:<orderedlist>
+                        <listitem>
+                            <para>Open <emphasis role="bold">allfeeds.wadl</emphasis> and add a new
+                                resource for your feed.</para>
+                            <itemizedlist>
+                                <listitem>
+                                    <para>If you want to make your feed available to <emphasis
+                                            role="bold">internal</emphasis> users only, add the
+                                        following resource:</para>
+                                    <para>
+                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>" 
+   path="<replaceable>new_product</replaceable>/events"
    type="wadl/feed.wadl#AtomFeed
          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]"/>  </programlisting>
-            </para>
-            <para>Alternatively, if you want to make your feed available to <emphasis role="bold"
-                    >internal</emphasis> and <emphasis role="bold">external</emphasis> users, you
-                need to add the following resource;</para>
-            <para>
-                <programlisting>&lt;resource id="new_product"
-    path="new_product/events"
+                                    </para>
+                                </listitem>
+                                <listitem>
+                                    <para>If you want to make your feed available to <emphasis
+                                            role="bold">internal</emphasis> and <emphasis
+                                            role="bold">external</emphasis> users, add the following
+                                        resource:</para>
+                                    <para>
+                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
+    path="<replaceable>new_product</replaceable>/events"
     type="wadl/feed.wadl#AtomFeed
           wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
           wadl/feed.wadl#TenantAtomFeed
-          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
-            </para>
-        <para>To ensure that your feed can be tested, add the same resource types that you added to
-                    <emphasis role="bold">allfeeds.wadl</emphasis> in the preceding steps to the
-                    <code>functest1_events</code> and <code>functest2_events</code> resources, as
-                shown in the following example:</para>
-            <para>
-                <programlisting>   &lt;resource id="functest1_events"
+          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]<replaceable>Tenant</replaceable>"/></programlisting>
+                                    </para>
+                                </listitem>
+                            </itemizedlist>
+                        </listitem>
+                        <listitem>
+                            <para>To ensure that your feed can be tested, add the same resource
+                                types that you added in the preceding step to the
+                                    <code>functest1_events</code> and <code>functest2_events</code>
+                                resources, as shown in the following example:</para>
+                            <para>
+                                <programlisting>   &lt;resource id="functest1_events"
         path="functest1/events" 
         type="wadl/feed.wadl#AtomFeed
             wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
             wadl/feed.wadl#TenantAtomFeed
-            wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]Tenant"/></programlisting>
-            </para>    
+            wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]<replaceable>Tenant</replaceable>"/></programlisting>
+                            </para>
+                        </listitem>
+                    </orderedlist>
+                </para></section><section xml:id="Adding_resource_validated_feed"><title>Adding a resource for a validated feed</title>
+            <para>To mark a feed to be <emphasis role="bold">validated</emphasis>, add the following
+                    resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
+            <para>
+                <programlisting> &lt;resource id="<replaceable>new_product</replaceable>"
+        path="<replaceable>new_product</replaceable>/events" 
+        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
+            </para>
+                <para>The following example shows the resource for a validated feed:</para>
+                <para>
+                    <programlisting>   &lt;resource id="core_events"
+        path="core/events" 
+        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
+                </para></section>
         </section>
         <section xml:id="Add_sample_files">
             <title>Adding samples</title>
