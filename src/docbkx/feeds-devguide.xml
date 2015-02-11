@@ -907,6 +907,36 @@
             <title>Cloud Feeds usage specifications and rules</title>
             <para>All accounts, by default, have a preconfigured set of thresholds (or limits) to
                 manage capacity and prevent abuse of the system. </para>
+            <section xml:id="Support_for_JSON">
+                <title>Data format in Accept header</title>
+                <para>Cloud Feeds supports both XML and JSON formats. You can specify the format in
+                    which you want your data to be returned in by configuring the data format the
+                        <code>Accept:</code> header in the API request.</para>
+                <para>The following table shows the configuration settings for JSON and XML:</para>
+                <para>
+                    <table frame="border">
+                        <caption>Data format in Accept header</caption>
+                        <col width="25%"/>
+                        <col width="75%"/>
+                        <thead>
+                            <tr>
+                                <th>Data Format</th>
+                                <th>Header</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JSON</td>
+                                <td><code>Accept: application/vnd.rackspace.atom+json</code></td>
+                            </tr>
+                            <tr>
+                                <td>XML</td>
+                                <td><code>Accept: application/atom+xml </code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </para>
+            </section>
             <section xml:id="datetimeformat">
                 <title>Date and time format</title>
                 <para> For the display and consumption of date and time values, the Cloud Feeds
@@ -1381,10 +1411,10 @@
                 <listitem>
                     <para>Use the <emphasis role="bold">previous</emphasis> link to navigate by page
                         to the previous page of Atom entries. Sometimes the link is in the feed
-                        header; however, the link is not be in the feed header if the feed is empty.
-                        If you are at the top of the feed and you follow this link, an empty feed is
-                        returned unless new entries have occurred since you last polled. In a feed,
-                        the entries are shown in order from newest to oldest. </para>
+                        header; however, the if the feed is empty, the link is not be in the feed
+                        header. If you are at the top of the feed and you follow this link, an empty
+                        feed is returned unless new entries have occurred since you last polled. In
+                        a feed, the entries are shown in order from newest to oldest. </para>
                     <para>The following diagram shows how pagination works with Cloud Feeds:</para>
                 </listitem>
             </itemizedlist>
@@ -1842,8 +1872,6 @@
                 </para></section>
         </section>
     </chapter>
-    <chapter xml:id="Archiving"><title>Cloud Feeds Archiving</title><para></para></chapter>
-
     <xi:include href="api-operations-external.xml"/>
     <xi:include href="api-operations-internal.xml"/>
 
