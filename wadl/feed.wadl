@@ -173,6 +173,7 @@
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>               
             <representation mediaType="application/atom+xml"/>
             <representation mediaType="application/vnd.rackspace.atom+json"/>
         </request>
