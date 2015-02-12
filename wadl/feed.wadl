@@ -111,7 +111,7 @@
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
-            <representation mediaType="application/vnd.rackspace.atom+json"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -162,7 +162,7 @@
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
-            <representation mediaType="application/vnd.rackspace.atom+json"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -184,7 +184,7 @@
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
-            <representation mediaType="application/vnd.rackspace.atom+json"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -257,7 +257,7 @@
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
-            <representation mediaType="application/vnd.rackspace.atom+json"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
     
@@ -332,7 +332,7 @@
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
-            <representation mediaType="application/vnd.rackspace.atom+json"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 </application>
