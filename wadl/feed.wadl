@@ -40,7 +40,7 @@
     </resource_type>
 
     <resource_type id="Validated">
-        <wadl:doc title="Validated" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc title="Validated" xmlns="http//docbook.org/ns/docbook">
             <para>
                 Check against XSDs but don't check against cross
                 posts.
@@ -54,7 +54,7 @@
     </resource_type>
     
     <resource_type id="UsageDeadLetter">
-        <wadl:doc title="UsageDeadLetter" xmlns="http//docbook.org/ns/dockbook">
+        <wadl:doc title="UsageDeadLetter" xmlns="http//docbook.org/ns/docbook">
             <para>
                 Allow Usage DeadLetter events.
             </para>
@@ -85,31 +85,33 @@
         <request>
             <param name="ACCEPT" style="header" type="cldfeeds:AcceptHeaderType" repeating="true" required="true"
                 rax:message="getFeed: Accept header contains unsupported media types: application/*json"
-                rax:code="406"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                rax:code="406"><wadl:doc xmlns="http//docbook.org/ns/docbook">
                     Specifies the type of Accept header to be used in the request.
                 </wadl:doc></param>
 
             <param name="marker" style="query" type="xs:anyURI" required="false"> 
-            <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+            <wadl:doc xmlns="http//docbook.org/ns/docbook">
                 Specifies the entry from which the feed is read. If no value is specified, forward is used by default.
             </wadl:doc></param>
             
-            <param name="limit"  style="query" type="xs:int" required="false">  <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+            <param name="limit"  style="query" type="xs:int" required="false">  <wadl:doc xmlns="http//docbook.org/ns/docbook">
                 Specifies the number of entries to return. By default
                 the limit is set to 25. The minimum limit is 1 and the maximum limit is 1,000.
             </wadl:doc></param>
             <param name="direction" style="query" type="xs:string" required="false">
-                <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                <wadl:doc xmlns="http//docbook.org/ns/docbook">
                         Valid values for this parameter are either backward or forward.
                 </wadl:doc>
             </param>
         </request>
         <response status="200">
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </response>
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -118,15 +120,15 @@
             <para role="shortdesc">This operation obtains the most recent events for this product's feed.</para>            
         </wadl:doc>
         <request>
-            <param name="marker" style="query" type="xs:anyURI" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+            <param name="marker" style="query" type="xs:anyURI" required="false"><wadl:doc xmlns="http//docbook.org/ns/docbook">
                 Specifies the entry from which the feed is read. If no value is specified, forward is used by default
             </wadl:doc></param>            
-            <param name="limit"  style="query" type="xs:int" required="false"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+            <param name="limit"  style="query" type="xs:int" required="false"><wadl:doc xmlns="http//docbook.org/ns/docbook">
                 Specifies the number of entries to return. By default
                 the limit is set to 25. The minimum limit is 1 and the maximum limit is 1,000.
             </wadl:doc></param>
             <param name="direction" style="query" type="xs:string" required="false">
-                <wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                <wadl:doc xmlns="http//docbook.org/ns/docbook">
                         Valid values for this parameter are either backward or forward.
                 </wadl:doc>
             </param>
@@ -146,19 +148,21 @@
 
         </wadl:doc>
         <request>
-            <param style="header" type="cldfeeds:AcceptHeaderType" rax:code="406" repeating="true" required="true"
+            <param name="ACCEPT" style="header" type="cldfeeds:AcceptHeaderType" repeating="true" required="true"
                 rax:message="getEntry: Accept header contains unsupported media types: application/*json"
-                name="ACCEPT"><wadl:doc xmlns="http//docbook.org/ns/dockbook">
+                rax:code="406"><wadl:doc xmlns="http//docbook.org/ns/docbook">
                     Specifies the type of Accept header to be used in the request.
-                </wadl:doc></param>
+                </wadl:doc></param>            
         </request>
                
         <response status="200">
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </response>
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -169,15 +173,19 @@
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>               
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </request>
         <!-- Okay -->
         <response status="201">
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </response>
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 
@@ -245,10 +253,12 @@
         <!-- Okay -->
         <response status="201">
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </response>
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
     
@@ -318,10 +328,12 @@
         <!-- Okay -->
         <response status="201">
             <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
         </response>
         <!-- On Error -->
         <response status="400 401 409 500 503">
             <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
         </response>
     </method>
 </application>
