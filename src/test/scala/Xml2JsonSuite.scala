@@ -136,7 +136,7 @@ class Xml2JsonSuite extends BaseUsageSuite {
     test("should transform an empty feed response properly") {
         val emptyFeedXml =
             """
-              |<feed>
+              |<feed xmlns="http://www.w3.org/2005/Atom">
               |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
               |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
               |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />

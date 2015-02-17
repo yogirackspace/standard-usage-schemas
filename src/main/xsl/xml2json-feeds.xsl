@@ -47,7 +47,8 @@
         <xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text>
         <xsl:call-template name="atomList"> 
             <xsl:with-param name="nodes" select="atom:link" as="node()*"/>
-            <xsl:with-param name="printComma" select="true()"/>
+            <!-- CF-545 - only print comma if there are entries -->
+            <xsl:with-param name="printComma" select="boolean(atom:entry)"/>
         </xsl:call-template>
         
         <!-- print all the atom:entry elements -->
