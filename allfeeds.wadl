@@ -15,6 +15,10 @@
         <resource id="buildinfo" path="buildinfo"><method name="GET"/></resource>
 
         <!-- product events -->
+        <resource id="customer_access_policy_events"
+                  path="customer_access_policy/events"
+                  type="wadl/feed.wadl#AtomFeed
+                        wadl/product.wadl#CustomerService"/>
         <resource id="automation_events"
                   path="automation/events" 
                   type="wadl/feed.wadl#AtomFeedAllowJson wadl/feed.wadl#Validated"/>
@@ -188,6 +192,7 @@
                         wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudServersOpenStackSummary
                         wadl/product.wadl#CloudServersOpenStackTenant wadl/product.wadl#CloudServersOpenStackSummaryTenant
                         wadl/product.wadl#CloudSites wadl/product.wadl#CloudSitesSummary
+                        wadl/product.wadl#CustomerService
                         wadl/product.wadl#DcxIpAdmin
                         wadl/product.wadl#DedicatedVCloud wadl/product.wadl#DedicatedVCloudSummary
                         wadl/product.wadl#DomainRegistration
@@ -225,6 +230,7 @@
                         wadl/product.wadl#CloudQueuesTenant wadl/product.wadl#CloudQueuesSummaryTenant
                         wadl/product.wadl#CloudServersTenant wadl/product.wadl#CloudServersSummaryTenant
                         wadl/product.wadl#CloudServersOpenStackTenant wadl/product.wadl#CloudServersOpenStackSummaryTenant
+                        wadl/product.wadl#CustomerService
                         wadl/product.wadl#GlanceTenant wadl/product.wadl#GlanceSummaryTenant
                         wadl/product.wadl#RHELTenant
                         wadl/product.wadl#SslTenant"/>
