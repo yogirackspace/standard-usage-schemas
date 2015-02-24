@@ -11,7 +11,7 @@
 
     <!-- Resource Types -->
     <resource_type id="TenantAtomFeed">
-        <resource path="{tid}/" id="tenanted_feed"  rax:roles="cloudfeeds:observer">
+        <resource path="{tid}/" id="tenanted_feed"  rax:roles="cloudfeeds:observer identity:user-admin admin">
             <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant Id.</doc></param>
             <method href="#getFeed" />
         </resource>
@@ -67,7 +67,7 @@
     </resource_type>
 
     <resource_type id="TenantFeedsCatalog">
-        <resource path="{tid}" rax:roles="cloudfeeds:observer">
+        <resource path="{tid}" rax:roles="cloudfeeds:observer identity:user-admin admin">
             <param name="tid" type="xs:string" style="template"><doc>Specifies the tenant id.</doc></param>
             <method name="GET"/>
         </resource>
