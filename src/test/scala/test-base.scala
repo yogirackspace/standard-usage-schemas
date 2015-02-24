@@ -80,6 +80,7 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
   val SERVICE_ADMIN = "cloudfeeds:service-admin"
   val OBSERVER = "cloudfeeds:observer"
   val IDENTITY_USER_ADMIN = "identity:user-admin"
+  val REG_ADMIN = "admin"
 
   def request(method : String,
               url : String,
