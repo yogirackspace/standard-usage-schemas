@@ -9,7 +9,7 @@ import BaseUsageSuite._
 @RunWith(classOf[JUnitRunner])
 class ObserverSuite extends BaseUsageSuite{
 
-  for (role <- List(OBSERVER, IDENTITY_USER_ADMIN, REG_ADMIN)) {
+  for (role <- List(OBSERVER, IDENTITY_USER_ADMIN, REG_ADMIN, REG_OBSERVER)) {
     test(role + ": Getting an entry on a non-existent Observer feed should always fail") {
 
       assertResultFailed(atomValidator.validate(requestRole("GET", "/usagetest10/events/12334", role), response, chain), 404)
