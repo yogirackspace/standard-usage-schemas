@@ -1,0 +1,13 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/event/billing/collection"
+        serviceCode="BillingService" type="UPDATE" version="1">
+    <description>
+        Specifies the events related to Billing Account Collection Statuses.
+    </description>
+    <attribute name="ran" type="string" use="required" maxLength="255">
+        Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="collectionStatus" type="string" use="required" allowedValues="CURRENT PROMISED_TO_PAY DELINQUENT_LEVEL_1 DELINQUENT_LEVEL_2 WRITTEN_OFF">
+        Specifies whether the collection status of the account
+    </attribute>
+</productSchema>
