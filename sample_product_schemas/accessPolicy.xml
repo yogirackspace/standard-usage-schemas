@@ -1,0 +1,36 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/customer/access_policy"
+               version="1"
+               serviceCode="CustomerService" 
+               type="INFO">
+               
+    <description>
+        Specifies changes to the customer access policy level for an account.
+        
+        This message serves as a change order to the products to grant access 
+        to customer resources at the specified access policy level.
+    </description>
+    
+    <attribute name="status" type="Name" use="required" 
+               allowedValues="FULL LIMITED SUSPENDED TERMINATED">
+        The access policy for this account. 
+        
+        FULL - Normal access without any restriction
+        LIMITED - Select product functions may be restricted and/or rate limited.
+        SUSPENDED - Product resources are stopped, inaccessable, and/or inoperable, but in a restorable way
+        TERMINATED - Products may permanently destroy, delete, clean, and reclaim all customer resources or data.
+        
+    </attribute>
+    
+    <attribute name="previousEvent" type="string" maxLength="36" use="required">
+        Specifies a globally unique event identifier of the previous access policy 
+        change, if one exists, for this account. This may be helpful for clients
+        to assure proper sequencing when they use concurrent event processing.
+        For the first event for an account, include with an empty string.
+    </attribute>
+    
+    <xpathAssertion test="string-length($event/@tenantId) > 0" scope="entry">
+        The event must have a non-empty tenantId string.
+    </xpathAssertion>
+    
+</productSchema>

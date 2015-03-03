@@ -1,0 +1,25 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "title": "CustomerService",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "type": "INFO",
+                "dataCenter": "DFW1",
+                "tenantId": "123456",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/customer/access_policy",
+                    "serviceCode": "CustomerService",
+                    "version": "1",
+                    "status": "FULL",
+                    "previousEvent": "a"
+                }
+            }
+        }
+    }
+}
