@@ -30,6 +30,7 @@
                 "version": "2",
                 "eventTime": "2013-03-15T11:51:11Z",
                 "type": "INFO",
+                "tenantId": "123456",
                 "dataCenter": "DFW1",
                 "region": "DFW",
                 "product": {

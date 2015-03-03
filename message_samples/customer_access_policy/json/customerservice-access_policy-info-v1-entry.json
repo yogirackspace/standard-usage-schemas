@@ -10,6 +10,7 @@
                 "eventTime": "2013-03-15T11:51:11Z",
                 "type": "INFO",
                 "dataCenter": "DFW1",
+                "tenantId": "123456",
                 "region": "DFW",
                 "product": {
                     "@type": "http://docs.rackspace.com/event/customer/access_policy",

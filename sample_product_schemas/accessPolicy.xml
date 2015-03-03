@@ -29,4 +29,8 @@
         For the first event for an account, include with an empty string.
     </attribute>
     
+    <xpathAssertion test="string-length($event/@tenantId) > 0" scope="entry">
+        The event must have a non-empty tenantId string.
+    </xpathAssertion>
+    
 </productSchema>
