@@ -4,10 +4,13 @@
     <description>
         Specifies the events related to Billing Account Collection Statuses.
     </description>
-    <attribute name="ran" type="string" use="required" maxLength="255">
+    <attribute name="ran" type="string" use="required" minLength="1" maxLength="255">
         Specifies the Billing Account Number.
     </attribute>
     <attribute name="collectionStatus" type="string" use="required" allowedValues="CURRENT PROMISED_TO_PAY DELINQUENT_LEVEL_1 DELINQUENT_LEVEL_2 WRITTEN_OFF">
         Specifies whether the collection status of the account
+    </attribute>
+    <attribute name="lineOfBusiness" type="string" use="optional" maxLength="255">
+        Specifies the line of business
     </attribute>
 </productSchema>
