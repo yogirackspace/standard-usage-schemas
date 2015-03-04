@@ -488,7 +488,8 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@region = 'GLOBAL') then (@dataCenter = 'GLOBAL') else
+                <assert vc:minVersion="1.1" test="if ((@type != 'USAGE') and (@type != 'USAGE_SUMMARY') and (@type != 'USAGE_SNAPSHOT')) then true() else
+                                                  if (@region = 'GLOBAL') then (@dataCenter = 'GLOBAL') else
                                                   if (@region = 'DFW') then (@dataCenter = ('DFW1','DFW2','DFW3')) else
                                                   if (@region = 'HKG') then (@dataCenter = 'HKG1') else
                                                   if (@region = 'IAD') then (@dataCenter = ('IAD1','IAD2','IAD3')) else
@@ -501,7 +502,7 @@
                     <annotation>
                         <documentation>
                             <html:p>
-                                The region and datacenter must match!
+                                If event type is USAGE, USAGE_SUMMARY, or USAGE_SNAPSHOT, then the region and datacenter must match!
                             </html:p>
                         </documentation>
                     </annotation>
