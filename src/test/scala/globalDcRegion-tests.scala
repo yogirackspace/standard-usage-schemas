@@ -210,107 +210,6 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
                                         </atom:content>
                                       </atom:entry>
 
-
-  //
-  //  An invalid autoscale USAGE entry with a bad region and dc combination
-  //
-  val autoscaleUsageMessageWithBadRegionAndDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                                  <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                                  <atom:title>autoscale</atom:title>
-                                                  <atom:content type="application/xml">
-                                                    <event xmlns="http://docs.rackspace.com/core/event"
-                                                           xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                           id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                           version="2"
-                                                           eventTime="2013-03-15T11:51:11Z"
-                                                           type="USAGE"
-                                                           region="DFW"
-                                                           dataCenter="ORD1">
-                                                      <sample:product serviceCode="Autoscale"
-                                                                      version="1"
-                                                                      scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                                      desiredCapacity="5"
-                                                                      currentCapacity="3"
-                                                                      message="Launching 2 servers"/>
-                                                    </event>
-                                                  </atom:content>
-                                                </atom:entry>
-
-  //
-  //  An invalid autoscale USAGE_SUMMARY entry with a bad region and dc combination
-  //
-  val autoscaleUsageSummaryMessageWithBadRegionAndDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                                        <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                                        <atom:title>autoscale</atom:title>
-                                                        <atom:content type="application/xml">
-                                                          <event xmlns="http://docs.rackspace.com/core/event"
-                                                                 xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                                 id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                                 version="2"
-                                                                 eventTime="2013-03-15T11:51:11Z"
-                                                                 type="USAGE_SUMMARY"
-                                                                 region="DFW"
-                                                                 dataCenter="HKG1">
-                                                            <sample:product serviceCode="Autoscale"
-                                                                            version="1"
-                                                                            scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                                            desiredCapacity="5"
-                                                                            currentCapacity="3"
-                                                                            message="Launching 2 servers"/>
-                                                          </event>
-                                                        </atom:content>
-                                                      </atom:entry>
-
-  //
-  //  An invalid autoscale USAGE_SNAPSHOT entry with a bad region and dc combination
-  //
-  val autoscaleUsageSnapshotMessageWithBadRegionAndDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                                          <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                                          <atom:title>autoscale</atom:title>
-                                                          <atom:content type="application/xml">
-                                                            <event xmlns="http://docs.rackspace.com/core/event"
-                                                                   xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                                   id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                                   version="2"
-                                                                   eventTime="2013-03-15T11:51:11Z"
-                                                                   type="USAGE_SNAPSHOT"
-                                                                   region="ORD"
-                                                                   dataCenter="HKG1">
-                                                              <sample:product serviceCode="Autoscale"
-                                                                              version="1"
-                                                                              scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                                              desiredCapacity="5"
-                                                                              currentCapacity="3"
-                                                                              message="Launching 2 servers"/>
-                                                            </event>
-                                                          </atom:content>
-                                                        </atom:entry>
-
-  //
-  //  A valid autoscale NON-USAGE entry with a bad region and dc combination
-  //
-  val autoscaleInfoMessageWithBadRegionAndDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                                <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                                <atom:title>autoscale</atom:title>
-                                                <atom:content type="application/xml">
-                                                  <event xmlns="http://docs.rackspace.com/core/event"
-                                                         xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                         id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                         version="2"
-                                                         eventTime="2013-03-15T11:51:11Z"
-                                                         type="INFO"
-                                                         region="ORD"
-                                                         dataCenter="HKG1">
-                                                    <sample:product serviceCode="Autoscale"
-                                                                    version="1"
-                                                                    scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                                    desiredCapacity="5"
-                                                                    currentCapacity="3"
-                                                                    message="Launching 2 servers"/>
-                                                  </event>
-                                                </atom:content>
-                                              </atom:entry>
-
   //
   //  A valid autoscale NON-USAGE entry without region and datacenter attributes
   //
@@ -495,37 +394,13 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
   }
 
   // #19
-  test ("#19 - Events with invalid region and datacenter combination should NOT be allowed on product feed for Autoscale USAGE events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleUsageMessageWithBadRegionAndDc, SERVICE_ADMIN)
-    assertResultFailed(atomValidator.validate(req, response, chain))
-  }
-
-  // #20
-  test ("#20 - Events with invalid region and datacenter combination should NOT be allowed on product feed for Autoscale USAGE_SUMMARY events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleUsageSummaryMessageWithBadRegionAndDc, SERVICE_ADMIN)
-    assertResultFailed(atomValidator.validate(req, response, chain))
-  }
-
-  // #21
-  test ("#21 - Events with invalid region and datacenter combination should NOT be allowed on product feed for Autoscale USAGE_SNAPSHOT events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleUsageSnapshotMessageWithBadRegionAndDc, SERVICE_ADMIN)
-    assertResultFailed(atomValidator.validate(req, response, chain))
-  }
-
-  // #22
-  test ("#22 - Events with invalid region and datacenter combination should be allowed on product feed for Autoscale non-usage events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleInfoMessageWithBadRegionAndDc, SERVICE_ADMIN)
-    atomValidator.validate(req, response, chain)
-  }
-
-  // #23
-  test ("#23 - Events without datacenter and region should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
+  test ("#19 - Events without datacenter and region should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
     val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleInfoMessageWithoutRegionAndDc, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }
 
-  // #24
-  test ("#24 - Events with region and no datacenter should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
+  // #20
+  test ("#20 - Events with region and no datacenter should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
     val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleInfoMessageWithRegionAndNoDc, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="usagesummary/backup/events"?>
+<?expect code="400" message="Bad Content: For this product usage event, @dataCenter must be present and can not be GLOBAL."?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+    <atom:title>CloudBackup Summary</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:sample="http://docs.rackspace.com/usage/cloudbackup/storage"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               version="1"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               tenantId="1234"
+               rackspaceAccountNumber="020-1234"
+               startTime="2013-03-15T11:51:11Z"
+               endTime="2013-03-16T11:51:11Z"
+               duration="PT10M"
+               type="USAGE_SUMMARY"
+               dataCenter="GLOBAL"
+               region="DFW">
+            <sample:product serverID="12345" storage="102400" serviceCode="CloudBackup" version="1" resourceType="AGENT"/>
+        </event>
+    </atom:content>
+</atom:entry>
