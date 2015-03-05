@@ -210,53 +210,6 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
                                         </atom:content>
                                       </atom:entry>
 
-  //
-  //  A valid autoscale NON-USAGE entry without region and datacenter attributes
-  //
-  val autoscaleInfoMessageWithoutRegionAndDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                          <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                          <atom:title>autoscale</atom:title>
-                                          <atom:content type="application/xml">
-                                            <event xmlns="http://docs.rackspace.com/core/event"
-                                                 xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                 id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                 version="2"
-                                                 eventTime="2013-03-15T11:51:11Z"
-                                                 type="INFO">
-                                              <sample:product serviceCode="Autoscale"
-                                                version="1"
-                                                scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                desiredCapacity="5"
-                                                currentCapacity="3"
-                                                message="Launching 2 servers"/>
-                                            </event>
-                                          </atom:content>
-                                        </atom:entry>
-
-  //
-  //  A valid autoscale NON-USAGE entry with a valid region and no dc
-  //
-  val autoscaleInfoMessageWithRegionAndNoDc = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-                                            <atom:id>urn:uuid:123f6548-778c-11e2-95e4-002500a28a7a</atom:id>
-                                            <atom:title>autoscale</atom:title>
-                                            <atom:content type="application/xml">
-                                              <event xmlns="http://docs.rackspace.com/core/event"
-                                                     xmlns:sample="http://docs.rackspace.com/event/autoscale"
-                                                     id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-                                                     version="2"
-                                                     eventTime="2013-03-15T11:51:11Z"
-                                                     type="INFO"
-                                                     region="DFW">
-                                                <sample:product serviceCode="Autoscale"
-                                                                version="1"
-                                                                scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-                                                                desiredCapacity="5"
-                                                                currentCapacity="3"
-                                                                message="Launching 2 servers"/>
-                                              </event>
-                                            </atom:content>
-                                          </atom:entry>
-
   // #1
   test ("#1 - Datacenter should be added as a category on product feed (monitoring/events) for MaaS events with GLOBAL DC/Region") {
     val req = request("POST", "/monitoring/events", "application/atom+xml", maasMessageWithGlobalDCRegion, SERVICE_ADMIN)
@@ -390,18 +343,6 @@ class GlobalDcRegionSuites extends BaseUsageSuite {
   // #18
   test ("#18 - Events without Datacenter should be allowed on non validated feed (usagetest7/events) for CBS events") {
     val req = request("POST", "/usagetest7/events", "application/atom+xml", cbsMessageWithoutDCRegion, SERVICE_ADMIN)
-    atomValidator.validate(req, response, chain)
-  }
-
-  // #19
-  test ("#19 - Events without datacenter and region should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleInfoMessageWithoutRegionAndDc, SERVICE_ADMIN)
-    atomValidator.validate(req, response, chain)
-  }
-
-  // #20
-  test ("#20 - Events with region and no datacenter should be allowed on product feed (e.g autoscale/events) for Autoscale non-usage events") {
-    val req = request("POST", "/autoscale/events", "application/atom+xml", autoscaleInfoMessageWithRegionAndNoDc, SERVICE_ADMIN)
     atomValidator.validate(req, response, chain)
   }
 }
