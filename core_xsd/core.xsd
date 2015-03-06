@@ -488,20 +488,25 @@
                         </documentation>
                     </annotation>
                 </assert>
-                <assert vc:minVersion="1.1" test="if (@region = 'GLOBAL') then (@dataCenter = 'GLOBAL') else
-                                                  if (@region = 'DFW') then (@dataCenter = ('DFW1','DFW2','DFW3')) else
-                                                  if (@region = 'HKG') then (@dataCenter = 'HKG1') else
-                                                  if (@region = 'IAD') then (@dataCenter = ('IAD1','IAD2','IAD3')) else
-                                                  if (@region = 'LON') then (@dataCenter = ('LON1','LON3')) else
-                                                  if (@region = 'ORD') then (@dataCenter = 'ORD1') else
-                                                  if (@region = 'SYD') then (@dataCenter = 'SYD2') else false()
+                <!--
+                    For USAGE, USAGE_SNAPSHOT & USAGE_SUMMARY events, datacenter & region must exist and must match.
+                    For all other event types, datacenter & region are optional, and datacenter must match region if it is a non-GLOBAL value.
+                -->
+                <assert vc:minVersion="1.1" test="if (@dataCenter = ('DFW1','DFW2','DFW3')) then (@region = 'DFW') else
+                                                  if (@dataCenter = 'HKG1') then (@region = 'HKG') else
+                                                  if (@dataCenter = ('IAD1','IAD2','IAD3')) then (@region = 'IAD') else
+                                                  if (@dataCenter = ('LON1','LON3')) then (@region = 'LON') else
+                                                  if (@dataCenter = 'ORD1') then (@region = 'ORD') else
+                                                  if (@dataCenter = 'SYD2') then (@region = 'SYD') else
+                                                  if (@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) then ((@dataCenter = 'GLOBAL') and (@region = 'GLOBAL'))
+                                                  else true()
                                                   "
                         xerces:message="There is a mismatch between the region and the dataCenter."
                         saxon:message="There is a mismatch between the region and the dataCenter.">
                     <annotation>
                         <documentation>
                             <html:p>
-                                The region and datacenter must match!
+                                The datacenter must match the region, and datacenter must exists for event type USAGE, USAGE_SUMMARY, and USAGE_SNAPSHOT.
                             </html:p>
                         </documentation>
                     </annotation>
