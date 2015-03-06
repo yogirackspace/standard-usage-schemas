@@ -489,9 +489,8 @@
                     </annotation>
                 </assert>
                 <!--
-                    With region and datacenter default to GLOBAL if empty/not provided,
-                    dataCenter must match region for all event types,
-                    region and datacenter must be provided (default to GLOBAL if not) for usage event types.
+                    For USAGE, USAGE_SNAPSHOT & USAGE_SUMMARY events, datacenter & region must exist and must match.
+                    For all other event types, datacenter & region are optional, and datacenter must match region if it is a non-GLOBAL value.
                 -->
                 <assert vc:minVersion="1.1" test="if (@dataCenter = ('DFW1','DFW2','DFW3')) then (@region = 'DFW') else
                                                   if (@dataCenter = 'HKG1') then (@region = 'HKG') else
