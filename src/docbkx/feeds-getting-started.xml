@@ -592,7 +592,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr security="internal">
                         <td>cloudfeeds:service-admin</td>
                         <td>This role can see all tenant IDs that have been enabled for Cloud Feeds.
                             The service-admin can perform <command>POST</command>, as well as
@@ -610,7 +610,7 @@
     <para>You can view the role for which you are enabled in the successful response to an
             authentication request. The example below shows a port of the successfull authentication
             response for a tenant who has been enabled for the <emphasis role="italic"
-                >service-admin</emphasis> role. </para>
+                >cloudfeeds:observer</emphasis> role. </para>
         <para>
             <programlisting>
   "user": {
@@ -620,9 +620,9 @@
      "name": "cloudfeedadmin",
      "roles": [
                 {
-                    "description": "<emphasis role="bold">Able to observe cloud feeds data for all tenants</emphasis>",
+                    "description": "<emphasis role="bold">Able to observe cloud feeds data for this tenant</emphasis>",
                     "id": "1234567",
-                    "name": "<emphasis role="bold">cloudfeeds:service-admin</emphasis>"
+                    "name": "<emphasis role="bold">cloudfeeds:observer</emphasis>"
                 },
                 {
                     "description": "Admin Role.",

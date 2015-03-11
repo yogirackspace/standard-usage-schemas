@@ -1349,6 +1349,18 @@
                     <title>Product versioning example</title>
                     <programlisting language="xml"><xi:include href="./samples/BigDataVersioningExample.xml" parse="text"/></programlisting>
                 </example>
+                <para>
+                    <note>
+                        <para>You can only update the version of an event if it is <emphasis
+                                role="bold">backwards compatible</emphasis>. If you want to update
+                            an event that is <emphasis role="bold">backwards
+                            incompatible</emphasis>, you need to create a <emphasis role="bold"
+                                >new</emphasis> event. The purpose of the version number is to
+                            denote which schema rules should apply, and <emphasis role="bold">not
+                            </emphasis>to denote that a message is <emphasis role="bold"
+                                >incompatible</emphasis>.</para>
+                    </note>
+                </para>
             </section>
         <section xml:id="Allowed_types">
             <title>Allowed data types</title>
@@ -1737,6 +1749,13 @@
                     in GitHub.</para>
             </note>
         </para>
+        <para>
+            <important>
+                <para>The standard-usage-schema build requires that you have Java 1.7 and <link
+                        xlink:href="http://maven.apache.org/download.cgi">Maven 3.0.5</link>
+                    installed on your computer.</para>
+            </important>
+        </para>
         <section xml:id="Define_product_schema">
             <title>Defining your product schema</title>
             <para>After you have forked the repository and created a branch, you need to create a
@@ -2018,7 +2037,10 @@
         <section xml:id="Add_sample_files">
             <title>Adding samples</title>
             <para>You can use Maven to generate sample responses and entries for each version of
-                your product schema. </para>
+                your product schema. To use Maven, ensure that you have version 3.0.5 installed. For
+                more information, see the Maven 3.0.5. <link
+                    xlink:href="http://maven.apache.org/docs/3.0.5/release-notes.html">download
+                    site</link>.</para>
             <para>To generate samples, type the following command:</para>
             <para>
                 <programlisting> mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/[new_product.xml] -DfeedName=[feed_name] </programlisting>
