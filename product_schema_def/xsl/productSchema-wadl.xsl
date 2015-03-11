@@ -320,18 +320,34 @@
                     <param name="checkDatacenter_{$scode}"
                            style="plain"
                            required="true"
-                           path="if (/atom:entry/atom:content/event:event and not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
-                                     /atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT') and
-                                     (not(/atom:entry/atom:content/event:event/@dataCenter) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL'))
+                           path="if (
+                                        (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
+                                        (
+                                            (/atom:entry/atom:content/event:event) and
+                                            not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
+                                            (
+                                                not(/atom:entry/atom:content/event:event/@dataCenter)
+                                                or (/atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL')
+                                            )
+                                        )
+                                    )
                                  then false()
                                  else true()"
                            rax:message="For this type of {$scode} event, @dataCenter must be present and can not be GLOBAL."/>
                     <param name="checkRegion_{$scode}"
                            style="plain"
                            required="true"
-                           path="if (/atom:entry/atom:content/event:event and not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
-                                     /atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT') and
-                                     (not(/atom:entry/atom:content/event:event/@region) or /atom:entry/atom:content/event:event/@region = 'GLOBAL'))
+                           path="if (
+                                        (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
+                                        (
+                                            (/atom:entry/atom:content/event:event) and
+                                            not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
+                                            (
+                                                not(/atom:entry/atom:content/event:event/@region)
+                                                or (/atom:entry/atom:content/event:event/@region = 'GLOBAL')
+                                            )
+                                        )
+                                    )
                                  then false()
                                  else true()"
                            rax:message="For this type of {$scode} event, @region must be present and can not be GLOBAL."/>
@@ -341,18 +357,26 @@
                 <param name="checkDatacenter"
                        style="plain"
                        required="true"
-                       path="if ( (/atom:entry/atom:content/event:event and
-                                   /atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT') and
-                                   not(/atom:entry/atom:content/event:event/@dataCenter)) or /atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL')
+                       path="if (
+                                    (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
+                                    (
+                                        (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@dataCenter))
+                                        or (/atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL')
+                                    )
+                                )
                              then false()
                              else true()"
                        rax:message="For this product usage event, @dataCenter must be present and can not be GLOBAL."/>
                 <param name="checkRegion"
                        style="plain"
                        required="true"
-                       path="if ( (/atom:entry/atom:content/event:event and
-                                   /atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT') and
-                                   not(/atom:entry/atom:content/event:event/@region)) or /atom:entry/atom:content/event:event/@region = 'GLOBAL')
+                       path="if (
+                                    (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
+                                    (
+                                        (/atom:entry/atom:content/event:event and not(/atom:entry/atom:content/event:event/@region))
+                                        or (/atom:entry/atom:content/event:event/@region = 'GLOBAL')
+                                    )
+                                )
                              then false()
                              else true()"
                        rax:message="For this product usage event, @region must be present and can not be GLOBAL."/>
