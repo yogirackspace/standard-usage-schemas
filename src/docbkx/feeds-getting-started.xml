@@ -273,7 +273,7 @@
                         <para>Consider the following cURL Authenticate
                             Request: XML example that is described in
                             detail in <xref
-                                linkend="Generating_Auth_Token"
+                                linkend="Authentication"
                             />:</para>
                         <example>
                             <title>cURL authentication request:
@@ -349,16 +349,37 @@
             </para>
         </section>
     </chapter>
-    <chapter xml:id="Generating_Auth_Token">
-        <title>Generating an authentication token</title>
-        <para>Whether you use cURL or a REST client to interact with
-            the Cloud Feeds API, you must generate an authentication
-            token. You provide this token in the X-Auth-Token header
-            in each Cloud Feeds API request. </para>
-        <para>Examples 4.1 and 4.2 demonstrate how to use cURL to
-            obtain the authentication token and your account number.
-            You must provide both when making subsequent Cloud Feeds
-            API requests.</para>
+    <chapter xml:id="Authentication">
+        <title>Authentication</title>
+        <para>Cloud Feeds provides two methods to authenticate users who want to use the Cloud Feeds
+            API:</para>
+        <para>
+            <itemizedlist>
+                <listitem>
+                    <para>Authentication by using an authentication token. For more information, see
+                            <link linkend="Token-based-authentication">Token-based
+                            authentication</link>.</para>
+                </listitem>
+                <listitem>
+                    <para>Basic Authentication by using a username and API key. For more
+                        information, see <link linkend="Basic_Authentication">Basic
+                            authentication</link>.</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            <note>
+                <para>To make your API calls more secure it is recommended that you use token-based
+                    authentication instead of basic authentication. The examples in this guide on
+                    how to use the Cloud Feeds API use token-based authentication.</para>
+            </note>
+        </para><section xml:id="Token-based-authentication"><title>Token-based authentication</title>
+        <para>To make calls against the Cloud Feeds API by using an authentication token, you must
+                first generate an authentication token. You provide this token in the X-Auth-Token
+                header in each Cloud Feeds API request. </para>
+        <para>The examples below demonstrate how to use cURL to obtain the authentication token and
+                your account number. You must provide both when making subsequent Cloud Feeds API
+                requests when you use token-based authentication.</para>
         <para>Remember to replace the placeholder names in the
             following authentication request examples with your
                 information:<itemizedlist spacing="compact">
@@ -469,7 +490,7 @@
         <para>The authentication token <code>id</code> is returned
             along with an <code>expires</code> attribute that
             specifies when the token expires. </para>
-        <note><title>Notes</title>
+        <note>
             <itemizedlist spacing="compact">
                 <listitem>
                     <para>If the authentication response returns a 401 response with a request for
@@ -535,7 +556,28 @@
             specify your account number on most of the Cloud Feeds API
             operations, wherever you see the placeholder
                 <replaceable>tenantID</replaceable> specified in the
-            examples in this guide.</para>
+            examples in this guide.</para></section>
+            <section xml:id="Basic_Authentication"><title>Basic Authentication</title>
+            <para>In addition to token-based authentication Cloud Feeds also supports basic
+                authentication by using your Rackspace cloud account username and API key.</para>
+            <para>To make a request to the Cloud Feeds API with basic authentication, you need to
+                issue a cURL call directly against the requested end point by providing the username
+                and API key directly in the call as shown here:</para>
+            <para><programlisting>curl -u &lt;<replaceable>username</replaceable>:<replaceable>api-key</replaceable>> -X &lt;<replaceable>method</replaceable>> https://<replaceable>endpointURL</replaceable>/</programlisting>The
+                following example shows how to retrieve the feeds catalog by using basic
+                authentication:</para>
+            <para>
+                <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/ </programlisting>
+            </para>
+                <para>The following example show how to retrieve an event by using basic
+                authentication:</para>
+            <para>
+                <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/usagesummary/bigdata/events</programlisting>
+            </para>
+                <para>For more information, see <link linkend="Cloud_Feeds_Catalog">Cloud Feeds
+                    Catalog</link> and <link linkend="Using_the_Cloud_Feeds_API">Using the Cloud
+                    Feeds API</link>.</para>
+                </section><section xml:id="Cloud_Feeds_Roles"><title>Cloud Feeds authorization roles</title>
         <para>To be able to obtain feeds, customers need to be enabled
             for one of the following roles:</para>
         <para>
@@ -604,7 +646,7 @@
        </programlisting>
         </para>
         <para>After authentication, you can use cURL to perform &GET;
-            and &POST; requests for the Cloud Feeds API.</para>
+            and &POST; requests for the Cloud Feeds API.</para></section>
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
         <title>Service endpoints</title>
@@ -750,7 +792,7 @@
             the Atom Publishing Protocol, RFC 5023. For more information, see <link
                 xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
                 >http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
-        <para> You can obtain a list of all the feeds that are available by submitting a
+        <para>You can obtain a list of all the feeds that are available by submitting a
                 <command>GET</command> request against the Cloud Feeds endpoint as shown in the
             following examples:</para>
         <example security="internal"><title>Retrieve feeds catalog request - XML example</title>
@@ -759,6 +801,14 @@
         <example security="internal"><title>Retrieve feeds catalog request - JSON example</title>
             <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
         <example security="external"><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+        <para>You can also use <emphasis role="bold">basic authentication</emphasis> to retrieve a
+            catalog feed by using the following syntax:</para>
+        <example security="internal"><title>Retrieve feeds catalog request using basic authentication- XML example</title>
+            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog request using basic authentication - XML example</title><programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+        <example security="internal"><title>Retrieve feeds catalog request using basic authentication - JSON example</title>
+            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
+        <example security="external"><title>Retrieve feeds catalog request using basic authentication - JSON example</title><programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable>  -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
     <para>This operation returns a list of supported feeds as shown in the following
             examples:</para>
         <example security="internal"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
@@ -962,13 +1012,18 @@
                 </listitem>
             </itemizedlist>
         </para>
-        <para>This section assumes that you have successfully
-            authenticated against the Rackspace Cloud API and obtained
-            an authentication token as described in <link
-                linkend="Generating_Auth_Token">Chapter 4: Generate an
-                Authentication Token</link>. Please make sure to
-            record the token because you need it to complete the
-            exercises in this chapter.</para>
+        <para>
+            <note>
+                <para>This section assumes that you are using token-based authentication and that
+                    you have successfully authenticated against the Rackspace Cloud API and obtained
+                    an authentication token as described in <link
+                        linkend="Token-based-authentication">Token-based authentication</link>.
+                    Please make sure to record the token because you need it to complete the
+                    exercises in this chapter. For information on how to make API calls using basic
+                    authentication, see <link linkend="Basic_Authentication">Basic
+                        authentication</link>.</para>
+            </note>
+        </para>
         <section xml:id="Create_Atom_Entry" security="internal">
             <title>Adding a new Atom event in a feed</title>
             <para>To insert a new Atom event in a feed you first need

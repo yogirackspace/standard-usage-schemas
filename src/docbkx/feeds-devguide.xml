@@ -189,11 +189,30 @@
         </note>
         <section xml:id="Authentication-d1e647">
             <title>Authentication</title>
-            <para>Every REST request against the Cloud Feeds service requires the inclusion of a
-                specific authorization token, supplied by the <code>X-Auth-Token</code> HTTP header.
-                Users obtain this token by first using the Rackspace Cloud Identity Service (for
-                more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html">Cloud Identity Service</link>) and supplying a valid username and API access
-                key. </para>
+            <para>Cloud Feeds provides two methods to authenticate users who want to use the Cloud
+                Feeds API:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>Authentication by using an authentication token. For more information,
+                            see <link linkend="Token_based_authentication">Authenticating by using
+                                token-based authentication</link>.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Basic Authentication by using a username and API key. For more
+                            information, see <link linkend="Basic_Authentication">Authenticating by
+                                using basic authentication</link>.</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <note>
+                    <para>To make your API calls more secure it is recommended that you use
+                        token-based authentication instead of basic authentication. The examples in
+                        this guide on how to use the Cloud Feeds API use token-based
+                        authentication.</para>
+                </note>
+            </para>
             <section xml:id="AuthRoles-d1e699">
                 <title>Authorization roles required for Cloud Feeds access</title>
                 <para security="external">To read Cloud Feeds data for a single tenant (<command>GET
@@ -360,71 +379,71 @@
                         <command>GET</command> requests per minutes on all feeds they are authorized
                     for.</para>
             </section>
-            <section xml:id="Geographic_Endpoints">
-                <title>Geographic endpoints</title>
-                <para> Rackspace Cloud Identity Service serves as the entry point to all Rackspace
-                    Cloud APIs and is itself a RESTful web service. </para>
-                <para security="internal">You can use either of the following endpoints to access
-                    the authentication service, depending on whether you use a staging or a
-                    production environment: </para>
-                <itemizedlist spacing="compact" security="internal">
-                    <listitem>
-                        <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
-                    </listitem>
-                    <listitem>
-                        <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external"> You can use the following endpoint to access the
-                    Authentication Service: </para>
-                <itemizedlist spacing="compact" security="external">
-                    <listitem>
-                        <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external">Notice that you authenticate by using a special URL for
-                    the Cloud authentication service. For example, you may use
-                        <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> as shown in
-                    the following Authenticate Request examples. Note that the <code>v2.0</code>
-                    component in the URL indicates that you are using version 2.0 of the Cloud
-                    Authentication API.</para>
-                <para security="internal">Notice that you authenticate by using a special URL for
-                    the Cloud authentication service. For example, you may use
-                        <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code> or
-                        <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code> as
-                    shown in the following Authenticate Request examples. Note that the
-                        <code>v2.0</code> component in the URL indicates that you are using version
-                    2.0 of the Cloud Authentication API.</para>
-            </section>
-            <section xml:id="Retrieving_Auth_Token" xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
-                <title>Retrieving the authentication token</title>
-                <para>To use the Cloud Feeds API, you must generate an authentication token, whether
-                    you use cURL or a REST client to interact with the Cloud Feeds API. You provide
-                    this token in the X-Auth-Token header in each Cloud Feeds API request. </para>
-                <para>The following examples demonstrate how to use cURL to obtain the
-                    authentication token and your account number. You must provide both when making
-                    subsequent Cloud Feeds API requests.</para>
-                <para>Remember to replace the placeholder names in the following authentication
-                    request examples with your information:<itemizedlist spacing="compact">
+            <section xml:id="Token_based_authentication" xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
+                <title>Authenticating using token-based authentication</title>
+                    <para>To make calls against the Cloud Feeds API by using an authentication
+                        token, you must first generate an authentication token. You provide this
+                        token in the X-Auth-Token header in each Cloud Feeds API request. </para>
+                    <para>The examples below demonstrate how to use cURL to obtain the
+                        authentication token and your account number. You must provide both when
+                        making subsequent Cloud Feeds API requests when you use token-based
+                        authentication.</para>
+                    <para>Remember to replace the placeholder names in the following authentication
+                        request examples with your information:<itemizedlist spacing="compact">
+                            <listitem>
+                                <para security="external"><emphasis role="italic"
+                                        >yourUserName</emphasis> &mdash; Your common Rackspace Cloud
+                                    username, as supplied during registration.</para>
+                                <para security="internal"><emphasis role="italic"
+                                        >yourUserName</emphasis> &mdash; Your common Cloud username
+                                    as supplied to you.</para>
+                            </listitem>
+                            <listitem>
+                                <para><emphasis role="italic">yourApiKey</emphasis> &mdash; Your API
+                                    access key.</para>
+                                <para security="external"> You can obtain the key from the Rackspace
+                                        <link xlink:href="http://mycloud.rackspace.com/">Cloud
+                                        Control Panel</link>) by accessing selecting <emphasis
+                                        role="bold">Account Settings</emphasis> from the <emphasis
+                                        role="italic">yourAccount</emphasis> menu in the top-right
+                                    corner of the window.</para>
+                            </listitem>
+                        </itemizedlist></para>
+                    <para security="internal">You can use either of the following endpoints to
+                        access the authentication service, depending whether you use a staging or a
+                        production environment: </para>
+                    <itemizedlist spacing="compact" security="internal">
                         <listitem>
-                            <para security="external"><emphasis role="italic">yourUserName</emphasis> &mdash; Your common Rackspace cloud
-                                username, as supplied during registration.</para>
-                            <para security="internal"><emphasis role="italic">yourUserName</emphasis> &mdash; Your common Cloud username as
-                                supplied to you.</para>
+                            <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
                         </listitem>
                         <listitem>
-                            <para><emphasis role="italic">yourApiKey</emphasis> &mdash; Your API
-                                access key.</para>
-                            <para security="external">You can obtain the key from the Rackspace
-                                    <link xlink:href="http://mycloud.rackspace.com/">Cloud Control
-                                    Panel</link>) by accessing selecting <emphasis role="bold">Account Settings</emphasis> from the <emphasis role="italic">yourAccount</emphasis> menu in the top-right corner of the
-                                window. </para>
+                            <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
                         </listitem>
-                    </itemizedlist></para>
-                <example security="external">
-                    <title>cURL authenticate request: XML</title>
-                    <?dbfo keep-together="always"?>
-                    <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+                    </itemizedlist>
+                    <para security="external"> You can use the following endpoint to access the
+                        Authentication Service: </para>
+                    <itemizedlist spacing="compact" security="external">
+                        <listitem>
+                            <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
+                        </listitem>
+                    </itemizedlist>
+                    <para security="external">Notice that you authenticate by using a special URL
+                        for the Cloud authentication service. For example, you may use
+                            <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> as
+                        shown in the following Authenticate Request examples. Note that the
+                            <code>v2.0</code> component in the URL indicates that you are using
+                        version 2.0 of the Cloud Authentication API.</para>
+                    <para security="internal">Notice that you authenticate by using a special URL
+                        for the Cloud authentication service. For example, you may use
+                            <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code>
+                        or <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code>
+                        as shown in the following Authenticate Request examples. Note that the
+                            <code>v2.0</code> component in the URL indicates that you are using
+                        version 2.0 of the Cloud Authentication API.</para>
+                    <example security="external">
+                        <title>cURL authenticate request: XML</title>
+                        <?dbfo keep-together="always"?>
+                        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;auth>
    &lt;apiKeyCredentials
@@ -435,11 +454,11 @@
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-                </example>
-                <example security="internal">
-                    <title>cURL authenticate request: XML</title>
-                    <?dbfo keep-together="always"?>
-                    <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+                    </example>
+                    <example security="internal">
+                        <title>cURL authenticate request: XML</title>
+                        <?dbfo keep-together="always"?>
+                        <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;auth>
    &lt;apiKeyCredentials
@@ -450,144 +469,122 @@
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
 <uri>'https://staging.identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-                </example>
-                <example security="external">
-                    <title>cURL authenticate request: JSON</title>
-                    <?dbfo keep-together="always"?>
-                    <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+                    </example>
+                    <example security="external">
+                        <title>cURL authenticate request: JSON</title>
+                        <?dbfo keep-together="always"?>
+                        <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
      -H "Content-Type:
         application/json" </screen>
-                </example>
-                <example security="internal">
-                    <title>cURL authenticate request: JSON</title>
-                    <?dbfo keep-together="always"?>
-                    <screen language="bash">curl -s https://staging.identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+                    </example>
+                    <example security="internal">
+                        <title>cURL authenticate request: JSON</title>
+                        <?dbfo keep-together="always"?>
+                        <screen language="bash">curl -s https://staging.identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
      <emphasis role="bold">-H "Content-Type:
         application/json" </emphasis></screen>
-                </example>
-                <para>The authentication token <code>id</code> is returned along with an
-                        <code>expires</code> attribute that specifies when the token expires. </para>
-                <note security="external"><title>Notes</title>
-                    <itemizedlist spacing="compact">
-                        <listitem>
-                            <para>If the authentication response returns a 401 response with a request for
-                                additional credentials, your account requires multi-factor authentication.
-                                To complete the authentication process, submit a second POST token request
-                                with these multi-factor authentication credentials: <itemizedlist>
-                                    <listitem>
-                                        <para>The session ID value returned in the <code>WWW-Authenticate: OS-MF
-                                            sessionId</code> header parameter included in the 
-                                            response to the initial authentication
-                                            request.</para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>The passcode from the mobile phone
-                                            associated with your user account.</para>
-                                        <example><title>Authentication request with multi-factor authentication credentials</title>
-                                            <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
+                    </example>
+                    <para>The authentication token <code>id</code> is returned along with an
+                            <code>expires</code> attribute that specifies when the token expires. </para>
+                    <note>
+                        <itemizedlist spacing="compact">
+                            <listitem>
+                                <para>If the authentication response returns a 401 response with a
+                                    request for additional credentials, your account requires
+                                    multi-factor authentication. To complete the authentication
+                                    process, submit a second POST token request with these
+                                    multi-factor authentication credentials: <itemizedlist>
+                                        <listitem>
+                                            <para>The session ID value returned in the
+                                                  <code>WWW-Authenticate: OS-MF sessionId</code>
+                                                header parameter included in the response to the
+                                                initial authentication request.</para>
+                                        </listitem>
+                                        <listitem>
+                                            <para>The passcode from the mobile phone associated with
+                                                your user account.</para>
+                                            <example>
+                                                <title>Authentication request with multi-factor
+                                                  authentication credentials</title>
+                                                <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
        -X POST \
        -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
        -H "X-SessionId: $SESSION_ID" \
-       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting></example>
-                                    </listitem>
-                                </itemizedlist></para>
-                            <para>For more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> in the 
-                            <citetitle>Rackspace Cloud Developer Guide</citetitle>.</para>
-                        </listitem>
-                        <listitem>
-                            <para>The values that you receive in your responses vary from the
-                                examples shown in this document because they are specific to your
-                                account.</para>
-                        </listitem>
-                        <listitem>
-                            <para> The <code>expires</code> attribute denotes the time after which
-                                the token will automatically expire. A token may be manually revoked
-                                before the time identified by the expires attribute;
-                                    <code>expires</code> predicts a token's maximum possible
-                                lifespan but does not guarantee that it will reach that lifespan.
-                                Clients are encouraged to cache a token until it expires.</para>
-                        </listitem>
-                        <listitem>
-                            <para>Applications should be designed to re-authenticate after receiving
-                                a 401 (Unauthorized) response from a service endpoint.</para>
-                        </listitem>
-                        <listitem>
-                            <para>The actual account number is located after the final slash (/) in
-                                the <code>publicURL</code> field. You must specify your account
-                                number on most of the Cloud Feeds API operations, wherever you see
-                                the placeholder <replaceable>tenantID</replaceable> specified in the
-                                examples in this guide.</para>
-                        </listitem>
-                    </itemizedlist>
-                </note>
-                <para>In a successful response to an authentication request, you can also view the
-                    role for which you are enabled. The following example shows a part of the
-                    successful authentication response for a tenant who has been enabled for the
-                    service-admin role. For more information about roles, see <link linkend="AuthRoles-d1e699">Authorization roles required for Cloud Feeds
-                        access</link>.</para>
-                <para>
-                    <programlisting>
-  "user": {
-     "RAX-AUTH:defaultRegion": "DFW",
-     "RAX-AUTH:federated": false,
-     "id": "1234567",
-     "name": "cloudfeedadmin",
-     "roles": [
-                {
-                    "description": "<emphasis role="bold">Able to observe cloud feeds data for all tenants</emphasis>",
-                    "id": "1234567",
-                    "name": "<emphasis role="bold">cloudfeeds:service-admin</emphasis>"
-                },
-                {
-                    "description": "Admin Role.",
-                    "id": "1",
-                    "name": "identity:admin"
-                },
-                {
-                    "description": "A Role that allows a user access to keystone Service methods",
-                    "id": "5",
-                    "name": "object-store:default",
-                    "tenantId": "1234567"
-                },
-                {
-                    "description": "A Role that allows a user access to keystone Service methods",
-                    "id": "684",
-                    "name": "compute:default",
-                    "tenantId": "1234567"
-                }
-            ]
-        }
-       </programlisting>
-                </para>
-                <para>After authentication, you can use cURL to perform &GET; and &POST; requests
-                    for the Cloud Feeds API.</para>
-                <important security="external">
-                    <para>If you are programmatically parsing an authentication response, please be
-                        aware that service names are stable for the life of the particular service
-                        and can be used as keys. You should also be aware that a user's service
-                        catalog can include multiple uniquely-named services which perform similar
-                        functions. For example, cloudServersOpenStack is the OpenStack version of
-                        compute whereas cloudServers is the legacy version of compute; the same user
-                        can have access to both services. In Auth 2.0, the service type attribute
-                        can be used as a key by which to recognize similar services; see the tip
-                        below.</para>
-                </important>
-                <tip security="external">
-                    <para>Beginning with Auth 2.0, the service catalog includes a service type
-                        attribute to identify services that perform similar functions but have
-                        different names; for example, <code>type="compute"</code> identifies compute
-                        services such as cloudServers and cloudServersOpenStack. Some developers
-                        have found the service type attribute to be useful in parsing the service
-                        catalog. For additional information on Auth 2.0 (also known as the Cloud
-                        Identity Service), refer to the <citetitle>Cloud Identity Client Developer
-                            Guide</citetitle> at <link xlink:href="http://docs.rackspace.com">http://docs.rackspace.com/</link>.</para>
-                </tip>
+       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting>
+                                            </example>
+                                        </listitem>
+                                    </itemizedlist></para>
+                                <para>For more information, see <link
+                                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html"
+                                        >Multi-factor authentication</link> in the
+                                        <citetitle>Rackspace Cloud Identity Client Developer
+                                        Guide</citetitle>.</para>
+                            </listitem>
+                            <listitem>
+                                <para>The token, user, and service catalog information that you
+                                    receive in your responses vary from the examples shown in this
+                                    document because they are specific to your account.</para>
+                            </listitem>
+                            <listitem>
+                                <para> The <code>expires</code> attribute denotes the time after
+                                    which the token will automatically expire. A token may be
+                                    manually revoked before the time identified by the expires
+                                    attribute; <code>expires</code> predicts a token's maximum
+                                    possible lifespan but does not guarantee that it will reach that
+                                    lifespan. Clients are encouraged to cache a token until it
+                                    expires.</para>
+                            </listitem>
+                            <listitem>
+                                <para>Applications should be designed to re-authenticate after
+                                    receiving a 401 (Unauthorized) response from a service
+                                    endpoint.</para>
+                            </listitem>
+                            <listitem security="internal">
+                                <para>For more detailed authentication instructions, see the <link
+                                        xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                                        > Quick Start</link> in the <citetitle>Identity Client
+                                        Developer Guide</citetitle>.</para>
+                            </listitem>
+                            <listitem security="external">
+                                <para>For more detailed authentication instructions and examples,
+                                    see the <link
+                                        xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                                        >Quick Start</link> in the <citetitle>Identity Client
+                                        Developer Guide</citetitle>.</para>
+                            </listitem>
+                        </itemizedlist>
+                    </note>
+                    <para>The actual account number is located after the final slash (/) in the
+                            <code>publicURL</code> field. You must specify your account number on
+                        most of the Cloud Feeds API operations, wherever you see the placeholder
+                            <replaceable>tenantID</replaceable> specified in the examples in this
+                        guide.</para></section>
+                <section xml:id="Basic_Authentication">
+                    <title>Authenticating using basic authentication</title>
+                    <para>In addition to token-based authentication Cloud Feeds also
+                        supports basic authentication by using your Rackspace cloud account username
+                        and API key.</para>
+                    <para>To make a request to the Cloud Feeds API with basic
+                        authentication, you need to issue a cURL call directly against the requested
+                        end point by providing the username and API key directly in the call as
+                        shown here:</para>
+                    <para><programlisting>curl -u &lt;<replaceable>username</replaceable>:<replaceable>api-key</replaceable>> -X &lt;<replaceable>method</replaceable>> https://<replaceable>endpointURL</replaceable>/</programlisting>The
+                        following example shows how to retrieve the feeds catalog by using basic
+                        authentication:</para>
+                    <para>
+                        <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/ </programlisting>
+                    </para>
+                    <para>The following example show how to retrieve an event by using
+                        basic authentication:</para>
+                    <para>
+                        <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/usagesummary/bigdata/events</programlisting>
+                    </para>
+                </section>                
             </section>
-        </section>
         <section xml:id="Service_Access_Endpoints-d1e753">
             <title>Service access/endpoints</title>
             <para>Cloud Feeds service is a regionalized service. Therefore, the user of the service
@@ -725,18 +722,47 @@
         </section>
         <section xml:id="Feeds_Catalog">
             <title>Feeds catalog</title>
-            <para>Cloud Feeds supports a catalog of different feeds that are published.  Cloud Feeds
-                supports publishing this list of feeds in Atom Service Document format as described
-                in the Atom Publishing Protocol, RFC 5023. For more information, see <link xlink:href="http://tools.ietf.org/html/rfc5023#section-8">http://tools.ietf.org/html/rfc5023#section-8</link>.</para>
-            <para> You can obtain a list of all the feeds that are available by submitting a
-                <command>GET</command> request against the Cloud Feeds endpoint as shown in the
+            <para>You can obtain a list of all the feeds that are available by submitting a
+                    <command>GET</command> request against the Cloud Feeds endpoint as shown in the
                 following examples:</para>
-            <example security="internal"><title>Retrieve feeds catalog request - XML example</title>
-                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-            <example security="external"><title>Retrieve feeds catalog request - XML example</title><programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
-            <example security="internal"><title>Retrieve feeds catalog request - JSON example</title>
-                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-            <example security="external"><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+            <example security="internal">
+                <title>Retrieve feeds catalog request - XML example</title>
+                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+            </example>
+            <example security="external">
+                <title>Retrieve feeds catalog request - XML example</title>
+                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+            </example>
+            <example security="internal">
+                <title>Retrieve feeds catalog request - JSON example</title>
+                <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+            </example>
+            <example security="external">
+                <title>Retrieve feeds catalog request - JSON example</title>
+                <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+            </example>
+            <para>You can also use <emphasis role="bold">basic authentication</emphasis> to retrieve
+                a catalog feed by using the following syntax:</para>
+            <example security="internal">
+                <title>Retrieve feeds catalog request using basic authentication- XML
+                    example</title>
+                <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+            </example>
+            <example security="external">
+                <title>Retrieve feeds catalog request using basic authentication - XML
+                    example</title>
+                <programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+            </example>
+            <example security="internal">
+                <title>Retrieve feeds catalog request using basic authentication - JSON
+                    example</title>
+                <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+            </example>
+            <example security="external">
+                <title>Retrieve feeds catalog request using basic authentication - JSON
+                    example</title>
+                <programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable>  -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+            </example>
             <para>This operation returns a list of supported feeds as shown in the following
                 examples:</para>
             <example security="internal"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
@@ -1247,6 +1273,18 @@
         <title>Using Cloud Feeds</title>
         <para>To use Cloud Feeds you need to have a basic understanding of REST APIs. This section
             describes how to use the Cloud Feeds REST API to perform basic API operations.</para>
+        <para>
+            <important>
+                <para>This section assumes that you are using token-based authentication and that
+                    you have successfully authenticated against the Rackspace Cloud API and obtained
+                    an authentication token as described in <link
+                        linkend="Token_based_authentication">Authenticating use token-based
+                        authentication</link>. Please make sure to record the token because you need
+                    it to complete the exercises in this chapter. For information on how to make API
+                    calls using basic authentication, see <link linkend="Basic_Authentication"
+                        >Authenticating using basic authentication</link>.</para>
+            </important>
+        </para>
         <para security="internal">
             <note>
                 <para><code>tid:</code>, <code>rgn:</code>, <code>dc:</code>, <code>rid:</code>, and
