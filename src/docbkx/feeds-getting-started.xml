@@ -369,9 +369,8 @@
         </para>
         <para>
             <note>
-                <para>To make your API calls more secure it is recommended that you use token-based
-                    authentication instead of basic authentication. The examples in this guide on
-                    how to use the Cloud Feeds API use token-based authentication.</para>
+                <para>The examples in this guide on how to use the Cloud Feeds API use token-based
+                    authentication.</para>
             </note>
         </para><section xml:id="Token-based-authentication"><title>Token-based authentication</title>
         <para>To make calls against the Cloud Feeds API by using an authentication token, you must

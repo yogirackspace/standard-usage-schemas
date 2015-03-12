@@ -207,17 +207,15 @@
             </para>
             <para>
                 <note>
-                    <para>To make your API calls more secure it is recommended that you use
-                        token-based authentication instead of basic authentication. The examples in
-                        this guide on how to use the Cloud Feeds API use token-based
-                        authentication.</para>
+                    <para>The examples in this guide on how to use the Cloud Feeds API use
+                        token-based authentication.</para>
                 </note>
             </para>
             <section xml:id="AuthRoles-d1e699">
                 <title>Authorization roles required for Cloud Feeds access</title>
-                <para security="external">To read Cloud Feeds data for a single tenant (<command>GET
-                    </command>operations), a user must be assigned the <emphasis role="italic"
-                        >cloudfeeds:observer role</emphasis>.</para>    
+                <para security="external">To read Cloud Feeds data for a single tenant
+                        (<command>GET</command> operations), a user must be assigned the <emphasis
+                        role="italic">cloudfeeds:observer role</emphasis>.</para>    
     <para security="internal">The following table lists the authorization roles that are required
                     for Cloud Feeds access for internal customers.</para>
                     <table frame="all" security="internal">
@@ -380,7 +378,7 @@
                     for.</para>
             </section>
             <section xml:id="Token_based_authentication" xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
-                <title>Authenticating using token-based authentication</title>
+                <title>Authenticating by using token-based authentication</title>
                     <para>To make calls against the Cloud Feeds API by using an authentication
                         token, you must first generate an authentication token. You provide this
                         token in the X-Auth-Token header in each Cloud Feeds API request. </para>
@@ -564,7 +562,7 @@
                             <replaceable>tenantID</replaceable> specified in the examples in this
                         guide.</para></section>
                 <section xml:id="Basic_Authentication">
-                    <title>Authenticating using basic authentication</title>
+                    <title>Authenticating by using basic authentication</title>
                     <para>In addition to token-based authentication Cloud Feeds also
                         supports basic authentication by using your Rackspace cloud account username
                         and API key.</para>
@@ -1278,11 +1276,11 @@
                 <para>This section assumes that you are using token-based authentication and that
                     you have successfully authenticated against the Rackspace Cloud API and obtained
                     an authentication token as described in <link
-                        linkend="Token_based_authentication">Authenticating use token-based
+                        linkend="Token_based_authentication">Authenticating by using token-based
                         authentication</link>. Please make sure to record the token because you need
                     it to complete the exercises in this chapter. For information on how to make API
                     calls using basic authentication, see <link linkend="Basic_Authentication"
-                        >Authenticating using basic authentication</link>.</para>
+                        >Authenticating by using basic authentication</link>.</para>
             </important>
         </para>
         <para security="internal">
