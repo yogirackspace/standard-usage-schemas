@@ -364,7 +364,7 @@
                 <title>Geographic endpoints</title>
                 <para> Rackspace Cloud Identity Service serves as the entry point to all Rackspace
                     Cloud APIs and is itself a RESTful web service. </para>
-                <para security="internal"> You can use either of the following endpoints to access
+                <para security="internal">You can use either of the following endpoints to access
                     the authentication service, depending on whether you use a staging or a
                     production environment: </para>
                 <itemizedlist spacing="compact" security="internal">
@@ -375,27 +375,11 @@
                         <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
                     </listitem>
                 </itemizedlist>
-                <para security="external"> You can use either of the following endpoints to access
-                    the Authentication Service, regardless of US or UK identities: </para>
+                <para security="external"> You can use the following endpoint to access the
+                    Authentication Service: </para>
                 <itemizedlist spacing="compact" security="external">
                     <listitem>
                         <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
-                    </listitem>
-                    <listitem>
-                        <para><link xlink:href="&ENDPOINT-UK-20;">&ENDPOINT-UK-20;</link></para>
-                    </listitem>
-                </itemizedlist>
-                <para security="external"> our account might be based in either the US or the UK;
-                    this is not determined by your physical location but by the location of the
-                    Rackspace retail site which was used to create your account: </para>
-                <itemizedlist spacing="compact" security="external">
-                    <listitem>
-                        <para> If your account was created via <link xlink:href="http://www.rackspacecloud.com">http://www.rackspacecloud.com</link>, it is a US-based account.
-                        </para>
-                    </listitem>
-                    <listitem>
-                        <para> If your account was created via <link xlink:href="http://www.rackspace.co.uk">http://www.rackspace.co.uk</link>, it is a UK-based account.
-                        </para>
                     </listitem>
                 </itemizedlist>
                 <para security="external">Notice that you authenticate by using a special URL for
@@ -411,18 +395,6 @@
                     shown in the following Authenticate Request examples. Note that the
                         <code>v2.0</code> component in the URL indicates that you are using version
                     2.0 of the Cloud Authentication API.</para>
-                <note security="external">
-                    <para>For UK-based accounts, you may decide to use
-                            <code>'https://lon.identity.api.rackspacecloud.com/v2.0/tokens'</code>
-                        instead.</para>
-                </note>
-                <note security="internal">
-                    <para>For UK-based accounts, you may decide to use
-                            <code>'https://lon.identity-internal.api.rackspacecloud.com/v2.0/tokens'</code>
-                        or
-                            <code>'https://lon.staging.identity.api.rackspacecloud.com/v2.0/tokens'</code>
-                        instead.</para>
-                </note>
             </section>
             <section xml:id="Retrieving_Auth_Token" xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml">
                 <title>Retrieving the authentication token</title>
