@@ -1,0 +1,151 @@
+{
+    "feed": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "archive": "",
+        "entry": [
+            {
+                "category": [
+                    {
+                        "term": "tid:5821027"
+                    },
+                    {
+                        "term": "rgn:ORD"
+                    },
+                    {
+                        "term": "dc:ORD1"
+                    },
+                    {
+                        "term": "rid:ed3f75f5-bd98-4c62-b670-46c7d15ea601"
+                    },
+                    {
+                        "term": "widget.widget.gadget.usage"
+                    },
+                    {
+                        "term": "type:widget.widget.gadget.usage"
+                    }
+                ],
+                "content": {
+                    "event": {
+                        "@type": "http://docs.rackspace.com/core/event",
+                        "dataCenter": "ORD1",
+                        "endTime": "2015-01-25T15:51:11Z",
+                        "environment": "PROD",
+                        "id": "59085a27-f9ac-44f7-a74b-0d41fe3c4585",
+                        "product": {
+                            "@type": "http://docs.rackspace.com/usage/widget",
+                            "label": "test",
+                            "metaData": {
+                                "key": "foo",
+                                "value": "bar"
+                            },
+                            "mid": "e9a67860-52e6-11e3-a0d1-002500a28a7a",
+                            "mixPublicPrivateAttributes": {
+                                "myAttribute": "here it should be public",
+                                "privateAttribute3": "45"
+                            },
+                            "myAttribute": "here it should be private",
+                            "privateAttribute1": "something you can not see",
+                            "privateAttribute3": "W2",
+                            "resourceType": "WIDGET",
+                            "serviceCode": "Widget",
+                            "version": "3",
+                            "widgetOnlyAttribute": "bar"
+                        },
+                        "region": "ORD",
+                        "resourceId": "ed3f75f5-bd98-4c62-b670-46c7d15ea601",
+                        "startTime": "2012-03-12T11:51:11Z",
+                        "tenantId": "5821027",
+                        "type": "USAGE",
+                        "version": "1"
+                    }
+                },
+                "id": "urn:uuid:59085a27-f9ac-44f7-a74b-0d41fe3c4585",
+                "published": "2015-01-25T20:59:53.836Z",
+                "updated": "2015-01-27T15:16:12.247Z"
+            },
+            {
+                "category": [
+                    {
+                        "term": "tid:5821027"
+                    },
+                    {
+                        "term": "rgn:ORD"
+                    },
+                    {
+                        "term": "dc:ORD1"
+                    },
+                    {
+                        "term": "rid:ed3f75f5-bd98-4c62-b670-46c7d15ea601"
+                    },
+                    {
+                        "term": "widget.widget.gadget.usage"
+                    },
+                    {
+                        "term": "type:widget.widget.gadget.usage"
+                    }
+                ],
+                "content": {
+                    "event": {
+                        "@type": "http://docs.rackspace.com/core/event",
+                        "dataCenter": "ORD1",
+                        "endTime": "2015-01-25T15:51:11Z",
+                        "environment": "PROD",
+                        "id": "59085a27-f9ac-44f7-a74b-0d41fe3c4585",
+                        "product": {
+                            "@type": "http://docs.rackspace.com/usage/widget",
+                            "label": "test",
+                            "metaData": {
+                                "key": "foo",
+                                "value": "bar"
+                            },
+                            "mid": "e9a67860-52e6-11e3-a0d1-002500a28a7a",
+                            "mixPublicPrivateAttributes": {
+                                "myAttribute": "here it should be public",
+                                "privateAttribute3": "45"
+                            },
+                            "myAttribute": "here it should be private",
+                            "privateAttribute1": "something you can not see",
+                            "privateAttribute3": "W2",
+                            "resourceType": "WIDGET",
+                            "serviceCode": "Widget",
+                            "version": "3",
+                            "widgetOnlyAttribute": "bar"
+                        },
+                        "region": "ORD",
+                        "resourceId": "ed3f75f5-bd98-4c62-b670-46c7d15ea601",
+                        "startTime": "2012-03-12T11:51:11Z",
+                        "tenantId": "5821027",
+                        "type": "USAGE",
+                        "version": "1"
+                    }
+                },
+                "id": "urn:uuid:59085a27-f9ac-44f7-a74b-0d41fe3c4585",
+                "published": "2015-01-25T20:59:53.836Z",
+                "updated": "2015-01-27T15:16:12.247Z"
+            },
+        "id": "urn:uuid0803e933-0011-464a-8ea2-5187b8ec4487",
+        "link": [
+            {
+                "href": "https://ord.feeds.api.rackspacecloud.com/feed_1/events/5821027",
+                "rel": "current"
+            },
+            {
+                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-27.json",
+                "rel": "self"
+            },
+            {
+                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-28.json",
+                "rel": "prev-archive"
+            },
+            {
+                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-26.json",
+                "rel": "next-archive"
+            }
+        ],
+        "title": {
+            "@text": "feed_1/events",
+            "type": "text"
+        },
+        "updated": "2015-01-28T15:50:48.497Z"
+    }
+}

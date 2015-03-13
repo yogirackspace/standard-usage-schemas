@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (C) 2012-2014 OpenStack Foundation, All Rights Reserved  -->
+
+<!DOCTYPE application [
+<!ENTITY % common SYSTEM "../common/common.ent">
+%common;
+]>
+    
+<application xmlns="http://wadl.dev.java.net/2009/02"
+	xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+	xmlns:db="http://docbook.org/ns/docbook"
+	xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+	xmlns:raxapi="http://docs.rackspace.com/volume/api/v1"
+	xmlns:wadl="http://wadl.dev.java.net/2009/02"
+	xmlns:osapi="http://docs.openstack.org/compute/api/v1.1"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:rax="http://docs.rackspace.com/api"
+	xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0">
+	
+	
+<!--*******************************************************-->
+<!--             All resources                             -->
+<!--*******************************************************-->
+	<resources base="https://preferences.feeds.api.rackspacecloud.com/">
+		<resource id="metadata" path="metadata">
+			<resource id="metadata_for_resource" path="archive" rax:roles="cloudfeeds:service-admin">
+				<param name="archive" type="string" style="template" required="true">
+					<doc>This parameter specifies the resource name for which the metadata is retrieved.</doc></param>
+				<method name="GET"></method>
+				<method href="#getMetadata"/>
+			</resource>
+		</resource>
+		<resource id="archive" path="archive">
+			<resource id="get_archive_for_account" path="{tenantId}" rax:roles="admin identity:user-admin cloudfeeds:observer cloudfeeds:service-admin">
+				<param name="tenantId" type="string" style="template" required="true">
+					<doc>This parameter specifies the Rackspace tenant ID for which the Cloud Feeds Archiving settings are retrieved.</doc></param>
+				<method name="GET"></method>
+				<method href="#getArchivingPreferences"/>
+			</resource>
+			<resource id="set_archive_for_account" path="{tenantId}" rax:roles="admin identity:user-admin cloudfeeds:service-admin">
+				<param name="tenantId" type="string" style="template" required="true">
+					<doc>This parameter specifies the Rackspace tenant ID for which the Cloud Feeds Archiving settings are uploaded.</doc></param>
+				<method name="POST"></method>
+				<method href="#postArchivingPreferences"/>
+			</resource>
+		</resource>		
+	</resources>
+<!--*******************************************************-->
+<!--               All methods                             -->
+<!--*******************************************************-->
+
+<!--*******************************************************-->
+<!--               Get metadata                       -->
+<!--*******************************************************-->
+	<method name="GET" id="getMetadata">
+		<wadl:doc xml:lang="EN" title="Get Metadata"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves the metadata.</para>
+			<para>This operation retrieves the metadata that describes the configuration settings for a specific resource type. All metadata is expressed in JSON OrderLy.</para>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<wadl:doc>
+					<xsdxt:code href="../wadl/samples/reqGetMetadata.json"/>
+				</wadl:doc>
+			</representation></request>
+			<response status="200">
+			<doc title="OK" xml:lang="EN">The server has successfully processed the request.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/resGetMetadata.json"></xsdxt:code>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>
+<!--*******************************************************-->
+<!--               Get archiving preferences                              -->
+<!--*******************************************************-->
+	<method name="GET" id="getArchivingPreferences">
+		<wadl:doc xml:lang="EN" title="Get archiving preferences"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Retrieves the archiving settings</para>
+			<para>This operation retrieves the archiving settings for a specified account.</para>
+		</wadl:doc>
+		<request>
+			<representation mediaType="application/json" >
+				<wadl:doc>
+					<xsdxt:code href="../wadl/samples/reqGetArchivingPreferences.json"/>
+				</wadl:doc>
+			</representation>
+		</request>
+		<response status="200">
+			<doc title="Ok" xml:lang="EN">The server has successfully processed the request.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc xmlns="http://docbook.org/ns/docbook"
+					xml:lang="EN">
+					<xsdxt:code
+						href="../wadl/samples/resGetArchivingPreferences.json"/>
+				</wadl:doc>
+			</representation>
+		</response>
+	</method>	
+
+	<!--*******************************************************-->
+	<!--               Upload archiving preferences                       -->
+	<!--*******************************************************-->
+	<method name="POST" id="postArchivingPreferences">
+		<wadl:doc xml:lang="EN" title="Upload archiving preferences"
+			xmlns="http://docbook.org/ns/docbook">
+			<para role="shortdesc">Uploads archiving settings</para>
+			<para>This operation uploads the archiving settings for a specific account.</para>	
+		</wadl:doc>
+		<request>			
+			<representation mediaType="application/json">
+				<wadl:doc>
+					<xsdxt:code href="../wadl/samples/reqPostArchivingPreferences.json"/>
+				</wadl:doc>
+				<param name="enabled"
+					style="plain"
+					type="boolean"
+					required="true"
+					path="$.enabled">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies whether archiving is enabled or not.</wadl:doc>
+				</param>
+				<param name="data_format"
+					style="plain"
+					type="array"
+					required="true"
+					path="$.data_format">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the data format to be used for the archive files. The enumerated values are: XML and JSON</wadl:doc>
+				</param>
+				<param name="default_archive_container_url"
+					style="plain"
+					type="string"
+					required="false"
+					path="$.default_archive_container_url">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xml:lang="EN">Specifies the default Cloud Files container URL that Cloud Feeds uses when archiving customer events. If this value is set, all customers events, including those from other regions, will be archived to this container. If this value is not set, the <code>archive_container_urls</code> value must be set instead. The default container URL can be overrriden by setting the <code>archive_container_urls</code> value.</wadl:doc>
+				</param>
+				<param name="archive_container_urls" style="plain" type="array" required="false" path="$.archive_container_urls">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URLs for each region. If this value is not set, then the <code>default_archive_container_url</code> value must be set.</para></wadl:doc>
+				</param>
+				<param name="iad" style="plain" type="object" required="false" path="$.archive_container_urls.iad">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive IAD events to.</para></wadl:doc>
+				</param>
+				<param name="ord" style="plain" type="object" required="false" path="$.archive_container_urls.ord">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive ORD events to.</para></wadl:doc>
+				</param>
+				<param name="dfw" style="plain" type="object" required="false" path="$.archive_container_urls.dfw">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive DFW events to.</para></wadl:doc>
+				</param>
+				<param name="lon" style="plain" type="object" required="false" path="$.archive_container_urls.lon">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive LON events to.</para></wadl:doc>
+				</param>
+				<param name="hkg" style="plain" type="object" required="false" path="$.archive_container_urls.hkg">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive HKG events to.</para></wadl:doc>
+				</param>
+				<param name="syd" style="plain" type="object" required="false" path="$.archive_container_urls.syd">
+					<wadl:doc xmlns="http://docbook.org/ns/docbook"
+						xmlns:wadl="http://wadl.dev.java.net/2009/02"
+						xml:lang="EN"><para>Specifies the Cloud Files container URL to archive SYD events to.</para></wadl:doc>
+				</param>
+			</representation>
+		</request>
+		<response status="200">
+			<doc title="Accepted" xml:lang="EN">The request has been accepted for processing.</doc>
+			<representation mediaType="application/json">
+				<wadl:doc>
+					<xsdxt:code href="../wadl/samples/resPostArchivingPreferences.json"/>
+				</wadl:doc>
+			</representation>
+		</response>
+		<response status="201">
+			<doc title="Created" xml:lang="EN">The resource has been created.</doc>				
+		</response>
+	</method>
+</application>
