@@ -287,12 +287,16 @@
                             <td>
                                 <itemizedlist>
                                     <listitem>
-                                        <para>This attribute is optional.</para>
+                                        <para>This attribute is optional for some event
+                                            types.</para>
                                     </listitem>
                                     <listitem>
-                                        <para>For most cases, this attribute must be defined and
-                                            cannot default to <emphasis role="bold"
-                                                >GLOBAL</emphasis>.</para>
+                                        <para>This attribute is required for events of type
+                                                <emphasis role="bold">USAGE</emphasis>, <emphasis
+                                                role="bold">USAGE_SUMMARY</emphasis>, and <emphasis
+                                                role="bold">USAGE_SNAPSHOT</emphasis>. The value
+                                            defined for <code>dataCenter</code> must match the value
+                                            defined for <code>region</code>.</para>
                                     </listitem>
                                 </itemizedlist>
                             </td>
@@ -387,7 +391,22 @@
                                 values, see <link linkend="Event_node_attributes"><emphasis
                                         role="bold">Attribute values for event
                                     node</emphasis></link>.</td>
-                            <td>This attribute is optional.</td>
+                            <td>
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>This attribute is optional for some event
+                                            types.</para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>This attribute is required for events of type
+                                                <emphasis role="bold">USAGE</emphasis>, <emphasis
+                                                role="bold">USAGE_SUMMARY</emphasis>, and <emphasis
+                                                role="bold">USAGE_SNAPSHOT</emphasis>. The value
+                                            defined for <code>region</code> must match the value
+                                            defined for <code>dataCenter</code>.</para>
+                                    </listitem>
+                                </itemizedlist>
+                            </td>
                         </tr>
                         <tr>
                             <td><code>resourceId</code></td>
@@ -717,6 +736,10 @@
                             <listitem>
                                 <para>Cannot have a <code>severity</code> attribute defined</para>
                             </listitem>
+                            <listitem>
+                                <para>Must have the <code>region</code> and <code>dataCenter</code>
+                                    attributes defined and both must match</para>
+                            </listitem>
                         </itemizedlist>
                     </para>
                 </section>
@@ -733,6 +756,10 @@
                             <listitem>
                                 <para>Cannot have a <code>severity</code> attribute defined</para>
                             </listitem>
+                            <listitem>
+                                <para>Must have the <code>region</code> and <code>dataCenter</code>
+                                    attributes defined and both must match</para>
+                            </listitem>
                         </itemizedlist>
                     </para>
                 </section>
@@ -745,6 +772,10 @@
                             </listitem>
                             <listitem>
                                 <para>Cannot have a <code>severity</code> attribute defined</para>
+                            </listitem>
+                            <listitem>
+                                <para>Must have the <code>region</code> and <code>dataCenter</code>
+                                    attributes defined and both must match</para>
                             </listitem>
                             <listitem>
                                 <para>The product node requires a summary attribute set to
