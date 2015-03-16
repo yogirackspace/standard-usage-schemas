@@ -566,6 +566,13 @@
                     <para>In addition to token-based authentication Cloud Feeds also
                         supports basic authentication by using your Rackspace cloud account username
                         and API key.</para>
+                <para>
+                    <important>
+                        <para>Basic authentcation cannot be used for making requests against the
+                                <link linkend="Preferences_API">Archiving Configuration
+                            API.</link>.</para>
+                    </important>
+                </para>
                     <para>To make a request to the Cloud Feeds API with basic
                         authentication, you need to issue a cURL call directly against the requested
                         end point by providing the username and API key directly in the call as
@@ -2163,6 +2170,67 @@
                             </tr>
                         </tbody>
                     </table>
+                </para></section>
+        <section xml:id="RBAC_Roles_for_archiving"><title>RBAC Roles for the Archiving Configuration API</title><para>The RBAC roles for the Archiving Configuration API differ from the RBAC roles for the Cloud
+                    Feeds API. The main difference is in the <emphasis role="italic"
+                        >cloudfeeds:service-admin</emphasis> role. Users who are assigned the
+                        <emphasis role="italic">cloudfeeds:service-admin</emphasis> role cannot
+                    issue <command xmlns:wadl="http://wadl.dev.java.net/2009/02">GET</command> or
+                        <command xmlns:wadl="http://wadl.dev.java.net/2009/02">POST</command>
+                    requests on <emphasis role="bold">multiple</emphasis> tenants but only on a
+                        <emphasis role="bold">single</emphasis> tenant.</para>
+                <para xmlns:wadl="http://wadl.dev.java.net/2009/02">The following table shows the
+                    RBAC role matrix for Cloud Feeds:</para>
+                <para xmlns:wadl="http://wadl.dev.java.net/2009/02">
+                    <table frame="border">
+                        <caption>RBAC Role Matrix</caption>
+                        <col width="40%"/>
+                        <col width="30%"/>
+                        <col width="30%"/>
+                        <thead>
+                            <tr>
+                                <th/>
+                                <th colspan="2" align="center">Method</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><emphasis role="bold">Role</emphasis></td>
+                                <td><command>GET</command></td>
+                                <td><command>POST</command></td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="italic">admin</emphasis></td>
+                                <td>YES</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="italic">identity:user-admin</emphasis></td>
+                                <td>YES</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="italic">observer</emphasis></td>
+                                <td>YES</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="italic">cloudfeeds:observer</emphasis></td>
+                                <td>YES</td>
+                                <td>NO</td>
+                            </tr>
+                            <tr>
+                                <td><emphasis role="italic">cloudfeeds:service-admin</emphasis></td>
+                                <td>YES on single tenants, NO on multiple tenants</td>
+                                <td>YES on single tenants, NO on multiple tenants</td>
+                            </tr>
+                            <tr>
+                                <td>any other roles</td>
+                                <td>NO</td>
+                                <td>NO</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </para></section></section>
         <section xml:id="Configuring_archiving_preferences"><title>Configuring Cloud Feeds archiving settings</title><para>To configure the Cloud Feeds archiving settings, you need to do the following:</para>
             <para>
@@ -2178,6 +2246,12 @@
                             XML, or both). </para>
                     </listitem>
                 </itemizedlist>
+            </para>
+            <para>
+                <important>
+                    <para>The Archiving Configuration API only supports token-based authentication.
+                        It does not support basic authentication.</para>
+                </important>
             </para>
             <para>If you want to specify <emphasis role="bold">one single container URL</emphasis>
                 to store all events, regardless of which region they originate from, set the
