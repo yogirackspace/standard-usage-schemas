@@ -13,6 +13,7 @@
                     eventTime="2015-03-12T13:20:00-05:00"
                     action="create/post"
                     outcome="success">
+            <!--racker -->
             <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
                 <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
             </cadf:initiator>
@@ -23,7 +24,7 @@
                 <cadf:attachment name="auditData" contentType="ua:auditData">
                     <cadf:content>
                         <ua:auditData>
-                            <ua:region>SYD</ua:region>
+                            <ua:region>DFW</ua:region>
                             <ua:dataCenter>DFW1</ua:dataCenter>
                             <ua:methodLabel>createToken</ua:methodLabel>
                             <ua:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>

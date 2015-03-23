@@ -2,6 +2,7 @@
 <xs:schema xmlns="http://feeds.api.rackspacecloud.com/cadf/user-access-event" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     xmlns:xerces="http://xerces.apache.org"
@@ -18,8 +19,7 @@
     <xs:complexType name="AuditDataType">
         <xs:sequence>
             
-            <!-- TODO: is this optional? -->
-            <xs:element name="region" type="event:Region">
+            <xs:element name="region" type="event:Region" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -32,8 +32,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <!-- TODO: is this optional? -->
-            <xs:element name="dataCenter" type="event:DC">
+            <xs:element name="dataCenter" type="event:DC" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -57,7 +56,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="requestURL" minOccurs="1">
+            <xs:element name="requestURL" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -83,8 +82,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <!-- optional? -->
-            <xs:element name="tenantId" type="NonEmptyString" minOccurs="1">
+            <xs:element name="tenantId" type="NonEmptyString" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -94,7 +92,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="responseMessage" type="xs:string">
+            <xs:element name="responseMessage" type="xs:string" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -104,19 +102,19 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="userName" type="xs:string" minOccurs="1">
+            <xs:element name="userName" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
                             The username that the initiator is acting on 
-                            behalf of 
+                            behalf of (which might be themselves)
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             
             <!-- can there be a user with no roles? -->
-            <xs:element name="roles" type="xs:string">
+            <xs:element name="roles" type="NonEmptyString" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -128,15 +126,13 @@
             
         </xs:sequence>
         
-        <!-- TODO: dataCenter as GLOBAL for what kinds of user access events? -->
-        <!-- TODO: Assertion not working -->
         <xs:assert vc:minVersion="1.1" 
-            test="if (dataCenter = ('DFW1','DFW2','DFW3')) then (region = 'DFW') else
-            if (dataCenter = 'HKG1') then (region = 'HKG') else
-            if (dataCenter = ('IAD1','IAD2','IAD3')) then (region = 'IAD') else
-            if (dataCenter = ('LON1','LON3')) then (region = 'LON') else
-            if (dataCenter = 'ORD1') then (region = 'ORD') else
-            if (dataCenter = 'SYD2') then (region = 'SYD') 
+            test="if (ua:dataCenter = ('DFW1','DFW2','DFW3')) then (ua:region = 'DFW') else
+            if (ua:dataCenter = 'HKG1') then (ua:region = 'HKG') else
+            if (ua:dataCenter = ('IAD1','IAD2','IAD3')) then (ua:region = 'IAD') else
+            if (ua:dataCenter = ('LON1','LON3')) then (ua:region = 'LON') else
+            if (ua:dataCenter = 'ORD1') then (ua:region = 'ORD') else
+            if (ua:dataCenter = 'SYD2') then (ua:region = 'SYD') 
             else true()"
             xerces:message="There is a mismatch between the region and the dataCenter."
             saxon:message="There is a mismatch between the region and the dataCenter.">
