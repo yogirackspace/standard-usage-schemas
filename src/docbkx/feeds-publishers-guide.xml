@@ -1083,7 +1083,10 @@
                             <tr>
                                 <td><code>maxLength</code></td>
                                 <td>xsd:integer</td>
-                                <td>Specifies the maximum length of a string.</td>
+                                <td>Specifies the maximum length of a string. If a value is set for
+                                        <code>maxLength</code>, the <code>minLength</code> value
+                                    must be set as well. If <code>minLength</code> is not sent, an
+                                    empty string is sent.</td>
                                 <td>
                                     <itemizedlist>
                                         <listitem>
@@ -1099,7 +1102,10 @@
                                 <td><code>minLength</code></td>
                                 <td>xsd:integer</td>
                                 <td>Specifies the minimum length of a string. If a value is not
-                                    specified, the default value of 0 is used. </td>
+                                    specified, the default value of 0 is used.  The default value of
+                                    0 implies that this is an emptry string. If an empty string is
+                                    not allowed, <code>minLength</code> must be set to a positive
+                                    integer.</td>
                                 <td>
                                     <itemizedlist>
                                         <listitem>
