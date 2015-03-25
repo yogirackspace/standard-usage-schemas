@@ -1405,7 +1405,7 @@
     </chapter>
     <chapter xml:id="Next_Steps">
         <title>Next steps</title>
-        <para>To learn more aboud the Cloud Feeds API, read <olink targetdoc="cloudfeeds-devguide"
+        <para>To learn more about the Cloud Feeds API, read <olink targetdoc="cloudfeeds-devguide"
                 targetptr="Using_Cloud_Feeds">Using Cloud Feeds</olink> in the <emphasis
                 role="italic">Cloud Feeds Developer's Guide</emphasis>. </para>
             <para security="internal">To learn how to prepare a
