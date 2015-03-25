@@ -19,7 +19,7 @@
     <xs:complexType name="AuditDataType">
         <xs:sequence>
             
-            <xs:element name="region" type="event:Region" minOccurs="0" maxOccurs="1">
+            <xs:element name="region" type="event:Region" default="GLOBAL" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -32,7 +32,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="dataCenter" type="event:DC" minOccurs="0" maxOccurs="1">
+            <xs:element name="dataCenter" type="event:DC"  default="GLOBAL" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>

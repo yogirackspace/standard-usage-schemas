@@ -264,7 +264,7 @@
   
   <xs:complexType name="AttachmentType">
     <xs:sequence>
-      <xs:element name="content"/>
+      <xs:element name="content" type="AttachmentContentType"/>
     </xs:sequence>
     
     <xs:attribute name="name" type="xs:string"/>
@@ -287,6 +287,28 @@
     </xs:assert>
     
   </xs:complexType>  
+  
+  <xs:complexType name="BaseAttachementContentType" abstract="true"/>
+  
+  <xs:complexType name="AttachmentContentType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          A container that can contain any type of data 
+          (as defined by the contentType property).          
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseAttachementContentType">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="ua:auditData"></xs:element>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
   
   <xs:complexType name="ReasonType">
     <xs:attribute name="reasonCode" use="required">

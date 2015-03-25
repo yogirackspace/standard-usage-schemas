@@ -7,7 +7,7 @@
     <atom:content type="application/xml">
         <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
                     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-                    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+                    xmlns:xx="http://feeds.api.rackspacecloud.com/cadf/unknown-event"
                     id="6fa234aea93f38c26fa234aea93f38c2"
                     eventType="activity"
                     typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
@@ -22,19 +22,19 @@
                 <cadf:host address="lon.identity.api.rackspacecloud.com" />
             </cadf:target>
             <cadf:attachments>
-                <cadf:attachment name="auditData" contentType="ua:auditData">
+                <cadf:attachment name="auditData" contentType="xx:unknownData">
                     <cadf:content>
-                        <ua:auditData>
-                            <ua:region>DFW</ua:region>
-                            <ua:dataCenter>DFW1</ua:dataCenter>
-                            <ua:methodLabel>createToken</ua:methodLabel>
-                            <ua:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>
-                            <ua:queryString></ua:queryString>
-                            <ua:tenantId>123456</ua:tenantId>
-                            <ua:responseMessage>OK</ua:responseMessage>
-                            <ua:userName>jackhandy</ua:userName>
-                            <ua:roles>xxx</ua:roles>
-                        </ua:auditData>
+                        <xx:unknownData>
+                            <xx:region>DFW</xx:region>
+                            <xx:dataCenter>DFW1</xx:dataCenter>
+                            <xx:methodLabel>createToken</xx:methodLabel>
+                            <xx:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</xx:requestURL>
+                            <xx:queryString></xx:queryString>
+                            <xx:tenantId>123456</xx:tenantId>
+                            <xx:responseMessage>OK</xx:responseMessage>
+                            <xx:userName>jackhandy</xx:userName>
+                            <xx:roles>xxx</xx:roles>
+                        </xx:unknownData>
                     </cadf:content>
                 </cadf:attachment>
             </cadf:attachments>

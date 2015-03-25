@@ -12,8 +12,7 @@
                     eventType="activity"
                     typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
                     eventTime="2015-03-12T13:20:00-05:00"
-                    action="create/post"
-                    outcome="success">
+                    action="create/post">
             <!--racker -->
             <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
                 <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />

@@ -14,10 +14,6 @@
                     eventTime="2015-03-12T13:20:00-05:00"
                     action="create/post"
                     outcome="success">
-            <!--racker -->
-            <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
-                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
-            </cadf:initiator>
             <cadf:target id="x.x.x.x" typeURI="service" name="IDM" >
                 <cadf:host address="lon.identity.api.rackspacecloud.com" />
             </cadf:target>
