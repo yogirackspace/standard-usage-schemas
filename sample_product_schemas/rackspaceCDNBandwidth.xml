@@ -1,37 +1,77 @@
-<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
-               namespace="http://docs.rackspace.com/usage/rackspacecdn/bandwidth"
-               serviceCode="RackspaceCDN"
-               version="1"
-               resourceTypes="HOSTNAME">
-    <description>
-        Specifies the CDN bandwidth usage information.
-    </description>
-    <attribute name="bandwidthOut"
-               type="unsignedLong"
-               use="required"
-               unitOfMeasure="B"
-               aggregateFunction="SUM"
-               max="1099511627776000">
-        Specifies the amount of outband bandwidth, in bytes.
-    </attribute>
-    <attribute name="offerModel"
-               type="string"
-               use="required"
-               groupBy="true"
-               allowedValues="CDN CDN_PLUS">
-        Specifies the offer model.
-    </attribute>
-    <attribute name="edgeLocation"
-               type="string"
-               use="required"
-               groupBy="true"
-               allowedValues="NORTH_AMERICA EMEA APAC INDIA JAPAN AUSTRALIA SOUTH_AMERICA">
-        Specifies the edge location.
-    </attribute>
-    <attribute name="sslEnabled"
-               type="boolean"
-               use="required"
-               groupBy="true">
-        Was SSL usage enabled.
-    </attribute>
-</productSchema>
+<alternatives xmlns="http://docs.rackspace.com/core/usage/schema">
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/rackspacecdn/bandwidth"
+                   serviceCode="RackspaceCDN"
+                   version="1"
+                   resourceTypes="HOSTNAME">
+        <description>
+            Specifies the CDN bandwidth usage information.
+        </description>
+        <attribute name="bandwidthOut"
+                   type="unsignedLong"
+                   use="required"
+                   unitOfMeasure="B"
+                   aggregateFunction="SUM"
+                   max="1099511627776000">
+            Specifies the amount of outband bandwidth, in bytes.
+        </attribute>
+        <attribute name="offerModel"
+                   type="string"
+                   use="required"
+                   groupBy="true"
+                   allowedValues="CDN CDN_PLUS">
+            Specifies the offer model.
+        </attribute>
+        <attribute name="edgeLocation"
+                   type="string"
+                   use="required"
+                   groupBy="true"
+                   allowedValues="NORTH_AMERICA EMEA APAC INDIA JAPAN AUSTRALIA SOUTH_AMERICA">
+            Specifies the edge location.
+        </attribute>
+        <attribute name="sslEnabled"
+                   type="boolean"
+                   use="required"
+                   groupBy="true">
+            Was SSL usage enabled.
+        </attribute>
+    </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/rackspacecdn/bandwidth"
+                   serviceCode="RackspaceCDN"
+                   version="2"
+                   resourceTypes="HOSTNAME">
+        <description>
+            Specifies the CDN bandwidth usage information.
+        </description>
+        <attribute name="bandwidthOut"
+                   type="unsignedLong"
+                   use="required"
+                   unitOfMeasure="B"
+                   aggregateFunction="SUM"
+                   max="1099511627776000">
+            Specifies the amount of outband bandwidth, in bytes.
+        </attribute>
+        <attribute name="offerModel"
+                   type="string"
+                   use="required"
+                   groupBy="true"
+                   allowedValues="CDN CDN_PLUS">
+            Specifies the offer model.
+        </attribute>
+        <attribute name="edgeLocation"
+                   type="string"
+                   use="required"
+                   groupBy="true"
+                   allowedValues="NORTH_AMERICA EMEA APAC INDIA JAPAN AUSTRALIA SOUTH_AMERICA">
+            Specifies the edge location.
+        </attribute>
+        <attribute name="sslType"
+                   type="string"
+                   use="required"
+                   groupBy="true"
+                   allowedValues="None Shared SAN Dedicated">
+            Type of SSL
+        </attribute>
+    </productSchema>
+</alternatives>
