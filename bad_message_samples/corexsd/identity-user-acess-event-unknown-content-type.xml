@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="functest1/events"?>
+<?expect code="400" message="auditData"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+    <atom:title>UserAccessEvent</atom:title>
+    <atom:content type="application/xml">
+        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                    xmlns:xx="http://feeds.api.rackspacecloud.com/cadf/unknown-event"
+                    id="6fa234aea93f38c26fa234aea93f38c2"
+                    eventType="activity"
+                    typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    eventTime="2015-03-12T13:20:00-05:00"
+                    action="create/post"
+                    outcome="success">
+            <!--racker -->
+            <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
+                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
+            </cadf:initiator>
+            <cadf:target id="x.x.x.x" typeURI="service" name="IDM" >
+                <cadf:host address="lon.identity.api.rackspacecloud.com" />
+            </cadf:target>
+            <cadf:attachments>
+                <cadf:attachment name="auditData" contentType="xx:unknownData">
+                    <cadf:content>
+                        <xx:unknownData>
+                            <xx:region>DFW</xx:region>
+                            <xx:dataCenter>DFW1</xx:dataCenter>
+                            <xx:methodLabel>createToken</xx:methodLabel>
+                            <xx:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</xx:requestURL>
+                            <xx:queryString></xx:queryString>
+                            <xx:tenantId>123456</xx:tenantId>
+                            <xx:responseMessage>OK</xx:responseMessage>
+                            <xx:userName>jackhandy</xx:userName>
+                            <xx:roles>xxx</xx:roles>
+                        </xx:unknownData>
+                    </cadf:content>
+                </cadf:attachment>
+            </cadf:attachments>
+            <cadf:observer id="IDM-1-1" name="repose-6.1.1.1" typeURI="service/security">
+                <cadf:host address="repose" />
+            </cadf:observer>
+            <cadf:reason reasonCode="200"
+                         reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
+        </cadf:event>
+    </atom:content>
+</atom:entry>

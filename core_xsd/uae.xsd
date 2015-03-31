@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://feeds.api.rackspacecloud.com/cadf/user-access-event" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    xmlns:xerces="http://xerces.apache.org"
+    xmlns:saxon="http://saxon.sf.net/"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    targetNamespace="http://feeds.api.rackspacecloud.com/cadf/user-access-event">
+        
+    <xs:import  vc:minVersion="1.1" namespace="http://docs.rackspace.com/core/event"
+        schemaLocation="core.xsd"/>
+    
+    <xs:element name="auditData" type="AuditDataType" />
+    
+    <xs:complexType name="AuditDataType">
+        <xs:sequence>
+            
+            <xs:element name="region" type="event:Region" default="GLOBAL" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            Identifies the region, for example,
+                            DFW.  The attribute is optional, if it
+                            is not specified GLOBAL will be
+                            assumed.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="dataCenter" type="event:DC"  default="GLOBAL" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            Identifies the datacenter of the
+                            event, for example, DFW3.  The
+                            attribute is optional, if it is not
+                            specified GLOBAL will be assumed.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="methodLabel" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            An optional field to indicate the method 
+                            used for the request.                                     
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="requestURL" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            Request url with any querystring truncated
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:anyURI">
+                        <xs:assertion test="not(contains($value,'?'))" />
+                    </xs:restriction>                    
+                </xs:simpleType>
+            </xs:element>
+            
+            <xs:element name="queryString" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            An optional field. Query string is the part of 
+                            a uri containing data which is added to a base uri.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="tenantId" type="NonEmptyString" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            Identifies the tenant ID.
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="responseMessage" type="xs:string" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="userName" type="xs:string" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            The username that the initiator is acting on 
+                            behalf of (which might be themselves)
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- can there be a user with no roles? -->
+            <xs:element name="roles" type="NonEmptyString" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        <html:p>
+                            Comma separated list of roles
+                        </html:p>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+        </xs:sequence>
+        
+        <xs:assert vc:minVersion="1.1" 
+            test="if (ua:dataCenter = ('DFW1','DFW2','DFW3')) then (ua:region = 'DFW') else
+            if (ua:dataCenter = 'HKG1') then (ua:region = 'HKG') else
+            if (ua:dataCenter = ('IAD1','IAD2','IAD3')) then (ua:region = 'IAD') else
+            if (ua:dataCenter = ('LON1','LON3')) then (ua:region = 'LON') else
+            if (ua:dataCenter = 'ORD1') then (ua:region = 'ORD') else
+            if (ua:dataCenter = 'SYD2') then (ua:region = 'SYD') 
+            else true()"
+            xerces:message="There is a mismatch between the region and the dataCenter."
+            saxon:message="There is a mismatch between the region and the dataCenter.">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        A dataCenter can only have certain 
+                        values as region.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:assert>
+    </xs:complexType>
+
+    <xs:simpleType name="NonEmptyString">
+        <xs:annotation>
+            <xs:documentation>
+                <html:p>
+                    Any non-empty string.
+                </html:p>
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

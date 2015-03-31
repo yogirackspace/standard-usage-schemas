@@ -4,6 +4,7 @@
     xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:error="http://docs.rackspace.com/core/error"
     xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
     xmlns:atom="http://www.w3.org/2005/Atom"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:html="http://www.w3.org/1999/xhtml"
@@ -21,6 +22,9 @@
     <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/core/event"
             schemaLocation="core.xsd"/>
 
+    <import vc:minVersion="1.1" namespace="http://schemas.dmtf.org/cloud/audit/1.0/event"
+        schemaLocation="cadf.xsd"/>
+    
     <element name="entry" type="atom:UsageEntry"/>
 
     <complexType name="UsageEntry">
@@ -102,6 +106,7 @@
                     <choice>
                         <element ref="event:event"/>
                         <element ref="error:eventError"/>
+                        <element ref="cadf:event" />
                         <any vc:minVersion="1.1" minOccurs="1" namespace="##other" processContents="skip"/>
                     </choice>
                 </sequence>

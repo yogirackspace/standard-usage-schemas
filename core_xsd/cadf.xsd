@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+
+<xs:schema 
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+  xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+  xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+  xmlns:xerces="http://xerces.apache.org"
+  xmlns:saxon="http://saxon.sf.net/"  
+  targetNamespace="http://schemas.dmtf.org/cloud/audit/1.0/event"
+  xmlns="http://schemas.dmtf.org/cloud/audit/1.0/event">
+
+  <xs:import  vc:minVersion="1.1" namespace="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+    schemaLocation="uae.xsd"/>
+  
+  <!-- TODO: need versioning -->
+  
+  <xs:element name="event" type="CADFEventType" />
+  
+  <xs:complexType name="CADFEventType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          CADF Event.
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      
+      <xs:element name="initiator" type="InitiatorType">
+        <xs:annotation>
+          <xs:documentation>
+            <html:p>
+              This property represents the events initiator.
+            </html:p>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="target" type="ResourceType">
+        <xs:annotation>
+          <xs:documentation>
+            <html:p>
+              This property represents the target.
+            </html:p>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="attachments" type="AttachmentsType">
+        <xs:annotation>
+          <xs:documentation>
+            <html:p>
+              An optional array of extended or domain-specific 
+              information about the event or its context.
+            </html:p>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="observer" type="ResourceType">
+        <xs:annotation>
+          <xs:documentation>
+            <html:p>
+              This property represents the observer.
+            </html:p>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="reason" type="ReasonType">
+        <xs:annotation>
+          <xs:documentation>
+            <html:p>
+              This property contains domain-specific reason code 
+              and policy data that provides an additional 
+              level of detail to the outcome value.
+            </html:p>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    
+    <xs:attribute name="id" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            The identifier for the resource
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    
+    <xs:attribute name="eventType" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            Declares the purpose for creating the audit record
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="activity"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    
+    <!-- TODO: Identify all the allowed type URI's who can
+         send events to us for uae or other events -->
+    <xs:attribute name="typeURI" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            The classification (i.e., type) of the resource
+            using the CADF Resource Taxonomy. 
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="http://schemas.dmtf.org/cloud/audit/1.0/event" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+
+    <xs:attribute name="eventTime" type="CADFDateTime" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            The time actual event occurred or began as seen 
+            by the observer.
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>     
+    </xs:attribute>
+    
+    <xs:attribute name="action" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            Used to classify the type of activity that
+            is described in the event record.
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="read.*|create.*"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    
+    <xs:attribute name="outcome" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            Outcome or result of the attempted action.
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="success"></xs:enumeration>
+          <xs:enumeration value="failure"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>  
+  
+  <xs:complexType name="InitiatorType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          This property represents the events initiator.
+          
+          InitiatorType is same as ResourceType but its 
+          attribute typeURL can be one of two specialized types:
+          typeURI="service/security/account/user" for auth'd calls
+          typeURI="network/node" for unauth'd calls
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceTypeBase">
+        <xs:attribute name="typeURI" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="service/security/account/user"></xs:enumeration>
+              <xs:enumeration value="network/node"></xs:enumeration>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="ResourceType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          This data type is provided as the means to describe
+          any resource that participated in an Actual Event
+          Ex: Initiator, Target, Reporter
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ResourceTypeBase">
+        <xs:attribute name="typeURI" type="xs:string" use="required">
+          <xs:annotation>
+            <xs:documentation>
+              <html:p>
+                CADF event schema
+              </html:p>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>      
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="ResourceTypeBase">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          This is the base type for all ResourceTypes.
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="host" type="HostType"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    
+    <xs:attribute name="name" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            Could be user name of the person initiating
+            the request if resourceType is an Initiator.
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="AttachmentsType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          Contain domain-specific information about the 
+          resource or its context
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attachment" type="AttachmentType" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>    
+  </xs:complexType>
+  
+  <xs:complexType name="AttachmentType">
+    <xs:sequence>
+      <xs:element name="content" type="AttachmentContentType"/>
+    </xs:sequence>
+    
+    <xs:attribute name="name" type="xs:string"/>
+    
+    <xs:attribute name="contentType" type="NonEmptyString">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            The URI that identifies the type of data 
+            contained in the content property.
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>  
+    </xs:attribute>
+    
+    <xs:assert vc:minVersion="1.1" 
+      test="(cadf:content/count(*) = 1 and name(cadf:content/*[1]) = @contentType)"
+      xerces:message="The content property value not same as the value identified by contentType."
+      saxon:message="The content property value not same as the value identified by contentType.">      
+    </xs:assert>
+    
+  </xs:complexType>  
+  
+  <xs:complexType name="BaseAttachementContentType" abstract="true"/>
+  
+  <xs:complexType name="AttachmentContentType">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          A container that can contain any type of data 
+          (as defined by the contentType property).          
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BaseAttachementContentType">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element ref="ua:auditData"></xs:element>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>    
+  </xs:complexType>
+  
+  <xs:complexType name="ReasonType">
+    <xs:attribute name="reasonCode" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            HTTP status code          
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:pattern value="[1-5][0-9][0-9]"></xs:pattern>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="reasonType" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="HostType">
+    <xs:attribute name="address" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            The optional address of the host RESOURCE.          
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    
+    <xs:attribute name="agent" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          <html:p>
+            TThe optional agent (name) of the host RESOURCE.          
+          </html:p>
+        </xs:documentation>
+      </xs:annotation>
+      
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:simpleType name="CADFDateTime">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          The dateTime portion of Timestamp must adhere to below 
+          lexical representation as per 
+          http://www.w3.org/TR/xmlschema-2/, clause 3.2.1.7 
+          "Lexical representation"
+          
+          (yyyy '-' mm '-' dd 'T' hh ':' mm ':' ss ('.' s+))
+          
+          The Time Zone Designator (TZD) portion of the 
+          Timestamp must adhere to below lexical representation 
+          as per http://www.w3.org/TR/xmlschema-2/, 
+          clause 3.2.7.3 "Timezones"
+          
+          ('+' | '-') hh ':' mm
+          
+          The character 'Z' for Time Zone Designator (TZD) SHALL 
+          NOT be used. If the local time UTC offset is actually 
+          zero, the following fully qualified TZD SHALL be used.
+          
+          ('+' | '-') 00:00
+          
+          If the time in UTC is known, but the offset to local 
+          time is unknown, the TZD SHALL be represented with 
+          an offset of "-00:00"
+          
+          Some example of good timestamp values.
+          
+          Ex: 2012-02-25T09:00:00-05:00 (For EST or UTC-05:00)
+          Ex: 2012-03-22T13:00:00-04:00 (For EDT or UTC-04:00)
+          Ex: 2012-03-17T22:00:00+00:00 (For GMT or UTC+00:00)
+          
+        </html:p>
+        <html:p>
+          <html:strong>
+            Only an XSD 1.1 validator will enforce this restriction.
+          </html:strong>
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:dateTimeStamp" vc:minVersion="1.1">
+      <xs:pattern value=".*[^Z]"></xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonEmptyString">
+    <xs:annotation>
+      <xs:documentation>
+        <html:p>
+          Any non-empty string.
+        </html:p>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:whiteSpace value="collapse"/>
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>
+
+
+
