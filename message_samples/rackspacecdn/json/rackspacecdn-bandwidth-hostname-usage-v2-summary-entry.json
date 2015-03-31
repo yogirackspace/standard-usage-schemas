@@ -1,0 +1,32 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "title": "RackspaceCDN Summary",
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
+                "tenantId": "123456",
+                "rackspaceAccountNumber": "020-123456",
+                "startTime": "2013-03-15T11:51:11Z",
+                "endTime": "2013-03-16T00:00:00Z",
+                "duration": "PT20M",
+                "type": "USAGE_SUMMARY",
+                "dataCenter": "DFW1",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/usage/rackspacecdn/bandwidth",
+                    "serviceCode": "RackspaceCDN",
+                    "version": "2",
+                    "resourceType": "HOSTNAME",
+                    "bandwidthOut": 1000,
+                    "offerModel": "CDN",
+                    "edgeLocation": "NORTH_AMERICA",
+                    "sslType": "None"
+                }
+            }
+        }
+    }
+}
