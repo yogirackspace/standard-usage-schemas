@@ -50,7 +50,7 @@
                    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                    namespace="http://docs.rackspace.com/usage/bigdata"
                    serviceCode="BigData"
-                   version="2" resourceTypes="HADOOP_HDP2_1 HADOOP_HDP1_3 HBASE_HDP2_1 HBASE_HDP1_3 SPARK">
+                   version="2" resourceTypes="HADOOP HADOOP_HDP2_1 HADOOP_HDP1_3 HBASE_HDP2_1 HBASE_HDP1_3 SPARK">
     <description>
         Specifies the usage message for a big data cluster.
     </description>
@@ -58,7 +58,7 @@
     <attribute name="flavorId" type="string"
                maxLength="50" minLength="1"
                use="required"
-               allowedValues="hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60 onmetal-io1"
+               allowedValues="hadoop1-2 hadoop1-4 hadoop1-7 hadoop1-15 hadoop1-30 hadoop1-60 onmetal-io1 general1-1 general1-2 general1-4 general1-8 io1-120 io1-15 io1-30 io1-60 io1-90"
                groupBy="true">
         Specifies the flavor Id of the cluster.
     </attribute>
