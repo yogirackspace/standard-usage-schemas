@@ -14,8 +14,8 @@
                 "endTime": "2013-03-16T00:00:00Z",
                 "duration": "PT20M",
                 "type": "USAGE_SUMMARY",
-                "dataCenter": "DFW1",
-                "region": "DFW",
+                "dataCenter": "GLOBAL",
+                "region": "GLOBAL",
                 "product": {
                     "@type": "http://docs.rackspace.com/usage/rackspacecdn/bandwidth",
                     "serviceCode": "RackspaceCDN",

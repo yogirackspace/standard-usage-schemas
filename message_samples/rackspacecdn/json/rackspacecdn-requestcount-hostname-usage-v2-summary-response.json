@@ -6,10 +6,10 @@
                 "term": "tid:123456"
             },
             {
-                "term": "rgn:DFW"
+                "term": "rgn:GLOBAL"
             },
             {
-                "term": "dc:DFW1"
+                "term": "dc:GLOBAL"
             },
             {
                 "term": "rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
@@ -41,8 +41,8 @@
                 "endTime": "2013-03-16T00:00:00Z",
                 "duration": "PT20M",
                 "type": "USAGE_SUMMARY",
-                "dataCenter": "DFW1",
-                "region": "DFW",
+                "dataCenter": "GLOBAL",
+                "region": "GLOBAL",
                 "product": {
                     "@type": "http://docs.rackspace.com/usage/rackspacecdn/requestcount",
                     "summary": "true",

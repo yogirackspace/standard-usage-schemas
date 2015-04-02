@@ -15,6 +15,8 @@
     xmlns:dcxIpAddress="http://docs.rackspace.com/event/dcx/ip-address-association"
     xmlns:domain="http://docs.rackspace.com/event/domain"
     xmlns:maas="http://docs.rackspace.com/usage/maas"
+    xmlns:cdnBand="http://docs.rackspace.com/usage/rackspacecdn/bandwidth"
+    xmlns:cdnReqCount="http://docs.rackspace.com/usage/rackspacecdn/requestcount"
     xmlns:sitesSubscription="http://docs.rackspace.com/usage/sites/subscription"
     xmlns:xslout="http://www.rackspace.com/repose/wadl/checker/Transform"
     xmlns:saxon="http://saxon.sf.net/"
@@ -223,11 +225,17 @@
                                     <rax:restrict-rules>
                                         <!-- For these resource and resource types, the dc and region must be GLOBAL-->
                                         <!-- The nsprefix must be declared at the top of this XSL for this to work! -->
-                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefix="maas"              resourceTypes="CHECK"/>
-                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefix="sitesSubscription" resourceTypes="SITES_SUBSCRIPTION"/>
-                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefix="domain"            resourceTypes="DOMAIN_SUBSCRIPTION"/>
-                                        <rax:restrict-rule serviceCode="DcxIpAdmin"         nsprefix="dcxIpAddress"      resourceTypes="IP_ADDRESS DEVICE"/>
-                                    </rax:restrict-rules>
+                                        <!-- nsprefixes and resourceTypes are both space delimited lists, whose lengths must match
+                                             The tuple of (<serviceCode>, nsprefixe[n], resourceTypes[n]) describes a meessage which
+                                             must have GLOBAL for dc & region.  All other nsprefixes & resourceTypes for the serviceCode
+                                             cannot be GLOBAL.
+                                        -->
+                                        <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefixes="maas"                       resourceTypes="CHECK"/>
+                                        <rax:restrict-rule serviceCode="CloudSites"         nsprefixes="sitesSubscription"          resourceTypes="SITES_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DomainRegistration" nsprefixes="domain"                     resourceTypes="DOMAIN_SUBSCRIPTION"/>
+                                        <rax:restrict-rule serviceCode="DcxIpAdmin"         nsprefixes="dcxIpAddress dcxIpAddress"  resourceTypes="IP_ADDRESS DEVICE"/>
+                                        <rax:restrict-rule serviceCode="RackspaceCDN"       nsprefixes="cdnBand cdnReqCount"        resourceTypes="HOSTNAME HOSTNAME"/>
+                                   </rax:restrict-rules>
                                 </xsl:with-param>
                             </xsl:call-template>
 
@@ -316,7 +324,7 @@
                 <xsl:for-each select="$hitRules">
                     <xsl:variable name="rtypes" as="xs:string" select="./@resourceTypes"/>
                     <xsl:variable name="scode" as="xs:string" select="./@serviceCode"/>
-                    <xsl:variable name="pfix"  as="xs:string" select="./@nsprefix"/>
+                    <xsl:variable name="pfixes"  as="xs:string" select="./@nsprefixes"/>
                     <param name="checkDatacenter_{$scode}"
                            style="plain"
                            required="true"
@@ -324,7 +332,7 @@
                                         (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
                                         (
                                             (/atom:entry/atom:content/event:event) and
-                                            not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
+                                            not({sch:rtypesCheck(tokenize($pfixes, '\s+'), tokenize( ./@resourceTypes, '\s+' ))}) and
                                             (
                                                 not(/atom:entry/atom:content/event:event/@dataCenter)
                                                 or (/atom:entry/atom:content/event:event/@dataCenter = 'GLOBAL')
@@ -341,7 +349,7 @@
                                         (/atom:entry/atom:content/event:event/@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) and
                                         (
                                             (/atom:entry/atom:content/event:event) and
-                                            not({sch:rtypesCheck($pfix, tokenize( ./@resourceTypes, '\s+' ))}) and
+                                            not({sch:rtypesCheck(tokenize($pfixes, '\s+'), tokenize( ./@resourceTypes, '\s+' ))}) and
                                             (
                                                 not(/atom:entry/atom:content/event:event/@region)
                                                 or (/atom:entry/atom:content/event:event/@region = 'GLOBAL')
@@ -700,13 +708,14 @@
         </xsl:if>
     </xsl:template>
     <xsl:function name="sch:rtypesCheck" as="xs:string">
-        <xsl:param name="pfix"/>
+        <xsl:param name="pfixes" as="xs:string*"/>
         <xsl:param name="rtypes" as="xs:string*"/>
         <xsl:variable name="checksList">
             <xsl:for-each select="$rtypes">
                 <xsl:variable name="rtype" select="."/>
+                <xsl:variable name="index" select="position()"/>
                 <xsl:text>/atom:entry/atom:content/event:event/</xsl:text>
-                <xsl:value-of select="$pfix"/>
+                <xsl:value-of select="$pfixes[$index]"/>
                 <xsl:text>:product/@resourceType = '</xsl:text>
                 <xsl:value-of select="$rtype"/>
                 <xsl:text>' </xsl:text>
