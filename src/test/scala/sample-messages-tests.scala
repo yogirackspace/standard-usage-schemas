@@ -1,10 +1,11 @@
 package com.rackspace.usage
 
-import java.io.File
-import java.io.StringWriter
+import java.io.{StringReader, File, StringWriter}
 
 import java.net.URL
+import javax.xml.xpath.{XPathConstants, XPathFactory}
 
+import net.sf.saxon.lib.NamespaceConstant
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -41,7 +42,8 @@ class SampleMessagesSuite extends BaseUsageSuite {
   private val usageMsg = new SchemaAsserter(new URL(sampleXSD.toURI.toString), true)
   private val templates = TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null).newTemplates(new StreamSource(prepocExtract))
   private val preproc_template = TransformerFactory.newInstance("org.apache.xalan.xsltc.trax.TransformerFactoryImpl",null).newTemplates(new StreamSource(preprocAHop))
-
+  private val xpathFactory = XPathFactory.newInstance(NamespaceConstant.OBJECT_MODEL_SAXON, "net.sf.saxon.xpath.XPathFactoryImpl", null)
+  
   sampleFiles.foreach ( f => {
     test("Sample "+f.getAbsolutePath+" should be valid according to the product schema ") {
       printf("Checking %s\n",f.getAbsolutePath)
@@ -68,11 +70,21 @@ class SampleMessagesSuite extends BaseUsageSuite {
       assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'rgn:')]) = 1")
       assert(transformedXML, "count(/atom:entry/atom:id[starts-with(text(),'urn:uuid:')]) = 1")
 
-      if ((transformedXML \\ "entry" \\ "content" \\ "event").filter({ x => x.prefix == "cadf" }).length == 1) {
+      val xpath = xpathFactory.newXPath()
+      xpath.setNamespaceContext(this)
+
+      //for a cadf event with contentType as 'auditData'
+      if (xpath.evaluate("exists(/atom:entry/atom:content/cadf:event)", new StreamSource(new StringReader(transformedXML.toString())), XPathConstants.BOOLEAN).asInstanceOf[Boolean] &&
+        xpath.evaluate("exists(/atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/*[local-name() = 'auditData'])", new StreamSource(new StringReader(transformedXML.toString())), XPathConstants.BOOLEAN).asInstanceOf[Boolean]) {
+        
         assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'username:')]) = 1")
-      } else {
+      }
+      
+      //if its not a cadf event
+      if (!xpath.evaluate("exists(/atom:entry/atom:content/cadf:event)", new StreamSource(new StringReader(transformedXML.toString())), XPathConstants.BOOLEAN).asInstanceOf[Boolean]) {
         assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'rid:')]) = 1")
       }
+      
     }
   })
   

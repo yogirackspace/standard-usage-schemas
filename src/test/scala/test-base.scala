@@ -76,6 +76,7 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
     register("atom", "http://www.w3.org/2005/Atom")
     register("event", "http://docs.rackspace.com/core/event")
     register("cldfeeds", "http://docs.rackspace.com/api/cloudfeeds")
+    register("cadf", "http://schemas.dmtf.org/cloud/audit/1.0/event")
 
   val SERVICE_ADMIN = "cloudfeeds:service-admin"
   val OBSERVER = "cloudfeeds:observer"

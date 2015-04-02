@@ -242,7 +242,7 @@
                 <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
                 
                 <xsl:choose>
-                    <xsl:when test="normalize-space($cadfContent/ua:userName/text()) = $userName">
+                    <xsl:when test="local-name($cadfContent) = 'auditData' and normalize-space($cadfContent/ua:userName/text()) = $userName">
                         <xsl:copy>
                             <xsl:apply-templates select="@* | node()"/>
                         </xsl:copy>
@@ -404,10 +404,12 @@
             </xsl:call-template>
 
             <!-- Adding username:<user name> atom category -->
-            <xsl:call-template name="addCategory">
-                <xsl:with-param name="term" select="normalize-space($cadfContent/ua:userName/text())"/>
-                <xsl:with-param name="prefix" select="'username:'"/>
-            </xsl:call-template>
+            <xsl:if test="local-name($cadfContent) = 'auditData'">
+                <xsl:call-template name="addCategory">
+                    <xsl:with-param name="term" select="normalize-space($cadfContent/ua:userName/text())"/>
+                    <xsl:with-param name="prefix" select="'username:'"/>
+                </xsl:call-template>                
+            </xsl:if>                
             
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
