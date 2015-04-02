@@ -22,7 +22,7 @@
                     "bandwidthOut": 1099511627776000,
                     "offerModel": "CDN",
                     "edgeLocation": "NORTH_AMERICA",
-                    "sslType": "None"
+                    "sslType": "NONE"
                 }
             }
         }

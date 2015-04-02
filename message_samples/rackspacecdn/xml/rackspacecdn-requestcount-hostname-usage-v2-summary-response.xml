@@ -46,7 +46,7 @@
                          requestCount="1000"
                          offerModel="CDN"
                          edgeLocation="NORTH_AMERICA"
-                         sslType="None"/>
+                         sslType="NONE"/>
       </event>
    </atom:content>   
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/rackspacecdn/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
