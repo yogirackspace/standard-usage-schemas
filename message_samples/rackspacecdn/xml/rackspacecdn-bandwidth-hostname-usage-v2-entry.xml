@@ -29,8 +29,8 @@
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T00:00:00Z"
              type="USAGE"
-             dataCenter="DFW1"
-             region="DFW">
+             dataCenter="GLOBAL"
+             region="GLOBAL">
          <sample:product serviceCode="RackspaceCDN"
                          version="2"
                          resourceType="HOSTNAME"

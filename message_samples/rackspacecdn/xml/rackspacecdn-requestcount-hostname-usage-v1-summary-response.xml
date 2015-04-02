@@ -19,8 +19,8 @@
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
    <atom:category term="tid:123456"/>
-   <atom:category term="rgn:DFW"/>
-   <atom:category term="dc:DFW1"/>
+   <atom:category term="rgn:GLOBAL"/>
+   <atom:category term="dc:GLOBAL"/>
    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
    <atom:category term="rackspacecdn.requestcount.hostname.usage_summary"/>
    <atom:category term="type:rackspacecdn.requestcount.hostname.usage_summary"/>
@@ -37,8 +37,8 @@
              endTime="2013-03-16T00:00:00Z"
              duration="PT20M"
              type="USAGE_SUMMARY"
-             dataCenter="DFW1"
-             region="DFW">
+             dataCenter="GLOBAL"
+             region="GLOBAL">
          <sample:product summary="true"
                          serviceCode="RackspaceCDN"
                          version="1"
