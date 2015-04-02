@@ -28,9 +28,7 @@
              tenantId="1234"
              startTime="2013-03-15T11:51:11Z"
              endTime="2013-03-16T00:00:00Z"
-             type="USAGE"
-             dataCenter="GLOBAL"
-             region="GLOBAL">
+             type="USAGE">
          <sample:product serviceCode="RackspaceCDN"
                          version="1"
                          resourceType="HOSTNAME"

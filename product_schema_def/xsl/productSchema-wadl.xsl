@@ -229,6 +229,9 @@
                                              The tuple of (<serviceCode>, nsprefixe[n], resourceTypes[n]) describes a meessage which
                                              must have GLOBAL for dc & region.  All other nsprefixes & resourceTypes for the serviceCode
                                              cannot be GLOBAL.
+
+                                             You'll also need to add the namespaces to the category checks & generations
+                                             in atom_hopper_pre.xsl
                                         -->
                                         <rax:restrict-rule serviceCode="CloudMonitoring"    nsprefixes="maas"                       resourceTypes="CHECK"/>
                                         <rax:restrict-rule serviceCode="CloudSites"         nsprefixes="sitesSubscription"          resourceTypes="SITES_SUBSCRIPTION"/>
