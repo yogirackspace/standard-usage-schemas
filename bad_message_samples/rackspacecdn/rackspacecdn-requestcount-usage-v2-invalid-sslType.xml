@@ -37,7 +37,7 @@
                          requestCount="44"
                          offerModel="CDN"
                          edgeLocation="NORTH_AMERICA"
-                         sslType="invalid"/>
+                         sslType="None"/>
       </event>
    </atom:content>
 </atom:entry>

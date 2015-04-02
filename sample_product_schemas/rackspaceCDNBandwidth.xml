@@ -53,24 +53,24 @@
             Specifies the amount of outband bandwidth, in bytes.
         </attribute>
         <attribute name="offerModel"
-                   type="string"
+                   type="Name"
                    use="required"
                    groupBy="true"
                    allowedValues="CDN CDN_PLUS">
             Specifies the offer model.
         </attribute>
         <attribute name="edgeLocation"
-                   type="string"
+                   type="Name"
                    use="required"
                    groupBy="true"
                    allowedValues="NORTH_AMERICA EMEA APAC INDIA JAPAN AUSTRALIA SOUTH_AMERICA">
             Specifies the edge location.
         </attribute>
         <attribute name="sslType"
-                   type="string"
+                   type="Name"
                    use="required"
                    groupBy="true"
-                   allowedValues="None Shared SAN Dedicated">
+                   allowedValues="NONE SHARED SAN DEDICATED">
             Type of SSL
         </attribute>
     </productSchema>

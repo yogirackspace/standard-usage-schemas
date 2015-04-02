@@ -24,7 +24,7 @@
                     "requestCount": 1000,
                     "offerModel": "CDN",
                     "edgeLocation": "NORTH_AMERICA",
-                    "sslType": "None"
+                    "sslType": "NONE"
                 }
             }
         }
