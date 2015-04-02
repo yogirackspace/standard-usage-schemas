@@ -19,6 +19,14 @@ import BaseUsageSuite._
 class ValidatorSuite extends BaseUsageSuite {
 
 
+  val failureMsgByCategoryPrefixMap = Map("tid:" -> "Bad Content: The \"tid:[tenantId]\" category is automatically added by Cloud Feeds.  Alternative \"tid:[other]\" categories cannot be submitted.",
+    "rgn:" -> "Bad Content: The \"rgn:[region]\" category is automatically added by Cloud Feeds.  Alternative \"rgn:[other]\" categories cannot be submitted.",
+    "dc:" -> "Bad Content: The \"dc:[dataCenter]\" category is automatically added by Cloud Feeds.  Alternative \"dc:[other]\" categories cannot be submitted.",
+    "rid:" -> "Bad Content: The \"rid:[resourceId]\" category is automatically added by Cloud Feeds.  Alternative \"rid:[other]\" categories cannot be submitted.",
+    "type:" -> "Bad Content: The \"type:[eventType]\" category is automatically added by Cloud Feeds.  Alternative \"type:[other]\" categories cannot be submitted.",
+    "username:" -> "Bad Content: The \"username:[username]\" category is automatically added by Cloud Feeds.  Alternative \"username:[other]\" categories cannot be submitted.")
+  
+  
   test( "Getting an entry on a Validated feed should always succeed" ) {
 
     atomValidator.validate( requestRole( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", SERVICE_ADMIN), response, chain )
@@ -359,12 +367,11 @@ class ValidatorSuite extends BaseUsageSuite {
 
         assertResultFailed( atomValidator.validate( request( "POST", feed, "application/atom+xml", <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
           <atom:title>CBS Usage</atom:title>
+          <atom:category term={ prefix + "xxxx"}/>
           <atom:content type="application/xml">
-            <atom:category term="{ prefix }:1234"/>
             <event xmlns="http://docs.rackspace.com/core/event"
                    xmlns:cbs="http://docs.rackspace.com/usage/cbs"
                    version="1" tenantId="12334"
-                   username=""
                    resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
                    resourceName="MyVolume"
                    id="560490c6-6c63-11e1-adfe-27851d5aed13"
@@ -373,14 +380,73 @@ class ValidatorSuite extends BaseUsageSuite {
                    endTime="2012-03-12T15:51:11Z">
               <cbs:product version="1" serviceCode="CloudBlockStorage"
                            resourceType="VOLUME"
-                           type="fooooo"
+                           type="SSD"
                            provisioned="120"/>
             </event>
           </atom:content>
-        </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400)
+        </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400, failureMsgByCategoryPrefixMap(prefix))
       }
-    }
-    )
-  }
-  )
+      
+     })
+  })
+
+  
+  // verify that prefix categories are not allowed to be posted to validated and user access event feeds
+
+  List( "tid:", "rgn:", "dc:", "username:").foreach( prefix => {
+
+    List( "/functest1/events").foreach( feed => {
+
+      test( "Posting category with prefix of '" + prefix + "' on '" + feed + "' fails with 400" ) {
+
+        assertResultFailed( atomValidator.validate( request( "POST", feed, "application/atom+xml", <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+          <atom:title>CBS Usage</atom:title>
+          <atom:content type="application/xml">
+            <atom:category term={ prefix + "xxxx"}/>
+            <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                        xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+                        id="6fa234aea93f38c26fa234aea93f38c2"
+                        eventType="activity"
+                        typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                        eventTime="2015-03-12T13:20:00-05:00"
+                        action="create/post"
+                        outcome="success">
+              <!--racker -->
+              <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
+                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
+              </cadf:initiator>
+              <cadf:target id="x.x.x.x" typeURI="service" name="IDM" >
+                <cadf:host address="lon.identity.api.rackspacecloud.com" />
+              </cadf:target>
+              <cadf:attachments>
+                <cadf:attachment name="auditData" contentType="ua:auditData">
+                  <cadf:content>
+                    <ua:auditData>
+                      <ua:region>DFW</ua:region>
+                      <ua:dataCenter>DFW1</ua:dataCenter>
+                      <ua:methodLabel>createToken</ua:methodLabel>
+                      <ua:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>
+                      <ua:queryString></ua:queryString>
+                      <ua:tenantId>123456</ua:tenantId>
+                      <ua:responseMessage>OK</ua:responseMessage>
+                      <ua:userName>jackhandy</ua:userName>
+                      <ua:roles>xxx</ua:roles>
+                    </ua:auditData>
+                  </cadf:content>
+                </cadf:attachment>
+              </cadf:attachments>
+              <cadf:observer id="IDM-1-1" name="repose-6.1.1.1" typeURI="service/security">
+                <cadf:host address="repose" />
+              </cadf:observer>
+              <cadf:reason reasonCode="200"
+                           reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
+            </cadf:event>
+          </atom:content>
+        </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 400, failureMsgByCategoryPrefixMap(prefix))
+      }
+      
+    })
+  })
+  
 }

@@ -53,6 +53,29 @@ class SampleMessagesSuite extends BaseUsageSuite {
     }
   })
 
+  getSampleXMLFiles(new File("message_samples/corexsd")).foreach ( f => {
+    test("Sample "+f.getAbsolutePath+" should add valid categories") {
+      printf("Checking %s\n",f.getAbsolutePath)
+      val trans = preproc_template.newTransformer()
+      val writer = new StringWriter()
+
+      trans.transform(new StreamSource(f), new StreamResult(writer))
+      val transformedXML: Elem = XML.loadString(writer.toString)
+      usageMsg.assert(transformedXML)
+
+      assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'tid:')]) = 1")
+      assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'dc:')]) = 1")
+      assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'rgn:')]) = 1")
+      assert(transformedXML, "count(/atom:entry/atom:id[starts-with(text(),'urn:uuid:')]) = 1")
+
+      if ((transformedXML \\ "entry" \\ "content" \\ "event").filter({ x => x.prefix == "cadf" }).length == 1) {
+        assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'username:')]) = 1")
+      } else {
+        assert(transformedXML, "count(/atom:entry/atom:category[starts-with(@term,'rid:')]) = 1")
+      }
+    }
+  })
+  
   sampleJsonFiles.foreach ( f => {
     test("Json Sample "+f.getAbsolutePath+" should be valid ") {
       printf("Checking %s\n",f.getAbsolutePath)
