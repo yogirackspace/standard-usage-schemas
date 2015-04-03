@@ -2,6 +2,8 @@
 <xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:event="http://docs.rackspace.com/core/event"
+    xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"    
     xmlns:atom="http://www.w3.org/2005/Atom"
     exclude-result-prefixes="event"
     version="1.0">
@@ -25,6 +27,24 @@
                 <xsl:variable name="tenantId" select="substring-after(@term, 'tid:')"/>
                 <xsl:choose>
                     <xsl:when test="/atom:entry/atom:content/event:event/@tenantId = $tenantId">
+                        <xsl:copy>
+                            <xsl:apply-templates select="@* | node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message terminate="yes">The "tid:[tenantId]" category is automatically added by Cloud Feeds.  Alternative "tid:[other]" categories cannot be submitted.</xsl:message>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:when test="/atom:entry/atom:content/cadf:event">
+                <xsl:variable name="tenantId" select="substring-after(@term, 'tid:')"/>
+                
+                <xsl:variable name="cadfEvent" select="/atom:entry/atom:content/cadf:event"/>
+                <xsl:variable name="cadfContentType" select="$cadfEvent/cadf:attachments/cadf:attachment/@contentType"/>
+                <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
+                
+                <xsl:choose>
+                    <xsl:when test="normalize-space($cadfContent/ua:tenantId/text()) = $tenantId">
                         <xsl:copy>
                             <xsl:apply-templates select="@* | node()"/>
                         </xsl:copy>
@@ -130,6 +150,24 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
+            <xsl:when test="/atom:entry/atom:content/cadf:event">
+                <xsl:variable name="region" select="substring-after(@term, 'rgn:')"/>
+                
+                <xsl:variable name="cadfEvent" select="/atom:entry/atom:content/cadf:event"/>
+                <xsl:variable name="cadfContentType" select="$cadfEvent/cadf:attachments/cadf:attachment/@contentType"/>
+                <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
+                
+                <xsl:choose>
+                    <xsl:when test="$cadfContent/ua:region/text() = $region">
+                        <xsl:copy>
+                            <xsl:apply-templates select="@* | node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message terminate="yes">The "rgn:[region]" category is automatically added by Cloud Feeds.  Alternative "rgn:[other]" categories cannot be submitted.</xsl:message>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
@@ -174,6 +212,24 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
+            <xsl:when test="/atom:entry/atom:content/cadf:event">
+                <xsl:variable name="dataCenter" select="substring-after(@term, 'dc:')"/>
+                
+                <xsl:variable name="cadfEvent" select="/atom:entry/atom:content/cadf:event"/>
+                <xsl:variable name="cadfContentType" select="$cadfEvent/cadf:attachments/cadf:attachment/@contentType"/>
+                <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
+                
+                <xsl:choose>
+                    <xsl:when test="$cadfContent/ua:dataCenter/text() = $dataCenter">
+                        <xsl:copy>
+                            <xsl:apply-templates select="@* | node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message terminate="yes">The "dc:[dataCenter]" category is automatically added by Cloud Feeds.  Alternative "dc:[other]" categories cannot be submitted.</xsl:message>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:copy>
                     <xsl:apply-templates select="@* | node()"/>
@@ -182,6 +238,34 @@
         </xsl:choose>
     </xsl:template>
 
+    <xsl:template match="atom:category[starts-with(@term,'username:')]">
+        <xsl:choose>            
+            <xsl:when test="/atom:entry/atom:content/cadf:event">
+                <xsl:variable name="userName" select="substring-after(@term, 'username:')"/>
+                
+                <xsl:variable name="cadfEvent" select="/atom:entry/atom:content/cadf:event"/>
+                <xsl:variable name="cadfContentType" select="$cadfEvent/cadf:attachments/cadf:attachment/@contentType"/>
+                <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
+                
+                <xsl:choose>
+                    <xsl:when test="local-name($cadfContent) = 'auditData' and normalize-space($cadfContent/ua:userName/text()) = $userName">
+                        <xsl:copy>
+                            <xsl:apply-templates select="@* | node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message terminate="yes">The "username:[username]" category is automatically added by Cloud Feeds.  Alternative "username:[other]" categories cannot be submitted.</xsl:message>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
     <xsl:template match="atom:entry[atom:content/event:event]">
         <xsl:variable name="event" select="atom:content/event:event"/>
         <xsl:variable name="nsUri" select="namespace-uri(atom:content/event:event/*)"/>
@@ -296,5 +380,51 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
+    <xsl:template match="atom:entry[atom:content/cadf:event]">
+
+        <xsl:variable name="cadfEvent" select="atom:content/cadf:event"/>
+        <xsl:variable name="cadfContentType" select="$cadfEvent/cadf:attachments/cadf:attachment/@contentType"/>
+        <xsl:variable name="cadfContent" select="$cadfEvent/cadf:attachments/cadf:attachment/cadf:content/*[name() = $cadfContentType]" />
+        
+        <xsl:copy>
+            <!-- Adding urn:uuid:<event id> element -->
+            <xsl:element name="atom:id" namespace="http://www.w3.org/2005/Atom">
+                <xsl:value-of select="concat('urn:uuid:',$cadfEvent/@id)"/>
+            </xsl:element>
+            
+            <!-- Adding tid:<tenant id> atom category -->
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="normalize-space($cadfContent/ua:tenantId/text())"/>
+                <xsl:with-param name="prefix" select="'tid:'"/>
+            </xsl:call-template>
+        
+            <!-- Adding rgn:<region> atom category -->
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$cadfContent/ua:region/text()"/>
+                <xsl:with-param name="prefix" select="'rgn:'"/>
+                <xsl:with-param name="default" select="'GLOBAL'"/>
+            </xsl:call-template>
+            
+            <!-- Adding dc:<data center> atom category -->
+            <xsl:call-template name="addCategory">
+                <xsl:with-param name="term" select="$cadfContent/ua:dataCenter/text()"/>
+                <xsl:with-param name="prefix" select="'dc:'"/>
+                <xsl:with-param name="default" select="'GLOBAL'"/>
+            </xsl:call-template>
+
+            <!-- Adding username:<user name> atom category -->
+            <xsl:if test="local-name($cadfContent) = 'auditData'">
+                <xsl:call-template name="addCategory">
+                    <xsl:with-param name="term" select="normalize-space($cadfContent/ua:userName/text())"/>
+                    <xsl:with-param name="prefix" select="'username:'"/>
+                </xsl:call-template>                
+            </xsl:if>                
+            
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+                
+    </xsl:template>
+
 
 </xsl:stylesheet>
