@@ -584,6 +584,19 @@
                                     </sources>
                                 </mapping>
                                 <mapping>
+                                    <directory>/etc/repose/usage-schema</directory>
+                                    <username>repose</username>
+                                    <groupname>repose</groupname>
+                                    <!-- Modify file permissions as needed -->
+                                    <filemode>444</filemode>
+                                    <configuration>true</configuration>
+                                    <sources>
+                                        <source>
+                                            <location>archive.wadl</location>
+                                        </source>
+                                    </sources>
+                                </mapping>
+                                <mapping>
                                     <directory>/etc/repose/usage-schema/generated_product_xsds</directory>
                                     <username>repose</username>
                                     <groupname>repose</groupname>
