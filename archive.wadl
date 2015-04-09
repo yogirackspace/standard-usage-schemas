@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:rax="http://docs.rackspace.com/api"
+             xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
+             xmlns:atom="http://www.w3.org/2005/Atom">
+    <resources base="http://localhost/">
+        <resource id="archive" path="archive/{nastId}/{container}/{object}">
+            <param required="true" style="template" name="nastId" />
+            <param required="true" style="template" name="container" />
+            <param required="true" style="template" name="object" />
+            <method name="GET" />
+        </resource>
+    </resources>
+</application>
