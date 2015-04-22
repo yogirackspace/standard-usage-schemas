@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:db="http://docbook.org/ns/docbook"
+             xmlns:rax="http://docs.rackspace.com/api"
+             xmlns:atom="http://www.w3.org/2005/Atom"
+             xmlns:wadl="http://wadl.dev.java.net/2009/02"
+             xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
+             xmlns:error="http://docs.rackspace.com/core/error"
+             xmlns:event="http://docs.rackspace.com/core/event"
+             xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+             xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+             xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <resource_type id="UserAccessEvent">
+        <method id="addUserAccessEventEntry" name="POST" rax:roles="cloudfeeds:service-admin">
+            <wadl:doc title="Add User Access Event" xmlns="http://docbook.org/ns/docbook">
+                <para role="shortdesc">
+                    Add user access event.
+                </para>
+                <example>
+                    <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                    <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
+                        <colspec colname="c1" colnum="1" colwidth="3*"/>
+                        <colspec colname="c2" colnum="2" colwidth="5.39*"/>
+                        <colspec colname="c3" colnum="3" colwidth="2*"/>
+                        <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+                        <thead>
+                            <row>
+                                <entry>Element Name</entry>
+                                <entry>Description</entry>
+                                <entry>Type</entry>
+                                <entry>Optionality</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>region</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        Identifies the region, for example,
+                                        DFW. If the value of the element is
+                                        empty GLOBAL will be assumed.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>datacenter</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        Identifies the datacenter of the
+                                        event, for example, DFW3.  If the
+                                        value of the element is empty
+                                        GLOBAL will be assumed.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>methodLabel</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        An optional field to indicate the method
+                                        used for the request.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Optional</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>requestURL</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        Request url with any query string truncated.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>queryString</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        An optional field. Query string is the part of
+                                        a uri containing data which is added to a base uri.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Optional</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>tenantId</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        Identifies the tenant ID.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>responseMessage</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        An optional field containing the response
+                                        message.
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Optional</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>userName</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        The username that the initiator is acting on
+                                        behalf of (which might be themselves)
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                            <row>
+                                <entry>
+                                    <para>
+                                        <code>roles</code>
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>
+                                        Comma separated list of roles
+                                    </para>
+                                </entry>
+                                <entry>
+                                    <para>string</para>
+                                </entry>
+                                <entry>
+                                    <para>Required</para>
+                                </entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                    </informaltable>
+                    <para>
+                        <emphasis role="bold">XML Sample</emphasis>
+                        <programlisting language="xml">
+                        </programlisting>
+                    </para>
+                    <para>
+                        <emphasis role="bold">JSON Sample</emphasis>
+                        <programlisting language="json"/>
+                    </para>
+                </example>
+            </wadl:doc>
+            <request>
+                <representation mediaType="application/atom+xml" element="atom:entry">
+                    <param name="uae"
+                           style="plain"
+                           required="true"
+                           path="/atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData and /atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData[@version = '1']"
+                           rax:message="This feed only allows CADF events. The version and namespace of the CADF attachment content should correspond to user access events." />
+                    <param name="forbid-event-error"
+                           style="plain"
+                           required="true"
+                           path="not(/atom:entry/atom:content/error:eventError)"
+                           rax:message="eventErrors are not allowed in this feed."/>
+                    <rax:preprocess href="atom_hopper_pre.xsl"/>
+                </representation>
+            </request>
+            <response status="201">
+                <representation mediaType="application/atom+xml"/>
+            </response>
+            <response status="400 401 409 500 503">
+                <representation mediaType="application/xml"/>
+            </response>
+        </method>
+        <resource path="entries/{id}" id="getEntry_UserAccessEvent">
+            <param name="id" type="xs:anyURI" style="template">
+                <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc>
+            </param>
+            <method id="getEntryUserAccessEvent" name="GET">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xmlns:_0="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"
+                        title="Get User Access Event by Entry">
+                    <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
+                    <example>
+                        <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                        <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
+                            <colspec colname="c1" colnum="1" colwidth="3*"/>
+                            <colspec colname="c2" colnum="2" colwidth="5.39*"/>
+                            <colspec colname="c3" colnum="3" colwidth="2*"/>
+                            <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+                            <thead>
+                                <row>
+                                    <entry>Element Name</entry>
+                                    <entry>Description</entry>
+                                    <entry>Type</entry>
+                                    <entry>Optionality</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>region</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the region, for example,
+                                            DFW. If the value of the element is
+                                            empty GLOBAL will be assumed.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>datacenter</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the datacenter of the
+                                            event, for example, DFW3.  If the
+                                            value of the element is empty
+                                            GLOBAL will be assumed.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>methodLabel</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field to indicate the method
+                                            used for the request.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>requestURL</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Request url with any query string truncated.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>queryString</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field. Query string is the part of
+                                            a uri containing data which is added to a base uri.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>tenantId</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the tenant ID.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>responseMessage</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field containing the response
+                                            message.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>userName</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            The username that the initiator is acting on
+                                            behalf of (which might be themselves)
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>roles</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Comma separated list of roles
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                        </informaltable>
+                        <para>
+                            <emphasis role="bold">XML Sample</emphasis>
+                                <programlisting language="xml">&lt;?xml version="1.0"?&gt;
+&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+    &lt;atom:id&gt;urn:uuid:6fa234aea93f38c26fa234aea93f38c4&lt;/atom:id&gt;
+    &lt;atom:category term="tid:5821027"/&gt;
+    &lt;atom:category term="rgn:DFW"/&gt;
+    &lt;atom:category term="dc:DFW1"/&gt;
+    &lt;atom:category term="username:jackhandy"/&gt;
+    &lt;atom:title type="text"&gt;UserAccessEvent&lt;/atom:title&gt;
+    &lt;atom:content type="application/xml"&gt;
+        &lt;cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" action="read/get" eventTime="2015-03-12T13:20:00-05:00" eventType="activity" id="6fa234aea93f38c26fa234aea93f38c4" outcome="success" typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"&gt;
+            &lt;cadf:initiator id="10.1.2.3" name="jackhandy" typeURI="network/node"&gt;
+                &lt;cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"/&gt;
+            &lt;/cadf:initiator&gt;
+            &lt;cadf:target id="ord.feeds.api.rackspacecloud.com" name="feeds" typeURI="service"&gt;
+                &lt;cadf:host address="ord.feeds.api.rackspacecloud.com"/&gt;
+            &lt;/cadf:target&gt;
+            &lt;cadf:attachments&gt;
+                &lt;cadf:attachment contentType="ua:auditData" name="auditData"&gt;
+                    &lt;cadf:content&gt;
+                        &lt;ua:auditData version="1"&gt;
+                            &lt;ua:region&gt;DFW&lt;/ua:region&gt;
+                            &lt;ua:dataCenter&gt;DFW1&lt;/ua:dataCenter&gt;
+                            &lt;ua:methodLabel&gt;usage&lt;/ua:methodLabel&gt;
+                            &lt;ua:requestURL&gt;https://ord.feeds.api.rackspacecloud.com/sites/events&lt;/ua:requestURL&gt;
+                            &lt;ua:queryString&gt;limit=10&lt;/ua:queryString&gt;
+                            &lt;ua:tenantId&gt;5821027&lt;/ua:tenantId&gt;
+                            &lt;ua:responseMessage&gt;OK&lt;/ua:responseMessage&gt;
+                            &lt;ua:userName&gt;jackhandy&lt;/ua:userName&gt;
+                            &lt;ua:roles&gt;cloudfeeds-observer&lt;/ua:roles&gt;
+                        &lt;/ua:auditData&gt;
+                    &lt;/cadf:content&gt;
+                &lt;/cadf:attachment&gt;
+            &lt;/cadf:attachments&gt;
+            &lt;cadf:observer id="feeds-1-1" name="repose-7.1.1.1" typeURI="service/security"&gt;
+                &lt;cadf:host address="repose"/&gt;
+            &lt;/cadf:observer&gt;
+            &lt;cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/&gt;
+        &lt;/cadf:event&gt;
+    &lt;/atom:content&gt;
+    &lt;atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4" rel="self"/&gt;
+    &lt;atom:updated&gt;2015-04-22T17:22:53.094Z&lt;/atom:updated&gt;
+    &lt;atom:published&gt;2015-04-22T17:22:53.094Z&lt;/atom:published&gt;
+&lt;/atom:entry&gt;
+                            </programlisting>
+                        </para>
+                        <para>
+                            <emphasis role="bold">JSON Sample</emphasis>
+                            <programlisting language="json"/>
+                        </para>
+                    </example>
+                </wadl:doc>
+                <request>
+                    <param style="header"
+                           type="cldfeeds:AcceptHeaderType"
+                           rax:code="406"
+                           repeating="true"
+                           required="true"
+                           rax:message="getEntryUserAccessEvent: Accept header contains unsupported media types: application/*json"
+                           name="ACCEPT"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="application/atom+xml"/>
+                </response>
+                <response status="400 401 409 500 503">
+                    <representation mediaType="application/xml"/>
+                </response>
+            </method>
+        </resource>
+    </resource_type>
+
+    <resource_type id="UserAccessEventTenant">
+        <resource path="{tid}/entries/{id}" id="getEntry_UserAccessEventTenant">
+            <param name="tid" type="xs:string" style="template">
+                <doc>tenant ID</doc>
+            </param>
+            <param name="id" type="xs:anyURI" style="template">
+                <doc>urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc>
+            </param>
+            <method id="getEntryUserAccessEventTenant" name="GET">
+                <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                        xmlns:_0="http://wadl.dev.java.net/2009/02"
+                        xml:lang="EN"
+                        title="Get User Access Event">
+                    <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
+                    <example>
+                        <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                        <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
+                            <colspec colname="c1" colnum="1" colwidth="3*"/>
+                            <colspec colname="c2" colnum="2" colwidth="5.39*"/>
+                            <colspec colname="c3" colnum="3" colwidth="2*"/>
+                            <colspec colname="c4" colnum="4" colwidth="1.5*"/>
+                            <thead>
+                                <row>
+                                    <entry>Element Name</entry>
+                                    <entry>Description</entry>
+                                    <entry>Type</entry>
+                                    <entry>Optionality</entry>
+                                </row>
+                            </thead>
+                            <tbody>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>region</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the region, for example,
+                                            DFW. If the value of the element is
+                                            empty GLOBAL will be assumed.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>datacenter</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the datacenter of the
+                                            event, for example, DFW3.  If the
+                                            value of the element is empty
+                                            GLOBAL will be assumed.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>methodLabel</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field to indicate the method
+                                            used for the request.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>requestURL</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Request url with any query string truncated.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>queryString</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field. Query string is the part of
+                                            a uri containing data which is added to a base uri.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>tenantId</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Identifies the tenant ID.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>responseMessage</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            An optional field containing the response
+                                            message.
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Optional</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>userName</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            The username that the initiator is acting on
+                                            behalf of (which might be themselves)
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>
+                                        <para>
+                                            <code>roles</code>
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>
+                                            Comma separated list of roles
+                                        </para>
+                                    </entry>
+                                    <entry>
+                                        <para>string</para>
+                                    </entry>
+                                    <entry>
+                                        <para>Required</para>
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                        </informaltable>
+                        <para>
+                            <emphasis role="bold">XML Sample</emphasis>
+                            <programlisting language="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+    &lt;atom:id&gt;urn:uuid:6fa234aea93f38c26fa234aea93f38c4&lt;/atom:id&gt;
+    &lt;atom:category term="tid:5821027"/&gt;
+    &lt;atom:category term="rgn:DFW"/&gt;
+    &lt;atom:category term="dc:DFW1"/&gt;
+    &lt;atom:category term="username:jackhandy"/&gt;
+    &lt;atom:title type="text"&gt;UserAccessEvent&lt;/atom:title&gt;
+    &lt;atom:content type="application/xml"&gt;
+        &lt;cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" action="read/get" eventTime="2015-03-12T13:20:00-05:00" eventType="activity" id="6fa234aea93f38c26fa234aea93f38c4" outcome="success" typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"&gt;
+            &lt;cadf:initiator id="10.1.2.3" name="jackhandy" typeURI="network/node"&gt;
+                &lt;cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"/&gt;
+            &lt;/cadf:initiator&gt;
+            &lt;cadf:target id="ord.feeds.api.rackspacecloud.com" name="feeds" typeURI="service"&gt;
+                &lt;cadf:host address="ord.feeds.api.rackspacecloud.com"/&gt;
+            &lt;/cadf:target&gt;
+            &lt;cadf:attachments&gt;
+                &lt;cadf:attachment contentType="ua:auditData" name="auditData"&gt;
+                    &lt;cadf:content&gt;
+                        &lt;ua:auditData version="1"&gt;
+                            &lt;ua:region&gt;DFW&lt;/ua:region&gt;
+                            &lt;ua:dataCenter&gt;DFW1&lt;/ua:dataCenter&gt;
+                            &lt;ua:methodLabel&gt;usage&lt;/ua:methodLabel&gt;
+                            &lt;ua:requestURL&gt;https://ord.feeds.api.rackspacecloud.com/sites/events&lt;/ua:requestURL&gt;
+                            &lt;ua:queryString&gt;limit=10&lt;/ua:queryString&gt;
+                            &lt;ua:tenantId&gt;5821027&lt;/ua:tenantId&gt;
+                            &lt;ua:responseMessage&gt;OK&lt;/ua:responseMessage&gt;
+                            &lt;ua:userName&gt;jackhandy&lt;/ua:userName&gt;
+                            &lt;ua:roles&gt;cloudfeeds-observer&lt;/ua:roles&gt;
+                        &lt;/ua:auditData&gt;
+                    &lt;/cadf:content&gt;
+                &lt;/cadf:attachment&gt;
+            &lt;/cadf:attachments&gt;
+            &lt;cadf:observer id="feeds-1-1" name="repose-7.1.1.1" typeURI="service/security"&gt;
+                &lt;cadf:host address="repose"/&gt;
+            &lt;/cadf:observer&gt;
+            &lt;cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/&gt;
+        &lt;/cadf:event&gt;
+&lt;/atom:content&gt;
+&lt;atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/feeds_access/events/5821027/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4" rel="self"/&gt;
+&lt;atom:updated&gt;2015-04-22T17:22:53.094Z&lt;/atom:updated&gt;
+&lt;atom:published&gt;2015-04-22T17:22:53.094Z&lt;/atom:published&gt;
+&lt;/atom:entry&gt;
+                            </programlisting>
+                        </para>
+                        <para>
+                            <emphasis role="bold">JSON Sample</emphasis>
+                            <programlisting language="json"/>
+                        </para>
+                    </example>
+                </wadl:doc>
+                <request>
+                    <param style="header"
+                           type="cldfeeds:AcceptHeaderType"
+                           rax:code="406"
+                           repeating="true"
+                           required="true"
+                           rax:message="getEntryUserAccessEvent: Accept header contains unsupported media types: application/*json"
+                           name="ACCEPT"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="application/atom+xml"/>
+                </response>
+                <response status="400 401 409 500 503">
+                    <representation mediaType="application/xml"/>
+                </response>
+            </method>
+        </resource>
+    </resource_type>
+
+    
+    
+</application>    
