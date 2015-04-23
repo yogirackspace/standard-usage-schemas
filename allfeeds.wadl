@@ -240,7 +240,8 @@
                         wadl/product.wadl#CustomerService
                         wadl/product.wadl#GlanceTenant wadl/product.wadl#GlanceSummaryTenant
                         wadl/product.wadl#RHELTenant
-                        wadl/product.wadl#SslTenant"/>
+                        wadl/product.wadl#SslTenant
+                        wadl/cadf.wadl#UserAccessEvent"/>
         <resource id="migrationtest_events"
                   path="migrationtest/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
