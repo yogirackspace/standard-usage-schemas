@@ -73,6 +73,12 @@
         <resource id="encore_events"
                   path="encore/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="feedsaccess_events"
+                  path="feeds_access/events"
+                  type="wadl/feed.wadl#AtomFeed
+                        wadl/feed.wadl#TenantAtomFeed
+                        wadl/cadf.wadl#UserAccessEvent
+                        wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="files_events"
                   path="files/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles wadl/feed.wadl#TenantAtomFeed  wadl/product.wadl#CloudFilesTenant"/>
@@ -148,7 +154,7 @@
         <resource id="usagesummaryrecovery_events"
                   path="usagesummaryrecovery/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        
+
         <!-- Feeds Catalog -->
         <resource id="feedscatalog"
                   path="feedscatalog/catalog" 
@@ -211,6 +217,7 @@
                         wadl/product.wadl#SslTenant
                         wadl/product.wadl#Support
                         wadl/feed.wadl#UsageDeadLetter
+                        wadl/cadf.wadl#UserAccessEvent
                         wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
             <resource id="functest2_events"
                   path="functest2/events" 
