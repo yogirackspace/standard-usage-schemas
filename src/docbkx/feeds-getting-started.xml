@@ -27,7 +27,7 @@
           status.bar.text="Early Availability"?>   
     <info>
         <copyright>
-            <year>2014</year>
+            <year>2014/2015</year>
             <holder>Rackspace US, Inc.</holder>
         </copyright>
         <releaseinfo>API v1.0</releaseinfo>
@@ -1186,9 +1186,11 @@
                             <td><parameter>marker</parameter></td>
                             <td>Specifies a uuid that exists in the
                                 Cloud Feeds system.</td>
-                            <td>Must be a valid uuid that exists in
-                                the Cloud Feeds, system, for example
-                                   <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.</td>
+                            <td>Must be a valid uuid that exists in the Cloud Feeds, system, for
+                                example <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.
+                                This parameter can also be set to <code>last</code>. If this
+                                parameter is set to <code>last</code>, Cloud Feed finds the last
+                                entry in the feed.</td>
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
