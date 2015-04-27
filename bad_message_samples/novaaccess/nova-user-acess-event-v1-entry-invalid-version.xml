@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="nova_access/events"?>
+<?expect code="400" message="Bad Content: This feed only allows CADF events. The version and namespace of the CADF attachment content should correspond to user access events."?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+    <atom:title>UserAccessEvent</atom:title>
+    <atom:content type="application/xml">
+        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+                    id="6fa234aea93f38c26fa234aea93f38c2"
+                    eventType="activity"
+                    typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    eventTime="2015-03-12T13:20:00-05:00"
+                    action="read/get"
+                    outcome="success">
+            <!--racker -->
+            <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
+                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
+            </cadf:initiator>
+            <cadf:target id="x.x.x.x" typeURI="service" name="nova" >
+                <cadf:host address="dfw.servers.api.rackspacecloud.com" />
+            </cadf:target>
+            <cadf:attachments>
+                <cadf:attachment name="auditData" contentType="ua:auditData">
+                    <cadf:content>
+                        <ua:auditData version="2">
+                            <ua:region>DFW</ua:region>
+                            <ua:dataCenter>DFW1</ua:dataCenter>
+                            <ua:methodLabel>usage</ua:methodLabel>
+                            <ua:requestURL>https://dfw.servers.api.rackspacecloud.com/v2/5821027/servers</ua:requestURL>
+                            <ua:queryString>limit=10</ua:queryString>
+                            <ua:tenantId>5821027</ua:tenantId>
+                            <ua:responseMessage>OK</ua:responseMessage>
+                            <ua:userName>jackhandy</ua:userName>
+                            <ua:roles>cloudfeeds-observer</ua:roles>
+                        </ua:auditData>
+                    </cadf:content>
+                </cadf:attachment>
+            </cadf:attachments>
+            <cadf:observer id="nova" name="repose-7.1.1.1" typeURI="service/security">
+                <cadf:host address="repose" />
+            </cadf:observer>
+            <cadf:reason reasonCode="200"
+                         reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
+        </cadf:event>
+    </atom:content>
+</atom:entry>

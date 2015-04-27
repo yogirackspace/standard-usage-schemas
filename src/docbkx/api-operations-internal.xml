@@ -132,6 +132,13 @@
           <resource href="../../allfeeds.wadl#identity_events_getEntry_CloudIdentity"/>
       </resources>
   </section>
+  <section xml:id="identityaccess.product">
+        <title>Identity User Access Events</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#feedsaccess_events"/>
+            <resource href="../../allfeeds.wadl#feedsaccess_events_getEntry_UserAccessEvent"/>
+        </resources>
+  </section>
   <section xml:id="lbaas.product">
     <title>Cloud Load Balancers</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
@@ -145,6 +152,13 @@
       <resource href="../../allfeeds.wadl#monitoring_events"/>
       <resource href="../../allfeeds.wadl#monitoring_events_getEntry_CloudMonitoring"/>
     </resources>
+  </section>
+  <section xml:id="novaaccess.product">
+        <title>Nova User Access Events</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#feedsaccess_events"/>
+            <resource href="../../allfeeds.wadl#feedsaccess_events_getEntry_UserAccessEvent"/>
+        </resources>
   </section>
   <section xml:id="queues.product">
     <title>Cloud Queues</title>

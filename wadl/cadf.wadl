@@ -19,7 +19,7 @@
                     Add user access event.
                 </para>
                 <example>
-                    <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                    <title>Specifies the message for a User Access Event</title>
                     <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
                         <colspec colname="c1" colnum="1" colwidth="3*"/>
                         <colspec colname="c2" colnum="2" colwidth="5.39*"/>
@@ -252,7 +252,7 @@
                         title="Get User Access Event by Entry">
                     <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
                     <example>
-                        <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                        <title>Specifies the message for a User Access Event</title>
                         <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
                             <colspec colname="c1" colnum="1" colwidth="3*"/>
                             <colspec colname="c2" colnum="2" colwidth="5.39*"/>
@@ -528,7 +528,7 @@
                         title="Get User Access Event">
                     <para role="shortdesc">This http request fetches one particular event whose ID is listed in the URI.</para>
                     <example>
-                        <title>Specifies the message for a Cloud Feeds User Access Event</title>
+                        <title>Specifies the message for a User Access Event</title>
                         <informaltable frame="all"><?dbhtml table-width="100%"?><tgroup cols="4">
                             <colspec colname="c1" colnum="1" colwidth="3*"/>
                             <colspec colname="c2" colnum="2" colwidth="5.39*"/>

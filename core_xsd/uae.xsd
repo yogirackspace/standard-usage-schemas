@@ -113,12 +113,11 @@
                 </xs:annotation>
             </xs:element>
             
-            <!-- can there be a user with no roles? -->
             <xs:element name="roles" type="NonEmptyString" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
-
+                            Contains a space-separated list of roles.
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>

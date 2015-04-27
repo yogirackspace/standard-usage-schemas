@@ -88,6 +88,12 @@
         <resource id="identity_events"
                   path="identity/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudIdentityTenant"/>
+        <resource id="identityaccess_events"
+                  path="identity_access/events"
+                  type="wadl/feed.wadl#AtomFeed
+                        wadl/feed.wadl#TenantAtomFeed
+                        wadl/cadf.wadl#UserAccessEvent
+                        wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="lbaas_events"
                   path="lbaas/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudLoadBalancersTenant"/>
@@ -110,6 +116,12 @@
                         wadl/product.wadl#RHEL wadl/feed.wadl#TenantAtomFeed 
                         wadl/product.wadl#CloudServersOpenStackTenant 
                         wadl/product.wadl#RHELTenant"/>
+        <resource id="novaaccess_events"
+                  path="nova_access/events"
+                  type="wadl/feed.wadl#AtomFeed
+                        wadl/feed.wadl#TenantAtomFeed
+                        wadl/cadf.wadl#UserAccessEvent
+                        wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="payment_events"
                   path="payment/events"  
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#PaymentService"/>
