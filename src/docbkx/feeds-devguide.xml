@@ -1527,8 +1527,8 @@
                             <td>Must be a valid UUI that exists in the Cloud Feeds system, for
                                 example <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.
                                 This parameter can also be set to <code>last</code>. If this
-                                parameter is set to <code>last</code>, Cloud Feed locate a page that
-                                contains the oldest entry in the feed.</td>
+                                parameter is set to <code>last</code>, Cloud Feed locates a page
+                                that contains the oldest entry in the feed.</td>
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
