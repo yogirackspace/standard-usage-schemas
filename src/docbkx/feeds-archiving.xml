@@ -163,14 +163,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>/archive/{id}/{tenantID}</code></td>
+                            <td><code>/archive/{tenantID}</code></td>
                             <td>Retrieves archiving configuration data for a specified
                                 customer.</td>
                             <td><command>GET</command><?sbr?></td>
                             <td><code>application/json</code></td>
                         </tr>
                         <tr>
-                            <td><code>/archive/{id}/{tenandID}</code></td>
+                            <td><code>/archive/{tenandID}</code></td>
                             <td>Configures archiving settings for a specified customer.</td>
                             <td><command>POST</command></td>
                             <td><code>application/json</code></td>
