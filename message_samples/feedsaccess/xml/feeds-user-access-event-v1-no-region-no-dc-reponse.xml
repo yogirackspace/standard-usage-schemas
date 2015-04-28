@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <atom:id>urn:uuid:6fa234aea93f38c26fa234aea93f38r4</atom:id>
+    <atom:category term="tid:123456"/>
+    <atom:category term="rgn:GLOBAL"/>
+    <atom:category term="dc:GLOBAL"/>
+    <atom:category term="username:jackhandy"/>
+    <atom:title type="text">UserAccessEvent</atom:title>
+    <atom:content type="application/xml">
+        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" action="read/get" eventTime="2015-03-12T13:20:00-05:00" eventType="activity" id="6fa234aea93f38c26fa234aea93f38r4" outcome="success" typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event">
+            <cadf:initiator id="10.1.2.3" name="jackhandy" typeURI="network/node">
+                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"/>
+            </cadf:initiator>
+            <cadf:target id="ord.feeds.api.rackspacecloud.com" name="feeds" typeURI="service">
+                <cadf:host address="ord.feeds.api.rackspacecloud.com"/>
+            </cadf:target>
+            <cadf:attachments>
+                <cadf:attachment contentType="ua:auditData" name="auditData">
+                    <cadf:content>
+                        <ua:auditData version="1">
+                            <ua:region>GLOBAL</ua:region>
+                            <ua:dataCenter>GLOBAL</ua:dataCenter>
+                            <ua:methodLabel>usage</ua:methodLabel>
+                            <ua:requestURL>https://ord.feeds.api.rackspacecloud.com/sites/events</ua:requestURL>
+                            <ua:queryString>limit=10</ua:queryString>
+                            <ua:tenantId>123456</ua:tenantId>
+                            <ua:responseMessage>OK</ua:responseMessage>
+                            <ua:userName>jackhandy</ua:userName>
+                            <ua:roles>cloudfeeds-observer</ua:roles>
+                        </ua:auditData>
+                    </cadf:content>
+                </cadf:attachment>
+            </cadf:attachments>
+            <cadf:observer id="feeds-1-1" name="repose-7.1.1.1" typeURI="service/security">
+                <cadf:host address="repose"/>
+            </cadf:observer>
+            <cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
+        </cadf:event>
+    </atom:content>
+    <atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38r4" rel="self"/>
+    <atom:updated>2015-04-28T19:07:19.652Z</atom:updated>
+    <atom:published>2015-04-28T19:07:19.652Z</atom:published>
+</atom:entry>
