@@ -99,7 +99,8 @@
                 </itemizedlist>
                 <note>
                     <para>The daily feed archive contains the events that were posted during that
-                        day, it might also list events that contain data for other days.</para>
+                    day. The daily feed archive might also list events that contain data pertaining
+                    to days other than the day when the event was posted.</para>
                 </note></para></section>
         <section xml:id="Preferences_API"><title>Archiving Configuration API</title><para>Cloud Feeds provides the Archiving Configuration API, which can be used to configure archiving
                 settings.</para>
@@ -148,10 +149,10 @@
                 </table>
                 <table frame="border" security="external">
                     <caption>Archiving Configuration API resources</caption>
-                    <col width="25%"/>
-                    <col width="33%"/>
-                    <col width="12%"/>
-                    <col width="30%"/>
+                <col width="265pt"/>
+                <col width="31%"/>
+                <col width="12%"/>
+                <col width="30%"/>
                     <thead>
                         <tr>
                             <th>Resource</th>
@@ -162,14 +163,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>/archive/{id}</code></td>
+                            <td><code>/archive/{id}/{tenantID}</code></td>
                             <td>Retrieves archiving configuration data for a specified
                                 customer.</td>
                             <td><command>GET</command><?sbr?></td>
                             <td><code>application/json</code></td>
                         </tr>
                         <tr>
-                            <td><code>/archive/{id}</code></td>
+                            <td><code>/archive/{id}/{tenandID}</code></td>
                             <td>Configures archiving settings for a specified customer.</td>
                             <td><command>POST</command></td>
                             <td><code>application/json</code></td>
@@ -205,8 +206,8 @@
                             <tr>
                                 <td><code>data_format</code></td>
                                 <td>Specifies the data format, in which the events are archived.
-                                    Valid formats are: <code>XML</code>, <code>JSON</code>. This
-                                    parameter is an array.</td>
+                                Valid formats are: <code>XML</code>, <code>JSON</code>. Users can
+                                select both formats. This parameter is an array. </td>
                                 <td>Required</td>
                             </tr>
                             <tr>
