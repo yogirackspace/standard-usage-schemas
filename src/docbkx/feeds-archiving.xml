@@ -35,9 +35,10 @@
             <itemizedlist>
                 <listitem>
                     <para>Configuration via the <emphasis role="bold"><link
-                                xlink:href="http://www.rackspace.com/knowledge_center/article/introducing-the-rackspace-cloud-control-panel"
-                                >Cloud Control Panel</link></emphasis>. For more information, see
-                        (link to KC article).</para>
+                            xlink:href="http://www.rackspace.com/knowledge_center/article/introducing-the-rackspace-cloud-control-panel"
+                            >Cloud Control Panel</link></emphasis>. For more information, see <link
+                        xlink:href="http://www.rackspace.com/knowledge_center/article/configure-cloud-feeds-archiving-in-the-cloud-control-panel"
+                        >Configure Cloud Feeds Archiving in the Cloud Control Panel</link>.</para>
                 </listitem>
                 <listitem>
                     <para>Configuration via the <emphasis role="bold">Archiving Configuration
