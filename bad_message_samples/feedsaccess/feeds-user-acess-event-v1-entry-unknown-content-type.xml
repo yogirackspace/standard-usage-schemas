@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="functest1/events"?>
+<?atom feed="feeds_access/events"?>
+<?expect code="400" message="Bad Content: The version and namespace of the CADF attachment content should correspond to user access events."?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="http://www.w3.org/2001/XMLSchema">
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:xx="http://www.w3.org/2001/XMLSchema">
     <atom:title>UserAccessEvent</atom:title>
     <atom:content type="application/xml">
         <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
@@ -12,29 +14,29 @@
                     eventType="activity"
                     typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
                     eventTime="2015-03-12T13:20:00-05:00"
-                    action="create/post"
+                    action="read/get"
                     outcome="success">
             <!--racker -->
             <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
                 <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
             </cadf:initiator>
-            <cadf:target id="x.x.x.x" typeURI="service" name="IDM" >
-                <cadf:host address="lon.identity.api.rackspacecloud.com" />
+            <cadf:target id="x.x.x.x" typeURI="service" name="feeds" >
+                <cadf:host address="atom.prod.dfw1.us.ci.rackspace.net" />
             </cadf:target>
             <cadf:attachments>
-                <cadf:attachment name="auditData" contentType="ua:auditData">
+                <cadf:attachment name="auditData" contentType="xx:unknownData">
                     <cadf:content>
-                        <ua:auditData version="1">
+                        <xx:unknownData version="1">
                             <ua:region>DFW</ua:region>
                             <ua:dataCenter>DFW1</ua:dataCenter>
-                            <ua:methodLabel>createToken</ua:methodLabel>
-                            <ua:requestURL>https://lon.identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>
-                            <ua:queryString></ua:queryString>
+                            <ua:methodLabel>usage</ua:methodLabel>
+                            <ua:requestURL>https://ord.feeds.api.rackspacecloud.com/sites/events</ua:requestURL>
+                            <ua:queryString>limit=10</ua:queryString>
                             <ua:tenantId>123456</ua:tenantId>
                             <ua:responseMessage>OK</ua:responseMessage>
                             <ua:userName>jackhandy</ua:userName>
-                            <ua:roles>xxx</ua:roles>
-                        </ua:auditData>
+                            <ua:roles>cloudfeeds-observer</ua:roles>
+                        </xx:unknownData>
                     </cadf:content>
                 </cadf:attachment>
             </cadf:attachments>

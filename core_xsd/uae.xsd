@@ -19,27 +19,26 @@
     <xs:complexType name="AuditDataType">
         <xs:all>
             
-            <xs:element name="region" type="event:Region" default="GLOBAL" minOccurs="0" maxOccurs="1">
+            <xs:element name="region" type="event:Region" default="GLOBAL" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
                             Identifies the region, for example,
-                            DFW.  The attribute is optional, if it
-                            is not specified GLOBAL will be
-                            assumed.
+                            DFW. If the value of the element is 
+                            empty GLOBAL will be assumed.
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="dataCenter" type="event:DC"  default="GLOBAL" minOccurs="0" maxOccurs="1">
+            <xs:element name="dataCenter" type="event:DC"  default="GLOBAL" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
                             Identifies the datacenter of the
-                            event, for example, DFW3.  The
-                            attribute is optional, if it is not
-                            specified GLOBAL will be assumed.
+                            event, for example, DFW3.  If the
+                            value of the element is empty
+                            GLOBAL will be assumed.
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>
@@ -96,13 +95,14 @@
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
-                            
+                            An optional field containing the response
+                            message.
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="userName" type="xs:string" minOccurs="1" maxOccurs="1">
+            <xs:element name="userName" type="NonEmptyString" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -118,14 +118,25 @@
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
-                            Comma separated list of roles
+
                         </html:p>
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            
+
         </xs:all>
-        
+
+
+        <xs:attribute name="version" type="xs:string" use="required" fixed="1">
+            <xs:annotation>
+                <xs:documentation>
+                    <html:p>
+                        The version of the audit data.
+                    </html:p>
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
         <xs:assert vc:minVersion="1.1" 
             test="if (ua:dataCenter = ('DFW1','DFW2','DFW3')) then (ua:region = 'DFW') else
             if (ua:dataCenter = 'HKG1') then (ua:region = 'HKG') else

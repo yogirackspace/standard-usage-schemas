@@ -345,6 +345,9 @@
         <!-- Ignore passed in ID -->
     </xsl:template>
 
+    <xsl:template match="atom:entry[atom:content/cadf:event]/atom:id">
+        <!-- Ignore passed in ID -->
+    </xsl:template>
 
     <!--
         A summary attribute to a product who's event is of type

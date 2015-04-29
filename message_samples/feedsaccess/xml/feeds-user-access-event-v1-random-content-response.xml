@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <atom:title type="text">UserAccessEvent</atom:title>
+    <atom:content type="text">        Random content    </atom:content>
+    <atom:id>urn:uuid:37ef5f69-e4bd-40e1-89a4-7c3252783971</atom:id>
+    <atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/feeds_access/events/entries/urn:uuid:37ef5f69-e4bd-40e1-89a4-7c3252783971" rel="self"/>
+    <atom:updated>2015-04-29T16:39:29.273Z</atom:updated>
+    <atom:published>2015-04-29T16:39:29.273Z</atom:published>
+</atom:entry>

@@ -44,7 +44,8 @@
                                 "tenantId"        : "123456",
                                 "responseMessage" : "OK",
                                 "userName"        : "jackhandy",
-                                "roles"           : "xxx"
+                                "roles"           : "xxx",
+                                "version"         : "1"
                             }
                         }
                     }

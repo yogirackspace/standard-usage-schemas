@@ -111,6 +111,13 @@
             <resource href="../../allfeeds.wadl#ebs_events_getEntry_EBS"/>
         </resources>
     </section>
+    <section xml:id="feedsaccess.product">
+        <title>Feeds User Access Events</title>
+        <resources xmlns="http://wadl.dev.java.net/2009/02">
+            <resource href="../../allfeeds.wadl#feedsaccess_events"/>
+            <resource href="../../allfeeds.wadl#feedsaccess_events_getEntry_UserAccessEvent"/>
+        </resources>
+    </section>
   <section xml:id="files.product">
     <title>Cloud Files</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
