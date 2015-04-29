@@ -221,11 +221,16 @@
             </wadl:doc>
             <request>
                 <representation mediaType="application/atom+xml" element="atom:entry">
+                    <param name="cross_check"
+                           style="plain"
+                           required="true"
+                           rax:message="Product/Usage events are not allowed in this feed."
+                           path="not(/atom:entry/atom:content/event:event)"/>
                     <param name="uae"
                            style="plain"
                            required="true"
-                           path="/atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData and /atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData[@version = '1']"
-                           rax:message="This feed only allows CADF events. The version and namespace of the CADF attachment content should correspond to user access events." />
+                           path="if (/atom:entry/atom:content/cadf:event) then (/atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData and /atom:entry/atom:content/cadf:event/cadf:attachments/cadf:attachment/cadf:content/ua:auditData[@version = '1']) else true()"
+                           rax:message="The version and namespace of the CADF attachment content should correspond to user access events." />
                     <param name="forbid-event-error"
                            style="plain"
                            required="true"
