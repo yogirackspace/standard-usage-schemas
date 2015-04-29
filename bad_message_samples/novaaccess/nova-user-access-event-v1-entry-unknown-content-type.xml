@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="nova_access/events"?>
-<?expect code="400" message="Bad Content: This feed only allows CADF events. The version and namespace of the CADF attachment content should correspond to user access events."?>
+<?expect code="400" message="Bad Content: The version and namespace of the CADF attachment content should correspond to user access events."?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema"
