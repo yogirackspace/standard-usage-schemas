@@ -1,15 +1,18 @@
+import java.nio.charset.StandardCharsets
+
 import com.rackspace.usage.{BaseUsageSuite}
-import java.io.{StringReader, StringWriter, File}
+import java.io._
 import javax.xml.transform.stream.{StreamResult, StreamSource}
 import javax.xml.transform.TransformerFactory
 import javax.xml.xpath.XPathFactory
 import net.sf.saxon.Controller
 import net.sf.saxon.lib.NamespaceConstant
+import org.boon.collections.LazyMap
+import org.boon.json.{JsonParserFactory, JsonParserAndMapper}
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import scala.language.implicitConversions
 import scala.util.parsing.json.JSON
-import scala.xml._
 
 /**
  * Tests for the XSLT that transforms XML events to JSON events
@@ -246,6 +249,27 @@ class Xml2JsonSuite extends BaseUsageSuite {
         assert(memory == 32768, "memory should be numeric and 32768")
 
     }
+
+    test( "should transform XML identity user access event into JSON properly") {
+
+      val parser = (new JsonParserFactory()).createFastParser()
+
+      val transformResult = transform( new StreamSource( new File( "message_samples/corexsd/xml/identity-user-access-event.xml" ) ) )
+      val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+
+      val jsonMap = parser.parseMap( new FileInputStream( "message_samples/corexsd/json/identity-user-access-event.json" ) )
+
+      // assert auditData/region/text()
+      assert( jsonMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "event").asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]]
+        .get(0).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "content" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "auditData" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "region") == "DFW")
+    }
+
 
     def transform(inputXML: StreamSource) : String = {
         val trans = templates.newTransformer()
