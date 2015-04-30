@@ -270,6 +270,30 @@ class Xml2JsonSuite extends BaseUsageSuite {
         .get( "region") == "DFW")
     }
 
+    test("should transform Feeds Catalog with Prefs Svc workspace to JSON properly") {
+        val parser = (new JsonParserFactory()).createFastParser()
+
+        val transformResult = transform( new StreamSource( new File( "src/test/resources/feedscatalog.xml" ) ) )
+        val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+
+        val jsonMap = parser.parseMap( new FileInputStream( "src/test/resources/feedscatalog.json" ) )
+
+        val serviceObj = jsonMap.get("service").asInstanceOf[java.util.Map[String, AnyRef]]
+        assert (serviceObj != null, "should have a service object")
+
+        val workspaces = serviceObj.get("workspace").asInstanceOf[java.util.List[AnyRef]]
+        assert (workspaces != null, "workspaces should not be null")
+        assert (workspaces.size() > 0, "should have at least one workspaces")
+
+        val lastWorkspace = workspaces.get(workspaces.size()-1).asInstanceOf[java.util.Map[String, AnyRef]]
+        assert(lastWorkspace != null, "last workspace should not be null")
+
+        val links = lastWorkspace.get("link").asInstanceOf[java.util.List[AnyRef]]
+        assert(links != null && links.size() == 2, "must have 2 links")
+        assert(lastWorkspace.get("title") == "Feeds Archiving Preferences Service endpoints")
+
+    }
+
 
     def transform(inputXML: StreamSource) : String = {
         val trans = templates.newTransformer()
