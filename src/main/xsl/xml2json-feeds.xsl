@@ -15,7 +15,7 @@
     
     <!-- this nonStringAttrs.xsl file is generated -->
     <xsl:include href="nonStringAttrs.xsl"/>
-    
+
     <!-- The "main" template". This is the entry point, or in Saxon's term,
          the "initial template".
     -->
@@ -117,9 +117,7 @@
             -->
             <xsl:when test="cldfeeds:isCadfAttachment( local-name(), namespace-uri() )">
                 <xsl:apply-templates select="." mode="obj-content" />
-                <xsl:if test="name(preceding-sibling::*[1]) = name(current()) and name(following-sibling::*[1]) != name(current())">
-                    ,
-                </xsl:if>
+                <xsl:if test="name(following-sibling::*[1]) = name(.)">, </xsl:if>
             </xsl:when>
 
             <!-- handle the last item of a list object -->
@@ -349,7 +347,9 @@
         </xsl:choose>
     </xsl:function>
 
-    <!-- TODO: doc -->
+    <!--
+       Determines if the CADF attachment node value is a non-string or not.
+    -->
     <xsl:function name="cldfeeds:isNonString" as="xs:boolean">
         <xsl:param name="ns"/>
         <xsl:param name="node"/>
