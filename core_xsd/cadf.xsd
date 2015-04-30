@@ -28,7 +28,7 @@
         </html:p>
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
+    <xs:all>
       
       <xs:element name="initiator" type="InitiatorType">
         <xs:annotation>
@@ -82,7 +82,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:sequence>
+    </xs:all>
     
     <xs:attribute name="id" type="NonEmptyString" use="required">
       <xs:annotation>
@@ -231,9 +231,9 @@
         </html:p>
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
+    <xs:all>
       <xs:element name="host" type="HostType"/>
-    </xs:sequence>
+    </xs:all>
     <xs:attribute name="id" type="xs:string" use="required"/>
     
     <xs:attribute name="name" type="xs:string">
@@ -257,15 +257,15 @@
         </html:p>
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
+    <xs:all>
       <xs:element name="attachment" type="AttachmentType" minOccurs="1" maxOccurs="unbounded" />
-    </xs:sequence>    
+    </xs:all>
   </xs:complexType>
   
   <xs:complexType name="AttachmentType">
-    <xs:sequence>
+    <xs:all>
       <xs:element name="content" type="AttachmentContentType"/>
-    </xs:sequence>
+    </xs:all>
     
     <xs:attribute name="name" type="xs:string"/>
     

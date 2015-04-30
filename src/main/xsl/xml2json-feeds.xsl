@@ -13,15 +13,9 @@
     <!-- atom namespace -->
     <xsl:variable name="atomNs" select="'http://www.w3.org/2005/Atom'"/>
     
-    <!-- nodes we must print namespace in '@type' string -->
-    <xsl:variable name="printNamespaceOnNodes" select="tokenize('feed entry event product error eventError', ' ')"/>
-    
-    <!-- rax schema nodes must have @version attribute -->
-    <xsl:variable name="raxSchemaNodes" select="tokenize('event product', ' ')"/>
-    
     <!-- this nonStringAttrs.xsl file is generated -->
     <xsl:include href="nonStringAttrs.xsl"/>
-    
+
     <!-- The "main" template". This is the entry point, or in Saxon's term,
          the "initial template".
     -->
@@ -98,7 +92,7 @@
     </xsl:template>
     
     <!-- A no-op template for the atom nodes we have to handle in special ways
-        by using the above templates that specificly matches for those.
+        by using the above templates that specifically matches for those.
     -->
     <xsl:template match="atom:category | atom:link | atom:feed | atom:entry" mode="others"/>
  
@@ -107,6 +101,25 @@
     -->
     <xsl:template match="*" mode="others">                
         <xsl:choose>
+            <!--
+              If this is a CADF attachments node, treat its contents as an array.
+             -->
+            <xsl:when test="cldfeeds:isCadfAttachments( local-name(), namespace-uri() )">
+                <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : [</xsl:text>
+                <xsl:apply-templates select="*" mode="others" />
+                <xsl:text>]</xsl:text>
+                <xsl:variable name="sibs" select="following-sibling::*"/>
+                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
+            </xsl:when>
+
+            <!--
+              If this is a CADF attachment node, treat each node as a member of an array.
+            -->
+            <xsl:when test="cldfeeds:isCadfAttachment( local-name(), namespace-uri() )">
+                <xsl:apply-templates select="." mode="obj-content" />
+                <xsl:if test="name(following-sibling::*[1]) = name(.)">, </xsl:if>
+            </xsl:when>
+
             <!-- handle the last item of a list object -->
             <xsl:when test="name(preceding-sibling::*[1]) = name(current()) and name(following-sibling::*[1]) != name(current())">
                 <xsl:apply-templates select="." mode="obj-content" />
@@ -166,57 +179,60 @@
     -->
     <xsl:template match="*" mode="obj-content">
         <xsl:text>{</xsl:text>
-            <xsl:if test="exists(index-of($printNamespaceOnNodes, local-name()))"><xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text></xsl:if>
-            <xsl:choose>
-                <xsl:when test="exists(index-of($raxSchemaNodes, local-name()))">
-                    <xsl:variable name="namespace" select="string(namespace-uri())" as="xs:string"/>
-                    <xsl:variable name="version"   select="@version"                as="xs:string"/>
+        <xsl:call-template name="printType">
+            <xsl:with-param name="localName"><xsl:value-of select="local-name(.)"/></xsl:with-param>
+            <xsl:with-param name="ns"><xsl:value-of select="namespace-uri(.)"/></xsl:with-param>
+        </xsl:call-template>    
+        <xsl:choose>
+            <xsl:when test="cldfeeds:isRaxSchemaNode(local-name(), namespace-uri())">
+                <xsl:variable name="namespace" select="string(namespace-uri())" as="xs:string"/>
+                <xsl:variable name="version"   select="@version"                as="xs:string"/>
 
-                    <xsl:variable name="nonStringAttrs"
-                        select="tokenize(
+                <xsl:variable name="nonStringAttrs"
+                              select="tokenize(
                                   $nonStringAttrsList/cf-nsattrs:schema[string(@key) = $namespace and string(@version) = $version]/cf-nsattrs:attributes/text(),
                                   ',')"/>
-                    <xsl:apply-templates select="@*" mode="raxAttr">
-                        <xsl:with-param name="namespace" select="$namespace"/>
-                        <xsl:with-param name="version" select="$version"/>
-                        <xsl:with-param name="nonStringAttrs" select="$nonStringAttrs"/>
-                    </xsl:apply-templates>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:apply-templates select="@*" mode="normalAttr" />    
-                </xsl:otherwise>
-            </xsl:choose>
+                <xsl:apply-templates select="@*" mode="raxAttr">
+                    <xsl:with-param name="namespace" select="$namespace"/>
+                    <xsl:with-param name="version" select="$version"/>
+                    <xsl:with-param name="nonStringAttrs" select="$nonStringAttrs"/>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="@*" mode="normalAttr" />
+            </xsl:otherwise>
+        </xsl:choose>
 
-            <xsl:if test="count(@*) &gt; 0 and (count(child::*) &gt; 0 or text())">, </xsl:if>
+        <xsl:if test="count(@*) &gt; 0 and (count(child::*) &gt; 0 or text())">, </xsl:if>
         
-            <!-- here we recurse to child objects other than links and categories -->
-            <xsl:apply-templates select="./*" mode="others"/>
+        <!-- here we recurse to child objects other than links and categories -->
+        <xsl:apply-templates select="./*" mode="others"/>
         
-            <xsl:if test="count(child::*) = 0 and text() and not(@*)">
-                <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:value-of select="text()"/><xsl:text>"</xsl:text>
-            </xsl:if>
+        <xsl:if test="count(child::*) = 0 and text() and not(@*)">
+            <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:value-of select="text()"/><xsl:text>"</xsl:text>
+        </xsl:if>
         
-            <!-- handles element that has both text child node and attributes -->
-            <xsl:if test="count(child::*) = 0 and text() and @*">
-                <xsl:text>"@text" : </xsl:text>
-                <xsl:choose>
-                    <xsl:when test="local-name() = 'content' and
+        <!-- handles element that has both text child node and attributes -->
+        <xsl:if test="count(child::*) = 0 and text() and @*">
+            <xsl:text>"@text" : </xsl:text>
+            <xsl:choose>
+                <xsl:when test="local-name() = 'content' and
                                     namespace-uri() = 'http://www.w3.org/2005/Atom' and
                                     @type = 'application/json'">
-                        <!-- CF-1554: this handles the mixed-content, JSON-in-XML.
+                    <!-- CF-1554: this handles the mixed-content, JSON-in-XML.
                              Just go ahead and print the text() value here.
                         -->
-                        <xsl:value-of select="text()"/>    
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:text>"</xsl:text>
-                        <xsl:call-template name="removeBreaks">
-                            <xsl:with-param name="pText" select="text()"/>
-                        </xsl:call-template>
-                        <xsl:text>"</xsl:text>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
+                    <xsl:value-of select="text()"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>"</xsl:text>
+                    <xsl:call-template name="removeBreaks">
+                        <xsl:with-param name="pText" select="text()"/>
+                    </xsl:call-template>
+                    <xsl:text>"</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
         <xsl:text>}</xsl:text>
         <xsl:if test="position() &lt; last()">, </xsl:if>
     </xsl:template>
@@ -250,7 +266,20 @@
          to normal JSON string-value pairs
     -->
     <xsl:template match="@*" mode="normalAttr">
-        <xsl:text>"</xsl:text><xsl:value-of select="name()"/>" : "<xsl:value-of select="."/><xsl:text>"</xsl:text> 
+
+        <!-- JSON key -->
+        <xsl:text>"</xsl:text><xsl:value-of select="name()"/><xsl:text>" : </xsl:text>
+
+        <!-- JSON value, either string or non-string -->
+        <xsl:choose>
+            <xsl:when test="cldfeeds:isNonString( parent::node()/namespace-uri(), parent::node()/local-name(), local-name(.) )">
+                <xsl:value-of select="."/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:text>"</xsl:text><xsl:value-of select="."/><xsl:text>"</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+
         <xsl:if test="position() &lt; last()">,</xsl:if>
     </xsl:template>
 
@@ -272,7 +301,7 @@
         </xsl:variable>
 
         <xsl:variable name="isNonString" as="xs:boolean">
-            <xsl:value-of select="cldfeeds:isNonString($mypath, $namespace, $version, $nonStringAttrs)"></xsl:value-of>
+            <xsl:value-of select="cldfeeds:isNonStringProduct($mypath, $namespace, $version, $nonStringAttrs)"></xsl:value-of>
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$isNonString">
@@ -302,7 +331,7 @@
          or boolean type (i.e: non-string). This is important in JSON because
          numeric and boolean are not quoted.
     -->
-    <xsl:function name="cldfeeds:isNonString" as="xs:boolean">
+    <xsl:function name="cldfeeds:isNonStringProduct" as="xs:boolean">
         <xsl:param name="attributePath"/>
         <xsl:param name="namespace"/>
         <xsl:param name="version"/>
@@ -317,7 +346,27 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
+
+    <!--
+       Determines if the CADF attachment node value is a non-string or not.
+    -->
+    <xsl:function name="cldfeeds:isNonString" as="xs:boolean">
+        <xsl:param name="ns"/>
+        <xsl:param name="node"/>
+        <xsl:param name="attr"/>
+
+        <xsl:variable name="nonStringAttrs">
+            <cldfeeds:nonStrings>
+                <cldfeeds:nonString namespace="http://schemas.dmtf.org/cloud/audit/1.0/event" node="reason" attribute="reasonCode"/>
+            </cldfeeds:nonStrings>
+        </xsl:variable>
+
+        <xsl:value-of select="exists( $nonStringAttrs//cldfeeds:nonString[@namespace = $ns and
+                               @node = $node and
+                               @attribute= $attr])"/>
+    </xsl:function>
+
+
     <xsl:template match="@*" name="buildPathToProduct">
         <!-- This is not perfect because it assumes that we only have 2 levels elements:
                *) product
@@ -335,4 +384,86 @@
                 <xsl:value-of select="concat(parent::node()/local-name(), '@', local-name())"/>
             </xsl:if>
     </xsl:template>
+
+    <!--
+      Print the @type attribute if the node matches the included nodes & is not within the
+      excluded namespaces.
+    -->
+    <xsl:template name="printType">
+        <xsl:param name="localName"/>
+        <xsl:param name="ns"/>
+        
+        <!-- nodes we must print namespace in '@type' string -->
+        <xsl:variable name="includeNodes" select="tokenize('feed entry event product error eventError', ' ')"/>
+        <!-- except for these namespaces, e.g., event -->
+        <xsl:variable name="excludeNS" 
+		      select="tokenize('http://schemas.dmtf.org/cloud/audit/1.0/event', ' ')"/>
+
+        <xsl:if test="exists(index-of($includeNodes, $localName)) 
+            and not(exists(index-of($excludeNS, $ns)))">
+            <xsl:text>"@type": "</xsl:text><xsl:value-of select="namespace-uri()"/><xsl:text>", </xsl:text>
+        </xsl:if>        
+    </xsl:template>
+
+    <!--
+      Return true if the node is defined as a part of hte product schema.  This consists when the node matches the
+      included nodes & is not within the execluded namespaces.
+    -->
+    <xsl:function name="cldfeeds:isRaxSchemaNode" as="xs:boolean">
+        <xsl:param name="localName"/>
+        <xsl:param name="ns"/>
+
+        <!-- rax schema nodes must have @version attribute -->
+        <xsl:variable name="includeNodes" select="tokenize('event product', ' ')"/>
+        <xsl:variable name="excludeNS"
+                      select="tokenize('http://schemas.dmtf.org/cloud/audit/1.0/event', ' ')"/>
+
+        <xsl:choose>
+            <xsl:when test="exists(index-of($includeNodes, $localName))
+			  and not(exists(index-of($excludeNS, $ns)))">
+                <xsl:value-of select="true()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="false()"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+    <!--
+      Return true if the node is of the form:
+      localName = attachments
+      namespace = http://schemas.dmtf.org/cloud/audit/1.0/event
+    -->
+    <xsl:function name="cldfeeds:isCadfAttachments" as="xs:boolean">
+        <xsl:param name="localName"/>
+        <xsl:param name="ns"/>
+
+        <xsl:choose>
+            <xsl:when test="$localName = 'attachments' and $ns = 'http://schemas.dmtf.org/cloud/audit/1.0/event'">
+                <xsl:value-of select="true()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="false()"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+    <!--
+      Return true if the node is of the form:
+      localName = attachment
+      namespace = http://schemas.dmtf.org/cloud/audit/1.0/event
+    -->
+    <xsl:function name="cldfeeds:isCadfAttachment" as="xs:boolean">
+        <xsl:param name="localName"/>
+        <xsl:param name="ns"/>
+
+        <xsl:choose>
+            <xsl:when test="$localName = 'attachment' and $ns = 'http://schemas.dmtf.org/cloud/audit/1.0/event'">
+                <xsl:value-of select="true()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="false()"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
 </xsl:stylesheet>

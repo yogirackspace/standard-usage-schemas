@@ -17,7 +17,7 @@
     <xs:element name="auditData" type="AuditDataType" />
     
     <xs:complexType name="AuditDataType">
-        <xs:sequence>
+        <xs:all>
             
             <xs:element name="region" type="event:Region" default="GLOBAL" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
@@ -123,8 +123,9 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
-            
-        </xs:sequence>
+
+        </xs:all>
+
 
         <xs:attribute name="version" type="xs:string" use="required" fixed="1">
             <xs:annotation>
