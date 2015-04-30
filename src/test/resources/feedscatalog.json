@@ -1,0 +1,418 @@
+{
+    "service": {
+        "workspace": [
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/automation/events",
+                    "title": "automation_events"
+                },
+                "title": "automation_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/autoscale/events",
+                    "title": "autoscale_events"
+                },
+                "title": "autoscale_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/backup/events",
+                    "title": "backup_events"
+                },
+                "title": "backup_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/bigdata/events",
+                    "title": "bigdata_events"
+                },
+                "title": "bigdata_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/billing/events",
+                    "title": "billing_events"
+                },
+                "title": "billing_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/cbs/events",
+                    "title": "cbs_events"
+                },
+                "title": "cbs_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/core/events",
+                    "title": "core_events"
+                },
+                "title": "core_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/customer_access_policy/events",
+                    "title": "customer_access_policy_events"
+                },
+                "title": "customer_access_policy_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/customer/events",
+                    "title": "customer_events"
+                },
+                "title": "customer_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dcx/events",
+                    "title": "dcx_events"
+                },
+                "title": "dcx_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dbaas/events",
+                    "title": "dbaas_events"
+                },
+                "title": "dbaas_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dedicatedvcloud/events",
+                    "title": "dedicatedvcloud_events"
+                },
+                "title": "dedicatedvcloud_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dns/events",
+                    "title": "dns_events"
+                },
+                "title": "dns_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/domain/events",
+                    "title": "domain_events"
+                },
+                "title": "domain_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/ebs/events",
+                    "title": "ebs_events"
+                },
+                "title": "ebs_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/emailapps_usage/events",
+                    "title": "emailapps_usage_events"
+                },
+                "title": "emailapps_usage_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/emailapps_msservice/events",
+                    "title": "emailapps_msservice_events"
+                },
+                "title": "emailapps_msservice_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/encore/events",
+                    "title": "encore_events"
+                },
+                "title": "encore_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/feeds_access/events",
+                    "title": "feedsaccess_events"
+                },
+                "title": "feedsaccess_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/files/events",
+                    "title": "files_events"
+                },
+                "title": "files_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/glance/events",
+                    "title": "glance_events"
+                },
+                "title": "glance_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/identity/events",
+                    "title": "identity_events"
+                },
+                "title": "identity_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/lbaas/events",
+                    "title": "lbaas_events"
+                },
+                "title": "lbaas_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/meta/events",
+                    "title": "meta_events"
+                },
+                "title": "meta_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/monitoring/events",
+                    "title": "monitoring_events"
+                },
+                "title": "monitoring_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/netdevice/events",
+                    "title": "netdevice_events"
+                },
+                "title": "netdevice_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/newrelic/events",
+                    "title": "newrelic_events"
+                },
+                "title": "newrelic_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/nova/events",
+                    "title": "nova_events"
+                },
+                "title": "nova_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/payment/events",
+                    "title": "payment_events"
+                },
+                "title": "payment_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/rackspacecdn/events",
+                    "title": "rackspacecdn_events"
+                },
+                "title": "rackspacecdn_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/queues/events",
+                    "title": "queues_events"
+                },
+                "title": "queues_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/servers/events",
+                    "title": "servers_events"
+                },
+                "title": "servers_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/sites/events",
+                    "title": "sites_events"
+                },
+                "title": "sites_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/signup/events",
+                    "title": "signup_events"
+                },
+                "title": "signup_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/ssl/events",
+                    "title": "ssl_events"
+                },
+                "title": "ssl_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/support/events",
+                    "title": "support_events"
+                },
+                "title": "support_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagecorrelation/events",
+                    "title": "usagecorrelation_events"
+                },
+                "title": "usagecorrelation_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagedeadletter/events",
+                    "title": "usagedeadletter_events"
+                },
+                "title": "usagedeadletter_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagerecovery/events",
+                    "title": "usagerecovery_events"
+                },
+                "title": "usagerecovery_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummaryrecovery/events",
+                    "title": "usagesummaryrecovery_events"
+                },
+                "title": "usagesummaryrecovery_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/demo/events",
+                    "title": "demo_events"
+                },
+                "title": "demo_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/experiments/events",
+                    "title": "experiments_events"
+                },
+                "title": "experiments_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/backup/events",
+                    "title": "backup_usagesummary_events"
+                },
+                "title": "backup_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/bigdata/events",
+                    "title": "bigdata_usagesummary_events"
+                },
+                "title": "bigdata_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/cbs/events",
+                    "title": "cbs_usagesummary_events"
+                },
+                "title": "cbs_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/dbaas/events",
+                    "title": "dbaas_usagesummary_events"
+                },
+                "title": "dbaas_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/dedicatedvcloud/events",
+                    "title": "dedicatedvcloud_usagesummary_events"
+                },
+                "title": "dedicatedvcloud_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/files/events",
+                    "title": "files_usagesummary_events"
+                },
+                "title": "files_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/glance/events",
+                    "title": "glance_usagesummary_events"
+                },
+                "title": "glance_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/lbaas/events",
+                    "title": "lbaas_usagesummary_events"
+                },
+                "title": "lbaas_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/monitoring/events",
+                    "title": "monitoring_usagesummary_events"
+                },
+                "title": "monitoring_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/nova/events",
+                    "title": "nova_usagesummary_events"
+                },
+                "title": "nova_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/rackspacecdn/events",
+                    "title": "rackspacecdn_usagesummary_events"
+                },
+                "title": "rackspacecdn_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/queues/events",
+                    "title": "queues_usagesummary_events"
+                },
+                "title": "queues_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/servers/events",
+                    "title": "servers_usagesummary_events"
+                },
+                "title": "servers_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/sites/events",
+                    "title": "sites_usagesummary_events"
+                },
+                "title": "sites_usagesummary_events"
+            },
+            {
+                "collection": {
+                    "href": "https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/ssl/events",
+                    "title": "ssl_usagesummary_events"
+                },
+                "title": "ssl_usagesummary_events"
+            },
+            {
+                "link": [
+                    {
+                        "href": "https://test.preferences.feeds.api.rackspacecloud.com/archive/",
+                        "rel": "archive-preferences-alt"
+                    },
+                    {
+                        "href": "https://test.preferences.feeds.api.rackspacecloud.com/archive/",
+                        "rel": "archive-preferences"
+                    }
+                ],
+                "title": "Feeds Archiving Preferences Service endpoints"
+            }
+        ]
+    }
+}
