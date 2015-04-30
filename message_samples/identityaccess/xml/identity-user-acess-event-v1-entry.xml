@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?atom feed="identity_access/events functest1/events"?>
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+    <atom:title>UserAccessEvent</atom:title>
+    <atom:content type="application/xml">
+        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                    xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
+                    id="6fa234aea93f38c26fa234aea93f38c4"
+                    eventType="activity"
+                    typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    eventTime="2015-03-12T13:20:00-05:00"
+                    action="read/get"
+                    outcome="success">
+            <!--racker -->
+            <cadf:initiator id="10.1.2.3" typeURI="network/node" name="jackhandy">
+                <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8" />
+            </cadf:initiator>
+            <cadf:target id="identity.api.rackspacecloud.com" typeURI="service" name="IDM" >
+                <cadf:host address="identity.api.rackspacecloud.com" />
+            </cadf:target>
+            <cadf:attachments>
+                <cadf:attachment name="auditData" contentType="ua:auditData">
+                    <cadf:content>
+                        <ua:auditData version="1">
+                            <ua:region>DFW</ua:region>
+                            <ua:dataCenter>DFW1</ua:dataCenter>
+                            <ua:methodLabel></ua:methodLabel>
+                            <ua:requestURL>https://identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>
+                            <ua:queryString></ua:queryString>
+                            <ua:tenantId>5821027</ua:tenantId>
+                            <ua:responseMessage>OK</ua:responseMessage>
+                            <ua:userName>jackhandy</ua:userName>
+                            <ua:roles>nova:creator</ua:roles>
+                        </ua:auditData>
+                    </cadf:content>
+                </cadf:attachment>
+            </cadf:attachments>
+            <cadf:observer id="IDM" name="repose-7.1.1.1" typeURI="service/security">
+                <cadf:host address="repose" />
+            </cadf:observer>
+            <cadf:reason reasonCode="200"
+                         reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
+        </cadf:event>
+    </atom:content>
+</atom:entry>

@@ -257,10 +257,8 @@ class Xml2JsonSuite extends BaseUsageSuite {
       val transformResult = transform( new StreamSource( new File( "message_samples/corexsd/xml/identity-user-access-event.xml" ) ) )
       val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
 
-      val jsonMap = parser.parseMap( new FileInputStream( "message_samples/corexsd/json/identity-user-access-event.json" ) )
-
       // assert auditData/region/text()
-      assert( jsonMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
+      assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
         .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
         .get( "event").asInstanceOf[java.util.Map[String, AnyRef]]
         .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]]
@@ -294,6 +292,20 @@ class Xml2JsonSuite extends BaseUsageSuite {
 
     }
 
+
+    test( "should transform CADF with multiple attachments into JSON properly") {
+
+      val parser = (new JsonParserFactory()).createFastParser()
+
+      val transformResult = transform( new StreamSource( new File( "src/test/resources/cadf-multiple-attachments.xml" ) ) )
+      val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+
+      // assert auditData/region/text()
+      assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "event").asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]].size() == 2 )
+    }
 
     def transform(inputXML: StreamSource) : String = {
         val trans = templates.newTransformer()
