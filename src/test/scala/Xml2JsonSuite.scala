@@ -252,10 +252,8 @@ class Xml2JsonSuite extends BaseUsageSuite {
 
     test( "should transform XML identity user access event into JSON properly") {
 
-      val parser = (new JsonParserFactory()).createFastParser()
-
       val transformResult = transform( new StreamSource( new File( "message_samples/corexsd/xml/identity-user-access-event.xml" ) ) )
-      val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+      val transformMap = JSON.parseFull(transformResult).get.asInstanceOf[Map[String,Any]]
 
       // assert auditData/region/text()
       assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
@@ -274,9 +272,7 @@ class Xml2JsonSuite extends BaseUsageSuite {
         val transformResult = transform( new StreamSource( new File( "src/test/resources/feedscatalog.xml" ) ) )
         val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
 
-        val jsonMap = parser.parseMap( new FileInputStream( "src/test/resources/feedscatalog.json" ) )
-
-        val serviceObj = jsonMap.get("service").asInstanceOf[java.util.Map[String, AnyRef]]
+        val serviceObj = transformMap.get("service").asInstanceOf[java.util.Map[String, AnyRef]]
         assert (serviceObj != null, "should have a service object")
 
         val workspaces = serviceObj.get("workspace").asInstanceOf[java.util.List[AnyRef]]
