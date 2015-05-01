@@ -7,7 +7,6 @@ import javax.xml.transform.TransformerFactory
 import javax.xml.xpath.XPathFactory
 import net.sf.saxon.Controller
 import net.sf.saxon.lib.NamespaceConstant
-import org.boon.collections.LazyMap
 import org.boon.json.{JsonParserFactory, JsonParserAndMapper}
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -251,40 +250,42 @@ class Xml2JsonSuite extends BaseUsageSuite {
     }
 
     test( "should transform XML identity user access event into JSON properly") {
+        val parser = (new JsonParserFactory()).createFastParser()
 
-      val transformResult = transform( new StreamSource( new File( "message_samples/corexsd/xml/identity-user-access-event.xml" ) ) )
-      val transformMap = JSON.parseFull(transformResult).get.asInstanceOf[Map[String,Any]]
+        val transformResult = transform( new StreamSource( new File( "message_samples/corexsd/xml/identity-user-access-event.xml" ) ) )
+        val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
 
-      // assert auditData/region/text()
-      assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "event").asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]]
-        .get(0).asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "content" ).asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "auditData" ).asInstanceOf[java.util.Map[String, AnyRef]]
-        .get( "region") == "DFW")
+        // assert auditData/region/text()
+        assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "event").asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]]
+          .get(0).asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "content" ).asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "auditData" ).asInstanceOf[java.util.Map[String, AnyRef]]
+          .get( "region") == "DFW")
     }
 
     test("should transform Feeds Catalog with Prefs Svc workspace to JSON properly") {
-        val parser = (new JsonParserFactory()).createFastParser()
 
         val transformResult = transform( new StreamSource( new File( "src/test/resources/feedscatalog.xml" ) ) )
-        val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
 
-        val serviceObj = transformMap.get("service").asInstanceOf[java.util.Map[String, AnyRef]]
+        val jsonObj = JSON.parseFull(transformResult).get.asInstanceOf[Map[String,Any]]
+        assert(jsonObj != null, "should have a valid json object")
+
+        val serviceObj = jsonObj.get("service").get.asInstanceOf[Map[String, Any]]
         assert (serviceObj != null, "should have a service object")
 
-        val workspaces = serviceObj.get("workspace").asInstanceOf[java.util.List[AnyRef]]
+        val workspaces = serviceObj.get("workspace").get.asInstanceOf[List[Map[String,AnyRef]]]
         assert (workspaces != null, "workspaces should not be null")
-        assert (workspaces.size() > 0, "should have at least one workspaces")
+        assert (workspaces.size > 0, "should have at least one workspaces")
 
-        val lastWorkspace = workspaces.get(workspaces.size()-1).asInstanceOf[java.util.Map[String, AnyRef]]
+        val lastWorkspace = workspaces.last
         assert(lastWorkspace != null, "last workspace should not be null")
 
-        val links = lastWorkspace.get("link").asInstanceOf[java.util.List[AnyRef]]
-        assert(links != null && links.size() == 2, "must have 2 links")
-        assert(lastWorkspace.get("title") == "Feeds Archiving Preferences Service endpoints")
+        val links = lastWorkspace.get("link").get.asInstanceOf[List[AnyRef]]
+        assert(links != null && links.size == 2, "must have 2 links")
+        assert(lastWorkspace.get("title").get.asInstanceOf[String] == "Feeds Archiving Preferences Service endpoints")
 
     }
 
