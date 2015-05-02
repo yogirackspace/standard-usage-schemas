@@ -1110,35 +1110,44 @@
                             >Cloud Auditing Data Federation</link>.</para>
                     <para>Cloud Feeds defines a set of event types, which take different
                         attributes.</para>
-                    <para>The following table shows the CADF event types of type <emphasis
-                            role="italic">complexType</emphasis>.</para>
+                <para>The following examples show a user access event that is encoded as a CADF
+                        event . The CADF event is located inside the Atom content type
+                        element.</para>
+                <example>
+                    <title>User access events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/CADFEventsExample.xml" parse="text"/></programlisting>
+                </example>
+                <example>
+                    <title>User access events - JSON example</title>
+                    <programlisting language="xml"><xi:include href="./samples/CADFEventsExample-json.json" parse="text"/></programlisting>
+                </example>
+                    <para>The following table shows the CADF properties that are specified in
+                        cadf.xsd.</para>
                     <para>
                         <table frame="border">
-                            <caption>CADF properties of type complexType</caption>
-                            <col width="27%"/>
-                            <col width="26%"/>
-                            <col width="47%"/>
+                            <caption>CADF properties </caption>
+                            <col width="40%"/>
+                            <col width="60%"/>
                             <thead>
                                 <tr>
                                     <th>Property</th>
                                     <th>Description</th>
-                                    <th>Attribute</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>CADFEventType</code></td>
-                                    <td>Specifies the CADF event.</td>
-                                    <td>Contains a set of attributes that describe the event. These
-                                        attributes are located in the CADF event node. <?sbr?>See
-                                        the <emphasis role="italic">Attributes for CADF event
-                                            note</emphasis> table below.</td>
+                                    <td>Specifies the CADF event. Contains a set of attributes that
+                                        describe the event. These attributes are located in the CADF
+                                        event node. <?sbr?>See the <emphasis role="italic"
+                                            >Attributes for CADF event note</emphasis> table
+                                        below.</td>
                                 </tr>
                                 <tr>
                                     <td><code>initiatorType</code></td>
-                                    <td>Specifies the events initiator.</td>
                                     <td>
-                                        <para>Takes the <code>typeURI</code> attribute of type
+                                        <para>Specifies the events initiator. Takes the
+                                                <code>typeURI</code> attribute of type
                                                 <code>xs:string</code>. This attribute can be one f
                                             the following:</para>
                                         <itemizedlist>
@@ -1153,7 +1162,6 @@
                                                   requests.</para>
                                             </listitem>
                                         </itemizedlist>
-                                        <?sbr?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1161,39 +1169,36 @@
                                     <td>Describes any resource that is part of an actual event, for
                                         example: "<emphasis role="italic">Initiator</emphasis>",
                                             "<emphasis role="italic">Target</emphasis>", "<emphasis
-                                            role="italic">Reporter</emphasis>".</td>
-                                    <td>
-                                        <para>Requires the <code>typeURI</code> attribute of type
-                                                <code>xs:string</code>. </para>
-                                    </td>
+                                            role="italic">Reporter</emphasis>".Requires the
+                                            <code>typeURI</code> attribute of type
+                                            <code>xs:string</code>. </td>
                                 </tr>
                                 <tr>
                                     <td><code>ResourceTypeBase</code></td>
                                     <td>Specifies is the base type for all ResourceTypes. This
-                                        property is an extention of <code>ResourceType</code>.</td>
-                                    <td>Requires the <code>id</code> attribute of type
-                                            <code>xs:string</code>. Optionally, takes the
-                                            <code>name</code> attribute of type
+                                        property is an extention of
+                                        <code>ResourceType</code>.Requires the <code>id</code>
+                                        attribute of type <code>xs:string</code>. Optionally, takes
+                                        the <code>name</code> attribute of type
                                             <code>xs:string</code>. The <code>name</code> attribute
                                         can be the user name of the person initiating the request if
-                                            <code>ResourceTyp</code>e is  set to "<emphasis
+                                            <code>ResourceTyp</code>e is set to "<emphasis
                                             role="italic">Initiator</emphasis>".</td>
                                 </tr>
                                 <tr>
                                     <td><code>AttachmentsType</code></td>
                                     <td>Contains domain-specific information about the resource or
-                                        its context.</td>
-                                    <td>Contains the <code>attachment</code> element of type
-                                            <code>AttachmentType</code> with the
+                                        its context.Contains the <code>attachment</code> element of
+                                        type <code>AttachmentType</code> with the
                                             <code>minOccurs</code> attribute set to "<emphasis
                                             role="italic">1</emphasis>" and <code>maxOccurs</code>
                                         set to "<emphasis role="italic">unbounded</emphasis>".</td>
                                 </tr>
                                 <tr>
                                     <td><code>AttachmentType</code></td>
-                                    <td>Specifies the attachment type. </td>
                                     <td>
-                                        <para>Contains the <code>content</code> element of type
+                                        <para>Specifies the attachment type. Contains the
+                                                <code>content</code> element of type
                                                 <code>AttachmentContentType</code>. Takes the
                                             following 2 attributes:</para>
                                         <itemizedlist>
@@ -1206,7 +1211,7 @@
                                                 <para><code>contentType</code> of type
                                                   <code>NonEmptyString</code>, which specifies the
                                                   URI that identifies the type of data contained in
-                                                  the content property..</para>
+                                                  the content property.</para>
                                             </listitem>
                                         </itemizedlist>
                                     </td>
@@ -1214,15 +1219,14 @@
                                 <tr>
                                     <td><code>AttachmentContentType</code></td>
                                     <td>Specifies a container that can contain any type of data (as
-                                        defined by the <code>contentType</code> property). </td>
-                                    <td>Extends to the <code>BaseAttachmentContentType</code>
-                                        property.</td>
+                                        defined by the <code>contentType</code> property). Extends
+                                        to the <code>BaseAttachmentContentType</code> property.</td>
                                 </tr>
                                 <tr>
                                     <td><code>ReasonType</code></td>
-                                    <td>Specifies the reason type.</td>
                                     <td>
-                                        <para>Requires the following 2 attributes:</para>
+                                        <para>Specifes the reason type. Requires the following 2
+                                            attributes:</para>
                                         <itemizedlist>
                                             <listitem>
                                                 <para><code>reasonCode</code> of type
@@ -1239,13 +1243,13 @@
                                 </tr>
                                 <tr>
                                     <td><code>HostType</code></td>
-                                    <td>Specifies information related to the host.</td>
                                     <td>
-                                        <para>Takes the following 2 attributes:</para>
+                                        <para>Specifies information related to the host. Takes the
+                                            following 2 attributes:</para>
                                         <itemizedlist>
                                             <listitem>
                                                 <para><code>address</code> of type
-                                                  <code>xs:string</code>,  which specifies the
+                                                  <code>xs:string</code>, which specifies the
                                                   optional address of the host resource. </para>
                                             </listitem>
                                             <listitem>
@@ -1256,23 +1260,6 @@
                                         </itemizedlist>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </para>
-                    <para>The following table shows the CADF event types of type <emphasis
-                            role="italic">simpleType</emphasis>.</para>
-                    <para>
-                        <table frame="border">
-                            <caption>CADF properties of type simpleType</caption>
-                            <col width="36%"/>
-                            <col width="64%"/>
-                            <thead>
-                                <tr>
-                                    <th>Property</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
                                     <td><code>CADFDateTime</code></td>
                                     <td>Specifies the timestamp. See the note below for additional
@@ -1502,16 +1489,6 @@
                         </tbody>
                     </table>
                 </para>
-                <para>The following examples show a user access event. The CADF event is located
-                            inside the Atom content type element.</para>
-                <example>
-                    <title>User access events - XML example</title>
-                    <programlisting language="xml"><xi:include href="./samples/CADFEventsExample.xml" parse="text"/></programlisting>
-                </example>
-                    <example>
-                        <title>User access events - JSON example</title>
-                        <programlisting language="xml"><xi:include href="./samples/CADFEventsExample-json.json" parse="text"/></programlisting>
-                    </example>
             </section>
             </section>
         </section>
