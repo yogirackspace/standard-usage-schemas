@@ -933,20 +933,17 @@
                         xmlns:db="http://docbook.org/ns/docbook">
                         <table frame="border">
                             <caption>Attributes in the product event node</caption>
-                            <col width="25%"/>
-                            <col width="23%"/>
-                            <col width="52%"/>
+                            <col width="30%"/>
+                            <col width="70%"/>
                             <thead>
                                 <tr>
                                     <th>Attribute</th>
-                                    <th>Type</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>dataCenter</code></td>
-                                    <td>event:DC</td>
                                     <td>Optional. Specifies the data center of the event. If this
                                         attribute is not specified, <emphasis role="bold"
                                             >GLOBAL</emphasis> is assumed. <emphasis role="bold"
@@ -955,7 +952,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>endTime</code></td>
-                                    <td>event:UTCDateTime</td>
                                     <td>Optional. Specifies the time that the event ends. The format
                                         must be ISO 8601 format: <emphasis role="italic"
                                             >yyyy-mm-ddThh:mm:ss.SSSZ</emphasis> (Z designates UTC).
@@ -968,7 +964,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>environment</code></td>
-                                    <td>event:ENVIRONMENT</td>
                                     <td>Specifies the environment from which the message originated.
                                         If this attribute is not specified, <emphasis role="bold"
                                             >PROD</emphasis> is assumed. This attribute is required
@@ -978,7 +973,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>eventTime</code></td>
-                                    <td>event:UTCDateTime</td>
                                     <td>Optional. Specifies the time of the event, using ISO 8601
                                         format and UTC. Use this attribute instead of
                                             <code>startTime</code> and <code>endTime</code> in cases
@@ -986,7 +980,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>id</code></td>
-                                    <td>event:UUID</td>
                                     <td>Required. Specifies the UUID for the event record. This
                                         value should be UUID version 1, 2, or 4. For more
                                         information, see RFC 4122 at <link
@@ -995,14 +988,12 @@
                                 </tr>
                                 <tr>
                                     <td><code>referenceId</code></td>
-                                    <td>event:UUID</td>
                                     <td>Optional. Specifies a GUID that identifies the event record
                                         that this record is updating. This attribute should be used
                                         if this event is correcting another event.</td>
                                 </tr>
                                 <tr>
                                     <td><code>region</code></td>
-                                    <td>event:Region</td>
                                     <td>Specifies the region in which the event is located. If this
                                         attribute is not specified, <emphasis role="bold"
                                             >GLOBAL</emphasis> is assumed. <emphasis role="bold"
@@ -1011,7 +1002,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>resourceId</code></td>
-                                    <td>event:NonEmptyString</td>
                                     <td>Specifies the ID of the resource. This attribute is required
                                         if the <db:code>resourceType</db:code> attribute is
                                         specified in the product node, but is optional
@@ -1019,24 +1009,20 @@
                                 </tr>
                                 <tr>
                                     <td><code>resourceName</code></td>
-                                    <td>event:NonEmptyString</td>
                                     <td>Optional. Specifies the customer-defined name of the
                                         resource.</td>
                                 </tr>
                                 <tr>
                                     <td><code>resourceURI</code></td>
-                                    <td>xsd:anyURI</td>
                                     <td>Optional. Specifies a URI that uniquely identifies the
                                         resource.</td>
                                 </tr>
                                 <tr>
                                     <td><code>rootAction</code></td>
-                                    <td>event:NonEmptyString</td>
                                     <td>Optional. Specifies the action that caused the event.</td>
                                 </tr>
                                 <tr>
                                     <td><code>severity</code></td>
-                                    <td>event:Severity</td>
                                     <td>Optional. Specifies the severity of the event. Valid values
                                         are <emphasis role="bold">INFO</emphasis>, <emphasis
                                             role="bold">WARNING</emphasis>, and<emphasis role="bold"
@@ -1045,7 +1031,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>startTime</code></td>
-                                    <td>event:UTCDateTime</td>
                                     <td>Specifies the time that the event starts. The format must be
                                         ISO 8601 format: yyyy-mm-ddThh:mm:ss.SSSZ (Z designates
                                         UTC). The start time is inclusive, which means that the
@@ -1056,13 +1041,11 @@
                                 </tr>
                                 <tr>
                                     <td><code>tenantId</code></td>
-                                    <td>event:NonEmptyString</td>
                                     <td>Optional. Specifies the tenant Id of the feeds
                                         publisher</td>
                                 </tr>
                                 <tr>
                                     <td><code>type</code></td>
-                                    <td>event:EventType</td>
                                     <td>Required. Specifies the type of event. If one of the
                                         existing event types fails to produce any feeds, set this
                                         attribute to <emphasis role="bold">EXTENDED</emphasis> and
@@ -1071,7 +1054,6 @@
                                 </tr>
                                 <tr>
                                     <td><code>version</code></td>
-                                    <td>event:NonEmptyString</td>
                                     <td>Required. Specifies the version of the event record.</td>
                                 </tr>
                             </tbody>
