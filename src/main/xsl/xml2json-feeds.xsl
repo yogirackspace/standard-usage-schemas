@@ -5,6 +5,7 @@
     xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds"
     xmlns:cf-nsattrs="http://docs.rackspace.com/api/cloudfeeds/non-string-attrs"
     xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:svcdoc="http://www.w3.org/2007/app"
     xmlns:saxon="http://saxon.sf.net/"
     exclude-result-prefixes="cldfeeds">
     
@@ -170,6 +171,22 @@
     <xsl:template match="atom:content[@type='application/xml']" mode="obj-content">
         <xsl:text>{</xsl:text>
         <xsl:apply-templates select="./*" mode="others" />
+        <xsl:text>}</xsl:text>
+    </xsl:template>
+   
+    <!-- A template to match svcdoc:workspace tha contains an atom:link element.
+         This is a special handling of the Preferences Service endpoint that is 
+         listed in our Feeds Catalog (see CF-477). 
+    -->
+    <xsl:template match="svcdoc:workspace[atom:link]" mode="obj-content">
+        <xsl:text>{</xsl:text>
+
+        <xsl:call-template name="atomList">
+            <xsl:with-param name="nodes" select="atom:link" as="node()*"/>
+            <xsl:with-param name="printComma" select="true()"/>    
+        </xsl:call-template>    
+
+        <xsl:apply-templates select="./*[not(atom:link)]" mode="others"/>
         <xsl:text>}</xsl:text>
     </xsl:template>
  

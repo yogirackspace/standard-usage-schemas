@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom">
+   <workspace>
+      <atom:title>automation_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/automation/events">
+         <atom:title>automation_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>autoscale_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/autoscale/events">
+         <atom:title>autoscale_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>backup_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/backup/events">
+         <atom:title>backup_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>bigdata_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/bigdata/events">
+         <atom:title>bigdata_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>billing_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/billing/events">
+         <atom:title>billing_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>cbs_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/cbs/events">
+         <atom:title>cbs_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>core_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/core/events">
+         <atom:title>core_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>customer_access_policy_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/customer_access_policy/events">
+         <atom:title>customer_access_policy_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>customer_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/customer/events">
+         <atom:title>customer_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dcx_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dcx/events">
+         <atom:title>dcx_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dbaas_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dbaas/events">
+         <atom:title>dbaas_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dedicatedvcloud_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dedicatedvcloud/events">
+         <atom:title>dedicatedvcloud_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dns_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/dns/events">
+         <atom:title>dns_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>domain_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/domain/events">
+         <atom:title>domain_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>ebs_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/ebs/events">
+         <atom:title>ebs_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>emailapps_usage_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/emailapps_usage/events">
+         <atom:title>emailapps_usage_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>emailapps_msservice_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/emailapps_msservice/events">
+         <atom:title>emailapps_msservice_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>encore_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/encore/events">
+         <atom:title>encore_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>feedsaccess_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/feeds_access/events">
+         <atom:title>feedsaccess_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>files_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/files/events">
+         <atom:title>files_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>glance_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/glance/events">
+         <atom:title>glance_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>identity_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/identity/events">
+         <atom:title>identity_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>lbaas_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/lbaas/events">
+         <atom:title>lbaas_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>meta_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/meta/events">
+         <atom:title>meta_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>monitoring_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/monitoring/events">
+         <atom:title>monitoring_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>netdevice_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/netdevice/events">
+         <atom:title>netdevice_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>newrelic_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/newrelic/events">
+         <atom:title>newrelic_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>nova_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/nova/events">
+         <atom:title>nova_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>payment_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/payment/events">
+         <atom:title>payment_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>rackspacecdn_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/rackspacecdn/events">
+         <atom:title>rackspacecdn_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>queues_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/queues/events">
+         <atom:title>queues_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>servers_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/servers/events">
+         <atom:title>servers_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>sites_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/sites/events">
+         <atom:title>sites_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>signup_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/signup/events">
+         <atom:title>signup_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>ssl_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/ssl/events">
+         <atom:title>ssl_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>support_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/support/events">
+         <atom:title>support_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>usagecorrelation_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagecorrelation/events">
+         <atom:title>usagecorrelation_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>usagedeadletter_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagedeadletter/events">
+         <atom:title>usagedeadletter_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>usagerecovery_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagerecovery/events">
+         <atom:title>usagerecovery_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>usagesummaryrecovery_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummaryrecovery/events">
+         <atom:title>usagesummaryrecovery_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>demo_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/demo/events">
+         <atom:title>demo_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>experiments_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/experiments/events">
+         <atom:title>experiments_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>backup_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/backup/events">
+         <atom:title>backup_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>bigdata_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/bigdata/events">
+         <atom:title>bigdata_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>cbs_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/cbs/events">
+         <atom:title>cbs_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dbaas_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/dbaas/events">
+         <atom:title>dbaas_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>dedicatedvcloud_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/dedicatedvcloud/events">
+         <atom:title>dedicatedvcloud_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>files_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/files/events">
+         <atom:title>files_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>glance_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/glance/events">
+         <atom:title>glance_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>lbaas_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/lbaas/events">
+         <atom:title>lbaas_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>monitoring_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/monitoring/events">
+         <atom:title>monitoring_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>nova_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/nova/events">
+         <atom:title>nova_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>rackspacecdn_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/rackspacecdn/events">
+         <atom:title>rackspacecdn_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>queues_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/queues/events">
+         <atom:title>queues_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>servers_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/servers/events">
+         <atom:title>servers_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>sites_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/sites/events">
+         <atom:title>sites_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:title>ssl_usagesummary_events</atom:title>
+      <collection href="https://atom-shintacentos-n01.dev.ord1.us.ci.rackspace.net/usagesummary/ssl/events">
+         <atom:title>ssl_usagesummary_events</atom:title>
+      </collection>
+   </workspace>
+   <workspace>
+      <atom:link href="https://test.preferences.feeds.api.rackspacecloud.com/archive/"
+                 rel="archive-preferences-alt"/>
+      <atom:title>Feeds Archiving Preferences Service endpoints</atom:title>
+      <atom:link href="https://test.preferences.feeds.api.rackspacecloud.com/archive/"
+                 rel="archive-preferences"/>
+   </workspace>
+   <!-- Generated from schema version 1.89.0 -->
+</service>
