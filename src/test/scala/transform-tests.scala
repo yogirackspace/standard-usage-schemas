@@ -177,31 +177,4 @@ class TransformSuite extends BaseUsageSuite {
     atomValidator.validate(req, response, chain)
     assert(getProcessedXML(req), "count(/atom:entry/atom:category[@term = 'cloudfiles.cdnbandwidth.usage']) = 0")
   }
-
-  test("Mark cloudserversopenstack.nova.server.usage with cloudfeeds:private category" ) {
-    val body = <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
-      <atom:title>Nagios Event</atom:title>
-      <atom:content type="application/xml">
-        <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:nova="http://docs.rackspace.com/event/nova"
-               version="1" id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-               resourceId="f37bca20-29c5-4e08-97f4-e47908887bc1" resourceName="testserver78193259535"
-               dataCenter="IAD3" region="IAD"
-               tenantId="231423"
-               startTime="2013-05-15T11:51:11Z" endTime="2013-05-16T11:51:11Z"
-               type="USAGE">
-          <nova:product version="1" serviceCode="CloudServersOpenStack"
-                        resourceType="SERVER" flavorId="3" flavorName="1024MB" status="ACTIVE"
-                        osLicenseType="RHEL" bandwidthIn="640034"
-                        bandwidthOut="345123"
-          />
-        </event>
-      </atom:content>
-    </atom:entry>
-
-    val req = request("POST", "/usagetest1/events", "application/atom+xml", body, SERVICE_ADMIN)
-    atomValidator.validate(req, response, chain)
-    assert(getProcessedXML(req), "/atom:entry/atom:category/@term = 'cloudfeeds:private'")
-
-  }
 }
