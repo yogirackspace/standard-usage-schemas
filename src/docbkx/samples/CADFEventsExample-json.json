@@ -1,6 +1,21 @@
 {
     "entry" : {
         "@type"   : "http://www.w3.org/2005/Atom",
+        "id"      : "urn:uuid:6fa234aea93f38c26fa234aea93f38c2", 
+        "category": [
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "username:jackhandy"
+            },
+        ],
         "title"   : "Identity User Access Event",
         "content" : {
             "event" : {
