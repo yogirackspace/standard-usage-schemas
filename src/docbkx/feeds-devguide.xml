@@ -923,8 +923,25 @@
                 </para>
             <section xml:id="CloudFeedsProductEvents"><title>Cloud Feeds Product events</title>
                 <para>Cloud Feeds supports product events that contain information that is specific
-                        to a certain product. Product events are located under the event
-                        node.</para>
+                        to a certain product. </para>
+                <para>Product events are located in the <tag>event</tag> node as shown in the
+                    following examples.
+                <example security="internal">
+                    <title>Cloud feeds product events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
+                </example>
+                <example security="internal">
+                    <title>Cloud feeds product events - JSON example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.json" parse="text"/></programlisting>
+                </example>
+                <example security="external">
+                    <title>Cloud feeds product events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.xml" parse="text"/></programlisting>
+                </example>
+                <example security="external">
+                    <title>Cloud feeds product events - JSON example</title>
+                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.json" parse="text"/></programlisting>
+                </example></para>
                     <para>The following table shows the attributes for the product event
                         node.</para>
                     <para xmlns:svg="http://www.w3.org/2000/svg"
@@ -1058,31 +1075,11 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </para>
-                    <para>Product events are located in the <tag>event</tag> node as shown in the
-                        following examples. </para>
-                <example security="internal">
-                    <title>Cloud feeds product events - XML example</title>
-                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
-                </example>
-                <example security="internal">
-                    <title>Cloud feeds product events - JSON example</title>
-                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.json" parse="text"/></programlisting>
-                </example>
-                <example security="external">
-                    <title>Cloud feeds product events - XML example</title>
-                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.xml" parse="text"/></programlisting>
-                </example>
-                <example security="external">
-                    <title>Cloud feeds product events - JSON example</title>
-                    <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.json" parse="text"/></programlisting>
-                </example>
-                <para>
+                    </para>                    
                     <note>
                         <para>Cloud Feeds evaluates all product events against their XML schemas.
                         </para>
                     </note>
-                </para>
             </section>
             <section xml:id="CADF_events"><title>User access events in CADF</title><para>Cloud Feeds supports the Cloud Auditing Data Federation (CADF) standard. CADF provides a
                 standard for the submission and retrieval of normative audit event data from
@@ -1103,207 +1100,104 @@
                     <title>User access events - JSON example</title>
                     <programlisting language="xml"><xi:include href="./samples/CADFEventsExample-json.json" parse="text"/></programlisting>
                 </example>
-                    <para>The following table shows the CADF properties that are specified in
+                    <para>The following table shows the CADF nodes that are specified in
                         cadf.xsd.</para>
                     <para>
                         <table frame="border">
                             <caption>CADF properties </caption>
-                            <col width="28%"/>
-                            <col width="34%"/>
-                            <col width="47%"/>
+                            <col width="41%"/>
+                            <col width="59%"/>
                             <thead>
                                 <tr>
-                                    <th>Node</th>
+                                    <th>Name</th>
                                     <th>Description</th>
-                                    <th>Attributes</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><code>event</code></td>
-                                    <td>Specifies the CADF event node.</td>
-                                    <td>Contains a set of attributes that describe the event. These
-                                        attributes are located in the CADF event node. <?sbr?>See
-                                        the <emphasis role="italic">Attributes for CADF event
-                                            node</emphasis> table.</td>
+                                    <td>
+                                        <?sbr?>
+                                        <para><code>event</code></para>
+                                    </td>
+                                    <td>Specifies the CADF event node. Contains a set of attributes.
+                                        For a detailed description of the CADF event attributes, see
+                                        the "<emphasis role="italic">Attributes for CADF event
+                                            node</emphasis>" table below.</td>
                                 </tr>
                                 <tr>
-                                    <td><code>initiator</code></td>
                                     <td>
-                                        <para>Specifies the CADF event initiator. </para>
+                                        <para><code>initiator</code></para>
                                     </td>
+                                    <td>Specifies the CADF event initiator. Contains a set of
+                                        attributes. For a detailed description of the CADF initiator
+                                        attributes, see the "<emphasis role="italic">Attributes for
+                                            CADF initiator node</emphasis>" table below.</td>
+                                </tr>
+                                <tr>
                                     <td>
-                                        <para>Takes the following attributes:</para>
+                                        <para><code>target</code></para>
+                                    </td>
+                                    <td>Specifies the target. Contains a set of attributes. For a
+                                        detailed description of the CADF target attributes, see the
+                                            "<emphasis role="italic">Attributes for CADF target
+                                            node</emphasis>" table below.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>attachments</code></para>
                                         <itemizedlist>
                                             <listitem>
-                                                <para><code>id</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>typeURI</code>. This attribute can be
-                                                  one of the following:</para>
                                                 <para>
-                                                  <itemizedlist>
-                                                  <listitem>
-                                                  <para> "<emphasis role="italic"
-                                                  >service/security/account/user</emphasis>" for
-                                                  authorized requests </para>
-                                                  </listitem>
-                                                  <listitem>
-                                                  <para>"<emphasis role="italic"
-                                                  >network/node</emphasis>" for unauthorized
-                                                  requests</para>
-                                                  </listitem>
-                                                  </itemizedlist>
-                                                </para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>name</code>
-                                                </para>
-                                            </listitem>
-                                            <listitem>
-                                                <para>Also contains the <code>host</code> element,
-                                                  which takes the following attributes:</para>
-                                                <para>
-                                                  <itemizedlist>
-                                                  <listitem>
-                                                  <para><code>address</code></para>
-                                                  </listitem>
-                                                  <listitem>
-                                                  <para><code>agent</code></para>
-                                                  </listitem>
-                                                  </itemizedlist>
-                                                </para>
+                                                  <code>attachment</code></para>
                                             </listitem>
                                         </itemizedlist>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td><code>target</code></td>
-                                    <td>Specifies the target.</td>
-                                    <td>
-                                        <para>Takes the following attributes:</para>
-                                        <itemizedlist>
-                                            <listitem>
-                                                <para><code>id</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>typeURI</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>name</code>
-                                                </para>
-                                            </listitem>
-                                            <listitem>
-                                                <para>Contains the <code>host</code> element, which
-                                                  takes the following attributes:</para>
-                                                <para>
-                                                  <itemizedlist>
-                                                  <listitem>
-                                                  <para><code>address</code></para>
-                                                  </listitem>
-                                                  </itemizedlist>
-                                                </para>
-                                            </listitem>
-                                        </itemizedlist>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><code>attachments</code></td>
                                     <td>Specifies an array of extended or domain-specific
-                                        information about the event or its context. Contains one or
-                                        more elements of type <code>attachment.</code>
-                                        <?sbr?></td>
-                                    <td>
-                                        <para>Takes one or more elements of type
-                                                <code>attachment</code>, which takes the following
-                                            attributes:</para>
-                                        <itemizedlist>
-                                            <listitem>
-                                                <para><code>name</code>, which specifies the name of
-                                                  the attachment.</para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>contentType</code>, which specifies the
-                                                  URI that identifies the type of data in the
-                                                  <code>content</code> property.  For user access
-                                                  events, the <code>contentType</code> property is
-                                                  of type <code>auditData</code>. For a list of
-                                                  attributes for the <code>auditData</code>
-                                                  property, see the <emphasis role="italic"
-                                                  >Attributes for auditData property</emphasis>
-                                                  table under <link linkend="user_access_events"
-                                                  >User access events</link>.</para>
-                                            </listitem>
-                                        </itemizedlist>
-                                    </td>
+                                        information about the event or its context. The
+                                            <code>attachments</code> node contains one or more nodes
+                                        of type <code>attachment</code>.  For a detailed description
+                                        of the CADF event attributes, see the "<emphasis
+                                            role="italic">Attributes for CADF target
+                                        node</emphasis>" table below.<?sbr?><?sbr?><?sbr?></td>
                                 </tr>
                                 <tr>
-                                    <td><code>observer</code></td>
+                                    <td>
+                                        <para><code>observer</code></para>
+                                    </td>
                                     <td>
                                         <para>Specifies the observer. For example, this can be a
-                                            security provider or a service, such as repose.</para>
-                                    </td>
-                                    <td>
-                                        <para>Takes the following attributes:</para>
-                                        <itemizedlist>
-                                            <listitem>
-                                                <para><code>id</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>typeURI</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>name</code>
-                                                </para>
-                                            </listitem>
-                                            <listitem>
-                                                <para>Contains the <code>host</code> element, which
-                                                  takes the following attributes:</para>
-                                                <para>
-                                                  <itemizedlist>
-                                                  <listitem>
-                                                  <para><code>address</code></para>
-                                                  </listitem>
-                                                  </itemizedlist>
-                                                </para>
-                                            </listitem>
-                                        </itemizedlist>
+                                            security provider or a service, such as Repose. Contains
+                                            a set of attributes. For a detailed description of the
+                                            CADF event attributes, see the "<emphasis role="italic"
+                                                >Attributes for CADF observer node</emphasis>" table
+                                            below.</para>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><code>reason</code></td>
-                                    <td>Contains a domain-specific reason code and policy data that
-                                        provides an additional level of detail to the outcome
-                                        value.</td>
                                     <td>
-                                        <para>Takes the following attributes:</para>
-                                        <itemizedlist>
-                                            <listitem>
-                                                <para><code>reasonType</code></para>
-                                            </listitem>
-                                            <listitem>
-                                                <para><code>reasonCode</code>, which specifies the
-                                                  HTTP status code. This attribute is required and
-                                                  takes the following values: "[1-5] [0-9][0-9]".
-                                                </para>
-                                            </listitem>
-                                        </itemizedlist>
+                                        <para><code>reason</code></para>
                                     </td>
+                                    <td>Contains a domain-specific reason code and policy data that
+                                        provides an additional level of detail to the outcome value.
+                                        Contains a set of attributes. For a detailed description of
+                                        the CADF event attributes, see the "<emphasis role="italic"
+                                            >Attributes for CADF reason node</emphasis>" table
+                                        below.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </para>
                     <para>The CADF events are located inside the <emphasis role="italic">CADF event
                             node</emphasis>.</para>
-                    <para>The following table shows the attributes for the CADF event node.</para>
+                    <para>The following table shows the elements of the CADF event node.</para>
                     <para>
                         <table frame="border">
-                            <caption>Attributes for CADF event node</caption>
+                            <caption>Elements of the CADF event node</caption>
                             <col width="30%"/>
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Attribute</th>
+                                    <th>Name</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1346,17 +1240,236 @@
                             </tbody>
                         </table>
                     </para>
-                    <para> The following is an example of the CADF event node:</para>
-                <example><title>CADF event node example - XML</title>
-                    <programlisting>cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event"
-           xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-           xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event"
-           id="6fa234aea93f38c26fa234aea93f38c2"
-           eventType="activity"
-           typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
-           eventTime="2015-03-12T13:20:00-05:00"
-           action="create/post"
-           outcome="success"></programlisting></example>
+                <para>The following table shows the elements the CADF initiator node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF initiator node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td><para>Required. Specifes the type of the resource that is using
+                                        the CADF Resource Taxonomy. Can have one of the following
+                                            values:<itemizedlist>
+                                            <listitem>
+                                                <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                            </listitem>
+                                            </itemizedlist></para></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td><para>Specifies the host. Takes one of the following 2
+                                        attributes:</para><itemizedlist>
+                                            <listitem><para><code>address</code></para></listitem>
+                                            <listitem>
+                                                <para><code>agent</code></para>
+                                            </listitem>
+                                        </itemizedlist></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF target node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF target node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td>
+                                        <para>Required. Specifes the type of the resource that is
+                                            using the CADF Resource Taxonomy. Can have one of the
+                                            following values:<itemizedlist>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                                </listitem>
+                                            </itemizedlist></para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the target.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td>
+                                        <para>Specifies the host. Takes the following
+                                            attribute:</para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para><code>address</code></para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF attachment node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF attachment node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the attachment, for eaxmple <emphasis
+                                            role="italic">auditData</emphasis>.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>contentType</code></td>
+                                    <td>
+                                        <para>Specifies the content type, for example <emphasis
+                                                role="italic">ua:auditData</emphasis>.</para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>content</code></td>
+                                    <td>Contains a set of elements that define the
+                                            <code>auditData</code> property. <code>auditData</code>
+                                        contains attributes that define the user access event
+                                        profile for Cloud Feeds. For a detailed description of the
+                                            <code>auditData</code> property, see the "<emphasis
+                                            role="italic">Attributes for auditData
+                                            property</emphasis>" table in <link
+                                            linkend="user_access_events">User access
+                                        events</link>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF observer node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF observer node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td>
+                                        <para>Required. Specifes the type of the resource that is
+                                            using the CADF Resource Taxonomy. Can have one of the
+                                            following values:<itemizedlist>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                                </listitem>
+                                            </itemizedlist></para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td>
+                                        <para>Specifies the host. Takes the following
+                                            attribute:</para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para><code>address</code></para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF reason node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF reason node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>reasonType</code></td>
+                                    <td>Specifies the reason type. For example, this can be a URL to
+                                        a HTTP status code registry, such as
+                                        "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml".</td>
+                                </tr>
+                                <tr>
+                                    <td><code>reasonCode</code></td>
+                                    <td>
+                                        <para>Required. Specifes the HTTP status code. Can be one of
+                                            the following values: "[1-5] [0-9][0-9]".</para>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
                 <section xml:id="user_access_events"><title>User access events</title>
                 <para>Cloud Feeds supports <emphasis role="italic">user access events</emphasis>,
                             which use the CADF standard. User access events provide a generic
@@ -1367,11 +1480,11 @@
                             user and the Rackspace cloud services they are using.</para>
                         <para>User access event data is included in the atom entry as a CADF
                             attachment of type <code>auditData.</code></para>
-                <para>The following table shows the attributes for the <code>auditData</code>
+                <para>The following table shows the elements for the <code>auditData</code>
                             property.</para>
                 <para>
                     <table frame="border">
-                        <caption>Attributes for auditData property</caption>
+                        <caption>Elements for auditData property</caption>
                                 <col width="32%"/>
                                 <col width="68%"/>
                         <thead>
@@ -1382,10 +1495,14 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><code>region</code></td>
-                                <td>Required. Specifies the region, such as DFW. If this value is
-                                        not specified, GLOBAL iss assumed.</td>
+                                <td><code>version</code></td>
+                                <td>Required. Specifies the version of the audit data.</td>
                             </tr>
+                                    <tr>
+                                        <td><code>region</code></td>
+                                        <td>Required. Specifies the region, such as DFW. If this
+                                            value is not specified, GLOBAL iss assumed.</td>
+                                    </tr>
                             <tr>
                                 <td><code>dataCenter</code></td>
                                 <td>Required. Specifies the data center of the event. If this value
@@ -1430,7 +1547,7 @@
                             </tr>
                             <tr>
                                 <td><code>roles</code></td>
-                                <td>Required. Contains a space-separated list of user roles.</td>
+                                <td>Required. Contains a comma-separated list of user roles.</td>
                             </tr>
                         </tbody>
                     </table>
