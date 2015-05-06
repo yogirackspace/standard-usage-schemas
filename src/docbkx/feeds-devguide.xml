@@ -949,12 +949,12 @@
                         xmlns:html="http://www.w3.org/1999/xhtml"
                         xmlns:db="http://docbook.org/ns/docbook">
                         <table frame="border">
-                            <caption>Attributes in the product event node</caption>
+                            <caption>Attributes for the product event node</caption>
                             <col width="30%"/>
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Attribute</th>
+                                    <th>Name</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1104,7 +1104,7 @@
                         cadf.xsd.</para>
                     <para>
                         <table frame="border">
-                            <caption>CADF properties </caption>
+                            <caption>CADF nodes</caption>
                             <col width="41%"/>
                             <col width="59%"/>
                             <thead>
@@ -1240,7 +1240,7 @@
                             </tbody>
                         </table>
                     </para>
-                <para>The following table shows the elements the CADF initiator node.</para>
+                <para>The following table shows the elements of the CADF initiator node.</para>
                     <para>
                         <table frame="border">
                             <caption>Elements of the CADF initiator node</caption>
