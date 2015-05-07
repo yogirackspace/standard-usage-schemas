@@ -283,19 +283,6 @@
                 <xsl:value-of select="concat('urn:uuid:',$event/@id)"/>
             </xsl:element>
 
-            <!--
-              Mark event as private if necessary
-            -->
-            <!--
-              nova events will soon be posted, but not yet public for observers
-            -->
-            <xsl:if test="$eventType = 'cloudserversopenstack.nova.server.usage'">
-                <xsl:call-template name="addCategory">
-                    <xsl:with-param name="prefix" select="'cloudfeeds:'"/>
-                    <xsl:with-param name="term" select="'private'"/>
-                </xsl:call-template>
-            </xsl:if>
-
             <xsl:call-template name="addCategory">
                 <xsl:with-param name="term" select="$event/@tenantId"/>
                 <xsl:with-param name="prefix" select="'tid:'"/>

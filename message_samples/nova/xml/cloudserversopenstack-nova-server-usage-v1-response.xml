@@ -18,7 +18,6 @@
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
-   <atom:category term="cloudfeeds:private"/>
    <atom:category term="tid:1234"/>
    <atom:category term="rgn:DFW"/>
    <atom:category term="dc:DFW1"/>
