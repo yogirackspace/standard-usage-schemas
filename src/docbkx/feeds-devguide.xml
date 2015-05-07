@@ -1197,7 +1197,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1248,7 +1248,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1299,7 +1299,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1354,7 +1354,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1394,7 +1394,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1449,7 +1449,7 @@
                             <col width="70%"/>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Element/Attribute</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1480,16 +1480,16 @@
                             user and the Rackspace cloud services they are using.</para>
                         <para>User access event data is included in the atom entry as a CADF
                             attachment of type <code>auditData.</code></para>
-                <para>The following table shows the elements for the <code>auditData</code>
+                <para>The following table shows the elements of the <code>auditData</code>
                             property.</para>
                 <para>
                     <table frame="border">
-                        <caption>Elements for auditData property</caption>
+                        <caption>Elements of the auditData property</caption>
                                 <col width="32%"/>
                                 <col width="68%"/>
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Element/Attribute</th>
                                 <th>Description</th>
                             </tr>
                         </thead>
@@ -1547,7 +1547,7 @@
                             </tr>
                             <tr>
                                 <td><code>roles</code></td>
-                                <td>Required. Contains a comma-separated list of user roles.</td>
+                                <td>Required. Contains a space-separated list of user roles.</td>
                             </tr>
                         </tbody>
                     </table>
