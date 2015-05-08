@@ -314,4 +314,16 @@ class Xml2JsonSuite extends BaseUsageSuite {
 
         writer.toString()
     }
+
+    test( "should transform feeds archive element into JSON properly") {
+      val parser = new JsonParserFactory().createFastParser()
+
+      val transformResult = transform( new StreamSource( new File( "src/test/resources/archive-feed.xml" ) ) )
+      val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+
+      // assert auditData/region/text()
+      assert( transformMap.get( "feed" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "archive" ).asInstanceOf[java.util.Map[String, AnyRef]]
+        .get( "@type") == "http://purl.org/syndication/history/1.0")
+    }
 }

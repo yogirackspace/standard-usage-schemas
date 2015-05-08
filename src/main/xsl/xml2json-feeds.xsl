@@ -151,6 +151,20 @@
                 <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
             </xsl:when>
             
+            <!-- handles the archive element -->
+            <xsl:when test="cldfeeds:isArchiveNode( local-name(), namespace-uri() )">
+                <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/><xsl:text>" : {</xsl:text>
+                <xsl:text>"</xsl:text>@type" : "<xsl:value-of select="namespace-uri()"/><xsl:text>"</xsl:text>
+                <xsl:text>}</xsl:text>
+
+                <xsl:variable name="sibs"
+                              select="following-sibling::*[not(self::atom:category) and
+                    not(self::atom:entry) and
+                    not(self::atom:feed) and
+                    not(self::atom:link)]"/>
+                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
+            </xsl:when>
+            
             <!-- handle nodes that have no child nodes -->
             <xsl:when test="count(./child::*) = 0">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:apply-templates select="."/><xsl:text>"</xsl:text>
@@ -476,6 +490,25 @@
 
         <xsl:choose>
             <xsl:when test="$localName = 'attachment' and $ns = 'http://schemas.dmtf.org/cloud/audit/1.0/event'">
+                <xsl:value-of select="true()"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="false()"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>
+
+    <!--
+      Return true if the node is of the form:
+      localName = archive
+      namespace = http://purl.org/syndication/history/1.0
+    -->
+    <xsl:function name="cldfeeds:isArchiveNode" as="xs:boolean">
+        <xsl:param name="localName"/>
+        <xsl:param name="ns"/>
+
+        <xsl:choose>
+            <xsl:when test="$localName = 'archive' and $ns = 'http://purl.org/syndication/history/1.0'">
                 <xsl:value-of select="true()"/>
             </xsl:when>
             <xsl:otherwise>
