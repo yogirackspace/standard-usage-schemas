@@ -17,14 +17,13 @@
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 
 ]>
-<book xmlns="http://docbook.org/ns/docbook"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:xi="http://www.w3.org/2001/XInclude"
-    xml:id="feeds-getting-started" version="5.0-extension RaxBook-2.0">
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="feeds-getting-started"
+    version="5.0-extension RaxBook-2.0">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Rackspace Cloud Feeds™ Getting Started Guide</title>
     <?rax status.bar.text.font.size="40px"
-          status.bar.text="Early Availability"?>   
+          status.bar.text="Early Availability"?>
     <info>
         <copyright>
             <year>2014/2015</year>
@@ -35,8 +34,7 @@
         <pubdate/>
         <legalnotice role="rs-api">
             <annotation>
-                <remark>Copyright details are filled in by the
-                    template.</remark>
+                <remark>Copyright details are filled in by the template.</remark>
             </annotation>
         </legalnotice>
         <revhistory>
@@ -61,8 +59,7 @@
                 </revdescription>
             </revision>
         </revhistory>
-        <raxm:metadata
-            xmlns:raxm="http://docs.rackspace.com/api/metadata">
+        <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
             <raxm:displayname>Getting Started Guide</raxm:displayname>
             <raxm:product version="v1.0">cloud-feeds</raxm:product>
             <raxm:priority>10</raxm:priority>
@@ -101,18 +98,15 @@
                 </listitem>
             </itemizedlist>
         </para>
-        <para>Follow the steps described in this guide to use the
-            Rackspace Cloud Feeds API and programmatically access
-            feeds.</para>
-        <para>For details about using the Cloud Feeds API, refer to
-            the <citetitle>Cloud Feeds Developer Guide</citetitle> at
-                <link xlink:href="http://docs.rackspace.com/"
+        <para>Follow the steps described in this guide to use the Rackspace Cloud Feeds API and
+            programmatically access feeds.</para>
+        <para>For details about using the Cloud Feeds API, refer to the <citetitle>Cloud Feeds
+                Developer Guide</citetitle> at <link xlink:href="http://docs.rackspace.com/"
                 >http://docs.rackspace.com/</link>.</para>
         <para>Visit our <link
                 xlink:href="http://feedback.rackspacecloud.com/forums/71021-product-feedback/category/42449-cloud-databases"
-                >Product Feedback Forum</link> and tell us what you
-            think about Cloud Feeds.</para>
-        <section xml:id="EarlyAccessProgram" security = "external">
+                >Product Feedback Forum</link> and tell us what you think about Cloud Feeds.</para>
+        <section xml:id="EarlyAccessProgram" security="external">
             <title>Early Access Program</title>
             <para>Cloud Feeds is now available to customers through an Early Access program. At the
                 launch of the Early Access program (at the end of July 2014), Cloud Feeds supports
@@ -129,32 +123,27 @@
         </section>
         <section xml:id="Prerequisites_Examples">
             <title>Prerequisites for running examples</title>
-            <para>In order to run the examples in this guide, you must
-                have the following prerequisites: <itemizedlist
-                    spacing="compact">
+            <para>In order to run the examples in this guide, you must have the following
+                prerequisites: <itemizedlist spacing="compact">
                     <listitem>
                         <para>Rackspace Cloud account</para>
                     </listitem>
                     <listitem>
-                        <para>Rackspace Cloud username and password,
-                            as specified during registration</para>
+                        <para>Rackspace Cloud username and password, as specified during
+                            registration</para>
                     </listitem>
                 </itemizedlist></para>
         </section>
     </chapter>
     <chapter xml:id="Feeds_Sending_API_Requests">
         <title>Sending requests to the API</title>
-        <para>You have several options for sending requests through an
-            API: </para>
+        <para>You have several options for sending requests through an API: </para>
         <itemizedlist spacing="compact">
             <listitem>
-                <para>Developers and testers might prefer to use cURL,
-                    the command-line tool from <link
-                        xlink:href="http://curl.haxx.se/"
-                        >http://curl.haxx.se/</link>. </para>
-                <para>With cURL, you can send HTTP requests and
-                    receive responses back from the command line.
-                </para>
+                <para>Developers and testers might prefer to use cURL, the command-line tool from
+                        <link xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+                <para>With cURL, you can send HTTP requests and receive responses back from the
+                    command line. </para>
             </listitem>
             <listitem>
                 <para>If you like to use a more graphical interface, the REST client for Firefox
@@ -169,29 +158,23 @@
                         >https://code.google.com/p/chrome-poster/</link>.</para>
             </listitem>
             <listitem>
-                <para>You can also download and install RESTclient, a
-                    Java application used to test RESTful web
-                    services, from <link
+                <para>You can also download and install RESTclient, a Java application used to test
+                    RESTful web services, from <link
                         xlink:href="http://code.google.com/p/rest-client/"
-                        >http://code.google.com/p/rest-client/</link>.
-                </para>
+                        >http://code.google.com/p/rest-client/</link>. </para>
             </listitem>
         </itemizedlist>
         <section xml:id="Feeds_using-curl-cli">
             <title>Sending API requests using cURL</title>
-            <para>cURL is a command-line tool that is available in
-                most UNIX system-based environments and Apple Mac OS X
-                systems, and can be downloaded for Microsoft Windows
-                to interact with REST interfaces. For more information
-                on cURL, visit <link xlink:href="http://curl.haxx.se/"
-                    >http://curl.haxx.se/</link>. </para>
-            <para>cURL allows you to transmit and receive HTTP
-                requests and responses from the command-line or from
-                within a shell script. This makes it possible to work
-                with the ReST API directly without using one of the
-                client APIs. </para>
-            <para>The following cURL command-line options are used in
-                this guide to run the examples.</para>
+            <para>cURL is a command-line tool that is available in most UNIX system-based
+                environments and Apple Mac OS X systems, and can be downloaded for Microsoft Windows
+                to interact with REST interfaces. For more information on cURL, visit <link
+                    xlink:href="http://curl.haxx.se/">http://curl.haxx.se/</link>. </para>
+            <para>cURL allows you to transmit and receive HTTP requests and responses from the
+                command-line or from within a shell script. This makes it possible to work with the
+                ReST API directly without using one of the client APIs. </para>
+            <para>The following cURL command-line options are used in this guide to run the
+                examples.</para>
             <para>
                 <table frame="border">
                     <caption>cURL Command-Line Options</caption>
@@ -206,78 +189,58 @@
                     <tbody>
                         <tr>
                             <td><option>-d</option></td>
-                            <td>Sends the specified data in a POST
-                                request to the HTTP server</td>
+                            <td>Sends the specified data in a POST request to the HTTP server</td>
                         </tr>
                         <tr>
                             <td><option>-i</option></td>
-                            <td>Includes the HTTP header in the
-                                output.</td>
+                            <td>Includes the HTTP header in the output.</td>
                         </tr>
                         <tr>
                             <td><option>-H HEADER</option></td>
-                            <td>Specifies an HTTP header in the
-                                request.</td>
+                            <td>Specifies an HTTP header in the request.</td>
                         </tr>
                         <tr>
                             <td><option>-X</option></td>
-                            <td>Specifies the request method to use
-                                when communicating with the HTTP
-                                server.The specified request is used
-                                instead of the default method, which
-                                is GET. For example, <option>-X
-                                   PUT</option> specifies to use the
-                                PUT request method.</td>
+                            <td>Specifies the request method to use when communicating with the HTTP
+                                server.The specified request is used instead of the default method,
+                                which is GET. For example, <option>-X PUT</option> specifies to use
+                                the PUT request method.</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
             <para>
                 <note>
-                    <para>If you have the tools, you can run the cURL
-                        JSON request examples with the following
-                        options to render the output from cURL into a
-                        more readable format: <emphasis role="bold"
-                            >&lt;curl JSON request example&gt; |
-                            python -mjson.tool</emphasis>.</para>
+                    <para>If you have the tools, you can run the cURL JSON request examples with the
+                        following options to render the output from cURL into a more readable
+                        format: <emphasis role="bold">&lt;curl JSON request example&gt; | python
+                            -mjson.tool</emphasis>.</para>
                 </note>
             </para>
-            <para>To run the cURL request examples shown in this guide
-                on Linux or Mac systems, perform the following
-                actions:</para>
+            <para>To run the cURL request examples shown in this guide on Linux or Mac systems,
+                perform the following actions:</para>
             <para>
                 <orderedlist>
                     <listitem>
-                        <para> Copy each example from the HTML version
-                            of this guide an paste it into an ASCII
-                            text editor (for example, vi or TextEdit).
-                        </para>
+                        <para> Copy each example from the HTML version of this guide an paste it
+                            into an ASCII text editor (for example, vi or TextEdit). </para>
                     </listitem>
                     <listitem>
-                        <para> Modify each example with your required
-                            account information and other information,
-                            as detailed in this guide.</para>
+                        <para> Modify each example with your required account information and other
+                            information, as detailed in this guide.</para>
                         <para>
                             <note>
-                                <para>The carriage returns in the cURL
-                                   request examples that are part of
-                                   the cURL syntax are escaped with a
-                                   backslash ('\') in order to avoid
-                                   prematurely terminating the
-                                   command. However you should not
-                                   escape carriage returns inside the
-                                   xml or json message within the
-                                   command.</para>
+                                <para>The carriage returns in the cURL request examples that are
+                                    part of the cURL syntax are escaped with a backslash ('\') in
+                                    order to avoid prematurely terminating the command. However you
+                                    should not escape carriage returns inside the xml or json
+                                    message within the command.</para>
                             </note>
                         </para>
-                        <para>Consider the following cURL Authenticate
-                            Request: XML example that is described in
-                            detail in <xref
-                                linkend="Authentication"
-                            />:</para>
+                        <para>Consider the following cURL Authenticate Request: XML example that is
+                            described in detail in <xref linkend="Authentication"/>:</para>
                         <example>
-                            <title>cURL authentication request:
-                                XML</title>
+                            <title>cURL authentication request: XML</title>
                             <?dbfo keep-together="always"?>
                             <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
@@ -290,10 +253,9 @@
 <uri security="external">'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri>
 <uri security="internal">'https://staging.identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
                         </example>
-                        <para>The lines that are part of the cURL
-                            command syntax have been escaped with a
-                            backslash ('\') to indicate that the
-                            command continues on the next line:</para>
+                        <para>The lines that are part of the cURL command syntax have been escaped
+                            with a backslash ('\') to indicate that the command continues on the
+                            next line:</para>
                         <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
   
    
@@ -306,44 +268,33 @@
 <uri security="external">'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri>
 <uri security="internal">'https://staging.identity.api.rackspacecloud.com/v2.0/tokens'</uri>
                         </screen>
-                        <para>However the lines
-                                <emphasis>within</emphasis> the xml
-                            portion of the message are
-                                <emphasis>not</emphasis> escaped with
-                            a backslash ('\') in order to avoid issues
-                            with the xml processing:</para>
+                        <para>However the lines <emphasis>within</emphasis> the xml portion of the
+                            message are <emphasis>not</emphasis> escaped with a backslash ('\') in
+                            order to avoid issues with the xml processing:</para>
                         <screen language="bash">'&lt;?xml version="1.0" encoding="UTF-8"?>
  &lt;auth&gt;   
     &lt;apiKeyCredentials     
-        xmlns="http://docs.rackspace.com/identity/api/ext/RAX-KSKEY/v1.0"     
+        xmlns="http://docs.rackspace.com/    /api/ext/RAX-KSKEY/v1.0"     
         username="<emphasis role="italic">yourUserName</emphasis>"     
         apiKey="<emphasis role="italic">yourApiKey</emphasis>"/&gt;   
  &lt;/auth&gt;<option>'</option> \
 </screen>
-                        <para>The final line of the xml message is
-                            escaped since the backslash lies
-                                <emphasis>outside</emphasis> the xml
-                            message and continues the cURL command to
-                            the next line.</para>
+                        <para>The final line of the xml message is escaped since the backslash lies
+                                <emphasis>outside</emphasis> the xml message and continues the cURL
+                            command to the next line.</para>
                     </listitem>
                     <listitem>
-                        <para>After you are finished modifying the
-                            text for the cURL request example with
-                            your information (for example <emphasis
-                                role="italic">yourUserName</emphasis>
-                            and <emphasis role="italic"
-                                >yourApiKey</emphasis>), paste it into
-                            your terminal window. Then execute the
-                            cURL command by pressing
-                                <guilabel>Enter</guilabel>.</para>
-                        <para>If you have trouble copying and pasting
-                            the examples as described, try typing the
-                            entire example on one long line, removing
-                            all the backs.</para>
+                        <para>After you are finished modifying the text for the cURL request example
+                            with your information (for example <emphasis role="italic"
+                                >yourUserName</emphasis> and <emphasis role="italic"
+                                >yourApiKey</emphasis>), paste it into your terminal window. Then
+                            execute the cURL command by pressing <guilabel>Enter</guilabel>.</para>
+                        <para>If you have trouble copying and pasting the examples as described, try
+                            typing the entire example on one long line, removing all the
+                            backs.</para>
                     </listitem>
                     <listitem>
-                        <para>Press <guilabel>Enter</guilabel> to run
-                            the cURL command.</para>
+                        <para>Press <guilabel>Enter</guilabel> to run the cURL command.</para>
                     </listitem>
                 </orderedlist>
             </para>
@@ -372,76 +323,70 @@
                 <para>The examples in this guide on how to use the Cloud Feeds API use token-based
                     authentication.</para>
             </note>
-        </para><section xml:id="Token-based-authentication"><title>Token-based authentication</title>
-        <para>To make calls against the Cloud Feeds API by using an authentication token, you must
-                first generate an authentication token. You provide this token in the X-Auth-Token
-                header in each Cloud Feeds API request. </para>
-        <para>The examples below demonstrate how to use cURL to obtain the authentication token and
-                your account number. You must provide both when making subsequent Cloud Feeds API
-                requests when you use token-based authentication.</para>
-        <para>Remember to replace the placeholder names in the
-            following authentication request examples with your
-                information:<itemizedlist spacing="compact">
+        </para>
+        <section xml:id="Token-based-authentication">
+            <title>Token-based authentication</title>
+            <para>To make calls against the Cloud Feeds API by using an authentication token, you
+                must first generate an authentication token. You provide this token in the
+                X-Auth-Token header in each Cloud Feeds API request. </para>
+            <para>The examples below demonstrate how to use cURL to obtain the authentication token
+                and your account number. You must provide both when making subsequent Cloud Feeds
+                API requests when you use token-based authentication.</para>
+            <para>Remember to replace the placeholder names in the following authentication request
+                examples with your information:<itemizedlist spacing="compact">
+                    <listitem>
+                        <para security="external"><emphasis role="italic">yourUserName</emphasis>
+                            &mdash; Your common Rackspace Cloud username, as supplied during
+                            registration.</para>
+                        <para security="internal"><emphasis role="italic">yourUserName</emphasis>
+                            &mdash; Your common Cloud username as supplied to you.</para>
+                    </listitem>
+                    <listitem>
+                        <para><emphasis role="italic">yourApiKey</emphasis> &mdash; Your API access
+                            key.</para>
+                        <para security="external"> You can obtain the key from the Rackspace <link
+                                xlink:href="http://mycloud.rackspace.com/">Cloud Control
+                                Panel</link>) by accessing selecting <emphasis role="bold">Account
+                                Settings</emphasis> from the <emphasis role="italic"
+                                >yourAccount</emphasis> menu in the top-right corner of the
+                            window.</para>
+                    </listitem>
+                </itemizedlist></para>
+            <para security="internal">You can use either of the following endpoints to access the
+                authentication service, depending whether you use a staging or a production
+                environment: </para>
+            <itemizedlist spacing="compact" security="internal">
                 <listitem>
-                    <para security="external"><emphasis role="italic"
-                            >yourUserName</emphasis> &mdash; Your
-                        common Rackspace Cloud username, as supplied
-                        during registration.</para>
-                    <para security="internal"><emphasis role="italic"
-                        >yourUserName</emphasis> &mdash; Your
-                        common Cloud username as supplied to you.</para>
+                    <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para>
                 </listitem>
                 <listitem>
-                    <para><emphasis role="italic"
-                            >yourApiKey</emphasis> &mdash; Your API
-                        access key.</para>
-                        <para security="external"> You can obtain the key from the
-                        Rackspace <link
-                            xlink:href="http://mycloud.rackspace.com/"
-                            >Cloud Control Panel</link>) by accessing
-                        selecting <emphasis role="bold">Account
-                            Settings</emphasis> from the <emphasis
-                            role="italic">yourAccount</emphasis> menu
-                        in the top-right corner of the window.</para>
+                    <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
                 </listitem>
-            </itemizedlist></para>
-        <para security="internal">You can use either of the following endpoints to access the
-            authentication service, depending whether you use a staging or a production environment: </para>
-        <itemizedlist spacing="compact" security="internal">
-            <listitem>
-                <para>https://staging.identity.api.rackspacecloud.com/v2.0/</para></listitem>
-            <listitem>
-                <para>https://identity-internal.api.rackspacecloud.com/v2.0/</para>
-            </listitem>
-        </itemizedlist>
-        <para security="external"> You can use the following endpoint to access the Authentication
-            Service: </para>
-        <itemizedlist spacing="compact" security ="external">
-            <listitem>
-                <para><link xlink:href="&ENDPOINT-US-20;"
-                        >&ENDPOINT-US-20;</link></para></listitem>
-        </itemizedlist>
-        <para security="external">Notice that you authenticate by using a special URL for
-            the Cloud authentication service. For example, you may use
-                <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code>
-            as shown in the following Authenticate Request examples.
-            Note that the <code>v2.0</code> component in the URL
-            indicates that you are using version 2.0 of the Cloud
-            Authentication API.</para>
-        <para security="internal">Notice that you authenticate by
-            using a special URL for the Cloud authentication service.
-            For example, you may use
-                <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code>
-            or
-                <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code>
-            as shown in the following Authenticate Request examples.
-            Note that the <code>v2.0</code> component in the URL
-            indicates that you are using version 2.0 of the Cloud
-            Authentication API.</para>
-        <example security="external">
-            <title>cURL authenticate request: XML</title>
-            <?dbfo keep-together="always"?>
-            <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+            </itemizedlist>
+            <para security="external"> You can use the following endpoint to access the
+                Authentication Service: </para>
+            <itemizedlist spacing="compact" security="external">
+                <listitem>
+                    <para><link xlink:href="&ENDPOINT-US-20;">&ENDPOINT-US-20;</link></para>
+                </listitem>
+            </itemizedlist>
+            <para security="external">Notice that you authenticate by using a special URL for the
+                Cloud authentication service. For example, you may use
+                    <code>https://identity.api.rackspacecloud.com/v2.0/tokens</code> as shown in the
+                following Authenticate Request examples. Note that the <code>v2.0</code> component
+                in the URL indicates that you are using version 2.0 of the Cloud Authentication
+                API.</para>
+            <para security="internal">Notice that you authenticate by using a special URL for the
+                Cloud authentication service. For example, you may use
+                    <code>https://staging.identity.api.rackspacecloud.com/v2.0/tokens</code> or
+                    <code>https://identity-internal.api.rackspacecloud.com/v2.0/tokens</code> as
+                shown in the following Authenticate Request examples. Note that the
+                    <code>v2.0</code> component in the URL indicates that you are using version 2.0
+                of the Cloud Authentication API.</para>
+            <example security="external">
+                <title>cURL authenticate request: XML</title>
+                <?dbfo keep-together="always"?>
+                <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;auth>
    &lt;apiKeyCredentials
@@ -452,11 +397,11 @@
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
 <uri>'https://identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-        </example>
-        <example security="internal">
-            <title>cURL authenticate request: XML</title>
-            <?dbfo keep-together="always"?>
-            <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
+            </example>
+            <example security="internal">
+                <title>cURL authenticate request: XML</title>
+                <?dbfo keep-together="always"?>
+                <screen language="bash"><command>curl</command> <option>-i</option> <option>-d</option> \
 '&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;auth>
    &lt;apiKeyCredentials
@@ -467,96 +412,111 @@
 <option>-H 'Content-Type: application/xml'</option> \
 <option>-H 'Accept: application/xml'</option> \
 <uri>'https://staging.identity.api.rackspacecloud.com/v2.0/tokens'</uri></screen>
-        </example>
-        <example security="external">
-            <title>cURL authenticate request: JSON</title>
-            <?dbfo keep-together="always"?>
-            <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+            </example>
+            <example security="external">
+                <title>cURL authenticate request: JSON</title>
+                <?dbfo keep-together="always"?>
+                <screen language="bash">curl -s https://identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
      -H "Content-Type:
         application/json" </screen>
-        </example>
-        <example security="internal">
-            <title>cURL authenticate request: JSON</title>
-            <?dbfo keep-together="always"?>
-            <screen language="bash">curl -s https://staging.identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
+            </example>
+            <example security="internal">
+                <title>cURL authenticate request: JSON</title>
+                <?dbfo keep-together="always"?>
+                <screen language="bash">curl -s https://staging.identity.api.rackspacecloud.com/v2.0/tokens -X 'POST' \
      -d '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<replaceable>yourUserName</replaceable>",
         "apiKey":"<replaceable>yourApiKey</replaceable>"}}}' \ 
      <emphasis role="bold">-H "Content-Type:
         application/json" </emphasis></screen>
-        </example>
-        <para>The authentication token <code>id</code> is returned
-            along with an <code>expires</code> attribute that
-            specifies when the token expires. </para>
-        <note>
-            <itemizedlist spacing="compact">
-                <listitem>
-                    <para>If the authentication response returns a 401 response with a request for
-                        additional credentials, your account requires multi-factor authentication.
-                        To complete the authentication process, submit a second POST token request
-                        with these multi-factor authentication credentials: <itemizedlist>
-                            <listitem>
-                                <para>The session ID value returned in the <code>WWW-Authenticate: OS-MF
-                                    sessionId</code> header parameter included in the 
-                                    response to the initial authentication
-                                    request.</para>
-                            </listitem>
-                            <listitem>
-                                <para>The passcode from the mobile phone
-                                    associated with your user account.</para>
-                                <example><title>Authentication request with multi-factor authentication credentials</title>
-                                    <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
+            </example>
+            <para>A successful authentication request returns the authentication token, as well as
+                the identity service catalog in the response. The identity service catalog contains
+                a list of all the products the user is enabled for and the corresponding
+                endpoints.</para>
+            <para>
+                <note>
+                    <para>The identity service catalog contains a link to the Cloud Feeds catalog,
+                        which lists all the available feeds. For more information, see <link
+                            linkend="Cloud_Feeds_Catalog">Cloud Feeds Catalog</link>
+                    </para>
+                </note>
+            </para>
+            <para>The authentication token <code>id</code> is returned along with an
+                    <code>expires</code> attribute that specifies when the token expires. </para>
+            <note>
+                <itemizedlist spacing="compact">
+                    <listitem>
+                        <para>If the authentication response returns a 401 response with a request
+                            for additional credentials, your account requires multi-factor
+                            authentication. To complete the authentication process, submit a second
+                            POST token request with these multi-factor authentication credentials: <itemizedlist>
+                                <listitem>
+                                    <para>The session ID value returned in the
+                                            <code>WWW-Authenticate: OS-MF sessionId</code> header
+                                        parameter included in the response to the initial
+                                        authentication request.</para>
+                                </listitem>
+                                <listitem>
+                                    <para>The passcode from the mobile phone associated with your
+                                        user account.</para>
+                                    <example>
+                                        <title>Authentication request with multi-factor
+                                            authentication credentials</title>
+                                        <programlisting language="bash" role="gutter: false"><?db-font-size 60%?><prompt>$</prompt>curl https://identity.api.rackspacecloud.com/v2.0/tokens \
        -X POST \
        -d '{"auth": {"RAX-AUTH:passcodeCredentials": {"passcode":"1411594"}}}'\
        -H "X-SessionId: $SESSION_ID" \
-       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting></example>
-                            </listitem>
-                        </itemizedlist></para>
-                    <para>For more information, see <link xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html">Multi-factor authentication</link> in the 
-                        <citetitle>Rackspace Cloud Identity Client Developer Guide</citetitle>.</para>
-                </listitem>
-                <listitem>
-                    <para>The token, user, and service catalog information that you receive in your
-                        responses vary from the examples shown in this document because they are
-                        specific to your account.</para>
-                </listitem>
-                <listitem>
-                    <para> The <code>expires</code> attribute denotes
-                        the time after which the token will
-                        automatically expire. A token may be manually
-                        revoked before the time identified by the
-                        expires attribute; <code>expires</code>
-                        predicts a token's maximum possible lifespan
-                        but does not guarantee that it will reach that
-                        lifespan. Clients are encouraged to cache a
-                        token until it expires.</para>
-                </listitem>
-                <listitem>
-                    <para>Applications should be designed to re-authenticate after receiving a 401
-                        (Unauthorized) response from a service endpoint.</para>
-                </listitem>
-                <listitem security="internal">
-                    <para>For more detailed authentication instructions, see the <link
-                            xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
-                            > Quick Start</link> in the <citetitle>Identity Client Developer
-                            Guide</citetitle>.</para>
-                </listitem>
-                <listitem security="external">
-                    <para>For more detailed authentication instructions and examples, see the <link
-                            xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
-                        >Quick Start</link> in the <citetitle>Identity Client Developer
-                        Guide</citetitle>.</para>
-                </listitem>
-            </itemizedlist>
-        </note>
-        <para>The actual account number is located after the final
-            slash (/) in the <code>publicURL</code> field. You must
-            specify your account number on most of the Cloud Feeds API
-            operations, wherever you see the placeholder
-                <replaceable>tenantID</replaceable> specified in the
-            examples in this guide.</para></section>
-            <section xml:id="Basic_Authentication"><title>Basic Authentication</title>
+       -H "Content-Type: application/json" --verbose | python -m json.tool</programlisting>
+                                    </example>
+                                </listitem>
+                            </itemizedlist></para>
+                        <para>For more information, see <link
+                                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/MFA_Ops.html"
+                                >Multi-factor authentication</link> in the <citetitle>Rackspace
+                                Cloud Identity Client Developer Guide</citetitle>.</para>
+                    </listitem>
+                    <listitem>
+                        <para>The token, user, and service catalog information that you receive in
+                            your responses vary from the examples shown in this document because
+                            they are specific to your account.</para>
+                    </listitem>
+                    <listitem>
+                        <para> The <code>expires</code> attribute denotes the time after which the
+                            token will automatically expire. A token may be manually revoked before
+                            the time identified by the expires attribute; <code>expires</code>
+                            predicts a token's maximum possible lifespan but does not guarantee that
+                            it will reach that lifespan. Clients are encouraged to cache a token
+                            until it expires.</para>
+                    </listitem>
+                    <listitem>
+                        <para>Applications should be designed to re-authenticate after receiving a
+                            401 (Unauthorized) response from a service endpoint.</para>
+                    </listitem>
+                    <listitem security="internal">
+                        <para>For more detailed authentication instructions, see the <link
+                                xlink:href="http://docs-internal.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                                > Quick Start</link> in the <citetitle>Identity Client Developer
+                                Guide</citetitle>.</para>
+                    </listitem>
+                    <listitem security="external">
+                        <para>For more detailed authentication instructions and examples, see the
+                                <link
+                                xlink:href="http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/QuickStart-000.html"
+                                >Quick Start</link> in the <citetitle>Identity Client Developer
+                                Guide</citetitle>.</para>
+                    </listitem>
+                </itemizedlist>
+            </note>
+            <para>The actual account number is located after the final slash (/) in the
+                    <code>publicURL</code> field. You must specify your account number on most of
+                the Cloud Feeds API operations, wherever you see the placeholder
+                    <replaceable>tenantID</replaceable> specified in the examples in this
+                guide.</para>
+        </section>
+        <section xml:id="Basic_Authentication">
+            <title>Basic Authentication</title>
             <para>In addition to token-based authentication Cloud Feeds also supports basic
                 authentication by using your Rackspace cloud account username and API key.</para>
             <para>To make a request to the Cloud Feeds API with basic authentication, you need to
@@ -568,50 +528,51 @@
             <para>
                 <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/ </programlisting>
             </para>
-                <para>The following example show how to retrieve an event by using basic
+            <para>The following example show how to retrieve an event by using basic
                 authentication:</para>
             <para>
                 <programlisting>curl -u username:user_api_key –X GET https://atom.test.ord1.us.ci.rackspace.net/usagesummary/bigdata/events</programlisting>
             </para>
-                <para>For more information, see <link linkend="Cloud_Feeds_Catalog">Cloud Feeds
+            <para>For more information, see <link linkend="Cloud_Feeds_Catalog">Cloud Feeds
                     Catalog</link> and <link linkend="Using_the_Cloud_Feeds_API">Using the Cloud
                     Feeds API</link>.</para>
-                </section><section xml:id="Cloud_Feeds_Roles"><title>Cloud Feeds authorization roles</title>
-        <para>To be able to obtain feeds, customers need to be enabled
-            for one of the following roles:</para>
-        <para>
-            <table frame="border">
-                <caption>Cloud Feeds Roles</caption>
-                <col width="29%"/>
-                <col width="71%"/>
-                <thead>
-                    <tr>
-                        <th>Role </th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr security="internal">
-                        <td>cloudfeeds:service-admin</td>
-                        <td>This role can see all tenant IDs that have been enabled for Cloud Feeds.
-                            The service-admin can perform <command>POST</command>, as well as
-                                <command>GET</command> requests.</td>
-                    </tr>
-                    <tr>
-                        <td>cloudfeeds:observer</td>
-                        <td>The observer role requires a tenant ID.
-                            This role can only perform
-                                <command>GET</command> requests.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </para>
-    <para>You can view the role for which you are enabled in the successful response to an
-            authentication request. The example below shows a port of the successfull authentication
-            response for a tenant who has been enabled for the <emphasis role="italic"
-                >cloudfeeds:observer</emphasis> role. </para>
-        <para>
-            <programlisting>
+        </section>
+        <section xml:id="Cloud_Feeds_Roles">
+            <title>Cloud Feeds authorization roles</title>
+            <para>To be able to obtain feeds, customers need to be enabled for one of the following
+                roles:</para>
+            <para>
+                <table frame="border">
+                    <caption>Cloud Feeds Roles</caption>
+                    <col width="29%"/>
+                    <col width="71%"/>
+                    <thead>
+                        <tr>
+                            <th>Role </th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr security="internal">
+                            <td>cloudfeeds:service-admin</td>
+                            <td>This role can see all tenant IDs that have been enabled for Cloud
+                                Feeds. The service-admin can perform <command>POST</command>, as
+                                well as <command>GET</command> requests.</td>
+                        </tr>
+                        <tr>
+                            <td>cloudfeeds:observer</td>
+                            <td>The observer role requires a tenant ID. This role can only perform
+                                    <command>GET</command> requests.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </para>
+            <para>You can view the role for which you are enabled in the successful response to an
+                authentication request. The example below shows a part of the successfull
+                authentication response for a tenant who has been enabled for the <emphasis
+                    role="italic">cloudfeeds:observer</emphasis> role. </para>
+            <para>
+                <programlisting>
   "user": {
      "RAX-AUTH:defaultRegion": "DFW",
      "RAX-AUTH:federated": false,
@@ -643,14 +604,15 @@
             ]
         }
        </programlisting>
-        </para>
-        <para>After authentication, you can use cURL to perform &GET;
-            and &POST; requests for the Cloud Feeds API.</para></section>
+            </para>
+            <para>After authentication, you can use cURL to perform &GET; and &POST; requests for
+                the Cloud Feeds API.</para>
+        </section>
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
         <title>Service endpoints</title>
-        <para security="external">The following table summarizes the endpoints to use for
-            your Cloud Feeds API calls.</para>
+        <para security="external">The following table summarizes the endpoints to use for your Cloud
+            Feeds API calls.</para>
         <para>
             <table frame="border" security="external">
                 <caption>Regionalized service endpoints</caption>
@@ -695,12 +657,13 @@
                             <code>https://hkg.feeds.api.rackspacecloud.com/</code></td>
                     </tr>
                 </tbody>
-            </table></para>
+            </table>
+        </para>
         <note>
             <itemizedlist>
                 <listitem>
-                    <para>Choose the endpoint for the data center
-                        where your Cloud resources are located.</para>
+                    <para>Choose the endpoint for the data center where your Cloud resources are
+                        located.</para>
                 </listitem>
                 <listitem>
                     <para>The Cloud server that you use must be located in the same datacenter where
@@ -718,8 +681,8 @@
                 </listitem>
             </itemizedlist>
         </note>
-        <para security="internal">The following table summarizes the
-            endpoints for a staging environment to use for your Cloud Feeds API calls. </para>
+        <para security="internal">The following table summarizes the endpoints for a staging
+            environment to use for your Cloud Feeds API calls. </para>
         <para>
             <table security="internal" frame="border">
                 <caption>Staging service endpoints </caption>
@@ -743,8 +706,8 @@
                 </tbody>
             </table>
         </para>
-        <para security="internal">The following table summarizes the
-            endpoints for a production enviroment for your Cloud Feeds API calls. </para>
+        <para security="internal">The following table summarizes the endpoints for a production
+            enviroment for your Cloud Feeds API calls. </para>
         <para>
             <table security="internal" frame="border">
                 <caption>Production service endpoints </caption>
@@ -765,8 +728,7 @@
                     </tr>
                     <tr align="left">
                         <td colspan="2">Northern Virginia IAD)</td>
-                                <td colspan="5"
-                                ><code>https://atom.prod.iad3.us.ci.rackspace.net</code></td>
+                        <td colspan="5"><code>https://atom.prod.iad3.us.ci.rackspace.net</code></td>
                     </tr>
                     <tr align="left">
                         <td colspan="2">London (LON)</td>
@@ -786,7 +748,7 @@
     </chapter>
     <chapter xml:id="Cloud_Feeds_Catalog">
         <title>Cloud Feeds catalog</title>
-        <para>Cloud Feeds supports a catalog of different feeds that are published.  Cloud Feeds
+        <para>Cloud Feeds supports a catalog of different feeds that are published. Cloud Feeds
             supports publishing this list of feeds in Atom Service Document format as described in
             the Atom Publishing Protocol, RFC 5023. For more information, see <link
                 xlink:href="http://tools.ietf.org/html/rfc5023#section-8"
@@ -794,108 +756,123 @@
         <para>You can obtain a list of all the feeds that are available by submitting a
                 <command>GET</command> request against the Cloud Feeds endpoint as shown in the
             following examples:</para>
-        <example security="internal"><title>Retrieve feeds catalog request - XML example</title>
-            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog request - XML example</title><programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
-        <example security="internal"><title>Retrieve feeds catalog request - JSON example</title>
-            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog request - JSON example</title><programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
+        <example security="internal">
+            <title>Retrieve feeds catalog request - XML example</title>
+            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog request - XML example</title>
+            <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+        </example>
+        <example security="internal">
+            <title>Retrieve feeds catalog request - JSON example</title>
+            <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog request - JSON example</title>
+            <programlisting security="external">curl –H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+        </example>
         <para>You can also use <emphasis role="bold">basic authentication</emphasis> to retrieve a
             catalog feed by using the following syntax:</para>
-        <example security="internal"><title>Retrieve feeds catalog request using basic authentication- XML example</title>
-            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog request using basic authentication - XML example</title><programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
-        <example security="internal"><title>Retrieve feeds catalog request using basic authentication - JSON example</title>
-            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog request using basic authentication - JSON example</title><programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable>  -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting></example>
-    <para>This operation returns a list of supported feeds as shown in the following
+        <example security="internal">
+            <title>Retrieve feeds catalog request using basic authentication- XML example</title>
+            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog request using basic authentication - XML example</title>
+            <programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+        </example>
+        <example security="internal">
+            <title>Retrieve feeds catalog request using basic authentication - JSON example</title>
+            <programlisting>curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable> -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/</programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog request using basic authentication - JSON example</title>
+            <programlisting security="external">curl -u <replaceable>username</replaceable>:<replaceable>api_key</replaceable>  -H "Accept: application/vnd.rackspace.atomsvc+json" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>tenantID</replaceable>/</programlisting>
+        </example>
+        <para>This operation returns a list of supported feeds as shown in the following
             examples:</para>
-        <example security="internal"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog response - XML example</title><programlisting language="xml"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting></example>
-        <example security="internal"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting></example>
-        <example security="external"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting></example>
+        <example security="internal">
+            <title>Retrieve feeds catalog response - XML example</title>
+            <programlisting language="xml"><xi:include href="./samples/resGetCatalogFeed.xml" parse="text"/></programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog response - XML example</title>
+            <programlisting language="xml"><xi:include href="./samples/resGetCatalogFeedext.xml" parse="text"/></programlisting>
+        </example>
+        <example security="internal">
+            <title>Retrieve feeds catalog response - JSON example</title>
+            <programlisting language="json"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting>
+        </example>
+        <example security="external">
+            <title>Retrieve feeds catalog response - JSON example</title>
+            <programlisting language="json"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting>
+        </example>
     </chapter>
     <chapter xml:id="Concepts">
         <title>Cloud Feeds concepts</title>
-        <para>Cloud Feeds uses AtomPub to publish different types of
-            feeds. Feeds are composed of a number of items called
-                <emphasis role="italic">entries</emphasis>. Each entry
-            has an extensible set of attached metadata. </para>
-        <para>AtomPub together with the Atom Syndication Format (ASF)
-            provides a format for implementing web feeds. Web feeds
-            provide users with frequently updated content. AtomPub is
-            based on an HTTP transfer of Atom-formatted
-            representations. The Atom format is documented in the Atom
-            Syndication Format.</para>
-        <para>Cloud Feeds is an open-source AtomPub server for
-            accessing, processing, and aggregating Atom entries. Cloud
-            Feeds was designed to make it easy to build both
-            generalized and specialized persistence mechanisms for
-            Atom XML data, based on the Atom Syndication Format and
-            the Atom Publishing Protocol.</para>
+        <para>Cloud Feeds uses AtomPub to publish different types of feeds. Feeds are composed of a
+            number of items called <emphasis role="italic">entries</emphasis>. Each entry has an
+            extensible set of attached metadata. </para>
+        <para>AtomPub together with the Atom Syndication Format (ASF) provides a format for
+            implementing web feeds. Web feeds provide users with frequently updated content. AtomPub
+            is based on an HTTP transfer of Atom-formatted representations. The Atom format is
+            documented in the Atom Syndication Format.</para>
+        <para>Cloud Feeds is an open-source AtomPub server for accessing, processing, and
+            aggregating Atom entries. Cloud Feeds was designed to make it easy to build both
+            generalized and specialized persistence mechanisms for Atom XML data, based on the Atom
+            Syndication Format and the Atom Publishing Protocol.</para>
         <para>Cloud Feeds works the following way:</para>
         <para>
             <orderedlist>
                 <listitem>
-                    <para>Events are generated by a publisher and
-                        added to the database as entries. Events can
-                        be usage events, system events or billing
-                        events.</para>
+                    <para>Events are generated by a publisher and added to the database as entries.
+                        Events can be usage events, system events or billing events.</para>
                 </listitem>
                 <listitem>
-                    <para>Entries exist in Cloud Feeds for three days.
-                        After that time period they are
-                        deleted.</para>
+                    <para>Entries exist in Cloud Feeds for three days. After that time period they
+                        are deleted.</para>
                 </listitem>
             </orderedlist>
         </para>
-        <para>To read the official documentation for the Atom
-            Syndication Format, see <link
-                xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1"
-                >RFC 4287</link>. For more information about AtomPub,
-            visit <link xlink:href="http://atompub.org/"
+        <para>To read the official documentation for the Atom Syndication Format, see <link
+                xlink:href="http://tools.ietf.org/search/rfc4287#section-4.1">RFC 4287</link>. For
+            more information about AtomPub, visit <link xlink:href="http://atompub.org/"
                 >http://atompub.org/</link>.</para>
         <section xml:id="Container_Elements">
             <title>Container elements</title>
-            <para>An Atom feed consists of a series of container
-                elements, which contain metadata or actual content
-                related to the feed. </para>
-            <para>The Atom Publishing Protocol supports the following
-                container elements:</para>
+            <para>An Atom feed consists of a series of container elements, which contain metadata or
+                actual content related to the feed. </para>
+            <para>The Atom Publishing Protocol supports the following container elements:</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para><link linkend="Atom_Feed_Element">Atom
-                                feed element</link></para>
+                        <para><link linkend="Atom_Feed_Element">Atom feed element</link></para>
                     </listitem>
                     <listitem>
-                        <para><link linkend="Atom_Entry_Element">Atom
-                                entry element</link></para>
+                        <para><link linkend="Atom_Entry_Element">Atom entry element</link></para>
                     </listitem>
                     <listitem>
-                        <para><link linkend="Atom_Content-Element"
-                                >Atom content element</link></para>
+                        <para><link linkend="Atom_Content-Element">Atom content
+                            element</link></para>
                     </listitem>
                 </itemizedlist>
             </para>
             <section xml:id="Atom_Feed_Element">
                 <title>Atom feed element</title>
-                <para>An Atom Feed element is a representation of an
-                    Atom feed, including metadata about the feed, and
-                    some or all of the entries associated with it. </para>
-                <para>The Atom Feed element represents the top-level
-                    element of an Atom Feed Document. It functions as
-                    a container for metadata and data associated with
-                    the feed. Its element children consist of metadata
-                    elements that are followed by zero or more Atom
-                    Entry child elements. </para>
+                <para>An Atom Feed element is a representation of an Atom feed, including metadata
+                    about the feed, and some or all of the entries associated with it. </para>
+                <para>The Atom Feed element represents the top-level element of an Atom Feed
+                    Document. It functions as a container for metadata and data associated with the
+                    feed. Its element children consist of metadata elements that are followed by
+                    zero or more Atom Entry child elements. </para>
                 <para>Following is an XML example of an entire Atom Feed element.</para>
-                <example security = "internal">
-                    <title>Atom feed element - XML example</title>                      
+                <example security="internal">
+                    <title>Atom feed element - XML example</title>
                     <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExample.xml" parse="text"/></programlisting>
                 </example>
-                <example security = "external">
-                    <title>Atom feed element - XML example</title>                      
+                <example security="external">
+                    <title>Atom feed element - XML example</title>
                     <programlisting language="xml"><xi:include href="./samples/AtomFeedElementExampleexternal.xml" parse="text"/></programlisting>
                 </example>
                 <para>Following is a JSON example of an entire Atom Feed element.</para>
@@ -910,19 +887,17 @@
             </section>
             <section xml:id="Atom_Entry_Element">
                 <title>Atom entry element</title>
-                <para>The Atom Entry element represents exactly one
-                    Atom entry, outside of the context of an Atom
-                    feed. It functions as a container for metadata and
-                    data associated with the entry. This element can
-                    appear as a child of the Atom Feed element, or it
-                    can appear as the top-level element of a
-                    stand-alone Atom Entry Document. </para>
+                <para>The Atom Entry element represents exactly one Atom entry, outside of the
+                    context of an Atom feed. It functions as a container for metadata and data
+                    associated with the entry. This element can appear as a child of the Atom Feed
+                    element, or it can appear as the top-level element of a stand-alone Atom Entry
+                    Document. </para>
                 <para>Following is an XML example of an Atom Entry element.</para>
-                <example security ="internal">
+                <example security="internal">
                     <title>Atom entry element - XML example</title>
                     <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExample.xml" parse="text"/></programlisting>
                 </example>
-                <example security = "external">
+                <example security="external">
                     <title>Atom entry element - XML example</title>
                     <programlisting language="xml"><xi:include href="./samples/AtomEntryElementExampleexternal.xml" parse="text"/></programlisting>
                 </example>
@@ -938,12 +913,9 @@
             </section>
             <section xml:id="Atom_Content-Element">
                 <title>Atom content element</title>
-                <para>The Atom Content element either contains or
-                    links to the content of an entry. The type
-                    attribute specifies the MIME media
-                        <parameter>type</parameter>. If no
-                        <parameter>type</parameter> attribute is
-                    present, the content is treated as
+                <para>The Atom Content element either contains or links to the content of an entry.
+                    The type attribute specifies the MIME media <parameter>type</parameter>. If no
+                        <parameter>type</parameter> attribute is present, the content is treated as
                         <parameter>text</parameter>. </para>
                 <para>Following is an XML example of an Atom Content element.</para>
                 <para>
@@ -966,48 +938,46 @@
             <para>Cloud Feed places product events inside the Atom Content element. The
                     <tag>event</tag> element contains the product events as shown in the following
                 examples. </para>
-            <example security = "internal">
+            <example security="internal">
                 <title>Cloud feeds product events - XML example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
             </example>
-            <example security = "internal">
+            <example security="internal">
                 <title>Cloud feeds product events - JSON example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.json" parse="text"/></programlisting>
             </example>
-            <example security = "external">
+            <example security="external">
                 <title>Cloud feeds product events - XML example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.xml" parse="text"/></programlisting>
             </example>
-            <example security = "external">
+            <example security="external">
                 <title>Cloud feeds product events - JSON example</title>
                 <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.json" parse="text"/></programlisting>
             </example>
-            <para security = "internal">
+            <para security="internal">
                 <note>
-                    <para>Cloud Feeds evaluates all product events
-                        against their XML schemas. </para>
+                    <para>Cloud Feeds evaluates all product events against their XML schemas.
+                    </para>
                 </note>
             </para>
         </section>
     </chapter>
     <chapter xml:id="Using_the_Cloud_Feeds_API">
         <title>Using the Cloud Feeds API</title>
-        <para>This section uses the following steps to explain how to
-            use the Cloud Feeds API:</para>
+        <para>This section uses the following steps to explain how to use the Cloud Feeds
+            API:</para>
         <para>
             <itemizedlist>
                 <listitem security="internal">
-                    <para><link linkend="Create_Atom_Entry">Add a new
-                            Atom event to a feed</link></para>
-                </listitem>
-                <listitem>
-                    <para><link linkend="Get_Atom_Entry">Reading a
-                            feed</link></para>
-                </listitem>
-                <listitem>
-                    <para><link linkend="Filter_Atom_Entries">Get
-                            certain types of events from a
+                    <para><link linkend="Create_Atom_Entry">Add a new Atom event to a
                         feed</link></para>
+                </listitem>
+                <listitem>
+                    <para><link linkend="Get_Atom_Entry">Reading a feed</link></para>
+                </listitem>
+                <listitem>
+                    <para><link linkend="Filter_Atom_Entries">Get certain types of events from a
+                            feed</link></para>
                 </listitem>
             </itemizedlist>
         </para>
@@ -1025,60 +995,58 @@
         </para>
         <section xml:id="Create_Atom_Entry" security="internal">
             <title>Adding a new Atom event in a feed</title>
-            <para>To insert a new Atom event in a feed you first need
-                to create an Atom entry and save it in the same
-                directory where you are making your request
-                from.</para>
-            <para>You then make a <methodname>POST</methodname>
-                request with the specified feed URL and a pointer to
-                the Atom entry you want to submit using the following
+            <para>To insert a new Atom event in a feed you first need to create an Atom entry and
+                save it in the same directory where you are making your request from.</para>
+            <para>You then make a <methodname>POST</methodname> request with the specified feed URL
+                and a pointer to the Atom entry you want to submit using the following
                 syntax:</para>
             <para>
                 <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://<replaceable>endpointURL</replaceable>/<replaceable>feedName</replaceable>/events -d@<replaceable>inputFile </replaceable></programlisting>
             </para>
-            <para>&lt;<emphasis role="italic">inputFile</emphasis>>
-                specifies the path to a file that contains an atom
-                entry. </para>
-            <para>The following example shows what a payload for an
-                Atom entry can look like. </para>
-            <example><title>Payload for a new atom entry - XML example</title>
-                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting></example>
-            <example><title>Payload for a new atom entry - JSON example</title>
-                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.json" parse="text"/></programlisting></example>
-            <para>The following example shows how to add a new Atom
-                entry by providing a pointer to the entry:</para>
+            <para>&lt;<emphasis role="italic">inputFile</emphasis>> specifies the path to a file
+                that contains an atom entry. </para>
+            <para>The following example shows what a payload for an Atom entry can look like. </para>
+            <example>
+                <title>Payload for a new atom entry - XML example</title>
+                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.xml" parse="text"/></programlisting>
+            </example>
+            <example>
+                <title>Payload for a new atom entry - JSON example</title>
+                <programlisting language="xml"><xi:include href="./samples/reqAddNewAtomEntry.json" parse="text"/></programlisting>
+            </example>
+            <para>The following example shows how to add a new Atom entry by providing a pointer to
+                the entry:</para>
             <para>
                 <programlisting>curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -H "Content-Type: application/atom+xml" -X POST https://atom.staging.ord1.us.ci.rackspace.net/files/events -d@./cloudfiles-bandwidth-usage.xml</programlisting>
             </para>
             <para>
                 <important>
-                    <para>When making the post request, make sure to
-                        set the HTTP Header to <emphasis>Content-Type:
-                            application/atom+xml </emphasis></para>
+                    <para>When making the post request, make sure to set the HTTP Header to
+                            <emphasis>Content-Type: application/atom+xml </emphasis></para>
                 </important>
             </para>
-            <para>After you have successfully posted the Atom XML to
-                the correct endpoint you will receive an <code>HTTP
-                    201</code> status code as a response. The response
-                body contains the Atom XML you posted in the request
-                body, as well as category information for the entry,
-                as shown in the following example:</para>
-            <example><title>Add new atom entry response - XML example</title>
-                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting></example>
-            <example><title>Add new atom entry response - JSON example</title>
-                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.json" parse="text"/></programlisting></example>
+            <para>After you have successfully posted the Atom XML to the correct endpoint you will
+                receive an <code>HTTP 201</code> status code as a response. The response body
+                contains the Atom XML you posted in the request body, as well as category
+                information for the entry, as shown in the following example:</para>
+            <example>
+                <title>Add new atom entry response - XML example</title>
+                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.xml" parse="text"/></programlisting>
+            </example>
+            <example>
+                <title>Add new atom entry response - JSON example</title>
+                <programlisting language="xml"><xi:include href="./samples/resAddNewAtomEntry.json" parse="text"/></programlisting>
+            </example>
         </section>
         <section xml:id="Get_Atom_Entry">
             <title>Reading a feed</title>
-            <para>To retrieve an Atom feed or an Atom entry that was
-                posted, submit a <methodname>GET</methodname> request
-                using the following syntax:</para>
+            <para>To retrieve an Atom feed or an Atom entry that was posted, submit a
+                    <methodname>GET</methodname> request using the following syntax:</para>
             <para>
                 <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events/<replaceable>tenantID</replaceable></programlisting>
                 <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://<replaceable>endpointURL</replaceable>/<replaceable>feedName/</replaceable>events</programlisting>
             </para>
-            <para>The placeholders are defined in the following
-                table.</para>
+            <para>The placeholders are defined in the following table.</para>
             <para>
                 <table frame="border">
                     <caption>Syntax elements</caption>
@@ -1092,66 +1060,49 @@
                     </thead>
                     <tbody>
                         <tr align="left">
-                            <td><emphasis role="italic"
-                                   >authenticationToken</emphasis></td>
-                            <td>Specifies the token that you obtain
-                                during authentication.</td>
+                            <td><emphasis role="italic">authenticationToken</emphasis></td>
+                            <td>Specifies the token that you obtain during authentication.</td>
                         </tr>
                         <tr align="left">
-                            <td><emphasis role="italic"
-                                   >endpointURL</emphasis></td>
-                            <td>Specifies the URL/VIP that was
-                                obtained from the list of Cloud Feeds
+                            <td><emphasis role="italic">endpointURL</emphasis></td>
+                            <td>Specifies the URL/VIP that was obtained from the list of Cloud Feeds
                                 endpoints.</td>
                         </tr>
                         <tr align="left">
-                            <td><emphasis role="italic"
-                                   >feedName</emphasis></td>
-                            <td>Specifies he name of the feeds you are
-                                trying to fetch events for. An example
-                                of feed name is: nova, servers,
-                                queues, files, etc.</td>
+                            <td><emphasis role="italic">feedName</emphasis></td>
+                            <td>Specifies he name of the feeds you are trying to fetch events for.
+                                An example of feed name is: nova, servers, queues, files, etc.</td>
                         </tr>
                         <tr align="left" security="external">
-                            <td><emphasis role="italic"
-                                   >tenantID</emphasis></td>
-                            <td>Specifies the tenantID for the given
-                                tenant.</td>
+                            <td><emphasis role="italic">tenantID</emphasis></td>
+                            <td>Specifies the tenantID for the given tenant.</td>
                         </tr>
                     </tbody>
                 </table>
             </para>
-            <para>The following is an example for a request for a
-                feed:</para>
+            <para>The following is an example for a request for a feed:</para>
             <para>
                 <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable></programlisting>
                 <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events</programlisting>
             </para>
-            <para>This request returns 25 of the latest events in the
-                Next Generation Cloud Server feed from the DFW data
-                center. To make the formatting of the returned events
-                more readable, you can submit the following
-                request:</para>
+            <para>This request returns 25 of the latest events in the Next Generation Cloud Server
+                feed from the DFW data center. To make the formatting of the returned events more
+                readable, you can submit the following request:</para>
             <para>
                 <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://dfw.feeds.api.rackspacecloud.com/nova/events/<replaceable>tenantID</replaceable> | xmllint --format -</programlisting>
                 <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/nova/events | xmllint --format -</programlisting>
             </para>
         </section>
         <section xml:id="Filter_Atom_Entries">
-            <title>Using query parameters to filter for certain
-                events</title>
-            <para>You can use query parameters to customize the
-                entries and their order within a feed. Query
-                parameters are part of the URL that is passed to the
-                server as part of an API request. When you add query
-                parameters to an API request, you modify the results
-                in ways, such as refining your query or sorting the
-                output. </para>
-            <para>A typical URL that contains a query parameter looks
-                like the following:</para>
+            <title>Using query parameters to filter for certain events</title>
+            <para>You can use query parameters to customize the entries and their order within a
+                feed. Query parameters are part of the URL that is passed to the server as part of
+                an API request. When you add query parameters to an API request, you modify the
+                results in ways, such as refining your query or sorting the output. </para>
+            <para>A typical URL that contains a query parameter looks like the following:</para>
             <para><code>http://server/program/path/?query_string</code></para>
-            <para>The query string is composed of one or more field
-                value pairs using the following format:</para>
+            <para>The query string is composed of one or more field value pairs using the following
+                format:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -1159,15 +1110,14 @@
                             by an equals sign (<emphasis role="italic">=</emphasis>).</para>
                     </listitem>
                     <listitem>
-                        <para>The series of pairs is separated by and
-                            ampersand (&amp;) as shown in the
-                            following example:</para>
+                        <para>The series of pairs is separated by and ampersand (&amp;) as shown in
+                            the following example:</para>
                         <para><code>field1=value1&amp;field2=value2&amp;field3=value3...</code></para>
                     </listitem>
                 </itemizedlist>
             </para>
-            <para>The following table summarizes the query parameters
-                you can specify for Cloud Feeds:</para>
+            <para>The following table summarizes the query parameters you can specify for Cloud
+                Feeds:</para>
             <para>
                 <table frame="border">
                     <caption>Query parameters</caption>
@@ -1184,8 +1134,7 @@
                     <tbody>
                         <tr>
                             <td><parameter>marker</parameter></td>
-                            <td>Specifies a uuid that exists in the
-                                Cloud Feeds system.</td>
+                            <td>Specifies a uuid that exists in the Cloud Feeds system.</td>
                             <td>Must be a valid uuid that exists in the Cloud Feeds, system, for
                                 example <code>rn:uuid:cd42141b-c030-6fca-6704-8285789a274b</code>.
                                 This parameter can also be set to <code>last</code>. If this
@@ -1194,11 +1143,9 @@
                         </tr>
                         <tr>
                             <td><parameter>direction</parameter></td>
-                            <td>Specifies the direction from which to
-                                return entries starting from the
-                                current marker or entry.</td>
-                            <td>Can be either <code>forward</code> or
-                                   <code>backward</code>.</td>
+                            <td>Specifies the direction from which to return entries starting from
+                                the current marker or entry.</td>
+                            <td>Can be either <code>forward</code> or <code>backward</code>.</td>
                         </tr>
                         <tr>
                             <td><parameter>limit</parameter></td>
@@ -1209,23 +1156,19 @@
                         </tr>
                         <tr>
                             <td><parameter>search</parameter></td>
-                            <td>Allows filtering of a feed only for
-                                events of a specified category.</td>
-                            <td>See the <link
-                                   linkend="Filter_by_Search_Category"
-                                   >Filtering by search
-                                   category</link> section.</td>
+                            <td>Allows filtering of a feed only for events of a specified
+                                category.</td>
+                            <td>See the <link linkend="Filter_by_Search_Category">Filtering by
+                                    search category</link> section.</td>
                         </tr>
                         <tr>
                             <td><parameter>startingAt</parameter></td>
                             <td>Allows filtering for a number of entries that start at a specified
                                 time stamp.</td>
-                            <td>Must be in ISO 8601 Date and Time
-                                format, and must contain a time zone,
-                                for example: 2014-03-10T06:00:00.000Z.
-                                For more information, see <link
-                                   xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
-                                   >http://en.wikipedia.org/wiki/ISO_8601</link>.</td>
+                            <td>Must be in ISO 8601 Date and Time format, and must contain a time
+                                zone, for example: 2014-03-10T06:00:00.000Z. For more information,
+                                see <link xlink:href="http://en.wikipedia.org/wiki/ISO_8601"
+                                    >http://en.wikipedia.org/wiki/ISO_8601</link>.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1239,125 +1182,109 @@
                         direction is assumed.</para>
                 </note>
             </para>
-            <para>For more information, see <olink
-                targetdoc="feeds-devguide"
-                targetptr="Filter_Entries_by_Category_d1e1315"
-                >“Filtering Entries by Categories
-                ”</olink>.</para>
+            <para>For more information, see <olink targetdoc="feeds-devguide"
+                    targetptr="Filter_Entries_by_Category_d1e1315">“Filtering Entries by Categories
+                    ”</olink>.</para>
             <section xml:id="Select_Entries_by_Marker_and_Forward_and_Backward_Paging-d1e1311">
                 <title>Filtering entries by the using the marker parameter </title>
-                    <para>You can use the <parameter>marker</parameter> parameter to denote an entry
-                        that you have previously used. If you specify a marker in the
-                            <command>GET</command> request, you can also specify a value for the
-                            <parameter>direction</parameter> parameter. If you do not specify a
-                        value for the <parameter>direction</parameter> parameter, the default value
-                        of <code>forward</code> is used. </para>
-                    <para>The following example shows a <parameter>marker</parameter> parameter
-                        specified and the <parameter>direction</parameter> parameter set to
-                            <parameter>forward</parameter>:</para>
-                    <para>
-                        <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
-                        <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
-                    </para>
-                    <para>The following example shows a <parameter>marker</parameter> parameter
-                        specified and the <parameter>direction</parameter> parameter set to
-                            <parameter>backward</parameter>:</para>
-                    <para>
-                        <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+                <para>You can use the <parameter>marker</parameter> parameter to denote an entry
+                    that you have previously used. If you specify a marker in the
+                        <command>GET</command> request, you can also specify a value for the
+                        <parameter>direction</parameter> parameter. If you do not specify a value
+                    for the <parameter>direction</parameter> parameter, the default value of
+                        <code>forward</code> is used. </para>
+                <para>The following example shows a <parameter>marker</parameter> parameter
+                    specified and the <parameter>direction</parameter> parameter set to
+                        <parameter>forward</parameter>:</para>
+                <para>
+                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                    <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward </programlisting>
+                </para>
+                <para>The following example shows a <parameter>marker</parameter> parameter
+                    specified and the <parameter>direction</parameter> parameter set to
+                        <parameter>backward</parameter>:</para>
+                <para>
+                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
-                        <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
+                    <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward
 </programlisting>
-                    </para>
-                    <para>You can use the <parameter>limit</parameter> parameter to specify the
-                        number of entries to return. By default the limit is set to 25. The minimum
-                        limit is 1 and the maximum limit is 1,000.</para>
-                    <para>The following example shows the <parameter>marker</parameter> parameter
-                        specified and the <parameter>limit</parameter> parameter set to 50, paging
-                        forward.</para>
-                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+                </para>
+                <para>You can use the <parameter>limit</parameter> parameter to specify the number
+                    of entries to return. By default the limit is set to 25. The minimum limit is 1
+                    and the maximum limit is 1,000.</para>
+                <para>The following example shows the <parameter>marker</parameter> parameter
+                    specified and the <parameter>limit</parameter> parameter set to 50, paging
+                    forward.</para>
+                <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
-                    <programlisting security="external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
+                <programlisting security="external">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=forward&amp;limit=50
 </programlisting>
-                    <para>The following example shows a marker set and the limit set to 50, paging
-                        backward.</para>
-                    <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+                <para>The following example shows a marker set and the limit set to 50, paging
+                    backward.</para>
+                <programlisting security="internal">https://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/events/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
-                    <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
+                <programlisting security="external">https://ord.feeds.api.rackspacecloud.com/namespace/feed/events/<replaceable>tenantID</replaceable>/?marker=urn:uuid:8439541b-b40e-4c23-b290-2820bd64257d&amp;direction=backward&amp;limit=50
 </programlisting>
-                
             </section>
             <section xml:id="Filter_by_Search_Category">
                 <title>Filtering by search category</title>
-            <para>You can use a <methodname>GET</methodname> request
-                    to filter for certain types of events you would
-                    like to obtain from a feed by defining a specific
-                        <emphasis role="italic">search
-                        category</emphasis>. You specify the seach
-                    categories by adding <parameter>search</parameter>
-                    as the URL parameter at the end of the feeds URL
-                    and then specifying the category or item you want
-                    to search for. The following example shows how to
-                    get all event types that fall under the
-                        <emphasis>cloudsites.metered.site.usage</emphasis>
-                    category:</para>
-            <para>
-                <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
-                <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
-            </para>
-                <section xml:id="Filtering_using_AND_OR_NOT"><title>Filtering using AND, OR, and NOT</title>
-                    <para>Cloud Feeds supports advanced filters using the
-                        AND, OR, and NOT operators and their combinations. </para>
-                    <para>The following example shows how to filter for
-                        multiple categories using an AND statement:</para>
+                <para>You can use a <methodname>GET</methodname> request to filter for certain types
+                    of events you would like to obtain from a feed by defining a specific <emphasis
+                        role="italic">search category</emphasis>. You specify the seach categories
+                    by adding <parameter>search</parameter> as the URL parameter at the end of the
+                    feeds URL and then specifying the category or item you want to search for. The
+                    following example shows how to get all event types that fall under the
+                        <emphasis>cloudsites.metered.site.usage</emphasis> category:</para>
+                <para>
+                    <programlisting security="external">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://ord.feeds.api.rackspacecloud.com/sites/events/<replaceable>tenantID</replaceable>/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                    <programlisting security="internal">curl -H "X-Auth-Token: <replaceable>authenticationToken</replaceable>" -X GET https://atom.staging.ord1.us.ci.rackspace.net/sites/events/?search=(cat=type:cloudsites.metered.site.usage)</programlisting>
+                </para>
+                <section xml:id="Filtering_using_AND_OR_NOT">
+                    <title>Filtering using AND, OR, and NOT</title>
+                    <para>Cloud Feeds supports advanced filters using the AND, OR, and NOT operators
+                        and their combinations. </para>
+                    <para>The following example shows how to filter for multiple categories using an
+                        AND statement:</para>
                     <para>
                         <example security="internal">
-                            <title>Filtering for multiple categories using
-                                an AND statement</title>
+                            <title>Filtering for multiple categories using an AND statement</title>
                             <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
                         </example>
                         <example security="external">
-                            <title>Filtering for multiple categories using
-                                an AND statement</title>
+                            <title>Filtering for multiple categories using an AND statement</title>
                             <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(cat=CAT2))</programlisting>
                         </example>
                     </para>
-                    <para>The following example shows how to filter for
-                        multiple categories using an OR statement:</para>
+                    <para>The following example shows how to filter for multiple categories using an
+                        OR statement:</para>
                     <para>
                         <example security="internal">
-                            <title>Filtering for multiple categories using
-                                an OR statement</title>
+                            <title>Filtering for multiple categories using an OR statement</title>
                             <programlisting>http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
                         </example>
                         <example security="external">
-                            <title>Filtering for multiple categories using
-                                an OR statement</title>
+                            <title>Filtering for multiple categories using an OR statement</title>
                             <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(OR(cat=CAT1)(cat=CAT2))
 </programlisting>
                         </example>
                     </para>
-                    <para>The following example shows how to filter for a
-                        category that is entered as not <emphasis
-                            role="bold">CAT1</emphasis> using a NOT
-                        statement:</para>
+                    <para>The following example shows how to filter for a category that is entered
+                        as not <emphasis role="bold">CAT1</emphasis> using a NOT statement:</para>
                     <para>
                         <example security="internal">
-                            <title>Filtering for a single category using a
-                                NOT statement</title>
+                            <title>Filtering for a single category using a NOT statement</title>
                             <programlisting> http://atom.staging.ord1.us.ci.rackspace.net/namespace/feed/?search=(NOT(cat=CAT1)) </programlisting>
                         </example>
                         <example security="external">
-                            <title>Filtering for a single category using a
-                                NOT statement</title>
+                            <title>Filtering for a single category using a NOT statement</title>
                             <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/feed/<replaceable>tenantID</replaceable>/?search=(NOT(cat=CAT1)) </programlisting>
                         </example>
                     </para>
-                    <para>You can also use the AND, OR, and NOT operators
-                        to filter for multiple categories combined.</para>
-                    <para>The following example shows how to search
-                        for a category that is entered as CAT1 and (
-                        CAT2 or CAT3 ) but not CAT4:</para>
+                    <para>You can also use the AND, OR, and NOT operators to filter for multiple
+                        categories combined.</para>
+                    <para>The following example shows how to search for a category that is entered
+                        as CAT1 and ( CAT2 or CAT3 ) but not CAT4:</para>
                     <para>
                         <example security="internal">
                             <title>Filtering for multiple categories using an AND statement</title>
@@ -1368,7 +1295,6 @@
                             <programlisting>http://ord.feeds.api.rackspacecloud.com/namespace/namespace/feed/<replaceable>tenantID</replaceable>/?search=(AND(cat=CAT1)(OR(cat=CAT2)(cat=CAT3))(NOT(cat=CAT4))) </programlisting>
                         </example>
                     </para>
-                    
                 </section>
             </section>
             <section xml:id="Filter_by_timestamp">
@@ -1401,7 +1327,7 @@
                             like the following: <parameter>direction</parameter> set to <emphasis
                                 role="italic">backward</emphasis>.</para>
                     </note>
-                </para>    
+                </para>
             </section>
         </section>
     </chapter>
@@ -1410,27 +1336,23 @@
         <para>To learn more about the Cloud Feeds API, read <olink targetdoc="cloudfeeds-devguide"
                 targetptr="Using_Cloud_Feeds">Using Cloud Feeds</olink> in the <emphasis
                 role="italic">Cloud Feeds Developer's Guide</emphasis>. </para>
-            <para security="internal">To learn how to prepare a
-            feed for publication through Cloud Feeds, read the <olink targetdoc="feeds-pubguide"
-                targetptr="feeds-pubguide"><emphasis role="bold">Cloud Feeds Publisher's
-                    Guide</emphasis></olink>.</para>
+        <para security="internal">To learn how to prepare a feed for publication through Cloud
+            Feeds, read the <olink targetdoc="feeds-pubguide" targetptr="feeds-pubguide"><emphasis
+                    role="bold">Cloud Feeds Publisher's Guide</emphasis></olink>.</para>
         <section xml:id="Additional_Resources">
             <title>Additional resources</title>
-            <para>The following lists provides links to additional
-                resources about Cloud Feeds and Atom:</para>
+            <para>The following lists provides links to additional resources about Cloud Feeds and
+                Atom:</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para><link
-                                xlink:href="https://github.com/rackerlabs/atom-hopper/wiki"
-                                >Atom Hopper Wiki on
-                            Github</link></para>
+                        <para><link xlink:href="https://github.com/rackerlabs/atom-hopper/wiki">Atom
+                                Hopper Wiki on Github</link></para>
                     </listitem>
                     <listitem>
                         <para><link
                                 xlink:href="https://github.com/rackerlabs/standard-usage-schemas/wiki"
-                                >Standard Usages Schemas Wiki on
-                                Github</link></para>
+                                >Standard Usages Schemas Wiki on Github</link></para>
                     </listitem>
                 </itemizedlist>
             </para>
