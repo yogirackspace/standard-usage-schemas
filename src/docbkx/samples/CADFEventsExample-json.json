@@ -1,0 +1,85 @@
+{
+    "entry" : {
+        "@type"   : "http://www.w3.org/2005/Atom",
+        "id"      : "urn:uuid:6fa234aea93f38c26fa234aea93f38c2", 
+        "category": [
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "username:jackhandy"
+            },
+        ],
+        "title"   : "Identity User Access Event",
+        "content" : {
+            "event" : {
+                "typeURI"   : "http://schemas.dmtf.org/cloud/audit/1.0/event",
+                "id"        : "6fa234aea93f38c26fa234aea93f38c2",
+                "eventType" : "activity",
+                "eventTime" : "2015-03-12T13:20:00-05:00",
+                "action"    : "create/post",
+                "outcome"   : "success",
+
+                "initiator" : {
+                    "id"      : "10.1.2.3",
+                    "typeURI" : "network/node",
+                    "name"    : "jackhandy",
+                    "host"    : {
+                        "address" : "10.1.2.3",
+                        "agent"   : "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    }
+                },
+
+                "target" : {
+                    "id"      : "x.x.x.x",
+                    "typeURI" : "service",
+                    "name"    : "IDM",
+                    "host"    : {
+                        "address" : "lon.identity.api.rackspacecloud.com"
+                    }
+                },
+
+                "attachments" : [
+                    {
+                        "name"        : "auditData",
+                        "contentType" : "http://feeds.api.rackspacecloud.com/cadf/user-access-event/auditData",
+                        "content"     :  {
+                            "auditData" : {
+                                "region"          : "DFW",
+                                "dataCenter"      : "DFW1",
+                                "methodLabel"     : "createToken",
+                                "requestURL"      : "https://lon.identity.api.rackspacecloud.com/v2.0/tokens",
+                                "queryString"     : "",
+                                "tenantId"        : "123456",
+                                "responseMessage" : "OK",
+                                "userName"        : "jackhandy",
+                                "roles"           : "xxx",
+                                "version"         : "1"
+                            }
+                        }
+                    }
+                ],
+
+                "observer" : {
+                    "id"      : "IDM-1-1",
+                    "name"    : "repose-6.1.1.1",
+                    "typeURI" : "service/security",
+                    "host" : {
+                        "address" : "repose"
+                    }
+                },
+
+                "reason" : {
+                    "reasonCode" : 200,
+                    "reasonType" : "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                }
+            }
+        }
+    }
+}

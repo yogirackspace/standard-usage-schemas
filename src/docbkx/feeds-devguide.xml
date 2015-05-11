@@ -904,11 +904,28 @@
                     </para>
                 </section>
             </section>
-            <section xml:id="CloudFeedsProductEvents">
-                <title>Cloud Feeds Product Events</title>
-                <para>Cloud Feed places product events inside the Atom Content element. The
-                        <tag>event</tag> element contains the product events as shown in the
-                    following examples. </para>
+            <section xml:id="CloudFeedsEvents">
+                <title>Cloud Feeds events</title>
+                <para>This section describes the event types that are supported by Cloud Feeds and
+                    where they are placed in a feed.</para>
+                <para>Cloud Feeds supports the following event types:</para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para><link linkend="CloudFeedsProductEvents">Cloud Feeds Product
+                                events</link></para>
+                        </listitem>
+                        <listitem>
+                            <para><link linkend="CADF_events">User access events using the CADF
+                                standard</link></para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            <section xml:id="CloudFeedsProductEvents"><title>Cloud Feeds Product events</title>
+                <para>Cloud Feeds supports product events that contain information that is specific
+                        to a certain product. </para>
+                <para>Product events are located in the <tag>event</tag> node as shown in the
+                    following examples.
                 <example security="internal">
                     <title>Cloud feeds product events - XML example</title>
                     <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleInt.xml" parse="text"/></programlisting>
@@ -924,14 +941,620 @@
                 <example security="external">
                     <title>Cloud feeds product events - JSON example</title>
                     <programlisting language="xml"><xi:include href="./samples/ProductEventsExampleExt.json" parse="text"/></programlisting>
-                </example>
-                <para security="internal">
+                </example></para>
+                    <para>The following table shows the attributes for the product event
+                        node.</para>
+                    <para xmlns:svg="http://www.w3.org/2000/svg"
+                        xmlns:m="http://www.w3.org/1998/Math/MathML"
+                        xmlns:html="http://www.w3.org/1999/xhtml"
+                        xmlns:db="http://docbook.org/ns/docbook">
+                        <table frame="border">
+                            <caption>Attributes for the product event node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>dataCenter</code></td>
+                                    <td>Optional. Specifies the data center of the event. If this
+                                        attribute is not specified, <emphasis role="bold"
+                                            >GLOBAL</emphasis> is assumed. <emphasis role="bold"
+                                            >GLOBAL</emphasis> implies that the resource is without
+                                        an assigned data center.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>endTime</code></td>
+                                    <td>Optional. Specifies the time that the event ends. The format
+                                        must be ISO 8601 format: <emphasis role="italic"
+                                            >yyyy-mm-ddThh:mm:ss.SSSZ</emphasis> (Z designates UTC).
+                                        For an event of type <emphasis role="bold">EXIST</emphasis>,
+                                        the <code>startTime</code> and <code>endTime</code> reflect
+                                        the event duration for the resource instance. The end time
+                                        is exclusive — that is, the event occurred up to, but not
+                                        during the specified value. The end time must occur after
+                                        the start time.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>environment</code></td>
+                                    <td>Specifies the environment from which the message originated.
+                                        If this attribute is not specified, <emphasis role="bold"
+                                            >PROD</emphasis> is assumed. This attribute is required
+                                        for events of type <emphasis role="bold"
+                                            >USAGE_SNAPSHOT</emphasis>, but is optional for all
+                                        other event types.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>eventTime</code></td>
+                                    <td>Optional. Specifies the time of the event, using ISO 8601
+                                        format and UTC. Use this attribute instead of
+                                            <code>startTime</code> and <code>endTime</code> in cases
+                                        where the event does not have a range.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the UUID for the event record. This
+                                        value should be UUID version 1, 2, or 4. For more
+                                        information, see RFC 4122 at <link
+                                            xlink:href="http://tools.ietf.org/html/rfc4122"
+                                            >http://tools.ietf.org/html/rfc4122</link>. </td>
+                                </tr>
+                                <tr>
+                                    <td><code>referenceId</code></td>
+                                    <td>Optional. Specifies a GUID that identifies the event record
+                                        that this record is updating. This attribute should be used
+                                        if this event is correcting another event.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>region</code></td>
+                                    <td>Specifies the region in which the event is located. If this
+                                        attribute is not specified, <emphasis role="bold"
+                                            >GLOBAL</emphasis> is assumed. <emphasis role="bold"
+                                            >GLOBAL</emphasis> implies that the resource is without
+                                        an assigned region. </td>
+                                </tr>
+                                <tr>
+                                    <td><code>resourceId</code></td>
+                                    <td>Specifies the ID of the resource. This attribute is required
+                                        if the <db:code>resourceType</db:code> attribute is
+                                        specified in the product node, but is optional
+                                        otherwise.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>resourceName</code></td>
+                                    <td>Optional. Specifies the customer-defined name of the
+                                        resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>resourceURI</code></td>
+                                    <td>Optional. Specifies a URI that uniquely identifies the
+                                        resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>rootAction</code></td>
+                                    <td>Optional. Specifies the action that caused the event.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>severity</code></td>
+                                    <td>Optional. Specifies the severity of the event. Valid values
+                                        are <emphasis role="bold">INFO</emphasis>, <emphasis
+                                            role="bold">WARNING</emphasis>, and<emphasis role="bold"
+                                            > CRITICAL</emphasis>. This is attribute is valid only
+                                        for system events, not for usage events.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>startTime</code></td>
+                                    <td>Specifies the time that the event starts. The format must be
+                                        ISO 8601 format: yyyy-mm-ddThh:mm:ss.SSSZ (Z designates
+                                        UTC). The start time is inclusive, which means that the
+                                        event occurred starting at the start time, not after. This
+                                        attribute is required for events of type <emphasis
+                                            role="bold">USAGE</emphasis>, but is optional for all
+                                        other event types. </td>
+                                </tr>
+                                <tr>
+                                    <td><code>tenantId</code></td>
+                                    <td>Optional. Specifies the tenant Id of the feeds
+                                        publisher</td>
+                                </tr>
+                                <tr>
+                                    <td><code>type</code></td>
+                                    <td>Required. Specifies the type of event. If one of the
+                                        existing event types fails to produce any feeds, set this
+                                        attribute to <emphasis role="bold">EXTENDED</emphasis> and
+                                        add an <code>eventType</code> attribute to your product
+                                        schema.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>version</code></td>
+                                    <td>Required. Specifies the version of the event record.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>                    
                     <note>
                         <para>Cloud Feeds evaluates all product events against their XML schemas.
                         </para>
                     </note>
+            </section>
+            <section xml:id="CADF_events"><title>User access events in CADF</title><para>Cloud Feeds supports the Cloud Auditing Data Federation (CADF) standard. CADF provides a
+                standard for the submission and retrieval of normative audit event data from
+                cloud providers in the form of customized reports and logs. </para>
+                <para>For more information about CADF, see <link
+                            xlink:href="http://dmtf.org/sites/default/files/standards/documents/DSP0262_1.0.0.pdf"
+                            >Cloud Auditing Data Federation</link>.</para>
+                    <para>Cloud Feeds defines a set of event types, which take different
+                        attributes.</para>
+                <para>The following examples show a user access event that is encoded as a CADF
+                        event . The CADF event is located inside the <link
+                            linkend="Atom_Content-Element">Atom content type</link> element.</para>
+                <example>
+                    <title>User access events - XML example</title>
+                    <programlisting language="xml"><xi:include href="./samples/CADFEventsExample.xml" parse="text"/></programlisting>
+                </example>
+                <example>
+                    <title>User access events - JSON example</title>
+                    <programlisting language="xml"><xi:include href="./samples/CADFEventsExample-json.json" parse="text"/></programlisting>
+                </example>
+                    <para>The following table shows the CADF nodes that are specified in
+                        cadf.xsd.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>CADF nodes</caption>
+                            <col width="41%"/>
+                            <col width="59%"/>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <?sbr?>
+                                        <para><code>event</code></para>
+                                    </td>
+                                    <td>Specifies the CADF event node. Contains a set of attributes.
+                                        For a detailed description of the CADF event attributes, see
+                                        the "<emphasis role="italic">Attributes for CADF event
+                                            node</emphasis>" table below.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>initiator</code></para>
+                                    </td>
+                                    <td>Specifies the CADF event initiator. Contains a set of
+                                        attributes. For a detailed description of the CADF initiator
+                                        attributes, see the "<emphasis role="italic">Attributes for
+                                            CADF initiator node</emphasis>" table below.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>target</code></para>
+                                    </td>
+                                    <td>Specifies the target. Contains a set of attributes. For a
+                                        detailed description of the CADF target attributes, see the
+                                            "<emphasis role="italic">Attributes for CADF target
+                                            node</emphasis>" table below.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>attachments</code></para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para>
+                                                  <code>attachment</code></para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </td>
+                                    <td>Specifies an array of extended or domain-specific
+                                        information about the event or its context. The
+                                            <code>attachments</code> node contains one or more nodes
+                                        of type <code>attachment</code>.  For a detailed description
+                                        of the CADF event attributes, see the "<emphasis
+                                            role="italic">Attributes for CADF target
+                                        node</emphasis>" table below.<?sbr?><?sbr?><?sbr?></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>observer</code></para>
+                                    </td>
+                                    <td>
+                                        <para>Specifies the observer. For example, this can be a
+                                            security provider or a service, such as Repose. Contains
+                                            a set of attributes. For a detailed description of the
+                                            CADF event attributes, see the "<emphasis role="italic"
+                                                >Attributes for CADF observer node</emphasis>" table
+                                            below.</para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <para><code>reason</code></para>
+                                    </td>
+                                    <td>Contains a domain-specific reason code and policy data that
+                                        provides an additional level of detail to the outcome value.
+                                        Contains a set of attributes. For a detailed description of
+                                        the CADF event attributes, see the "<emphasis role="italic"
+                                            >Attributes for CADF reason node</emphasis>" table
+                                        below.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The CADF events are located inside the <emphasis role="italic">CADF event
+                            node</emphasis>.</para>
+                    <para>The following table shows the elements of the CADF event node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF event node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>eventType</code></td>
+                                    <td>Required. Specifies the purpose for creating the audit
+                                        record. Must be set to the value "<emphasis role="italic"
+                                            >activity</emphasis>".</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td>Required. Specifes the type of the resource that is using
+                                        the CADF Resource Taxonomy. Must be set to the following
+                                        URI: "<emphasis role="italic"
+                                            >http://schemas.dmtf.org/cloud/audit/1.0/event</emphasis>"</td>
+                                </tr>
+                                <tr>
+                                    <td><code>eventTime</code></td>
+                                    <td>Required. Specifies the time the event occurred or began as
+                                        seen by the observer.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>action</code></td>
+                                    <td>Required. Specifies the type of activity that is described
+                                        in the event record. Must be set to "<emphasis role="italic"
+                                            >read.*| create.*</emphasis>"</td>
+                                </tr>
+                                <tr>
+                                    <td><code>outcome</code></td>
+                                    <td>Required. Specifies the outcome or result of the attempted
+                                        action. Can be either "<emphasis role="italic"
+                                            >success</emphasis>" or "<emphasis role="italic"
+                                            >failure</emphasis>"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                <para>The following table shows the elements of the CADF initiator node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF initiator node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td><para>Required. Specifes the type of the resource that is using
+                                        the CADF Resource Taxonomy. Can have one of the following
+                                            values:<itemizedlist>
+                                            <listitem>
+                                                <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                            </listitem>
+                                            <listitem>
+                                                <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                            </listitem>
+                                            </itemizedlist></para></td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td><para>Specifies the host. Takes one of the following 2
+                                        attributes:</para><itemizedlist>
+                                            <listitem><para><code>address</code></para></listitem>
+                                            <listitem>
+                                                <para><code>agent</code></para>
+                                            </listitem>
+                                        </itemizedlist></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF target node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF target node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td>
+                                        <para>Required. Specifes the type of the resource that is
+                                            using the CADF Resource Taxonomy. Can have one of the
+                                            following values:<itemizedlist>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                                </listitem>
+                                            </itemizedlist></para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the target.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td>
+                                        <para>Specifies the host. Takes the following
+                                            attribute:</para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para><code>address</code></para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF attachment node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF attachment node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name of the attachment, for eaxmple <emphasis
+                                            role="italic">auditData</emphasis>.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>contentType</code></td>
+                                    <td>
+                                        <para>Specifies the content type, for example <emphasis
+                                                role="italic">ua:auditData</emphasis>.</para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>content</code></td>
+                                    <td>Contains a set of elements that define the
+                                            <code>auditData</code> property. <code>auditData</code>
+                                        contains attributes that define the user access event
+                                        profile for Cloud Feeds. For a detailed description of the
+                                            <code>auditData</code> property, see the "<emphasis
+                                            role="italic">Attributes for auditData
+                                            property</emphasis>" table in <link
+                                            linkend="user_access_events">User access
+                                        events</link>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF observer node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF observer node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>id</code></td>
+                                    <td>Required. Specifies the identifier for the resource.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>typeURI</code></td>
+                                    <td>
+                                        <para>Required. Specifes the type of the resource that is
+                                            using the CADF Resource Taxonomy. Can have one of the
+                                            following values:<itemizedlist>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >service/security/account/user</emphasis>" for
+                                                  authorized requests</para>
+                                                </listitem>
+                                                <listitem>
+                                                  <para>"<emphasis role="italic"
+                                                  >network/node</emphasis>" for unauthorized
+                                                  requests</para>
+                                                </listitem>
+                                            </itemizedlist></para>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>name</code></td>
+                                    <td>Specifies the name.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>host</code></td>
+                                    <td>
+                                        <para>Specifies the host. Takes the following
+                                            attribute:</para>
+                                        <itemizedlist>
+                                            <listitem>
+                                                <para><code>address</code></para>
+                                            </listitem>
+                                        </itemizedlist>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                    <para>The following table shows the elements of the CADF reason node.</para>
+                    <para>
+                        <table frame="border">
+                            <caption>Elements of the CADF reason node</caption>
+                            <col width="30%"/>
+                            <col width="70%"/>
+                            <thead>
+                                <tr>
+                                    <th>Element/Attribute</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>reasonType</code></td>
+                                    <td>Specifies the reason type. For example, this can be a URL to
+                                        a HTTP status code registry, such as
+                                        "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml".</td>
+                                </tr>
+                                <tr>
+                                    <td><code>reasonCode</code></td>
+                                    <td>
+                                        <para>Required. Specifes the HTTP status code. Can be one of
+                                            the following values: "[1-5] [0-9][0-9]".</para>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </para>
+                <section xml:id="user_access_events"><title>User access events</title>
+                <para>Cloud Feeds supports <emphasis role="italic">user access events</emphasis>,
+                            which use the CADF standard. User access events provide a generic
+                            approach to capturing all API calls that are issued against Rackspace
+                            product web services. </para>
+                        <para>Cloud Feeds extends the CADF standard by providing a specific user
+                            access event profile that captures audit data that is specific to the
+                            user and the Rackspace cloud services they are using.</para>
+                        <para>User access event data is included in the atom entry as a CADF
+                            attachment of type <code>auditData.</code></para>
+                <para>The following table shows the elements of the <code>auditData</code>
+                            property.</para>
+                <para>
+                    <table frame="border">
+                        <caption>Elements of the auditData property</caption>
+                                <col width="32%"/>
+                                <col width="68%"/>
+                        <thead>
+                            <tr>
+                                <th>Element/Attribute</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>version</code></td>
+                                <td>Required. Specifies the version of the audit data.</td>
+                            </tr>
+                                    <tr>
+                                        <td><code>region</code></td>
+                                        <td>Required. Specifies the region, such as DFW. If this
+                                            value is not specified, GLOBAL iss assumed.</td>
+                                    </tr>
+                            <tr>
+                                <td><code>dataCenter</code></td>
+                                <td>Required. Specifies the data center of the event. If this value
+                                        is not specified, GLOBAL is assumed. If this valule is set,
+                                        the region value must match, for example, if dataCenter is
+                                        set to "<emphasis role="italic">DFW1</emphasis>," then
+                                        region must be set to "<emphasis role="italic"
+                                            >DFW</emphasis>."</td>
+                            </tr>
+                            <tr>
+                                <td><code>methodLabel</code></td>
+                                <td>Optional. Specifies the method that is used for this
+                                    request. This attribute uses the friendly name of an API
+                                    request, for example "<emphasis role="italic"
+                                        >addUser</emphasis>."</td>
+                            </tr>
+                            <tr>
+                                <td><code>requestURL</code></td>
+                                <td>Specifies the URI of the request. If the URI contains any
+                                    query strings, they truncated.</td>
+                            </tr>
+                            <tr>
+                                <td><code>queryString</code></td>
+                                <td>Optional. Specifies the query string. The query string is
+                                    part of a URI and containes the data that was added to the
+                                    base URI, for example <code>/?query_string</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><code>tenantId</code></td>
+                                <td>Specifies the tenant id.</td>
+                            </tr>
+                            <tr>
+                                <td><code>responseMessage</code></td>
+                                <td>Specifies the response message that is sent as a response,
+                                    to the request, for example "<emphasis role="italic"
+                                        >CREATED</emphasis>."</td>
+                            </tr>
+                            <tr>
+                                <td><code>userName</code></td>
+                                <td>Specifies the username that the initiator is acting on
+                                    behalf of.</td>
+                            </tr>
+                            <tr>
+                                <td><code>roles</code></td>
+                                <td>Required. Contains a space-separated list of user roles.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </para>
             </section>
+            </section>
+        </section>
         </section>
         <section xml:id="Limits-d1e1208">
             <title>Cloud Feeds usage specifications and rules</title>
