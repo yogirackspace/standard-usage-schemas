@@ -433,14 +433,20 @@
             </example>
             <para>A successful authentication request returns the authentication token, as well as
                 the identity service catalog in the response. The identity service catalog contains
-                a list of all the products the user is enabled for and the corresponding
-                endpoints.</para>
+                a list of all the products the user is enabled for and the corresponding endpoints. </para>
+            <para xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:m="http://www.w3.org/1998/Math/MathML"
+                xmlns:html="http://www.w3.org/1999/xhtml">The identity service catalog contains a
+                list of all the products the user is enabled for and the corresponding endpoints.
+                The user can use the individual feed endpoint to interact with each individual feed.
+                The degree of interaction depends on the role the user has been assigned to. For
+                more information about roles, see <link linkend="Cloud_Feeds_Roles">Cloud Feeds
+                    authorization roles</link>.</para>
             <para>
                 <note>
                     <para>The identity service catalog contains a link to the Cloud Feeds catalog,
                         which lists all the available feeds. For more information, see <link
-                            linkend="Cloud_Feeds_Catalog">Cloud Feeds Catalog</link>
-                    </para>
+                            linkend="Cloud_Feeds_Catalog">Cloud Feeds Catalog</link>. </para>
                 </note>
             </para>
             <para>The authentication token <code>id</code> is returned along with an

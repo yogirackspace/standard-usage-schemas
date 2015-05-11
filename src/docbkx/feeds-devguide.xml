@@ -574,8 +574,7 @@
                     <note>
                         <para>The identity service catalog contains a link to the Cloud Feeds
                             catalog, which lists all the available feeds. For more information, see
-                                <link linkend="Feeds_Catalog">Cloud Feeds Catalog</link>
-                        </para>
+                                <link linkend="Feeds_Catalog">Cloud Feeds Catalog</link>.</para>
                     </note>
                 </para></section>
                 <section xml:id="Basic_Authentication">
