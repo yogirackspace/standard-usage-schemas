@@ -557,26 +557,11 @@
                         </itemizedlist>
                     </note>
                     <para>The actual account number is located after the final slash (/) in the
-                            <code>publicURL</code> field. You must specify your account number on
-                        most of the Cloud Feeds API operations, wherever you see the placeholder
-                            <replaceable>tenantID</replaceable> specified in the examples in this
-                        guide.</para>
-                <para>A successful authentication request returns the authentication token, as well
-                    as the identity service catalog in the response. The identity service catalog
-                    contains a list of all the products the user is enabled for and the
-                    corresponding endpoints. </para>
-                <para>The user can use the individual feed endpoint to interact with each individual
-                    feed. The degree of interaction depends on the role the user has been assigned
-                    to. For more information about roles, see <link
-                        linkend="RBAC-Permissions-Cross-Ref-d1e001">RBAC permissions cross-reference
-                        to Cloud Feeds API operations</link>.</para>
-                <para>
-                    <note>
-                        <para>The identity service catalog contains a link to the Cloud Feeds
-                            catalog, which lists all the available feeds. For more information, see
-                                <link linkend="Feeds_Catalog">Cloud Feeds Catalog</link>.</para>
-                    </note>
-                </para></section>
+                        <code>publicURL</code> field. You must specify your account number on most
+                    of the Cloud Feeds API operations, wherever you see the placeholder
+                        <replaceable>tenantID</replaceable> specified in the examples in this guide.
+                    A successful authentication request returns the authentication token, as well as
+                    the Identity Service catalog in the response. </para></section>
                 <section xml:id="Basic_Authentication">
                     <title>Authenticating by using basic authentication</title>
                     <para>In addition to token-based authentication Cloud Feeds also
@@ -607,10 +592,20 @@
                 </section>                
             </section>
         <section xml:id="Service_Access_Endpoints-d1e753">
-            <title>Service access/endpoints</title>
-            <para>Cloud Feeds service is a regionalized service. Therefore, the user of the service
+            <title>Identity Service access/endpoints</title>
+            <para xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:m="http://www.w3.org/1998/Math/MathML"
+                xmlns:html="http://www.w3.org/1999/xhtml">The Identity Service catalog contains a
+                list of product endpoints the user can access. It includes a list of Cloud Feeds
+                endpoints in various regions. </para>
+            <para xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:m="http://www.w3.org/1998/Math/MathML"
+                xmlns:html="http://www.w3.org/1999/xhtml">The user can use the Cloud Feeds endpoint
+                in a specific region to interact with each individual feed. The user of the service
                 is responsible for appropriate replication, caching, and overall maintenance of
                 Cloud Feeds data across regional boundaries to other Cloud Feeds servers. </para>
+            <para>The following table shows the regionalized service endpoints for Cloud
+                Feeds.</para>
             <table frame="border" security="external">
                 <caption>Regionalized service endpoints</caption>
                 <col width="11%"/>

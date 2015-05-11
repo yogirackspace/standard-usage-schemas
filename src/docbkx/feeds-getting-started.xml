@@ -616,7 +616,16 @@
         </section>
     </chapter>
     <chapter xml:id="Service_Access_Endpoints-d1e753">
-        <title>Service endpoints</title>
+        <title>Indentity Service endpoints</title>
+        <para xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML"
+            xmlns:html="http://www.w3.org/1999/xhtml">The Identity Service catalog contains a list
+            of product endpoints the user can access. It includes a list of Cloud Feeds endpoints in
+            various regions. </para>
+        <para xmlns:svg="http://www.w3.org/2000/svg" xmlns:m="http://www.w3.org/1998/Math/MathML"
+            xmlns:html="http://www.w3.org/1999/xhtml">The user can use the Cloud Feeds endpoint in a
+            specific region to interact with each individual feed. The user of the service is
+            responsible for appropriate replication, caching, and overall maintenance of Cloud Feeds
+            data across regional boundaries to other Cloud Feeds servers. </para>
         <para security="external">The following table summarizes the endpoints to use for your Cloud
             Feeds API calls.</para>
         <para>
