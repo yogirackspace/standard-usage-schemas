@@ -143,12 +143,8 @@
             <!-- handle nodes that have child nodes or attributes -->
             <xsl:when test="count(./child::*) > 0 or count(@*) > 0">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : <xsl:apply-templates select="." mode="obj-content"/>
-                <xsl:variable name="sibs" 
-                              select="following-sibling::*[not(self::atom:category) and
-                                                           not(self::atom:entry) and
-                                                           not(self::atom:feed) and
-                                                           not(self::atom:link)]"/>
-                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
+
+                <xsl:if test="cldfeeds:getSiblingCount(.) &gt; 0">, </xsl:if>
             </xsl:when>
             
             <!-- handles the archive element -->
@@ -157,23 +153,14 @@
                 <xsl:text>"</xsl:text>@type" : "<xsl:value-of select="namespace-uri()"/><xsl:text>"</xsl:text>
                 <xsl:text>}</xsl:text>
 
-                <xsl:variable name="sibs"
-                              select="following-sibling::*[not(self::atom:category) and
-                    not(self::atom:entry) and
-                    not(self::atom:feed) and
-                    not(self::atom:link)]"/>
-                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
+                <xsl:if test="cldfeeds:getSiblingCount(.) &gt; 0">, </xsl:if>
             </xsl:when>
             
             <!-- handle nodes that have no child nodes -->
             <xsl:when test="count(./child::*) = 0">
                 <xsl:text>"</xsl:text><xsl:value-of select="local-name()"/>" : "<xsl:apply-templates select="."/><xsl:text>"</xsl:text>
-                <xsl:variable name="sibs" 
-                              select="following-sibling::*[not(self::atom:category) and
-                                                           not(self::atom:entry) and
-                                                           not(self::atom:feed) and
-                                                           not(self::atom:link)]"/>
-                <xsl:if test="count($sibs) &gt; 0">, </xsl:if>
+
+                <xsl:if test="cldfeeds:getSiblingCount(.) &gt; 0">, </xsl:if>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
@@ -516,4 +503,18 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+    
+    <!--
+      Return sibling count of the currentNode 
+      excluding atom:category, atom:entry, atom:link nodes
+    -->
+    <xsl:function name="cldfeeds:getSiblingCount" as="xs:int">
+        <xsl:param name="currentNode"/>
+        <xsl:variable name="sibs"
+            select="$currentNode/following-sibling::*[not(self::atom:category) and
+            not(self::atom:entry) and
+            not(self::atom:link)]"/>
+        <xsl:value-of select="count($sibs)"></xsl:value-of>
+    </xsl:function>
+    
 </xsl:stylesheet>
