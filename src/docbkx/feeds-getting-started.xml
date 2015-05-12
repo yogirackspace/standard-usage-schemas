@@ -626,6 +626,12 @@
             specific region to interact with each individual feed. The user of the service is
             responsible for appropriate replication, caching, and overall maintenance of Cloud Feeds
             data across regional boundaries to other Cloud Feeds servers. </para>
+        <para>
+            <note>
+                <para>The Identity Service catalog contains a link to the Cloud Feeds service
+                    catalog. The Cloud Feeds service catalog lists all available feeds.</para>
+            </note>
+        </para>
         <para security="external">The following table summarizes the endpoints to use for your Cloud
             Feeds API calls.</para>
         <para>
