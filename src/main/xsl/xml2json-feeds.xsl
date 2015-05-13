@@ -508,7 +508,7 @@
       Return sibling count of the currentNode 
       excluding atom:category, atom:entry, atom:link nodes
     -->
-    <xsl:function name="cldfeeds:getSiblingCount" as="xs:int">
+    <xsl:function name="cldfeeds:getSiblingCount" as="xs:integer">
         <xsl:param name="currentNode"/>
         <xsl:variable name="sibs"
             select="$currentNode/following-sibling::*[not(self::atom:category) and
