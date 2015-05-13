@@ -43,7 +43,7 @@
         <xsl:call-template name="atomList"> 
             <xsl:with-param name="nodes" select="atom:link" as="node()*"/>
             <!-- CF-545 - only print comma if there are entries -->
-            <xsl:with-param name="printComma" select="boolean(atom:entry)"/>
+            <xsl:with-param name="printComma" select="boolean(atom:entry) or cldfeeds:getSiblingCount(atom:link) &gt; 0"/>
         </xsl:call-template>
         
         <!-- print all the atom:entry elements -->
