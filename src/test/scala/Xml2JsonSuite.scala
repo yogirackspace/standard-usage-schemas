@@ -150,8 +150,20 @@ class Xml2JsonSuite extends BaseUsageSuite {
       |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
       |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
       |  <fh:archive />
+      |  <id>uuid</id>
+      |  <title type="text">feed1</title>
       |</feed>
-    """.stripMargin))
+    """.stripMargin),("empty feed without entries but with other elements in between",
+      """
+        |<feed xmlns="http://www.w3.org/2005/Atom"
+        |      xmlns:fh="http://purl.org/syndication/history/1.0">
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
+        |  <fh:archive />
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
+        |  <id>uuid</id>
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
+        |</feed>
+      """.stripMargin))
 
     emptyFeedXmlList.foreach(input => {
       val (title, emptyFeedXml) = input
