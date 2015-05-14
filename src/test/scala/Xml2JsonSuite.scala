@@ -135,17 +135,40 @@ class Xml2JsonSuite extends BaseUsageSuite {
         }
     })
 
-    test("should transform an empty feed response properly") {
-        val emptyFeedXml =
-            """
-              |<feed xmlns="http://www.w3.org/2005/Atom">
-              |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
-              |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
-              |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
-              |</feed>
-            """.stripMargin
+  val emptyFeedXmlList = List(("empty feed",
+    """
+      |<feed xmlns="http://www.w3.org/2005/Atom">
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
+      |</feed>
+    """.stripMargin),("empty feed without entries but with other elements",
+    """
+      |<feed xmlns="http://www.w3.org/2005/Atom"
+      |      xmlns:fh="http://purl.org/syndication/history/1.0">
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
+      |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
+      |  <fh:archive />
+      |  <id>uuid</id>
+      |  <title type="text">feed1</title>
+      |</feed>
+    """.stripMargin),("empty feed without entries but with other elements in between",
+      """
+        |<feed xmlns="http://www.w3.org/2005/Atom"
+        |      xmlns:fh="http://purl.org/syndication/history/1.0">
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="current" />
+        |  <fh:archive />
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/" rel="self" />
+        |  <id>uuid</id>
+        |  <link href="https://atom.test.ord1.us.ci.rackspace.net/functest2/events/?marker=last&amp;limit=25&amp;search=&amp;direction=backward" rel="last" />
+        |</feed>
+      """.stripMargin))
 
-        val jsonResult = transform(new StreamSource(new StringReader(emptyFeedXml)))
+    emptyFeedXmlList.foreach(input => {
+      val (title, emptyFeedXml) = input
+      test(s"should transform an $title response properly") {
+                val jsonResult = transform(new StreamSource(new StringReader(emptyFeedXml)))
         val jsonObjects = JSON.parseFull(jsonResult).get.asInstanceOf[Map[String,Any]]
 
         // check for feed
@@ -156,7 +179,9 @@ class Xml2JsonSuite extends BaseUsageSuite {
         assert(feedObject.get("link").get != null, "should have 'link' elements")
         val linkObjects = feedObject.get("link").get.asInstanceOf[List[Map[String, Any]]]
         assert(linkObjects.size == 3, "should have 3 link elements")
-    }
+      }
+    })
+
 
     test("should transform /dedicatedvcloud feed response properly") {
         val jsonResult = transform(new StreamSource(new File("src/test/resources/dedicatedvcloud-feed-response.xml")))
