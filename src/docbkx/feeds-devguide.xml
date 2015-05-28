@@ -2554,7 +2554,7 @@
         </section>
     </chapter>    
     <xi:include href="feeds-archiving.xml" security="internal"></xi:include>
-    <xi:include href="api-operations-external.xml" security="internal"></xi:include>
-    <xi:include href="api-operations-internal.xml" security="internal"></xi:include>
+    <xi:include href="api-operations-external.xml"></xi:include>
+    <xi:include href="api-operations-internal.xml"></xi:include>
 
     </book>
