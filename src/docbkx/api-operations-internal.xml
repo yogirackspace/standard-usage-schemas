@@ -167,6 +167,12 @@
       <resource href="../../allfeeds.wadl#queues_events_getEntry_CloudQueues"/>
     </resources>
   </section>
+  <section xml:id="servermill.product">
+    <title>Server Mill</title>
+    <resources xmlns="http://wadl.dev.java.net/2009/02">
+      <resource href="../../allfeeds.wadl#servermill_events"/>
+    </resources>
+  </section>
   <section xml:id="servers.product">
     <title>Cloud Servers Legacy</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">
