@@ -133,6 +133,9 @@
                   path="queues/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues 
                         wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesTenant"/>
+        <resource id="servermill_events"
+                  path="servermill/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="servers_events"
                   path="servers/events" 
                   type="wadl/feed.wadl#AtomFeedAllowJson 
