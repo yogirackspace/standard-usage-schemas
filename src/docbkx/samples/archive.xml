@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:fh="http://purl.org/syndication/history/1.0">
   <fh:archive/>
   <link rel="current" href="https://ord.feeds.api.rackspacecloud.com/feed_1/events/5821027"/>
-  <link rel="self" href="https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-27.xml"/>
+  <link rel="self" href="https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-27.xml"/>
   <id>urn:uuid0803e933-0011-464a-8ea2-5187b8ec4487</id>
   <title type="text">feed_1/events</title>
-  <link rel="prev-archive" href="https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-28.xml"/>
-  <link rel="next-archive" href="https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-26.xml"/>
+  <link rel="prev-archive" href="https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-28.xml"/>
+  <link rel="next-archive" href="https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-26.xml"/>
   <updated>2015-01-28T15:50:48.497Z</updated>
   <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://wadl.dev.java.net/2009/02" xmlns:db="http://docbook.org/ns/docbook" xmlns:error="http://docs.rackspace.com/core/error" xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:json="http://json-schema.org/schema#" xmlns:saxon="http://saxon.sf.net/" xmlns:sum="http://docs.rackspace.com/core/usage/schema/summary" xmlns:d558e1="http://wadl.dev.java.net/2009/02" xmlns:cldfeeds="http://docs.rackspace.com/api/cloudfeeds" index="7">
     <atom:id>urn:uuid:59085a27-f9ac-44f7-a74b-0d41fe3c4585</atom:id>

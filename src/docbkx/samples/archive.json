@@ -130,15 +130,15 @@
                 "rel": "current"
             },
             {
-                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-27.json",
+                "href": "https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-27.json",
                 "rel": "self"
             },
             {
-                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-28.json",
+                "href": "https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-28.json",
                 "rel": "prev-archive"
             },
             {
-                "href": "https://storage.stg.swift.racklabs.com/v1/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-26.json",
+                "href": "https://ord.feeds.api.rackspacecloud.com/archive/StagingUS_cab08997-1c5d-4545-815a-186592907ef9/container_1/ord_feed_1-events_2015-01-26.json",
                 "rel": "next-archive"
             }
         ],
