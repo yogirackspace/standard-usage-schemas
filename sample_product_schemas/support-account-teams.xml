@@ -20,5 +20,11 @@
         <attribute name="suppressNotifications" type="boolean" use="optional" default="false">
            Specifies if notifications should be suppressed.
         </attribute>
+        <attribute name="relationshipType" type="string" use="optional" allowedValues="PRIMARY SECONDARY">
+           Specifies team's relationship to account.
+        </attribute>
+        <attribute name="previousTeamNumber" type="int" use="optional">
+           Specifies previous team on the account with this relationship.
+        </attribute>
     </attributeGroup>
 </productSchema>
