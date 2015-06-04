@@ -18,7 +18,7 @@
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" 
-  xml:id="feeds-archiving" version="5.0">
+  xml:id="feeds-archiving" version="5.0" security="internal">
    <title>Cloud Feeds Archiving</title><para>Cloud Feeds supports archiving of events. Normally, an event remains in the database for three
             days. Archiving enables customers to permanently store events in a Cloud Files
             container, and to retrieve them from that location.</para>
