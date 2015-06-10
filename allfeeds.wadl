@@ -84,7 +84,7 @@
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles wadl/feed.wadl#TenantAtomFeed  wadl/product.wadl#CloudFilesTenant"/>
         <resource id="glance_events"
                   path="glance/events" 
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#GlanceTenant"/>
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource id="identity_events"
                   path="identity/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudIdentityTenant"/>
