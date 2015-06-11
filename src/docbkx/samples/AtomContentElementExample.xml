@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<content type="application/xml" xmlns="http://www.w3.org/2005/Atom">
-    <event xmlns="http://docs.rackspace.com/core/event"
-        xmlns:sample="http://docs.rackspace.com/event/autoscale"
-        id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-        version="2"
-        eventTime="2013-03-15T11:51:11Z"
-        type="INFO"
-        dataCenter="DFW1"
-        region="DFW">
-        <sample:product serviceCode="Autoscale"
-            version="1"
-            scalingGroupId="6e8bc430-9c3a-11d9-9669-0800200c9a66"
-            desiredCapacity="5"
-            currentCapacity="3"
-            message="Launching 2 servers"/>
+<content type="application/xml" xmlns="http://www.w3.org/2005/Atom" xmlns:cb-store="http://docs.rackspace.com/usage/cloudbackup/storage">
+    <event dataCenter="DFW1"
+           endTime="2012-06-15T10:19:52Z"
+           environment="PROD"
+           id="8d89673c-c989-11e1-895a-0b3d632a8a89"
+           region="DFW"
+           resourceId="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
+           startTime="2012-06-14T10:19:52Z"
+           tenantId="1234"
+           type="USAGE"
+           version="1">
+        <cb-store:product
+           resourceType="AGENT"
+           serverID="9445"
+           serviceCode="CloudBackup"
+           storage="99992827882"
+           version="1" />
     </event>
-</content>
+    </content>
