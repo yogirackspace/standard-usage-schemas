@@ -942,7 +942,7 @@
                 <para>
                     <example>
                         <title>Atom content element - XML example</title>
-                        <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.json" parse="text"/></programlisting>
+                        <programlisting language="xml"><xi:include href="./samples/AtomContentElementExample.xml" parse="text"/></programlisting>
                     </example>
                 </para>
                 <para>Following is a JSON example of an Atom Content element.</para>
