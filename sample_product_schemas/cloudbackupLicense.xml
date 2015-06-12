@@ -31,8 +31,9 @@
             <attribute name="external" type="boolean" use="optional" default="false">
                 If this value is set to true, the server where the agent is installed is external to Rackspace.
             </attribute>
-            <xpathAssertion test="if (not(xsd:boolean(@external))) then @serverID else true()">
-                If the server is NOT external, then the serverID attribute is required.
+            <xpathAssertion test="if (not(xsd:boolean($product/@external)) and ($event/@type != 'USAGE_SUMMARY')) then ($product/@serverID) else true()"
+                            scope="entry">
+                If the server is NOT external and event is not USAGE_SUMMARY, then the serverID attribute is required.
             </xpathAssertion>
     </productSchema>
 </alternatives>
