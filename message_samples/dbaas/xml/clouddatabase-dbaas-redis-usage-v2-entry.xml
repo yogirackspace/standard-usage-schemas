@@ -3,20 +3,25 @@
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
     <atom:title>DBaas Usage</atom:title>
     <atom:content type="application/xml">
-        <event xmlns="http://docs.rackspace.com/core/event"
-               xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
-               version="1" tenantId="12334" environment="QA"
+        <event xmlns:dbaas="http://docs.rackspace.com/usage/dbaas"
+               xmlns="http://docs.rackspace.com/core/event"
+               version="1"
+               tenantId="12334"
+               environment="QA"
                resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
                resourceName="MyDatabase"
                id="560490c6-6c63-11e1-adfe-27851d5aed13"
                rootAction="reddwarf.instance.modify_volume"
-               type="USAGE" dataCenter="DFW1" region="DFW"
+               type="USAGE"
+               dataCenter="DFW1"
+               region="DFW"
                startTime="2012-03-12T11:51:11Z"
                endTime="2012-03-12T15:51:11Z">
-            <dbaas:product version="2" serviceCode="CloudDatabase"
+            <dbaas:product version="2"
+                           serviceCode="CloudDatabase"
                            resourceType="REDIS"
                            dbVersion=".0.0.0.0.0.0.0.1"
-                           memory="16" />
+                           memory="16"/>
         </event>
     </atom:content>
 </atom:entry>
