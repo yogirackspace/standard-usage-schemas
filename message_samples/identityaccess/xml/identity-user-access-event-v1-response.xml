@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <atom:id>urn:uuid:6fa234aea93f38c26fa234aea93f38x4</atom:id>
+    <atom:id>urn:uuid:6fa234aea93f38c26fa234aea93f38y4</atom:id>
     <atom:category term="tid:5821027"/>
     <atom:category term="rgn:DFW"/>
     <atom:category term="dc:DFW1"/>
     <atom:category term="username:jackhandy"/>
     <atom:title type="text">UserAccessEvent</atom:title>
     <atom:content type="application/xml">
-        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" action="read/get" eventTime="2015-03-12T13:20:00-05:00" eventType="activity" id="6fa234aea93f38c26fa234aea93f38x4" outcome="success" typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event">
+        <cadf:event xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:ua="http://feeds.api.rackspacecloud.com/cadf/user-access-event" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" action="read/get" eventTime="2015-03-12T13:20:00-05:00" eventType="activity" id="6fa234aea93f38c26fa234aea93f38y4" outcome="success" typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event">
             <cadf:initiator id="10.1.2.3" name="jackhandy" typeURI="network/node">
                 <cadf:host address="10.1.2.3" agent="curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"/>
             </cadf:initiator>
-            <cadf:target id="dfw.servers.api.rackspacecloud.com" name="nova" typeURI="service">
-                <cadf:host address="dfw.servers.api.rackspacecloud.com"/>
+            <cadf:target id="identity.api.rackspacecloud.com" name="IDM" typeURI="service">
+                <cadf:host address="identity.api.rackspacecloud.com"/>
             </cadf:target>
             <cadf:attachments>
                 <cadf:attachment contentType="ua:auditData" name="auditData">
@@ -21,7 +21,7 @@
                             <ua:region>DFW</ua:region>
                             <ua:dataCenter>DFW1</ua:dataCenter>
                             <ua:methodLabel/>
-                            <ua:requestURL>https://dfw.servers.api.rackspacecloud.com/v2/5821027/servers</ua:requestURL>
+                            <ua:requestURL>https://identity.api.rackspacecloud.com/v2.0/tokens</ua:requestURL>
                             <ua:queryString/>
                             <ua:tenantId>5821027</ua:tenantId>
                             <ua:responseMessage>OK</ua:responseMessage>
@@ -31,13 +31,13 @@
                     </cadf:content>
                 </cadf:attachment>
             </cadf:attachments>
-            <cadf:observer id="nova" name="repose-7.1.1.1" typeURI="service/security">
+            <cadf:observer id="IDM" name="repose-7.1.1.1" typeURI="service/security">
                 <cadf:host address="repose"/>
             </cadf:observer>
             <cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
         </cadf:event>
     </atom:content>
-    <atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/nova_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38x4" rel="self"/>
-    <atom:updated>2015-04-27T20:10:36.741Z</atom:updated>
-    <atom:published>2015-04-27T20:10:36.741Z</atom:published>
+    <atom:link href="https://dfw.feeds.api.rackspacecloud.com/identity_access/events/5821027/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38y4" rel="self"/>
+    <atom:updated>2015-04-27T20:44:36.818Z</atom:updated>
+    <atom:published>2015-04-27T20:44:36.818Z</atom:published>
 </atom:entry>

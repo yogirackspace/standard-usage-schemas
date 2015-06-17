@@ -1,0 +1,91 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:123456"
+            },
+            {
+                "term": "rgn:GLOBAL"
+            },
+            {
+                "term": "dc:GLOBAL"
+            },
+            {
+                "term": "username:jackhandy"
+            }
+        ],
+        "content": {
+            "event": {
+                "action": "read/get",
+                "attachments": [
+                    {
+                        "content": {
+                            "auditData": {
+                                "dataCenter": "GLOBAL",
+                                "methodLabel": "usage",
+                                "queryString": "limit=10",
+                                "region": "GLOBAL",
+                                "requestURL": "https://ord.feeds.api.rackspacecloud.com/sites/events",
+                                "responseMessage": "OK",
+                                "roles": "cloudfeeds-observer",
+                                "tenantId": "123456",
+                                "userName": "jackhandy",
+                                "version": "1"
+                            }
+                        },
+                        "contentType": "ua:auditData",
+                        "name": "auditData"
+                    }
+                ],
+                "eventTime": "2015-03-12T13:20:00-05:00",
+                "eventType": "activity",
+                "id": "6fa234aea93f38c26fa234aea93f38r4",
+                "initiator": {
+                    "host": {
+                        "address": "10.1.2.3",
+                        "agent": "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    },
+                    "id": "10.1.2.3",
+                    "name": "jackhandy",
+                    "typeURI": "network/node"
+                },
+                "observer": {
+                    "host": {
+                        "address": "repose"
+                    },
+                    "id": "feeds-1-1",
+                    "name": "repose-7.1.1.1",
+                    "typeURI": "service/security"
+                },
+                "outcome": "success",
+                "reason": {
+                    "reasonCode": 200,
+                    "reasonType": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                },
+                "target": {
+                    "host": {
+                        "address": "ord.feeds.api.rackspacecloud.com"
+                    },
+                    "id": "ord.feeds.api.rackspacecloud.com",
+                    "name": "feeds",
+                    "typeURI": "service"
+                },
+                "typeURI": "http://schemas.dmtf.org/cloud/audit/1.0/event"
+            }
+        },
+        "id": "urn:uuid:6fa234aea93f38c26fa234aea93f38r4",
+        "link": [
+            {
+                "href": "https://dfw.feeds.api.rackspacecloud.com/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38r4",
+                "rel": "self"
+            }
+        ],
+        "published": "2015-04-28T19:07:19.652Z",
+        "title": {
+            "@text": "UserAccessEvent",
+            "type": "text"
+        },
+        "updated": "2015-04-28T19:07:19.652Z"
+    }
+}
