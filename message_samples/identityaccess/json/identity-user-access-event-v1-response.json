@@ -1,0 +1,91 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:5821027"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "username:jackhandy"
+            }
+        ],
+        "content": {
+            "event": {
+                "action": "read/get",
+                "attachments": [
+                    {
+                        "content": {
+                            "auditData": {
+                                "dataCenter": "DFW1",
+                                "methodLabel": "",
+                                "queryString": "",
+                                "region": "DFW",
+                                "requestURL": "https://identity.api.rackspacecloud.com/v2.0/tokens",
+                                "responseMessage": "OK",
+                                "roles": "nova:creator",
+                                "tenantId": "5821027",
+                                "userName": "jackhandy",
+                                "version": "1"
+                            }
+                        },
+                        "contentType": "ua:auditData",
+                        "name": "auditData"
+                    }
+                ],
+                "eventTime": "2015-03-12T13:20:00-05:00",
+                "eventType": "activity",
+                "id": "6fa234aea93f38c26fa234aea93f38y4",
+                "initiator": {
+                    "host": {
+                        "address": "10.1.2.3",
+                        "agent": "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    },
+                    "id": "10.1.2.3",
+                    "name": "jackhandy",
+                    "typeURI": "network/node"
+                },
+                "observer": {
+                    "host": {
+                        "address": "repose"
+                    },
+                    "id": "IDM",
+                    "name": "repose-7.1.1.1",
+                    "typeURI": "service/security"
+                },
+                "outcome": "success",
+                "reason": {
+                    "reasonCode": 200,
+                    "reasonType": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                },
+                "target": {
+                    "host": {
+                        "address": "identity.api.rackspacecloud.com"
+                    },
+                    "id": "identity.api.rackspacecloud.com",
+                    "name": "IDM",
+                    "typeURI": "service"
+                },
+                "typeURI": "http://schemas.dmtf.org/cloud/audit/1.0/event"
+            }
+        },
+        "id": "urn:uuid:6fa234aea93f38c26fa234aea93f38y4",
+        "link": [
+            {
+                "href": "https://dfw.feeds.api.rackspacecloud.com/identity_access/events/5821027/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38y4",
+                "rel": "self"
+            }
+        ],
+        "published": "2015-04-27T20:44:36.818Z",
+        "title": {
+            "@text": "UserAccessEvent",
+            "type": "text"
+        },
+        "updated": "2015-04-27T20:44:36.818Z"
+    }
+}

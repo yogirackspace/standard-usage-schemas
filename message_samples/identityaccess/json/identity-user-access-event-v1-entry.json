@@ -1,0 +1,65 @@
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "content": {
+            "event": {
+                "action": "read/get",
+                "attachments": [
+                    {
+                        "content": {
+                            "auditData": {
+                                "dataCenter": "DFW1",
+                                "methodLabel": "",
+                                "queryString": "",
+                                "region": "DFW",
+                                "requestURL": "https://identity.api.rackspacecloud.com/v2.0/tokens",
+                                "responseMessage": "OK",
+                                "roles": "nova:creator",
+                                "tenantId": "5821027",
+                                "userName": "jackhandy",
+                                "version": "1"
+                            }
+                        },
+                        "contentType": "ua:auditData",
+                        "name": "auditData"
+                    }
+                ],
+                "eventTime": "2015-03-12T13:20:00-05:00",
+                "eventType": "activity",
+                "id": "6fa234aea93f38c26fa234aea93f38c4",
+                "initiator": {
+                    "host": {
+                        "address": "10.1.2.3",
+                        "agent": "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    },
+                    "id": "10.1.2.3",
+                    "name": "jackhandy",
+                    "typeURI": "network/node"
+                },
+                "observer": {
+                    "host": {
+                        "address": "repose"
+                    },
+                    "id": "IDM",
+                    "name": "repose-7.1.1.1",
+                    "typeURI": "service/security"
+                },
+                "outcome": "success",
+                "reason": {
+                    "reasonCode": 200,
+                    "reasonType": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                },
+                "target": {
+                    "host": {
+                        "address": "identity.api.rackspacecloud.com"
+                    },
+                    "id": "identity.api.rackspacecloud.com",
+                    "name": "IDM",
+                    "typeURI": "service"
+                },
+                "typeURI": "http://schemas.dmtf.org/cloud/audit/1.0/event"
+            }
+        },
+        "title": "UserAccessEvent"
+    }
+}

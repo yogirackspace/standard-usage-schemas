@@ -37,7 +37,7 @@
             <cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/>
         </cadf:event>
     </atom:content>
-    <atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/identity_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38q4" rel="self"/>
+    <atom:link href="https://dfw.feeds.api.rackspacecloud.com/identity_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38q4" rel="self"/>
     <atom:updated>2015-04-28T19:01:35.023Z</atom:updated>
     <atom:published>2015-04-28T19:01:35.023Z</atom:published>
 </atom:entry>
