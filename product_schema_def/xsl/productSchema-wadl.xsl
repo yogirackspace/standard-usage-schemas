@@ -1066,12 +1066,27 @@
                 </informaltable>
             </xsl:if>
 
-            <para><emphasis role="bold">XML Sample</emphasis>
-                <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
-            </para>
-            <para><emphasis role="bold">JSON Sample</emphasis>
-                <programlisting language="json"><xsl:copy-of select="$json_content"/></programlisting>
-            </para>
+            <xsl:choose>
+                <xsl:when test="$content != ''">
+                    <para><emphasis role="bold">XML Sample</emphasis>
+                        <programlisting language="xml"><xsl:copy-of select="replace($content,'\n.*atom.*feed.*ignore.*used for testing.*(\n)','$1')"/></programlisting>
+                    </para>
+                </xsl:when>
+                <xsl:otherwise>
+                    <programlisting language="xml" />
+                </xsl:otherwise>
+            </xsl:choose>
+
+            <xsl:choose>
+                <xsl:when test="$json_content != ''">
+                    <para><emphasis role="bold">JSON Sample</emphasis>
+                        <programlisting language="json"><xsl:copy-of select="$json_content"/></programlisting>
+                    </para>
+                </xsl:when>
+                <xsl:otherwise>
+                    <programlisting language="json" />
+                </xsl:otherwise>
+            </xsl:choose>
 
         </example>
     </xsl:template>
