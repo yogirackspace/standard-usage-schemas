@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?atom feed="dbaas/events"?>
+<?expect code="400" message="storage"?>
 <!--
     This example has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/dbaas.xml -DfeedName=dbaas' call.
