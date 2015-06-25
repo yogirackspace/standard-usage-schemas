@@ -44,10 +44,11 @@
                 "product": {
                     "@type": "http://docs.rackspace.com/usage/dbaas",
                     "serviceCode": "CloudDatabase",
-                    "version": "2",
+                    "version": "3",
                     "resourceType": "MYSQL",
-                    "memory": 0,
                     "storage":64,
+                    "isHAInstance": true,
+                    "memory": 0,
                     "dbVersion": "sampleString"
                 }
             }

@@ -31,10 +31,11 @@
                dataCenter="DFW1"
                region="DFW">
             <sample:product serviceCode="CloudDatabase"
-                            version="2"
+                            version="3"
                             resourceType="MYSQL"
                             memory="0"
                             storage="64"
+                            isHAInstance="true"
                             dbVersion="sampleString"/>
         </event>
     </atom:content>

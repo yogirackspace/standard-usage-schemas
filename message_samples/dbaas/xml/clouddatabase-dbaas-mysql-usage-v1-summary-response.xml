@@ -15,36 +15,39 @@
       - Does not process the 'withEventType' and 'withResource' attributes.
             -->
 <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
-            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns="http://www.w3.org/2001/XMLSchema">
-   <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
-   <atom:category term="tid:1234"/>
-   <atom:category term="rgn:DFW"/>
-   <atom:category term="dc:DFW1"/>
-   <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
-   <atom:category term="clouddatabase.dbaas.mysql.usage_summary"/>
-   <atom:category term="type:clouddatabase.dbaas.mysql.usage_summary"/>
-   <atom:title>CloudDatabase Summary</atom:title>
-   <atom:content type="application/xml">
-      <event xmlns="http://docs.rackspace.com/core/event"
-             xmlns:sample="http://docs.rackspace.com/usage/dbaas"
-             id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-             version="1"
-             resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
-             tenantId="1234"
-             rackspaceAccountNumber="020-1234"
-             startTime="2013-03-15T11:51:11Z"
-             endTime="2013-03-16T11:51:11Z"
-             duration="PT10M"
-             type="USAGE_SUMMARY"
-             dataCenter="DFW1"
-             region="DFW">
-         <sample:product summary="true"
-                         serviceCode="CloudDatabase"
-                         version="1"
-                         resourceType="MYSQL"
-                         memory="0"
-                         storage="0"/>
-      </event>
-   </atom:content>
+    <atom:id>urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814</atom:id>
+    <atom:category term="tid:123456"/>
+    <atom:category term="rgn:DFW"/>
+    <atom:category term="dc:DFW1"/>
+    <atom:category term="rid:4a2b42f4-6c63-11e1-815b-7fcbcf67f549"/>
+    <atom:category term="clouddatabase.dbaas.mysql.usage_summary"/>
+    <atom:category term="type:clouddatabase.dbaas.mysql.usage_summary"/>
+    <atom:title>CloudDatabase Summary</atom:title>
+    <atom:content type="application/xml">
+        <event xmlns:sample="http://docs.rackspace.com/usage/dbaas"
+               xmlns="http://docs.rackspace.com/core/event"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               version="2"
+               resourceId="4a2b42f4-6c63-11e1-815b-7fcbcf67f549"
+               tenantId="123456"
+               rackspaceAccountNumber="020-123456"
+               startTime="2013-03-15T11:51:11Z"
+               endTime="2013-03-16T00:00:00Z"
+               duration="PT12H8M49S"
+               type="USAGE_SUMMARY"
+               dataCenter="DFW1"
+               region="DFW">
+            <sample:product summary="true"
+                            serviceCode="CloudDatabase"
+                            version="1"
+                            resourceType="MYSQL"
+                            memory="0"
+                            storage="0"/>
+        </event>
+    </atom:content>
+    <atom:link href="https://ord.feeds.api.rackspacecloud.com/dbaas/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               rel="self"/>
+    <atom:updated>2013-03-01T19:42:35.507Z</atom:updated>
+    <atom:published>2013-03-01T19:42:35.507</atom:published>
 </atom:entry>

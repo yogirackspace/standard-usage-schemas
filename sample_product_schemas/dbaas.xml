@@ -53,4 +53,48 @@
             The storage attribute is required for all databases except for REDIS, MONGODB, MEMCACHED and CASSANDRA.
         </xpathAssertion>
     </productSchema>
+    <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+                   namespace="http://docs.rackspace.com/usage/dbaas"
+                   serviceCode="CloudDatabase"
+                   version="3"
+                   resourceTypes="MYSQL PERCONA MARIADB REDIS MONGODB MEMCACHED CASSANDRA POSTGRESSQL"
+                   ranEnrichmentStrategy="INTEGER_RANGE">
+        <description>
+            Specifies the Dbaas-specific user fields.
+        </description>
+
+        <attribute name="memory" type="int" use="required"
+                   min="0" max="131072"
+                   unitOfMeasure="MB" groupBy="true">
+            Specifies the memory that has been provisioned for this database.
+        </attribute>
+
+        <attribute name="storage" type="int" use="optional"
+                   min="0" max="3072"
+                   unitOfMeasure="GB" groupBy="true">
+            Specifies the provisioned size of the storage volume for this database.
+        </attribute>
+
+        <attribute name="dbVersion" type="string" use="required" groupBy="true">
+            Specifies the version of the database.
+        </attribute>
+
+        <attribute name="isHAInstance" type="boolean" use="optional" default="false" groupBy="true">
+            Specifies if the resource is an HA instance.
+        </attribute>
+
+        <xpathAssertion test="if ( @resourceType = 'REDIS'
+                                   or @resourceType = 'MONGODB'
+                                   or @resourceType = 'MEMCACHED'
+                                   or @resourceType = 'CASSANDRA') then not( @storage ) else @storage">
+            The storage attribute is required for all databases except for REDIS, MONGODB, MEMCACHED and CASSANDRA.
+        </xpathAssertion>
+
+        <xpathAssertion test="if ( not(@resourceType = 'MYSQL'
+                                   or @resourceType = 'MARIADB'
+                                   or @resourceType = 'PERCONA'
+                                   or @resourceType = 'POSTGRESSQL')) then not( @isHAInstance ) else true()">
+            The isHAInstance attribute can only be true for MYSQL PERCONA, MARIADB and POSTGRESSQL resourceTypes.
+        </xpathAssertion>
+    </productSchema>
 </alternatives>
