@@ -35,6 +35,7 @@
                             resourceType="MYSQL"
                             memory="0"
                             storage="64"
+                            isHAInstance="true"
                             dbVersion="sampleString"/>
         </event>
     </atom:content>

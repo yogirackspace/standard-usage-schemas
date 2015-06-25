@@ -19,6 +19,7 @@
                     "serviceCode": "CloudDatabase",
                     "version": "3",
                     "resourceType": "MYSQL",
+                    "isHAInstance": true,
                     "storage":64,
                     "memory": 0,
                     "dbVersion": "sampleString"

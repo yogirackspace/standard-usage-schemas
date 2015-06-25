@@ -22,6 +22,7 @@
                     "version": "3",
                     "resourceType": "MYSQL",
                     "storage":64,
+                    "isHAInstance": true,
                     "memory": 0,
                     "dbVersion": "sampleString"
                 }

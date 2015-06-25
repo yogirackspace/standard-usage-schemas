@@ -51,6 +51,7 @@
                     "resourceType": "MYSQL",
                     "storage":64,
                     "memory": 0,
+                    "isHAInstance": true,
                     "dbVersion": "sampleString"
                 }
             }

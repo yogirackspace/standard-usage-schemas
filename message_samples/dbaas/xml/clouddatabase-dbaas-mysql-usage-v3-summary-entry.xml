@@ -35,6 +35,7 @@
             <sample:product serviceCode="CloudDatabase"
                             version="3"
                             resourceType="MYSQL"
+                            isHAInstance="true"
                             memory="0"
                             storage="64"
                             dbVersion="sampleString"/>
