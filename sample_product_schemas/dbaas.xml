@@ -86,14 +86,18 @@
         <xpathAssertion test="if ( @resourceType = 'REDIS'
                                    or @resourceType = 'MONGODB'
                                    or @resourceType = 'MEMCACHED'
-                                   or @resourceType = 'CASSANDRA') then not( @storage ) else @storage">
+                                   or @resourceType = 'CASSANDRA')
+                              then not( @storage )
+                              else @storage">
             The storage attribute is required for all databases except for REDIS, MONGODB, MEMCACHED and CASSANDRA.
         </xpathAssertion>
 
         <xpathAssertion test="if ( not(@resourceType = 'MYSQL'
                                    or @resourceType = 'MARIADB'
                                    or @resourceType = 'PERCONA'
-                                   or @resourceType = 'POSTGRESSQL')) then not( @isHAInstance ) else true()">
+                                   or @resourceType = 'POSTGRESSQL'))
+                              then (@isHAInstance = false())
+                              else true()">
             The isHAInstance attribute can only be true for MYSQL PERCONA, MARIADB and POSTGRESSQL resourceTypes.
         </xpathAssertion>
     </productSchema>
