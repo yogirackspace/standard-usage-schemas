@@ -208,15 +208,6 @@
                         </tbody>
                     </tgroup>
                     </informaltable>
-                    <para>
-                        <emphasis role="bold">XML Sample</emphasis>
-                        <programlisting language="xml">
-                        </programlisting>
-                    </para>
-                    <para>
-                        <emphasis role="bold">JSON Sample</emphasis>
-                        <programlisting language="json"/>
-                    </para>
                 </example>
             </wadl:doc>
             <request>
