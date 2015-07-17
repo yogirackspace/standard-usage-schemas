@@ -33,8 +33,7 @@
                          ran="a"
                          tranType="INVOICE"
                          tranRefNumber="a"
-                         lineOfBusiness="US_CLOUD"
-                         selfYRL="http://rackspace.com"/>
+                         lineOfBusiness="US_CLOUD"/>
       </event>
    </atom:content>
 </atom:entry>

@@ -17,7 +17,7 @@
         Specifies the line of business
     </attribute>
  
-    <attribute name="selfYRL" type="anyURI" use="required">
+    <attribute name="selfURL" type="anyURI" use="optional">
         Specifies the link to view the Transaction.
     </attribute>
     
