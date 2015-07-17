@@ -37,7 +37,8 @@
                          ran="a"
                          tranType="INVOICE"
                          tranRefNumber="a"
-                         lineOfBusiness="US_CLOUD"/>
+                         lineOfBusiness="US_CLOUD"
+                         selfYRL="http://rackspace.com"/>
       </event>
    </atom:content>   
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/billing/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"

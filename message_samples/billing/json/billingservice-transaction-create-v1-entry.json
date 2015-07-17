@@ -18,7 +18,8 @@
                     "ran": "a",
                     "tranType": "INVOICE",
                     "tranRefNumber": "a",
-                    "lineOfBusiness": "US_CLOUD"
+                    "lineOfBusiness": "US_CLOUD",
+                    "selfYRL": "http://rackspace.com"
                 }
             }
         }

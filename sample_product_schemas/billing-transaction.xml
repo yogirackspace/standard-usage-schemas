@@ -16,4 +16,9 @@
     <attribute name="lineOfBusiness" type="string" use="required" allowedValues="US_CLOUD">
         Specifies the line of business
     </attribute>
+ 
+    <attribute name="selfYRL" type="anyURI" use="required">
+        Specifies the link to view the Transaction.
+    </attribute>
+    
 </productSchema>
