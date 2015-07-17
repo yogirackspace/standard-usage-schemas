@@ -1,0 +1,19 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+        namespace="http://docs.rackspace.com/event/billing/transaction"
+        serviceCode="BillingService" type="CREATE" version="1">
+    <description>
+        Specifies the events related to Billing Account Transactions.
+    </description>
+    <attribute name="ran" type="string" use="required" minLength="1" maxLength="255">
+        Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="tranType" type="string" use="required"  allowedValues="INVOICE">
+        Specifies the Type of Transaction
+    </attribute>  
+    <attribute name="tranRefNumber" type="string" use="required" minLength="1" maxLength="255">
+        Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="lineOfBusiness" type="string" use="required" allowedValues="US_CLOUD">
+        Specifies the line of business
+    </attribute>
+</productSchema>
