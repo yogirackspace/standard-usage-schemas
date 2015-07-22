@@ -169,6 +169,9 @@
         <resource id="usagesummaryrecovery_events"
                   path="usagesummaryrecovery/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
+        <resource id="concorde_events"
+                  path="concorde/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Concorde"/>
 
         <!-- Feeds Catalog -->
         <resource id="feedscatalog"
@@ -231,6 +234,7 @@
                         wadl/product.wadl#Ssl
                         wadl/product.wadl#SslTenant
                         wadl/product.wadl#Support
+                        wadl/product.wadl#Concorde
                         wadl/feed.wadl#UsageDeadLetter
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
@@ -256,6 +260,7 @@
                         wadl/product.wadl#GlanceTenant wadl/product.wadl#GlanceSummaryTenant
                         wadl/product.wadl#RHELTenant
                         wadl/product.wadl#SslTenant
+                        wadl/product.wadl#Concorde
                         wadl/cadf.wadl#UserAccessEvent"/>
         <resource id="migrationtest_events"
                   path="migrationtest/events" 

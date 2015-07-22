@@ -1,0 +1,33 @@
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
+               namespace="http://docs.rackspace.com/event/concorde/message"
+               serviceCode="Concorde"
+               version="1" resourceTypes="CONCORDE_MESSAGE" 
+               type="CREATE UPDATE">
+    <description>
+        Concorde message events.
+    </description>
+    <attribute name="communicationId" type="string" use="required"> 
+        Communication ID this message belongs to.
+    </attribute>
+    <attribute name="emailAddress" type="string" use="required">
+        Customer email address.
+    </attribute>
+    <attribute name="emailSentTime" type="dateTime" use="optional">
+        Time the email was sent, if successful.
+    </attribute>
+    <attribute name="errorMessage" type="string" use="optional">
+        Error message encountered from the external system when trying to send this email, if any.
+    </attribute>
+    <attribute name="errorDescription" type="string" use="optional">
+        Internal description of an error when trying to send this email, if any.
+    </attribute>
+    <attribute name="namespace" type="Name" use="required" allowedValues="FLASHMOB MEANDER">
+        Namespace this message belongs to.
+    </attribute>
+    <attribute name="status" type="Name" use="required" allowedValues="PENDING PROCESSING DELIVERED FAILED REJECTED">
+        Current status of the message.
+    </attribute>
+    <attribute name="username" type="string" use="required">
+        Customer username.
+    </attribute>
+</productSchema>
