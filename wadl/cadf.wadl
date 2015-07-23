@@ -208,15 +208,6 @@
                         </tbody>
                     </tgroup>
                     </informaltable>
-                    <para>
-                        <emphasis role="bold">XML Sample</emphasis>
-                        <programlisting language="xml">
-                        </programlisting>
-                    </para>
-                    <para>
-                        <emphasis role="bold">JSON Sample</emphasis>
-                        <programlisting language="json"/>
-                    </para>
                 </example>
             </wadl:doc>
             <request>
@@ -487,7 +478,7 @@
             &lt;cadf:reason reasonCode="200" reasonType="http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"/&gt;
         &lt;/cadf:event&gt;
     &lt;/atom:content&gt;
-    &lt;atom:link href="https://atom-chan5120-n03.dev.ord1.us.ci.rackspace.net/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4" rel="self"/&gt;
+    &lt;atom:link href="https://dfw.feeds.api.rackspacecloud.com/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4" rel="self"/&gt;
     &lt;atom:updated&gt;2015-04-22T17:22:53.094Z&lt;/atom:updated&gt;
     &lt;atom:published&gt;2015-04-22T17:22:53.094Z&lt;/atom:published&gt;
 &lt;/atom:entry&gt;
@@ -495,7 +486,99 @@
                         </para>
                         <para>
                             <emphasis role="bold">JSON Sample</emphasis>
-                            <programlisting language="json"/>
+                            <programlisting language="json">
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:5821027"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "username:jackhandy"
+            }
+        ],
+        "content": {
+            "event": {
+                "action": "read/get",
+                "attachments": [
+                    {
+                        "content": {
+                            "auditData": {
+                                "dataCenter": "DFW1",
+                                "methodLabel": "usage",
+                                "queryString": "limit=10",
+                                "region": "DFW",
+                                "requestURL": "https://ord.feeds.api.rackspacecloud.com/sites/events",
+                                "responseMessage": "OK",
+                                "roles": "cloudfeeds-observer",
+                                "tenantId": "5821027",
+                                "userName": "jackhandy",
+                                "version": "1"
+                            }
+                        },
+                        "contentType": "ua:auditData",
+                        "name": "auditData"
+                    }
+                ],
+                "eventTime": "2015-03-12T13:20:00-05:00",
+                "eventType": "activity",
+                "id": "6fa234aea93f38c26fa234aea93f38c4",
+                "initiator": {
+                    "host": {
+                        "address": "10.1.2.3",
+                        "agent": "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    },
+                    "id": "10.1.2.3",
+                    "name": "jackhandy",
+                    "typeURI": "network/node"
+                },
+                "observer": {
+                    "host": {
+                        "address": "repose"
+                    },
+                    "id": "feeds-1-1",
+                    "name": "repose-7.1.1.1",
+                    "typeURI": "service/security"
+                },
+                "outcome": "success",
+                "reason": {
+                    "reasonCode": 200,
+                    "reasonType": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                },
+                "target": {
+                    "host": {
+                        "address": "ord.feeds.api.rackspacecloud.com"
+                    },
+                    "id": "ord.feeds.api.rackspacecloud.com",
+                    "name": "feeds",
+                    "typeURI": "service"
+                },
+                "typeURI": "http://schemas.dmtf.org/cloud/audit/1.0/event"
+            }
+        },
+        "id": "urn:uuid:6fa234aea93f38c26fa234aea93f38c4",
+        "link": [
+            {
+                "href": "https://dfw.feeds.api.rackspacecloud.com/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4",
+                "rel": "self"
+            }
+        ],
+        "published": "2015-04-22T17:22:53.094Z",
+        "title": {
+            "@text": "UserAccessEvent",
+            "type": "text"
+        },
+        "updated": "2015-04-22T17:22:53.094Z"
+    }
+}
+                            </programlisting>
                         </para>
                     </example>
                 </wadl:doc>
@@ -771,7 +854,99 @@
                         </para>
                         <para>
                             <emphasis role="bold">JSON Sample</emphasis>
-                            <programlisting language="json"/>
+                            <programlisting language="json">
+{
+    "entry": {
+        "@type": "http://www.w3.org/2005/Atom",
+        "category": [
+            {
+                "term": "tid:5821027"
+            },
+            {
+                "term": "rgn:DFW"
+            },
+            {
+                "term": "dc:DFW1"
+            },
+            {
+                "term": "username:jackhandy"
+            }
+        ],
+        "content": {
+            "event": {
+                "action": "read/get",
+                "attachments": [
+                    {
+                        "content": {
+                            "auditData": {
+                                "dataCenter": "DFW1",
+                                "methodLabel": "usage",
+                                "queryString": "limit=10",
+                                "region": "DFW",
+                                "requestURL": "https://ord.feeds.api.rackspacecloud.com/sites/events",
+                                "responseMessage": "OK",
+                                "roles": "cloudfeeds-observer",
+                                "tenantId": "5821027",
+                                "userName": "jackhandy",
+                                "version": "1"
+                            }
+                        },
+                        "contentType": "ua:auditData",
+                        "name": "auditData"
+                    }
+                ],
+                "eventTime": "2015-03-12T13:20:00-05:00",
+                "eventType": "activity",
+                "id": "6fa234aea93f38c26fa234aea93f38c4",
+                "initiator": {
+                    "host": {
+                        "address": "10.1.2.3",
+                        "agent": "curl/7.8 (i386-redhat-linux-gnu) libcurl 7.8"
+                    },
+                    "id": "10.1.2.3",
+                    "name": "jackhandy",
+                    "typeURI": "network/node"
+                },
+                "observer": {
+                    "host": {
+                        "address": "repose"
+                    },
+                    "id": "feeds-1-1",
+                    "name": "repose-7.1.1.1",
+                    "typeURI": "service/security"
+                },
+                "outcome": "success",
+                "reason": {
+                    "reasonCode": 200,
+                    "reasonType": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xml"
+                },
+                "target": {
+                    "host": {
+                        "address": "ord.feeds.api.rackspacecloud.com"
+                    },
+                    "id": "ord.feeds.api.rackspacecloud.com",
+                    "name": "feeds",
+                    "typeURI": "service"
+                },
+                "typeURI": "http://schemas.dmtf.org/cloud/audit/1.0/event"
+            }
+        },
+        "id": "urn:uuid:6fa234aea93f38c26fa234aea93f38c4",
+        "link": [
+            {
+                "href": "https://dfw.feeds.api.rackspacecloud.com/feeds_access/events/entries/urn:uuid:6fa234aea93f38c26fa234aea93f38c4",
+                "rel": "self"
+            }
+        ],
+        "published": "2015-04-22T17:22:53.094Z",
+        "title": {
+            "@text": "UserAccessEvent",
+            "type": "text"
+        },
+        "updated": "2015-04-22T17:22:53.094Z"
+    }
+}
+                            </programlisting>
                         </para>
                     </example>
                 </wadl:doc>

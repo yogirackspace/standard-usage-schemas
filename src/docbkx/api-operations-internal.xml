@@ -278,7 +278,14 @@
           <resource href="../../allfeeds.wadl#support_events"/>
           <resource href="../../allfeeds.wadl#support_events_getEntry_Support"/>
       </resources>
-  </section>
+    </section>
+    <section xml:id="concorde.product">
+      <title>Concorde Mass Comms</title>
+      <resources xmlns="http://wadl.dev.java.net/2009/02">
+          <resource href="../../allfeeds.wadl#concorde_events"/>
+          <resource href="../../allfeeds.wadl#concorde_events_getEntry_Support"/>
+      </resources>
+    </section>
   <section xml:id="usagecorrelation.product">
     <title>Usage Correlation</title>
     <resources xmlns="http://wadl.dev.java.net/2009/02">

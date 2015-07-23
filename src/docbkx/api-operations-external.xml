@@ -126,11 +126,4 @@
             <resource href="../../allfeeds.wadl#nova_events_getEntry_RHELTenant"/>
         </resources>
     </section>
-    <section xml:id="glance.product">
-        <title>Glance</title>
-        <resources xmlns="http://wadl.dev.java.net/2009/02">
-            <resource href="../../allfeeds.wadl#glance_events_tenanted_feed"/>
-            <resource href="../../allfeeds.wadl#glance_events_getEntry_GlanceTenant"/>
-        </resources>
-    </section>
 </chapter>

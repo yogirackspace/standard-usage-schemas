@@ -5,7 +5,7 @@
             "event": {
                 "@type": "http://docs.rackspace.com/core/event",
                 "dataCenter": "DFW1",
-                "duration": "PT10M",
+                "duration": "PT4H",
                 "endTime": "2012-03-12T15:51:11Z",
                 "environment": "QA",
                 "id": "560490c6-6c63-11e1-adfe-27851d5aed13",
