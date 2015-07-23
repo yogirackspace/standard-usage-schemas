@@ -36,6 +36,9 @@
         <resource id="cbs_events"
                   path="cbs/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudBlockStorageTenant"/>
+        <resource id="concorde_events"
+                  path="concorde/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Concorde"/>
         <resource id="core_events"
                   path="core/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
@@ -169,9 +172,6 @@
         <resource id="usagesummaryrecovery_events"
                   path="usagesummaryrecovery/events" 
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
-        <resource id="concorde_events"
-                  path="concorde/events"
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Concorde"/>
 
         <!-- Feeds Catalog -->
         <resource id="feedscatalog"
@@ -216,6 +216,7 @@
                         wadl/product.wadl#CloudServersOpenStack wadl/product.wadl#CloudServersOpenStackSummary
                         wadl/product.wadl#CloudServersOpenStackTenant wadl/product.wadl#CloudServersOpenStackSummaryTenant
                         wadl/product.wadl#CloudSites wadl/product.wadl#CloudSitesSummary
+                        wadl/product.wadl#Concorde
                         wadl/product.wadl#CustomerService
                         wadl/product.wadl#DcxIpAdmin
                         wadl/product.wadl#DedicatedVCloud wadl/product.wadl#DedicatedVCloudSummary
@@ -234,7 +235,6 @@
                         wadl/product.wadl#Ssl
                         wadl/product.wadl#SslTenant
                         wadl/product.wadl#Support
-                        wadl/product.wadl#Concorde
                         wadl/feed.wadl#UsageDeadLetter
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
@@ -256,11 +256,11 @@
                         wadl/product.wadl#CloudQueuesTenant wadl/product.wadl#CloudQueuesSummaryTenant
                         wadl/product.wadl#CloudServersTenant wadl/product.wadl#CloudServersSummaryTenant
                         wadl/product.wadl#CloudServersOpenStackTenant wadl/product.wadl#CloudServersOpenStackSummaryTenant
+                        wadl/product.wadl#Concorde
                         wadl/product.wadl#CustomerService
                         wadl/product.wadl#GlanceTenant wadl/product.wadl#GlanceSummaryTenant
                         wadl/product.wadl#RHELTenant
                         wadl/product.wadl#SslTenant
-                        wadl/product.wadl#Concorde
                         wadl/cadf.wadl#UserAccessEvent"/>
         <resource id="migrationtest_events"
                   path="migrationtest/events" 
