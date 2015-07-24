@@ -179,6 +179,9 @@ class Xml2JsonSuite extends BaseUsageSuite {
         assert(feedObject.get("link").get != null, "should have 'link' elements")
         val linkObjects = feedObject.get("link").get.asInstanceOf[List[Map[String, Any]]]
         assert(linkObjects.size == 3, "should have 3 link elements")
+
+        // check for entries
+        assert(feedObject.get("entry") == None, "should not have entry")
       }
     })
 
