@@ -1579,7 +1579,7 @@
                                 values.</td>
                         </tr>
                         <tr>
-                            <td><code>name</code></td>
+                            <td><code>Name</code></td>
                             <td>Specifies a valid name. This name must be a string that consists
                                     exclusively of letters, digits, ideographs, underscores,
                                     hyphens, periods, and colons. Digits, hyphens, and periods may
@@ -1587,8 +1587,8 @@
                                     the name.</td>
                         </tr>
                         <tr>
-                            <td><code>name</code>*</td>
-                            <td>Specifies a list of <code>name</code> values.</td>
+                            <td><code>Name</code>*</td>
+                            <td>Specifies a list of <code>Name</code> values.</td>
                         </tr>
                         <tr>
                             <td><code>short</code></td>
