@@ -374,7 +374,7 @@
   ],
   "default_archive_container_url": "https://storage.stg.swift.racklabs.com/v1/StagingUS_6b881249-b992-44ef-9ad1-2b9f5107d2f9/FeedsArchives",
   "enabled": true
-};'</programlisting>
+}'</programlisting>
             </para>
         <para>If you want to specify a <emphasis role="bold">specific container URL</emphasis> for
                 each region, so that Cloud Feeds routes all the events to be archived to a container
@@ -396,7 +396,7 @@
     "hkg": "https://storage.stg.swift.racklabs.com/v1/StagingUS_6b881249-b992-44ef-9ad1-2b9f5107d2f9/APACArchives   
   },  
   "enabled": true
-};'</programlisting>
+}'</programlisting>
             </para>
             <para>Cloud Files also provides the option to specify a default container URL and one or
                 more archive container URLs. In this configuration, all feeds that are configured
@@ -417,7 +417,7 @@
     "hkg": "https://storage.stg.swift.racklabs.com/v1/StagingUS_6b881249-b992-44ef-9ad1-2b9f5107d2f9/APACArchives   
   },  
   "enabled": true
-};'</programlisting>
+}'</programlisting>
             </para></section>
         <section xml:id="navigating_through_feeds">
         <title>Working with archived feeds<?sbr?></title>
