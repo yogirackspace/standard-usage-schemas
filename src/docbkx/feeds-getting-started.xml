@@ -22,8 +22,6 @@
     version="5.0-extension RaxBook-2.0">
     <?rax title.font.size="35px" subtitle.font.size="20px"?>
     <title>Rackspace Cloud Feeds™ Getting Started Guide</title>
-    <?rax status.bar.text.font.size="40px"
-          status.bar.text="Early Availability"?>
     <info>
         <copyright>
             <year>2014/2015</year>
