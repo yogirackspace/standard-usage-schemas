@@ -405,8 +405,8 @@
                        min and max values.  Since this doesn't impact the base type, it doesn't impact documenation
                        and isn't included in productSchema-summary-util.xsl
                      -->
-                    <xsl:when test="($attribute/@min or $attribute/@max) and not($usage-summary and $attribute/@aggregateFunction = 'SUM' and $type = ('int', 'long', 'short', 'byte', 'unsignedInt', 'unsignedLong', 'unsignedShort', 'unsignedByte'))">
-                        <xsl:value-of select="usage:minMaxType($vname,true(),$usage-summary and $attribute/@aggregateFunction=('AVG','WEIGHTED_AVG'))"/>
+                    <xsl:when test="($attribute/@min or $attribute/@max) and not($usage-summary and $attribute/@aggregateFunction = 'SUM' and $type = ( 'double', 'int', 'long', 'short', 'byte', 'unsignedInt', 'unsignedLong', 'unsignedShort', 'unsignedByte'))">
+                        <xsl:value-of select="usage:minMaxType($vname,true(),$usage-summary and $attribute/@aggregateFunction=('SUM', 'AVG','WEIGHTED_AVG'))"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="sum:getTypeXSD( $type, $usage-summary, $attribute/@aggregateFunction )"/>
@@ -501,7 +501,7 @@
         <xsl:variable name="attrib" as="node()" select="."/>
         <xsl:choose>
             <xsl:when test="$usage-summary">
-                <xsl:if test="@aggregateFunction=('AVG','WEIGHTED_AVG') and (@min or @max)">
+                <xsl:if test="@aggregateFunction=('AVG','WEIGHTED_AVG', 'SUM') and (@min or @max)">
                     <xsl:call-template name="addMinMaxType"/>
                 </xsl:if>
             </xsl:when>
@@ -591,9 +591,11 @@
         <xsl:param name="usage-summary" as="xsd:boolean" tunnel="yes"/>
         <xsl:variable name="do-usage-summary-minmax" as="xsd:boolean"
                       select="if ($usage-summary) then @aggregateFunction=('AVG','WEIGHTED_AVG') else false()"/>
+        <xsl:variable name="usage-summary-no-minmax" as="xsd:boolean"
+                      select="if ($usage-summary) then @aggregateFunction=('SUM') else false()"/>
         <simpleType>
             <xsl:attribute name="name" select="usage:minMaxType(usage:versionName(@name, $use-version, $version), false(),
-                                               $do-usage-summary-minmax)"/>
+                                               ($do-usage-summary-minmax or $usage-summary-no-minmax))"/>
             <restriction>
                 <xsl:choose>
                     <xsl:when test="$do-usage-summary-minmax">
@@ -603,12 +605,12 @@
                         <xsl:attribute name="base" select="concat('xsd:',@type)"/>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:if test="@min">
+                <xsl:if test="@min and not($usage-summary-no-minmax)">
                     <minInclusive>
                         <xsl:attribute name="value" select="string(@min)"/>
                     </minInclusive>
                 </xsl:if>
-                <xsl:if test="@max">
+                <xsl:if test="@max and not($usage-summary-no-minmax)">
                     <maxInclusive>
                         <xsl:attribute name="value" select="string(@max)"/>
                     </maxInclusive>
