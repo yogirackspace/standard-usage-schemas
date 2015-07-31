@@ -39,6 +39,20 @@
         </resource>
     </resource_type>
 
+    <resource_type id="JsonContentOnly">
+        <wadl:doc title="JsonContentOnly" xmlns="http://docbooks.org/ns/docbook">
+            <para>
+                The atom:content node must have type="application/json".  While the atom envelope can be XML, the content
+                of the message must be JSON.
+            </para>
+        </wadl:doc>
+        <method href="#addUnvalidatedJsonOnly" rax:roles="cloudfeeds:service-admin"/>
+        <resource path="entries/{id}" rax:roles="cloudfeeds:service-admin">
+            <param name="id" type="xs:anyURI" style="template"> <doc>Specifies the entry's UUID, for example: urn:uuid:676f3860-447c-40a3-8f61-9791819cc82f</doc></param>
+            <method href="#getEntry"/>
+        </resource>
+    </resource_type>
+
     <resource_type id="Validated">
         <wadl:doc title="Validated" xmlns="http//docbook.org/ns/docbook">
             <para>
@@ -168,14 +182,43 @@
 
     <method id="addPlainUnvalidatedEntry" name="POST">
         <wadl:doc xml:lang="EN" title="Adding an event." xmlns="http://docbook.org/ns/docbook">
-            <para role="shortdesc">This operation adds an event for this particular product.</para> 
-           
+            <para role="shortdesc">The atom:content node must have type="application/json".  While the atom envelope can be XML, the content
+                of the message must be JSON.</para>
         </wadl:doc>
         <request rax:ignoreXSD="true">
             <representation mediaType="application/xml"/>
             <representation mediaType="application/json"/>               
             <representation mediaType="application/atom+xml"/>
             <representation mediaType="application/vnd.rackspace.atom+json"/>
+        </request>
+        <!-- Okay -->
+        <response status="201">
+            <representation mediaType="application/atom+xml"/>
+            <representation mediaType="application/vnd.rackspace.atom+json"/>
+        </response>
+        <!-- On Error -->
+        <response status="400 401 409 500 503">
+            <representation mediaType="application/xml"/>
+            <representation mediaType="application/json"/>
+        </response>
+    </method>
+
+    <method id="addUnvalidatedJsonOnly" name="POST">
+        <wadl:doc xml:lang="EN" title="Add Plain Entry" xmlns="http://docbook.org/ns/docbook">
+            <para role="shortdesc">This operation adds an event for this particular product.</para>
+        </wadl:doc>
+        <request rax:ignoreXSD="true">
+            <representation mediaType="application/atom+xml" element="atom:entry">
+                <!--
+                   We add an assertion to state that eventErrors are not allowed. If the XPath in the path
+                   attribute evaluates to false we'll error out with the error message in rax:message.
+                 -->
+                <param name="error"
+                       style="plain"
+                       required="true"
+                       path="/atom:entry/atom:content/@type = 'application/json'"
+                       rax:message="Only atom:content nodes of type='application/json' allowed."/>
+            </representation>
         </request>
         <!-- Okay -->
         <response status="201">

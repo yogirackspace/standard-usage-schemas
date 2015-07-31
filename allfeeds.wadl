@@ -16,7 +16,7 @@
 
         <!-- product events -->
         <resource id="automation_events"
-                  path="automation/events" 
+                  path="automation/events"
                   type="wadl/feed.wadl#AtomFeedAllowJson wadl/feed.wadl#Validated"/>
         <resource id="autoscale_events"
                   path="autoscale/events"
@@ -28,53 +28,53 @@
                   path="backup/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBackup wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudBackupTenant"/>
         <resource id="bigdata_events"
-                  path="bigdata/events" 
+                  path="bigdata/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#BigDataTenant"/>
         <resource id="billing_events"
-                  path="billing/events" 
+                  path="billing/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BillingService"/>
         <resource id="cbs_events"
-                  path="cbs/events" 
+                  path="cbs/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudBlockStorage wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudBlockStorageTenant"/>
         <resource id="concorde_events"
                   path="concorde/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Concorde"/>
         <resource id="core_events"
-                  path="core/events" 
+                  path="core/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="customer_access_policy_events"
                   path="customer_access_policy/events"
                   type="wadl/feed.wadl#AtomFeed
                         wadl/product.wadl#CustomerService"/>
         <resource id="customer_events"
-                  path="customer/events" 
+                  path="customer/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="dcx_events"
                   path="dcx/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DcxIpAdmin"/>
         <resource id="dbaas_events"
-                  path="dbaas/events" 
+                  path="dbaas/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDatabase wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudDatabaseTenant"/>
         <resource id="dedicatedvcloud_events"
-                  path="dedicatedvcloud/events" 
+                  path="dedicatedvcloud/events"
                   type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#DedicatedVCloud"/>
         <resource id="dns_events"
-                  path="dns/events" 
+                  path="dns/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudDNS"/>
         <resource id="domain_events"
-                  path="domain/events" 
+                  path="domain/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#DomainRegistration"/>
         <resource id="ebs_events"
-                  path="ebs/events" 
+                  path="ebs/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EBS"/>
         <resource id="emailapps_usage_events"
-                  path="emailapps_usage/events" 
+                  path="emailapps_usage/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsUsage" />
         <resource id="emailapps_msservice_events"
-                  path="emailapps_msservice/events" 
+                  path="emailapps_msservice/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#EmailAppsMSService" />
         <resource id="encore_events"
-                  path="encore/events" 
+                  path="encore/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="feedsaccess_events"
                   path="feeds_access/events"
@@ -83,13 +83,13 @@
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="files_events"
-                  path="files/events" 
+                  path="files/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudFiles wadl/feed.wadl#TenantAtomFeed  wadl/product.wadl#CloudFilesTenant"/>
         <resource id="glance_events"
-                  path="glance/events" 
+                  path="glance/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Glance"/>
         <resource id="identity_events"
-                  path="identity/events" 
+                  path="identity/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudIdentity wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudIdentityTenant"/>
         <resource id="identityaccess_events"
                   path="identity_access/events"
@@ -98,26 +98,26 @@
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="lbaas_events"
-                  path="lbaas/events" 
+                  path="lbaas/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudLoadBalancersTenant"/>
         <resource id="meta_events"
-                  path="meta/events" 
+                  path="meta/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#AtomHopper"/>
         <resource id="monitoring_events"
-                  path="monitoring/events" 
+                  path="monitoring/events"
                   type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#CloudMonitoring wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudMonitoringTenant"/>
         <resource id="netdevice_events"
-                  path="netdevice/events" 
+                  path="netdevice/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NetDevice"/>
 	    <resource id="newrelic_events"
                   path="newrelic/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#NewRelic"/>
 	    <resource id="nova_events"
-                  path="nova/events" 
-                  type="wadl/feed.wadl#AtomFeedAllowJson 
-                        wadl/product.wadl#CloudServersOpenStack 
-                        wadl/product.wadl#RHEL wadl/feed.wadl#TenantAtomFeed 
-                        wadl/product.wadl#CloudServersOpenStackTenant 
+                  path="nova/events"
+                  type="wadl/feed.wadl#AtomFeedAllowJson
+                        wadl/product.wadl#CloudServersOpenStack
+                        wadl/product.wadl#RHEL wadl/feed.wadl#TenantAtomFeed
+                        wadl/product.wadl#CloudServersOpenStackTenant
                         wadl/product.wadl#RHELTenant"/>
         <resource id="novaaccess_events"
                   path="nova_access/events"
@@ -126,67 +126,67 @@
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/cadf.wadl#UserAccessEventTenant" />
         <resource id="payment_events"
-                  path="payment/events"  
+                  path="payment/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#PaymentService"/>
         <resource id="rackspacecdn_events"
                   path="rackspacecdn/events"
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDN 
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#RackspaceCDN
                         wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#RackspaceCDNTenant"/>
         <resource id="queues_events"
-                  path="queues/events" 
-                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues 
+                  path="queues/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudQueues
                         wadl/feed.wadl#TenantAtomFeed wadl/product.wadl#CloudQueuesTenant"/>
         <resource id="servermill_events"
                   path="servermill/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="servers_events"
-                  path="servers/events" 
-                  type="wadl/feed.wadl#AtomFeedAllowJson 
-                        wadl/product.wadl#CloudServers 
-                        wadl/product.wadl#RHEL 
-                        wadl/feed.wadl#TenantAtomFeed 
-                        wadl/product.wadl#CloudServersTenant 
+                  path="servers/events"
+                  type="wadl/feed.wadl#AtomFeedAllowJson
+                        wadl/product.wadl#CloudServers
+                        wadl/product.wadl#RHEL
+                        wadl/feed.wadl#TenantAtomFeed
+                        wadl/product.wadl#CloudServersTenant
                         wadl/product.wadl#RHELTenant"/>
         <resource id="sites_events"
-                  path="sites/events" 
+                  path="sites/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#CloudSites"/>
         <resource id="signup_events"
-                  path="signup/events" 
+                  path="signup/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="ssl_events"
-                  path="ssl/events" 
+                  path="ssl/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#Ssl"/>
         <resource id="support_events"
-                  path="support/events" 
+                  path="support/events"
                   type="wadl/feed.wadl#AtomFeedAllowJson wadl/product.wadl#Support"/>
         <resource id="usagecorrelation_events"
-                  path="usagecorrelation/events" 
+                  path="usagecorrelation/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="usagedeadletter_events"
-                  path="usagedeadletter/events" 
+                  path="usagedeadletter/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#UsageDeadLetter"/>
         <!-- usagerecovery is validated as BigData & CloudLoadBalancers have synthesized attributes -->
         <resource id="usagerecovery_events"
-                  path="usagerecovery/events" 
+                  path="usagerecovery/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="usagesummaryrecovery_events"
-                  path="usagesummaryrecovery/events" 
+                  path="usagesummaryrecovery/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
 
         <!-- Feeds Catalog -->
         <resource id="feedscatalog"
-                  path="feedscatalog/catalog" 
+                  path="feedscatalog/catalog"
                   type="wadl/feed.wadl#FeedsCatalog wadl/feed.wadl#TenantFeedsCatalog"/>
-            
+
         <!-- Test related feeds -->
         <resource id="demo_events"
-                  path="demo/events" 
+                  path="demo/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="experiments_events"
-                  path="experiments/events" 
+                  path="experiments/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="functest1_events"
-                  path="functest1/events" 
+                  path="functest1/events"
                   type="wadl/feed.wadl#AtomFeed
                         wadl/product.wadl#AtomHopper wadl/feed.wadl#TenantAtomFeed
                         wadl/product.wadl#Autoscale wadl/product.wadl#AutoscaleTenant
@@ -239,8 +239,8 @@
                         wadl/cadf.wadl#UserAccessEvent
                         wadl/product.wadl#Widget wadl/product.wadl#WidgetSummary"/>
             <resource id="functest2_events"
-                  path="functest2/events" 
-                  type="wadl/feed.wadl#AtomFeed 
+                  path="functest2/events"
+                  type="wadl/feed.wadl#AtomFeed
                         wadl/feed.wadl#Validated
                         wadl/feed.wadl#TenantAtomFeed
                         wadl/product.wadl#Autoscale wadl/product.wadl#AutoscaleTenant
@@ -263,35 +263,38 @@
                         wadl/product.wadl#SslTenant
                         wadl/cadf.wadl#UserAccessEvent"/>
         <resource id="migrationtest_events"
-                  path="migrationtest/events" 
+                  path="migrationtest/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="nooverridestest_events"
-                  path="nooverridestest/events" 
+                  path="nooverridestest/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="overridestest_events"
-                  path="overridestest/events" 
+                  path="overridestest/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
+        <resource id="unvalidatedjsoncontentonlytest_events"
+                  path="unvalidatedjsoncontentonlytest/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"/>
         <resource id="perftest1_events"
-                  path="perftest1/events" 
+                  path="perftest1/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
         <resource id="perftest2_events"
-                  path="perftest2/events" 
+                  path="perftest2/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
 
         <resource id="usagetest7_events"
-                  path="usagetest7/events" 
+                  path="usagetest7/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="usagetest8_events"
-                  path="usagetest8/events" 
+                  path="usagetest8/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/>
         <resource id="usagetest9_events"
-                  path="usagetest9/events" 
+                  path="usagetest9/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
         <resource id="usagetest10_events"
-                  path="usagetest10/events" 
+                  path="usagetest10/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
         <resource id="usagetest11_events"
-              path="usagetest11/events" 
+              path="usagetest11/events"
                   type="wadl/feed.wadl#AtomFeed wadl/product.wadl#BigData wadl/product.wadl#CloudLoadBalancers wadl/feed.wadl#Validated"/>
 
         <resource id="widgettest_events"
@@ -302,7 +305,13 @@
                   path="{usagetestid}/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated">
             <param name="usagetestid" style="template" type="cldfeeds:usagetestPathType"/>
-         </resource>
+        </resource>
+
+        <resource id="cadftest_events"
+                  path="{cadftestid}/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
+            <param name="cadftestid" style="template" type="cldfeeds:cadftestPathType"/>
+        </resource>
 
         <!-- end of Test related feeds -->
 
