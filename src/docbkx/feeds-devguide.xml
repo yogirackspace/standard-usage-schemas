@@ -133,17 +133,10 @@
             <para>You can also follow Rackspace updates and announcements via Twitter at <link xlink:href="http://www.twitter.com/rackspace">http://www.twitter.com/rackspace</link>. </para>
             <para>This API uses standard HTTP/1.1 response codes as documented at <link xlink:href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</link>. </para>
         </section>
-        <section xml:id="Early_Access" security="external"><title>Early Access Program</title><para>Cloud Feeds is now available
-                to customers through an Early Access program. At the launch of the Early Access
-                program (at the end of July 2014), Cloud Feeds supports limited functionality and
-                event notifications. As the service progresses towards General Availability,
-                additional features and event notifications will be added, and it’s possible that
-                existing implementations and formats might change. The Early Access program is an
-                opportunity for customers to work in partnership with Rackspace to ensure that the
-                implemented features align with business needs and can be used with maximum
-                efficiency.   Existing Rackspace Cloud customers are eligible to participate in the
-                Cloud Feeds Early Access program. The Cloud Feeds Early Access program is provided
-                to customers subject to the Test Terms located at <link xlink:href="http://www.rackspace.com/information/legal/cloud/tos ">http://www.rackspace.com/information/legal/cloud/tos</link>.</para></section>
+        <section xml:id="Early_Access" security="external"><title>Early Access Program</title><para>Cloud Feeds is currently available through the Cloud Feeds Early Access program. Use of Cloud
+                Feeds is subject to the Test Terms located at <link
+                    xlink:href="http://www.rackspace.com/information/legal/cloud/tos "
+                    >http://www.rackspace.com/information/legal/cloud/tos</link>.</para></section>
         <section xml:id="Pricing_SLA-d1e1362">
             <title>Pricing and service level</title>
             <para>Pricing and service level agreement (SLA) information for Cloud Feeds is as
