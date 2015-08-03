@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema" 
+               namespace="http://docs.rackspace.com/event/billing/discount" 
+               serviceCode="BillingService" type="CREATE UPDATE DELETE" version="1">
+    <description>
+        Specifies the events related to Billing Discounts.
+    </description>
+    <attribute name="ran" type="string" use="required" maxLength="255">
+       Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="discountType" type="string" use="required" maxLength="255" allowedValues="STARTUP RACKER INTERNAL DEVELOPER+ COMMIT VOLUME OTHER">
+        Specifies the type of Discount.
+    </attribute>
+    <attribute name="currency" type="string" use="required" maxLength="255" allowedValues="USD GBP AUD EUR">
+        Specifies the Monthly Recurring Revenue that is changed for an account.
+    </attribute>    
+    <attribute name="effectiveStartDate" type="utcDateTime" use="optional">
+        Specifies the effective start date of the discount.
+    </attribute>    
+    <attribute name="effectiveEndDate" type="utcDateTime" use="optional">
+        Specifies the effective end date of the discount.
+    </attribute>    
+</productSchema>

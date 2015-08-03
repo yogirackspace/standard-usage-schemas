@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<productSchema xmlns="http://docs.rackspace.com/core/usage/schema" 
+               namespace="http://docs.rackspace.com/event/billing/mrr" 
+               serviceCode="BillingService" type="UPDATE" version="1">
+    <description>
+        Specifies the events related to Billing MRR Changes.
+    </description>
+    <attribute name="ran" type="string" use="required" maxLength="255">
+       Specifies the Billing Account Number.
+    </attribute>
+    <attribute name="mrr" type="string" use="required" maxLength="255">
+        Specifies the Monthly Recurring Revenue that is changed for an account.  
+        For new customers we will provide the 1st month charge  - This charge is not an MRR as it changes every month for cloud customer. 
+        For established customers we will provide average of last 3 bill cycle monthly charge which also includes bill now charges.
+    </attribute>
+    <attribute name="currency" type="string" use="required" maxLength="255" allowedValues="USD GBP AUD EUR">
+        Specifies the currency.
+    </attribute>
+</productSchema>
