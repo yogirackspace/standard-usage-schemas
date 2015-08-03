@@ -271,8 +271,8 @@
         <resource id="overridestest_events"
                   path="overridestest/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
-        <resource id="unvalidatedjsoncontentonlytest_events"
-                  path="unvalidatedjsoncontentonlytest/events"
+        <resource id="jsoncontentonlytest_events"
+                  path="jsoncontentonlytest/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"/>
         <resource id="perftest1_events"
                   path="perftest1/events"

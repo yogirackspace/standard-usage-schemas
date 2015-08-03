@@ -25,19 +25,19 @@ class JsonContentOnlySuite extends BaseUsageSuite {
 
   test( "atom:content of type='appplication/xml' is invalid for JsonContentOnly feed" ) {
 
-    val req = request( "POST", "unvalidatedjsoncontentonlytest/events", "application/atom+xml", genericXml, SERVICE_ADMIN)
+    val req = request( "POST", "jsoncontentonlytest/events", "application/atom+xml", genericXml, SERVICE_ADMIN)
     assertResultFailed( atomValidator.validate( req, response, chain ), 400 )
   }
 
   test( "atom:content of type='appplication/json' is valid for JsonContentOnly feed" ) {
 
-    val req = request( "POST", "unvalidatedjsoncontentonlytest/events", "application/atom+xml", genericJson, SERVICE_ADMIN)
+    val req = request( "POST", "jsoncontentonlytest/events", "application/atom+xml", genericJson, SERVICE_ADMIN)
     atomValidator.validate( req, response, chain )
   }
 
   test( "GET JsonContentOnly feed" ) {
 
-    val req = request( "GET", "unvalidatedjsoncontentonlytest/events", "", "", false,
+    val req = request( "GET", "jsoncontentonlytest/events", "", "", false,
       Map("ACCEPT"->List("application/atom+xml"), "X-ROLES"->List(SERVICE_ADMIN)))
     atomValidator.validate( req, response, chain )
   }
