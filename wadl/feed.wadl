@@ -211,8 +211,7 @@
         <request rax:ignoreXSD="true">
             <representation mediaType="application/atom+xml" element="atom:entry">
                 <!--
-                   We add an assertion to state that eventErrors are not allowed. If the XPath in the path
-                   attribute evaluates to false we'll error out with the error message in rax:message.
+                   We add an assertion to state that only atom:content of type 'application/json' is allowed.
                  -->
                 <param name="error"
                        style="plain"
