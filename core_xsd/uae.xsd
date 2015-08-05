@@ -81,7 +81,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="tenantId" type="NonEmptyString" minOccurs="1" maxOccurs="1">
+            <xs:element name="tenantId" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -102,7 +102,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="userName" type="NonEmptyString" minOccurs="1" maxOccurs="1">
+            <xs:element name="userName" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
@@ -113,7 +113,7 @@
                 </xs:annotation>
             </xs:element>
             
-            <xs:element name="roles" type="NonEmptyString" minOccurs="1" maxOccurs="1">
+            <xs:element name="roles" type="xs:string" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
                         <html:p>
