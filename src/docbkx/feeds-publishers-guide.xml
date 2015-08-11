@@ -2234,20 +2234,18 @@
                         </listitem>
                     </itemizedlist>
                 </para>
-                <para>To add a JSON CADF event of that is not of type useraccess, add the following
-                    resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
+                <para>To add a JSON CADF event that is not of type <emphasis role="italic"
+                        >useraccess</emphasis>, add the following resource to <emphasis role="bold"
+                        >allfeeds.wadl</emphasis>:</para>
                 <para>
-                    <programlisting>&lt;resource id="<replaceable>new_cadf_product</replaceable>"
-           path="{<replaceable>new_cadf_product_id</replaceable>}/events"
-           type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
-       &lt;param name="<replaceable>new_cadf_product_id</replaceable>" style="template" type="cldfeeds:<replaceable>new_cadf_product</replaceable>PathType"/></programlisting>
+                    <programlisting>&lt;resource id="<replaceable>new_feed_name_</replaceable>events"
+           path="<replaceable>new_feed_name</replaceable>/events"
+           type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"></programlisting>
                 </para>
                 <para>The following example shows the resource of a JSON CADF event:</para>
-                <programlisting>&lt;resource id="cadftest_events"
-             path="{cadftestid}/events"
-             type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
-         &lt;param name="cadftestid" style="template" type="cldfeeds:cadftestPathType"/>
-&lt;/resource></programlisting></section>
+                <programlisting>        &lt;resource id="jsoncontentonlytest_events"
+                  path="jsoncontentonlytest/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"/></programlisting></section>
         </section>
             <section xml:id="Add_sample_files">
             <title>Adding samples</title>
