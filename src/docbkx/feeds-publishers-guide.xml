@@ -71,6 +71,16 @@
                     </itemizedlist>
                 </revdescription>
             </revision>
+            <revision>
+                <date>2015-08-10</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Added descriptions for publishing additional feed types.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
         </revhistory>
         <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
             <raxm:displayname>Cloud Feeds Publisher's Guide</raxm:displayname>
@@ -2086,19 +2096,24 @@
                     <emphasis role="bold">allfeeds.wadl</emphasis> file.</para>
             <para>Before adding your feed, you need to determine the validation mode of your feed: <itemizedlist>
                     <listitem>
-                        <para>product feed</para>
+                        <para><link linkend="Adding_resource_product_feed">product
+                            feed</link></para>
                     </listitem>
                     <listitem>
-                        <para>validated feed</para>
+                        <para><link linkend="Adding_resource_product_feed">validated
+                            feed</link></para>
                     </listitem>
                     <listitem>
-                        <para>unvalidated feed</para>
+                        <para><link linkend="Adding_unvalidated_events">unvalidated
+                            feed</link></para>
                     </listitem>
                     <listitem>
-                        <para>user access event feed</para>
+                        <para><link linkend="Adding_user_access_event_feed">user access event
+                                feed</link></para>
                     </listitem>
                     <listitem>
-                        <para>JSON CADF event feed</para>
+                        <para><link linkend="Adding_JSON_CADF_events">JSON CADF event
+                            feed</link></para>
                     </listitem>
                 </itemizedlist></para>
             <para>For more information about the validation modes, read <link
@@ -2166,7 +2181,20 @@
         path="core/events" 
         type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
                 </para></section>
-  
+            <section xml:id="Adding_unvalidated_events"><title>Adding an unvalidated event feed</title>
+                <para>To mark a feed to be <emphasis role="bold">unvalidated</emphasis>, add the
+                    following resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
+       path="<replaceable>new_product</replaceable>/events" 
+       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
+                </para>
+                <para>The following example shows the resource for an unvalidated feed:</para>
+                <para>
+                    <programlisting>&lt;resource id="demo_events"
+        path="demo/events"
+        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
+                </para></section>
         <section xml:id="Adding_user_access_event_feed"><title>Adding a user access event feed</title><para>To add a feed of type user access event feed, add the following resource to <emphasis
                         role="bold">allfeeds.wadl</emphasis>:</para>
                 <para>
@@ -2184,9 +2212,30 @@
                wadl/cadf.wadl#UserAccessEvent
                wadl/cadf.wadl#UserAccessEventTenant"/></programlisting>
                 </para></section>
-        <section xml:id="Adding_JSON_CADF_events"><title>Adding a JSON CADF event feed</title>
-                <para>To add a JSON CADF event, add the following resource to <emphasis role="bold"
-                        >allfeeds.wadl</emphasis>:</para>
+        <section xml:id="Adding_JSON_CADF_events"><title>Adding a JSON CADF non-useraccess event feed</title>
+                <para>Cloud Feeds supports CADF events that are not of type <emphasis role="italic"
+                        >useraccess</emphasis>. The following rules apply for these events:</para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The content for CADF events of non-useraccess type must be in
+                                JSON. </para>
+                        </listitem>
+                        <listitem>
+                            <para>The event can have an Atom XML envelope.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The <code>atom:content</code> node must be of
+                                    <code>type="applicaton/json"</code> as shown in the following
+                                example:</para>
+                            <para>
+                                <programlisting> &lt;atom:content type="application/json"></programlisting>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+                <para>To add a JSON CADF event of that is not of type useraccess, add the following
+                    resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
                 <para>
                     <programlisting>&lt;resource id="<replaceable>new_cadf_product</replaceable>"
            path="{<replaceable>new_cadf_product_id</replaceable>}/events"
@@ -2199,20 +2248,6 @@
              type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
          &lt;param name="cadftestid" style="template" type="cldfeeds:cadftestPathType"/>
 &lt;/resource></programlisting></section>
-        <section xml:id="Adding_unvalidated_events"><title>Adding an unvalidated event feed</title>
-                <para>To mark a feed to be <emphasis role="bold">unvalidated</emphasis>, add the
-                    following resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
-                <para>
-                    <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
-       path="<replaceable>new_product</replaceable>/events" 
-       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
-                </para>
-                <para>The following example shows the resource for an unvalidated feed:</para>
-                <para>
-                    <programlisting>&lt;resource id="demo_events"
-        path="demo/events"
-        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
-                </para></section>
         </section>
             <section xml:id="Add_sample_files">
             <title>Adding samples</title>
