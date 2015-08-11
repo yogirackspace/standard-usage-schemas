@@ -122,6 +122,9 @@
                             a user attempts to access a specific API—for example, if a user requests
                             that a server be shut down. </para>
                     </listitem>
+                    <listitem>
+                        <para>Non user-access events in CADF </para>
+                    </listitem>
                 </itemizedlist>
             </para>
         </section>
@@ -209,6 +212,84 @@
                     </tbody>
                 </table>
             </para></section>   
+        <section xml:id="Enabling_search_on_your_feed"><title>Enabling searching on your feed</title>
+            <para>Cloud Feeds supports searching for feed entries by a specific category by using a
+                    <code>search</code> query as described in <link
+                    xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/Filter_Entries_by_Category_d1e1315.html"
+                    >Filtering entries by categories</link>.</para>
+            <para>To enable the searching functionality on your feed, you need to consider the
+                following:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>If you use a product node in your feed or your feed uses the Cloud
+                            Auditing Data Federation (CADF) standard, the searching functionality is
+                            automatically enabled, and you do not need to specify any additional
+                            categories to enable searching.</para>
+                    </listitem>
+                    <listitem>
+                        <para>For any other feeds, you need to add the categories with the
+                            appropriate category prefix to enable searching. The following table
+                            shows a list of common category prefixes:</para>
+                        <para>
+                            <table frame="border">
+                                <caption>Category prefixes</caption>
+                                <col width="15%"/>
+                                <col width="40%"/>
+                                <col width="45%"/>
+                                <thead>
+                                    <tr>
+                                        <th>Category prefix</th>
+                                        <th>Description</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>tid:</code></td>
+                                        <td>Specifies the tenant ID, taken from the
+                                                <parameter>tenantid</parameter> attribute from the
+                                            event node.</td>
+                                        <td><code>tid:12882</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>type:</code></td>
+                                        <td>Specifies the event type.</td>
+                                        <td><code>type:cloudsites.metered.site.usage</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rgn:</code></td>
+                                        <td>Specifies the region.</td>
+                                        <td><code>rgn:ORD</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>dc:</code></td>
+                                        <td>Specifies the data center.</td>
+                                        <td><code>dc:ORD1</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </para>
+                        <para>The following example shows a list of atom categories:</para>
+                        <para>
+                            <programlisting>    &lt;atom:category term="tid:5821027"/>
+    &lt;atom:category term="rgn:ORD"/>
+    &lt;atom:category term="dc:ORD1"/>
+    &lt;atom:category term="type:widget.widget.gadget.usage"/></programlisting>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>For archiving, the <code>tid:</code>, <code>rgn:</code>, and
+                                <code>dc:</code> categories are required.</para>
+                    </listitem>
+                    <listitem>
+                        <para>When definining search categories, you can add any arbitrary category
+                            or set of categories.</para>
+                    </listitem>
+                </itemizedlist>
+            </para></section>
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry">
         <title>Event node</title>
@@ -2010,6 +2091,15 @@
                     <listitem>
                         <para>validated feed</para>
                     </listitem>
+                    <listitem>
+                        <para>unvalidated feed</para>
+                    </listitem>
+                    <listitem>
+                        <para>user access event feed</para>
+                    </listitem>
+                    <listitem>
+                        <para>JSON CADF event feed</para>
+                    </listitem>
                 </itemizedlist></para>
             <para>For more information about the validation modes, read <link
                     linkend="Feed_Validation">Feed validation</link>.</para>
@@ -2066,18 +2156,65 @@
             <para>To mark a feed to be <emphasis role="bold">validated</emphasis>, add the following
                     resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
             <para>
-                <programlisting> &lt;resource id="<replaceable>new_product</replaceable>"
-        path="<replaceable>new_product</replaceable>/events" 
-        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
+                <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
+       path="<replaceable>new_product</replaceable>/events" 
+       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
             </para>
                 <para>The following example shows the resource for a validated feed:</para>
                 <para>
-                    <programlisting>   &lt;resource id="core_events"
+                    <programlisting> &lt;resource id="core_events"
         path="core/events" 
         type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
                 </para></section>
+  
+        <section xml:id="Adding_user_access_event_feed"><title>Adding a user access event feed</title><para>To add a feed of type user access event feed, add the following resource to <emphasis
+                        role="bold">allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>access_event_name</replaceable>"
+         path="<replaceable>access_event_name</replaceable>/events"
+         type="wadl/feed.wadl#UserAccessEvent"/></programlisting>
+                </para>
+        <para>The following example shows the resource of a user access event with multiple feed
+                    types:</para>
+                <para>
+                    <programlisting>  &lt;resource id="feedsaccess_events"
+         path="feeds_access/events"
+         type="wadl/feed.wadl#AtomFeed
+               wadl/feed.wadl#TenantAtomFeed
+               wadl/cadf.wadl#UserAccessEvent
+               wadl/cadf.wadl#UserAccessEventTenant"/></programlisting>
+                </para></section>
+        <section xml:id="Adding_JSON_CADF_events"><title>Adding a JSON CADF event feed</title>
+                <para>To add a JSON CADF event, add the following resource to <emphasis role="bold"
+                        >allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>new_cadf_product</replaceable>"
+           path="{<replaceable>new_cadf_product_id</replaceable>}/events"
+           type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
+       &lt;param name="<replaceable>new_cadf_product_id</replaceable>" style="template" type="cldfeeds:<replaceable>new_cadf_product</replaceable>PathType"/></programlisting>
+                </para>
+                <para>The following example shows the resource of a JSON CADF event:</para>
+                <programlisting>&lt;resource id="cadftest_events"
+             path="{cadftestid}/events"
+             type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly">
+         &lt;param name="cadftestid" style="template" type="cldfeeds:cadftestPathType"/>
+&lt;/resource></programlisting></section>
+        <section xml:id="Adding_unvalidated_events"><title>Adding an unvalidated event feed</title>
+                <para>To mark a feed to be <emphasis role="bold">unvalidated</emphasis>, add the
+                    following resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
+       path="<replaceable>new_product</replaceable>/events" 
+       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
+                </para>
+                <para>The following example shows the resource for an unvalidated feed:</para>
+                <para>
+                    <programlisting>&lt;resource id="demo_events"
+        path="demo/events"
+        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
+                </para></section>
         </section>
-        <section xml:id="Add_sample_files">
+            <section xml:id="Add_sample_files">
             <title>Adding samples</title>
             <para>You can use Maven to generate sample responses and entries for each version of
                 your product schema. To use Maven, ensure that you have version 3.0.5 installed. For
