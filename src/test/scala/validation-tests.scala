@@ -448,5 +448,29 @@ class ValidatorSuite extends BaseUsageSuite {
       
     })
   })
-  
+
+  test( "Posting to customer_access_policy/events with cloudfeeds:service-admin should fail with 403" ) {
+
+    assertResultFailed( atomValidator.validate( request( "POST", "customer_access_policy/events", "application/atom+xml", <atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+                                                                                                                                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                                                                                                                      xmlns="http://www.w3.org/2001/XMLSchema">
+      <atom:title>CustomerService</atom:title>
+      <atom:content type="application/xml">
+        <event xmlns="http://docs.rackspace.com/core/event"
+               xmlns:sample="http://docs.rackspace.com/event/customer/access_policy"
+               id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
+               version="2"
+               eventTime="2013-03-15T11:51:11Z"
+               type="INFO"
+               tenantId="123456"
+               dataCenter="DFW1"
+               region="DFW">
+          <sample:product serviceCode="CustomerService"
+                          version="1"
+                          status="FULL"
+                          previousEvent="a"/>
+        </event>
+      </atom:content>
+    </atom:entry>, false, Map("X-ROLES"->List(SERVICE_ADMIN ) )), response, chain), 403)
+  }
 }

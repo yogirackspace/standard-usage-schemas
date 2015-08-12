@@ -148,6 +148,15 @@
                 </documentation>
             </annotation>
         </attribute>
+        <attribute name="writeRole" type="xsd:Name" use="optional">
+            <annotation>
+                <documentation>
+                    <html:p>
+                        TODO
+                    </html:p>
+                </documentation>
+            </annotation>
+        </attribute>
         <assert vc:minVersion="1.1"
                 test="every $attribute in schema:attribute satisfies
                          if ($attribute/@withResource) then

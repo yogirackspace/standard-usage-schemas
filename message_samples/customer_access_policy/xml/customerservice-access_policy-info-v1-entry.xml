@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="customer_access_policy/events"?>
+<?atom feed="customer_access_policy/events" writeRole="cloudfeeds:customer_access_policy-publisher"?>
 <!--
     This example has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/accessPolicy.xml -DfeedName=customer_access_policy' call.
