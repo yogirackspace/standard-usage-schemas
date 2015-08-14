@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="billing/events"?>
+<?atom feed="billing/events" writeRole="cloudfeeds:billing-publisher"?>
 <!--
     This example has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/billing-transaction.xml -DfeedName=billing' call.

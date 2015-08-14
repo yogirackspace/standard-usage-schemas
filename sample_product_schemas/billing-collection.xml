@@ -1,6 +1,9 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
         namespace="http://docs.rackspace.com/event/billing/collection"
-        serviceCode="BillingService" type="UPDATE" version="1">
+        serviceCode="BillingService"
+        type="UPDATE"
+        writeRole="cloudfeeds:billing-publisher"
+        version="1">
     <description>
         Specifies the events related to Billing Account Collection Statuses.
     </description>
