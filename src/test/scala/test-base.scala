@@ -79,6 +79,7 @@ class BaseUsageSuite extends BaseValidatorSuite with XPathAssertions {
     register("cadf", "http://schemas.dmtf.org/cloud/audit/1.0/event")
 
   val SERVICE_ADMIN = "cloudfeeds:service-admin"
+  val SERVICE_OBSERVER = "cloudfeeds:service-observer"
   val OBSERVER = "cloudfeeds:observer"
   val IDENTITY_USER_ADMIN = "identity:user-admin"
   val REG_ADMIN = "admin"
