@@ -10,7 +10,7 @@
         <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
         <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
         <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
-        
+
         <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
         <!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v1.1/">
         <!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
@@ -221,25 +221,23 @@
                         </tr>
                     </tbody>
                 </table>
-            </para></section>   
+            </para></section>
         <section xml:id="Enabling_search_on_your_feed"><title>Enabling searching on your feed</title>
             <para>Cloud Feeds supports searching for feed entries by a specific category by using a
                     <code>search</code> query as described in <link
                     xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/Filter_Entries_by_Category_d1e1315.html"
                     >Filtering entries by categories</link>.</para>
-            <para>To enable the searching functionality on your feed, you need to consider the
+            <para>To enable the performing a <code>search</code> query for specific categories on your feed, you need to consider the
                 following:</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>If you use a product node in your feed or your feed uses the Cloud
-                            Auditing Data Federation (CADF) standard, the searching functionality is
-                            automatically enabled, and you do not need to specify any additional
-                            categories to enable searching.</para>
+                        <para>If you use a product node in your feed or for user access event feeds, the relevant categories have already been added, and you do not need to specify any additional
+                            categories to enable searching for them.</para>
                     </listitem>
                     <listitem>
                         <para>For any other feeds, you need to add the categories with the
-                            appropriate category prefix to enable searching. The following table
+                            appropriate category prefix to enable <code>search</code> queries for one or more categories. The following table
                             shows a list of common category prefixes:</para>
                         <para>
                             <table frame="border">
@@ -319,9 +317,9 @@
         <para>Following is an example of an event node.</para>
         <para>
             <example><title>Event node exqmple</title>
-            <programlisting>&lt;event 
+            <programlisting>&lt;event
       <emphasis role="bold">startTime</emphasis>="2014-07-14T22:19:52Z"
-      <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z" 
+      <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z"
       <emphasis role="bold">region</emphasis>="DFW" <emphasis role="bold">dataCenter</emphasis>="DFW1" <emphasis role="bold">type</emphasis>="USAGE"
       <emphasis role="bold">id</emphasis>="8d89673c-c989-11e1-895a-0b3d632a8a89"
       <emphasis role="bold">resourceId</emphasis>="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
@@ -894,9 +892,9 @@
        status="COMPLETED"
        request="HTTP GET"
        response="200">
-       &lt;sample:dependent 
+       &lt;sample:dependent
           key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
-       &lt;sample:dependent 
+       &lt;sample:dependent
           key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
 &lt;/sample:<emphasis role="bold">product</emphasis>></programlisting>
             </example>
@@ -1917,7 +1915,7 @@
                 </orderedlist>
             </para>
             <section xml:id="defining_product_schema_node"><title>Defining the product schema node</title>
-   
+
             <para>When you create your product schema, you first need to define the product schema
                     node. Defining the product schema node requires that you <link
                         linkend="Selecting_namespace">select a namespace for your
@@ -1980,7 +1978,7 @@
         Specifies the business unit name.
     &lt;/attribute>
 
-    &lt;attribute name="description" type="string" use="required" 
+    &lt;attribute name="description" type="string" use="required"
         maxLength="255">
         Specifies the description of the event.
     &lt;/attribute>
@@ -1989,7 +1987,7 @@
             Specifies the team name and number which belongs to
         the listed business number.
         &lt;/description>
-        &lt;attribute name="name" type="string" use="required" 
+        &lt;attribute name="name" type="string" use="required"
         maxLength="255">
             Specifes the team name.
         &lt;/attribute>
@@ -2075,7 +2073,7 @@
                         <para>
                             <programlisting>$ mvn initialize</programlisting>
                         </para>
-                    
+
                     </listitem>
                 </orderedlist>
             </para>
@@ -2130,7 +2128,7 @@
                                             role="bold">internal</emphasis> users only, add the
                                         following resource:</para>
                                     <para>
-                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>" 
+                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
    path="<replaceable>new_product</replaceable>/events"
    type="wadl/feed.wadl#AtomFeed
          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]"/>  </programlisting>
@@ -2159,7 +2157,7 @@
                                 resources, as shown in the following example:</para>
                             <para>
                                 <programlisting>   &lt;resource id="functest1_events"
-        path="functest1/events" 
+        path="functest1/events"
         type="wadl/feed.wadl#AtomFeed
             wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
             wadl/feed.wadl#TenantAtomFeed
@@ -2172,13 +2170,13 @@
                     resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
             <para>
                 <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
-       path="<replaceable>new_product</replaceable>/events" 
+       path="<replaceable>new_product</replaceable>/events"
        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
             </para>
                 <para>The following example shows the resource for a validated feed:</para>
                 <para>
                     <programlisting> &lt;resource id="core_events"
-        path="core/events" 
+        path="core/events"
         type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
                 </para></section>
             <section xml:id="Adding_unvalidated_events"><title>Adding an unvalidated event feed</title>
@@ -2186,7 +2184,7 @@
                     following resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
                 <para>
                     <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
-       path="<replaceable>new_product</replaceable>/events" 
+       path="<replaceable>new_product</replaceable>/events"
        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
                 </para>
                 <para>The following example shows the resource for an unvalidated feed:</para>
