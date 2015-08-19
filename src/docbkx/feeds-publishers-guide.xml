@@ -222,13 +222,13 @@
                     </tbody>
                 </table>
             </para></section>
-        <section xml:id="Enabling_search_on_your_feed"><title>Enabling searching on your feed</title>
+        <section xml:id="Enabling_search_on_your_feed"><title>Adding search categories to your entires</title>
             <para>Cloud Feeds supports searching for feed entries by a specific category by using a
                     <code>search</code> query as described in <link
                     xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/Filter_Entries_by_Category_d1e1315.html"
                     >Filtering entries by categories</link>.</para>
-            <para>To enable the performing a <code>search</code> query for specific categories on your feed, you need to consider the
-                following:</para>
+            <para>To enable using <code>search</code> queries for specific categories on your feed,
+                you need to consider the following:</para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -2102,10 +2102,6 @@
                             feed</link></para>
                     </listitem>
                     <listitem>
-                        <para><link linkend="Adding_unvalidated_events">unvalidated
-                            feed</link></para>
-                    </listitem>
-                    <listitem>
                         <para><link linkend="Adding_user_access_event_feed">user access event
                                 feed</link></para>
                     </listitem>
@@ -2178,20 +2174,6 @@
                     <programlisting> &lt;resource id="core_events"
         path="core/events"
         type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
-                </para></section>
-            <section xml:id="Adding_unvalidated_events"><title>Adding an unvalidated event feed</title>
-                <para>To mark a feed to be <emphasis role="bold">unvalidated</emphasis>, add the
-                    following resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
-                <para>
-                    <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
-       path="<replaceable>new_product</replaceable>/events"
-       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
-                </para>
-                <para>The following example shows the resource for an unvalidated feed:</para>
-                <para>
-                    <programlisting>&lt;resource id="demo_events"
-        path="demo/events"
-        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Unvalidated"/></programlisting>
                 </para></section>
         <section xml:id="Adding_user_access_event_feed"><title>Adding a user access event feed</title><para>To add a feed of type user access event feed, add the following resource to <emphasis
                         role="bold">allfeeds.wadl</emphasis>:</para>
