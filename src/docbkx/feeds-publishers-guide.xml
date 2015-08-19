@@ -823,10 +823,9 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para> •  Product schemas can be versioned and multiple versions can
-                            co-exist on a feed. This feature enables products to extend their
-                            initial format. For more information, see <link linkend="Versions"
-                                >Versioning</link>. </para>
+                        <para>Product schemas can be versioned and multiple versions can co-exist on
+                            a feed. This feature enables products to extend their initial format.
+                            For more information, see <link linkend="Versions">Versioning</link>. </para>
                     </listitem>
                     <listitem>
                         <para>Product nodes can support attributes of several different types, such
@@ -974,6 +973,18 @@
                                 version string is allowed. Each product schema must have a unique
                                 version.</td>
                             <td>This attribute is optional.</td>
+                        </tr>
+                        <tr>
+                            <td><code>writeRole</code></td>
+                            <td>xsd:Name</td>
+                            <td>This attribute can be set to require a different role to post events
+                                other than the <emphasis role="bold"
+                                    >cloudfeeds:service-admin</emphasis> role, which is the default
+                                role for posting events. For more information, see <link
+                                    xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/RBAC-Permissions-Cross-Ref-d1e001.html"
+                                    >RBAC permissions cross-reference to Cloud Feeds API
+                                    operations</link>.</td>
+                            <td>This attribute is optional</td>
                         </tr>
                         <tr>
                             <td><code>xlmns</code></td>
@@ -1838,6 +1849,7 @@
                         <programlisting>&lt;<emphasis role="bold">productSchema</emphasis> xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/event/ebs/bu-team"
                serviceCode="EBS"
+               writeRole="cloudfeeds:customer_access_policy-publisher"
                type="CREATE UPDATE DELETE"
                version="1"></programlisting>
                     </example></para>
