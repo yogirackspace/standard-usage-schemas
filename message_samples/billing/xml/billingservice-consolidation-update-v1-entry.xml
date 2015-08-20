@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?atom feed="billing/events"?>
+<?atom feed="billing/events" writeRole="cloudfeeds:billing-publisher"?>
 <!--
     This example has been generated using
     'mvn -P generate-samples clean generate-sources -DproductSchema=sample_product_schemas/billing.xml -DfeedName=billing' call.
@@ -23,7 +23,7 @@
       <event xmlns="http://docs.rackspace.com/core/event"
              xmlns:sample="http://docs.rackspace.com/event/billing/consolidation"
              id="e53d007a-fc23-11e1-975c-cfa6b29bb814"
-             version="1"
+             version="2"
              eventTime="2013-03-15T11:51:11Z"
              type="UPDATE"
              dataCenter="DFW1"

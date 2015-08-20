@@ -1,7 +1,8 @@
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema"
                namespace="http://docs.rackspace.com/event/customer/access_policy"
                version="1"
-               serviceCode="CustomerService" 
+               serviceCode="CustomerService"
+               writeRole="cloudfeeds:customer_access_policy-publisher"
                type="INFO">
                
     <description>

@@ -122,16 +122,16 @@ class SampleMessagesSuite extends BaseUsageSuite {
   val sampleFeedToFilePairs = sampleFiles.map(toFeedFile).flatten
 
   sampleFeedToFilePairs.foreach {
-    case (feed, fl) => {
+    case (feed, fl, writeRole) => {
 
       test("Sample " + fl.getAbsolutePath + " should be valid against feed " + feed) {
         printf("Checking %s against feed %s\n", fl.getAbsolutePath, feed)
-          atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl), SERVICE_ADMIN), response, chain)
+          atomValidator.validate(request("POST", feed, "application/atom+xml", XML.loadFile(fl), writeRole), response, chain)
       }
     }
   }
 
-  sampleFeedToFilePairs.collect { case (feed: String, fl: File) => feed }.distinct.foreach { feed =>
+  sampleFeedToFilePairs.collect { case (feed: String, fl: File, writeRole : String) => feed }.distinct.foreach { feed =>
       test("Getting feed " + feed + " should work") {
         atomValidator.validate(requestRole("GET", feed, SERVICE_ADMIN), response, chain)
       }
@@ -144,37 +144,52 @@ class SampleMessagesSuite extends BaseUsageSuite {
 
     test("Sample " + f._4.getAbsolutePath + " should fail in the expected way when posted on feed " + f._1) {
       printf("Checking %s against feed %s\n", f._4.getAbsolutePath, f._1)
-        val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4), SERVICE_ADMIN), response, chain), f._2, f._3)
+        val r = assertResultFailed(atomValidator.validate(request("POST", f._1, "application/atom+xml", XML.loadFile(f._4), f._5), response, chain), f._2, f._3)
     }
   })
 
   //
-  //  Converts a sample file to a list of (feed/path, file)
+  //  Converts a sample file to a list of (feed/path, file, role)
   //
-  def toFeedFile (f : File) : List[(String, File)] = {
-    val feedAttr = (getProcs(f, "atom") \\ "atom" \\ "@feed").text
+  def toFeedFile (f : File) : List[(String, File, String)] = {
+    val node = getProcs(f, "atom")
+    val feedAttr = (node \\ "atom" \\ "@feed").text
+    val writeRole : String = findWriteRole(node)
+
     if (feedAttr.isEmpty()) {
       List()
     } else {
       feedAttr.split(" ").toList.map { feed =>
-          (feed, f)
+          (feed, f, writeRole)
       }
     }
+  }
+
+  def findWriteRole(node: NodeSeq): String = {
+    val roleAttr = (node \\ "atom" \\ "@writeRole").text match {
+
+      case role: String if !role.isEmpty() =>
+        role
+      case _ =>
+        SERVICE_ADMIN
+    }
+    roleAttr
   }
 
   //
   //  Converts a sample file to an aptional (feed/path, code, messages, file)
   //
-  def toFeedCodeMessagesFile (f: File) : Option[(String, Int, List[String], File)] = {
+  def toFeedCodeMessagesFile (f: File) : Option[(String, Int, List[String], File, String)] = {
     val procs = getProcs(f, "atom expect")
     val feed = (procs \\ "atom" \\ "@feed").text
     val codeTxt = (procs \\ "expect" \\ "@code").text
     val message = (procs \\ "expect" \\ "@message").text
+    val writeRole = findWriteRole( procs )
 
     if (feed.isEmpty() || codeTxt.isEmpty()) {
       None
     } else {
-      Some ((feed, codeTxt.toInt, message.split("\\s").toList, f))
+      Some ((feed, codeTxt.toInt, message.split("\\s").toList, f, writeRole))
     }
   }
 

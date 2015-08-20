@@ -47,7 +47,7 @@
 
         <xsl:result-document href="{$file_name}-entry.xml">
             <xsl:processing-instruction name="atom">
-            feed="<xsl:value-of select="$base_feed_name"/>/events"</xsl:processing-instruction>
+            feed="<xsl:value-of select="$base_feed_name"/>/events" <xsl:if test="@writeRole">writeRole="<xsl:value-of select="@writeRole"/>"</xsl:if></xsl:processing-instruction>
             <xsl:text>&#x0a;</xsl:text>
             <xsl:comment>
     This example has been generated using

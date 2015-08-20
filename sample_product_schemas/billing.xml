@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema" 
                namespace="http://docs.rackspace.com/event/billing/consolidation" 
-               serviceCode="BillingService" type="UPDATE" version="1">
+               serviceCode="BillingService"
+               type="UPDATE"
+               writeRole="cloudfeeds:billing-publisher"
+               version="1">
     <description>
         Specifies the events related to Billing Account Consolidations.
     </description>
