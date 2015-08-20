@@ -222,7 +222,7 @@
                     </tbody>
                 </table>
             </para></section>
-        <section xml:id="Enabling_search_on_your_feed"><title>Adding search categories to your entires</title>
+        <section xml:id="Enabling_search_on_your_feed"><title>Adding search categories to your entries</title>
             <para>Cloud Feeds supports searching for feed entries by a specific category by using a
                     <code>search</code> query as described in <link
                     xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/Filter_Entries_by_Category_d1e1315.html"
