@@ -2497,11 +2497,8 @@
                         </listitem>
                         <listitem>
                             <para>Use high-performance categories when using the
-                                    <parameter>search</parameter> query parameter</para>
-                            <para>When filtering a feed with the search query parameter, two
-                                category types provide better performance than others, especially
-                                for cases when the searched-for category is rare in the feed. </para>
-                            <para>The he following table shows the two category types:</para>
+                                    <parameter>search</parameter> query parameter.</para>
+                            <para>The following table shows the most common category types:</para>
                             <para>
                                 <table frame="border">
                                     <caption>Category prefixes</caption>
@@ -2528,6 +2525,17 @@
                                             <td>Specifies the event type.</td>
                                             <td><code>type:cloudsites.metered.site.usage</code>
                                             </td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>rgn:</code></td>
+                                            <td>Specifies the region.</td>
+                                            <td><code>rgn:ORD</code>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>dc:</code></td>
+                                            <td>Specifies the data center.</td>
+                                            <td><code>dc:ORD1</code></td>
                                         </tr>
                                     </tbody>
                                 </table>

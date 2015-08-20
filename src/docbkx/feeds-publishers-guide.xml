@@ -10,7 +10,7 @@
         <!ENTITY PUT '<command xmlns="http://docbook.org/ns/docbook">PUT</command>'>
         <!ENTITY POST '<command xmlns="http://docbook.org/ns/docbook">POST</command>'>
         <!ENTITY DELETE '<command xmlns="http://docbook.org/ns/docbook">DELETE</command>'>
-        
+
         <!-- changing authentication endpoints; define entities for US & UK rather than maintaining in text -->
         <!ENTITY ENDPOINT-US "https://identity.api.rackspacecloud.com/v1.1/">
         <!ENTITY ENDPOINT-UK "https://lon.identity.api.rackspacecloud.com/v1.1/">
@@ -71,6 +71,16 @@
                     </itemizedlist>
                 </revdescription>
             </revision>
+            <revision>
+                <date>2015-08-10</date>
+                <revdescription>
+                    <itemizedlist spacing="compact">
+                        <listitem>
+                            <para>Added descriptions for publishing additional feed types.</para>
+                        </listitem>
+                    </itemizedlist>
+                </revdescription>
+            </revision>
         </revhistory>
         <raxm:metadata xmlns:raxm="http://docs.rackspace.com/api/metadata">
             <raxm:displayname>Cloud Feeds Publisher's Guide</raxm:displayname>
@@ -121,6 +131,9 @@
                         <para><emphasis role="bold">User access events</emphasis> are generated when
                             a user attempts to access a specific API—for example, if a user requests
                             that a server be shut down. </para>
+                    </listitem>
+                    <listitem>
+                        <para>Non user-access events in CADF </para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -208,7 +221,83 @@
                         </tr>
                     </tbody>
                 </table>
-            </para></section>   
+            </para></section>
+        <section xml:id="Enabling_search_on_your_feed"><title>Adding search categories to your entries</title>
+            <para>Cloud Feeds supports searching for feed entries by a specific category by using a
+                    <code>search</code> query as described in <link
+                    xlink:href="http://docs.rackspace.com/cloud-feeds/api/v1.0/feeds-devguide/content/Filter_Entries_by_Category_d1e1315.html"
+                    >Filtering entries by categories</link>.</para>
+            <para>To enable using <code>search</code> queries for specific categories on your feed,
+                you need to consider the following:</para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>If you use a product node in your feed or for user access event feeds, the relevant categories have already been added, and you do not need to specify any additional
+                            categories to enable searching for them.</para>
+                    </listitem>
+                    <listitem>
+                        <para>For any other feeds, you need to add the categories with the
+                            appropriate category prefix to enable <code>search</code> queries for one or more categories. The following table
+                            shows a list of common category prefixes:</para>
+                        <para>
+                            <table frame="border">
+                                <caption>Category prefixes</caption>
+                                <col width="15%"/>
+                                <col width="40%"/>
+                                <col width="45%"/>
+                                <thead>
+                                    <tr>
+                                        <th>Category prefix</th>
+                                        <th>Description</th>
+                                        <th>Example</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>tid:</code></td>
+                                        <td>Specifies the tenant ID, taken from the
+                                                <parameter>tenantid</parameter> attribute from the
+                                            event node.</td>
+                                        <td><code>tid:12882</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>type:</code></td>
+                                        <td>Specifies the event type.</td>
+                                        <td><code>type:cloudsites.metered.site.usage</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>rgn:</code></td>
+                                        <td>Specifies the region.</td>
+                                        <td><code>rgn:ORD</code>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>dc:</code></td>
+                                        <td>Specifies the data center.</td>
+                                        <td><code>dc:ORD1</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </para>
+                        <para>The following example shows a list of atom categories:</para>
+                        <para>
+                            <programlisting>    &lt;atom:category term="tid:5821027"/>
+    &lt;atom:category term="rgn:ORD"/>
+    &lt;atom:category term="dc:ORD1"/>
+    &lt;atom:category term="type:widget.widget.gadget.usage"/></programlisting>
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>For archiving, the <code>tid:</code>, <code>rgn:</code>, and
+                                <code>dc:</code> categories are required.</para>
+                    </listitem>
+                    <listitem>
+                        <para>When definining search categories, you can add any arbitrary category
+                            or set of categories.</para>
+                    </listitem>
+                </itemizedlist>
+            </para></section>
     </chapter>
     <chapter xml:id="Element_of_an_atom_entry">
         <title>Event node</title>
@@ -228,9 +317,9 @@
         <para>Following is an example of an event node.</para>
         <para>
             <example><title>Event node exqmple</title>
-            <programlisting>&lt;event 
+            <programlisting>&lt;event
       <emphasis role="bold">startTime</emphasis>="2014-07-14T22:19:52Z"
-      <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z" 
+      <emphasis role="bold">endTime</emphasis>="2014-07-14T24:00:00Z"
       <emphasis role="bold">region</emphasis>="DFW" <emphasis role="bold">dataCenter</emphasis>="DFW1" <emphasis role="bold">type</emphasis>="USAGE"
       <emphasis role="bold">id</emphasis>="8d89673c-c989-11e1-895a-0b3d632a8a89"
       <emphasis role="bold">resourceId</emphasis>="3863d42a-ec9a-11e1-8e12-df8baa3ca440"
@@ -803,9 +892,9 @@
        status="COMPLETED"
        request="HTTP GET"
        response="200">
-       &lt;sample:dependent 
+       &lt;sample:dependent
           key="(domain=1002_domain_200.com)|(service=1002_domain_100.com)"/>
-       &lt;sample:dependent 
+       &lt;sample:dependent
           key="(domain=2002_domain_200.com)|(service=2002_domain_200.com)"/>
 &lt;/sample:<emphasis role="bold">product</emphasis>></programlisting>
             </example>
@@ -1826,7 +1915,7 @@
                 </orderedlist>
             </para>
             <section xml:id="defining_product_schema_node"><title>Defining the product schema node</title>
-   
+
             <para>When you create your product schema, you first need to define the product schema
                     node. Defining the product schema node requires that you <link
                         linkend="Selecting_namespace">select a namespace for your
@@ -1889,7 +1978,7 @@
         Specifies the business unit name.
     &lt;/attribute>
 
-    &lt;attribute name="description" type="string" use="required" 
+    &lt;attribute name="description" type="string" use="required"
         maxLength="255">
         Specifies the description of the event.
     &lt;/attribute>
@@ -1898,7 +1987,7 @@
             Specifies the team name and number which belongs to
         the listed business number.
         &lt;/description>
-        &lt;attribute name="name" type="string" use="required" 
+        &lt;attribute name="name" type="string" use="required"
         maxLength="255">
             Specifes the team name.
         &lt;/attribute>
@@ -1984,7 +2073,7 @@
                         <para>
                             <programlisting>$ mvn initialize</programlisting>
                         </para>
-                    
+
                     </listitem>
                 </orderedlist>
             </para>
@@ -2005,10 +2094,20 @@
                     <emphasis role="bold">allfeeds.wadl</emphasis> file.</para>
             <para>Before adding your feed, you need to determine the validation mode of your feed: <itemizedlist>
                     <listitem>
-                        <para>product feed</para>
+                        <para><link linkend="Adding_resource_product_feed">product
+                            feed</link></para>
                     </listitem>
                     <listitem>
-                        <para>validated feed</para>
+                        <para><link linkend="Adding_resource_product_feed">validated
+                            feed</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link linkend="Adding_user_access_event_feed">user access event
+                                feed</link></para>
+                    </listitem>
+                    <listitem>
+                        <para><link linkend="Adding_JSON_CADF_events">JSON CADF event
+                            feed</link></para>
                     </listitem>
                 </itemizedlist></para>
             <para>For more information about the validation modes, read <link
@@ -2025,7 +2124,7 @@
                                             role="bold">internal</emphasis> users only, add the
                                         following resource:</para>
                                     <para>
-                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>" 
+                                        <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
    path="<replaceable>new_product</replaceable>/events"
    type="wadl/feed.wadl#AtomFeed
          wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]"/>  </programlisting>
@@ -2054,7 +2153,7 @@
                                 resources, as shown in the following example:</para>
                             <para>
                                 <programlisting>   &lt;resource id="functest1_events"
-        path="functest1/events" 
+        path="functest1/events"
         type="wadl/feed.wadl#AtomFeed
             wadl/product.wadl#[<emphasis role="italic">NewProductServiceCode</emphasis>]
             wadl/feed.wadl#TenantAtomFeed
@@ -2066,18 +2165,69 @@
             <para>To mark a feed to be <emphasis role="bold">validated</emphasis>, add the following
                     resource to <emphasis role="bold">allfeeds.wadl</emphasis>:</para>
             <para>
-                <programlisting> &lt;resource id="<replaceable>new_product</replaceable>"
-        path="<replaceable>new_product</replaceable>/events" 
-        type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
+                <programlisting>&lt;resource id="<replaceable>new_product</replaceable>"
+       path="<replaceable>new_product</replaceable>/events"
+       type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
             </para>
                 <para>The following example shows the resource for a validated feed:</para>
                 <para>
-                    <programlisting>   &lt;resource id="core_events"
-        path="core/events" 
+                    <programlisting> &lt;resource id="core_events"
+        path="core/events"
         type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/></programlisting>
                 </para></section>
+        <section xml:id="Adding_user_access_event_feed"><title>Adding a user access event feed</title><para>To add a feed of type user access event feed, add the following resource to <emphasis
+                        role="bold">allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>access_event_name</replaceable>"
+         path="<replaceable>access_event_name</replaceable>/events"
+         type="wadl/feed.wadl#UserAccessEvent"/></programlisting>
+                </para>
+        <para>The following example shows the resource of a user access event with multiple feed
+                    types:</para>
+                <para>
+                    <programlisting>  &lt;resource id="feedsaccess_events"
+         path="feeds_access/events"
+         type="wadl/feed.wadl#AtomFeed
+               wadl/feed.wadl#TenantAtomFeed
+               wadl/cadf.wadl#UserAccessEvent
+               wadl/cadf.wadl#UserAccessEventTenant"/></programlisting>
+                </para></section>
+        <section xml:id="Adding_JSON_CADF_events"><title>Adding a JSON CADF non-useraccess event feed</title>
+                <para>Cloud Feeds supports CADF events that are not of type <emphasis role="italic"
+                        >useraccess</emphasis>. The following rules apply for these events:</para>
+                <para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>The content for CADF events of non-useraccess type must be in
+                                JSON. </para>
+                        </listitem>
+                        <listitem>
+                            <para>The event can have an Atom XML envelope.</para>
+                        </listitem>
+                        <listitem>
+                            <para>The <code>atom:content</code> node must be of
+                                    <code>type="applicaton/json"</code> as shown in the following
+                                example:</para>
+                            <para>
+                                <programlisting> &lt;atom:content type="application/json"></programlisting>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+                <para>To add a JSON CADF event that is not of type <emphasis role="italic"
+                        >useraccess</emphasis>, add the following resource to <emphasis role="bold"
+                        >allfeeds.wadl</emphasis>:</para>
+                <para>
+                    <programlisting>&lt;resource id="<replaceable>new_feed_name_</replaceable>events"
+           path="<replaceable>new_feed_name</replaceable>/events"
+           type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"></programlisting>
+                </para>
+                <para>The following example shows the resource of a JSON CADF event:</para>
+                <programlisting>        &lt;resource id="jsoncontentonlytest_events"
+                  path="jsoncontentonlytest/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"/></programlisting></section>
         </section>
-        <section xml:id="Add_sample_files">
+            <section xml:id="Add_sample_files">
             <title>Adding samples</title>
             <para>You can use Maven to generate sample responses and entries for each version of
                 your product schema. To use Maven, ensure that you have version 3.0.5 installed. For
