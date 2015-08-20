@@ -145,7 +145,7 @@
 
             <resource_type id="{$id}">
                 <method id="add{$id}Entry" name="POST">
-                    <xsl:attribute name="rax:roles" select="sch:getWriteRoles($schemas)"/>
+                    <xsl:attribute name="rax:roles" select="sch:getWriteRoles( $id, $schemas)"/>
                     <xsl:text>&#x0a;         </xsl:text>
                     <xsl:comment><xsl:text> GENERATED FILE! Do Not Hand Edit! </xsl:text></xsl:comment>
                     <xsl:text>&#x0a;         </xsl:text>
@@ -901,8 +901,10 @@
         <xsl:copy-of select="distinct-values(for $s in $schemas return sch:stringList($s/@type))"/>
     </xsl:function>
     <xsl:function name="sch:getWriteRoles" as="xs:string*">
+        <xsl:param name="serviceCode" as="xs:string" />
         <xsl:param name="schemas" as="node()*"/>
         <xsl:variable name="roles" select="distinct-values(for $s in $schemas return sch:stringList($s/@writeRole))"/>
+        <xsl:if test="count($roles) > 1"><xsl:message terminate="yes">ERROR: The service code '<xsl:value-of select="$serviceCode"/>' has more than one role for writeRole: '<xsl:value-of select="$roles"/>'</xsl:message></xsl:if>
         <xsl:choose>
             <xsl:when test="$roles != ''">
                 <xsl:value-of select="$roles"/>

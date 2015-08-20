@@ -15,33 +15,33 @@
                 "term": "type:billingservice.consolidation.update"
             }
         ],
-        "content": {
-            "event": {
-                "@type": "http://docs.rackspace.com/core/event",
-                "dataCenter": "DFW1",
-                "eventTime": "2013-03-15T11:51:11Z",
-                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
-                "product": {
-                    "@type": "http://docs.rackspace.com/event/billing/consolidation",
-                    "invoicedInExternalBillingSystem": true,
-                    "ran": "a",
-                    "serviceCode": "BillingService",
-                    "version": "1"
-                },
-                "region": "DFW",
-                "type": "UPDATE",
-                "version": "1"
-            }
-        },
-        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
         "link": [
             {
                 "href": "https://ord.feeds.api.rackspacecloud.com/billing/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
                 "rel": "self"
             }
         ],
-        "published": "2013-03-01T19:42:35.507",
+        "id": "urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814",
         "title": "BillingService",
-        "updated": "2013-03-01T19:42:35.507Z"
+        "content": {
+            "event": {
+                "@type": "http://docs.rackspace.com/core/event",
+                "id": "e53d007a-fc23-11e1-975c-cfa6b29bb814",
+                "version": "2",
+                "eventTime": "2013-03-15T11:51:11Z",
+                "type": "UPDATE",
+                "dataCenter": "DFW1",
+                "region": "DFW",
+                "product": {
+                    "@type": "http://docs.rackspace.com/event/billing/consolidation",
+                    "serviceCode": "BillingService",
+                    "version": "1",
+                    "ran": "a",
+                    "invoicedInExternalBillingSystem": true
+                }
+            }
+        },
+        "updated": "2013-03-01T19:42:35.507Z",
+        "published": "2013-03-01T19:42:35.507"
     }
 }
