@@ -25,21 +25,36 @@ class ValidatorSuite extends BaseUsageSuite {
     "rid:" -> "Bad Content: The \"rid:[resourceId]\" category is automatically added by Cloud Feeds.  Alternative \"rid:[other]\" categories cannot be submitted.",
     "type:" -> "Bad Content: The \"type:[eventType]\" category is automatically added by Cloud Feeds.  Alternative \"type:[other]\" categories cannot be submitted.",
     "username:" -> "Bad Content: The \"username:[username]\" category is automatically added by Cloud Feeds.  Alternative \"username:[other]\" categories cannot be submitted.")
-  
-  
-  test( "Getting an entry on a Validated feed should always succeed" ) {
+
+
+  test( "Getting an entry on a Validated feed should always succeed by service-admin" ) {
 
     atomValidator.validate( requestRole( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", SERVICE_ADMIN), response, chain )
   }
 
-  test( "Getting an entry on an Unvalidated feed should always succeed" ) {
+  test( "Getting an entry on a Validated feed should always succeed by service-observer" ) {
+
+    atomValidator.validate( requestRole( "GET", "/usagetest10/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4", SERVICE_OBSERVER), response, chain )
+  }
+
+  test( "Getting an entry on an Unvalidated feed should always succeed by service-admin" ) {
 
     atomValidator.validate( requestRole( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_ADMIN ), response, chain )
   }
 
-  test( "Getting an entry on a product feed should always succeed" ) {
+  test( "Getting an entry on an Unvalidated feed should always succeed by service-observer" ) {
+
+    atomValidator.validate( requestRole( "GET", "/demo/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_OBSERVER ), response, chain )
+  }
+
+  test( "Getting an entry on a product feed should always succeed by service-admin" ) {
 
     atomValidator.validate( requestRole( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_ADMIN ), response, chain )
+  }
+
+  test( "Getting an entry on a product feed should always succeed by service-observer" ) {
+
+    atomValidator.validate( requestRole( "GET", "/bigdata/events/entries/urn:uuid:2d6c6484-52ca-b414-6739-bc2062cda7a4",  SERVICE_OBSERVER ), response, chain )
   }
 
   test("A GET on /buildinfo should always succeed") {
@@ -68,6 +83,17 @@ class ValidatorSuite extends BaseUsageSuite {
 
   test("Posting non-atom XML on an unvalidated feed (usagetest7/events) with content-type of application/atom+xml should fail with a 400") {
     assertResultFailed(atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml", <some_xml />, SERVICE_ADMIN), response, chain), 400)
+  }
+
+  test("Posting valid entry with non-usage xml by a cloudfeeds:service-observer should fail with 403") {
+    assertResultFailed( atomValidator.validate(request("POST", "/usagetest1/events", "application/atom+xml",
+      <atom:entry xmlns:atom="http://www.w3.org/2005/Atom">
+        <atom:title>Foo Atom Data</atom:title>
+        <atom:content type="application/xml">
+          <foo xmlns="fooBar.com">
+          </foo>
+        </atom:content>
+      </atom:entry>, false, Map("X-ROLES"->List(SERVICE_OBSERVER ) ) ), response, chain), 403 )
   }
 
 
