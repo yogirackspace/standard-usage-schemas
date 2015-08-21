@@ -424,8 +424,8 @@
     </xsl:template>
 
     <!--
-      Return true if the node is defined as a part of the product schema.  This consists when the node matches the
-      included nodes & is not within the execluded namespaces.
+      Return true if the node is defined as a part of the product schema or if it is our core event
+      node. More importantly, it is assumed the node also has @version attribute.
     -->
     <xsl:function name="cldfeeds:isRaxSchemaNode" as="xs:boolean">
         <xsl:param name="theNode" as="node()"/>
