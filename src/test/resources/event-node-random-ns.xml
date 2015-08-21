@@ -1,0 +1,17 @@
+<atom:entry xmlns:atom="http://www.w3.org/2005/Atom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.w3.org/2001/XMLSchema">
+    <atom:title>Random Atom Entry</atom:title>
+    <atom:content type="application/xml">
+        <random:event xmlns:random="http://random.namespace/foobar"
+                    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                    id="6fa234aea93f38c26fa234aea93f38c2"
+                    eventType="activity"
+                    typeURI="http://schemas.dmtf.org/cloud/audit/1.0/event"
+                    time="2015-03-12T13:20:00-05:00"
+                    outcome="success">
+            <!--racker -->
+            <random:somenode attr="foo"/>
+        </random:event>
+    </atom:content>
+</atom:entry>
