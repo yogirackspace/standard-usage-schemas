@@ -152,7 +152,7 @@
             <annotation>
                 <documentation>
                     <html:p>
-                        By default, the cloudfeeds:service-admin role is required to post product events.  This
+                        Default value, if not specified, is cloudfeeds:service-admin. This
                         optional attribute can be set to require a different role than cloudfeeds:service-admin
                         in order to post events.
                     </html:p>
