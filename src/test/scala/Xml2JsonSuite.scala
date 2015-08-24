@@ -332,6 +332,17 @@ class Xml2JsonSuite extends BaseUsageSuite {
         .get( "attachments").asInstanceOf[java.util.List[Map[String, AnyRef]]].size() == 2 )
     }
 
+    test( "should transform XML containing event node with random namespace") {
+        val parser = (new JsonParserFactory()).createFastParser()
+
+        val transformResult = transform( new StreamSource( new File( "src/test/resources/event-node-random-ns.xml" ) ) )
+        val transformMap = parser.parseMap( new ByteArrayInputStream( transformResult.getBytes( StandardCharsets.UTF_8 ) ) );
+
+        assert( transformMap.get( "entry" ).asInstanceOf[java.util.Map[String, AnyRef]]
+            .get( "content").asInstanceOf[java.util.Map[String, AnyRef]]
+            .get( "event").asInstanceOf[java.util.Map[String, AnyRef]] != null )
+    }
+
     def transform(inputXML: StreamSource) : String = {
         val trans = templates.newTransformer()
         val writer = new StringWriter()
