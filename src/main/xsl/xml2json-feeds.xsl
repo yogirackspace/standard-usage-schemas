@@ -430,14 +430,16 @@
     <xsl:function name="cldfeeds:isRaxSchemaNode" as="xs:boolean">
         <xsl:param name="theNode" as="node()"/>
 
-        <xsl:variable name="ns"        select="namespace-uri($theNode)"/>
-        <xsl:variable name="localName" select="local-name($theNode)"/>
+        <xsl:variable name="ns"          select="namespace-uri($theNode)"/>
+        <xsl:variable name="localName"   select="local-name($theNode)"/>
+        <xsl:variable name="coreEventNs" select="'http://docs.rackspace.com/core/event'"/>
 
         <!-- rax schema nodes must have @version attribute -->
         <xsl:choose>
             <xsl:when test="exists($theNode/@version) and 
-                            (($localName = 'event'   and $ns = 'http://docs.rackspace.com/core/event') or
-                             ($localName = 'product' and $ns != 'http://schemas.dmtf.org/cloud/audit/1.0/event'))">
+                            (($localName = 'event'   and $ns = $coreEventNs) or
+                             ($localName = 'product' and local-name($theNode/..) = 'event' and
+                              namespace-uri($theNode/..) = $coreEventNs))">
                 <xsl:value-of select="true()"/>
             </xsl:when>
             <xsl:otherwise>
