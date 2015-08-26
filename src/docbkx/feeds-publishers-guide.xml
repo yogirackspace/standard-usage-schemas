@@ -1090,6 +1090,9 @@
             <para>The following example shows a sample product schema with multiple attributes and
                 an attribute group defined.</para>
             <programlisting language="xml"><xi:include href="./samples/emailapps_msservice.xml" parse="text"/></programlisting>
+            <note>
+                <para>Cloud Feeds does not support nesting attribute groups.</para>
+            </note>
             <section xml:id="Attribute_node">
                 <title>Attribute node</title>
                 <para>The attribute node declares an attribute for a product., such as the name of
@@ -1188,7 +1191,9 @@
                                         <code>minLength</code> is not set, it defaults to 0, which
                                     implies that empty strings are valid. If empty strings are not
                                     valid, ensure that <code>minLength</code> is set to a value of
-                                    greater than 0.</td>
+                                    greater than 0. <emphasis><emphasis role="bold"
+                                        >Note</emphasis></emphasis>: This attribute is NOT limited
+                                    to 255 characters. </td>
                                 <td>
                                     <itemizedlist>
                                         <listitem>
@@ -1703,11 +1708,19 @@
                         </tr>
                         <tr>
                             <td><code>string</code></td>
-                            <td>Specifies any sequence of characters.</td>
+                            <td>Specifies any sequence of characters. <emphasis role="bold"
+                                        >Note</emphasis>: the size of a string can be set in
+                                        the<code> maxLength</code> attribute. It is not limited to
+                                    255 characters. For more information, see <link
+                                        linkend="Attribute_node">Attribute node</link>.</td>
                         </tr>
                         <tr>
                             <td><code>string</code>*</td>
-                            <td>Specifies a list of <code>string</code> values.</td>
+                            <td>Specifies a space-separated list of <code>string</code> values.
+                                        <emphasis role="bold">Note</emphasis>: the size of a string
+                                    can be set in the<code> maxLength</code> attribute. It is not
+                                    limited to 255 characters. For more information, see <link
+                                        linkend="Attribute_node">Attribute node</link>.</td>
                         </tr>
                         <tr>
                             <td><code>time</code></td>
