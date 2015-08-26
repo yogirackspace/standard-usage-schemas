@@ -648,7 +648,7 @@
             </example>
         </section>
     </section>
-        <section xml:id="Preferences_API_Operations"><title>Archiving Configuration API operations</title>
+        <section xml:id="Preferences_API_Operations" security="internal"><title>Archiving Configuration API operations</title>
             <para>This section describes the Archiving Configuration API operations.</para>
             <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
                 <wadl:resource href="../../src/docbkx/wadl/preferences.wadl#metadata_for_resource">
