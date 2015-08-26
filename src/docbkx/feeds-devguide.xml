@@ -563,9 +563,9 @@
                     <para>In addition to token-based authentication Cloud Feeds also
                         supports basic authentication by using your Rackspace cloud account username
                         and API key.</para>
-                <para security="internal">
+                <para>
                     <important>
-                        <para>Basic authentcation cannot be used for making requests against the
+                        <para>Basic authentication cannot be used for making requests against the
                                 <link linkend="Preferences_API">Archiving Configuration
                             API.</link>.</para>
                     </important>
@@ -2557,7 +2557,7 @@
                 </para></section>
         </section>
     </chapter>    
-    <xi:include href="feeds-archiving.xml" security="internal"></xi:include>
+    <xi:include href="feeds-archiving.xml"></xi:include>
     <xi:include href="api-operations-external.xml"></xi:include>
     <xi:include href="api-operations-internal.xml"></xi:include>
 

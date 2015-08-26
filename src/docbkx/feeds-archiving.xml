@@ -18,7 +18,7 @@
         <!ENTITY ENDPOINT-UK-20 "https://lon.identity.api.rackspacecloud.com/v2.0/">
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" 
-  xml:id="feeds-archiving" version="5.0" security="internal">
+  xml:id="feeds-archiving" version="5.0">
    <title>Cloud Feeds Archiving</title><para>Cloud Feeds supports archiving of events. Normally, an event remains in the database for three
             days. Archiving enables customers to permanently store events in a Cloud Files
             container, and to retrieve them from that location.</para>
@@ -108,7 +108,7 @@
             <para>The Cloud Feeds Archiving Configuration API supports the following URI
                 resources:</para>
             <para>
-                <table frame="border" security="internal">
+                <table frame="border">
                     <caption>Archiving Configuration API resources</caption>
                     <col width="30%"/>
                     <col width="30%"/>
@@ -258,7 +258,7 @@
                        </tbody>
                     </table>
                 </para>
-            <para security="internal">
+            <para>
                     <table frame="border">
                         <caption>Archiving Configuration API endpoints</caption>
                         <col width="75%"/>
@@ -648,7 +648,7 @@
             </example>
         </section>
     </section>
-        <section xml:id="Preferences_API_Operations" security="internal"><title>Archiving Configuration API operations</title>
+        <section xml:id="Preferences_API_Operations"><title>Archiving Configuration API operations</title>
             <para>This section describes the Archiving Configuration API operations.</para>
             <wadl:resources xmlns:wadl="http://wadl.dev.java.net/2009/02">
                 <wadl:resource href="../../src/docbkx/wadl/preferences.wadl#metadata_for_resource">
