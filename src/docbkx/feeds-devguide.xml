@@ -1789,7 +1789,7 @@
                                 Representation</td>
                             <td>Location: Member Entry URI</td>
                             <td>The entry was successfully published to the feed, no further action
-                                is needed</td>
+                                is needed.</td>
                         </tr>
                         <tr>
                             <td>Client Error. Can be an error with the event.</td>
@@ -1935,7 +1935,7 @@
         </para>
         <section xml:id="Adding_a_New_Atom_Entry-d1e1303" security="internal">
             <title>Adding a new Atom event</title>
-            <para>You can use a <command>POST </command>request to insert new Atom entries into Atom
+            <para>You can use a <command>POST</command> request to insert new Atom entries into Atom
                 Hopper. </para>
             <para>The following examples show what the content of an Atom entry can look
                 like:</para>
@@ -1964,6 +1964,12 @@
                         HTTP Header to Content-Type: application/atom+xml.</para>
                     </important>
                 </para>
+            <para>
+                <important>
+                    <para>The maximum payload size for <command>POST</command> requests in Cloud
+                        Feeds is 2 MB.</para>
+                </important>
+            </para>
                 <para>After you have successfully posted the Atom content to the correct endpoint
                 you receive an <code>HTTP 201</code> status code as a response. The response body
                 contains the Atom content that you posted in the request body, as well as category
