@@ -46,6 +46,9 @@
                   path="customer_access_policy/events"
                   type="wadl/feed.wadl#AtomFeed
                         wadl/product.wadl#CustomerService"/>
+        <resource id="customer_accounts_events"
+                  path="customer_accounts/events"
+                  type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#JsonContentOnly"/>
         <resource id="customer_events"
                   path="customer/events"
                   type="wadl/feed.wadl#AtomFeed wadl/feed.wadl#Validated"/>
