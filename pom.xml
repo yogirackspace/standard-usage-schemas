@@ -438,6 +438,45 @@
     </build>
     <profiles>
         <profile>
+            <id>tiamat-check</id>
+            <properties>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.gmaven</groupId>
+                        <artifactId>gmaven-plugin</artifactId>
+                        <version>${gmaven.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                                <configuration>
+                                    <providerSelection>1.8</providerSelection>
+                                    <source>
+
+                                        // verify xslt are the same:
+                                        def files = [ 'nonStringAttrs.xsl', 'rm_private_attrs_for_obs.xsl', 'xml2json-feeds.xsl']
+
+                                        files.each { file ->
+
+                                            def tiamat = new File( "cloudfeeds-nabu/tiamat/src/main/resources/${file}" ).text
+                                            def sus = new File( "target/xslt-artifacts/${file}").text
+
+                                            if (tiamat != sus)
+                                                fail( "The 'target/xslt-artifacts/${file}' has been updated in standard-usage-schemas and needs to be released for groupId: 'com.rackspace.feeds.nabu' artifactId: 'cloudfeeds-nabu' in 'https://github.com/rackerlabs/cloudfeeds-nabu'" )
+                                        }
+                                    </source>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <id>xerces-build</id>
             <properties>
                 <usage.tests.xsd.impl>Xerces</usage.tests.xsd.impl>
