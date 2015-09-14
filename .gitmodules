@@ -1,0 +1,3 @@
+[submodule "cloudfeeds-nabu"]
+	path = cloudfeeds-nabu
+	url = https://github.com/rackerlabs/cloudfeeds-nabu.git
