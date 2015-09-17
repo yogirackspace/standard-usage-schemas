@@ -52,6 +52,9 @@
             </xslout:template>
             
             <xsl:for-each-group select="$productSchemas//sch:productSchema" group-by="@serviceCode">
+                <xsl:sort select="current-grouping-key()"
+                          data-type="text"
+                          order="ascending"/>
                 <xsl:call-template name="sch:filter_private_attrs">
                     <xsl:with-param name="schemas" select="current-group()"/>
                 </xsl:call-template>
@@ -98,7 +101,10 @@
         <xsl:variable name="namespace" as="xs:anyURI" select="@namespace"/>
         <xsl:variable name="version" as="xs:string" select="@version"/>
         <xsl:variable name="private_attrs">
-            <xsl:for-each select="./sch:attribute[@private = 'true']/@name"> 
+            <xsl:for-each select="./sch:attribute[@private = 'true']/@name">
+                <xsl:sort select="."
+                          data-type="text"
+                          order="ascending"/>
                 <xsl:if test="not(position() = 1)">, </xsl:if>
                 <xsl:text>'</xsl:text>
                 <xsl:value-of select="."/>

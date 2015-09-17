@@ -43,6 +43,9 @@
     
     <xsl:template match="*" mode="loop"> 
         <xsl:for-each select="$productSchemas//sch:productSchema">
+            <xsl:sort select="current()[namespace]"
+                      data-type="text"
+                      order="ascending" />
             <xsl:if test="count(current()//sch:attribute[exists(index-of($nonStringTypes, @type))]) gt 0">
                 <schema key="{@namespace}" version="{@version}">
                     <attributes>
