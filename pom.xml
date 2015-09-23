@@ -460,7 +460,7 @@
                                         // verify xslt are the same:
                                         def files = [ 'nonStringAttrs.xsl', 'rm_private_attrs_for_obs.xsl', 'xml2json-feeds.xsl']
 
-                                        files.each { file -&gt;
+                                        files.each { file ->
 
                                             def tiamat = new File( "cloudfeeds-nabu/tiamat/src/main/resources/${file}" ).text
                                             def sus = new File( "target/xslt-artifacts/${file}").text

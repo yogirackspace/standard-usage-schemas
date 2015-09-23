@@ -43,10 +43,19 @@
     
     <xsl:template match="*" mode="loop"> 
         <xsl:for-each select="$productSchemas//sch:productSchema">
+            <xsl:sort select="@namespace"
+                      data-type="text"
+                      order="ascending" />
+            <xsl:sort select="@version"
+                      data-type="number"
+                      order="ascending" />
             <xsl:if test="count(current()//sch:attribute[exists(index-of($nonStringTypes, @type))]) gt 0">
                 <schema key="{@namespace}" version="{@version}">
                     <attributes>
                         <xsl:for-each select="current()//sch:attribute[exists(index-of($nonStringTypes, @type))]">
+                            <xsl:sort select="@name"
+                                      data-type="text"
+                                      order="ascending" />
                             <xsl:variable name="myParent" select="parent::node()"/>
     
                             <!-- The following choose-when-otherwise assumes that we only
