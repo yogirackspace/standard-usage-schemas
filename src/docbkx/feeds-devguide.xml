@@ -788,6 +788,57 @@
             <example security="internal"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeed.json" parse="text"/></programlisting></example>
             <example security="external"><title>Retrieve feeds catalog response - JSON example</title><programlisting language="json"><xi:include href="./samples/resGetCatalogFeedext.json" parse="text"/></programlisting></example>
         </section>
+         <section xml:id="CloudFeedsKibanadashboard" security="internal">
+             <title>Cloud Feeds Kibana dashboard</title>
+             <para>Cloud Feeds features a Kibana dashboard that provides an overview of the
+                different event and feeds activities, such as a list of the number of events and
+                feeds that are published, or the number of <command>GET</command> and
+                    <command>POST</command> requests that were issued during a specific time frame.
+                The Kibana dashboard helps troubleshoot the status of your feeds and events, for
+                example you can verify whether the events you submitted for publication were
+                actually published.</para>
+             <para>You can customize the Kibana dashboard by applying filters and creating custom
+                queries. For more information about working with Kibana dashboards, read the <link
+                    xlink:href="https://www.elastic.co/guide/en/kibana/master/dashboard.html#dashboard"
+                    >Dashboard</link> chapter in the Kibana documentation.</para>
+             <para>To access the Cloud Feeds Kibana dashboard, click on one of the following
+                 links:</para>
+             <para>
+                 <table frame="border">
+                     <caption>Kibana URLs</caption>
+                     <col width="25%"/>
+                     <col width="75%"/>
+                     <thead>
+                         <tr>
+                             <th>Version</th>
+                             <th>URL</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>Staging</td>
+                             <td>
+                                 <link
+                                     xlink:href="https://cloudfeeds-elastic.staging.ord1.ci.rackspace.net/kibana/index.html#/dashboard/elasticsearch/Cloud%20Feeds"
+                                     >https://cloudfeeds-elastic.staging.ord1.ci.rackspace.net/kibana/index.html#/dashboard/elasticsearch/Cloud%20Feeds</link>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>Production</td>
+                             <td>
+                                 <link
+                                     xlink:href="https://cloudfeeds-elastic.prod.ord1.ci.rackspace.net/kibana/#/dashboard/elasticsearch/Cloud%20Feeds"
+                                     >https://cloudfeeds-elastic.prod.ord1.ci.rackspace.net/kibana/#/dashboard/elasticsearch/Cloud%20Feeds</link>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </para>
+             <para>When prompted, type your Rackspace username (SSO) in the <emphasis role="bold"
+                    >User Name</emphasis> field, and your Rackspace password in the <emphasis
+                    role="bold">Password</emphasis> field, and then click <emphasis role="bold"
+                    >OK</emphasis>.</para>
+         </section>
         <section xml:id="CloudFeedsConcepts">
             <title>Cloud Feeds concepts</title>
             <para>Cloud Feeds uses AtomPub to publish different types of feeds. Feeds are composed
