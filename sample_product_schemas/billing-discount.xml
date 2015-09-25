@@ -11,9 +11,6 @@
     <attribute name="discountType" type="string" use="required" maxLength="255" allowedValues="STARTUP RACKER INTERNAL DEVELOPER+ COMMIT VOLUME OTHER">
         Specifies the type of Discount.
     </attribute>
-    <attribute name="currency" type="string" use="required" maxLength="255" allowedValues="USD GBP AUD EUR">
-        Specifies the Monthly Recurring Revenue that is changed for an account.
-    </attribute>    
     <attribute name="effectiveStartDate" type="utcDateTime" use="optional">
         Specifies the effective start date of the discount.
     </attribute>    

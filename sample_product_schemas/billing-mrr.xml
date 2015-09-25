@@ -8,7 +8,7 @@
     <attribute name="ran" type="string" use="required" maxLength="255">
        Specifies the Billing Account Number.
     </attribute>
-    <attribute name="mrr" type="string" use="required" maxLength="255">
+    <attribute name="mrr" type="string" use="required">
         Specifies the Monthly Recurring Revenue that is changed for an account.  
         For new customers we will provide the 1st month charge  - This charge is not an MRR as it changes every month for cloud customer. 
         For established customers we will provide average of last 3 bill cycle monthly charge which also includes bill now charges.
