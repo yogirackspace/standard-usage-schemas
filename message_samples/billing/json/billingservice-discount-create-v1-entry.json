@@ -16,8 +16,7 @@
                     "serviceCode": "BillingService",
                     "version": "1",
                     "ran": "a",
-                    "discountType": "STARTUP",
-                    "currency": "USD"
+                    "discountType": "STARTUP"
                 }
             }
         }

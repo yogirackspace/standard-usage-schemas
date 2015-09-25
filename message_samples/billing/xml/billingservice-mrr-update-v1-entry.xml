@@ -31,7 +31,7 @@
          <sample:product serviceCode="BillingService"
                          version="1"
                          ran="a"
-                         mrr="a"
+                         mrr="sampleString"
                          currency="USD"/>
       </event>
    </atom:content>

@@ -35,8 +35,7 @@
          <sample:product serviceCode="BillingService"
                          version="1"
                          ran="a"
-                         discountType="STARTUP"
-                         currency="USD"/>
+                         discountType="STARTUP"/>
       </event>
    </atom:content>   
    <atom:link href="https://ord.feeds.api.rackspacecloud.com/billing/events/entries/urn:uuid:e53d007a-fc23-11e1-975c-cfa6b29bb814"
