@@ -18,6 +18,7 @@
                     "serviceCode": "DcxIpAdmin",
                     "version": "1"
                 },
+                "tenantId": "123456",
                 "dataCenter": "LON5",
                 "region": "LON",
                 "resourceId": "4a2b42f4-6c63-11e1-815b-7fcbcf67f549",
