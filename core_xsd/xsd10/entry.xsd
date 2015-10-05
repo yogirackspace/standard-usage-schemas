@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:error="http://docs.rackspace.com/core/error" xmlns:event="http://docs.rackspace.com/core/event" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xerces="http://xerces.apache.org" xmlns:saxon="http://saxon.sf.net/" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.w3.org/2005/Atom">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:error="http://docs.rackspace.com/core/error" xmlns:event="http://docs.rackspace.com/core/event" xmlns:cadf="http://schemas.dmtf.org/cloud/audit/1.0/event" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xerces="http://xerces.apache.org" xmlns:saxon="http://saxon.sf.net/" elementFormDefault="qualified" attributeFormDefault="unqualified" targetNamespace="http://www.w3.org/2005/Atom">
 
     
 
@@ -7,6 +7,8 @@
 
     <import vc:minVersion="1.0" vc:maxVersion="1.1" namespace="http://docs.rackspace.com/core/event" schemaLocation="core.xsd"/>
 
+    
+    
     <element name="entry" type="atom:UsageEntry"/>
 
     <complexType name="UsageEntry">
@@ -61,6 +63,7 @@
                     <choice>
                         <element ref="event:event"/>
                         <element ref="error:eventError"/>
+                        <element ref="cadf:event"/>
                         
                     </choice>
                 </sequence>
