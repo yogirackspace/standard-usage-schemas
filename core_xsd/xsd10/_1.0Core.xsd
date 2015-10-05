@@ -266,6 +266,10 @@
                 
                 
                 
+                <!--
+                    For USAGE, USAGE_SNAPSHOT & USAGE_SUMMARY events, datacenter & region must exist and must match.
+                    For all other event types, datacenter & region are optional, and datacenter must match region if it is a non-GLOBAL value.
+                -->
                 
                 
                 
@@ -428,6 +432,7 @@
             <enumeration value="IAD3"/>
             <enumeration value="LON1"/>
             <enumeration value="LON3"/>
+            <enumeration value="LON5"/>
             <enumeration value="ORD1"/>
             <enumeration value="SYD2"/>
         </restriction>

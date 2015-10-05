@@ -495,7 +495,7 @@
                 <assert vc:minVersion="1.1" test="if (@dataCenter = ('DFW1','DFW2','DFW3')) then (@region = 'DFW') else
                                                   if (@dataCenter = 'HKG1') then (@region = 'HKG') else
                                                   if (@dataCenter = ('IAD1','IAD2','IAD3')) then (@region = 'IAD') else
-                                                  if (@dataCenter = ('LON1','LON3')) then (@region = 'LON') else
+                                                  if (@dataCenter = ('LON1','LON3','LON5')) then (@region = 'LON') else
                                                   if (@dataCenter = 'ORD1') then (@region = 'ORD') else
                                                   if (@dataCenter = 'SYD2') then (@region = 'SYD') else
                                                   if (@type = ('USAGE','USAGE_SUMMARY','USAGE_SNAPSHOT')) then ((@dataCenter = 'GLOBAL') and (@region = 'GLOBAL'))
@@ -723,6 +723,7 @@
             <enumeration value="IAD3"/>
             <enumeration value="LON1"/>
             <enumeration value="LON3"/>
+            <enumeration value="LON5"/>
             <enumeration value="ORD1"/>
             <enumeration value="SYD2"/>
         </restriction>
