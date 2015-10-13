@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <productSchema xmlns="http://docs.rackspace.com/core/usage/schema" 
                namespace="http://docs.rackspace.com/event/billing/discount" 
-               serviceCode="BillingService" type="CREATE UPDATE DELETE" version="1">
+               serviceCode="BillingService" type="CREATE UPDATE DELETE" 
+	       writeRole="cloudfeeds:billing-publisher" version="1">
     <description>
         Specifies the events related to Billing Discounts.
     </description>
